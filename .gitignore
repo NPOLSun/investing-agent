@@ -1,0 +1,34 @@
+﻿# Environment variables / API keys
+.env
+.env.*
+*.env
+secrets.json
+credentials.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+env/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+logs/
+
+# AWS
+.aws/
+
+# Cache
+.cache/

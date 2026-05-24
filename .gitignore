@@ -36,6 +36,7 @@ logs/
 # Bot auto-generated outputs - EC2 local only
 digests/daily/
 data/
+!data/area_aliases.json
 scripts/__pycache__/
 *.log
 digests/sent/

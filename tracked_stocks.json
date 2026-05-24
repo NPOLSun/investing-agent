@@ -1,0 +1,13 @@
+{
+  "tracked": [
+    {
+      "ticker": "GEV",
+      "name": "GE Vernova",
+      "area": "AI DC 전력 인프라",
+      "added_date": "2026-05-23",
+      "buy_deadline": "2026-08-31",
+      "note": "매수 검토 중. 8월 Q2 실적 전 결정.",
+      "peers": ["ETN", "VRT", "PWR"]
+    }
+  ]
+}

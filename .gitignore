@@ -38,3 +38,4 @@ digests/daily/
 data/
 scripts/__pycache__/
 *.log
+digests/sent/

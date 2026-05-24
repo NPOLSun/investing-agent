@@ -451,3 +451,408 @@
 | 날짜 | 변경 사항 | 점수 변화 |
 |------|---------|---------|
 | 2026-05-23 | 최초 작성 (v2.1 룰 적용) | TAM 5, Moat 4, Capital 4 → 합산 13/15. Conf. High. 시차 A5 B4 C4 = +5 (Strong entry). Tier 1 확정. |
+
+
+---
+
+# ═══════════════════════════════════════════════════
+# v2.3 UPGRADE — Next Wave Deep + KR Transmission
+# ═══════════════════════════════════════════════════
+
+> *아래 내용은 v2.3 retrofit 으로 위 v2.1 본문에 추가된 섹션입니다. 기존 본문은 그대로 유지하고 적용*
+
+---
+
+# GLP-1 Ecosystem — v2.3 Retrofit Delta
+
+> **Base document**: 01_glp1_ecosystem.md (v2.1, 22KB)
+> **Retrofit 작성일**: 2026-05-24
+> **변경 사항**: Next Wave Deep (6.4·6.5) + KR transmission 강화 추가
+> **본 문서**: v2.1 본문 reference, 본 delta 만 별도 적용 (또는 기존 파일에 append)
+
+---
+
+## 본 문서 적용 가이드
+
+본 retrofit delta 는 **기존 01_glp1_ecosystem.md (v2.1) 본문을 유지**하고, 다음 섹션을 *추가·교체* 하는 형태:
+
+- **6.4 Next Wave Deep Analysis** — *기존 6.3 뒤에 신규 추가*
+- **6.5 Next Wave 종합 — 본인 진입 전략** — *신규 추가*
+- **5.3 Sub-area X: 한국** — *thorough 보강 (기존 약하면 교체)*
+- **8.2 한국 종목** — *thorough 보강 (펩트론·한미·인벤티지랩 등 추가)*
+- **12 본인 의사결정 메모 → 글로벌:KR 비중 분배 권장** — *KR 비중 강화*
+- **13 업데이트 로그** — *v2.3 retrofit 진입 명시*
+
+---
+
+## 5.3 Sub-area X: 한국 — *KR pure-play thorough* (보강·교체)
+
+> v2.3 KR transmission 강화 적용. 글로벌 commercial 점유 약하지만 *본인 K-VC 친숙도 + 정보 비대칭 우위*. **GLP-1 sustained release (depot) + biosimilar (2026~ semaglutide LOE 일부) + 자체 신약** 3축.
+
+### KR 상장 pure-play
+
+| 티커 | 기업 | 영역 | 시총 | 핵심 thesis | Tier |
+|------|------|-----|-----|----------|------|
+| **087010** | **펩트론** | L1 GLP-1 sustained release depot | 7,000억~1조원 | **일라이릴리 GLP-1 SR (월 1회·3개월 1회) deal**. Lilly 직접 partnership = 글로벌 검증 | **A KR 1순위 (catalyst 신약)** |
+| **128940** | **한미약품** | L1 LAPSGLP-1 (장기지속) + 다중 | 4~5조원 | LAPSGLP-1·LAPSGLP/Glucagon 자체 플랫폼. 글로벌 partner 확장 | **A KR 2순위** |
+| **195940** | **HK이노엔** | L3 비만치료제 진입 | 1~2조원 | 케이캡 본업 + 비만치료제 자체 신약 | **B KR (위성)** |
+| **000100** | **유한양행** | L3 다중 (oncology + 비만 시도) | 10조원 | 렉라자 본업 + GLP-1 검토 | **B KR (oncology 중복)** |
+| **068270** | **셀트리온** | L3 biosimilar 잠재 | 22조원 | semaglutide LOE 후 biosimilar 진입 잠재 | **B KR (위성)** |
+| **207940** | **삼성바이오로직스** | L2 CDMO + GLP-1 CDMO 진입 | 50조원 | GLP-1 peptide CDMO 진입 검토 | **B KR (oncology 중복)** |
+| 389470 | **인벤티지랩** | L1 GLP-1 depot 자체 신약 | 2,000~3,000억원 | 자체 GLP-1 depot 기술, KOSPI 변동성 | **C KR (변동성)** |
+| 244460 | 올리패스 | L1 RNA 신약 (GLP-1 일부) | 1,500~2,500억원 | RNA·DNA 신약, 변동성 | **C KR (변동성)** |
+| 011000 | 진원생명과학 | L1 DNA·mRNA 신약 | 1,500~2,500억원 | DNA·mRNA 신약 (비만 포함) | **C KR (변동성)** |
+| 003580 | 넥스트사이언스 | L1 다중 신약 | 1,500~2,500억원 | 다중 plat | C KR 위성 |
+
+### KR 비상장 / IPO 후보
+
+- **삼성바이오에피스 (비상장, 삼성바이오로직스 자회사)** — semaglutide biosimilar 후보 (2026~ semaglutide LOE 일부 진입). IPO 시그널 모니터링.
+- **D&D파마텍 (비상장)** — GLP-1 신약 시도
+- **HLB바이오스텝, 엘앤씨바이오** — 일부 GLP-1 derivative 시도
+- **차바이오텍 (비상장 일부)** — 자가면역 + 비만 연구
+
+### KR 정책 trigger
+
+- **K-바이오 글로벌 신약개발 지원** (정부 R&D 자금)
+- **KOREA-FDA harmonization** = K-바이오 글로벌 진입 가속
+- **건강보험 비만치료제 보험 확장** (사적·공적 모두)
+- **펩트론-Lilly partnership** = K-GLP-1 platform 글로벌 검증 사례
+
+### 진입 전략 (KR 우선순위)
+
+- **KR 1순위: 펩트론 (087010)** — Lilly partnership 검증, GLP-1 depot pure-play
+- **KR 2순위: 한미약품 (128940)** — LAPSGLP-1 다중 plat
+- **KR 3순위: HK이노엔 (195940), 셀트리온 (068270)** — 위성 (biosimilar 잠재)
+- **KR 4순위 변동성**: 인벤티지랩, 올리패스, 진원생명과학
+
+---
+
+## 6.4 Next Wave Deep Analysis ★★★ (신규 추가)
+
+> v2.3 mandatory 섹션. 기존 본문의 GLP-1 over-known (Lilly Zepbound·Novo Wegovy) *over-known 영역 이후* 다음 알파 식별. 3개 선정 — Triple Agonist·Multi-indication·KR Depot+Biosimilar.
+
+---
+
+### Next Wave 1: Triple Agonist + Oral GLP-1 (Retatrutide·Foundayo) ★★★ 2026~2027
+
+**왜 next wave 인가**
+
+**Retatrutide (Lilly Triple Agonist GLP-1/GIP/glucagon)**:
+- **TRIUMPH-1 Phase 3 결과 (2026-05-21)** = *역사적 발표*
+  - 12mg dose 80주 28.3% (70.3 lbs) 체중 감소
+  - **45.3% 참가자 ≥30% 감소 (bariatric surgery 수준)**
+  - 104주 연장 (BMI ≥35): 평균 30.3% (85 lbs) 감소
+  - 4mg dose 19% 감소 (Zepbound 수준), 부작용 placebo 보다 낮음
+- **TRANSCEND-T2D-1 (당뇨 Phase 3, 2026-03-19)**: A1c -2.0%, 체중 -16.8%
+- **TRIUMPH-4 (knee OA pain Phase 3 성공)**
+- **2026 EOY 7개 추가 Phase 3 readouts** 예정 (OSA·low back pain·CV·renal·MASH)
+- FDA 신청 아직 (2026-05), *2027 출시 잠재*
+- Dan Skovronsky (Lilly CSO): "30% 체중 감소는 historical"
+
+**Foundayo (Lilly orforglipron, 경구용 GLP-1)**:
+- **2026-04 launch, $149/월 starting dose**
+- 경구용 GLP-1 첫 launch = 주사 회피 환자 시장 확장
+- $20B+ 매출 잠재 (Lilly 자체 estimate)
+
+**Novo CagriSema 실패**:
+- **2026-02 Phase 3 head-to-head Zepbound 대비 inferior**
+- Novo 후속 약물 위기 심각
+- Novo $2B 인수 (2025-03 United Laboratories International) — *retatrutide 보다 한참 뒤*
+- **Novo 점유 39.4% (Q1 2026)** → 더 감소 위험
+
+**Lilly 1위 가속 + Novo 추격 어려움 → Lilly 의 dominant moat 강화**
+
+**병목 메커니즘**
+- Triple agonist 양산 capa (Lilly Indianapolis·Concord NC 확장)
+- Orforglipron 경구용 양산 (Lilly RTP NC)
+- 부작용 모니터링 (retatrutide 12mg 11% discontinuation, Wegovy/Zepbound 7% 보다 높음)
+- Novo CagriSema 후속 약물 reset
+- 빅파마 후속 (Roche·AstraZeneca·Amgen MariTide·Structure Therapeutics·Pfizer) 경쟁
+
+**상장 alpha**
+
+| 종목 | 시장 | 노출 | 매수 우선순위 |
+|------|------|------|-----------|
+| **Eli Lilly (LLY)** ★ | US | **Retatrutide + Foundayo + Zepbound 통합 dominant** | **A 1순위 next wave** |
+| **Novo Nordisk (NVO)** | EU | Wegovy 7.2mg + CagriSema 실패 후 reset | B (저평가 후 회복 wait) |
+| **Amgen (AMGN)** | US | MariTide Phase 3, retatrutide 보다 뒤 | B (별도 thesis) |
+| **Roche (ROG.SW)** | EU | 비만 + 다중 | C (위성) |
+| **AstraZeneca (AZN)** | EU | 비만 진입 시도 | C (위성, oncology 중복) |
+| **Structure Therapeutics (GPCR)** | US | 경구용 GLP-1 next-gen | C (변동성 신생) |
+| Viking Therapeutics (VKTX) | US | VK2735 비만 Phase 3 | C (변동성 신생) |
+| Altimmune (ALT) | US | pemvidutide Phase 3 | C (소형 변동) |
+| Pfizer (PFE) | US | danuglipron Phase 3 실패, 후속 진행 | 정밀 종양학 중복 |
+| Terns Pharmaceuticals (TERN) | US | 경구용 GLP-1 신생 | C (변동) |
+| BioAge Labs (BIOA) | US | Aging + 비만 일부 | C 변동성 |
+
+**한국**
+- **펩트론 (087010)** — **Lilly GLP-1 sustained release depot deal** = next wave KR 직접 노출
+- 한미약품 (128940) — LAPSGLP-1 (장기지속) 자체 platform
+
+**Timing & Catalyst**
+- 2026 EOY: Retatrutide 7개 추가 Phase 3 readouts (TRIUMPH-5 head-to-head tirzepatide, 12월 예정)
+- 2026 EOY ~ 2027 Q1: Retatrutide FDA 신청
+- 2027~2028: Retatrutide 출시 가속 (Lilly $50B+ 추가 매출 잠재)
+- 2026~2027: Foundayo 매출 가속 (경구용 시장 확장)
+
+**모니터링**
+- **Lilly 분기 (Retatrutide·Foundayo·Zepbound 매출)** → P1
+- **Lilly Retatrutide TRIUMPH-5 (2026-12)** → P1 catalyst 최대
+- **Novo 분기 (Wegovy·CagriSema 후속)** → P1
+- Lilly Retatrutide FDA 신청·승인 → P1 catalyst
+- **펩트론 분기 (Lilly partnership 진척)** → P1
+- 한미약품 분기 (LAPSGLP-1) → P2
+- Amgen MariTide Phase 3 결과 → P2
+- Structure·Viking·Altimmune Phase 3 → P2
+
+**숨겨진 매력 — Eli Lilly (LLY) Retatrutide 종합**
+- **Lilly Q1 2026 비만·당뇨 시장 점유 가속** vs Novo 39.4% (감소 추세)
+- Retatrutide *bariatric surgery 수준 효과* (45.3% ≥30% 감소)
+- Foundayo 경구용 launch + Zepbound 본업 + Retatrutide 추가 = *triple stack*
+- 시총 ~$700B, P/E ~50x **과열** (시장 반영 큼)
+- Retatrutide 2027 출시 시 *추가 catalyst*
+- **단점**: P/E 50x, 부작용 11% discontinuation
+- *over-known 부분 있지만 retatrutide 가 진정한 next wave catalyst*
+
+**Novo Nordisk (NVO) reset 시 진입 매력**:
+- CagriSema 실패 후 valuation reset
+- Wegovy 7.2mg 부분 가속
+- 시총 ~$300B, P/E ~25x (Lilly 대비 저평가)
+- **단점**: 다음 약물 시그널 약, retatrutide 대응 부족
+- *분할 매수 + 회복 wait*
+
+**펩트론 (087010) hidden alpha KR**:
+- *Lilly GLP-1 sustained release depot direct partnership*
+- 월 1회·3개월 1회 depot = *경구용 + 주사 다음 신세대*
+- 시총 ~7,000억~1조원, 변동성 큼
+- **본 next wave KR hidden alpha 1위**
+
+**리스크**
+- Retatrutide 부작용 (11% discontinuation, 12mg)
+- Lilly P/E 50x 조정 (-10~20%)
+- 트럼프 약가 정책 (Medicare IRA)
+- Novo·Amgen·Structure·Viking 등 경쟁 가속
+
+---
+
+### Next Wave 2: Multi-indication GLP-1 (CV·OSA·Alzheimer·MASH·CKD) ★★ 2026~2028
+
+**왜 next wave 인가**
+- GLP-1 = 단순 비만·당뇨 약물 *넘어 다중 적응증*
+- **Wegovy SELECT trial (CV 결과 2023)**: 심혈관 사건 -20%
+- **Wegovy SOUL trial (CKD/HFpEF 2024)**: 신장·심부전 효과
+- **Retatrutide TRIUMPH-4 (knee OA pain Phase 3 성공, 2026)**
+- **Retatrutide 2026 EOY 7개 추가 Phase 3**: OSA, low back pain, CV outcomes, renal outcomes, MASH
+- **Novo Alzheimer Phase 3 (semaglutide Alzheimer disease)** — 결과 2026 EOY
+- 다중 적응증 → *시장 확장 multi-billion incremental*
+
+**병목 메커니즘**
+- 다중 Phase 3 임상 capa (Lilly·Novo)
+- FDA 다중 적응증 인증
+- 보험 다중 적응증 보장 (Medicare·민영)
+- 안전 신호 모니터링 (장기 사용 부작용)
+
+**상장 alpha**
+
+| 종목 | 시장 | 노출 | 매수 우선순위 |
+|------|------|------|-----------|
+| **Eli Lilly (LLY)** | US | Retatrutide 7개 Phase 3 + Zepbound 다중 | 이미 본문 매수 (next wave 1 중복) |
+| **Novo Nordisk (NVO)** | EU | Wegovy SELECT + SOUL + Alzheimer | 이미 본문 매수 |
+| **Mounjaro/Zepbound (Lilly tirzepatide)** | US | OSA, CV, MASH 진행 | Lilly 통합 |
+| **BMS (BMY)** | US | Resmetirom (MASH) | 정밀 종양학 중복 |
+| **Madrigal (MDGL)** | US | Resmetirom MASH (NASH) 첫 승인 (2024) | C (변동성 MASH pure-play) |
+| Akero Therapeutics (AKRO) | US | Efruxifermin MASH Phase 3 | C 변동 |
+| 89bio (ETNB) | US | Pegozafermin MASH | C 변동 |
+
+**한국**
+- *KR 직접 alpha 약함* — Lilly·Novo 가 적응증 확장 leader
+- 셀트리온 (068270) — biosimilar 후 다중 진입 시도
+- HK이노엔 (195940) — 다중 신약 시도 (위성)
+
+**Timing & Catalyst**
+- 2026 EOY: Retatrutide 7개 Phase 3 readouts
+- 2026 EOY: Novo semaglutide Alzheimer Phase 3 결과
+- 2027~2028: 다중 적응증 FDA 승인 + 보험 보장 확장
+
+**모니터링**
+- Lilly Retatrutide Phase 3 readouts → P1
+- Novo Wegovy Alzheimer Phase 3 → P1 catalyst
+- BMS·Madrigal·Akero MASH 진척 → P2
+
+**리스크**
+- 다중 Phase 3 일부 실패 가능 (특히 Alzheimer)
+- 안전 신호 (장기 사용)
+
+---
+
+### Next Wave 3: GLP-1 Depot + Generic/Biosimilar + KR Manufacturing ★★ 2026~2028
+
+**왜 next wave 인가**
+
+**GLP-1 Sustained Release (Depot)**:
+- 주사 빈도 reduction (주 1회 → 월 1회 → 3개월 1회)
+- 환자 compliance + 시장 확장 + 부작용 감소
+- **펩트론-Lilly partnership** = 글로벌 검증된 KR depot 기술
+- 한미약품 LAPSGLP-1 (장기지속 platform)
+
+**Generic / Biosimilar GLP-1**:
+- **Semaglutide LOE 일부 (2026 인도·중국 시작, 미국·EU 2031~)**
+- Biosimilar Pegasus·Mylan·Sandoz 진입 잠재
+- 가격 -50~70% reduction → 시장 5배 확장 가능
+- 셀트리온·삼성바이오에피스 (Samsung Bio 자회사) 진입 후보
+
+**GLP-1 CDMO (peptide manufacturing)**:
+- Catalent (Novo 인수 2024) 양산 capa 부족
+- Lonza GLP-1 peptide CDMO 진입
+- Samsung Bio CDMO 진입 검토
+
+**병목 메커니즘**
+- Peptide manufacturing capa (HPAPI containment + 양산)
+- 미국 IRA pricing 정책
+- LOE 지역별 차이 (인도·중국 vs 미국·EU)
+- Biosimilar 인증 + 보험 보장
+
+**상장 alpha**
+
+| 종목 | 시장 | 노출 | 매수 우선순위 |
+|------|------|------|-----------|
+| **펩트론 (087010)** ★ | KR | Lilly GLP-1 depot direct partnership | **A 1순위 KR next wave (KR 정보 비대칭 우위)** |
+| **한미약품 (128940)** ★ | KR | LAPSGLP-1 자체 platform | **A 2순위 KR next wave** |
+| **셀트리온 (068270)** ★ | KR | semaglutide biosimilar 잠재 | **B KR next wave (위성)** |
+| **삼성바이오로직스 (207940)** | KR | GLP-1 CDMO 진입 | **B KR next wave (정밀 종양학 중복)** |
+| **삼성바이오에피스 (비상장)** | KR | semaglutide biosimilar 후보 (Samsung Bio 자회사) | n/a (IPO 시그널 모니터링) |
+| **Lonza (LONN.SW)** | EU | GLP-1 peptide CDMO 진입 | B (위성, 정밀 종양학 중복) |
+| **Catalent (CTLT)** | US | Novo 인수됨 | n/a |
+| **인벤티지랩 (389470)** | KR | GLP-1 depot 자체 신약 | C KR 변동성 |
+| Sandoz (SDZ.SW) | EU | biosimilar (Novartis 분사) | C (안정) |
+| Teva (TEVA) | IL | biosimilar | C (위성) |
+| Viatris (VTRS) | US | biosimilar | C (위성) |
+
+**한국 — KR 핵심**
+- **펩트론 (087010)** — Lilly partnership = 진정한 KR alpha
+- **한미약품 (128940)** — LAPSGLP-1 자체 platform
+- **셀트리온 (068270)** — biosimilar 진입 잠재
+- **삼성바이오로직스 (207940)** — CDMO + GLP-1 진입
+- **삼성바이오에피스 (비상장)** — semaglutide biosimilar IPO 시그널
+
+**Timing & Catalyst**
+- 2026 Q3~Q4: 펩트론-Lilly partnership 진척
+- 2026~2027: 한미약품 LAPSGLP-1 글로벌 deal
+- 2026~ (인도·중국), 2031~ (미국·EU): Semaglutide LOE
+- 2026~2027: Biosimilar 진입 (셀트리온·삼성바이오에피스)
+- 2027~2028: Samsung Bio GLP-1 CDMO capa 확장
+
+**모니터링**
+- **펩트론 분기 (Lilly partnership 진척 + 자체 신약)** → P1
+- **한미약품 분기 (LAPSGLP-1 deal + 다중)** → P1
+- 셀트리온 분기 (biosimilar GLP-1 진척) → P2
+- 삼성바이오 분기 (GLP-1 CDMO) → P2
+- Lonza·Sandoz·Teva·Viatris 분기 → P2
+
+**숨겨진 매력 — 펩트론 (087010) hidden alpha 1위 KR**
+- *Lilly GLP-1 sustained release depot 직접 partnership = 글로벌 검증*
+- 월 1회·3개월 1회 depot = *주사 빈도 reduction 핵심 next wave*
+- 시총 ~7,000억~1조원, 변동성 큼
+- 본인 K-VC 친숙도 + 정보 비대칭 우위
+- **본 deep dive next wave 1순위 KR hidden alpha**
+
+**리스크**
+- 펩트론-Lilly partnership 진척 둔화
+- 한미약품 자체 신약 임상 지연
+- Samsung Bio biosimilar 진입 지연
+- 미국 IRA 정책 강화 → 가격 압박
+
+---
+
+## 6.5 Next Wave 종합 — 본인 진입 전략
+
+**우선순위 (Timing + 상장 alpha)**
+
+| 순위 | Next Wave | Timing | 핵심 종목 | 비중 |
+|-----|---------|--------|---------|-----|
+| 1 | **Triple Agonist + Oral GLP-1** | 2026~2027 | **Eli Lilly (LLY)** (본문 1순위) + Novo (reset 후) + **펩트론 KR** | 본문 중복 |
+| 2 | **Multi-indication GLP-1** | 2026~2028 | Lilly·Novo (본문 중복) | 본문 중복 |
+| 3 | **GLP-1 Depot + Biosimilar + KR Manufacturing** | 2026~2028 | **펩트론 (KR 1순위)**, 한미약품, 셀트리온, 삼성바이오 | 1~2% (KR 신규) |
+
+### GLP-1 영역 종합 매수 우선순위 업데이트
+
+**글로벌 (Tier A)**
+1. **Eli Lilly (LLY)** — 본문 1순위 (Retatrutide + Foundayo + Zepbound triple stack)
+2. **Novo Nordisk (NVO)** — *CagriSema 실패 후 reset wait, valuation 매력*
+3. **Amgen (AMGN)** — MariTide Phase 3 (별도 thesis)
+
+**KR (Tier A) — 본인 정보 비대칭 우위**
+1. **펩트론 (087010)** ← **Next wave 1순위 KR (Lilly partnership + depot pure-play)**
+2. **한미약품 (128940)** ← **Next wave 2순위 KR (LAPSGLP-1 platform)**
+3. **셀트리온 (068270)** ← biosimilar 잠재 (위성)
+4. **삼성바이오로직스 (207940)** ← GLP-1 CDMO (정밀 종양학 중복)
+5. HK이노엔 (195940), 유한양행 (000100) — 위성
+
+**Tier B 위성**
+- Roche, AstraZeneca, Structure Therapeutics, Viking, Altimmune
+- 인벤티지랩, 올리패스, 진원생명과학 — KR 변동성
+- Lonza, Sandoz, Teva, Viatris — biosimilar 위성
+
+**모니터링 watchlist**
+- **Lilly Retatrutide TRIUMPH-5 (2026-12 head-to-head tirzepatide)** ★ catalyst 최대
+- **Novo Wegovy Alzheimer Phase 3 결과 (2026 EOY)** ★ catalyst
+- 삼성바이오에피스 IPO 시그널 (비상장)
+- Madrigal·Akero·89bio MASH 진척
+- Viking·Structure·Altimmune Phase 3
+
+### 글로벌:KR 비중 분배 권장
+
+- **글로벌 75~85% : KR 15~25%** (Lilly·Novo dominant, KR 부분 alpha)
+- 본인 K-VC 정보 비대칭 우위는 *KR pure-play (펩트론·한미) 에 집중*
+- Lilly·Novo 가 시장 dominant → 글로벌 비중 강해야
+
+---
+
+## 8.2 한국 종목 (보강·교체)
+
+> v2.3 KR transmission 강화. 기존 본문에서 약한 KR 종목 표 *전부 교체*.
+
+| 티커 | 기업 | 영역 | 시총 | P/E | Tier | 매수 우선순위 |
+|------|------|-----|-----|-----|------|-----------|
+| **087010** | **펩트론** ★ next wave | L1 GLP-1 SR depot (Lilly) | 7,000억~1조원 | n/a | **A** | **KR 1순위 (next wave hidden alpha)** |
+| **128940** | **한미약품** | L1 LAPSGLP-1 + 다중 | 4~5조원 | ~20x | **A** | **KR 2순위** |
+| 068270 | **셀트리온** | L3 biosimilar 잠재 | 22조원 | ~30x | **B** | KR 3순위 (정밀 종양학 중복) |
+| 207940 | **삼성바이오로직스** | L2 GLP-1 CDMO 진입 | 50조원 | ~50x | **B** | KR 4순위 (정밀 종양학 중복) |
+| 195940 | HK이노엔 | L3 비만치료제 진입 | 1~2조원 | ~20x | **B** | KR 5순위 (위성) |
+| 000100 | 유한양행 | L3 GLP-1 시도 | 10조원 | ~25x | B | KR 위성 (정밀 종양학 중복) |
+| 389470 | 인벤티지랩 | L1 GLP-1 depot 자체 신약 | 2,000~3,000억원 | n/a | C | KR 변동성 |
+| 244460 | 올리패스 | L1 RNA 신약 | 1,500~2,500억원 | n/a | C | KR 변동성 |
+| 011000 | 진원생명과학 | L1 DNA·mRNA 신약 | 1,500~2,500억원 | n/a | C | KR 변동성 |
+
+### 비상장 / IPO 후보
+
+- **삼성바이오에피스 (비상장, 삼성바이오 자회사)** — semaglutide biosimilar 후보, IPO 시그널
+- D&D파마텍, HLB바이오스텝 — GLP-1 시도
+
+---
+
+## 12 본인 의사결정 메모 — 글로벌:KR 비중 분배 권장 (v2.3 추가)
+
+### 비중 가이드 (KR 강화)
+
+- 본 영역 전체: **포트폴리오의 5~10%**
+- **글로벌 75~85% : KR 15~25%** (Lilly·Novo dominant, KR 부분 alpha)
+- 종목별 (예):
+  - **Lilly 3~5%** (Tier 1 본문 매수, 가격 부담 분할), **Novo 1~2%** (reset wait), Amgen 0.5~1%
+  - **펩트론 0.5~1.5%** (KR 1순위 next wave), 한미약품 0.5~1%, 셀트리온 0.3~0.5% (정밀 종양학 중복), 삼성바이오 0.3~0.5% (정밀 종양학 중복)
+  - HK이노엔·유한양행·인벤티지랩·올리패스·진원생명과학 위성 합산 0.5%
+  - Roche·AZ·MASH 위성 합산 0.5%
+
+### Cross-area 중복 카운트
+- **셀트리온·삼성바이오·유한양행** = 정밀 종양학 영역과 중복 → 한쪽만 매수
+- Amgen·Roche·AZ = 비만 단독 thesis 약 → 별도 thesis 검토
+- **Lilly = GLP-1 1순위, oncology 도 일부** = 본 영역에서 매수, oncology 에서 별도 가산 X
+
+---
+
+## 13 업데이트 로그 — v2.3 retrofit 진입
+
+| 날짜 | 변경 |
+|------|------|
+| 2026-05-24 | **v2.1 → v2.3 retrofit**. Next Wave Deep (6.4·6.5) 신규 추가, KR transmission thorough 보강. 매수 우선순위 업데이트: **Lilly > Novo (reset wait) + 펩트론 (KR 1순위 next wave hidden alpha) > 한미약품 > 셀트리온·삼성바이오 (정밀 종양학 중복) > Amgen·Roche·AZ 위성**. **Next Wave Deep 3개**: (1) **Triple Agonist + Oral GLP-1** (Retatrutide TRIUMPH-1 2026-05-21 28.3% 체중 감소, Foundayo orforglipron 2026-04 launch $149/월, Novo CagriSema 실패 2026-02), (2) **Multi-indication GLP-1** (CV·OSA·Alzheimer·MASH·CKD, retatrutide 2026 EOY 7개 readouts), (3) **GLP-1 Depot + Biosimilar + KR Manufacturing** (펩트론-Lilly depot, 한미 LAPSGLP-1, 셀트리온 biosimilar, 삼성바이오 CDMO). **KR 비중 분배 권장 75~85% : 15~25%**. Lilly Retatrutide TRIUMPH-5 (2026-12 head-to-head tirzepatide) + Novo Wegovy Alzheimer Phase 3 (2026 EOY) = 다음 catalyst. |
+| (이전) | v2.1 본문 작성 |

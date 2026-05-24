@@ -524,3 +524,231 @@
 | 날짜 | 변경 사항 | 점수 변화 |
 |------|---------|---------|
 | 2026-05-23 | 최초 작성 (v2.1 룰 적용) | TAM 5, Moat 4, Capital 4 → 합산 13/15. Conf. Medium-High. 시차 A4 B3 C3 = +4 (Good entry). Tier 1 확정. |
+
+
+---
+
+# ═══════════════════════════════════════════════════
+# v2.3 UPGRADE — Next Wave Deep + KR Transmission
+# ═══════════════════════════════════════════════════
+
+> *아래 내용은 v2.3 retrofit 으로 위 v2.1 본문에 추가된 섹션입니다. 기존 본문은 그대로 유지하고 적용*
+
+---
+
+# AI Vertical (Application) — v2.3 Retrofit Delta
+
+> **Base document**: 04_ai_application_vertical.md (v2.1, 25KB)
+> **Retrofit 작성일**: 2026-05-24
+> **변경 사항**: Next Wave Deep (6.4·6.5) + KR transmission 강화
+
+---
+
+## 본 문서 적용 가이드
+
+- **6.4 Next Wave Deep Analysis** — *신규 추가*
+- **6.5 Next Wave 종합** — *신규 추가*
+- **5.3 Sub-area X: 한국** — *thorough 보강*
+- **8.2 한국 종목** — *thorough 보강*
+- **12 비중 분배 권장** — KR 강화
+- **13 업데이트 로그** — v2.3 retrofit 진입
+
+---
+
+## 5.3 Sub-area X: 한국 — *KR pure-play thorough* (보강)
+
+### KR 상장 AI Vertical pure-play
+
+| 티커 | 기업 | 영역 | 시총 | 핵심 thesis | Tier |
+|------|------|-----|-----|----------|------|
+| **328130** | **루닛** ★ | L2 AI 의료영상 (oncology) | 5,000~7,000억원 | **K-AI 의료영상 1위**. INSIGHT CXR (폐결절·간질환·결핵), INSIGHT MMG (유방암). 글로벌 hospital 채택 가속. *정밀 종양학 영역 cross* | **A KR 1순위 (정밀 종양학 cross)** |
+| **338220** | **뷰노** | L2 AI 의료 (다중 진단) | 2,000~4,000억원 | DeepCARS·DeepECG·DeepBrain, 한국 보험 인정 가속 | **A KR 2순위** |
+| **060280** | **큐렉소** | L2 의료 로봇 (수술용 AI) | 3,000~5,000억원 | CUVIS-spine 수술 로봇, AI 영상 통합. 휴머노이드 영역 cross | **B KR 3순위 (휴머노이드 cross)** |
+| **287410** | **제이엘케이** | L2 AI 의료 (뇌졸중·CT) | 1,500~3,000억원 | AI 뇌졸중 진단, 변동성 | **B KR (변동성)** |
+| **131370** | **알서포트** | L2 enterprise AI (원격·support) | 1,500~2,500억원 | 한국 enterprise AI | **B KR 위성** |
+| **402030** | **에이아이엠퓨처** | L2 산업 AI | 2,000~4,000억원 | 산업 AI, 변동성 | **C KR 변동성** |
+| **042510** | **라온피플** | L2 산업 AI vision | 2,000~3,000억원 | 산업 검사 AI vision | **C KR 위성** |
+| **376300** | **디어유** | L2 K-콘텐츠 AI (Bubble) | 4,000~6,000억원 | SM-NCSOFT AI fan platform | **C KR 변동성** |
+| **293490** | **카카오게임즈** | L2 게임 AI | 3~4조원 | 게임 + AI integration | **C 위성** |
+
+### KR Vertical 핵심 영역
+
+- **AI Medical (Oncology·Cardiology·Radiology)**: 루닛·뷰노·제이엘케이·큐렉소 — *정밀 종양학 영역 cross*
+- **AI Defense**: 한화시스템·LIG넥스원 — *K-방산 영역 cross*
+- **AI Finance**: 신한·KB·하나·우리 자체 LLM 가속
+- **AI Legal·HR**: 한국 startup 비상장
+- **AI Industrial / Manufacturing**: 라온피플·에이아이엠퓨처
+- **AI Mobility**: 자율주행 영역 cross
+- **AI Bio Drug Discovery**: 정밀 종양학 영역 cross
+
+### KR 비상장 / IPO 후보
+
+- **업스테이지 (비상장)** — sovereign LLM (Solar)
+- **포티투닷 (현대차 자회사)** — 자율 AI cross
+- **마음AI (비상장)** — K-AI chatbot
+- **스캐터랩 (비상장, 카카오)** — 페르소나 AI
+- **노타 (비상장)** — AI 압축·on-device
+- **인이지 (비상장)** — 산업 AI
+- 코난테크놀로지·플리토 — IPO 시그널
+
+### 진입 전략 (KR 우선순위)
+
+- **KR 1순위: 루닛 (328130)** — *AI 의료영상 글로벌 가속*, 정밀 종양학 cross
+- **KR 2순위: 뷰노 (338220)** — AI 의료 다중
+- **KR 3순위: 큐렉소 (060280)** — 의료 로봇 AI (휴머노이드 cross)
+- **KR 4순위 위성**: 제이엘케이·알서포트·라온피플
+- **K-방산 AI (한화시스템·LIG)** — K-방산 영역 매수
+
+---
+
+## 6.4 Next Wave Deep Analysis ★★★ (신규 추가)
+
+> v2.3 mandatory. Palantir·Cadence·Synopsys over-known. 다음 알파 3개.
+
+---
+
+### Next Wave 1: AI Medical (Oncology·Cardiology·Radiology) ★★★ 2026~2028
+
+**왜 next wave 인가**
+- 글로벌 AI medical 시장 2025 ~$3B → 2030 ~$15B (CAGR 35%)
+- **루닛·뷰노 글로벌 hospital 채택 가속** (미국·EU·일본·동남아)
+- FDA AI medical 승인 가속
+- 한국 보험 인정 + 미국 Medicare reimbursement 가속
+- *정밀 종양학 영역 cross*: ADC·Keytruda 진단·치료 통합
+
+**상장 alpha**
+
+| 종목 | 시장 | 노출 | 매수 우선순위 |
+|------|------|------|-----------|
+| **Intuitive Surgical (ISRG)** ★ | US | 수술 로봇 + AI 통합 | **A 1순위 (안정)** |
+| **Tempus AI (TEM)** | US | precision medicine AI | **B (신생 IPO 변동성)** |
+| **Veeva Systems (VEEV)** | US | pharma cloud + AI | B 안정 |
+| **루닛 (328130)** ★ | KR | AI 의료영상 글로벌 가속 | **A 1순위 KR** |
+| **뷰노 (338220)** | KR | AI 의료 다중 | B KR 2순위 |
+| 큐렉소 (060280) | KR | 의료 로봇 + AI | C 위성 (휴머노이드 cross) |
+
+**Timing**: 2026~ 글로벌 hospital 채택 가속, FDA·CE 인증
+
+---
+
+### Next Wave 2: AI for Defense ★★★ 2026~2027
+
+**왜 next wave 인가**
+- **Palantir Foundry + Gotham + AIP** = Defense AI 1위
+- **Anduril Lattice OS** = AI 자율 C2
+- **C3.ai (AI)** = defense·federal
+- *국방·드론 영역 cross*
+
+**상장 alpha**
+
+| 종목 | 시장 | 노출 | 매수 우선순위 |
+|------|------|------|-----------|
+| **Palantir (PLTR)** ★ | US | Foundry·Gotham·AIP, $10B Army | **A 1순위 (가격 부담 분할)** |
+| **Anduril (비상장)** | US | Lattice OS, $20B Army, $61B | n/a (IPO 2026~2027) |
+| **Booz Allen (BAH)** | US | federal AI | B 안정 |
+| **Leidos (LDOS)** | US | federal IT + AI | B 안정 |
+| **한화시스템 (272210)** | KR | K-방산 AI (위성·전자전) | K-방산 영역 cross |
+| **LIG넥스원 (079550)** | KR | K-방산 AI | K-방산 영역 cross |
+
+**Timing**: 2026~ Defense AI 본격 가속, Anduril IPO catalyst
+
+---
+
+### Next Wave 3: AI Finance / Legal / HR ★★ 2026~2028
+
+**왜 next wave 인가**
+- **AI 금융 (rating·trading·compliance·fraud)** 가속
+- **AI Legal (Harvey·Spellbook)** — 미국 변호사·금융업
+- **AI HR (Workday·SAP)** — Enterprise HR 채택
+- 글로벌 AI Enterprise 시장 2025 $20B → 2030 $100B+
+
+**상장 alpha**
+
+| 종목 | 시장 | 노출 | 매수 우선순위 |
+|------|------|------|-----------|
+| **MSCI (MSCI)** | US | finance index + AI analytics | A 안정 위성 |
+| **Moody's (MCO)** | US | rating + AI | A 안정 위성 |
+| **S&P Global (SPGI)** | US | rating + AI | A 안정 위성 |
+| **Workday (WDAY)** | US | HR + AI | B 위성 |
+| **SAP (SAP)** | DE | Enterprise + AI | B EU 안정 |
+| **Salesforce (CRM)** | US | CRM + agents (AI Foundation cross) | AI Foundation 중복 |
+| **신한·KB·하나·우리금융** | KR | 자체 LLM | C KR 금융 |
+| **Harvey (비상장)** | US | AI legal | n/a (IPO 시그널) |
+
+**한국**
+- 신한금융 (055550), KB금융 (105560), 하나금융 (086790), 우리금융 (316140) — 자체 LLM 진입
+- 신한 SOAR, KB Liiv, 하나 AI 어드바이저 — 위성
+
+---
+
+## 6.5 Next Wave 종합 — 본인 진입 전략
+
+**우선순위 (Timing + 상장 alpha)**
+
+| 순위 | Next Wave | Timing | 핵심 종목 | 비중 |
+|-----|---------|--------|---------|-----|
+| 1 | **AI Medical** | 2026~2028 | **ISRG (US), 루닛 (KR 1순위), Tempus (변동성)** | 1~2% |
+| 2 | **AI for Defense** | 2026~2027 | **Palantir (본문 매수), Anduril IPO (catalyst)** | 본문 중복 |
+| 3 | **AI Finance/Legal/HR** | 2026~2028 | **MSCI, MCO, SPGI (안정)** | 0.5~1% (위성) |
+
+### AI Vertical 영역 종합 매수 우선순위
+
+**Tier A — 즉시 분할 매수**
+
+**글로벌**
+1. **Palantir (PLTR)** — 본문 1순위 (가격 부담 분할)
+2. **Intuitive Surgical (ISRG)** ← Next wave AI Medical 1순위
+3. **Cadence (CDNS), Synopsys (SNPS)** — 본문 EDA AI (안정)
+4. **MSCI (MSCI), Moody's (MCO), S&P (SPGI)** — Next wave AI Finance
+5. **Tempus AI (TEM)** — AI Medical 신생 변동성
+
+**KR (Tier A) — 본인 정보 비대칭 우위**
+1. **루닛 (328130)** ★ **KR 1순위 next wave AI Medical** (정밀 종양학 cross)
+2. **뷰노 (338220)** **KR 2순위 AI Medical**
+3. **큐렉소 (060280)** — 의료 로봇 AI (휴머노이드 cross)
+4. **NAVER (035420), 카카오 (035720)** — AI Foundation 영역에서 매수
+5. **한화시스템 (272210), LIG (079550)** — K-방산 영역에서 매수
+6. 신한·KB·하나·우리금융 — AI Finance KR 위성
+
+**모니터링 watchlist (비상장 IPO)**
+- **Anduril IPO** (2026~2027) ★ catalyst
+- **Harvey IPO** (AI legal)
+- **업스테이지·마음AI·노타 IPO** (KR)
+- **포티투닷** (현대차 자회사, 자율 cross)
+
+### 글로벌:KR 비중 분배 권장
+
+- **글로벌 75~85% : KR 15~25%** (AI Vertical 글로벌 dominant, KR 의료영상·금융 부분)
+
+---
+
+## 12 본인 의사결정 메모 — 비중 분배 권장 (v2.3 추가)
+
+### 비중 가이드
+
+- 본 영역 전체: **포트폴리오의 5~8%** (AI Vertical 별도)
+- *AI 인프라 합산 25~35% 상한* 인지
+- **글로벌 75~85% : KR 15~25%**
+- 종목별:
+  - PLTR 1~2% (가격 부담 분할), ISRG 0.5~1%, CDNS 0.5%, SNPS 0.5%
+  - MSCI·MCO·SPGI 합산 0.5~1%, Tempus 0.3% (변동성)
+  - 루닛 0.5~1%, 뷰노 0.3~0.5%, 큐렉소 0.3% (휴머노이드 cross)
+  - 한화시스템·LIG = K-방산 영역
+  - NAVER·카카오 = AI Foundation 영역
+  - 신한·KB·하나·우리금융 합산 0.3~0.5% (KR 금융 위성)
+
+### Cross-area 중복 카운트
+- **루닛** = 정밀 종양학 cross → 한쪽만 매수
+- **큐렉소** = 휴머노이드 cross → 한쪽만 매수
+- **NAVER·카카오** = AI Foundation cross → AI Foundation 영역에서 매수
+- **한화시스템·LIG** = K-방산 cross → K-방산에서 매수
+- **CRM·NOW·ADBE** = AI Foundation cross → AI Foundation 영역에서 매수
+
+---
+
+## 13 업데이트 로그 — v2.3 retrofit 진입
+
+| 날짜 | 변경 |
+|------|------|
+| 2026-05-24 | **v2.1 → v2.3 retrofit**. Next Wave Deep (6.4·6.5) 신규 추가, KR transmission thorough 보강. 매수 우선순위 업데이트: **PLTR > ISRG (next wave AI Medical) > CDNS·SNPS > MSCI·MCO·SPGI (next wave Finance) > Tempus** + **KR: 루닛 (KR 1순위 next wave AI Medical 정밀 종양학 cross) > 뷰노 > 큐렉소 (휴머노이드 cross) > 한화시스템·LIG (K-방산 cross) > NAVER·카카오 (AI Foundation cross) > 신한·KB·하나·우리금융 (위성)**. **Next Wave Deep 3개**: (1) **AI Medical** (ISRG 안정, 루닛 KR 1위, Tempus 변동성, 뷰노), (2) **AI for Defense** (Palantir·Anduril IPO catalyst, BAH·LDOS, 한화시스템·LIG K-방산 cross), (3) **AI Finance/Legal/HR** (MSCI·MCO·SPGI 안정, Workday·SAP·CRM, Harvey IPO 시그널). **KR 비중 분배 권장 75~85% : 15~25%**. Cross-area 중복 카운트 인지 (루닛·큐렉소·NAVER·한화시스템 등). |
+| (이전) | v2.1 본문 작성 |

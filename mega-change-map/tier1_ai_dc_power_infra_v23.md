@@ -432,3 +432,240 @@
 |------|---------|---------|
 | 2026-05-23 | 최초 작성 | TAM 4, Moat 4, Capital 5, Tech 3 → 합산 16 / Conf. Medium. 시차 A5 B3 C4 = +4 (Good entry) |
 | 2026-05-23 | Tech 잣대 폐기 (methodology Decision 8), Moat에 비가역성 흡수 후 재채점 | TAM 4, Moat 4, Capital 5 → 합산 13 / 15. Conf. **Medium → High**. 시차 그대로 +4 (Good entry). Tier 1 유지. |
+
+
+---
+
+# ═══════════════════════════════════════════════════
+# v2.3 UPGRADE — Next Wave Deep + KR Transmission
+# ═══════════════════════════════════════════════════
+
+> *아래 내용은 v2.3 retrofit 으로 위 v2.1 본문에 추가된 섹션입니다. 기존 본문은 그대로 유지하고 적용*
+
+---
+
+# AI Data Center Power Infrastructure — v2.3 Retrofit Delta
+
+> **Base document**: sample_ai_dc_power_infra_v2.1.md (v2.1, 22KB)
+> **Retrofit 작성일**: 2026-05-24
+> **변경 사항**: Next Wave Deep (6.4·6.5) + KR transmission 강화
+
+---
+
+## 본 문서 적용 가이드
+
+- **6.4 Next Wave Deep Analysis** — *신규 추가*
+- **6.5 Next Wave 종합** — *신규 추가*
+- **5.3 Sub-area X: 한국** — *thorough 보강 (KR 그리드 alpha 강)*
+- **8.2 한국 종목** — *thorough 보강*
+- **12 비중 분배 권장** — KR 강화
+- **13 업데이트 로그** — v2.3 retrofit 진입
+
+---
+
+## 5.3 Sub-area X: 한국 — *KR pure-play thorough* (보강)
+
+> v2.3 KR transmission 강화. **K-그리드·전력기기 미국 수출 가속 + 본인 정보 비대칭 우위**.
+
+### KR 상장 pure-play
+
+| 티커 | 기업 | 영역 | 시총 | 핵심 thesis | Tier |
+|------|------|-----|-----|----------|------|
+| **298040** | **효성중공업** ★ | L2 변압기·SST·MV/HV 전력기기 | 7~10조원 | **K-그리드 1위**. 미국 변압기·STATCOM·SST 직접 수출. SST (Solid-State Transformer) MV→800V DC 데이터센터 변환 next-gen | **A KR 1순위** |
+| **267260** | **현대일렉트릭** ★ | L2 변압기·고압·grid 솔루션 | 5~7조원 | **K-그리드 2위**. 미국 변압기 + grid 모더니제이션 직접 수혜 | **A KR 2순위** |
+| **010120** | **LS ELECTRIC** | L2 전력기기·자동화·EV 충전 | 4~5조원 | 전력기기 다중. AI 데이터센터 변환기·차단기·UPS | **A KR 3순위** |
+| **009150** | **삼성전기** | L3 MLCC (AI 서버 고용량) | 12~15조원 | AI 서버 MLCC 1위 lead 잠재 (NVDA blackwell 대용량). 반도체 영역 cross | **A KR 4순위 (반도체 cross)** |
+| **006400** | **삼성SDI** | L3 데이터센터 ESS·battery | 20~22조원 | 데이터센터 백업 ESS + EV battery cross | **B KR 5순위 (EV cross)** |
+| **373220** | **LG에너지솔루션** | L3 데이터센터 ESS·battery | 90~100조원 | 데이터센터 백업 ESS + EV 영역 cross | **B KR 6순위 (EV cross)** |
+| **207940** | **삼성바이오로직스** | n/a | n/a | 데이터센터 X | 영역 외 |
+| **051910** | **LG화학** | L3 소재·battery 모회사 | 25~30조원 | 다중 | C 위성 |
+| **108670** | **LG이노텍** | L3 AI 서버 component | 4~5조원 | AI 서버 부품 (전력 회로) | B 위성 |
+| **011200** | **HMM** | n/a | n/a | 영역 외 | - |
+| **036460** | **한국가스공사 (KOGAS)** | L5 utility (간접) | 2~3조원 | 한국 utility, 간접 노출 | C 위성 |
+| **015760** | **한국전력 (KEPCO)** | L5 utility | 25~30조원 | nuclear 영역 cross + AI DC 전력 직접 수혜 | A nuclear cross |
+| **036570** | **엔씨소프트** | n/a | n/a | 영역 외 | - |
+| **042660** | **한화오션** | n/a | n/a | 영역 외 | K-방산 |
+
+### KR Sub-area 핵심
+
+- **K-그리드 글로벌 export**: 효성중공업·현대일렉·LS ELECTRIC — *미국 utility·grid 직접 수혜*
+- **AI 서버 MLCC·부품**: 삼성전기·LG이노텍 — 반도체 영역 cross
+- **데이터센터 ESS / battery**: LG에너지·삼성SDI — EV 영역 cross
+- **Utility**: 한국전력 (KEPCO) — nuclear 영역 cross
+
+### KR 정책 trigger
+
+- **미국 변압기·grid 부족** = K-전력기기 직접 수혜 (효성중공업·현대일렉)
+- **K-그리드 미국 fab 진출** = 한화·현대·삼성 미국 fab 인근 데이터센터 전력 인프라 공급
+- **한국 K-반도체 fab + 미국 fab** = 전력기기 + MLCC 공통 수혜
+
+### 진입 전략 (KR 우선순위)
+
+- **KR 1순위: 효성중공업 (298040)** — K-그리드 1위, 미국 변압기·SST 직접
+- **KR 2순위: 현대일렉트릭 (267260)** — K-그리드 2위, 미국 grid 모더니제이션
+- **KR 3순위: LS ELECTRIC (010120)** — 전력기기 다중
+- **KR 4순위: 삼성전기 (009150)** — AI 서버 MLCC (반도체 cross)
+- **KR 5~6순위 EV cross**: LG에너지·삼성SDI — EV 영역에서 매수, 본 영역 위성
+- **KR 7순위 nuclear cross**: 한국전력 — nuclear 영역에서 매수, 본 영역 위성
+
+---
+
+## 6.4 Next Wave Deep Analysis ★★★ (신규 추가)
+
+> v2.3 mandatory. Vertiv·Eaton·Schneider over-known. 다음 알파 3개 — SST·HVDC·AI DC Backup ESS.
+
+---
+
+### Next Wave 1: SST (Solid-State Transformer) MV→800V DC ★★★ 2026~2028
+
+**왜 next wave 인가**
+- **NVIDIA Blackwell + Rubin 800V DC** rack architecture = SST 절박
+- **Navitas-EPFL 250kW SST 시연 (2025)** — GaN-based SST
+- **GE Vernova + Siemens Energy 자체 SST 개발**
+- 효성중공업 SST 진입 (K-그리드 next wave)
+- MV grid → 800V DC 직변환 = 데이터센터 전력 효율 +5~10%
+- SST = 변압기 + AC/DC 변환기 통합 (효율 + 공간 절약)
+- 2026~2028 본격 상업 deploy
+
+**상장 alpha**
+
+| 종목 | 시장 | 노출 | 매수 우선순위 |
+|------|------|------|-----------|
+| **GE Vernova (GEV)** | US | SST + grid 모더니제이션 | B 본문 매수 (nuclear cross) |
+| **Siemens Energy (ENR.DE)** | DE | SST + HVDC + grid | A 위성 EU |
+| **ABB (ABBN.SW)** | CH | 전력기기 종합 + SST | B 위성 EU |
+| **Navitas Semiconductor (NVTS)** | US | GaN SST (250kW EPFL 시연) | 전력반도체 영역 cross |
+| **효성중공업 (298040)** ★ | KR | **K-SST 직접 진입 + 미국 변압기 본업** | **A 1순위 next wave KR** |
+| **현대일렉트릭 (267260)** ★ | KR | 미국 그리드 모더니제이션 | **A 2순위 next wave KR** |
+| **LS ELECTRIC (010120)** | KR | 전력기기 다중 | B KR 위성 |
+
+**Timing**: 2026~2027 SST 본격 상업 deploy, 2028~ 표준화
+
+**숨겨진 매력 — 효성중공업 (298040) KR**: K-그리드 1위 + SST 진입 + 미국 변압기 직접 수출 = 본 next wave KR 1순위 hidden alpha
+
+---
+
+### Next Wave 2: HVDC + Grid Modernization ★★ 2026~2028
+
+**왜 next wave 인가**
+- **AI DC 캠퍼스 가속 → MV→HVDC 광역 전력 inter-DC 전송**
+- 미국 utility infrastructure 노후 (40+ 년) = grid 모더니제이션 메가 사이클
+- **Inflation Reduction Act (IRA) + BIL grid funding $50B+**
+- HVDC = 장거리 전력 손실 reduction (15~20% → 3~5%)
+- 빅테크 데이터센터 캠퍼스 (1~5GW) HVDC inter-connect
+
+**상장 alpha**
+
+| 종목 | 시장 | 노출 | 매수 우선순위 |
+|------|------|------|-----------|
+| **Quanta Services (PWR)** ★ | US | 미국 grid 모더니제이션 1위 (utility EPC) | **A 1순위 next wave** |
+| **MasTec (MTZ)** | US | utility EPC + 5G | A 2순위 next wave |
+| **Hitachi Energy (HTHIY)** | JP | HVDC + 변압기 | B 위성 |
+| **Siemens Energy (ENR.DE)** | DE | HVDC + SST + grid | A 위성 EU |
+| **ABB (ABBN.SW)** | CH | HVDC + 변압기 | B 위성 EU |
+| **GE Vernova (GEV)** | US | grid 모더니제이션 | B 본문 매수 |
+| **EATON (ETN)** | US | 전력기기 종합 | B 본문 매수 (냉각 cross) |
+| **효성중공업 (298040)** | KR | 미국 변압기 + HVDC 진입 | next wave 1 중복 |
+
+**Timing**: 2026~2028 grid 모더니제이션 본격, IRA·BIL funding 가속
+
+**숨겨진 매력 — Quanta Services (PWR)**: 미국 grid 모더니제이션 1위 EPC. 시총 ~$45B, P/E ~30x. AI DC 캠퍼스 grid 직접 수혜
+
+---
+
+### Next Wave 3: AI DC Backup ESS / Battery Energy Storage ★ 2026~2027
+
+**왜 next wave 인가**
+- **AI DC 정전 backup = 대형 ESS 필수** (UPS 한계, 분 단위 → 시간 단위 필요)
+- **Fluence (FLNC), Form Energy (비상장)** — long-duration ESS 가속
+- **LG에너지·삼성SDI** = K-ESS battery 직접 (EV 영역 cross)
+- **Tesla Megapack** = ESS 가속
+- AI DC backup ESS = 데이터센터 reliability 99.999% 핵심
+
+**상장 alpha**
+
+| 종목 | 시장 | 노출 | 매수 우선순위 |
+|------|------|------|-----------|
+| **Fluence Energy (FLNC)** | US | grid-scale ESS 1위 | B 위성 |
+| **Tesla (TSLA)** | US | Megapack | 별도 종합 thesis |
+| **Form Energy (비상장)** | US | iron-air long-duration | n/a (IPO 시그널) |
+| **LG에너지솔루션 (373220)** | KR | ESS battery + EV cross | EV 영역 cross |
+| **삼성SDI (006400)** | KR | ESS battery + EV cross | EV 영역 cross |
+| Stem Inc (STEM) | US | ESS software | C 변동성 |
+
+**Timing**: 2026~ AI DC backup ESS 본격, 2027~ long-duration ESS
+
+---
+
+## 6.5 Next Wave 종합 — 본인 진입 전략
+
+**우선순위 (Timing + 상장 alpha)**
+
+| 순위 | Next Wave | Timing | 핵심 종목 | 비중 |
+|-----|---------|--------|---------|-----|
+| 1 | **SST MV→800V DC** | 2026~2028 | **효성중공업 (KR 1위), 현대일렉 (KR 2위)**, Navitas, GE Vernova, Siemens Energy | 2~3% |
+| 2 | **HVDC + Grid Modernization** | 2026~2028 | **Quanta Services (PWR), MasTec (MTZ)**, Hitachi, ABB | 1~2% |
+| 3 | **AI DC Backup ESS** | 2026~2027 | Fluence, LG에너지·삼성SDI (EV cross) | 0.5~1% |
+
+### AI DC Power 영역 종합 매수 우선순위 업데이트
+
+**Tier A — 즉시 분할 매수**
+
+**글로벌**
+1. **Vertiv (VRT)** — 본문 1순위 (조정 시 가속)
+2. **Eaton (ETN)** — 본문 다중 (냉각 cross)
+3. **Schneider Electric (SU.PA)** — 본문 EU 다중
+4. **GE Vernova (GEV)** — grid + nuclear cross
+5. **nVent (NVT)** — 본문 안정
+6. **Quanta Services (PWR)** ← **Next wave HVDC 1순위**
+7. **MasTec (MTZ)** ← **Next wave HVDC**
+8. **Hitachi Energy, ABB, Siemens Energy** — EU 위성
+
+**KR (Tier A) — 본인 정보 비대칭 우위**
+1. **효성중공업 (298040)** ★ **KR 1순위 next wave SST + 미국 변압기**
+2. **현대일렉트릭 (267260)** **KR 2순위 next wave HVDC + 미국 grid**
+3. **LS ELECTRIC (010120)** **KR 3순위**
+4. **삼성전기 (009150)** — AI 서버 MLCC (반도체 cross)
+5. **LG에너지·삼성SDI** — ESS battery (EV cross, 위성)
+6. **한국전력 (KEPCO 015760)** — utility (nuclear cross)
+
+**모니터링 watchlist (비상장 IPO)**
+- **Form Energy IPO** (long-duration ESS)
+- **국내 한미반도체·STX파워** — 위성 IPO
+
+### 글로벌:KR 비중 분배 권장
+
+- **글로벌 60~70% : KR 30~40%** (K-그리드 미국 수출 본인 정보 비대칭 우위 강)
+
+---
+
+## 12 본인 의사결정 메모 — 비중 분배 권장 (v2.3 추가)
+
+### 비중 가이드 (KR 강화)
+
+- 본 영역 전체: **포트폴리오의 5~8%** (AI DC Power)
+- *AI 인프라 합산 25~35% 상한* 인지 (Foundation + Vertical + 광인터 + 전력반도체 + 냉각 + AI DC Power)
+- **글로벌 60~70% : KR 30~40%** (K-그리드 미국 수출 정보 비대칭 우위 강)
+- 종목별:
+  - VRT 1~1.5%, ETN 0.5~1%, SU.PA 0.5~1%, GEV 0.5%, NVT 0.3~0.5%
+  - PWR 0.5~1%, MTZ 0.3~0.5%, Hitachi·ABB·Siemens Energy 합산 0.5%
+  - 효성중공업 1~1.5%, 현대일렉 0.5~1%, LS ELECTRIC 0.5%
+  - 삼성전기 0.3~0.5% (반도체 cross), LG에너지·삼성SDI = EV 영역 cross
+  - 한국전력 = nuclear 영역 cross
+
+### Cross-area 중복 카운트
+- **Eaton (ETN)** = 냉각 영역 cross → 한쪽만 매수
+- **GE Vernova (GEV)** = nuclear 영역 cross → 한쪽만
+- **삼성전기 (009150)** = 반도체 영역 cross → 반도체에서 매수, 본 영역 위성
+- **LG에너지·삼성SDI** = EV 영역 cross → EV에서 매수, 본 영역 위성
+- **한국전력 (015760)** = nuclear 영역 cross → nuclear에서 매수, 본 영역 위성
+- **Navitas (NVTS)** = 전력반도체 영역 cross → 한쪽만
+
+---
+
+## 13 업데이트 로그 — v2.3 retrofit 진입
+
+| 날짜 | 변경 |
+|------|------|
+| 2026-05-24 | **v2.1 → v2.3 retrofit**. Next Wave Deep (6.4·6.5) 신규 추가, KR transmission thorough 보강. 매수 우선순위 업데이트: **VRT > ETN (냉각 cross) > SU.PA > GEV (nuclear cross) > NVT + PWR (next wave HVDC) > MTZ (next wave) > Hitachi·ABB·Siemens Energy 위성** + **KR: 효성중공업 (KR 1순위 next wave SST·미국 변압기) > 현대일렉트릭 (KR 2순위 next wave HVDC·미국 grid) > LS ELECTRIC > 삼성전기 (AI 서버 MLCC 반도체 cross) > LG에너지·삼성SDI (EV cross 위성) > 한국전력 (nuclear cross 위성)**. **Next Wave Deep 3개**: (1) **SST MV→800V DC** (NVDA Blackwell 800V DC architecture, Navitas-EPFL 250kW 시연 2025, GE Vernova·Siemens Energy 자체 SST, **효성중공업·현대일렉 KR next wave hidden alpha 1·2위**), (2) **HVDC + Grid Modernization** (Quanta Services PWR 1순위 EPC, MasTec MTZ, Hitachi·ABB·Siemens Energy, IRA·BIL grid funding $50B+), (3) **AI DC Backup ESS** (Fluence FLNC, Form Energy 비상장, LG에너지·삼성SDI EV cross). **KR 비중 분배 권장 60~70% : 30~40%** (K-그리드 미국 수출 정보 비대칭 우위 강). |
+| (이전) | v2.1 본문 작성 |

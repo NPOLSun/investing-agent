@@ -504,3 +504,309 @@
 | 날짜 | 변경 사항 | 점수 변화 |
 |------|---------|---------|
 | 2026-05-23 | 최초 작성 (v2.1 룰 적용) | TAM 4, Moat 4, Capital 3 → 합산 11/15. Conf. Medium. 시차 A4 B2 C3 = +3 (Good entry). Tier 1·2 경계, 잠정 Tier 1. |
+
+
+---
+
+# ═══════════════════════════════════════════════════
+# v2.3 UPGRADE — Next Wave Deep + KR Transmission
+# ═══════════════════════════════════════════════════
+
+> *아래 내용은 v2.3 retrofit 으로 위 v2.1 본문에 추가된 섹션입니다. 기존 본문은 그대로 유지하고 적용*
+
+---
+
+# Nuclear Renaissance — v2.3 Retrofit Delta
+
+> **Base document**: 02_nuclear_renaissance.md (v2.1, 26KB)
+> **Retrofit 작성일**: 2026-05-24
+> **변경 사항**: Next Wave Deep (6.4·6.5) + KR transmission 강화 추가
+> **본 문서**: v2.1 본문 reference, 본 delta 만 별도 적용 (또는 기존 파일에 append)
+
+---
+
+## 본 문서 적용 가이드
+
+본 retrofit delta 는 **기존 02_nuclear_renaissance.md (v2.1) 본문을 유지**하고, 다음 섹션을 *추가·교체*:
+
+- **6.4 Next Wave Deep Analysis** — *기존 6.3 뒤에 신규 추가*
+- **6.5 Next Wave 종합 — 본인 진입 전략** — *신규 추가*
+- **5.3 Sub-area X: 한국** — *thorough 보강*
+- **8.2 한국 종목** — *thorough 보강*
+- **12 본인 의사결정 메모 → 글로벌:KR 비중 분배 권장** — *KR 강화*
+- **13 업데이트 로그** — *v2.3 retrofit 진입 명시*
+
+---
+
+## 5.3 Sub-area X: 한국 — *KR pure-play thorough* (보강·교체)
+
+> v2.3 KR transmission 강화 적용. **본인 K-VC 친숙도 + KEPCO 체코 24조원 deal + 두산 i-SMR + 정부 적극 지원** = *진정한 정보 비대칭 우위 영역*.
+
+### KR 상장 pure-play
+
+| 티커 | 기업 | 영역 | 시총 | 핵심 thesis | Tier |
+|------|------|-----|-----|----------|------|
+| **034020** | **두산에너빌리티** ★ | L4 NSSS + i-SMR + KHNP 핵심 | 30~40조원 | **한국 원전 대장**. NSSS 독점, KEPCO 체코 24조원 deal 직접 수혜, 자체 i-SMR (170MW) 개발. NuScale·X-energy 협력 가능성. 1년 +100~200% | **A KR 1순위** |
+| **052690** | **한전기술** | L4 원전 plant 설계 + i-SMR 설계 | 8~12조원 | KEPCO 자회사. APR1400·APR1000·i-SMR 설계. 체코 24조원 직접 수혜 | **A KR 2순위** |
+| **015760** | **한국전력 (KEPCO)** | L5 KHNP 모회사 | 25~30조원 | **체코 24조원 deal 모회사**. KHNP 통한 글로벌 export. P/B 0.3 극단 저평가 | **A KR 3순위 (utility 안정)** |
+| **094820** | **일진파워** | L3 원전 부품 (high precision) | 7,000~1조원 | 두산에너빌 협력사. 원전 정밀 부품 | **B KR 4순위** |
+| **130660** | **한전산업개발** | L4 KHNP 위탁 (운영·유지보수) | 5,000~7,000억원 | KHNP 위탁. 안정 cash flow | **B KR 5순위** |
+| **011700** | **한신기계** | L3 원전 부품 (압축기·heat exchanger) | 3,000~5,000억원 | 두산에너빌 협력사 | **B KR 6순위** |
+| **006910** | **보성파워텍** | L3 원전 부품 (전력·전기) | 2,000~3,000억원 | 두산에너빌 협력사 | **B KR 7순위 (변동성)** |
+| **105840** | **우진** | L3 원전 계측·검사 | 2,000~3,000억원 | 두산·KHNP 계측 협력 | **B KR 8순위** |
+| **077970** | **STX엔진** | L3 원전 부품 (발전기·터빈) | 3,000~5,000억원 | 두산·KHNP 발전 부품 | **B KR 9순위** |
+| **053610** | **프로텍** | L3 원전 부품 (반도체·정밀) | 1조원 | 두산·삼성 협력 | C KR 위성 |
+| 064350 | 현대로템 | L5 일부 원전 (방산 중복) | 6~8조원 | K-방산 영역 중복 | K-방산 중복 |
+
+### KR 비상장 / IPO 후보
+
+- **한국수력원자력 (KHNP, 정부 100%)** — KEPCO 자회사, 체코·폴란드·UAE·이집트·터키 진출
+- **두산에너빌리티 자회사들** (Doosan Vina, Doosan Heavy Industries USA)
+
+### KR 정책 trigger
+
+- **KHNP 체코 24조원 deal (Dukovany NPP 4기 확장, 2024-07 우선협상자)** — *역대 한국 원전 export 최대*
+- **폴란드 PPEJ (Polish Nuclear Program)** = 한국 자체 입찰 진행 중
+- **UAE Barakah NPP 4기 완전 가동** = K-원전 export 검증 사례
+- **이집트 El Dabaa NPP 협력**
+- **i-SMR (한국형 SMR) 정부 R&D 8년 4,000억원** = 2028~ 인증
+- **한국 정부 신원전 정책 (탈탈원전, 2022~)** 적극 지원
+
+### 진입 전략 (KR 우선순위)
+
+- **KR 1순위: 두산에너빌리티 (034020)** — NSSS 독점 + i-SMR + KHNP 체코 24조원 직접 수혜
+- **KR 2순위: 한전기술 (052690)** — APR1400·i-SMR 설계, KEPCO 자회사
+- **KR 3순위: 한국전력 (015760)** — utility 안정, P/B 0.3 저평가, KHNP 모회사
+- **KR 4~5순위: 일진파워, 한전산업개발** — 부품·운영
+- **KR 6~9순위 위성**: 한신·보성·우진·STX·프로텍
+
+---
+
+## 6.4 Next Wave Deep Analysis ★★★ (신규 추가)
+
+> v2.3 mandatory 섹션. 기존 본문의 over-known (Cameco·Constellation·BWXT·NuScale) 이후 *다음 알파*. 3개 선정.
+
+---
+
+### Next Wave 1: SMR + 빅테크 PPA 메가 사이클 ★★★ 2026~2030
+
+**왜 next wave 인가**
+- **빅테크 합산 10GW+ 신규 nuclear PPA in past year** = *AI 시대 전력 절박*
+- **Microsoft-Constellation Three Mile Island restart** ($16B 20-year, 835MW 2028 가동, $1B DOE loan)
+- **Google-Kairos Power** (500MW, 7 SMR, first 2030, complete 2035)
+- **Amazon-X-energy ($500M, 5GW by 2039)** + Susquehanna $650M 캠퍼스 (960MW)
+- **Vistra-Meta (2026-01) PJM + 300MW SMR option**
+- **Equinix-Oklo 500MW PPA**, Prometheus Hyperscale-Oklo 100MW
+- **Oracle 1GW 3 SMR campus**
+- **NuScale TVA-ENTRA1 6GW MOU** — *NuScale 첫 commercial scale 시그널*
+- LCOE: SMR projection $48~85/MWh (tax credits) vs 기존 원전 $70~95/MWh
+- Goldman: 2030 85~90GW 신규 원전 필요, 글로벌 capa <10%
+
+**병목 메커니즘**
+- NRC 인증 가속 (2025 Executive Orders, NuScale US 460 462MW Standard Design Approval 2025-05)
+- HALEU fuel supply (Next wave 2 별도)
+- 양산 capa (NuScale·X-energy·Kairos·Westinghouse AP1000·Oklo)
+- 빅테크 PPA 가격 안정성 (20년 lock-in)
+- 정책 지원 (트럼프 nuclear 정책 적극)
+
+**상장 alpha**
+
+| 종목 | 시장 | 노출 | 매수 우선순위 |
+|------|------|------|-----------|
+| **NuScale (SMR)** ★ | US | SMR pure-play 1위, TVA 6GW MOU | **A 1순위 next wave** |
+| **Oklo (OKLO)** | US | Sam Altman-backed, Equinix·Prometheus PPAs | **A 2순위 next wave (변동성)** |
+| **Constellation Energy (CEG)** | US | TMI restart 2028, Microsoft 20yr | **A 3순위 (본문 매수)** |
+| **Vistra (VST)** | US | PJM Meta 협력 + 300MW SMR option | **A 4순위 next wave** |
+| **Talen Energy (TLN)** | US | Susquehanna AWS 캠퍼스 | **B 위성** |
+| **BWX Technologies (BWXT)** | US | SMR 양산 + naval | **B 안정 (본문 중복)** |
+| **GE Vernova (GEV)** | US | BWRX-300 SMR + 기존 원전 | **B 다중 (AI DC Power 중복)** |
+| **NextEra (NEE), Duke (DUK)** | US | utility + nuclear | **B 위성 안정** |
+| **Cameco (CCJ)** | US | uranium + Westinghouse JV 49% | **A 본문 매수** |
+| **Nano Nuclear Energy (NNE)** | US | micro SMR 신생 | C 변동성 |
+| X-energy (비상장) | US | Xe-100 80MW, Amazon $500M | n/a (IPO 2026~2027) |
+| TerraPower (비상장 Gates) | US | Natrium 1.2GW Wyoming | n/a (IPO 시그널) |
+| Kairos Power (비상장) | US | molten-salt + ceramic fuel, Google | n/a |
+
+**한국**
+- **두산에너빌리티 (034020)** — i-SMR + NSSS + KHNP 글로벌
+- **한전기술 (052690)** — i-SMR 설계
+- **한국전력 (015760)** — KHNP 모회사
+
+**Timing & Catalyst**
+- **2026 Q3~Q4: NuScale TVA-ENTRA1 6GW progress** → P1
+- **2026 Q4~2027: X-energy IPO** (Amazon $500M backed) → 가능성
+- 2027~2028: SMR 다중 NRC 인증 가속
+- **2028: Three Mile Island restart 완료**
+- **2030: 첫 SMR commercial deploy (Kairos·NuScale)**
+- 2030~2035: SMR fleet 본격 deploy
+
+**모니터링**
+- NuScale·Oklo·Constellation·Vistra 분기 → P1
+- BWXT·GE Vernova 분기 → P2
+- **두산에너빌리티·한전기술·한국전력 분기** → P1
+- 트럼프 nuclear 정책 → P1
+- NRC SMR 인증 진척 → P1
+- X-energy·TerraPower IPO → P2
+
+**숨겨진 매력 — NuScale (SMR)**: SMR pure-play 1위, TVA-ENTRA1 6GW 시그널, US 460 Standard Design Approval, 시총 ~$5~7B 변동성
+
+**Oklo (OKLO)**: Sam Altman-backed, Equinix·Prometheus PPAs, 시총 ~$3~5B 변동성
+
+**두산에너빌리티 (034020) KR hidden alpha**: K-원전 대장 + NSSS 독점 + KHNP 체코 24조 직접 수혜 + i-SMR 정부 4,000억원 R&D. 시총 30~40조원
+
+**리스크**: NRC 인증 지연, 빅테크 PPA delay, 초기 SMR LCOE 상승, 트럼프 정책 변동
+
+---
+
+### Next Wave 2: HALEU (High-Assay Low-Enriched Uranium) Supply ★★★ 2026~2028
+
+**왜 next wave 인가**
+- **차세대 SMR (X-energy·Kairos·TerraPower·Oklo) = HALEU 연료 필수** (19.75% enriched, LEU 5% 보다 4배 농축)
+- **미국 자국 HALEU supply 매우 부족** — **미국 유일 generator: Centrus Energy**
+- 러시아·중국 HALEU 우위 → 미국 자급 *최우선 정책*
+- **Centrus LEU**:
+  - DOE $3.4B HALEU contract (2024-10)
+  - $3.6B orderbook
+  - Piketon Ohio HALEU facility (American Centrifuge Plant)
+  - 2024 첫 HALEU 출하 (DOE)
+- 2026~2028 commercial HALEU capa 확장
+
+**상장 alpha**
+
+| 종목 | 시장 | 노출 | 매수 우선순위 |
+|------|------|------|-----------|
+| **Centrus Energy (LEU)** ★ | US | **HALEU 미국 유일**, DOE $3.4B + $3.6B orderbook | **A 1순위 next wave hidden alpha 글로벌** |
+| Cameco (CCJ) | US | uranium + Westinghouse + fuel | 본문 매수 |
+| BWX Technologies (BWXT) | US | naval + nuclear fuel | 본문 매수 |
+| Lightbridge (LTBR) | US | next-gen nuclear fuel | C 변동성 |
+| Energy Fuels (UUUU), Denison (DNN), UEC, NXE | US/CA | uranium 위성 | C 위성 |
+
+**한국**: KR 직접 HALEU alpha 약함 (한국원자력연구원 KAERI 일부 시도, 비상장)
+
+**Timing & Catalyst**
+- **2026 Q2~Q4: Centrus Piketon HALEU 양산 가속**
+- **2026~2027: X-energy·TerraPower·Kairos HALEU 첫 fueling**
+- 2027~2028: HALEU 글로벌 supply chain 본격
+
+**숨겨진 매력 — Centrus Energy (LEU) hidden alpha 1위 글로벌**: HALEU 미국 유일, DOE $3.4B + $3.6B orderbook = 수익 lock-in. 시총 ~$3~5B 변동성. P/S 5~10x. 매출 가속.
+
+**리스크**: DOE 정책 변동, Centrifuge capa 확장 지연, Russia 정책 변화
+
+---
+
+### Next Wave 3: Fusion Watchlist (장기) ★ 2028~2030+
+
+**왜 next wave 인가**
+- **Helion-Microsoft 2028 PPA** = 세계 첫 commercial fusion 시도
+- Commonwealth Fusion Systems (CFS) — SPARC tokamak 2025~2026 first plasma
+- TAE Technologies — proton-boron fusion
+- Tokamak Energy (UK)
+- VC fusion funding 2024~2025 $5B+
+
+**상장 alpha**
+
+| 종목 | 시장 | 노출 | 매수 우선순위 |
+|------|------|------|-----------|
+| Helion Energy (비상장) | US | Microsoft 2028 PPA | n/a (IPO 시그널) |
+| Commonwealth Fusion (비상장) | US | SPARC, Eni·Gates backed | n/a (IPO 2027~) |
+| TAE Technologies (비상장) | US | proton-boron fusion | n/a |
+| Tokamak Energy (비상장) | UK | ST40 spherical tokamak | n/a |
+| Lockheed Martin (LMT) | US | compact fusion (소형 R&D) | 국방·드론 중복 |
+
+**한국**: 직접 alpha 약함. KAERI KSTAR 비상장
+
+**Timing**: 2026~2027 SPARC first plasma, 2028 Helion-Microsoft, 2028~2030 IPO 가능성
+
+**진입 전략**: 직접 상장 alpha 약함 → watchlist 만 등재. 본 영역 별도 매수 X
+
+---
+
+## 6.5 Next Wave 종합 — 본인 진입 전략
+
+**우선순위 (Timing + 상장 alpha)**
+
+| 순위 | Next Wave | Timing | 핵심 종목 | 비중 |
+|-----|---------|--------|---------|-----|
+| 1 | **SMR + 빅테크 PPA** | 2026~2030 | **NuScale, Oklo, Constellation, Vistra**, **두산에너빌리티 (KR 1순위)** | 3~5% |
+| 2 | **HALEU Supply** | 2026~2028 | **Centrus Energy (LEU)** hidden alpha 글로벌 1위 | 1~2% |
+| 3 | **Fusion Watchlist (장기)** | 2028~2030+ | Commonwealth Fusion·Helion·TAE IPO 모니터링 | 0% (watchlist) |
+
+### Nuclear Renaissance 영역 종합 매수 우선순위 업데이트
+
+**Tier A — 즉시 분할 매수**
+
+**글로벌**
+1. **Constellation Energy (CEG)** — Microsoft TMI restart + utility 안정 (본문 1순위)
+2. **Cameco (CCJ)** — uranium + Westinghouse JV
+3. **NuScale (SMR)** ← **Next wave 1순위 SMR pure-play**
+4. **Centrus Energy (LEU)** ← **Next wave HALEU 미국 유일**
+5. **Vistra (VST)** ← **Next wave Meta 협력**
+6. **Oklo (OKLO)** ← **Next wave 변동성**
+7. **BWX Technologies (BWXT)** — naval + SMR + fuel
+
+**KR (Tier A) — 본인 정보 비대칭 우위**
+1. **두산에너빌리티 (034020)** ★ **KR 1순위** (i-SMR + NSSS + KHNP 체코 24조원)
+2. **한전기술 (052690)** **KR 2순위** (i-SMR 설계 + APR1400)
+3. **한국전력 (015760)** **KR 3순위** (KHNP 모회사, P/B 0.3 저평가)
+4. **일진파워 (094820)** **KR 4순위** (원전 정밀 부품)
+5. **한전산업개발 (130660)** **KR 5순위** (KHNP 위탁)
+
+**Tier B 위성**: Talen Energy, GE Vernova, NextEra, Duke. KR 한신·보성·우진·STX·프로텍
+
+**모니터링 watchlist (비상장 IPO)**
+- **X-energy IPO** (Amazon $500M, 2026~2027) ★ catalyst
+- **TerraPower IPO** (Gates backed)
+- **Commonwealth Fusion IPO** (Eni·Gates backed, 2027~)
+- **Helion Energy IPO** (Microsoft 2028 PPA)
+
+### 글로벌:KR 비중 분배 권장
+
+- **글로벌 65~75% : KR 25~35%** (K-원전 정보 비대칭 우위 강)
+
+---
+
+## 8.2 한국 종목 (보강·교체)
+
+| 티커 | 기업 | 영역 | 시총 | P/E | Tier | 매수 우선순위 |
+|------|------|-----|-----|-----|------|-----------|
+| **034020** | **두산에너빌리티** ★ | NSSS + i-SMR + KHNP | 30~40조원 | ~25x | **A** | **KR 1순위 next wave hidden** |
+| **052690** | **한전기술** ★ | plant 설계 + i-SMR | 8~12조원 | ~30x | **A** | **KR 2순위** |
+| **015760** | **한국전력 (KEPCO)** | KHNP 모회사 | 25~30조원 | P/B 0.3 | **A** | **KR 3순위 (저평가)** |
+| **094820** | **일진파워** | 원전 정밀 부품 | 7,000~1조원 | n/a | **B** | KR 4순위 |
+| **130660** | **한전산업개발** | KHNP 운영·유지 | 5,000~7,000억원 | n/a | **B** | KR 5순위 |
+| **011700** | **한신기계** | 압축기·열교환기 | 3,000~5,000억원 | n/a | **B** | KR 6순위 |
+| **006910** | **보성파워텍** | 전력·전기 부품 | 2,000~3,000억원 | n/a | **B** | KR 7순위 변동성 |
+| **105840** | **우진** | 계측·검사 | 2,000~3,000억원 | n/a | **B** | KR 8순위 |
+| **077970** | **STX엔진** | 발전기·터빈 | 3,000~5,000억원 | n/a | **B** | KR 9순위 |
+| **053610** | **프로텍** | 반도체·정밀 | 1조원 | n/a | **C** | KR 위성 |
+| 064350 | 현대로템 | 일부 원전 (방산 중복) | 6~8조원 | ~25x | K-방산 중복 | K-방산에서 매수 |
+
+---
+
+## 12 본인 의사결정 메모 — 비중 분배 권장 (v2.3 추가)
+
+### 비중 가이드 (KR 강화)
+
+- 본 영역 전체: **포트폴리오의 8~12%** (nuclear renaissance 별도)
+- **글로벌 65~75% : KR 25~35%** (K-원전 정보 비대칭 우위 강)
+- 글로벌: 5~9%
+- KR: 3~5%
+- 종목별:
+  - CEG 1~2%, CCJ 1~2%, NuScale 0.5~1%, Centrus 0.5~1%, Vistra 0.5~1%, Oklo 0.3~0.5%, BWXT 0.5%
+  - 두산에너빌 1.5~2%, 한전기술 0.5~1%, 한국전력 0.5~1%, 일진파워 0.3~0.5%, 한전산업개발 0.3~0.5%
+  - 한신·보성·우진·STX·프로텍 합산 0.5~1%
+
+### Cross-area 중복 카운트
+- **GE Vernova (GEV)** = AI DC Power 영역 중복 → 한쪽만
+- **Cameco (CCJ)** = uranium + Westinghouse JV cross
+- **현대로템 (064350)** = K-방산 영역 중복 → K-방산에서 매수
+- **BWXT** = naval + SMR cross, 본 영역에서만
+
+---
+
+## 13 업데이트 로그 — v2.3 retrofit 진입
+
+| 날짜 | 변경 |
+|------|------|
+| 2026-05-24 | **v2.1 → v2.3 retrofit**. Next Wave Deep (6.4·6.5) 신규 추가, KR transmission thorough 보강. 매수 우선순위 업데이트: **CEG > CCJ > NuScale (next wave) > Centrus LEU (next wave HALEU) > Vistra > Oklo (변동성) > BWXT** + **KR: 두산에너빌리티 (next wave hidden alpha KR 1위) > 한전기술 > 한국전력 (P/B 0.3 저평가) > 일진파워 > 한전산업개발 > 한신·보성·우진·STX·프로텍 위성**. **Next Wave Deep 3개**: (1) **SMR + 빅테크 PPA 메가 사이클** (NuScale TVA-ENTRA1 6GW, Microsoft-Constellation TMI $16B 20yr 2028, Google-Kairos 500MW 7 SMR 2030~2035, Amazon-X-energy $500M 5GW + Susquehanna 960MW, Vistra-Meta PJM 300MW SMR, Equinix·Prometheus-Oklo, Oracle 1GW 3 SMR), (2) **HALEU Supply** (Centrus LEU 미국 유일 HALEU, DOE $3.4B contract, $3.6B orderbook, Piketon Ohio), (3) **Fusion Watchlist** (Helion-Microsoft 2028 PPA, Commonwealth Fusion SPARC 2025~2026, TAE Technologies, Tokamak Energy). **KR 비중 분배 권장 65~75% : 25~35%**. KHNP 체코 24조원 deal + 두산 i-SMR 정부 4,000억원 R&D + LCOE SMR $48~85/MWh + 2028 TMI restart 반영. |
+| (이전) | v2.1 본문 작성 |

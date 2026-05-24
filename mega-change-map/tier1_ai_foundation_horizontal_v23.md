@@ -493,3 +493,294 @@
 | 날짜 | 변경 사항 | 점수 변화 |
 |------|---------|---------|
 | 2026-05-23 | 최초 작성 (v2.1 룰 적용) | TAM 5, Moat 4, Capital 5 → 합산 14/15. Conf. High. 시차 A5 B4 C5 = +4 (Good entry). Tier 1 확정. |
+
+
+---
+
+# ═══════════════════════════════════════════════════
+# v2.3 UPGRADE — Next Wave Deep + KR Transmission
+# ═══════════════════════════════════════════════════
+
+> *아래 내용은 v2.3 retrofit 으로 위 v2.1 본문에 추가된 섹션입니다. 기존 본문은 그대로 유지하고 적용*
+
+---
+
+# AI Foundation (Horizontal) — v2.3 Retrofit Delta
+
+> **Base document**: 03_ai_application_foundation_horizontal.md (v2.1, 24KB)
+> **Retrofit 작성일**: 2026-05-24
+> **변경 사항**: Next Wave Deep (6.4·6.5) + KR transmission 강화
+> **본 문서**: v2.1 본문 reference, 본 delta 만 별도 적용
+
+---
+
+## 본 문서 적용 가이드
+
+본 retrofit delta 는 **기존 03_ai_application_foundation_horizontal.md (v2.1) 본문을 유지**하고, 다음 섹션을 *추가·교체*:
+
+- **6.4 Next Wave Deep Analysis** — *신규 추가*
+- **6.5 Next Wave 종합** — *신규 추가*
+- **5.3 Sub-area X: 한국** — *thorough 보강*
+- **8.2 한국 종목** — *thorough 보강*
+- **12 본인 의사결정 메모 → 글로벌:KR 비중 분배 권장** — KR 강화
+- **13 업데이트 로그** — v2.3 retrofit 진입
+
+---
+
+## 5.3 Sub-area X: 한국 — *KR pure-play thorough* (보강)
+
+> v2.3 KR transmission 강화. **NAVER 클로바·카카오·솔트룩스 sovereign AI + 삼성·SK하이닉스 HBM = K-AI Foundation 핵심**.
+
+### KR 상장 pure-play
+
+| 티커 | 기업 | 영역 | 시총 | 핵심 thesis | Tier |
+|------|------|-----|-----|----------|------|
+| **035420** | **NAVER** ★ | L2 sovereign AI (HyperCLOVA·CLOVA X) | 30~40조원 | **한국 sovereign AI 1위**, HyperCLOVA·CLOVA X · 일본 LINE+소프트뱅크. P/E ~25x | **A KR 1순위** |
+| **035720** | **카카오** | L2 AI (KoGPT·카카오 i) | 15~20조원 | 한국 sovereign AI 2위, B2C 강. P/E ~25x | **A KR 2순위** |
+| **005930** | **삼성전자** | L1 HBM·메모리·자체 fab | 500조원+ | HBM3·HBM3E·LPDDR + 자체 Foundry + 자체 LLM 시도. **반도체 영역 중복** | **A 메가 (반도체 cross)** |
+| **000660** | **SK하이닉스** | L1 HBM 1위 (NVDA Blackwell) | 100조원+ | **HBM 글로벌 1위** (NVIDIA Blackwell HBM3E 8H/12H 독점 공급) | **A 메가 (반도체 cross)** |
+| **304100** | **솔트룩스** | L2 sovereign LLM | 3,000~5,000억원 | 한국 sovereign AI 전문, 정부·금융·공공 | **B KR (변동성)** |
+| **066570** | **LG전자** | L1 on-device AI + edge | 12~17조원 | 가전·자율·로봇 AI 통합 | **B KR (다중)** |
+| **037560** | **로보로보 / KT** | L2 SK텔레콤·KT AI | 다중 | KT·SKT 자체 LLM (한국 K-AI) | B 다중 |
+| **083650** | **비에이치** | L3 PCB·flex (AI 서버) | 1조원+ | AI 서버 PCB | B 반도체 cross |
+| **007660** | **이수페타시스** | L3 AI 서버 고밀도 PCB | 4~5조원 | AI 서버 PCB 1위 (NVDA blackwell 직접) | A 반도체 cross |
+| **042700** | **한미반도체** | L3 HBM TC bonder 1위 | 17~22조원 | **HBM TC bonder 글로벌 독점** | A 반도체 cross |
+
+### KR 비상장 / IPO 후보
+
+- **업스테이지 (비상장)** — sovereign LLM (Solar)
+- **마음AI (비상장)** — 한국 LLM startup
+- **포티투닷 (현대차 자회사)** — 자율주행 AI (자율주행 영역 cross)
+- **루닛 (328130)** — AI 의료영상 (정밀 종양학 영역)
+- **뷰노 (338220)** — AI 의료 (정밀 종양학)
+- 코난테크놀로지·플리토·솔트룩스 = AI Vertical 영역
+
+### KR 정책 trigger
+
+- **K-AI Sovereign 정책** — 한국 자체 LLM·데이터 sovereignty
+- **국가전략기술 (AI) R&D 자금** — 2026~ 가속
+- **NAVER 클로바 + 일본 LINE+소프트뱅크 협력** = 일본·동남아 sovereign AI 확장
+- **삼성·SK 메모리 HBM dominant** = 한국 AI 인프라 백본
+
+### 진입 전략 (KR 우선순위)
+
+- **KR 1순위: NAVER (035420)** — sovereign AI 1위, HyperCLOVA·일본 LINE
+- **KR 2순위: 카카오 (035720)** — K-AI B2C
+- **KR 3순위 메가 (반도체 cross)**: 삼성전자·SK하이닉스 — 반도체 영역에서 매수, AI Foundation 위성
+- **KR 4순위**: 솔트룩스 (sovereign LLM)
+- **KR 5순위 위성**: LG전자·KT·SKT
+
+---
+
+## 6.4 Next Wave Deep Analysis ★★★ (신규 추가)
+
+> v2.3 mandatory 섹션. NVIDIA·MSFT·GOOGL over-known. 다음 알파 — Agentic AI·Multimodal/Video·Sovereign/Edge AI.
+
+---
+
+### Next Wave 1: Agentic AI (자율 AI 에이전트) ★★★ 2026~2027
+
+**왜 next wave 인가**
+- **Agentic AI = 단순 chatbot → 자율 task 수행**
+- Salesforce Agentforce (2024-09 launch, 매출 +30% guidance)
+- ServiceNow Now Assist + autonomous agents
+- Microsoft Copilot Studio + 자체 agents
+- Anthropic Computer Use (2024-10 launch)
+- OpenAI Operator (2025-01) + GPT-5 agent
+- Google Project Mariner
+- 시장 2025 $3B → 2030 $50B+ (CAGR 70%+)
+- Enterprise 채택 가속 (legal·HR·sales·IT support)
+
+**병목 메커니즘**
+- AI Foundation Model (GPT-5·Claude 3.5/4·Gemini 2)
+- Tool use·Function calling 정확도
+- 데이터 통합 (CRM·ERP·docs)
+- 안전·hallucination·통제
+- 가격 (Token + inference cost)
+
+**상장 alpha**
+
+| 종목 | 시장 | 노출 | 매수 우선순위 |
+|------|------|------|-----------|
+| **Salesforce (CRM)** ★ | US | Agentforce 1순위 vertical AI | **A 1순위 next wave** |
+| **ServiceNow (NOW)** ★ | US | Now Assist + 자율 agents | **A 2순위 next wave** |
+| **Microsoft (MSFT)** | US | Copilot + Azure agents | 본문 매수 (already) |
+| **Alphabet (GOOGL)** | US | Project Mariner + Gemini agents | 본문 매수 |
+| **Amazon (AMZN)** | US | AWS Bedrock + Agents | 본문 매수 |
+| **Anthropic (비상장)** | US | Claude + Computer Use | n/a (IPO 시그널) |
+| **OpenAI (비상장)** | US | GPT + Operator + Agents | n/a (IPO 시그널 2026~2027) |
+| Adobe (ADBE) | US | Firefly + agents | B 위성 |
+| Cisco (CSCO) | US | enterprise agents | C 위성 |
+| Workday (WDAY) | US | HR agents | C 위성 |
+
+**한국**
+- NAVER (035420) — HyperCLOVA agents 진입
+- 솔트룩스 (304100) — sovereign agent 시도
+
+**Timing & Catalyst**
+- 2026~2027: Salesforce Agentforce 매출 가속 (10%~30% guidance)
+- 2026: ServiceNow Now Assist 본격 가속
+- 2026~2027: OpenAI·Anthropic IPO 가능성
+
+**숨겨진 매력 — Salesforce (CRM)**: Agentforce 매출 +30% guidance, CRM 본업 + agent 신규 segment. 시총 ~$280B, P/E ~30x. Next wave 1순위 글로벌.
+
+**ServiceNow (NOW)**: Now Assist + autonomous agents, 시총 ~$180B, P/E ~70x 부담
+
+---
+
+### Next Wave 2: Multimodal / Video AI ★★ 2026~2027
+
+**왜 next wave 인가**
+- **Sora 2 (OpenAI, 2025-12) 본격 가속**
+- **Veo 3 (Google DeepMind, 2025)** 영상 생성
+- **MovieGen (Meta, 2024-10)**
+- **Pika·Runway** Video 시장 가속
+- **Adobe Firefly Video** Enterprise 채택
+- 시장 2025 $5B → 2030 $80B+ (CAGR 60%+)
+- 광고·영화·게임·교육 다중 use case
+
+**상장 alpha**
+
+| 종목 | 시장 | 노출 | 매수 우선순위 |
+|------|------|------|-----------|
+| **Adobe (ADBE)** ★ | US | Firefly Video·Enterprise | **A 1순위 next wave** |
+| **Alphabet (GOOGL)** | US | Veo 3·DeepMind | 본문 매수 |
+| **Meta (META)** | US | MovieGen·Reality Labs | 본문 매수 |
+| **OpenAI (비상장)** | US | Sora 2·GPT | n/a |
+| **NVIDIA (NVDA)** | US | Compute 인프라 (수혜) | 본문 매수 |
+| Pika Labs, Runway (비상장) | US | Video AI startup | n/a (IPO) |
+
+**한국**: NAVER 클로바 video, KT·SKT 일부
+
+---
+
+### Next Wave 3: Sovereign AI / Edge AI ★★ 2026~2028
+
+**왜 next wave 인가**
+- **Sovereign AI = 국가별 자체 LLM·데이터 sovereignty**
+- 유럽·아시아·중동 sovereign 정책 가속 (데이터 외부 의존 reduce)
+- Edge AI = 디바이스 자체 AI (Qualcomm·Apple·NVIDIA Jetson)
+- **NAVER HyperCLOVA + 일본 LINE+소프트뱅크 협력** = 일본·동남아 sovereign 직접 진출
+- Mistral (EU sovereign), Aleph Alpha (DE), G42 (UAE), MBZUAI
+- Qualcomm Snapdragon X Elite (PC edge AI), 자동차 Snapdragon Ride
+
+**상장 alpha**
+
+| 종목 | 시장 | 노출 | 매수 우선순위 |
+|------|------|------|-----------|
+| **NAVER (035420)** ★ | KR | HyperCLOVA + 일본 LINE sovereign | **A 1순위 next wave KR** |
+| **Qualcomm (QCOM)** ★ | US | Edge AI (PC·자동차·IoT) | **A 2순위 next wave** |
+| **Apple (AAPL)** | US | 자체 chip + on-device AI | B 본문 매수 가능 |
+| **NVIDIA Jetson** | US | NVDA 통합 | 본문 매수 |
+| 카카오 (035720) | KR | K-AI sovereign | B 본문 매수 |
+| 솔트룩스 (304100) | KR | sovereign LLM | C 변동성 |
+| Mistral (비상장 EU) | FR | EU sovereign | n/a (IPO 시그널) |
+| G42 (비상장 UAE) | AE | UAE sovereign | n/a |
+
+**한국 — 본인 정보 비대칭 우위**
+- **NAVER (035420)** — *sovereign AI 글로벌 first-mover 중 하나*
+- 카카오 (035720), 솔트룩스 (304100) — 자체 LLM
+
+**Timing**
+- 2026: NAVER 일본 LINE+소프트뱅크 sovereign 진척
+- 2027: EU AI Act 강화 → sovereign AI 가속
+- 2027~2028: Edge AI 본격 (Qualcomm Snapdragon, Apple Silicon Pro)
+
+**숨겨진 매력 — NAVER (035420) KR**: sovereign AI 1순위 KR, HyperCLOVA 일본 LINE 협력 sovereign 진입. 시총 30~40조원. *KR sovereign 직접 alpha*
+
+**Qualcomm (QCOM)**: Edge AI dominant (PC·자동차·IoT). 시총 ~$190B, P/E ~17x. 본문 매수 가능
+
+---
+
+## 6.5 Next Wave 종합 — 본인 진입 전략
+
+**우선순위 (Timing + 상장 alpha)**
+
+| 순위 | Next Wave | Timing | 핵심 종목 | 비중 |
+|-----|---------|--------|---------|-----|
+| 1 | **Agentic AI** | 2026~2027 | **Salesforce (CRM), ServiceNow (NOW)** + MSFT·GOOGL·AMZN 본문 중복 | 2~3% (CRM·NOW 신규) |
+| 2 | **Multimodal / Video AI** | 2026~2027 | **Adobe (ADBE)** + GOOGL·META·NVDA 본문 중복 | 1~2% (ADBE 신규) |
+| 3 | **Sovereign / Edge AI** | 2026~2028 | **NAVER (KR 1순위), Qualcomm (QCOM)** | 1~2% |
+
+### AI Foundation 영역 종합 매수 우선순위 업데이트
+
+**Tier A — 즉시 분할 매수**
+
+**글로벌**
+1. **NVIDIA (NVDA)** — 본문 1순위 (Blackwell + GR00T 다중)
+2. **Microsoft (MSFT)** — Azure + OpenAI + Copilot agents
+3. **Alphabet (GOOGL)** — Gemini + DeepMind + Video
+4. **Meta (META)** — Llama + MovieGen
+5. **Amazon (AMZN)** — AWS Bedrock + Trainium
+6. **Apple (AAPL)** — 자체 chip + on-device AI
+7. **Salesforce (CRM)** ← **Next wave Agentic 1순위**
+8. **ServiceNow (NOW)** ← **Next wave Agentic 2순위**
+9. **Adobe (ADBE)** ← **Next wave Multimodal/Video 1순위**
+10. **Qualcomm (QCOM)** ← **Next wave Edge AI**
+11. **AMD (AMD)** — GPU 대안
+
+**KR (Tier A) — 본인 정보 비대칭 우위**
+1. **NAVER (035420)** ★ **KR 1순위 next wave Sovereign AI 1위**
+2. **카카오 (035720)** **KR 2순위**
+3. **삼성전자 (005930)** — 반도체 영역 cross (메가 카운트)
+4. **SK하이닉스 (000660)** — 반도체 영역 cross (HBM 1위)
+5. **솔트룩스 (304100)** — KR sovereign LLM 위성
+
+**모니터링 watchlist (비상장 IPO)**
+- **OpenAI IPO** (2026~2027 가능성) ★ catalyst 최대
+- **Anthropic IPO** (2026~2027)
+- **xAI IPO** (Musk)
+- **Mistral IPO** (EU)
+- Pika·Runway IPO
+- 업스테이지·마음AI IPO (KR)
+
+### 글로벌:KR 비중 분배 권장
+
+- **글로벌 85~90% : KR 10~15%** (AI Foundation 글로벌 dominant, KR sovereign 부분)
+- 본인 NAVER·카카오 = sovereign AI 직접 노출 핵심
+- 삼성·SK = 반도체 영역에서 메가 카운트
+
+---
+
+## 8.2 한국 종목 (보강·교체)
+
+| 티커 | 기업 | 영역 | 시총 | P/E | Tier | 매수 우선순위 |
+|------|------|-----|-----|-----|------|-----------|
+| **035420** | **NAVER** ★ | L2 sovereign AI | 30~40조원 | ~25x | **A** | **KR 1순위 next wave** |
+| **035720** | **카카오** | L2 K-AI B2C | 15~20조원 | ~25x | **A** | **KR 2순위** |
+| 005930 | **삼성전자** | L1 HBM·메모리·fab | 500조원+ | ~15x | **A** | KR 메가 (반도체 cross) |
+| 000660 | **SK하이닉스** | L1 HBM 1위 | 100조원+ | ~12x | **A** | KR 메가 (반도체 cross) |
+| 304100 | 솔트룩스 | L2 sovereign LLM | 3,000~5,000억원 | n/a | **B** | KR 4순위 변동성 |
+| 066570 | LG전자 | L1 edge AI 가전 | 12~17조원 | ~15x | **B** | KR 위성 다중 |
+| 007660 | 이수페타시스 | L3 AI 서버 PCB | 4~5조원 | ~25x | **A** | 반도체 cross |
+| 042700 | 한미반도체 | L3 HBM TC bonder 1위 | 17~22조원 | ~30x | **A** | 반도체 cross |
+
+---
+
+## 12 본인 의사결정 메모 — 비중 분배 권장 (v2.3 추가)
+
+### 비중 가이드 (KR 강화)
+
+- 본 영역 전체: **포트폴리오의 10~15%** (AI Foundation)
+- *AI 인프라 합산 25~35% 상한* 인지 (Foundation + Vertical + 광인터 + 전력반도체 + 냉각 + AI DC Power)
+- **글로벌 85~90% : KR 10~15%**
+- 종목별:
+  - NVDA 3~5%, MSFT 2~3%, GOOGL 1~2%, META 1~2%, AMZN 1~2%, AAPL 0.5~1%
+  - CRM 1~2%, NOW 0.5~1%, ADBE 0.5~1%, QCOM 0.5~1%, AMD 0.5~1%
+  - NAVER 0.5~1.5%, 카카오 0.5~1%, 솔트룩스 0~0.3% (위성)
+  - 삼성·SK·이수페타시스·한미반도체 = 반도체 영역 cross 카운트
+
+### Cross-area 중복 카운트
+- **NVIDIA·GOOGL** = AI Vertical·자율·humanoid·정밀 종양학 cross → 본 영역에서 매수
+- **MSFT·META** = AI Vertical cross → 본 영역에서 매수
+- **AMZN** = 우주 Project Kuiper·국방 cross
+- **삼성·SK·이수·한미반도체** = 반도체 영역 cross → 반도체에서 매수, 본 영역에서 위성 카운트
+
+---
+
+## 13 업데이트 로그 — v2.3 retrofit 진입
+
+| 날짜 | 변경 |
+|------|------|
+| 2026-05-24 | **v2.1 → v2.3 retrofit**. Next Wave Deep (6.4·6.5) 신규 추가, KR transmission thorough 보강. 매수 우선순위 업데이트: **NVDA > MSFT > GOOGL > META > AMZN > AAPL > CRM (next wave Agentic) > NOW (next wave) > ADBE (next wave Multimodal) > QCOM (next wave Edge) > AMD** + **KR: NAVER (KR 1순위 next wave Sovereign) > 카카오 > 삼성·SK·이수·한미 (반도체 cross) > 솔트룩스 위성**. **Next Wave Deep 3개**: (1) **Agentic AI** (Salesforce Agentforce 매출 +30% guidance, ServiceNow Now Assist, Anthropic Computer Use, OpenAI Operator), (2) **Multimodal / Video AI** (Adobe Firefly Video, Sora 2 OpenAI 2025-12, Veo 3 Google, MovieGen Meta), (3) **Sovereign / Edge AI** (NAVER HyperCLOVA 일본 LINE sovereign, Qualcomm Snapdragon Edge AI, Mistral EU). **KR 비중 분배 권장 85~90% : 10~15%**. **OpenAI·Anthropic IPO 모니터링** 가속. |
+| (이전) | v2.1 본문 작성 |

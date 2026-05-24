@@ -32,3 +32,9 @@ logs/
 
 # Cache
 .cache/
+
+# Bot auto-generated outputs - EC2 local only
+digests/daily/
+data/
+scripts/__pycache__/
+*.log

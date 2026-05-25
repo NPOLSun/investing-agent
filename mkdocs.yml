@@ -4,10 +4,11 @@ site_url: https://npolsun.github.io/investing-agent/
 site_author: Sunyong
 repo_url: https://github.com/NPOLSun/investing-agent
 repo_name: NPOLSun/investing-agent
-edit_uri: edit/main/
-
-docs_dir: .
+docs_dir: docs
 site_dir: site
+
+# Workflow 가 build 직전에 markdown 파일들을 docs/ 로 stage. 원본 파일은 repo 루트 유지.
+# 로컬에서 미리보기하려면: scripts/stage-docs.sh 또는 동일 작업 수동.
 
 # Phase 1: strict false 로 첫 배포 안전 확보. 안정화 후 true 로 전환 예정.
 strict: false
@@ -18,21 +19,8 @@ validation:
   unrecognized_links: warn
   anchors: warn
 
-exclude_docs: |
-  .git/
-  .github/
-  .claude/
-  scripts/
-  data/
-  digests/sent/
-  site/
-  .venv*/
-  __pycache__/
-  *.txt
-  *.json
-  requirements*.txt
-  mkdocs.yml
-  .gitignore
+# edit_uri_template: docs/ prefix 없이 원본 파일 위치 가리킴
+edit_uri_template: edit/main/{path}
 
 theme:
   name: material

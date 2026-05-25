@@ -41,6 +41,7 @@ scripts/__pycache__/
 *.log
 digests/sent/
 
-# MkDocs build output
+# MkDocs build output (and staging dir created by workflow / local preview)
 site/
+docs/
 .venv-docs/

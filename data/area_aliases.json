@@ -1,0 +1,69 @@
+{
+  "aliases": {
+    "glp1": {
+      "path": "mega-change-map/tier1_glp1_ecosystem_v23.md",
+      "title": "GLP-1 생태계",
+      "tier": 1
+    },
+    "nuclear": {
+      "path": "mega-change-map/tier1_nuclear_renaissance_v23.md",
+      "title": "원자력 르네상스",
+      "tier": 1
+    },
+    "ai-foundation": {
+      "path": "mega-change-map/tier1_ai_foundation_horizontal_v23.md",
+      "title": "AI App: Foundation/Horizontal",
+      "tier": 1
+    },
+    "ai-vertical": {
+      "path": "mega-change-map/tier1_ai_vertical_v23.md",
+      "title": "AI App: Vertical",
+      "tier": 1
+    },
+    "power": {
+      "path": "mega-change-map/tier1_ai_dc_power_infra_v23.md",
+      "title": "AI DC 전력 인프라",
+      "tier": 1
+    },
+    "optical": {
+      "path": "mega-change-map/tier2_optical_interconnect_cpo_v23.md",
+      "title": "광인터커넥트 (CPO)",
+      "tier": 2
+    },
+    "power-semi": {
+      "path": "mega-change-map/tier2_power_semi_gan_sic_v23.md",
+      "title": "전력반도체 (GaN·SiC)",
+      "tier": 2
+    },
+    "cooling": {
+      "path": "mega-change-map/tier2_data_center_cooling_v23.md",
+      "title": "데이터센터 냉각",
+      "tier": 2
+    },
+    "autonomous": {
+      "path": "mega-change-map/tier2_autonomous_driving_v23.md",
+      "title": "자율주행 / Robotaxi",
+      "tier": 2
+    },
+    "space": {
+      "path": "mega-change-map/tier2_space_v23.md",
+      "title": "우주 (위성·발사체)",
+      "tier": 2
+    },
+    "defense": {
+      "path": "mega-change-map/tier2_defense_drones_v23.md",
+      "title": "국방·드론",
+      "tier": 2
+    },
+    "oncology": {
+      "path": "mega-change-map/tier2_precision_oncology_v23.md",
+      "title": "정밀 종양학 (ADC·CAR-T·RDC)",
+      "tier": 2
+    },
+    "humanoid": {
+      "path": "mega-change-map/tier2_humanoid_robot_v23.md",
+      "title": "휴머노이드 로봇",
+      "tier": 2
+    }
+  }
+}

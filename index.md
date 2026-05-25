@@ -1,31 +1,34 @@
 # Investing Agent
 
-> **Mega Change Map 기반 투자 리서치 시스템** (methodology v2.3)
+> **Mega Change Map 기반 투자 리서치** (methodology v2.3)
 >
-> 단순 종목 추천이 아니라 *Next Wave Deep* + *KR Transmission* 두 축으로 hidden alpha 를 발굴.
+> *Next Wave Deep* + *KR Transmission* — over-known 다음의 hidden alpha.
 > *Bet on the pickaxe, not the gold miners.*
 
 ---
 
-## 핵심 문서
+## 진입
 
-- **[방법론 v2.3](methodology.md)** — 14 sections, Next Wave Deep (6.4·6.5) MANDATORY, KR Transmission MANDATORY
-- **[Mega Change Map Dashboard](mega-change-map/00_dashboard.md)** — 13 영역 채점·시차·진입 우선순위
-- **[통합 관리](INTEGRATION_MANAGEMENT.md)** — 전체 인벤토리, 비중 분배, cron, takeaways
+- **[방법론 (v2.3)](methodology.md)** — 14 sections, Next Wave Deep, KR Transmission
+- **[Megamap Dashboard](mega-change-map/00_dashboard.md)** — 13 영역 채점·시차·진입 우선순위
+- **[워치리스트](watchlist/00_first_watchlist_draft.md)** — 영역별 우선순위 종목 (글로벌 + KR)
+- **[캘린더](calendar/00_event_calendar_6months.md)** — 6개월 catalyst 일정
 
 ---
 
-## Tier 1 — Deep Dive (5개)
+## Deep-Dive 13개 영역
+
+### Tier 1 — Deep (5개)
 
 | 영역 | 합산 | 시차 | 카테고리 |
 |---|---|---|---|
 | [GLP-1 생태계](mega-change-map/tier1_glp1_ecosystem_v23.md) | 13 | +5 | Strong |
 | [원자력 르네상스](mega-change-map/tier1_nuclear_renaissance_v23.md) | 12 | +5 | Strong |
-| [AI Application: Foundation / Horizontal](mega-change-map/tier1_ai_foundation_horizontal_v23.md) | 14 | +4 | Good entry |
-| [AI Application: Vertical / AI-native](mega-change-map/tier1_ai_vertical_v23.md) | 13 | +4 | Good entry |
-| [AI 데이터센터 전력 인프라](mega-change-map/tier1_ai_dc_power_infra_v23.md) | 13 | +6 | Very strong |
+| [AI Foundation / Horizontal](mega-change-map/tier1_ai_foundation_horizontal_v23.md) | 14 | +4 | Good entry |
+| [AI Vertical / AI-native](mega-change-map/tier1_ai_vertical_v23.md) | 13 | +4 | Good entry |
+| [AI DC 전력 인프라](mega-change-map/tier1_ai_dc_power_infra_v23.md) | 13 | +6 | Very strong |
 
-## Tier 2 — Tier 1 깊이 (8개)
+### Tier 2 — Tier 1 깊이 (8개)
 
 | 영역 | 합산 | 시차 | 카테고리 |
 |---|---|---|---|
@@ -40,8 +43,4 @@
 
 ---
 
-## 운영 정보
-
-- 시스템 갱신: 분기 첫 주 (다음: 2026-07-01)
-- 일간 다이제스트: EC2 cron 06:30 KST → Telegram 푸시
-- 봇 명령: `/megamap`, `/deepdive <alias>`
+> 갱신 주기: 분기 첫 주 (다음: 2026-07-01)

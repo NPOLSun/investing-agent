@@ -37,7 +37,7 @@ jobs:
       - name: Stage markdown into docs/
         run: |
           mkdir -p docs
-          cp index.md methodology.md methodology_v2.1_archive.md docs/
+          cp index.md methodology.md methodology_v2.1_archive.md deepdive_index.md docs/
           cp .pages docs/
           cp -r mega-change-map watchlist calendar docs/
 

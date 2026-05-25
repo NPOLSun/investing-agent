@@ -1,12 +1,13 @@
 nav:
   - 홈: index.md
   - 방법론:
-    - 현재 (v2.3): methodology.md
-    - 구버전 (v2.1 archive): methodology_v2.1_archive.md
+    - methodology.md
+    - "구버전 (v2.1 archive)": methodology_v2.1_archive.md
   - Megamap:
-    - 현재 Dashboard (v2.3): mega-change-map/00_dashboard.md
-    - 구버전 Dashboard (v2.1): mega-change-map/00_dashboard_v21_backup.md
+    - mega-change-map/00_dashboard.md
+    - "구버전 Dashboard (v2.1)": mega-change-map/00_dashboard_v21_backup.md
   - Deep-Dive:
+    - deepdive_index.md
     - "Tier 1 — Deep":
       - GLP-1 생태계: mega-change-map/tier1_glp1_ecosystem_v23.md
       - 원자력 르네상스: mega-change-map/tier1_nuclear_renaissance_v23.md
@@ -23,8 +24,8 @@ nav:
       - 광인터커넥트 (CPO): mega-change-map/tier2_optical_interconnect_cpo_v23.md
       - 우주 (위성·발사체): mega-change-map/tier2_space_v23.md
   - 워치리스트:
-    - 현재 (v2.3): watchlist/00_first_watchlist_draft.md
-    - 구버전 (v2.1): watchlist/00_first_watchlist_draft_v21_backup.md
+    - watchlist/00_first_watchlist_draft.md
+    - "구버전 (v2.1)": watchlist/00_first_watchlist_draft_v21_backup.md
   - 캘린더:
-    - 현재 (6개월): calendar/00_event_calendar_6months.md
-    - 구버전 (v2.1): calendar/00_event_calendar_6months_v21_backup.md
+    - calendar/00_event_calendar_6months.md
+    - "구버전 (v2.1)": calendar/00_event_calendar_6months_v21_backup.md

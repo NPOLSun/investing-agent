@@ -40,3 +40,7 @@ data/*
 scripts/__pycache__/
 *.log
 digests/sent/
+
+# MkDocs build output
+site/
+.venv-docs/

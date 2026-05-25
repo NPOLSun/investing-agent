@@ -1,0 +1,11 @@
+nav:
+  - 홈: index.md
+  - 방법론: methodology.md
+  - 영역 분석: mega-change-map
+  - 통합 관리: INTEGRATION_MANAGEMENT.md
+  - 적용 가이드: _APPLY_GUIDE.md
+  - 워치리스트: watchlist
+  - 캘린더: calendar
+  - 다이제스트 템플릿: digests
+  - 템플릿: templates
+  - 인프라 셋업: infra

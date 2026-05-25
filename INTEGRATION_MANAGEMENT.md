@@ -95,7 +95,7 @@ investing-agent/
 
 1. **Windows PC**: 파일 작성·수정
 2. **Git push from PC**: `git push origin main`
-3. **SSH to EC2 Sydney**: `ssh ubuntu@<ec2-ip>`
+3. **SSH to EC2 Seoul**: `ssh ubuntu@<ec2-ip>`
 4. **EC2 git pull**: `cd ~/investing-agent && git pull`
 5. **Bot restart**: `sudo systemctl restart investing-agent-bot`
 6. **Verify**: Telegram `/deepdive humanoid` 등으로 새 영역 인식 확인

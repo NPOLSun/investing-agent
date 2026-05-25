@@ -65,9 +65,40 @@ plugins:
       lang:
         - ko
         - en
-  - awesome-pages
   - redirects:
       redirect_maps: {}
+
+nav:
+  - 홈: index.md
+  - 방법론:
+    - methodology.md
+    - "구버전 (v2.1 archive)": methodology_v2.1_archive.md
+  - Megamap:
+    - mega-change-map/00_dashboard.md
+    - "구버전 Dashboard (v2.1)": mega-change-map/00_dashboard_v21_backup.md
+  - Deep-Dive:
+    - deepdive_index.md
+    - "Tier 1 — Deep":
+      - GLP-1 생태계: mega-change-map/tier1_glp1_ecosystem_v23.md
+      - 원자력 르네상스: mega-change-map/tier1_nuclear_renaissance_v23.md
+      - AI Foundation / Horizontal: mega-change-map/tier1_ai_foundation_horizontal_v23.md
+      - AI Vertical / AI-native: mega-change-map/tier1_ai_vertical_v23.md
+      - AI DC 전력 인프라: mega-change-map/tier1_ai_dc_power_infra_v23.md
+    - "Tier 2 — Tier 1 깊이":
+      - 차세대 전력반도체 (GaN·SiC): mega-change-map/tier2_power_semi_gan_sic_v23.md
+      - 국방·드론: mega-change-map/tier2_defense_drones_v23.md
+      - 데이터센터 냉각: mega-change-map/tier2_data_center_cooling_v23.md
+      - 자율주행 / Robotaxi: mega-change-map/tier2_autonomous_driving_v23.md
+      - 정밀 종양학 (ADC·CAR-T·RDC): mega-change-map/tier2_precision_oncology_v23.md
+      - 휴머노이드 로봇: mega-change-map/tier2_humanoid_robot_v23.md
+      - 광인터커넥트 (CPO): mega-change-map/tier2_optical_interconnect_cpo_v23.md
+      - 우주 (위성·발사체): mega-change-map/tier2_space_v23.md
+  - 워치리스트:
+    - watchlist/00_first_watchlist_draft.md
+    - "구버전 (v2.1)": watchlist/00_first_watchlist_draft_v21_backup.md
+  - 캘린더:
+    - calendar/00_event_calendar_6months.md
+    - "구버전 (v2.1)": calendar/00_event_calendar_6months_v21_backup.md
 
 markdown_extensions:
   - admonition

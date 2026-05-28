@@ -159,7 +159,8 @@ async def cmd_deepdive(update: Update, context: ContextTypes.DEFAULT_TYPE):
             title = info.get("title", alias)
             lines.append(f"• /deepdive {alias} — {title} (Tier {tier})")
         lines.append("\n💡 사용법: /deepdive [별명]")
-        lines.append(f"📊 총 {len(aliases)}개 영역 등록됨")
+        unique_areas = len({info.get("path", alias) for alias, info in aliases.items()})
+        lines.append(f"📊 {unique_areas}개 영역 / {len(aliases)}개 별명 등록됨")
         await update.message.reply_text("\n".join(lines))
         return
 

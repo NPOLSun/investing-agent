@@ -151,16 +151,26 @@ async def cmd_deepdive(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     args = context.args  # /deepdive 뒤의 인자
 
-    # 인자 없으면 — 리스트 답장
+    # 인자 없으면 — 리스트 답장 (영역당 1줄, 첫 별명을 canonical로)
     if not args:
         lines = ["📚 Deep-dive 영역 목록\n"]
+        seen_paths: dict[str, list[str]] = {}
+        canonical: list[tuple[str, dict]] = []
         for alias, info in aliases.items():
+            path = info.get("path", alias)
+            if path not in seen_paths:
+                seen_paths[path] = [alias]
+                canonical.append((alias, info))
+            else:
+                seen_paths[path].append(alias)
+        for alias, info in canonical:
             tier = info.get("tier", "?")
             title = info.get("title", alias)
-            lines.append(f"• /deepdive {alias} — {title} (Tier {tier})")
+            alts = seen_paths[info.get("path", alias)][1:]
+            alt_str = f"  (또는: {', '.join(alts)})" if alts else ""
+            lines.append(f"• /deepdive {alias} — {title} (Tier {tier}){alt_str}")
         lines.append("\n💡 사용법: /deepdive [별명]")
-        unique_areas = len({info.get("path", alias) for alias, info in aliases.items()})
-        lines.append(f"📊 {unique_areas}개 영역 / {len(aliases)}개 별명 등록됨")
+        lines.append(f"📊 총 {len(canonical)}개 영역 ({len(aliases)}개 별명 매핑)")
         await update.message.reply_text("\n".join(lines))
         return
 

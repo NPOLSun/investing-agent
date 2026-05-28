@@ -84,6 +84,7 @@ nav:
       - AI Foundation / Horizontal: mega-change-map/tier1_ai_foundation_horizontal_v23.md
       - AI Vertical / AI-native: mega-change-map/tier1_ai_vertical_v23.md
       - AI DC 전력 인프라: mega-change-map/tier1_ai_dc_power_infra_v23.md
+      - K-조선 르네상스 ★ NEW: mega-change-map/tier1_kr_shipbuilding_renaissance_v23.md
     - "Tier 2 — Tier 1 깊이":
       - 차세대 전력반도체 (GaN·SiC): mega-change-map/tier2_power_semi_gan_sic_v23.md
       - 국방·드론: mega-change-map/tier2_defense_drones_v23.md
@@ -93,6 +94,7 @@ nav:
       - 휴머노이드 로봇: mega-change-map/tier2_humanoid_robot_v23.md
       - 광인터커넥트 (CPO): mega-change-map/tier2_optical_interconnect_cpo_v23.md
       - 우주 (위성·발사체): mega-change-map/tier2_space_v23.md
+      - EV Battery + ESS ★ NEW: mega-change-map/tier2_battery_ess_v23.md
   - 워치리스트:
     - watchlist/00_first_watchlist_draft.md
     - "구버전 (v2.1)": watchlist/00_first_watchlist_draft_v21_backup.md

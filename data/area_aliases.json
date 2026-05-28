@@ -64,6 +64,51 @@
       "path": "mega-change-map/tier2_humanoid_robot_v23.md",
       "title": "휴머노이드 로봇",
       "tier": 2
+    },
+    "shipbuilding": {
+      "path": "mega-change-map/tier1_kr_shipbuilding_renaissance_v23.md",
+      "title": "K-조선 르네상스",
+      "tier": 1
+    },
+    "ship": {
+      "path": "mega-change-map/tier1_kr_shipbuilding_renaissance_v23.md",
+      "title": "K-조선 르네상스",
+      "tier": 1
+    },
+    "조선": {
+      "path": "mega-change-map/tier1_kr_shipbuilding_renaissance_v23.md",
+      "title": "K-조선 르네상스",
+      "tier": 1
+    },
+    "masga": {
+      "path": "mega-change-map/tier1_kr_shipbuilding_renaissance_v23.md",
+      "title": "K-조선 르네상스",
+      "tier": 1
+    },
+    "battery": {
+      "path": "mega-change-map/tier2_battery_ess_v23.md",
+      "title": "EV Battery + ESS",
+      "tier": 2
+    },
+    "ess": {
+      "path": "mega-change-map/tier2_battery_ess_v23.md",
+      "title": "EV Battery + ESS",
+      "tier": 2
+    },
+    "ev": {
+      "path": "mega-change-map/tier2_battery_ess_v23.md",
+      "title": "EV Battery + ESS",
+      "tier": 2
+    },
+    "배터리": {
+      "path": "mega-change-map/tier2_battery_ess_v23.md",
+      "title": "EV Battery + ESS",
+      "tier": 2
+    },
+    "2차전지": {
+      "path": "mega-change-map/tier2_battery_ess_v23.md",
+      "title": "EV Battery + ESS",
+      "tier": 2
     }
   }
 }

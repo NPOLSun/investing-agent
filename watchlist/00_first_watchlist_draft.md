@@ -1,6 +1,6 @@
 # Track 4 Watchlist (v2.3 완전판) — 통합 종목 후보 list
 
-> **Trigger**: 13개 영역 v2.3 통합 deep dive 의 핵심 종목 + Next Wave Hidden Alpha + KR thorough.
+> **Trigger**: **15개 영역 (v2.3.1)** 통합 deep dive 의 핵심 종목 + Next Wave Hidden Alpha + KR thorough.
 > **목적**: 본인 의사결정용 종목 후보 목록. 시스템이 매수·매도 결정 안 함.
 > **Valuation Gate**: 일부 종목 미완료 (TBD). 추후 분기 채점.
 
@@ -10,11 +10,11 @@
 
 | 항목 | 값 |
 |------|----|
-| 버전 | **v2.3 완전판** |
-| 작성일 | 2026-05-24 |
+| 버전 | **v2.3.1** (15영역 확장) |
+| 작성일 | 2026-05-24 (최초) / **2026-05-29 갱신** |
 | 다음 정기 갱신 | 2026-07-01 (Q3 첫 주) |
-| 총 종목 수 | ~75개 (US 35 + KR 40) |
-| 영역 cover | 13개 영역 (Tier 1 5개 + Tier 2 8개) |
+| 총 종목 수 | ~90개 (US 38 + KR 52) |
+| 영역 cover | **15개 영역** (Tier 1 6개 + Tier 2 9개) |
 | Valuation Gate | **부분 완료** (Hidden Alpha 종목 우선) |
 
 ---
@@ -50,6 +50,8 @@
 | **K-바이오** | **리가켐 141080** (ADC 10조) | 알테오젠 196170 | 에이비엘 298380 |
 | **K-원전** | **두산에너빌리티 034020** ★ | 한전기술 052690 | 한국전력 015760 (P/B 0.3) |
 | **K-그리드** | **효성중공업 298040** ★ | HD현대일렉 267260 | LS ELECTRIC 010120 |
+| **K-조선 (★ NEW Tier 1)** | **HD현대중공업 329180** ★ (MASGA + AI DC 엔진) | 한화오션 042660 (Philly + K-방산 cross) | **HD현대마린엔진 071970** ★ hidden, 삼성중공업 010140 |
+| **K-Battery + ESS (★ NEW Tier 2)** | **삼성SDI 006400** ★ (전고체 + 휴머노이드 hidden) | LGES 373220 (AI DC ESS 1위) | 포스코퓨처엠 003670 (LFP), 엔켐 348370 (CATL) |
 | **K-우주** | 쎄트렉아이 099320 | 루미르 470170 | 컨텍 451760·이노스페이스 462350 |
 | **K-AI / Medical** | NAVER 035420 | 카카오 035720 | 루닛 328130·뷰노 338220 |
 | **K-GLP-1** | **펩트론 087010** ★ (Lilly depot) | 한미약품 128940 | — |
@@ -214,6 +216,28 @@
 | **462350** | **이노스페이스** | 우주 | 재발사 wait | B KR | 재발사 wait. | 변동성 | TBD |
 | **211270** | **AP위성** | 우주 | 위성 IoT | B KR | 위성 IoT. | | TBD |
 | **189300** | **인텔리안테크** | 우주 | 위성 안테나 | B KR | 위성 안테나. | | TBD |
+| **329180** | **HD현대중공업** ★ | **K-조선 (NEW Tier 1)** | 빅3 1위 + AI DC 엔진 + LNG | **A KR 1순위** | **MASGA 직접 + Huntington Ingalls 파트너십 + 미국 DC dual-fuel 엔진 첫 공급 + LNG 2028 sold out**. | YTD +120%, P/E 25x → 분할 매수 | TBD |
+| **042660** | **한화오션** ★ | K-조선 + K-방산 cross | Philly Shipyard + 호주·캐나다 잠수함 + LNG | **A KR 1순위 (cross)** | **Philly 인수 2024 + MASGA 직접 + 잠수함 양강**. K-방산 → K-조선 권장. | YTD +200% → 분할 매수 | TBD |
+| **010140** | **삼성중공업** | K-조선 | LNG carrier + FPSO | **A KR** | LNG + FPSO. YTD +90%. Forward P/E ~20x. | YTD +90% | TBD |
+| **009540** | **HD한국조선해양** | K-조선 holding | HD현대중공업 + 미포 + 삼호 통합 | **A KR** | HD현대중공업 + HD현대미포 + HD현대삼호 통합 holding. | | TBD |
+| **071970** | **HD현대마린엔진** ★ | K-조선 + AI DC cross | AI DC dual-fuel 엔진 글로벌 lead | **A KR (★ hidden)** | **AI DC dual-fuel 엔진 spinoff. 2026-03 미국 DC 첫 공급**. 시장 미반영. | hidden, monitoring | TBD |
+| **082740** | **한화엔진** ★ | K-조선 + AI DC cross | 대형 엔진 (구 HSD엔진) | **A KR (★ hidden)** | 한화그룹 AI DC 엔진 본격. Wärtsilä·MAN 라이선스. | hidden | TBD |
+| **010620** | **HD현대미포** | K-조선 | 중형선 (PC선·LPG) | B KR | 중형 컨테이너·LPG. HD현대 group. | | TBD |
+| **028670** | **팬오션** | K-조선 (해운) | 벌커·탱커 | B KR (cycle) | 벌커 cycle 회복. 하림그룹. | | TBD |
+| **086280** | **현대글로비스** | K-조선 (해운) | 자동차·해운 logistics | B KR | 현대차그룹. PCTC 강세. | | TBD |
+| **011200** | **HMM** | K-조선 (해운) | 컨테이너 해운 | B KR (cycle) | 컨테이너 cycle. | | TBD |
+| **373220** | **LG에너지솔루션** ★ | **K-Battery+ESS (NEW Tier 2) + AI DC cross** | 셀 빅3 1위 + ESS 글로벌 1위 + AI DC 백업 | **A KR 1순위 (★ AI DC ESS hidden)** | **AI DC ESS 1위. 2026 ESS 매출 +80% 가이던스**. EV cycle 회복. | YTD +30%, 고점 대비 −40% 잔존 | TBD |
+| **006400** | **삼성SDI** ★ | K-Battery+ESS + 휴머노이드·전고체 cross | 셀 빅3 + 전고체 lead + 휴머노이드 BMS | **A KR 1순위 (★ 전고체 + 휴머노이드 dual hidden)** | **전고체 글로벌 lead (2027~2030 양산) + 휴머노이드 battery 1순위**. | YTD +20%, 고점 대비 −50% 잔존 | TBD |
+| **096770** | **SK이노베이션** | K-Battery+ESS | SK on (셀) + SK IET (분리막) | **A KR** | SK on 흑자 전환 + 분리막. 시총 고점 대비 −60%. | | TBD |
+| **003670** | **포스코퓨처엠** ★ | K-Battery+ESS | 양극재·음극재 통합 + LFP 진입 | **A KR (★ LFP hidden)** | **양극재·음극재 KR 유일 통합 + LFP 양산 2026~2027 본격 + POSCO 광물 수직계열화**. | 고점 대비 −60% | TBD |
+| **247540** | **에코프로비엠** | K-Battery+ESS | 양극재 1위 + LFP 진입 | **A KR** | NCM 양극재 KR 1위 + LFP 증설. 고점 대비 −70%. | | TBD |
+| **086520** | **에코프로** | K-Battery+ESS | 에코프로비엠 holding | B KR (holding) | 에코프로비엠 + HN (전구체) 통합. | | TBD |
+| **348370** | **엔켐** ★ | K-Battery+ESS | 전해액 | **A KR (★ CATL catalyst)** | **2026 Q2 CATL 공급 본격화 (매출 +30%+)**. | YTD +50%+ | TBD |
+| **357780** | **솔브레인** | K-Battery+ESS + 반도체 cross | 전해액 + 반도체 (HBM) 소재 | B KR (cross) | 전해액 + HBM 반도체 cross. | | TBD |
+| **011790** | **SKC** | K-Battery+ESS | 동박 (SK Nexilis) | B KR | 동박 미국 공장 + IRA 수혜. | | TBD |
+| **020150** | **롯데에너지머티리얼즈** (구 일진머티리얼즈) | K-Battery+ESS | 동박 | B KR | 동박 cycle 회복. | | TBD |
+| **082640** | **동화기업** | K-Battery+ESS | 전해액 | B KR | 전해액 중견. | | TBD |
+| **005490** | **POSCO홀딩스** | K-Battery+ESS group | 광물 + 소재 통합 group | B KR (group) | 광물 (리튬·니켈) 수직계열화 + 포스코퓨처엠 모회사. | | TBD |
 
 ---
 
@@ -238,10 +262,12 @@
 | **국방·드론** | **10~15%** | **40~50%** ★ | **시차 +7 Maximum**, K-방산 alpha 강 |
 | **정밀 종양학** | 8~12% | **30~40%** ★ | 시차 +6, K-바이오 30조 수출 |
 | **휴머노이드** | 5~8% | **70~80%** ★★ | **K-VC 친숙도 최대, B 지표 1→4 양산 시작** |
+| **K-조선 르네상스 ★ NEW** | **10~15%** | **70~80%** ★★ | **시차 +6 Very strong + MASGA + AI DC 엔진 + LNG 2028 sold out. 글로벌 50%+ 점유** |
+| **EV Battery + ESS ★ NEW** | 5~10% | **40~50%** ★ | 시차 +5 Strong + AI DC ESS hidden + 휴머노이드·전고체 next wave |
 
-⚠️ **AI 인프라 메가 사이클 중복 경고**: AI DC Power + AI Foundation + AI Vertical + 광인터커넥트 + 전력반도체 + 냉각 합산 = **25~35% 상한**. 합산 시 빅테크 CapEx 단일 변수에 노출.
+⚠️ **AI 인프라 메가 사이클 중복 경고**: AI DC Power + AI Foundation + AI Vertical + 광인터커넥트 + 전력반도체 + 냉각 + **EV Battery+ESS (AI DC ESS cross)** 합산 = **25~35% 상한**. 합산 시 빅테크 CapEx 단일 변수에 노출.
 
-⚠️ **한국 비중**: 위 영역 중 휴머노이드·K-방산·K-바이오·K-원전·K-그리드·우주 합산 시 한국 자연 비중 **40~50%** 가능. 본인 한국 시장 노출 선호도에 따라 조정.
+⚠️ **한국 비중**: 위 영역 중 휴머노이드·K-방산·K-바이오·K-원전·K-그리드·**K-조선**·우주 합산 시 한국 자연 비중 **50~60%** 가능 (v2.3.1 K-조선 추가로 ↑). 본인 한국 시장 노출 선호도에 따라 조정.
 
 ---
 
@@ -259,7 +285,8 @@
 | **ETN** | **AI DC Power 매수** | 냉각 (Boyd Thermal) 위성 | — |
 | **두산에너빌리티 034020** | **Nuclear 매수** | AI DC Power (가스터빈) 위성 | — |
 | **삼성전기 009150** | **전력반도체 매수** | 반도체 메가 cross | AI DC Power MLCC |
-| **삼성SDI·LG에너지** | **EV battery (별도 영역)** | 휴머노이드 위성 | 냉각 cross |
+| **LGES 373220** ★ | **EV Battery+ESS 매수** | AI DC Power (AI DC ESS) 위성 | — |
+| **삼성SDI 006400** ★ | **EV Battery+ESS 매수** | 휴머노이드 위성 (battery·BMS) | 전고체 next wave |
 | **한화시스템 272210** | **K-방산 매수** | 우주 (위성) 위성 | AI Vertical (defense) |
 | **루닛 328130** | **AI Vertical 매수** | 정밀 종양학 위성 | — |
 | **VRT** | **AI DC Power 매수** | 냉각 cross | — |
@@ -268,6 +295,10 @@
 | **HIMS** | **GLP-1 매수** | AI Vertical (Healthcare telehealth) 위성 | — |
 | **한국전력 015760** | **Nuclear 매수** | AI DC Power (utility) 위성 | — |
 | **STX엔진 077970** | **K-방산 매수** | Nuclear 위성 | — |
+| **한화오션 042660** ★ NEW | **K-조선 매수 (권장)** | K-방산 위성 (잠수함 호주·캐나다) | — |
+| **HD현대중공업 329180** ★ NEW | **K-조선 매수** | AI DC Power 위성 (HD현대마린엔진 모회사) | — |
+| **HD현대마린엔진 071970** ★ NEW hidden | **K-조선 매수** | AI DC Power 위성 (대형 dual-fuel 엔진) | — |
+| **한화엔진 082740** ★ NEW hidden | **K-조선 매수** | AI DC Power 위성 | — |
 
 ---
 
@@ -311,6 +342,32 @@
 | K-AI | 업스테이지·마음AI·노타 | 시그널 |
 | 정밀 종양학 | Mersana, Callio, Endeavor | 2026~2027 |
 | 핵융합 (장기) | Helion (Microsoft 2028 PPA), Commonwealth, TAE | 2027~ |
+
+---
+
+## 7B. 모니터링 only — KR alpha 없음 / mega-map 본질 outside
+
+> 2026-05-29 추가. **신규 영역 신설 없이 monitoring 만**. 본인 매수 대상 아님, 분기 시그널 점검용.
+
+### 양자컴퓨팅 — Tier 3 monitoring (거품 단계)
+- **현황 (2026-05)**: 미국 정부 $2B funding + equity stake 검토 (IBM·IonQ 첫 수혜). IonQ Q1 매출 +755%.
+- **거품 시그널**: IonQ P/S 109x, Rigetti 836x, D-Wave 791x — 매출 미흡 대비 거품.
+- **KR alpha**: 거의 없음 (양자 KR pure-play 종목 부재).
+- **모니터링 종목**: IonQ (IONQ), Rigetti (RGTI), D-Wave (QBTS), IBM (양자 + AI Foundation cross)
+- **catalyst trigger**: 정부 funding 확정, 상업 매출 traction (현재 Rigetti Q4 매출 $1.87M = 미흡)
+- **action**: 매수 X. P/S 50x 이하 + 상업 매출 traction 시그널 시 재검토.
+
+### Stablecoin / Crypto 인프라 — mega-map 본질 outside
+- **현황 (2026-05)**: GENIUS Act 통과 → regulatory clarity. Circle YTD +30%, 시총 ~$26B.
+- **KR alpha**: zero (한국 본인 정보 비대칭 우위 없음).
+- **mega-map fit**: 본인 변화 thesis (제조·에너지·바이오) 와 결 다름. **추가 안 함**.
+- **모니터링 종목**: Circle (CRCL), Coinbase (COIN), Strategy (구 MicroStrategy, MSTR)
+- **action**: 매수 X. 분기 한 번 시그널만 점검.
+
+### HALO old economy / 금융 / 종합 인덱스
+- **현황**: 2026 미국 HALO (FedEx·CAT·Coke·XOM·WMT) +17~30%. 한국 증권·은행 강세.
+- **mega-map fit**: 본 시스템은 *변화 베팅 전용*. HALO·금융은 별도 안정 자산 영역.
+- **action**: 본 시스템 추가 안 함. 본인 별도 안정 자산 운용.
 
 ---
 
@@ -374,5 +431,6 @@
 
 | 날짜 | 변경 사항 |
 |------|---------|
+| **2026-05-29** | **v2.3.1 (15영역 확장)**. **Tier 1 신설: K-조선 르네상스** (HD현대중공업·한화오션·삼성중공업·HD현대마린엔진·한화엔진·HD한국조선해양·HD현대미포·팬오션·현대글로비스·HMM). **Tier 2 신설: EV Battery + ESS** (LGES·삼성SDI·SK이노·포스코퓨처엠·에코프로비엠·엔켐·솔브레인·SKC·롯데에너지머티리얼즈·동화기업·POSCO). 추가: 한화오션·HD현대중공업·HD현대마린엔진·한화엔진 cross-area 갱신. 양자/stablecoin Section 7B (monitoring only). 총 종목 ~90개 (US 38 + KR 52). |
 | 2026-05-24 | **v2.3 완전판**. 13개 영역 통합. ~75 종목 (US 35 + KR 40). Hidden Alpha 종목 강조 (현대차 4 thesis·에스피지·효성중공업·리가켐·펩트론). Cross-area 종목 중복 매수 금지 룰 명시. KR 정보 비대칭 우위 영역별 비중 분배 권장. 비상장 IPO watchlist 통합. v2.1 의 핵심 매수 논리·리스크·Valuation Gate 컬럼 복원 + v2.3 신규 종목 추가. |
 | 2026-05-23 | 최초 작성 (v2.1) — 28 종목 |

@@ -2,7 +2,7 @@
 
 > **목적**: 일간·주간·월간 다이제스트의 *catalyst 인풋*. 본인 의사결정용 일정 추적.
 > **버전**: v2.3.1 (Week 구조 보존 + **15개 영역** 통합 + Next Wave catalyst 추가).
-> **갱신**: 매주 (새 이벤트 발생 시), 매월 (캘린더 본격 확장).
+> **갱신**: 매주 (새 이벤트 발생 시), 매월 (캘린더 본격 확장). **2026-06-03 웹 검증으로 6월 섹션 정정.**
 
 ---
 
@@ -22,28 +22,28 @@
 | 날짜 | 이벤트 | 영역·종목 | P |
 |------|------|---------|---|
 | 6/1 | (월간 다이제스트 생성일) | 시스템 | — |
-| 6/3 | Apple WWDC 2026 시작 (예상) | AI Foundation (AAPL) | P2 |
-| 6/5 | NRC SMR 첫 건설 허가 결정 가능성 | 원자력 (NuScale·TerraPower) | P1 |
+| 6/2~3 | Microsoft Build 2026 (Copilot·Windows·agents) | AI Foundation (MSFT) | P2 |
+| 6월? | NRC 첫 SMR 건설 허가 (TerraPower Natrium 최우선, 1H2026 예상 — 구체 날짜 미확정) | 원자력 (TerraPower·NuScale) | P1 |
 
 ### Week 2 (6/8 ~ 6/14) ★ SpaceX IPO 주
 | 날짜 | 이벤트 | 영역·종목 | P |
 |------|------|---------|---|
-| 6/10 | 한미약품 efpeglenatide 식약처 검토 진행 | GLP-1 (128940) | P1 |
-| **6/12** | **SpaceX IPO ($1.75T, SPCX nasdaq)** ★★ | 우주 (sector reset) | **P1** |
+| 6/8 | **Apple WWDC 2026 키노트** (6/8~12, Apple Intelligence·AI 포지셔닝) | AI Foundation (AAPL) | P2 |
+| 6/8 | SpaceX IPO 로드쇼 시작 | 우주 (SPCX) | P1 |
+| 6/10 | 한미약품 efpeglenatide 식약처 심사 진행 (GIFT 신속심사, 2026 허가 목표) | GLP-1 (128940) | P1 |
+| **6/12** | **SpaceX IPO (밸류 $1.8T+, 최대 $75B 조달, SPCX nasdaq)** ★★ | 우주 (sector reset) | **P1** |
 | 6/12 | TerraPower Natrium 핵 부분 착공 예정 | 원자력 | P1 |
 
 ### Week 3 (6/15 ~ 6/21)
 | 날짜 | 이벤트 | 영역·종목 | P |
 |------|------|---------|---|
-| 6/17 | FOMC 6월 회의 (Fed 금리 결정) | 매크로 (빅테크 멀티플) | P1 |
-| 6/18 | Microsoft Build 컨퍼런스 마무리 | AI Foundation (MSFT) | P2 |
+| 6/16~17 | FOMC 6월 회의 (Fed 금리 결정·dot plot, 6/17 14:00 ET) | 매크로 (빅테크 멀티플) | P1 |
 | 6/20 | (한국 휴일 영향, 거래량 변화) | 한국 종목 | P3 |
 
 ### Week 4 (6/22 ~ 6/30)
 | 날짜 | 이벤트 | 영역·종목 | P |
 |------|------|---------|---|
 | 6/25 | EU AI Act 추가 가이던스 발표 | AI Foundation·Vertical | P2 |
-| 6/29 | Eaton 아에로스페이스 분리 마무리 | AI DC Power (ETN) | P2 |
 | 6 EOY | 효성중공업 미국 변압기 추가 수주 시그널 | AI DC Power (298040) | P2 |
 | 6/30 | (월말 — 7월 1일 월간 다이제스트 준비) | 시스템 | — |
 
@@ -264,6 +264,7 @@
 | 2027 Q1 | Anduril IPO (가능성) | 국방·드론 | P1 |
 | 2027 Q1 | X-energy IPO (Amazon $500M-backed) | 원자력 | P1 |
 | 2027 Q1 | 카카오모빌리티 IPO (가능성) | 자율주행 | P1 |
+| 2027 Q1 | Eaton Mobility(Vehicle·eMobility) 부문 분리 완료 — 잔존 Electrical+Aerospace 집중 | AI DC Power (ETN) | P2 |
 | 2027 Q1 | Tesla Optimus high-volume 양산 진척 | 휴머노이드 + 자율 | P2 |
 | 2027 Q2 | OpenAI / Anthropic IPO 시그널 (가능성) | AI Foundation | P1 |
 | 2027 Q2 | Figure AI IPO (NVDA-backed) | 휴머노이드 | P2 |
@@ -356,5 +357,6 @@
 
 | 날짜 | 변경 |
 |------|------|
+| 2026-06-03 | **6월 섹션 웹 검증·정정**. WWDC 6/3→**6/8~12**(키노트 6/8). Microsoft Build 6/18→**6/2~3**(San Francisco, 종료). Eaton "에어로스페이스 분리 6/29" 오류 정정 → 실제는 **Mobility 부문 분리, 2027 Q1 완료**(Aerospace 잔존) — 6월에서 제거, 2027 Q1 트래커로 이전. SpaceX IPO 밸류 $1.75T→**$1.8T+**(최대 $75B 조달, 6/8 로드쇼). FOMC **6/16~17**(결정 6/17). NRC SMR 6/5 확정 날짜 없음 → **1H2026, TerraPower Natrium 최우선**으로 완화. 한미 efpeglenatide GIFT 신속심사·2026 허가 목표 주석. |
 | 2026-05-24 | **v2.3 완전판**. v2.1 의 Week 구조 (Week 1·2·3·4) 보존 + v2.3 의 13개 영역 통합 catalyst 추가. **핵심 catalyst 추가**: **2026-06-12 SpaceX IPO, 2026-07 미 ERCA K9 숏리스트, 2026-12 Lilly Retatrutide TRIUMPH-5, 에스피지 26종 액추에이터 (2026 연내), 리가켐 LCB14 중국 상업화 (2027), 한화에어로 사우디 20조 진척, 현대차 4 thesis cross 분기 추적, 두산에너빌리티 KHNP 체코·i-SMR**. 비상장 IPO watchlist 추가 (Anduril·Apptronik·카카오모빌리티·X-energy·OpenAI 등). 12개월 calendar 로 확장 (2026/06 ~ 2027/06). 자동 갱신 룰 (Claude·봇) + 본인 추가 룰 명시. 영역별 핵심 catalyst 요약표 신규 추가. |
 | 2026-05-23 | 최초 작성 (v2.1) — 6개월 calendar, Week 구조 |

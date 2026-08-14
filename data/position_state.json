@@ -5,7 +5,7 @@
   },
   "positions": {
     "us-transformer": {
-      "last_checked": null,
+      "last_checked": "2026-08-14",
       "observations": {
         "298040_영업이익률_2026Q2": [
           {
@@ -88,7 +88,7 @@
       ]
     },
     "ess-foil": {
-      "last_checked": null,
+      "last_checked": "2026-08-14",
       "observations": {
         "ESS_매출비중_2025": [
           {
@@ -199,7 +199,7 @@
       ]
     },
     "ssd-controller": {
-      "last_checked": null,
+      "last_checked": "2026-08-14",
       "observations": {
         "2Q2026_매출": [
           {

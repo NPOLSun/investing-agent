@@ -4,8 +4,8 @@ Daily Digest Generator
 매일 새벽 06:30 KST 자동 실행 (cron).
 
 작동 순서:
-1. 워치리스트·캘린더·dashboard·positions.json·position_state.json 로드
-2. yfinance·pykrx 로 시장 데이터 수집
+1. positions.json·position_state.json·캘린더 로드
+2. 포지션 종목만 yfinance·pykrx 로 가격 수집 (레거시 워치리스트 32종목 미사용)
 3. Layer 0 (포트폴리오 상위 변수) web_search 1회
 4. 검색 대상 포지션 선별 (가격 ±3% / 7일 내 이벤트 / N일 미점검 rotation)
 5. 선별된 포지션만 개별 web_search → RED·YELLOW·WHITE 판정
@@ -14,7 +14,7 @@ Daily Digest Generator
 8. 파일 저장 (digests/sent/YYYY-MM-DD.md)
 9. 텔레그램 푸시 (요약 + 파일 첨부 + GitHub URL)
 
-하루 API 호출: Layer 0 (1) + 선별 포지션 (0~4) + 종합 (1) = 2~6회
+하루 API 호출: Layer 0 (1) + 선별 포지션 (0~2) + 종합 (1) = 2~4회
 하루 검색: 호출당 상한(LAYER0_MAX_USES / POSITION_MAX_USES) + 총량 캡(DAILY_SEARCH_BUDGET)
 """
 
@@ -85,8 +85,8 @@ MODEL = "claude-sonnet-5"
 # 따라서 구형 3000 을 그대로 쓰면 응답이 중간에 잘림.
 SEARCH_MAX_TOKENS = 8000       # 포지션별 검색 호출
 SYNTHESIS_MAX_TOKENS = 16000   # 종합 호출 (TELEGRAM + FILE 전문)
-SEARCH_EFFORT = "medium"       # 검색·판정용 (비용 통제)
-SYNTHESIS_EFFORT = "high"      # 최종 작성용
+SEARCH_EFFORT = "low"          # 검색·판정은 사실 추출 위주라 low 로 충분
+SYNTHESIS_EFFORT = "medium"    # 최종 작성 (high 는 출력 토큰이 크게 늘어남)
 
 # web_search
 # _20260209 = dynamic filtering. 검색 결과를 코드로 걸러 컨텍스트에 넣으므로
@@ -97,9 +97,11 @@ WEB_SEARCH_TOOL_TYPE = "web_search_20260209"
 # max_uses 는 할당량이 아니라 천장이다. 모델은 필요한 만큼만 검색하므로
 # 값을 올려도 평상시 비용은 그대로고 최악의 날만 비싸진다.
 # 따라서 per-call 은 넉넉히 두고, 실제 통제는 아래 일일 총량 캡으로 한다.
-LAYER0_MAX_USES = 6            # Layer 0: kill 신호 4개 + 여유
-POSITION_MAX_USES = 8          # 포지션: watch.queries 4~5개 + 후속 확인 여유
-DAILY_SEARCH_BUDGET = 25       # 하루 검색 총량 캡 (초과 시 남은 포지션 검색 생략)
+# 실측: 검색 1회당 입력 약 11K 토큰이 재과금되므로 검색 수가 비용을 지배한다.
+# 검색 1회 ≈ $0.043 (입력 $0.033 + 검색료 $0.01).
+LAYER0_MAX_USES = 3            # Layer 0
+POSITION_MAX_USES = 4          # 포지션당
+DAILY_SEARCH_BUDGET = 7        # 하루 검색 총량 캡
 MAX_PAUSE_CONTINUATIONS = 3    # pause_turn 재개 상한
 
 # 모니터링 대상 status (exited·paused 는 기록만 남기고 판정 대상에서 제외)
@@ -110,7 +112,9 @@ PRICE_MOVE_THRESHOLD = 3.0     # ±% 이상이면 검색 트리거 (내부 판�
 PRICE_DISPLAY_THRESHOLD = 5.0  # ±% 이상만 다이제스트 맨 아래 한 줄로 표기
 EVENT_WINDOW_DAYS = 7          # 캘린더 이벤트 감시 창
 SEARCH_ROTATION_DAYS = 14      # 이 기간 미점검이면 순번으로 강제 점검
-MAX_SEARCH_POSITIONS = 4       # 하루 개별 검색 상한 (비용 캡)
+# 회당 검색을 줄이면 '확인 미완료' 가 잦아진다. 반쪽 점검 2개보다
+# 제대로 된 1개가 낫고, 못 끝낸 건 last_checked 미갱신으로 내일 재시도된다.
+MAX_SEARCH_POSITIONS = 1       # 하루 개별 검색 상한 (비용 캡)
 
 # 상태 파일 관리
 MAX_OBSERVATIONS = 12          # 지표당 보관할 관측 이력 개수
@@ -175,10 +179,10 @@ def get_last_kr_trading_day() -> str:
     return today.strftime("%Y%m%d")
 
 
-def fetch_us_prices() -> list[dict]:
-    """미국 종목 yfinance 데이터."""
+def fetch_us_prices(tickers: Optional[list[str]] = None) -> list[dict]:
+    """미국 종목 yfinance 데이터. tickers 미지정 시 레거시 워치리스트."""
     results = []
-    for ticker in US_TICKERS:
+    for ticker in (US_TICKERS if tickers is None else tickers):
         try:
             t = yf.Ticker(ticker)
             hist = t.history(period="5d")
@@ -202,16 +206,19 @@ def fetch_us_prices() -> list[dict]:
     return results
 
 
-def fetch_kr_prices() -> list[dict]:
-    """한국 종목 pykrx 데이터."""
+def fetch_kr_prices(
+    tickers: Optional[list[str]] = None, names: Optional[dict] = None
+) -> list[dict]:
+    """한국 종목 pykrx 데이터. tickers 미지정 시 레거시 워치리스트."""
     if not PYKRX_AVAILABLE:
         return []
 
+    name_map = KR_NAMES if names is None else names
     last_day = get_last_kr_trading_day()
     prev_day = (datetime.strptime(last_day, "%Y%m%d") - timedelta(days=7)).strftime("%Y%m%d")
 
     results = []
-    for ticker in KR_TICKERS:
+    for ticker in (KR_TICKERS if tickers is None else tickers):
         try:
             df = krx_stock.get_market_ohlcv_by_date(prev_day, last_day, ticker)
             if df.empty or len(df) < 2:
@@ -224,14 +231,14 @@ def fetch_kr_prices() -> list[dict]:
             vol_ratio = volume / avg_volume if avg_volume > 0 else 1.0
             results.append({
                 "ticker": ticker,
-                "name": KR_NAMES.get(ticker, ""),
+                "name": name_map.get(ticker, ""),
                 "market": "KR",
                 "price": int(current),
                 "change_pct": round(float(change_pct), 2),
                 "volume_ratio": round(float(vol_ratio), 2),
             })
         except Exception as e:
-            logger.warning(f"{ticker} ({KR_NAMES.get(ticker, '')}) 수집 실패: {e}")
+            logger.warning(f"{ticker} ({name_map.get(ticker, '')}) 수집 실패: {e}")
     return results
 
 
@@ -463,6 +470,23 @@ def numbered(items: list, prefix: str, indent: str = "  ") -> str:
     return "\n".join(f"{indent}{prefix}{i}. {t}" for i, t in enumerate(items, 1))
 
 
+def collect_position_tickers(positions_doc: dict) -> tuple[list[str], list[str], dict]:
+    """모니터링 대상 포지션의 티커만 추출. (미국, 한국, 티커→이름)
+
+    레거시 워치리스트 32종목 대신 이걸 쓴다. 포지션과 무관한 종목의 등락은
+    다이제스트에서 노이즈일 뿐이고, 수집 대상도 11개로 줄어든다.
+    """
+    us, kr, names = [], [], {}
+    for pos in positions_doc.get("positions", []):
+        if pos.get("status") not in MONITORED_STATUSES:
+            continue
+        label = pos.get("label", "")
+        for ticker in pos.get("tickers", []):
+            (kr if ticker.isdigit() and len(ticker) == 6 else us).append(ticker)
+            names[ticker] = KR_NAMES.get(ticker) or label
+    return list(dict.fromkeys(us)), list(dict.fromkeys(kr)), names
+
+
 def format_position_config(pos: dict) -> str:
     """포지션 1개의 판정 기준을 번호 매겨 정리 (종합 프롬프트 컨텍스트용)."""
     watch = pos.get("watch", {})
@@ -488,10 +512,6 @@ def format_position_config(pos: dict) -> str:
 def build_prompt(
     us_prices: list[dict],
     kr_prices: list[dict],
-    tracked: list[dict],
-    dashboard: str,
-    calendar: str,
-    template: str,
     now_str: str,
     positions_doc: dict,
     layer0_result: Optional[dict],
@@ -556,11 +576,18 @@ def build_prompt(
             )
 
         if item.get("skipped"):
-            body = f"- (미점검: {item['skipped']} — 신호 없음이 아니라 확인 안 함)"
+            body = f"- ⚠️ 미점검: {item['skipped']} — 신호 없음이 아니라 확인 안 함"
+        elif item.get("incomplete"):
+            found = fmt_findings(result.get("findings")) if result else ""
+            body = (
+                f"- ⚠️ 확인 미완료: {item['incomplete']}\n"
+                f"  아래 항목은 확인된 것만이며, 이 포지션을 '이상 없음' 으로 쓰면 안 된다.\n"
+                f"{found}"
+            )
         elif result:
             body = fmt_findings(result.get("findings"))
         else:
-            body = "- (검색 실패 — 판정 없음)"
+            body = "- ⚠️ 확인 미완료: 검색 실패 — 판정 없음"
 
         pos_blocks.append(
             f"## {pos.get('label')} [{pos.get('id')}]\n"
@@ -595,8 +622,6 @@ def build_prompt(
         " / ".join(price_str(p) for p in big_moves)
         if big_moves else f"(±{PRICE_DISPLAY_THRESHOLD}% 이상 없음)"
     )
-
-    tracked_ids = ", ".join(t.get("ticker", "") for t in tracked) or "(없음)"
 
     prompt = f"""당신은 본인의 포지션 모니터링 시스템의 분석가. 오늘의 신호 판정 다이제스트를 작성한다.
 
@@ -639,15 +664,6 @@ status 가 holding 또는 watching 인 것만. T=thesis, K=kill_signals, A=add_s
 # 가격 (±{PRICE_DISPLAY_THRESHOLD}% 이상만)
 {price_section}
 
-# 참고 데이터 (출력 요구 아님 — 이것만 보고 항목을 만들지 말 것)
-Track 4 등재 티커: {tracked_ids}
-
-Mega Change Map dashboard 발췌:
-{dashboard[:1500]}
-
-기존 다이제스트 템플릿 (markdown 관례 참고용. 형식이 충돌하면 아래 출력 스펙이 우선):
-{template[:1200]}
-
 # 출력 스펙 (★ 정확히 이대로)
 
 두 블록을 순서대로 출력. 앞뒤 설명·코드블록 마커 없이 다이제스트만.
@@ -675,6 +691,9 @@ plain text, 표·markdown 문법 없이. 모바일 가독성 우선. 1500자 이
 
 📈 가격 ±{PRICE_DISPLAY_THRESHOLD}%
 - (한 줄로 이어서. 해당 없으면: 없음)
+
+⚠️ 확인 미완료: id (사유)
+(검색을 끝내지 못한 포지션. 없으면 이 줄 자체를 생략)
 
 미점검: id, id, id
 
@@ -704,6 +723,10 @@ Layer 0 에 걸린 게 있으면 이 섹션을 문서 맨 위로 올릴 것.
 ## 향후 {EVENT_WINDOW_DAYS}일 이벤트
 표 (날짜 / 이벤트 / 관련 포지션 / P). P1·P2만.
 
+## ⚠️ 확인 미완료
+검색을 시작했으나 끝내지 못한 포지션. 사유와 확인된 범위를 적을 것.
+"신호 없음" 과 절대 섞어 쓰지 말 것. 해당 없으면 "없음".
+
 ## 오늘 미점검 포지션
 - 포지션명 [id] — 마지막 점검 YYYY-MM-DD (확인 안 함)
 
@@ -721,7 +744,11 @@ Layer 0 에 걸린 게 있으면 이 섹션을 문서 맨 위로 올릴 것.
    "관심 필요", "대응 필요" 같은 표현 금지. 사실과 어떤 조건에 걸리는지만 쓴다.
 5. 검색으로 확인되지 않은 사실을 쓰지 말 것. 가격 변동에 추측 사유를 갖다붙이지 말 것.
    모르면 "사유 미확인".
-6. 미점검 포지션을 "이상 없음" 으로 쓰지 말 것. "확인 안 함" 이다.
+6. 상태를 3가지로 구분할 것. 절대 섞지 말 것.
+   - 점검 완료 + 신호 없음 → "없음"
+   - ⚠️ 확인 미완료 (검색을 끝내지 못함) → 별도 섹션에 사유와 함께
+   - 미점검 (검색 자체를 안 함) → "확인 안 함"
+   확인 미완료·미점검을 "이상 없음" 으로 쓰면 안 된다.
 7. 출처 URL 이 없는 항목은 만들지 말 것.
 8. 가격은 반드시 맨 아래. 위쪽 섹션에서 가격 등락을 서술하지 말 것.
 
@@ -1015,8 +1042,14 @@ web_search 로 위 KILL·ADD 신호와 추적 지표의 최신 상태를 확인�
 각 finding 은 어떤 번호에 걸리는지 refs 로 반드시 명시할 것 (예: ["K3"], ["T1","K2"]).
 어느 번호에도 연결되지 않으면 refs 를 빈 배열로 두고 level 은 WHITE.
 
+★ search_complete 를 정직하게 채울 것.
+검색 한도에 걸렸거나 필요한 확인을 끝내지 못했으면 search_complete=false, unchecked 에 못 본 항목 번호를 적을 것.
+확인을 못 끝낸 것을 no_news=true (뉴스 없음) 로 보고하면 안 된다. 둘은 완전히 다른 상태다.
+
 {{
   "position_id": "{pos.get('id')}",
+  "search_complete": true,
+  "unchecked": [],
   "findings": [
     {{"level": "RED|YELLOW|WHITE", "refs": ["K3"], "signal": "해당 항목 원문 (없으면 null)", "kind": "kill|add|info", "summary": "한 줄 사실 요약", "evidence_url": "출처 URL", "reported_at": "YYYY-MM-DD"}}
   ],
@@ -1033,11 +1066,36 @@ JSON 외 다른 텍스트 출력 금지."""
 # 상태 갱신
 # ============================================================
 
-def update_state_entry(entry: dict, result: dict, today_str: str) -> dict:
-    """검색 결과를 상태 엔트리에 누적. 관측값 시계열 + 열린 플래그."""
+def is_search_incomplete(result: Optional[dict], searches_used: int, max_uses: int) -> Optional[str]:
+    """이 포지션 점검이 '확인 미완료' 인지 판정. 사유 문자열 또는 None.
+
+    검색 한도에 걸려 확인을 못 끝낸 것과 '뉴스가 없는 것' 은 완전히 다른 상태인데,
+    모델이 후자로 보고해버리면 미점검이 '이상 없음' 으로 둔갑한다. 그걸 막는다.
+    """
+    if result is None:
+        return "검색 호출 실패 또는 응답 파싱 실패"
+    if result.get("search_complete") is False:
+        unchecked = ", ".join(result.get("unchecked") or []) or "미상"
+        return f"모델이 확인 미완료 보고 (미확인: {unchecked})"
+    # 모델이 search_complete 를 안 채웠을 때의 안전망:
+    # 검색을 상한까지 다 쓰고도 findings 가 비었으면 '뉴스 없음' 으로 보기 어렵다
+    if searches_used >= max_uses and not (result.get("findings") or []):
+        return f"검색 상한({max_uses}회) 소진 + findings 0건"
+    return None
+
+
+def update_state_entry(
+    entry: dict, result: dict, today_str: str, mark_checked: bool = True
+) -> dict:
+    """검색 결과를 상태 엔트리에 누적. 관측값 시계열 + 열린 플래그.
+
+    mark_checked=False (확인 미완료) 면 last_checked 를 갱신하지 않는다 —
+    갱신해버리면 rotation 이 '점검 완료' 로 보고 다음 순번에서 빼버린다.
+    """
     entry.setdefault("observations", {})
     entry.setdefault("open_flags", [])
-    entry["last_checked"] = today_str
+    if mark_checked:
+        entry["last_checked"] = today_str
 
     # 관측값: 값이 바뀔 때만 새 항목 추가, 같으면 날짜만 갱신
     for key, value in (result.get("observations") or {}).items():
@@ -1084,6 +1142,20 @@ def update_state_entry(entry: dict, result: dict, today_str: str) -> dict:
     ]
     return entry
 
+def build_cost_footer(usage: dict, cost: float, now_str: str) -> str:
+    """다이제스트 하단 토큰·비용 표기. 모델이 쓰게 하지 않고 코드가 붙인다."""
+    cost_in = usage["input"] / 1_000_000 * PRICE_IN_PER_MTOK
+    cost_out = usage["output"] / 1_000_000 * PRICE_OUT_PER_MTOK
+    cost_search = usage["searches"] * PRICE_PER_SEARCH
+    return (
+        "\n\n---\n\n"
+        f"🔢 토큰: {usage['input']:,} in / {usage['output']:,} out · 웹 검색 {usage['searches']}회\n\n"
+        f"💰 비용: ${cost:.4f} "
+        f"(입력 ${cost_in:.4f} / 출력 ${cost_out:.4f} / 검색 ${cost_search:.4f})\n\n"
+        f"🤖 {MODEL} · {now_str}\n"
+    )
+
+
 def parse_claude_response(response_text: str) -> tuple[str, str]:
     """Claude 응답에서 텔레그램 요약 + 파일 분리."""
     if "===TELEGRAM===" in response_text and "===FILE===" in response_text:
@@ -1122,7 +1194,9 @@ def build_summary_telegram(digest_md: str, cost: float, github_url: str) -> str:
     return summary + footer
 
 
-async def send_telegram(telegram_summary: str, file_path: Path, cost: float):
+async def send_telegram(
+    telegram_summary: str, file_path: Path, cost: float, usage: Optional[dict] = None
+):
     """텔레그램에 짧은 요약 + 파일 첨부."""
     bot = Bot(token=TELEGRAM_BOT_TOKEN)
 
@@ -1139,6 +1213,8 @@ async def send_telegram(telegram_summary: str, file_path: Path, cost: float):
     )
     if github_url:
         footer += f"\n🌐 GitHub: {github_url}"
+    if usage:
+        footer += f"\n🔢 {usage['input']:,} in / {usage['output']:,} out · 검색 {usage['searches']}회"
     footer += f"\n💰 비용: ${cost:.4f}"
 
     full_message = telegram_summary + footer
@@ -1177,29 +1253,23 @@ async def main(dry_run: bool = False):
     mode = "DRY-RUN (텔레그램·git·상태갱신 없음)" if dry_run else "정식 실행"
     logger.info(f"=== Daily Digest {today_str} 시작 — {mode} ===")
 
-    # 1. 시장 데이터
-    logger.info("미국 종목 수집...")
-    us_prices = fetch_us_prices()
-    logger.info(f"미국 {len(us_prices)}종목 수집 완료")
-
-    logger.info("한국 종목 수집...")
-    kr_prices = fetch_kr_prices()
-    logger.info(f"한국 {len(kr_prices)}종목 수집 완료")
-
-    # 2. 시스템 파일 · 포지션 · 상태 로딩
-    dashboard = load_text_file(DASHBOARD_PATH)
+    # 1. 포지션 · 상태 · 캘린더 로딩 (가격 수집 대상이 여기서 나옴)
     calendar = load_text_file(CALENDAR_PATH)
-    template = load_text_file(TEMPLATE_PATH)
-    tracked = load_tracked_stocks()
     positions_doc = load_positions()
     state = load_position_state()
 
     positions = positions_doc.get("positions", [])
-    all_prices = us_prices + kr_prices
     upcoming = extract_upcoming_events(calendar, now)
+    us_tickers, kr_tickers, ticker_names = collect_position_tickers(positions_doc)
 
-    logger.info(f"Track 4 등재 종목: {len(tracked)}개")
     logger.info(f"포지션 {len(positions)}개 로드 / 향후 {EVENT_WINDOW_DAYS}일 이벤트 {len(upcoming)}건 파싱")
+
+    # 2. 시장 데이터 (포지션 종목만)
+    logger.info(f"가격 수집: 미국 {len(us_tickers)} / 한국 {len(kr_tickers)}종목")
+    us_prices = fetch_us_prices(us_tickers)
+    kr_prices = fetch_kr_prices(kr_tickers, ticker_names)
+    all_prices = us_prices + kr_prices
+    logger.info(f"가격 수집 완료: {len(all_prices)}종목")
 
     usage_total = new_usage()
 
@@ -1250,14 +1320,25 @@ async def main(dry_run: bool = False):
         )
         result, u = search_position(cand, entry, price_info, now_str)
         merge_usage(usage_total, u)
+
+        incomplete = is_search_incomplete(result, u["searches"], POSITION_MAX_USES)
         if result:
-            state["positions"][pos["id"]] = update_state_entry(entry, result, today_str)
+            state["positions"][pos["id"]] = update_state_entry(
+                entry, result, today_str, mark_checked=incomplete is None
+            )
             findings = result.get("findings") or []
             reds = sum(1 for f in findings if f.get("level") == "RED")
-            logger.info(f"{pos['id']} 완료: findings {len(findings)}건 (RED {reds})")
+            if incomplete:
+                logger.warning(
+                    f"{pos['id']} 확인 미완료 ({incomplete}) — findings {len(findings)}건. "
+                    f"last_checked 미갱신, 내일 재점검 대상"
+                )
+            else:
+                logger.info(f"{pos['id']} 완료: findings {len(findings)}건 (RED {reds})")
         else:
-            logger.warning(f"{pos['id']} 결과 파싱 실패 — 판정 없음으로 처리")
-        position_results.append({**cand, "result": result})
+            logger.warning(f"{pos['id']} 결과 없음 ({incomplete}) — 확인 미완료로 처리")
+
+        position_results.append({**cand, "result": result, "incomplete": incomplete})
 
     # 6. 상태 저장 (종합 호출 실패해도 검색 결과는 남도록 먼저 저장)
     if dry_run:
@@ -1272,10 +1353,6 @@ async def main(dry_run: bool = False):
     prompt = build_prompt(
         us_prices=us_prices,
         kr_prices=kr_prices,
-        tracked=tracked,
-        dashboard=dashboard,
-        calendar=calendar,
-        template=template,
         now_str=now_str,
         positions_doc=positions_doc,
         layer0_result=layer0_result,
@@ -1301,6 +1378,7 @@ async def main(dry_run: bool = False):
 
     # 텔레그램용 요약 + 파일용 markdown 분리
     telegram_summary, file_md = parse_claude_response(response_text)
+    file_md += build_cost_footer(usage_total, cost, now_str)
 
     # 8. 파일 저장
     if dry_run:
@@ -1350,7 +1428,7 @@ async def main(dry_run: bool = False):
 
     # 9. 텔레그램 전송 (요약 + 파일 첨부)
     logger.info("텔레그램 전송 중...")
-    await send_telegram(telegram_summary, output_path, cost)
+    await send_telegram(telegram_summary, output_path, cost, usage_total)
     logger.info("텔레그램 전송 완료")
     # 10. Git commit
     git_commit_and_push(output_path)

@@ -37,9 +37,13 @@ logs/
 digests/daily/
 data/*
 !data/area_aliases.json
+# positions.json 은 보유 포지션·thesis·KILL 조건이 담기므로 public 저장소에 올리지 않는다.
+# EC2 배포는 git 이 아니라 scp 로: scp data/positions.json investing-agent:~/investing-agent/data/
+# position_state.json 도 동일 (EC2 런타임 상태)
 scripts/__pycache__/
 *.log
 digests/sent/
+digests/dry-run/
 
 # MkDocs build output (and staging dir created by workflow / local preview)
 site/

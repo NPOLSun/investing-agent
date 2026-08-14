@@ -39,7 +39,9 @@ data/*
 !data/area_aliases.json
 # positions.json 은 EC2 배포 입력이라 추적. 저장소가 public 이나 공개돼도 무방하다고 판단함.
 !data/positions.json
-# position_state.json 은 EC2 런타임 상태라 미추적 (PC↔EC2 충돌 방지)
+# position_state.json 은 분기 연속 판정의 유일한 근거다. EC2 로컬에만 두면
+# 서버가 죽을 때 몇 달치 누적이 사라지므로 추적한다 (EC2 가 매일 자동 커밋).
+!data/position_state.json
 scripts/__pycache__/
 *.log
 digests/sent/

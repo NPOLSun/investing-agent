@@ -78,15 +78,20 @@ DRY_RUN_OUTPUT_DIR = PROJECT_ROOT / "digests" / "dry-run"
 
 KST = pytz.timezone("Asia/Seoul")
 
-# 모델 (비용 통제 위해 Sonnet)
+# 실행 경로: True = Claude Code CLI (구독 사용량), False = Anthropic API (종량과금)
+# CLI 는 검색 건당 요금이 없어 검색 상한을 넉넉히 줄 수 있다.
+USE_CLAUDE_CLI = os.getenv("USE_CLAUDE_CLI", "1") == "1"
+CLAUDE_CLI_BIN = os.getenv("CLAUDE_CLI_BIN", "claude")
+CLAUDE_CLI_TIMEOUT = 600       # 초. 검색 많은 호출이 오래 걸림
+
 MODEL = "claude-sonnet-5"
 
 # Sonnet 5 는 thinking 이 기본 ON 이며 max_tokens 가 thinking + 응답을 함께 덮음.
 # 따라서 구형 3000 을 그대로 쓰면 응답이 중간에 잘림.
 SEARCH_MAX_TOKENS = 8000       # 포지션별 검색 호출
 SYNTHESIS_MAX_TOKENS = 16000   # 종합 호출 (TELEGRAM + FILE 전문)
-SEARCH_EFFORT = "low"          # 검색·판정은 사실 추출 위주라 low 로 충분
-SYNTHESIS_EFFORT = "medium"    # 최종 작성 (high 는 출력 토큰이 크게 늘어남)
+SEARCH_EFFORT = "medium"       # 검색·판정용
+SYNTHESIS_EFFORT = "high"      # 최종 작성용
 
 # web_search
 # _20260209 = dynamic filtering. 검색 결과를 코드로 걸러 컨텍스트에 넣으므로
@@ -99,9 +104,9 @@ WEB_SEARCH_TOOL_TYPE = "web_search_20260209"
 # 따라서 per-call 은 넉넉히 두고, 실제 통제는 아래 일일 총량 캡으로 한다.
 # 실측: 검색 1회당 입력 약 11K 토큰이 재과금되므로 검색 수가 비용을 지배한다.
 # 검색 1회 ≈ $0.043 (입력 $0.033 + 검색료 $0.01).
-LAYER0_MAX_USES = 3            # Layer 0
-POSITION_MAX_USES = 4          # 포지션당
-DAILY_SEARCH_BUDGET = 7        # 하루 검색 총량 캡
+LAYER0_MAX_USES = 6            # Layer 0
+POSITION_MAX_USES = 8          # 포지션당
+DAILY_SEARCH_BUDGET = 30       # 하루 검색 총량 캡 (CLI 는 검색 건당 요금 없음)
 MAX_PAUSE_CONTINUATIONS = 3    # pause_turn 재개 상한
 
 # 모니터링 대상 status (exited·paused 는 기록만 남기고 판정 대상에서 제외)
@@ -114,11 +119,13 @@ EVENT_WINDOW_DAYS = 7          # 캘린더 이벤트 감시 창
 SEARCH_ROTATION_DAYS = 14      # 이 기간 미점검이면 순번으로 강제 점검
 # 회당 검색을 줄이면 '확인 미완료' 가 잦아진다. 반쪽 점검 2개보다
 # 제대로 된 1개가 낫고, 못 끝낸 건 last_checked 미갱신으로 내일 재시도된다.
-MAX_SEARCH_POSITIONS = 1       # 하루 개별 검색 상한 (비용 캡)
+MAX_SEARCH_POSITIONS = 3       # 하루 개별 검색 상한
 
 # 상태 파일 관리
 MAX_OBSERVATIONS = 12          # 지표당 보관할 관측 이력 개수
-FLAG_EXPIRE_DAYS = 120         # 이 기간 재확인 안 된 플래그는 정리
+# 분기 실적은 약 90일 간격이다. 120일이면 Q1 플래그가 Q2 확인 전에 만료될 수 있어
+# 분기 연속 판정이 성립하지 않는다. 1년 이상 버티게 잡는다.
+FLAG_EXPIRE_DAYS = 400         # 이 기간 재확인 안 된 플래그는 정리
 
 # 단가 (USD per 1M tokens). 도입가 $2/$10 는 2026-08-31 만료라 정가 기준으로 계산
 PRICE_IN_PER_MTOK = 3.0
@@ -760,17 +767,19 @@ Layer 0 에 걸린 게 있으면 이 섹션을 문서 맨 위로 올릴 것.
 
 
 def new_usage() -> dict:
-    return {"input": 0, "output": 0, "searches": 0}
+    return {"input": 0, "output": 0, "searches": 0, "reported_cost": 0.0}
 
 
 def merge_usage(total: dict, part: dict) -> dict:
-    for k in ("input", "output", "searches"):
-        total[k] += part.get(k, 0)
+    for k in ("input", "output", "searches", "reported_cost"):
+        total[k] = total.get(k, 0) + part.get(k, 0)
     return total
 
 
 def calc_cost(usage: dict) -> float:
-    """토큰 + 웹 검색 요청 비용."""
+    """토큰 + 웹 검색 요청 비용. CLI 모드는 CLI 가 보고한 값을 그대로 쓴다."""
+    if usage.get("reported_cost"):
+        return usage["reported_cost"]
     return (
         usage["input"] / 1_000_000 * PRICE_IN_PER_MTOK
         + usage["output"] / 1_000_000 * PRICE_OUT_PER_MTOK
@@ -788,6 +797,49 @@ def _extract_text(content) -> str:
     return "\n".join(parts).strip()
 
 
+def call_claude_cli(prompt: str, *, use_search: bool) -> tuple[str, dict]:
+    """Claude Code CLI 로 호출 (구독 사용량). (텍스트, usage) 리턴.
+
+    API 와 달리 max_uses 를 강제할 수 없어 검색 횟수는 프롬프트로만 유도한다.
+    비용은 CLI 가 보고하는 total_cost_usd 를 그대로 쓴다 (내부 서브에이전트 포함).
+    """
+    cmd = [CLAUDE_CLI_BIN, "-p", prompt, "--model", MODEL, "--output-format", "json"]
+    if use_search:
+        cmd += ["--allowedTools", "WebSearch", "WebFetch"]
+
+    proc = subprocess.run(
+        cmd, cwd=PROJECT_ROOT, capture_output=True, timeout=CLAUDE_CLI_TIMEOUT
+    )
+    if proc.returncode != 0:
+        raise RuntimeError(
+            f"claude CLI 실패 (exit {proc.returncode}): "
+            f"{proc.stderr.decode(errors='replace')[:400]}"
+        )
+
+    payload = json.loads(proc.stdout.decode(errors="replace"))
+    if payload.get("is_error"):
+        raise RuntimeError(f"claude CLI 오류: {str(payload.get('result'))[:300]}")
+
+    u = payload.get("usage") or {}
+    server = u.get("server_tool_use") or {}
+    usage = {
+        "input": (u.get("input_tokens") or 0)
+        + (u.get("cache_creation_input_tokens") or 0)
+        + (u.get("cache_read_input_tokens") or 0),
+        "output": u.get("output_tokens") or 0,
+        "searches": server.get("web_search_requests") or 0,
+        "reported_cost": payload.get("total_cost_usd") or 0.0,
+    }
+    # CLI 는 검색을 하위 모델에 위임하므로 server_tool_use 가 0 으로 올 수 있다.
+    # modelUsage 쪽 집계로 보정한다.
+    if not usage["searches"]:
+        usage["searches"] = sum(
+            (m.get("webSearchRequests") or 0)
+            for m in (payload.get("modelUsage") or {}).values()
+        )
+    return str(payload.get("result") or ""), usage
+
+
 def call_claude(
     prompt: str,
     *,
@@ -801,6 +853,9 @@ def call_claude(
     web_search 사용 시 서버측 반복이 한도에 걸리면 stop_reason='pause_turn' 으로
     끊기므로, assistant 턴을 되붙여 재개한다.
     """
+    if USE_CLAUDE_CLI:
+        return call_claude_cli(prompt, use_search=use_search)
+
     client = Anthropic(api_key=ANTHROPIC_API_KEY)
 
     kwargs = {
@@ -895,6 +950,14 @@ def _run_search(prompt: str, max_uses: int, label: str) -> tuple[Optional[dict],
     if _search_disabled:
         logger.warning(f"{label}: 앞선 검색이 구조적으로 실패해 건너뜀")
         return None, new_usage()
+
+    # CLI 모드는 max_uses 파라미터가 없어 API 처럼 강제할 수 없다. 프롬프트로 유도한다.
+    if USE_CLAUDE_CLI:
+        prompt = (
+            f"{prompt}\n\n"
+            f"웹 검색은 최대 {max_uses}회 이내로 쓸 것. "
+            f"한도에 걸려 확인을 못 끝냈으면 search_complete=false 로 정직하게 보고할 것."
+        )
 
     try:
         text, usage = call_claude(
@@ -1237,8 +1300,31 @@ async def send_telegram(
 # ============================================================
 
 def git_commit_and_push(file_path: Path):
-    """v2.3: git commit 비활성화. Digest 는 EC2 로컬에만 저장."""
-    pass
+    """position_state.json 만 커밋. digest 본문은 gitignore 대상이라 제외.
+
+    누적 상태를 EC2 로컬에만 두면 서버 유실 시 분기 판정 근거가 통째로 날아간다.
+    실패해도 다이제스트 자체는 이미 전송됐으므로 예외를 삼킨다.
+    """
+    if not POSITION_STATE_PATH.exists():
+        return
+    try:
+        subprocess.run(["git", "add", str(POSITION_STATE_PATH)],
+                       cwd=PROJECT_ROOT, check=True, capture_output=True, timeout=30)
+        staged = subprocess.run(["git", "diff", "--cached", "--quiet"],
+                                cwd=PROJECT_ROOT, capture_output=True, timeout=30)
+        if staged.returncode == 0:
+            logger.info("상태 변경 없음 — 커밋 생략")
+            return
+        subprocess.run(
+            ["git", "commit", "-m", f"Update position state {datetime.now(KST):%Y-%m-%d}"],
+            cwd=PROJECT_ROOT, check=True, capture_output=True, timeout=30)
+        subprocess.run(["git", "push", "origin", "main"],
+                       cwd=PROJECT_ROOT, check=True, capture_output=True, timeout=120)
+        logger.info("position_state.json 커밋·푸시 완료")
+    except subprocess.CalledProcessError as e:
+        logger.error(f"상태 커밋 실패: {e.stderr.decode(errors='replace')[:300]}")
+    except Exception as e:
+        logger.error(f"상태 커밋 실패: {e}")
 
 # ============================================================
 # 메인

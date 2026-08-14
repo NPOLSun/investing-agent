@@ -1,0 +1,554 @@
+{
+  "meta": {
+    "version": "1.0",
+    "last_updated": "2026-08-14",
+    "description": "보유 포지션 thesis 모니터링 설정. daily_digest.py 가 이 파일을 읽어 포지션별 신호를 판정한다.",
+    "status_values": {
+      "holding": "보유 중. 전체 모니터링 대상",
+      "watching": "관심종목. 진입 조건만 감시",
+      "exited": "매도 완료. 기록 보존용 (판단 복기 재료)",
+      "paused": "일시 중단"
+    },
+    "signal_levels": {
+      "RED": "kill_signals 에 직접 해당. 판단 필요",
+      "YELLOW": "thesis 에 영향 가능하나 확인 필요",
+      "WHITE": "알아둘 만하나 판단 불필요"
+    },
+    "operating_rule": "RED 가 아니면 당일 행동하지 않는다. YELLOW/WHITE 는 분기 리뷰에서 모아서 본다."
+  },
+
+  "portfolio_level": {
+    "concentration_note": "11개 종목 중 10개가 하이퍼스케일러 capex 라는 단일 상위 변수에 연결. 전력 밸류체인(연료-발전-송전-저장-배전-point of load)을 위에서 아래까지 커버하는 구조. 의도된 집중이나, Layer 0 신호 발생 시 대부분이 동시에 흔들림.",
+    "layer0_kill_signals": [
+      "하이퍼스케일러 4사(MSFT/GOOGL/AMZN/META) 중 2곳 이상이 capex 가이던스를 하향 (동결이 아니라 하향)",
+      "미국 데이터센터 신규 착공 건수 2개 분기 연속 감소",
+      "변압기 리드타임 단축 전환 (4~5년 → 3년 이하)",
+      "SMR 상업화 타임라인 2년 이상 지연 (Seadrift/Natrium/Kairos 중 어느 것도 2028년까지 미착공)"
+    ],
+    "layer0_queries": [
+      "hyperscaler capex guidance",
+      "data center construction starts",
+      "transformer lead time",
+      "AI capex 하향"
+    ],
+    "vertical_stacks": [
+      {
+        "stack": "원자력",
+        "positions": ["haleu", "smr-developer", "power-generation"],
+        "note": "센트러스(농축) → X-energy(연료/원자로) 는 HALEU 공급계약으로 직접 연결. 두산은 제작. 분산이 아니라 같은 체인의 다른 지점. 비중은 합산 총량으로 관리"
+      },
+      {
+        "stack": "AI 전력",
+        "positions": ["us-transformer", "point-of-load", "power-generation"],
+        "note": "그리드 → GPU 직전 1.5mm 까지. 상위 변수 동일"
+      },
+      {
+        "stack": "광 연결",
+        "positions": ["optical-align", "optical-material"],
+        "note": "성호전자는 2028 미래 베팅, 코닝은 진행 중인 성장. 같은 테마지만 검증도와 리스크 프로필이 다름"
+      }
+    ]
+  },
+
+  "positions": [
+    {
+      "id": "us-transformer",
+      "label": "미국 변압기",
+      "status": "holding",
+      "tickers": ["298040", "267260"],
+      "thesis": [
+        "미국 전력망 투자는 데이터센터와 무관하게 구조적 (노후 교체 + 전기화 + 송전망 확충)",
+        "권선 숙련공 양성과 capa 증설에 수년 소요되어 공급이 빠르게 못 늘어남",
+        "공급자 우위가 ASP 프리미엄과 마진 확대로 이어짐",
+        "두 회사가 미국 시장에서 실제 물량을 수주하고 매출로 전환"
+      ],
+      "kill_signals": [
+        "업계 변압기 리드타임 3년 이하로 단축 전환",
+        "영업이익률 2개 분기 연속 하락",
+        "수주잔고 2개 분기 연속 감소",
+        "글로벌 경쟁사 증설 물량 대거 가동 개시 (2027~2028 예상)",
+        "미국 유틸리티 T&D capex 가이던스 하향",
+        "한국산 반덤핑 관세 강화 + 미국 현지 capa 미확보"
+      ],
+      "add_signals": [
+        "리드타임 유지 + 영업이익률 상승 + 주가 조정",
+        "미국 현지 증설 완료 및 가동 (Q 병목 해소)",
+        "HVDC 대형 프로젝트 수주 (효성중공업 한정)"
+      ],
+      "watch": {
+        "peers": ["GE Vernova", "Hitachi Energy", "Siemens Energy", "Prolec-GE", "LS일렉트릭"],
+        "indicators": [
+          "변압기 업계 리드타임",
+          "미국 유틸리티 T&D capex 가이던스",
+          "글로벌 변압기 증설 발표 (누적 카운트)",
+          "수주잔고 대비 매출 전환율"
+        ],
+        "queries": [
+          "transformer lead time 2026",
+          "미국 변압기 수주",
+          "utility T&D capex guidance",
+          "transformer capacity expansion",
+          "변압기 증설 발표"
+        ]
+      },
+      "ignore": [
+        "월별 단발 수주 공시",
+        "전기강판·구리 단기 가격 변동 (판가 전가 구조)",
+        "데이터센터 관련 뉴스 단발 급등락",
+        "분기 실적 1회 미스"
+      ],
+      "note": "두 종목 동일 thesis 로 하나로 관리. 공급 제약은 양날 - 경쟁사도 못 늘리지만 본인도 못 늘림. 따라서 수주잔고보다 '매출 전환 속도'가 진짜 지표. 글로벌 증설 발표는 누적 카운트할 것. 모두가 증설을 완료하는 시점이 공급자 우위의 종료 시점이며 지금부터 카운트다운 진행 중."
+    },
+
+    {
+      "id": "ess-foil",
+      "label": "ESS 알루미늄박",
+      "status": "holding",
+      "tickers": ["006110"],
+      "thesis": [
+        "ESS향 매출이 구조적으로 증가 중이며 시장이 아직 반영하지 않음",
+        "ESS 수요는 EV와 별개 사이클로 움직임",
+        "현재 저평가는 시장이 ESS 전환을 모르는 것이지 구조적 약점 때문이 아님"
+      ],
+      "kill_signals": [
+        "ESS향 매출 2개 분기 연속 정체 또는 감소",
+        "2~3개 분기 내 ESS 매출 전환 미발생 (저평가가 함정이었음이 확정)",
+        "영업이익률 하락 지속으로 판가 전가 실패 확인",
+        "주요 고객사 이탈 또는 중국산 대체",
+        "밸류에이션 정상화 완료 (thesis 성공 후 exit)"
+      ],
+      "add_signals": [
+        "ESS향 매출 비중이 별도 공시될 만큼 확대되었으나 주가 미반응",
+        "신규 대형 고객 확보"
+      ],
+      "watch": {
+        "peers": ["동일알루미늄", "롯데알미늄", "Toyo Aluminium", "중국 알루미늄박 업체"],
+        "indicators": [
+          "ESS 배터리 수주 동향",
+          "알루미늄박 판가",
+          "국내 배터리 3사 ESS 라인 증설",
+          "ESS향 vs EV향 매출 분리 추이"
+        ],
+        "queries": [
+          "ESS 배터리 수주",
+          "알루미늄박 양극박",
+          "ESS 시장 전망 2026",
+          "배터리 ESS 증설"
+        ]
+      },
+      "ignore": [
+        "알루미늄 LME 가격 단기 변동",
+        "EV 판매량 월별 뉴스",
+        "2차전지 섹터 테마 급등락"
+      ],
+      "note": "'가격이 매력적'은 thesis 가 아니라 진입 타이밍 근거. KILL 로 전환이 안 되므로 시한(K2)을 반드시 걸어둘 것. 포트폴리오 내 유일한 비-AI 축으로 봤으나 ESS 수요는 데이터센터 백업·계통안정화·그리드 증강이 견인 - 다른 포지션과 상위 변수 공유. 실질 독립 베팅 아님."
+    },
+
+    {
+      "id": "ssd-controller",
+      "label": "SSD 컨트롤러 (파두)",
+      "status": "holding",
+      "tickers": ["440110"],
+      "thesis": [
+        "AI 추론 확산으로 eSSD 출하량이 구조적으로 증가하고 컨트롤러는 SSD 1대당 1개씩 탑재",
+        "Marvell 지연으로 확보한 Gen6 선점 우위를 디자인윈으로 전환",
+        "NAND 업체에 종속되지 않아 여러 고객사 동시 대응 가능",
+        "팹리스 레버리지로 매출 성장이 마진으로 증폭",
+        "DRAM 사이클과 분리되어 독자 궤도로 움직임"
+      ],
+      "kill_signals": [
+        "Marvell Gen6 양산 출시와 파두 신규 수주 정체가 동시 발생 (AND 조건)",
+        "분기 신규 수주 2개 분기 연속 감소",
+        "매출은 증가하는데 영업이익률 하락 (레버리지 부재 = 소부장화)",
+        "단일 고객 매출 비중 재차 50% 초과",
+        "삼성·SK하이닉스 자체 컨트롤러 내재화 확대",
+        "1심 유죄 판결 및 상장폐지 심사 사유 발생"
+      ],
+      "add_signals": [
+        "Gen6 하이퍼스케일러 직접 디자인윈 공시 (Meta·Google 등 최종 고객)",
+        "고객사 3곳 이상 분산 + 매출 성장 유지",
+        "Gen7 선행 개발 성과 가시화"
+      ],
+      "watch": {
+        "peers": ["Marvell", "Silicon Motion", "PHISON", "삼성 자체 컨트롤러", "SK하이닉스 자체 컨트롤러"],
+        "indicators": [
+          "글로벌 eSSD 출하량",
+          "Marvell Gen6 컨트롤러 출시 시점",
+          "하이퍼스케일러 스토리지 투자",
+          "누적 수주잔고 및 분기 신규 수주"
+        ],
+        "queries": [
+          "SSD controller Gen6",
+          "Marvell SSD controller",
+          "enterprise SSD shipment",
+          "eSSD 수요 AI",
+          "파두 수주"
+        ]
+      },
+      "ignore": [
+        "단발 수주 공시 (누적 추세만)",
+        "DRAM 현물가",
+        "재판 기일·절차 뉴스 (판결 결과만 유효)",
+        "코스닥 시총 순위"
+      ],
+      "note": "Gen6 선점은 영구 해자가 아니라 1~2년짜리 창. 창이 닫히기 전 디자인윈 확보가 관건 (한번 채택되면 제품 수명주기 동안 유지). 2023년 문제의 본질은 SK하이닉스 발주 감소를 못 버틴 고객 편중이었으므로 재편중 여부가 핵심 경보. 이미 4배 상승했으므로 현재 보유 근거는 저평가가 아니라 성장 지속 - 성장률이 꺾이면 멀티플이 먼저 무너짐."
+    },
+
+    {
+      "id": "point-of-load",
+      "label": "GPU 전력공급 (Vicor)",
+      "status": "holding",
+      "tickers": ["VICR"],
+      "thesis": [
+        "데이터센터 고전력화(800VDC)에서 point-of-load 손실이 물리적 병목",
+        "1.5mm 두께에 40배 전류증폭 조합을 경쟁사가 따라오지 못함",
+        "특허 방어를 통한 로열티 모델이 고마진 구조적 수익으로 전환",
+        "Fab One capa 확대로 물량 병목 해소",
+        "wafer-scale 리드 고객 편중에서 벗어나 HPC 고객 다변화"
+      ],
+      "kill_signals": [
+        "Federal Circuit 에서 Foxconn 계열 라이선스 보유 판단 확정 (구매주문서 정형 조항 근거)",
+        "2027년 2차 ITC 패소 또는 실효적 배제명령 확보 실패",
+        "2차 ITC 판정 이후에도 신규 라이선스 계약 미체결",
+        "NVIDIA·Google 레퍼런스 설계에서 MPS·Infineon 등 경쟁사 채택",
+        "리드 고객 램프 지연 또는 취소",
+        "수주잔고 2개 분기 연속 감소 또는 book-to-bill 1 이하",
+        "capa 확대에도 매출 전환 정체"
+      ],
+      "add_signals": [
+        "하이퍼스케일러 첫 라이선스 계약 체결 (로열티 thesis 검증 순간)",
+        "2차 ITC 유리한 예비판정",
+        "NVIDIA 차세대 플랫폼 VPD 공식 채택"
+      ],
+      "watch": {
+        "peers": ["Monolithic Power Systems", "Infineon", "Renesas", "Delta Electronics", "Flex Power"],
+        "indicators": [
+          "2차 ITC 절차 일정 및 판정",
+          "Federal Circuit 항소 결과",
+          "NVIDIA 전력 아키텍처 로드맵",
+          "800VDC 채택 진척",
+          "라이선스/로열티 매출 별도 인식 여부"
+        ],
+        "queries": [
+          "Vicor ITC exclusion order",
+          "800VDC data center power",
+          "vertical power delivery GPU",
+          "MPS NVIDIA power delivery",
+          "Vicor licensing agreement"
+        ]
+      },
+      "ignore": [
+        "분기 마진 20~30bp 변동",
+        "법률비용 증가 (IP 집행 비용이지 악재 아님)",
+        "소송 기일·절차 진행 뉴스 (판정 결과만 유효)",
+        "리드 고객 단기 발주 변동"
+      ],
+      "note": "2026 가이던스 5.7억 달러는 2027년 2차 ITC 최종판정 전까지 신규 라이선스가 없다는 가정. 즉 매수 근거인 로열티 모델은 아직 숫자에 미반영이고 주가는 YTD 145% 상승으로 이미 성공을 선반영. 1차 ITC 에서 Foxconn 계열이 Vicor 자사 구매주문서 정형 조항으로 라이선스를 인정받은 것은 모델 전체의 누수 가능성 - 항소 결과가 전제. MPS 는 NVIDIA 전력단 incumbent 이므로 기술 우위가 곧 소켓 확보는 아님."
+    },
+
+    {
+      "id": "optical-align",
+      "label": "광정렬 장비 (성호전자/ADS테크)",
+      "status": "holding",
+      "tickers": ["043260"],
+      "thesis": [
+        "액티브 얼라인 장비는 ficonTEC 과 ADS테크의 과점 구조",
+        "CPO 전환으로 광정렬 장비 수요가 구조적으로 증가",
+        "2027~2028년 매출 폭증 추정이 실제로 실현",
+        "CB·BW 희석에도 불구하고 주당 가치가 증가"
+      ],
+      "kill_signals": [
+        "수주잔고·선수금 2개 분기 연속 감소",
+        "2027년 매출이 추정치의 절반 이하 (스토리 지연)",
+        "CB·BW 전환 후 완전희석 EPS 성장 정체",
+        "ficonTEC 외 신규 경쟁자 진입 (일본·중국 장비사)",
+        "광 I/O 개화 시점이 2029년 이후로 지연",
+        "나스닥 상장 무산 및 주주환원 방침 철회"
+      ],
+      "add_signals": [
+        "실제 CPO 양산 장비 수주 공시",
+        "삼성전자 공동개발 성과 가시화",
+        "CB 전환 완료로 오버행 해소"
+      ],
+      "watch": {
+        "peers": ["ficonTEC", "ASMPT", "일본·중국 광정렬 장비사"],
+        "indicators": [
+          "CPO 채택 속도",
+          "광 I/O 상용화 일정",
+          "ADS테크 수주잔고 및 선수금",
+          "희석주식수 변동",
+          "동탄 신규 공장 capa 진척"
+        ],
+        "queries": [
+          "CPO co-packaged optics 양산",
+          "액티브 얼라인 장비",
+          "ficonTEC",
+          "광 I/O 상용화 2028",
+          "ADS테크 수주"
+        ]
+      },
+      "ignore": [
+        "필름콘덴서 본업 실적",
+        "최대주주 소량 장내매수",
+        "나스닥 상장 관련 추측성 보도"
+      ],
+      "note": "ADS테크 87.5% 인수(2,800억원)를 CB·BW·인수금융으로 조달해 희석 가능 물량 42,416,459주. 현재 발행주식 약 7,090만주 대비 완전희석 기준 약 37%가 신규 물량. thesis 가 맞아도 주당가치 상승은 그만큼 제한됨. 대신증권 추정 매출 2026년 2,724억 → 2028년 1조2,977억은 2년 뒤 이야기이며 2028년이 광 I/O 개화 원년. 즉 2028년 스토리에 현재 값을 치르는 구조라 일정 지연 자체가 thesis 손상. 나스닥 상장은 IB 검토자료 단계로 주관사 선정 전."
+    },
+
+    {
+      "id": "optical-material",
+      "label": "광 소재 (코닝)",
+      "status": "holding",
+      "tickers": ["GLW"],
+      "thesis": [
+        "AI 데이터센터 광 연결 수요가 구조적으로 증가",
+        "하이퍼스케일러 선약정 기반 capa 확대로 저위험 성장",
+        "광섬유·유리 제조 노하우가 대체 불가",
+        "Springboard 2030년 연환산 400억 달러 목표 궤도 유지"
+      ],
+      "kill_signals": [
+        "Optical Communications 매출 성장률 10% 이하로 둔화",
+        "하이퍼스케일러 장기계약 미갱신 또는 축소",
+        "Springboard 목표 하향 수정",
+        "Optical 세그먼트 마진 하락 (경쟁 심화)",
+        "Glass Innovations 매출 역성장 전환",
+        "Solar 정책 변경으로 Hemlock 손상"
+      ],
+      "add_signals": [
+        "신규 하이퍼스케일러 장기계약 체결",
+        "CPO 관련 신제품 매출 인식 시작",
+        "thesis 유지 상태에서 20% 이상 조정"
+      ],
+      "watch": {
+        "peers": ["Prysmian", "Sumitomo Electric", "후루카와전기", "Fujikura", "YOFC"],
+        "indicators": [
+          "Optical Communications 매출 성장률 및 세그먼트 마진",
+          "하이퍼스케일러 광섬유 장기계약",
+          "Springboard 목표 진척",
+          "Glass Innovations 방어 여부"
+        ],
+        "queries": [
+          "Corning optical communications growth",
+          "data center fiber demand",
+          "hyperscaler fiber contract",
+          "Corning Springboard"
+        ]
+      },
+      "ignore": [
+        "분기 Solar 변동 (정비 등 일시적 요인)",
+        "Automotive 세그먼트 실적",
+        "디스플레이 유리 가격"
+      ],
+      "note": "'기존사업 탄탄'은 안전판이 아님. Glass Innovations +1%, Automotive -1% 로 레거시는 성장 기여 없고 성장은 전부 Optical·Solar. 주가 1년 270% 상승은 Optical 성장 반영 결과이므로 밸류에이션은 성장주 수준. 진짜 해자는 고객 자금으로 capa 를 까는 모델 - Meta 최대 60억 달러 다년계약 + 하이퍼스케일러 2곳 유사 규모 + NVIDIA 파트너십으로 미국 capa 10배 확대. 디스플레이 Gen 10.5 계약 모델을 광통신에 적용한 것."
+    },
+
+    {
+      "id": "haleu",
+      "label": "HALEU 농축 (센트러스)",
+      "status": "holding",
+      "tickers": ["LEU"],
+      "thesis": [
+        "러시아 배제로 미국 자체 HALEU 밸류체인 구축이 필수",
+        "센트러스가 선발주자 우위를 실제 생산 물량으로 전환",
+        "SMR 배치가 실제로 일어나 HALEU 수요 발생",
+        "LEU 본업 백로그가 하방을 지지"
+      ],
+      "kill_signals": [
+        "General Matter·Urenco USA·Orano USA 가 상업 HALEU 생산 개시 (독점 소멸)",
+        "DOE 계약 옵션 미행사 또는 예산 삭감",
+        "러시아 우라늄 수입 금지 완화 또는 유예 확대",
+        "capa 증설 일정 2년 이상 지연",
+        "SMR 고객사 발주 취소",
+        "LEU 백로그 감소로 하방 지지 상실"
+      ],
+      "add_signals": [
+        "상업 HALEU 장기공급계약 추가 체결",
+        "연 12톤 HALEU capa 달성",
+        "DOE HALEU 구매옵션 행사"
+      ],
+      "watch": {
+        "peers": ["General Matter", "Urenco USA", "Orano USA", "TENEX"],
+        "indicators": [
+          "DOE HALEU 태스크오더 및 옵션 행사",
+          "경쟁사 농축 capa 진척",
+          "SMR 연료 수요 및 공급계약",
+          "러시아 우라늄 수입 정책",
+          "LEU 백로그"
+        ],
+        "queries": [
+          "HALEU production capacity",
+          "General Matter enrichment",
+          "Urenco USA HALEU expansion",
+          "DOE HALEU award",
+          "Centrus HALEU delivery"
+        ]
+      },
+      "ignore": [
+        "우라늄 현물가 단기 변동",
+        "SMR 테마 급등락",
+        "분기 실적 변동 (LEU 인식 시점 차이)"
+      ],
+      "note": "'미국 내 유일 라이선스 생산자'는 2026년 현재의 스냅샷이지 2029~2030년 구조가 아님. 2024년 10월 Centrus·Urenco USA·Orano USA·General Matter 4곳이 계약을 받았고 General Matter 도 동일한 9억 달러 태스크오더 수령, Urenco USA 는 별도로 capa 약 50% 확대 중. 정부가 의도적으로 복수 공급자를 육성하므로 독점 프리미엄에 만료 시한 존재. X-energy 와 HALEU 공급계약 체결로 수직 연결 - 비중은 SMR 총량으로 관리. LEU 백로그 24억 달러가 하방 지지."
+    },
+
+    {
+      "id": "smr-developer",
+      "label": "SMR 개발 (X-energy)",
+      "status": "holding",
+      "tickers": ["XE"],
+      "thesis": [
+        "HTGR 와 TRISO-X 연료의 수직통합이 구조적 차별화",
+        "규제 경로가 실제로 뚫림 (Seadrift 건설허가)",
+        "조건부 파이프라인이 확정 수주로 전환",
+        "60년 수명 기반 연료·서비스 반복 매출 모델 작동",
+        "첫 가동까지 자금이 버팀"
+      ],
+      "kill_signals": [
+        "Seadrift 건설허가 거부 또는 1년 이상 지연",
+        "Dow 최종투자결정 2029년 이후로 연기 또는 철회",
+        "Amazon·Centrica 프로젝트 축소 또는 취소",
+        "TRISO-X 상업생산 차질",
+        "대규모 추가 증자로 희석 발생",
+        "경쟁 HTGR·SMR 이 먼저 상업운전 도달"
+      ],
+      "add_signals": [
+        "Seadrift 건설허가 취득",
+        "Dow 최종투자결정",
+        "신규 고객 FID",
+        "TRISO-X 첫 상업 인도"
+      ],
+      "watch": {
+        "peers": ["TerraPower", "Kairos Power", "Oklo", "NuScale", "BWXT"],
+        "indicators": [
+          "NRC 인허가 진척 (Seadrift 최종안전평가)",
+          "SMR 섹터 전반 FID 동향",
+          "현금 잔고 및 소진율",
+          "TRISO-X 가동률",
+          "조건부 권리 → 확정 전환 건수"
+        ],
+        "queries": [
+          "X-energy Xe-100 NRC construction permit",
+          "Dow Seadrift nuclear FID",
+          "TerraPower Natrium progress",
+          "Kairos Power NRC",
+          "SMR construction start 2028"
+        ]
+      },
+      "ignore": [
+        "MOU·탐색적 협의 발표",
+        "SMR 테마 급등락",
+        "분기 손실 규모 (예정된 소진)"
+      ],
+      "note": "'4세대 유일'은 부정확. TerraPower(소듐냉각)·Kairos(불화염)·Oklo 등 다수 존재. 실제 차별점은 HTGR 중 연료까지 수직통합했다는 것 - TRISO-X 가 2026년 2월 40년 특수핵물질 라이선스 취득(50여 년 만의 신규 연료제조시설). 문제는 시점: Dow FID 2028년 전 불가, Amazon Cascade 착공 2030년경·가동 2030년대 중반. 11GW 파이프라인은 각 고객이 조건부 권리를 전부 행사한다는 가정치이지 확정 수주 아님. 현금 약 20.5억 달러에 분기 순손실 1.66억 달러 - 첫 가동 전 추가 조달 필요. 시총 120억 달러 이상은 사실상 pre-revenue 밸류에이션."
+    },
+
+    {
+      "id": "hpa-equipment",
+      "label": "고압어닐링 장비 (예스티)",
+      "status": "holding",
+      "tickers": ["122640"],
+      "thesis": [
+        "HPA 특허 리스크 최종 해소 (서울중앙지법 침해소송 본안 포함)",
+        "첫 양산기 공급 후 고객 평가 통과",
+        "소자업체 멀티벤더 니즈로 2nd 소스 지위 확보",
+        "고압산화(HPO) 신규 시장 개척",
+        "기존 장비 사업이 반도체 capex 사이클 수혜"
+      ],
+      "kill_signals": [
+        "서울중앙지방법원 특허침해소송 본안 패소",
+        "8월 125매 양산기 납품 지연 또는 취소",
+        "첫 납품 후 6개월 내 반복 수주 없음 (퀄 실패 신호)",
+        "고객사가 1곳에서 확대되지 않음",
+        "HPSP 가 가격 대응으로 진입 봉쇄",
+        "HPO 상용화 무산"
+      ],
+      "add_signals": [
+        "서울중앙지법 침해소송 승소 확정 (불확실성 완전 제거)",
+        "첫 납품 후 동일 고객 반복 수주",
+        "두 번째 고객사 양산 수주",
+        "HPO 첫 수주"
+      ],
+      "watch": {
+        "peers": ["HPSP"],
+        "indicators": [
+          "HPSP 분기 실적 및 HPA 매출 추이 (점유율 잠식 직접 지표)",
+          "서울중앙지법 소송 진행 상황",
+          "예스티 HPA 납품 대수 및 고객사 수",
+          "웨이퍼 테스트 → 양산 전환 건수",
+          "HBM capex 동향"
+        ],
+        "queries": [
+          "HPSP 실적 HPA",
+          "고압수소어닐링 장비",
+          "예스티 특허 소송",
+          "HPSP 예스티 침해소송",
+          "HPO 고압산화 장비"
+        ]
+      },
+      "ignore": [
+        "특허 관련 절차·기일 뉴스 (판결 결과만 유효)",
+        "HPSP 주가 움직임",
+        "디스플레이 부문 실적",
+        "분기 실적 1회 변동 (아직 HPA 매출 반영 전 구간)"
+      ],
+      "note": "2026년 6월 18일 특허법원이 HPSP '027 특허 유효 + 예스티 비침해 판결(심결취소소송 3건 기각)했으나, 2023년 제기된 서울중앙지법 특허침해소송 본안은 미결. HPSP 는 '권리범위가 조정된 특허를 예스티가 침해했는지 다시 따져봐야 한다'며 적극 대응 입장 - 양측 입장 정반대. 2024년 1심 패소 당시 3거래일 만에 50% 급락 이력이 있어 양방향 바이너리. 본안 판결 전 비중 상한을 미리 정할 것. HPSP 분기 실적이 예스티 thesis 의 가장 직접적 지표. 장비는 첫 대보다 두 번째 주문이 진짜 신호. HPA 시장 자체는 크지 않으므로 업사이드는 오히려 HPO 신규 시장."
+    },
+
+    {
+      "id": "power-generation",
+      "label": "발전 종합 (두산에너빌리티)",
+      "status": "holding",
+      "tickers": ["034020"],
+      "thesis": [
+        "[A축 가스터빈] AI 데이터센터發 북미 복합화력 발주로 4번째 공급자 기회 확보",
+        "[A축 가스터빈] 터빈+스팀+장기서비스 묶음으로 서비스 매출 비중 상승",
+        "[B축 대형원전] 체코를 발판으로 폴란드 등 후속 수주 확장",
+        "[B축 대형원전] 웨스팅하우스 AP1000 기자재 공급 확보",
+        "[C축 SMR] 글로벌 SMR 주기기 제작 포지션 선점 (2028 하반기 공장, 연 20모듈)",
+        "[C축 SMR] SMR 배치가 실제로 일어나 모듈 발주 발생",
+        "[D축 수익성] 에너빌리티 부문 자체 이익률 개선"
+      ],
+      "kill_signals": [
+        "북미 가스터빈 신규 수주 2개 분기 연속 없음 [A축]",
+        "가스터빈 마진 하락 (GE·지멘스·MHI 가격 대응) [A축]",
+        "체코 프로젝트 지연 또는 분쟁 재발 [B축]",
+        "웨스팅하우스 AP1000 기자재 계약 무산 [B축]",
+        "SMR 제작공장 완공 2030년 이후로 지연 [C축]",
+        "주요 SMR 고객사 FID 연기 (X-energy Dow 등) [C축]",
+        "에너빌리티 본업 영업이익률 정체 지속 (수주가 이익으로 전환 안 됨) [D축]",
+        "두산밥캣 실적 악화로 연결 이익 급감 [전체]",
+        "수주잔고 2개 분기 연속 감소 [전체]"
+      ],
+      "add_signals": [
+        "체코 시공 본격화 및 폴란드 수주",
+        "북미 가스터빈 대형 수주",
+        "SMR 모듈 확정 수주",
+        "본업 이익률 개선 확인 후 주가 조정"
+      ],
+      "watch": {
+        "peers": ["GE Vernova", "Siemens Energy", "Mitsubishi Power", "Westinghouse", "Ansaldo"],
+        "indicators": [
+          "에너빌리티 부문 자체 영업이익률 (밥캣 제외)",
+          "북미 복합화력 발주 동향",
+          "가스터빈 리드타임",
+          "체코 원전 진척",
+          "SMR 고객사 FID",
+          "두산밥캣 실적"
+        ],
+        "queries": [
+          "가스터빈 수주 북미",
+          "체코 원전 두산 시공",
+          "gas turbine backlog 2026",
+          "SMR module manufacturing",
+          "복합화력 발주 미국"
+        ]
+      },
+      "ignore": [
+        "SMR 관련 MOU·탐색적 협의 발표",
+        "밥캣 분할 관련 지배구조 뉴스 (사업가치와 무관)",
+        "원전 테마 급등락"
+      ],
+      "note": "'다 갖고 있다'는 KILL 조건을 만들 수 없는 thesis - 하나가 망가져도 다른 게 있다고 합리화하게 되므로 축별 분리 필수. 2026년 2분기 연결 영업이익 3,143억원인데 두산밥캣이 2,917억원 - 연결조정 감안해도 이익 상당부분이 건설기계. thesis 가 실적으로 증명되려면 에너빌리티 본업 이익률이 올라와야 하며 이것이 분기 체크 1번. 수주는 강함(상반기 7조1,225억 +89.6%, 잔고 26조3,509억 +60.4%). 수주가 이익으로 전환 안 되면 저마진 수주를 쌓는 것 - 중공업의 전형적 함정. 밥캣은 경기민감이라 원전 thesis 와 무관하게 주가가 빠질 경로. SMR 축은 haleu·smr-developer 와, 전력 축은 us-transformer 와 중복이므로 비중은 총량 기준 배분."
+    }
+  ]
+}

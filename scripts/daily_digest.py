@@ -1409,10 +1409,14 @@ async def main(dry_run: bool = False):
 
         incomplete = is_search_incomplete(result, u["searches"], POSITION_MAX_USES)
         if result:
-            state["positions"][pos["id"]] = update_state_entry(
-                entry, result, today_str, mark_checked=incomplete is None
-            )
             findings = result.get("findings") or []
+            # 부분 확인도 점검으로 친다. 모델은 사소한 미확인 항목까지 정직하게 보고하는데,
+            # 그때마다 last_checked 를 막으면 같은 포지션만 매일 재선별되고
+            # rotation 이 영영 안 돌아 나머지 포지션이 방치된다.
+            state["positions"][pos["id"]] = update_state_entry(
+                entry, result, today_str,
+                mark_checked=(incomplete is None) or bool(findings),
+            )
             reds = sum(1 for f in findings if f.get("level") == "RED")
             if incomplete:
                 logger.warning(

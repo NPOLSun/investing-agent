@@ -44,6 +44,11 @@ logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     level=logging.INFO,
 )
+# httpx 가 getUpdates 폴링마다 INFO 를 찍어 로그가 하루 8,600줄씩 불어난다.
+# 게다가 URL 에 봇 토큰이 그대로 들어가므로 평문 적재를 막는다.
+logging.getLogger("httpx").setLevel(logging.WARNING)
+logging.getLogger("httpcore").setLevel(logging.WARNING)
+logging.getLogger("telegram.ext").setLevel(logging.WARNING)
 logger = logging.getLogger(__name__)
 
 

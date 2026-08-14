@@ -82,7 +82,7 @@ KST = pytz.timezone("Asia/Seoul")
 # CLI 는 검색 건당 요금이 없어 검색 상한을 넉넉히 줄 수 있다.
 USE_CLAUDE_CLI = os.getenv("USE_CLAUDE_CLI", "1") == "1"
 CLAUDE_CLI_BIN = os.getenv("CLAUDE_CLI_BIN", "claude")
-CLAUDE_CLI_TIMEOUT = 600       # 초. 검색 많은 호출이 오래 걸림
+CLAUDE_CLI_TIMEOUT = 1200      # 초. 검색 13회에 206초였으므로 무거운 날 대비
 
 MODEL = "claude-sonnet-5"
 
@@ -105,8 +105,8 @@ WEB_SEARCH_TOOL_TYPE = "web_search_20260209"
 # 실측: 검색 1회당 입력 약 11K 토큰이 재과금되므로 검색 수가 비용을 지배한다.
 # 검색 1회 ≈ $0.043 (입력 $0.033 + 검색료 $0.01).
 LAYER0_MAX_USES = 6            # Layer 0
-POSITION_MAX_USES = 8          # 포지션당
-DAILY_SEARCH_BUDGET = 30       # 하루 검색 총량 캡 (CLI 는 검색 건당 요금 없음)
+POSITION_MAX_USES = 20         # 포지션당 (실측: 가장 무거운 포지션이 13회에서 자연히 멈춤)
+DAILY_SEARCH_BUDGET = 70       # 하루 총량 캡 (Layer0 6 + 20x3 = 66 + 여유)
 MAX_PAUSE_CONTINUATIONS = 3    # pause_turn 재개 상한
 
 # 모니터링 대상 status (exited·paused 는 기록만 남기고 판정 대상에서 제외)

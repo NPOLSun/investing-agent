@@ -1321,6 +1321,81 @@ def update_state_entry(
     ]
     return entry
 
+def build_thesis_appendix(
+    positions_doc: dict,
+    position_results: list[dict],
+    news_sweep: Optional[dict],
+    state: dict,
+    today_str: str,
+) -> str:
+    """보유 근거(thesis) 대조표. positions.json 원문을 그대로 인용한다.
+
+    모델에게 요약시키지 않는 이유: thesis 는 본인이 쓴 판단 근거라 왜곡되면 안 되고,
+    매일 같은 내용이라 토큰을 쓸 이유도 없다. 오늘 나온 신호를 옆에 붙여
+    "이 관점으로 들고 있다" 와 "오늘 뭐가 있었다" 가 한눈에 대조되게 한다.
+    """
+    monitored = [
+        p for p in positions_doc.get("positions", [])
+        if p.get("status") in MONITORED_STATUSES
+    ]
+    if not monitored:
+        return ""
+
+    by_id = {r["position"]["id"]: r for r in position_results}
+    sweep_by_label = {}
+    for it in ((news_sweep or {}).get("items") or []):
+        sweep_by_label.setdefault(it.get("position_label", ""), []).append(it)
+
+    out = ["", "---", "", "## 📌 보유 근거 대조표", "",
+           "각 포지션을 어떤 관점으로 들고 있는지와 오늘 확인된 것을 나란히 둔다.", ""]
+
+    for pos in monitored:
+        name = display_name(pos)
+        out.append(f"### {name}")
+        out.append("")
+        out.append("**보유 근거**")
+        for i, t in enumerate(pos.get("thesis", []), 1):
+            out.append(f"{i}. {t}")
+        if not pos.get("thesis"):
+            out.append("- (미작성)")
+        out.append("")
+
+        entry = state.get("positions", {}).get(pos["id"], {})
+        item = by_id.get(pos["id"])
+        out.append("**오늘**")
+        if item is None:
+            last = entry.get("last_checked") or "기록 없음"
+            out.append(f"- 개별 점검 안 함 (마지막 점검 {last})")
+        elif item.get("skipped"):
+            out.append(f"- 점검 못 함: {item['skipped']}")
+        else:
+            findings = ((item.get("result") or {}).get("findings")) or []
+            if findings:
+                for f in findings:
+                    refs = ", ".join(f.get("refs") or []) or "-"
+                    out.append(f"- [{f.get('level', '?')}] ({refs}) {f.get('summary', '')}")
+            else:
+                out.append("- 걸린 신호 없음")
+            if item.get("incomplete"):
+                out.append(f"- ⚠️ 확인 미완료: {item['incomplete']}")
+
+        for it in sweep_by_label.get(pos.get("label", ""), []):
+            out.append(f"- 📰 {it.get('summary', '')} ({it.get('reported_at', '')})")
+
+        flags = [f for f in entry.get("open_flags", []) if f.get("count", 1) >= 2]
+        if flags:
+            out.append("")
+            out.append("**반복 관측 (누적)**")
+            for f in flags:
+                out.append(
+                    f"- {f.get('signal')} — {f.get('count')}회째 "
+                    f"(최초 {f.get('first_seen')}, 최근 {f.get('last_seen')})"
+                )
+        out.append("")
+
+    return chr(10).join(out)
+
+
 def build_cost_footer(usage: dict, cost: float, now_str: str) -> str:
     """다이제스트 하단 토큰·비용 표기. 모델이 쓰게 하지 않고 코드가 붙인다."""
     cost_in = usage["input"] / 1_000_000 * PRICE_IN_PER_MTOK
@@ -1595,6 +1670,9 @@ async def main(dry_run: bool = False):
 
     # 텔레그램용 요약 + 파일용 markdown 분리
     telegram_summary, file_md = parse_claude_response(response_text)
+    file_md += build_thesis_appendix(
+        positions_doc, position_results, news_sweep, state, today_str
+    )
     file_md += build_cost_footer(usage_total, cost, now_str)
 
     # 8. 파일 저장

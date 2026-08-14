@@ -495,12 +495,23 @@ def collect_position_tickers(positions_doc: dict) -> tuple[list[str], list[str],
     return list(dict.fromkeys(us)), list(dict.fromkeys(kr)), names
 
 
+def display_name(pos: dict) -> str:
+    """출력용 포지션 표시명. 영문 슬러그(id)는 절대 노출하지 않는다."""
+    tickers = ", ".join(pos.get("tickers", []))
+    label = pos.get("label", "")
+    if not tickers:
+        return label
+    # "SSD 컨트롤러 (파두)" + 티커 -> "SSD 컨트롤러 (파두 440110)" (괄호 중첩 방지)
+    if label.endswith(")"):
+        return f"{label[:-1]} {tickers})"
+    return f"{label} ({tickers})"
+
+
 def format_position_config(pos: dict) -> str:
     """포지션 1개의 판정 기준을 번호 매겨 정리 (종합 프롬프트 컨텍스트용)."""
     watch = pos.get("watch", {})
     return "\n".join([
-        f"### {pos.get('label')} [{pos.get('id')}] — {', '.join(pos.get('tickers', []))}"
-        f" (status: {pos.get('status')})",
+        f"### {display_name(pos)} (status: {pos.get('status')})",
         " thesis:",
         numbered(pos.get("thesis", []), "T"),
         " kill_signals:",
@@ -599,7 +610,7 @@ def build_prompt(
             body = "- ⚠️ 확인 미완료: 검색 실패 — 판정 없음"
 
         pos_blocks.append(
-            f"## {pos.get('label')} [{pos.get('id')}]\n"
+            f"## {display_name(pos)}\n"
             f"점검 사유: {'; '.join(item.get('reasons', []))}\n"
             f"{body}{repeat_line}"
         )
@@ -616,7 +627,7 @@ def build_prompt(
     sweep_section = chr(10).join(sweep_lines) or "(최근 소식 없음)"
 
     unchecked_section = "\n".join(
-        f"- {p.get('label')} [{p.get('id')}]: 마지막 점검 "
+        f"- {display_name(p)}: 마지막 점검 "
         f"{state.get('positions', {}).get(p['id'], {}).get('last_checked') or '기록 없음'}"
         for p in unchecked
     ) or "(없음)"
@@ -694,13 +705,33 @@ status 가 holding 또는 watching 인 것만. T=thesis, K=kill_signals, A=add_s
 ===TELEGRAM===
 plain text, 표·markdown 문법 없이. 모바일에서 그대로 읽히게. 3000자 이내.
 
-★ 읽는 사람은 K3·T1 같은 번호를 외우고 있지 않다. 번호를 쓰지 말고
-   어떤 조건에 걸리는지를 그 조건의 말로 풀어 쓸 것.
-★ 포지션은 반드시 "포지션명 (회사명 티커)" 형태로. id·약어 금지.
-   예: "SSD 컨트롤러 (파두 440110)", "미국 변압기 (효성중공업 298040 / HD현대일렉트릭 267260)"
-★ 한 항목은 세 줄: 종목 / 무슨 일이 있었나 / 어떤 조건에 걸리나.
-   글자 수를 줄이려고 조사를 빼거나 단어를 붙여 쓰지 말 것. 완전한 문장으로.
-   "L0", "ESS알박", "파두 [K5]" 같은 축약은 금지.
+★ 영문 슬러그를 절대 쓰지 말 것. us-transformer, point-of-load, ess-foil 같은
+   내부 식별자는 사람이 읽는 글이 아니다. 항상 한글 포지션명 + 티커로 쓸 것.
+★ 읽는 사람은 K3·T1 같은 번호를 외우고 있지 않다. 번호 대신
+   어떤 조건에 걸리는지를 그 조건의 말로 인용해 풀어 쓸 것.
+★ "L0", "ESS알박", "파두 [K5]" 같은 축약 금지. 완전한 문장으로.
+   글자 수를 줄이려고 조사를 빼거나 단어를 붙여 쓰지 말 것.
+★ 아래 서식을 그대로 따를 것. 섹션 사이 빈 줄 1개, 항목 사이 빈 줄 1개.
+   들여쓰기는 공백 2칸으로 맞출 것.
+
+--- 좋은 예 (이 모양 그대로) ---
+🔴 판단 필요
+
+• SSD 컨트롤러 (파두 440110)
+  SK하이닉스가 eSSD 컨트롤러를 전량 자체 개발로 전환했다.
+  ↳ 매도 검토 조건: "삼성·SK하이닉스 자체 컨트롤러 내재화 확대"
+  thebell.co.kr · 09-17
+
+• 미국 변압기 (효성중공업 298040 / HD현대일렉트릭 267260)
+  미국 상무부가 반덤핑 연례재심 예비판정에서 효성중공업 관세율을
+  0%에서 4.32%로 인상했다. 최종판정은 대기 중이다.
+  ↳ 매도 검토 조건: "한국산 반덤핑 관세 강화 + 미국 현지 capa 미확보"
+  federalregister.gov · 08-10
+
+--- 나쁜 예 (이렇게 쓰지 말 것) ---
+- 파두 [K5] SK하이닉스 eSSD컨트롤러 전량 인하우스화 확인, 핵심세그 수주경로 차단
+- L0 [L2] WoodMac 파이프라인 3분기연속↓ vs ConstructConnect 착공액↑, 지표상충
+⚠️ 확인 미완료: us-transformer (K6 미확인)
 
 📊 포지션 신호 — YYYY-MM-DD
 
@@ -774,8 +805,11 @@ Layer 0 에 걸린 게 있으면 이 섹션을 문서 맨 위로 올릴 것.
 
 # 작성 규칙 (위반 금지)
 
-1. 각 항목에 반드시 연결 번호를 붙일 것: [K#] [T#] [A#] [L#].
-   어느 번호에도 연결되지 않는 사실은 ⚪ 참고로만, 번호 없이.
+0. 영문 슬러그(us-transformer, ess-foil 등)를 출력 어디에도 쓰지 말 것.
+   포지션은 항상 한글명 + 티커로 표기한다.
+1. 파일(===FILE===) 에서는 각 항목에 연결 번호를 붙일 것: [K#] [T#] [A#] [L#].
+   단 번호만 쓰지 말고 조건 원문을 함께 인용할 것. 텔레그램에는 번호를 쓰지 않는다.
+   어느 조건에도 연결되지 않는 사실은 📰 보유 종목 소식에만 넣을 것.
 2. ignore 목록에 해당하는 내용은 **아예 출력하지 말 것**. 언급조차 금지.
 3. 해당 없으면 "없음" 한 단어로 끝낼 것. 억지로 채우거나 분량을 맞추려 하지 말 것.
    빈 섹션에 "특이사항 없으나 ..." 같은 사족 금지.
@@ -1101,7 +1135,7 @@ def search_news_sweep(positions: list[dict], now_str: str) -> tuple[Optional[dic
       증권사 투자의견, 근거 없는 추측성 보도
 
 소식이 없는 종목은 items 에 넣지 말 것. 억지로 채우지 말 것.
-종목당 최대 2건, 전체 최대 12건. position_id 는 위 목록의 포지션명과 일치시킬 것.
+종목당 최대 2건, 전체 최대 12건. position_label 은 위 목록의 포지션명과 정확히 일치시킬 것.
 
 아래 JSON 만 출력:
 

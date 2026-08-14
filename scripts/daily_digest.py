@@ -105,6 +105,7 @@ WEB_SEARCH_TOOL_TYPE = "web_search_20260209"
 # 실측: 검색 1회당 입력 약 11K 토큰이 재과금되므로 검색 수가 비용을 지배한다.
 # 검색 1회 ≈ $0.043 (입력 $0.033 + 검색료 $0.01).
 LAYER0_MAX_USES = 6            # Layer 0
+NEWS_SWEEP_MAX_USES = 12       # 전 종목 소식 스윕 (판정 아님, 훑기)
 POSITION_MAX_USES = 20         # 포지션당 (실측: 가장 무거운 포지션이 13회에서 자연히 멈춤)
 DAILY_SEARCH_BUDGET = 70       # 하루 총량 캡 (Layer0 6 + 20x3 = 66 + 여유)
 MAX_PAUSE_CONTINUATIONS = 3    # pause_turn 재개 상한
@@ -522,6 +523,7 @@ def build_prompt(
     now_str: str,
     positions_doc: dict,
     layer0_result: Optional[dict],
+    news_sweep: Optional[dict],
     position_results: list[dict],
     unchecked: list[dict],
     upcoming: list[dict],
@@ -603,6 +605,16 @@ def build_prompt(
         )
     position_section = "\n\n".join(pos_blocks) if pos_blocks else "(오늘 검색한 포지션 없음)"
 
+    sweep_lines = []
+    for it in ((news_sweep or {}).get("items") or []):
+        who = it.get("position_label") or it.get("position_id") or "?"
+        sweep_lines.append(
+            f"- {who}: {it.get('summary', '')}"
+            + chr(10)
+            + f"  출처: {it.get('evidence_url', '-')} ({it.get('reported_at', '날짜 미상')})"
+        )
+    sweep_section = chr(10).join(sweep_lines) or "(최근 소식 없음)"
+
     unchecked_section = "\n".join(
         f"- {p.get('label')} [{p.get('id')}]: 마지막 점검 "
         f"{state.get('positions', {}).get(p['id'], {}).get('last_checked') or '기록 없음'}"
@@ -662,7 +674,11 @@ status 가 holding 또는 watching 인 것만. T=thesis, K=kill_signals, A=add_s
 # 오늘 검색한 포지션의 판정 결과
 {position_section}
 
-# 오늘 검색하지 않은 포지션
+# 전 종목 최근 소식 (판정 아님 — 알아둘 것)
+오늘 깊이 점검하지 않은 종목도 포함된다. 📰 섹션 재료로 쓸 것.
+{sweep_section}
+
+# 오늘 개별 검색하지 않은 포지션
 {unchecked_section}
 
 # 향후 {EVENT_WINDOW_DAYS}일 캘린더 이벤트 (파싱 완료분)
@@ -676,40 +692,56 @@ status 가 holding 또는 watching 인 것만. T=thesis, K=kill_signals, A=add_s
 두 블록을 순서대로 출력. 앞뒤 설명·코드블록 마커 없이 다이제스트만.
 
 ===TELEGRAM===
-plain text, 표·markdown 문법 없이. 모바일 가독성 우선. 1500자 이내.
+plain text, 표·markdown 문법 없이. 모바일에서 그대로 읽히게. 3000자 이내.
+
+★ 읽는 사람은 K3·T1 같은 번호를 외우고 있지 않다. 번호를 쓰지 말고
+   어떤 조건에 걸리는지를 그 조건의 말로 풀어 쓸 것.
+★ 포지션은 반드시 "포지션명 (회사명 티커)" 형태로. id·약어 금지.
+   예: "SSD 컨트롤러 (파두 440110)", "미국 변압기 (효성중공업 298040 / HD현대일렉트릭 267260)"
+★ 한 항목은 세 줄: 종목 / 무슨 일이 있었나 / 어떤 조건에 걸리나.
+   글자 수를 줄이려고 조사를 빼거나 단어를 붙여 쓰지 말 것. 완전한 문장으로.
+   "L0", "ESS알박", "파두 [K5]" 같은 축약은 금지.
 
 📊 포지션 신호 — YYYY-MM-DD
 
-🔴 KILL 관련
-- 포지션명 [K3] 사실 한 줄 (출처도메인, 보도일)
+🔴 판단 필요
+• 포지션명 (회사명 티커)
+  무슨 일이 있었는지 완전한 문장으로
+  ↳ 매도 검토 조건에 해당: "해당 kill_signal 원문을 그대로 인용"
+  출처도메인 · MM-DD
 (해당 없으면 이 줄만: 없음)
 
-🟡 주목
-- 포지션명 [T1] 사실 한 줄 (출처도메인, 보도일)
+🟡 확인 필요
+• 포지션명 (회사명 티커)
+  무슨 일이 있었는지 완전한 문장으로
+  ↳ 관련 근거: "해당 thesis 또는 add_signal 원문을 그대로 인용"
+  출처도메인 · MM-DD
 (해당 없으면: 없음)
 
-⚪ 참고
-- 포지션명 사실 한 줄
-(최대 3건까지만. 해당 없으면: 없음)
+📰 보유 종목 소식
+• 포지션명 (회사명 티커) — 한 문장 요약 (출처도메인 · MM-DD)
+(판정 조건에 안 걸려도 알아둘 만한 것. 오늘 깊이 점검하지 않은 종목도 포함.
+ 최대 8건. 해당 없으면: 없음)
 
 📅 향후 {EVENT_WINDOW_DAYS}일
-- MM-DD 이벤트명 [P1]
+- MM-DD 이벤트명 (관련 종목) [P1]
 (해당 없으면: 없음)
 
 📈 가격 ±{PRICE_DISPLAY_THRESHOLD}%
-- (한 줄로 이어서. 해당 없으면: 없음)
+- 회사명 +N% (한 줄로 이어서. 해당 없으면: 없음)
 
-⚠️ 확인 미완료: id (사유)
-(검색을 끝내지 못한 포지션. 없으면 이 줄 자체를 생략)
+⚠️ 확인 미완료
+- 포지션명 (회사명): 무엇을 확인 못 했는지 한 줄
+(없으면 이 섹션 자체를 생략)
 
-미점검: id, id, id
+오늘 점검 안 함: 포지션명, 포지션명, ...
 
 ===FILE===
 markdown. 헤더는 ##. 텔레그램 요약과 별개로 작성하되 사실이 서로 어긋나면 안 됨.
 
 ## 🔴 KILL 관련
 포지션마다 아래 형식:
-- **포지션명 (티커)** — [K3] 해당 kill_signal 원문 축약
+- **포지션명 (회사명 티커)** — [K3] 해당 kill_signal 원문 (번호는 추적용, 원문을 반드시 함께)
   사실: 한 줄
   출처: URL (보도일)
   누적: N회째 관측, 최초 YYYY-MM-DD  ← 반복 관측 정보가 있을 때만
@@ -1032,6 +1064,56 @@ web_search 로 위 KILL 신호 각각의 최신 상태를 확인하고 아래 JS
 JSON 외 다른 텍스트 출력 금지."""
 
     return _run_search(prompt, LAYER0_MAX_USES, "Layer 0")
+
+
+def search_news_sweep(positions: list[dict], now_str: str) -> tuple[Optional[dict], dict]:
+    """모니터링 대상 전 종목의 최근 소식을 훑는다 (판정 아님).
+
+    개별 검색은 하루 3개까지라 나머지 7개는 아무 정보도 안 나온다.
+    kill/thesis 에 안 걸려도 보유 종목에 무슨 일이 있었는지는 알아야 하므로
+    한 번의 호출로 전 종목 헤드라인 수준을 훑는다.
+    """
+    if not positions:
+        return None, new_usage()
+
+    lines = []
+    for pos in positions:
+        lines.append(
+            f"- {pos.get('label')} / 티커 {', '.join(pos.get('tickers', []))}"
+            f" / 무시할 것: {'; '.join(pos.get('ignore', [])) or '(없음)'}"
+        )
+    roster = chr(10).join(lines)
+
+    prompt = f"""당신은 보유 종목의 최근 소식을 훑는 분석가.
+
+# 현재 시점
+{now_str}
+
+# 대상 종목
+{roster}
+
+# 작업
+각 종목의 최근 7일 이내 주목할 만한 소식을 web_search 로 찾아 정리.
+매도·매수를 판정하는 자리가 아니다. **무슨 일이 있었는지 사실만** 모은다.
+
+포함: 실적·수주·계약·증설·인허가·소송·경영권 변동·정책 변화·주요 고객사 동향
+제외: 각 종목의 '무시할 것' 에 해당하는 내용, 단순 주가 등락, 목표주가 조정,
+      증권사 투자의견, 근거 없는 추측성 보도
+
+소식이 없는 종목은 items 에 넣지 말 것. 억지로 채우지 말 것.
+종목당 최대 2건, 전체 최대 12건. position_id 는 위 목록의 포지션명과 일치시킬 것.
+
+아래 JSON 만 출력:
+
+{{
+  "items": [
+    {{"position_label": "포지션명", "summary": "한 문장 사실 요약", "evidence_url": "출처 URL", "reported_at": "YYYY-MM-DD"}}
+  ]
+}}
+
+JSON 외 다른 텍스트 출력 금지."""
+
+    return _run_search(prompt, NEWS_SWEEP_MAX_USES, "종목 소식 스윕")
 
 
 def search_position(
@@ -1378,6 +1460,16 @@ async def main(dry_run: bool = False):
     else:
         logger.warning("portfolio_level 없음 — Layer 0 검색 생략")
 
+    # 3-2. 전 종목 소식 스윕 (개별 검색은 하루 3개뿐이라 나머지는 이걸로 커버)
+    monitored = [p for p in positions if p.get("status") in MONITORED_STATUSES]
+    logger.info(f"전 종목 소식 스윕 중... ({len(monitored)}종목)")
+    news_sweep, u = search_news_sweep(monitored, now_str)
+    merge_usage(usage_total, u)
+    if news_sweep:
+        logger.info(f"소식 스윕 완료: {len((news_sweep.get('items') or []))}건")
+    else:
+        logger.warning("소식 스윕 실패 — 📰 섹션 없이 진행")
+
     # 4. 검색 대상 선별 (API 호출 없음)
     selected, unchecked = select_positions(positions, state, all_prices, upcoming, today_str)
     if selected:
@@ -1446,6 +1538,7 @@ async def main(dry_run: bool = False):
         now_str=now_str,
         positions_doc=positions_doc,
         layer0_result=layer0_result,
+        news_sweep=news_sweep,
         position_results=position_results,
         unchecked=unchecked,
         upcoming=upcoming,
@@ -1491,6 +1584,7 @@ async def main(dry_run: bool = False):
             "usage": usage_total,
             "cost_usd": round(cost, 4),
             "layer0": layer0_result,
+            "news_sweep": news_sweep,
             "selected": [
                 {
                     "id": r["position"]["id"],

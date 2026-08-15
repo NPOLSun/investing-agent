@@ -394,8 +394,25 @@ def save_theme_state(state: dict, today_str: str, path: Optional[Path] = None):
 # 출처 각주
 # ============================================================
 
-_CIRCLED = "①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳"
+# 각주 마커. 하루 findings 30여 건 × 출처 최대 4개면 dedupe 후에도 20개를 훌쩍 넘는다.
+# 실측(2026-08-15): 출처 참조 92건 → 고유 다수. 20개에서 끊으면 나머지 항목이
+# 통째로 '출처 없음' 이 되어 근거 없는 문장으로 출력된다.
+_CIRCLED = (
+    "".join(chr(0x2460 + i) for i in range(20))    # ①..⑳
+    + "".join(chr(0x3251 + i) for i in range(15))  # ㉑..㉟
+    + "".join(chr(0x32B1 + i) for i in range(15))  # ㊱..㊿
+)
 _TIER_LABEL = {"S1": "1차", "S2": "언론", "S3": "미검증"}
+
+
+def _marker(idx: int) -> str:
+    """0-based 인덱스 → 각주 마커. 50 을 넘으면 [51] 형태로 이어간다."""
+    return _CIRCLED[idx] if idx < len(_CIRCLED) else f"[{idx + 1}]"
+
+
+# 본문에서 실제로 인용된 마커를 찾는 패턴.
+# [K3]·[T1] 같은 조건 번호와 섞이지 않도록 대괄호형은 숫자만 허용한다.
+_MARKER_RE = re.compile("[" + _CIRCLED + r"]|\[\d{1,3}\]")
 
 
 def _outlet_from_url(url: str) -> str:
@@ -465,20 +482,18 @@ class SourceRegistry:
         return f"{src.get('outlet', '').lower()}|{src.get('date', '')}"
 
     def add(self, src: dict) -> Optional[str]:
-        """출처 1건 등록. 각주 마커(①) 리턴. 번호가 모자라면 None."""
+        """출처 1건 등록. 각주 마커(①) 리턴. 상한 없음."""
         key = self._key(src)
         if key in self._by_key:
             idx = self._by_key[key]
             # 같은 URL 이 더 좋은 등급으로 다시 들어오면 등급만 올려준다
             if src.get("tier", "S3") < self._items[idx].get("tier", "S3"):
                 self._items[idx]["tier"] = src["tier"]
-            return _CIRCLED[idx] if idx < len(_CIRCLED) else None
-        if len(self._items) >= len(_CIRCLED):
-            return None
+            return _marker(idx)
         idx = len(self._items)
         self._by_key[key] = idx
         self._items.append(dict(src))
-        return _CIRCLED[idx]
+        return _marker(idx)
 
     def add_all(self, sources: list[dict]) -> str:
         """출처 여러 건 등록. 붙여쓴 마커 문자열(①②) 리턴."""
@@ -490,34 +505,52 @@ class SourceRegistry:
 
     def items(self) -> list[dict]:
         """번호 순 출처 목록 (dry-run 산출물·디버깅용)."""
-        return [{"marker": _CIRCLED[i], **s} for i, s in enumerate(self._items)]
+        return [{"marker": _marker(i), **s} for i, s in enumerate(self._items)]
 
-    def render_file(self) -> str:
-        """파일용 📎 출처 블록 (URL 링크 포함)."""
-        if not self._items:
+    def cited(self, text: str) -> list[tuple[str, dict]]:
+        """text 에서 실제로 인용된 출처만 (마커, 출처) 순서대로 리턴.
+
+        등록된 출처가 전부 다이제스트에 실리지는 않는다 — 모델이 항목을 추리기
+        때문이다. 인용 안 된 것까지 목록에 넣으면 본문에 없는 번호가 줄줄이 남는다.
+        번호는 재부여하지 않는다. 재부여하면 본문 마커와 어긋난다.
+        """
+        used = set(_MARKER_RE.findall(text or ""))
+        return [(m, s) for m, s in
+                ((_marker(i), s) for i, s in enumerate(self._items)) if m in used]
+
+    def unknown_markers(self, text: str) -> list[str]:
+        """본문에 있으나 등록되지 않은 마커 — 모델이 지어낸 각주."""
+        known = {_marker(i) for i in range(len(self._items))}
+        return sorted(set(_MARKER_RE.findall(text or "")) - known)
+
+    def render_file(self, text: str) -> str:
+        """파일용 📎 출처 블록 (URL 링크 포함). text 에 인용된 것만."""
+        rows = self.cited(text)
+        if not rows:
             return ""
         lines = ["", "---", "", "## 📎 출처", ""]
-        for i, s in enumerate(self._items):
+        for marker, s in rows:
             label = _TIER_LABEL.get(s["tier"], s["tier"])
             name = s["outlet"] or "출처 미상"
             body = f"[{name}]({s['url']})" if s["url"] else name
             bits = [b for b in (s["date"], label, s["note"]) if b]
-            lines.append(f"{_CIRCLED[i]} {body} · {' · '.join(bits)}")
+            lines.append(f"{marker} {body} · {' · '.join(bits)}")
         lines.append("")
         return "\n".join(lines)
 
-    def render_telegram(self, limit: int = MAX_TELEGRAM_SOURCES) -> str:
+    def render_telegram(self, text: str, limit: int = MAX_TELEGRAM_SOURCES) -> str:
         """텔레그램용 📎 출처 블록 (URL 없이 도메인·날짜만 — 4000자 제한 대비)."""
-        if not self._items:
+        rows = self.cited(text)
+        if not rows:
             return ""
-        lines = ["", "📎 출처"]
-        for i, s in enumerate(self._items[:limit]):
+        lines = ["", "", "📎 출처"]
+        for marker, s in rows[:limit]:
             label = _TIER_LABEL.get(s["tier"], s["tier"])
             date = s["date"][5:] if len(s["date"]) == 10 else s["date"]
             bits = [b for b in (date, label) if b]
-            lines.append(f"{_CIRCLED[i]} {s['outlet'] or '출처 미상'} · {' · '.join(bits)}")
-        if len(self._items) > limit:
-            lines.append(f"(외 {len(self._items) - limit}건은 첨부 파일 참조)")
+            lines.append(f"{marker} {s['outlet'] or '출처 미상'} · {' · '.join(bits)}")
+        if len(rows) > limit:
+            lines.append(f"(외 {len(rows) - limit}건은 첨부 파일 참조)")
         return "\n".join(lines)
 
 
@@ -2127,14 +2160,22 @@ def build_cost_footer(usage: dict, cost: float, now_str: str) -> str:
 
 
 def parse_claude_response(response_text: str) -> tuple[str, str]:
-    """Claude 응답에서 텔레그램 요약 + 파일 분리."""
+    """Claude 응답에서 텔레그램 요약 + 파일 분리.
+
+    ★ 첫 마커 '앞' 은 버린다. 프롬프트로 금지해도 모델이 "다이제스트를
+    작성했습니다..." 같은 서두를 붙일 때가 있는데, replace 로 마커만 지우면
+    그 서두가 텔레그램 맨 위에 그대로 실린다 (실측 2026-08-15).
+    """
     if "===TELEGRAM===" in response_text and "===FILE===" in response_text:
-        parts = response_text.split("===FILE===", 1)
-        telegram_part = parts[0].replace("===TELEGRAM===", "").strip()
-        file_part = parts[1].strip()
-        return telegram_part, file_part
+        after = response_text.split("===TELEGRAM===", 1)[1]
+        telegram_part, file_part = after.split("===FILE===", 1)
+        preamble = response_text.split("===TELEGRAM===", 1)[0].strip()
+        if preamble:
+            logger.warning(f"모델이 서두를 붙임 — 버림: {preamble[:80]}")
+        return telegram_part.strip(), file_part.strip()
     else:
         # 마커 없으면 전체를 둘 다 사용
+        logger.warning("===TELEGRAM===/===FILE=== 마커 없음 — 응답 전문을 그대로 사용")
         return response_text[:1500], response_text
 
 
@@ -2467,10 +2508,14 @@ async def main(dry_run: bool = False):
     file_md += build_theme_appendix(positions_doc, theme_state, today_str)
     # 📎 출처는 모델이 아니라 코드가 붙인다 — 번호와 목록이 어긋나지 않게 하기 위함.
     # 본문에서는 각주 마커만 읽고, 필요할 때만 맨 아래를 본다.
-    file_md += registry.render_file()
+    # 인용되지 않은 출처는 목록에서 뺀다 (본문에 없는 번호가 남지 않게).
+    for label, text in (("파일", file_md), ("텔레그램", telegram_summary)):
+        bogus = registry.unknown_markers(text)
+        if bogus:
+            logger.warning(f"{label}: 등록되지 않은 각주 마커 인용 — {', '.join(bogus)}")
+    file_md += registry.render_file(file_md)
     file_md += build_cost_footer(usage_total, cost, now_str)
-    if len(registry):
-        telegram_summary += "\n" + registry.render_telegram()
+    telegram_summary += registry.render_telegram(telegram_summary)
 
     # 8. 파일 저장
     if dry_run:

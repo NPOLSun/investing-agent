@@ -42,6 +42,10 @@ data/*
 # position_state.json 은 분기 연속 판정의 유일한 근거다. EC2 로컬에만 두면
 # 서버가 죽을 때 몇 달치 누적이 사라지므로 추적한다 (EC2 가 매일 자동 커밋).
 !data/position_state.json
+# theme_state.json 도 같은 이유. 테마 레이어는 판정을 하지 않으므로
+# '같은 흐름 N회 반복' 누적이 유일한 신호 강도이며, 날아가면 복구가 불가능하다.
+# ★ 여기 빠뜨리면 git add 가 무시된 파일에서 실패해 position_state 커밋까지 함께 죽는다.
+!data/theme_state.json
 scripts/__pycache__/
 *.log
 digests/sent/

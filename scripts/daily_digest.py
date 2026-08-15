@@ -4,18 +4,27 @@ Daily Digest Generator
 매일 새벽 06:30 KST 자동 실행 (cron).
 
 작동 순서:
-1. positions.json·position_state.json·캘린더 로드
+1. positions.json·position_state.json·theme_state.json·캘린더 로드
 2. 포지션 종목만 yfinance·pykrx 로 가격 수집 (레거시 워치리스트 32종목 미사용)
 3. Layer 0 (포트폴리오 상위 변수) web_search 1회
-4. 검색 대상 포지션 선별 (가격 ±3% / 7일 내 이벤트 / N일 미점검 rotation)
-5. 선별된 포지션만 개별 web_search → RED·YELLOW·WHITE 판정
-6. position_state.json 에 관측값·플래그 누적 (분기 연속 류 판정 근거)
-7. 종합 호출로 일간 다이제스트 생성
-8. 파일 저장 (digests/sent/YYYY-MM-DD.md)
-9. 텔레그램 푸시 (요약 + 파일 첨부 + GitHub URL)
+4. 전 종목 소식 스윕 1회 (판정 아님)
+5. 검색 대상 포지션 선별 (가격 ±3% / 7일 내 이벤트 / N일 미점검 rotation)
+6. 선별된 포지션만 개별 web_search → RED·YELLOW·WHITE 판정
+7. Layer 0.5 테마 검색 (판정 없음) → 결과를 affects 포지션으로 팬아웃
+8. position_state.json·theme_state.json 에 관측값·플래그·흐름 누적
+9. 종합 호출로 일간 다이제스트 생성 (각주 번호는 코드가 부여)
+10. 파일 저장 (digests/sent/YYYY-MM-DD.md) + 📎 출처 블록 자동 첨부
+11. 텔레그램 푸시 (요약 + 파일 첨부 + GitHub URL)
 
-하루 API 호출: Layer 0 (1) + 선별 포지션 (0~2) + 종합 (1) = 2~4회
-하루 검색: 호출당 상한(LAYER0_MAX_USES / POSITION_MAX_USES) + 총량 캡(DAILY_SEARCH_BUDGET)
+레이어 구분:
+- 포지션 판정 (🔴🟡⚪) — kill_signals·thesis 에 실제로 걸릴 때만. 조치 판단 대상
+- Layer 0.5 테마 (🔷) — 상위 변화 추적. 등급 없음. 반복 관측 누적만이 승격 경로
+  포지션 검색은 하루 MAX_SEARCH_POSITIONS 개뿐이라 여러 포지션을 동시에 흔드는
+  상위 변화가 통째로 새어나간다. 그 구멍을 메우는 레이어.
+
+하루 API 호출: Layer 0 (1) + 스윕 (1) + 선별 포지션 (0~3) + 테마 (0~2) + 종합 (1)
+하루 검색: 호출당 상한(LAYER0_MAX_USES / POSITION_MAX_USES / THEME_MAX_USES)
+          + 총량 캡(DAILY_SEARCH_BUDGET)
 """
 
 import os
@@ -73,6 +82,7 @@ TEMPLATE_PATH = PROJECT_ROOT / "digests" / "templates" / "track1_daily_template.
 TRACKED_STOCKS_PATH = PROJECT_ROOT / "data" / "tracked_stocks.json"
 POSITIONS_PATH = PROJECT_ROOT / "data" / "positions.json"
 POSITION_STATE_PATH = PROJECT_ROOT / "data" / "position_state.json"
+THEME_STATE_PATH = PROJECT_ROOT / "data" / "theme_state.json"
 DIGEST_OUTPUT_DIR = PROJECT_ROOT / "digests" / "sent"
 DRY_RUN_OUTPUT_DIR = PROJECT_ROOT / "digests" / "dry-run"
 
@@ -107,7 +117,8 @@ WEB_SEARCH_TOOL_TYPE = "web_search_20260209"
 LAYER0_MAX_USES = 6            # Layer 0
 NEWS_SWEEP_MAX_USES = 12       # 전 종목 소식 스윕 (판정 아님, 훑기)
 POSITION_MAX_USES = 20         # 포지션당 (실측: 가장 무거운 포지션이 13회에서 자연히 멈춤)
-DAILY_SEARCH_BUDGET = 70       # 하루 총량 캡 (Layer0 6 + 20x3 = 66 + 여유)
+THEME_MAX_USES = 8             # 테마(Layer 0.5)당
+DAILY_SEARCH_BUDGET = 90       # 하루 총량 캡 (Layer0 6 + 스윕 12 + 포지션 20x3 + 테마 8x2)
 MAX_PAUSE_CONTINUATIONS = 3    # pause_turn 재개 상한
 
 # 모니터링 대상 status (exited·paused 는 기록만 남기고 판정 대상에서 제외)
@@ -122,8 +133,24 @@ SEARCH_ROTATION_DAYS = 14      # 이 기간 미점검이면 순번으로 강제 
 # 제대로 된 1개가 낫고, 못 끝낸 건 last_checked 미갱신으로 내일 재시도된다.
 MAX_SEARCH_POSITIONS = 3       # 하루 개별 검색 상한
 
+# 테마 레이어 (Layer 0.5) 선별 규칙
+# 포지션은 '내 thesis 가 깨졌나' 를 묻고, 테마는 '상위 변화가 어디로 가나' 를 묻는다.
+# 포지션 검색은 하루 3개뿐이라, 여러 포지션을 동시에 흔드는 상위 변화는
+# 그날 뽑힌 포지션에 우연히 걸리지 않으면 통째로 새어나간다. 그 구멍을 메우는 레이어.
+MAX_SEARCH_THEMES = 2          # 하루 테마 검색 상한
+THEME_ROTATION_DAYS_CORE = 3   # core 테마 재점검 주기
+THEME_ROTATION_DAYS = 7        # 비 core 테마 재점검 주기
+
 # 상태 파일 관리
 MAX_OBSERVATIONS = 12          # 지표당 보관할 관측 이력 개수
+# 같은 흐름이 이 횟수 이상 반복 관측되면 'thesis 갱신 후보' 로 승격한다.
+# 테마 레이어는 판정을 하지 않으므로, 누적만이 유일한 승격 경로다.
+THESIS_REVIEW_THRESHOLD = 3
+THEME_SHIFT_EXPIRE_DAYS = 240  # 이 기간 재확인 안 된 테마 흐름은 정리
+
+# 각주
+MAX_SOURCES_PER_FINDING = 4    # finding 당 출처 상한 (모델에게 지시 + 코드에서 절단)
+MAX_TELEGRAM_SOURCES = 14      # 텔레그램 📎 출처 블록 표기 상한 (4000자 제한 대비)
 # 분기 실적은 약 90일 간격이다. 120일이면 Q1 플래그가 Q2 확인 전에 만료될 수 있어
 # 분기 연속 판정이 성립하지 않는다. 1년 이상 버티게 잡는다.
 FLAG_EXPIRE_DAYS = 400         # 이 기간 재확인 안 된 플래그는 정리
@@ -328,6 +355,172 @@ def save_position_state(state: dict, today_str: str, path: Optional[Path] = None
         logger.error(f"상태 파일 저장 실패 ({target}): {e}")
 
 
+def load_theme_state() -> dict:
+    """theme_state.json 로드. 없으면 빈 상태로 시작.
+
+    포지션 상태와 파일을 나눈 이유: 테마는 판정(RED/YELLOW)을 하지 않고
+    '흐름의 반복 관측' 만 쌓는다. 성격이 달라 섞으면 open_flags 의 의미가 흐려진다.
+    """
+    empty = {"meta": {"version": "1.0", "last_run": None}, "themes": {}}
+    if not THEME_STATE_PATH.exists():
+        logger.info("theme_state.json 없음 — 새로 시작")
+        return empty
+    try:
+        state = json.loads(THEME_STATE_PATH.read_text(encoding="utf-8"))
+        state.setdefault("meta", {"version": "1.0", "last_run": None})
+        state.setdefault("themes", {})
+        return state
+    except Exception as e:
+        logger.warning(f"theme_state.json 파싱 실패 — 새로 시작: {e}")
+        return empty
+
+
+def save_theme_state(state: dict, today_str: str, path: Optional[Path] = None):
+    """테마 상태 저장. 실패해도 다이제스트는 계속 진행."""
+    target = path or THEME_STATE_PATH
+    try:
+        state["meta"]["last_run"] = today_str
+        state["meta"].setdefault("version", "1.0")
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(
+            json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+        logger.info(f"테마 상태 저장: {target}")
+    except Exception as e:
+        logger.error(f"테마 상태 파일 저장 실패 ({target}): {e}")
+
+
+# ============================================================
+# 출처 각주
+# ============================================================
+
+_CIRCLED = "①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳"
+_TIER_LABEL = {"S1": "1차", "S2": "언론", "S3": "미검증"}
+
+
+def _outlet_from_url(url: str) -> str:
+    """URL 에서 표시용 도메인 추출. 실패하면 원문 앞부분."""
+    m = re.match(r"^\s*(?:https?://)?(?:www\.)?([^/\s?#]+)", url or "")
+    return m.group(1) if m else (url or "").strip()[:40]
+
+
+def normalize_sources(finding: dict) -> list[dict]:
+    """finding 에서 출처 목록을 정규화한다.
+
+    스키마를 sources 배열로 바꿨지만, 구형 evidence_url(단수)로 응답하는 경우와
+    문자열 URL 만 던지는 경우가 섞여 들어온다. 셋 다 같은 모양으로 만든다.
+    """
+    raw = finding.get("sources")
+    if not isinstance(raw, list) or not raw:
+        url = finding.get("evidence_url")
+        raw = [url] if url else []
+
+    out = []
+    for item in raw:
+        if isinstance(item, str):
+            item = {"url": item}
+        if not isinstance(item, dict):
+            continue
+        url = (item.get("url") or "").strip()
+        outlet = (item.get("outlet") or "").strip() or _outlet_from_url(url)
+        if not url and not outlet:
+            continue
+        tier = (item.get("tier") or "S2").upper()
+        out.append({
+            "url": url,
+            "outlet": outlet,
+            "date": (item.get("date") or finding.get("reported_at") or "").strip(),
+            "tier": tier if tier in _TIER_LABEL else "S2",
+            "note": (item.get("note") or "").strip(),
+        })
+    return out[:MAX_SOURCES_PER_FINDING]
+
+
+def max_tier(sources: list[dict]) -> str:
+    """가장 신뢰도 높은 출처 등급. 없으면 S3."""
+    for tier in ("S1", "S2", "S3"):
+        if any(s.get("tier") == tier for s in sources):
+            return tier
+    return "S3"
+
+
+class SourceRegistry:
+    """각주 번호를 코드가 결정론적으로 매긴다.
+
+    모델에게 번호를 매기게 하면 중복·누락·본문에만 있고 목록에 없는 각주가 생긴다.
+    등록 순서대로 ①②③ 을 부여하고, 같은 URL 은 한 번호로 합친다.
+    검색 호출이 여러 개라 같은 기사가 Layer 0 과 포지션 양쪽에서 나오는데,
+    dedupe 를 코드가 하므로 출처 목록이 부풀지 않는다.
+    """
+
+    def __init__(self):
+        self._by_key: dict[str, int] = {}
+        self._items: list[dict] = []
+
+    @staticmethod
+    def _key(src: dict) -> str:
+        url = (src.get("url") or "").strip().rstrip("/").lower()
+        if url:
+            return url
+        return f"{src.get('outlet', '').lower()}|{src.get('date', '')}"
+
+    def add(self, src: dict) -> Optional[str]:
+        """출처 1건 등록. 각주 마커(①) 리턴. 번호가 모자라면 None."""
+        key = self._key(src)
+        if key in self._by_key:
+            idx = self._by_key[key]
+            # 같은 URL 이 더 좋은 등급으로 다시 들어오면 등급만 올려준다
+            if src.get("tier", "S3") < self._items[idx].get("tier", "S3"):
+                self._items[idx]["tier"] = src["tier"]
+            return _CIRCLED[idx] if idx < len(_CIRCLED) else None
+        if len(self._items) >= len(_CIRCLED):
+            return None
+        idx = len(self._items)
+        self._by_key[key] = idx
+        self._items.append(dict(src))
+        return _CIRCLED[idx]
+
+    def add_all(self, sources: list[dict]) -> str:
+        """출처 여러 건 등록. 붙여쓴 마커 문자열(①②) 리턴."""
+        marks = [m for m in (self.add(s) for s in sources) if m]
+        return "".join(marks)
+
+    def __len__(self) -> int:
+        return len(self._items)
+
+    def items(self) -> list[dict]:
+        """번호 순 출처 목록 (dry-run 산출물·디버깅용)."""
+        return [{"marker": _CIRCLED[i], **s} for i, s in enumerate(self._items)]
+
+    def render_file(self) -> str:
+        """파일용 📎 출처 블록 (URL 링크 포함)."""
+        if not self._items:
+            return ""
+        lines = ["", "---", "", "## 📎 출처", ""]
+        for i, s in enumerate(self._items):
+            label = _TIER_LABEL.get(s["tier"], s["tier"])
+            name = s["outlet"] or "출처 미상"
+            body = f"[{name}]({s['url']})" if s["url"] else name
+            bits = [b for b in (s["date"], label, s["note"]) if b]
+            lines.append(f"{_CIRCLED[i]} {body} · {' · '.join(bits)}")
+        lines.append("")
+        return "\n".join(lines)
+
+    def render_telegram(self, limit: int = MAX_TELEGRAM_SOURCES) -> str:
+        """텔레그램용 📎 출처 블록 (URL 없이 도메인·날짜만 — 4000자 제한 대비)."""
+        if not self._items:
+            return ""
+        lines = ["", "📎 출처"]
+        for i, s in enumerate(self._items[:limit]):
+            label = _TIER_LABEL.get(s["tier"], s["tier"])
+            date = s["date"][5:] if len(s["date"]) == 10 else s["date"]
+            bits = [b for b in (date, label) if b]
+            lines.append(f"{_CIRCLED[i]} {s['outlet'] or '출처 미상'} · {' · '.join(bits)}")
+        if len(self._items) > limit:
+            lines.append(f"(외 {len(self._items) - limit}건은 첨부 파일 참조)")
+        return "\n".join(lines)
+
+
 # ============================================================
 # 캘린더 파싱 · 검색 대상 선별
 # ============================================================
@@ -467,6 +660,59 @@ def select_positions(
     return selected, unselected
 
 
+def select_themes(
+    themes: list[dict],
+    theme_state: dict,
+    upcoming: list[dict],
+    today_str: str,
+) -> tuple[list[dict], list[dict]]:
+    """테마(Layer 0.5) 검색 대상 선별. (선별됨, 미선별) 리턴.
+
+    포지션 선별과 같은 구조지만 트리거가 다르다. 테마는 가격으로 움직이지 않는다.
+    - 캘린더 이벤트 매칭: OCP·GTC·OFC 같은 컨퍼런스에서 아키텍처 변경이 먼저 나온다.
+      뉴스로 나올 땐 이미 늦으므로, 해당 주간에는 그 테마를 앞으로 당긴다.
+    - rotation: core 는 3일, 나머지는 7일
+    """
+    event_text = " ".join(e["line"] for e in upcoming)
+    entries = theme_state.get("themes", {})
+
+    candidates = []
+    for theme in themes:
+        reasons = []
+
+        hay = [theme.get("label", ""), *theme.get("queries", [])]
+        kw_hit = [k for k in hay if k and len(k) >= 3 and k in event_text]
+        if kw_hit:
+            reasons.append(f"{EVENT_WINDOW_DAYS}일 내 이벤트 매칭: {', '.join(kw_hit[:2])}")
+
+        rotation = THEME_ROTATION_DAYS_CORE if theme.get("core") else THEME_ROTATION_DAYS
+        stale = days_since(entries.get(theme["id"], {}).get("last_checked"), today_str)
+        if stale is None:
+            reasons.append("최초 점검")
+        elif stale >= rotation:
+            reasons.append(f"{stale}일 미점검 (rotation, 주기 {rotation}일)")
+
+        if reasons:
+            candidates.append({
+                "theme": theme,
+                "reasons": reasons,
+                "stale": 9999 if stale is None else stale,
+                "triggered": bool(kw_hit),
+            })
+
+    # 이벤트 트리거 우선 → core 우선 → 오래 방치된 순
+    candidates.sort(key=lambda c: (
+        0 if c["triggered"] else 1,
+        0 if c["theme"].get("core") else 1,
+        -c["stale"],
+    ))
+
+    selected = candidates[:MAX_SEARCH_THEMES]
+    selected_ids = {c["theme"]["id"] for c in selected}
+    unselected = [t for t in themes if t["id"] not in selected_ids]
+    return selected, unselected
+
+
 def numbered(items: list, prefix: str, indent: str = "  ") -> str:
     """thesis·kill_signals 에 번호를 매긴다.
 
@@ -539,12 +785,24 @@ def build_prompt(
     unchecked: list[dict],
     upcoming: list[dict],
     state: dict,
+    theme_results: Optional[list[dict]] = None,
+    theme_state: Optional[dict] = None,
+    registry: Optional[SourceRegistry] = None,
 ) -> str:
     """종합 호출 프롬프트.
 
     포지션 판정 기준(thesis·kill_signals·watch) + 오늘 검색 결과를 결합해
     3단계 등급 다이제스트를 작성시킨다. 판단·조치 제안은 시키지 않는다.
+
+    출처는 본문에 URL 로 넣지 않고 각주 마커(①②)만 심는다. 번호 부여와
+    📎 출처 목록 렌더링은 registry 가 전담한다 — 모델에게 번호를 매기게 하면
+    중복·누락·목록에 없는 각주가 생긴다. 등록 순서가 곧 번호이므로
+    아래에서 출력 순서(Layer 0 → RED → YELLOW → WHITE → 테마 → 소식)대로 등록한다.
     """
+    theme_results = theme_results or []
+    theme_state = theme_state or {}
+    registry = registry if registry is not None else SourceRegistry()
+
     meta = positions_doc.get("meta", {})
     portfolio_level = positions_doc.get("portfolio_level", {})
     operating_rule = meta.get("operating_rule", "")
@@ -565,23 +823,52 @@ def build_prompt(
     ) if portfolio_level else "(portfolio_level 미정의)"
 
     # ---- 검색 결과 포맷 ----
+    def fmt_detail(f: dict, indent: str = "  ") -> list[str]:
+        """quant / qual / 각주 마커 — finding 공통 부속 줄."""
+        lines = []
+        quant = f.get("quant") or {}
+        if isinstance(quant, dict) and quant:
+            lines.append(f"{indent}정량: " + " · ".join(f"{k} = {v}" for k, v in quant.items()))
+        for q in (f.get("qual") or [])[:3]:
+            lines.append(f"{indent}맥락: {q}")
+        sources = normalize_sources(f)
+        marks = registry.add_all(sources)
+        if marks:
+            tier = max_tier(sources)
+            warn = "  ※ 미검증 출처뿐 — RED 로 올리지 말 것" if tier == "S3" else ""
+            lines.append(f"{indent}근거 {marks}{warn}")
+        else:
+            lines.append(f"{indent}근거 (출처 없음 — 출력하지 말 것)")
+        return lines
+
     def fmt_findings(findings) -> str:
         if not findings:
             return "- (신호 없음)"
         out = []
         for f in findings:
             refs = ", ".join(f.get("refs") or []) or "연결 번호 없음"
-            out.append(
-                f"- [{f.get('level', '?')}] ({refs}) {f.get('summary', '')}\n"
-                f"  해당 조건: {f.get('signal') or '-'}\n"
-                f"  출처: {f.get('evidence_url', '-')} ({f.get('reported_at', '날짜 미상')})"
-            )
+            block = [
+                f"- [{f.get('level', '?')}] ({refs}) {f.get('summary', '')}",
+                f"  해당 조건: {f.get('signal') or '-'}",
+            ]
+            block += fmt_detail(f)
+            out.append("\n".join(block))
         return "\n".join(out)
 
+    # 각주 번호는 등록 순서를 따른다. 출력에서 Layer 0 이 맨 위로 가므로 먼저 등록.
     layer0_section = (
         fmt_findings(layer0_result.get("findings"))
         if layer0_result else "- (Layer 0 검색 실패 또는 미실행 — 판정 없음)"
     )
+
+    # 포지션 findings 는 등급 순으로 등록해야 번호가 읽는 순서와 대체로 맞는다
+    _LEVEL_ORDER = {"RED": 0, "YELLOW": 1, "WHITE": 2}
+    for item in position_results:
+        for f in sorted(
+            ((item.get("result") or {}).get("findings") or []),
+            key=lambda x: _LEVEL_ORDER.get(x.get("level"), 3),
+        ):
+            registry.add_all(normalize_sources(f))
 
     pos_blocks = []
     for item in position_results:
@@ -616,14 +903,81 @@ def build_prompt(
         )
     position_section = "\n\n".join(pos_blocks) if pos_blocks else "(오늘 검색한 포지션 없음)"
 
+    # ---- 테마 (Layer 0.5) ----
+    by_id = {p["id"]: p for p in positions_doc.get("positions", [])}
+
+    def fan_out(finding: dict, theme: dict) -> str:
+        """테마 finding 이 닿는 포지션을 사람이 읽는 이름으로 펼친다.
+
+        이게 '연결' 의 실체다. 오늘 그 포지션을 개별 검색했든 안 했든 나온다.
+        모델이 엉뚱한 id 를 뱉을 수 있으므로 theme.affects 안으로 한정한다.
+        """
+        allowed = [pid for pid in theme.get("affects", []) if pid in by_id]
+        picked = [pid for pid in (finding.get("affects") or []) if pid in allowed] or allowed
+        return ", ".join(display_name(by_id[pid]) for pid in picked) or "(연결 포지션 없음)"
+
+    theme_blocks = []
+    for item in theme_results:
+        theme = item["theme"]
+        result = item.get("result") or {}
+        entry = theme_state.get("themes", {}).get(theme["id"], {})
+        shifts = entry.get("shifts", {})
+
+        if item.get("skipped"):
+            body = f"- ⚠️ 미점검: {item['skipped']}"
+        elif not result or not (result.get("findings") or []):
+            note = f" (확인 미완료: {item['incomplete']})" if item.get("incomplete") else ""
+            body = f"- (새로운 흐름 없음){note}"
+        else:
+            lines = []
+            for f in (result.get("findings") or [])[:4]:
+                refs = ", ".join(f.get("refs") or []) or "-"
+                head = f.get("headline") or f.get("shift") or ""
+                lines.append(
+                    f"- ({refs}) [{f.get('direction', '불명')}] {head} — {f.get('summary', '')}"
+                )
+                lines += fmt_detail(f)
+                lines.append(f"  닿는 포지션: {fan_out(f, theme)}")
+                rec = shifts.get(_shift_key(f))
+                if rec and rec.get("count", 1) >= 2:
+                    promo = " ★ thesis 갱신 후보" if rec.get("thesis_review") else ""
+                    lines.append(
+                        f"  누적: {rec['count']}회째 관측 (최초 {rec.get('first_seen')}){promo}"
+                    )
+                else:
+                    lines.append("  누적: 신규 관측")
+            body = "\n".join(lines)
+            if item.get("incomplete"):
+                body = f"- ⚠️ 확인 미완료: {item['incomplete']}\n" + body
+
+        theme_blocks.append(
+            f"## {theme.get('label')}\n"
+            f"점검 사유: {'; '.join(item.get('reasons', []))}\n"
+            f"{body}"
+        )
+    theme_section = "\n\n".join(theme_blocks) if theme_blocks else "(오늘 검색한 테마 없음)"
+
+    # 오늘 안 본 테마 중 누적된 흐름 — 매일 재검색하지 않아도 승격분은 계속 보인다
+    carry_lines = []
+    checked_ids = {i["theme"]["id"] for i in theme_results}
+    for tid, entry in (theme_state.get("themes") or {}).items():
+        if tid in checked_ids:
+            continue
+        for rec in (entry.get("shifts") or {}).values():
+            if not rec.get("thesis_review"):
+                continue
+            carry_lines.append(
+                f"- {rec.get('headline')} [{rec.get('direction')}] "
+                f"{rec['count']}회째, 최근 {rec.get('last_seen')} — {rec.get('summary', '')[:80]}"
+            )
+    carry_section = "\n".join(carry_lines[:5]) or "(없음)"
+
     sweep_lines = []
     for it in ((news_sweep or {}).get("items") or []):
         who = it.get("position_label") or it.get("position_id") or "?"
-        sweep_lines.append(
-            f"- {who}: {it.get('summary', '')}"
-            + chr(10)
-            + f"  출처: {it.get('evidence_url', '-')} ({it.get('reported_at', '날짜 미상')})"
-        )
+        block = [f"- {who}: {it.get('summary', '')}"]
+        block += fmt_detail(it)
+        sweep_lines.append(chr(10).join(block))
     sweep_section = chr(10).join(sweep_lines) or "(최근 소식 없음)"
 
     unchecked_section = "\n".join(
@@ -685,6 +1039,19 @@ status 가 holding 또는 watching 인 것만. T=thesis, K=kill_signals, A=add_s
 # 오늘 검색한 포지션의 판정 결과
 {position_section}
 
+# Layer 0.5 — 테마 (상위 변화 추적. ★ 판정 아님)
+포지션 검색은 하루 {MAX_SEARCH_POSITIONS}개뿐이라, 여러 포지션을 동시에 흔드는
+상위 변화는 그날 뽑힌 포지션에 우연히 걸리지 않으면 통째로 새어나간다.
+이 레이어가 그 구멍을 메운다. **'닿는 포지션' 은 오늘 개별 검색했는지와 무관하게 나온다.**
+
+등급(🔴🟡⚪)을 매기지 말 것. 여기 있는 내용은 kill_signals 에 걸린 것이 아니다.
+🔷 흐름 섹션에만 쓸 것. 조치·판단 제안 금지.
+
+{theme_section}
+
+## 오늘 점검하지 않은 테마 중 누적 승격분
+{carry_section}
+
 # 전 종목 최근 소식 (판정 아님 — 알아둘 것)
 오늘 깊이 점검하지 않은 종목도 포함된다. 📰 섹션 재료로 쓸 것.
 {sweep_section}
@@ -703,7 +1070,7 @@ status 가 holding 또는 watching 인 것만. T=thesis, K=kill_signals, A=add_s
 두 블록을 순서대로 출력. 앞뒤 설명·코드블록 마커 없이 다이제스트만.
 
 ===TELEGRAM===
-plain text, 표·markdown 문법 없이. 모바일에서 그대로 읽히게. 3000자 이내.
+plain text, 표·markdown 문법 없이. 모바일에서 그대로 읽히게. 2600자 이내.
 
 ★ 영문 슬러그를 절대 쓰지 말 것. us-transformer, point-of-load, ess-foil 같은
    내부 식별자는 사람이 읽는 글이 아니다. 항상 한글 포지션명 + 티커로 쓸 것.
@@ -714,43 +1081,55 @@ plain text, 표·markdown 문법 없이. 모바일에서 그대로 읽히게. 30
 ★ 아래 서식을 그대로 따를 것. 섹션 사이 빈 줄 1개, 항목 사이 빈 줄 1개.
    들여쓰기는 공백 2칸으로 맞출 것.
 
+★★ 출처는 본문에 쓰지 말 것. 도메인·URL·매체명을 문장에 넣지 말 것.
+   위 검색 결과에 붙어 있는 각주 마커(①②③…)를 항목 마지막 줄에
+   "근거 ①②" 형태로 **그대로 옮겨 적기만** 할 것.
+   - 마커를 새로 만들거나 번호를 바꾸지 말 것. 위에 없는 번호를 쓰지 말 것.
+   - 한 항목에 여러 사실을 합쳤으면 해당 마커를 모두 붙일 것.
+   - "📎 출처" 목록은 시스템이 자동으로 붙인다. 직접 작성하지 말 것.
+
 --- 좋은 예 (이 모양 그대로) ---
 🔴 판단 필요
 
-• SSD 컨트롤러 (파두 440110)
-  SK하이닉스가 eSSD 컨트롤러를 전량 자체 개발로 전환했다.
-  ↳ 매도 검토 조건: "삼성·SK하이닉스 자체 컨트롤러 내재화 확대"
-  thebell.co.kr · 09-17
-
 • 미국 변압기 (효성중공업 298040 / HD현대일렉트릭 267260)
   미국 상무부가 반덤핑 연례재심 예비판정에서 효성중공업 관세율을
-  0%에서 4.32%로 인상했다. 최종판정은 대기 중이다.
+  0%에서 4.32%로 인상했다. 최종판정은 4분기로 예정돼 있고, 멤피스
+  증설분 가동은 2027년이라 관세 적용 구간과 1년 이상 겹친다.
   ↳ 매도 검토 조건: "한국산 반덤핑 관세 강화 + 미국 현지 capa 미확보"
-  federalregister.gov · 08-10
+  근거 ①②③
 
 --- 나쁜 예 (이렇게 쓰지 말 것) ---
 - 파두 [K5] SK하이닉스 eSSD컨트롤러 전량 인하우스화 확인, 핵심세그 수주경로 차단
 - L0 [L2] WoodMac 파이프라인 3분기연속↓ vs ConstructConnect 착공액↑, 지표상충
 ⚠️ 확인 미완료: us-transformer (K6 미확인)
+  federalregister.gov · 08-10        ← 본문에 출처를 쓰면 안 된다
+  근거 ⑦                              ← 위 검색 결과에 ⑦ 이 없으면 안 된다
 
 📊 포지션 신호 — YYYY-MM-DD
 
 🔴 판단 필요
 • 포지션명 (회사명 티커)
-  무슨 일이 있었는지 완전한 문장으로
+  무슨 일이 있었는지 완전한 문장으로. 숫자가 있으면 반드시 포함.
   ↳ 매도 검토 조건에 해당: "해당 kill_signal 원문을 그대로 인용"
-  출처도메인 · MM-DD
+  근거 ①②
 (해당 없으면 이 줄만: 없음)
 
 🟡 확인 필요
 • 포지션명 (회사명 티커)
   무슨 일이 있었는지 완전한 문장으로
   ↳ 관련 근거: "해당 thesis 또는 add_signal 원문을 그대로 인용"
-  출처도메인 · MM-DD
+  근거 ③
 (해당 없으면: 없음)
 
+🔷 AI 인프라 흐름
+• 흐름 제목 — 무엇이 어디서 어디로 움직였는지 2~3문장. 숫자 포함.
+  ↳ 닿는 포지션: 포지션명 (회사명 티커), 포지션명 (회사명 티커)
+  ↳ 신규 관측  (또는: 3회째 관측 — thesis 갱신 후보)
+  근거 ④⑤
+(판정이 아니다. 조치·판단을 쓰지 말 것. 최대 4건. 해당 없으면: 없음)
+
 📰 보유 종목 소식
-• 포지션명 (회사명 티커) — 한 문장 요약 (출처도메인 · MM-DD)
+• 포지션명 (회사명 티커) — 한 문장 요약  근거 ⑥
 (판정 조건에 안 걸려도 알아둘 만한 것. 오늘 깊이 점검하지 않은 종목도 포함.
  최대 8건. 해당 없으면: 없음)
 
@@ -769,12 +1148,15 @@ plain text, 표·markdown 문법 없이. 모바일에서 그대로 읽히게. 30
 
 ===FILE===
 markdown. 헤더는 ##. 텔레그램 요약과 별개로 작성하되 사실이 서로 어긋나면 안 됨.
+출처 규칙은 텔레그램과 동일 — 본문에 URL·도메인을 쓰지 말고 각주 마커만 옮길 것.
 
 ## 🔴 KILL 관련
 포지션마다 아래 형식:
 - **포지션명 (회사명 티커)** — [K3] 해당 kill_signal 원문 (번호는 추적용, 원문을 반드시 함께)
-  사실: 한 줄
-  출처: URL (보도일)
+  사실: 2~3문장
+  정량: 지표 = 이전 → 이후  ← 숫자가 있을 때만
+  맥락: 숫자로 안 잡히는 것  ← 있을 때만
+  근거: ①②
   누적: N회째 관측, 최초 YYYY-MM-DD  ← 반복 관측 정보가 있을 때만
 (해당 없으면 "없음" 한 단어)
 
@@ -789,6 +1171,20 @@ markdown. 헤더는 ##. 텔레그램 요약과 별개로 작성하되 사실이 
 ## Layer 0
 [L1]~[L4] 중 걸린 것만. 해당 없으면 "없음".
 Layer 0 에 걸린 게 있으면 이 섹션을 문서 맨 위로 올릴 것.
+
+## 🔷 AI 인프라 흐름 (Layer 0.5)
+판정이 아니다. 등급을 매기지 말 것. 테마별로:
+- **흐름 제목** — [W2] 해당 watch_shift 원문
+  사실: 무엇이 어디서 어디로 움직였는지 2~3문장
+  정량: 지표 = 이전 → 이후
+  맥락: 숫자로 안 잡히는 것
+  닿는 포지션: 포지션명 (회사명 티커), ...
+  누적: 신규 관측 / N회째 관측 (최초 YYYY-MM-DD) — thesis 갱신 후보
+  근거: ④⑤
+(해당 없으면 "없음")
+
+'오늘 점검하지 않은 테마 중 누적 승격분' 이 있으면 이 섹션 끝에
+"### 계속 쌓이는 중 (오늘 미점검 테마)" 소제목으로 한 줄씩 덧붙일 것.
 
 ## 향후 {EVENT_WINDOW_DAYS}일 이벤트
 표 (날짜 / 이벤트 / 관련 포지션 / P). P1·P2만.
@@ -807,9 +1203,9 @@ Layer 0 에 걸린 게 있으면 이 섹션을 문서 맨 위로 올릴 것.
 
 0. 영문 슬러그(us-transformer, ess-foil 등)를 출력 어디에도 쓰지 말 것.
    포지션은 항상 한글명 + 티커로 표기한다.
-1. 파일(===FILE===) 에서는 각 항목에 연결 번호를 붙일 것: [K#] [T#] [A#] [L#].
+1. 파일(===FILE===) 에서는 각 항목에 연결 번호를 붙일 것: [K#] [T#] [A#] [L#] [W#].
    단 번호만 쓰지 말고 조건 원문을 함께 인용할 것. 텔레그램에는 번호를 쓰지 않는다.
-   어느 조건에도 연결되지 않는 사실은 📰 보유 종목 소식에만 넣을 것.
+   어느 조건에도 연결되지 않는 사실은 📰 보유 종목 소식 또는 🔷 흐름에만 넣을 것.
 2. ignore 목록에 해당하는 내용은 **아예 출력하지 말 것**. 언급조차 금지.
 3. 해당 없으면 "없음" 한 단어로 끝낼 것. 억지로 채우거나 분량을 맞추려 하지 말 것.
    빈 섹션에 "특이사항 없으나 ..." 같은 사족 금지.
@@ -822,8 +1218,15 @@ Layer 0 에 걸린 게 있으면 이 섹션을 문서 맨 위로 올릴 것.
    - ⚠️ 확인 미완료 (검색을 끝내지 못함) → 별도 섹션에 사유와 함께
    - 미점검 (검색 자체를 안 함) → "확인 안 함"
    확인 미완료·미점검을 "이상 없음" 으로 쓰면 안 된다.
-7. 출처 URL 이 없는 항목은 만들지 말 것.
+7. 각주 마커가 없는 항목은 만들지 말 것 (출처가 없다는 뜻이다).
+   본문 어디에도 URL·도메인·매체명을 쓰지 말 것. 📎 출처 목록을 직접 만들지 말 것.
+   위 검색 결과에 등장하지 않은 각주 번호를 쓰면 안 된다.
 8. 가격은 반드시 맨 아래. 위쪽 섹션에서 가격 등락을 서술하지 말 것.
+9. 🔷 흐름 섹션에 🔴🟡⚪ 등급을 매기지 말 것. 이 섹션은 판정이 아니라
+   "이 방향이 계속되면 thesis 문장을 고쳐야 한다" 는 관찰이다.
+   같은 사실이 포지션 판정(🔴🟡)에도 걸렸다면 판정 쪽에만 쓰고 여기서는 뺄 것.
+10. 여러 출처가 같은 사건을 다뤘으면 **하나의 항목으로 합쳐** 쓸 것.
+   출처 수만큼 항목을 쪼개지 말 것. 근거 마커만 여러 개 붙인다.
 
 # 톤
 직설·짧음. AI 특유의 모호함·"~할 수 있습니다" 금지. "~다" 또는 "~함" 위주.
@@ -997,8 +1400,29 @@ _SIGNAL_RULE = """판정 기준:
 - WHITE: 알아둘 만하나 판단 불필요
 - ignore 항목에 해당하면 아예 보고하지 말 것 (노이즈)
 
-근거 없는 추측 금지. 검색으로 확인한 사실만. 각 항목에 출처 URL 과 보도일자 필수.
+근거 없는 추측 금지. 검색으로 확인한 사실만.
 해당 신호가 없으면 findings 를 빈 배열로 두고 no_news 를 true 로 할 것."""
+
+# 출처를 finding 당 여러 개 받는다. 예전에는 evidence_url 하나뿐이라
+# "같은 사건을 여러 곳이 보도" 를 표현할 방법이 없어 항목이 쪼개졌다.
+_SOURCE_RULE = f"""출처 규칙 (sources 배열):
+- 같은 사실을 여러 곳에서 확인했으면 **한 finding 에 모아** sources 에 전부 넣을 것.
+  같은 사건을 출처 수만큼 여러 finding 으로 쪼개지 말 것.
+- 최대 {MAX_SOURCES_PER_FINDING}개. 1차 원문이 있으면 반드시 첫 번째에 둘 것.
+- tier 구분:
+  S1 = 1차 원문 (공시·기업 IR·실적발표·정부/규제기관 문서·법원 판결문)
+  S2 = 언론 보도·업계 리서치 기관
+  S3 = 미검증 (블로그·커뮤니티·추측성 보도·익명 소식통)
+- ★ S3 만으로는 RED 를 매기지 말 것. S3 단독이면 최대 YELLOW 이고
+  summary 에 "미검증" 을 명시할 것.
+- 출처가 하나도 없는 항목은 아예 만들지 말 것.
+
+내용 규칙 (summary / quant / qual):
+- summary: 무슨 일이 있었는지 2~3문장. 여러 출처의 내용을 하나로 합쳐서 쓸 것.
+- quant: 숫자로 확인된 것만 {{"지표명": "값"}} 으로. 변화면 "이전 → 이후" 형태로.
+  숫자가 없으면 빈 객체.
+- qual: 숫자로 안 잡히는 맥락·해석을 한 줄씩. 최대 3개. 없으면 빈 배열.
+  추측이면 문장에 "미확인" 또는 "미검증" 을 붙일 것."""
 
 # 도구 미지원·인증 오류 등 구조적 실패가 나면 이후 검색 호출을 건너뛴다.
 # (전송 오류·서버 오류 같은 일시적 실패는 해당 호출만 포기하고 계속 진행)
@@ -1085,11 +1509,24 @@ web_search 로 위 KILL 신호 각각의 최신 상태를 확인하고 아래 JS
 
 {_SIGNAL_RULE}
 
+{_SOURCE_RULE}
+
 각 finding 은 어떤 번호에 걸리는지 refs 로 반드시 명시할 것 (예: ["L2"]).
 
 {{
   "findings": [
-    {{"level": "RED|YELLOW|WHITE", "refs": ["L2"], "signal": "해당 KILL 신호 원문", "summary": "한 줄 사실 요약", "evidence_url": "출처 URL", "reported_at": "YYYY-MM-DD"}}
+    {{
+      "level": "RED|YELLOW|WHITE",
+      "refs": ["L2"],
+      "signal": "해당 KILL 신호 원문",
+      "summary": "무슨 일이 있었는지 2~3문장",
+      "quant": {{"지표명": "값 또는 이전 → 이후"}},
+      "qual": ["숫자로 안 잡히는 맥락 한 줄"],
+      "sources": [
+        {{"url": "출처 URL", "outlet": "도메인 또는 매체명", "date": "YYYY-MM-DD", "tier": "S1|S2|S3"}}
+      ],
+      "reported_at": "YYYY-MM-DD"
+    }}
   ],
   "observations": {{"지표명": "관측값 (예: 리드타임 = 4~5년)"}},
   "no_news": false
@@ -1137,11 +1574,21 @@ def search_news_sweep(positions: list[dict], now_str: str) -> tuple[Optional[dic
 소식이 없는 종목은 items 에 넣지 말 것. 억지로 채우지 말 것.
 종목당 최대 2건, 전체 최대 12건. position_label 은 위 목록의 포지션명과 정확히 일치시킬 것.
 
+{_SOURCE_RULE}
+
 아래 JSON 만 출력:
 
 {{
   "items": [
-    {{"position_label": "포지션명", "summary": "한 문장 사실 요약", "evidence_url": "출처 URL", "reported_at": "YYYY-MM-DD"}}
+    {{
+      "position_label": "포지션명",
+      "summary": "한두 문장 사실 요약",
+      "quant": {{"지표명": "값"}},
+      "sources": [
+        {{"url": "출처 URL", "outlet": "도메인 또는 매체명", "date": "YYYY-MM-DD", "tier": "S1|S2|S3"}}
+      ],
+      "reported_at": "YYYY-MM-DD"
+    }}
   ]
 }}
 
@@ -1215,6 +1662,8 @@ web_search 로 위 KILL·ADD 신호와 추적 지표의 최신 상태를 확인�
 
 {_SIGNAL_RULE}
 
+{_SOURCE_RULE}
+
 "2개 분기 연속 감소" 처럼 누적이 필요한 신호는 오늘 1회 관측만으로 RED 로 올리지 말 것.
 이전 관측 기록과 대조해 실제로 연속 조건이 충족될 때만 RED, 1회 관측이면 YELLOW.
 
@@ -1230,7 +1679,19 @@ web_search 로 위 KILL·ADD 신호와 추적 지표의 최신 상태를 확인�
   "search_complete": true,
   "unchecked": [],
   "findings": [
-    {{"level": "RED|YELLOW|WHITE", "refs": ["K3"], "signal": "해당 항목 원문 (없으면 null)", "kind": "kill|add|info", "summary": "한 줄 사실 요약", "evidence_url": "출처 URL", "reported_at": "YYYY-MM-DD"}}
+    {{
+      "level": "RED|YELLOW|WHITE",
+      "refs": ["K3"],
+      "signal": "해당 항목 원문 (없으면 null)",
+      "kind": "kill|add|info",
+      "summary": "무슨 일이 있었는지 2~3문장",
+      "quant": {{"지표명": "값 또는 이전 → 이후"}},
+      "qual": ["숫자로 안 잡히는 맥락 한 줄"],
+      "sources": [
+        {{"url": "출처 URL", "outlet": "도메인 또는 매체명", "date": "YYYY-MM-DD", "tier": "S1|S2|S3"}}
+      ],
+      "reported_at": "YYYY-MM-DD"
+    }}
   ],
   "observations": {{"지표명": "관측값"}},
   "no_news": false
@@ -1239,6 +1700,106 @@ web_search 로 위 KILL·ADD 신호와 추적 지표의 최신 상태를 확인�
 JSON 외 다른 텍스트 출력 금지."""
 
     return _run_search(prompt, POSITION_MAX_USES, f"포지션 {pos.get('id')}")
+
+
+def search_theme(
+    theme: dict,
+    positions_by_id: dict,
+    state_entry: dict,
+    now_str: str,
+) -> tuple[Optional[dict], dict]:
+    """테마 1개 검색 (Layer 0.5). ★ 판정하지 않는다.
+
+    포지션 검색이 "내 thesis 가 깨졌나" 를 묻는 방어적 질문이라면,
+    이쪽은 "상위 변화가 어디로 얼마나 움직이나" 를 묻는다.
+    등급을 매기지 않는 이유: 흥미로운 테크뉴스가 전부 YELLOW 로 올라오면
+    판정 등급의 의미가 희석되고 다이제스트를 안 믿게 된다.
+    승격 경로는 오직 '반복 관측 누적' 하나뿐이다.
+    """
+    affects = [pid for pid in theme.get("affects", []) if pid in positions_by_id]
+
+    affected_lines = []
+    for pid in affects:
+        pos = positions_by_id[pid]
+        thesis_head = (pos.get("thesis") or ["(thesis 미작성)"])[0]
+        affected_lines.append(
+            f"- {pid} — {display_name(pos)}\n  보유 근거 요지: {thesis_head}"
+        )
+    affected = chr(10).join(affected_lines) or "- (연결된 포지션 없음)"
+
+    prev = json.dumps(state_entry, ensure_ascii=False, indent=2) if state_entry else "(이전 관측 없음)"
+
+    prompt = f"""당신은 특정 기술·산업 테마의 '변화 방향과 속도' 를 추적하는 분석가.
+
+# 현재 시점
+{now_str}
+
+# 테마
+{theme.get('label')}
+
+# 추적 대상 변화 (W번호로 역참조)
+{numbered(theme.get('watch_shifts', []), 'W', indent='')}
+
+# 검색 키워드
+{', '.join(theme.get('queries', [])) or '(없음)'}
+
+# 이 테마에 연결된 보유 포지션
+{affected}
+
+# 이전 관측 기록 (같은 흐름의 반복 여부 판정용)
+{prev}
+
+# 작업
+web_search 로 위 추적 대상 변화 각각의 최신 상태를 확인하고 아래 JSON 만 출력.
+
+★ 이 레이어는 **판정하지 않는다.**
+- RED/YELLOW/WHITE 등급을 매기지 말 것. level 필드 자체가 없다.
+- 매수·매도·비중·진입·손절 등 조치를 제안하지 말 것.
+- "무엇이 어느 방향으로 얼마나 움직였는가" 만 쓴다.
+
+최근 90일 이내 변화에 집중할 것. 이미 널리 알려진 배경 설명은 쓰지 말 것.
+"변화가 없음" 도 유의미한 관측이다 — 억지로 findings 를 채우지 말고 no_news=true 로 둘 것.
+finding 은 최대 4건. 중요도 순.
+
+direction 은 **연결된 포지션 관점에서** 판단할 것:
+  순풍 = 보유 근거를 강화하는 방향 / 역풍 = 약화하는 방향
+  중립 = 방향성 없음 / 불명 = 판단 근거 부족
+
+affects 에는 위 '연결된 포지션' 목록의 id 만 쓸 것. 그 변화가 실제로 닿는 것만
+고를 것 — 테마에 속한다는 이유로 전부 나열하지 말 것.
+
+{_SOURCE_RULE}
+
+★ search_complete 를 정직하게 채울 것. 확인을 못 끝냈으면 false 와 unchecked.
+
+{{
+  "theme_id": "{theme.get('id')}",
+  "search_complete": true,
+  "unchecked": [],
+  "findings": [
+    {{
+      "refs": ["W2"],
+      "shift": "해당 watch_shifts 원문",
+      "headline": "변화를 한 구절로 (15자 내외, 예: 랙 전력밀도)",
+      "summary": "무엇이 어디서 어디로 움직였는지 2~3문장",
+      "quant": {{"지표명": "이전 → 이후"}},
+      "qual": ["숫자로 안 잡히는 맥락 한 줄"],
+      "direction": "순풍|역풍|중립|불명",
+      "affects": ["포지션 id"],
+      "kind": "shift|issue|analysis",
+      "sources": [
+        {{"url": "출처 URL", "outlet": "도메인 또는 매체명", "date": "YYYY-MM-DD", "tier": "S1|S2|S3"}}
+      ],
+      "reported_at": "YYYY-MM-DD"
+    }}
+  ],
+  "observations": {{"지표명": "관측값"}},
+  "no_news": false
+}}
+
+JSON 외 다른 텍스트 출력 금지."""
+
+    return _run_search(prompt, THEME_MAX_USES, f"테마 {theme.get('id')}")
 
 
 # ============================================================
@@ -1263,6 +1824,22 @@ def is_search_incomplete(result: Optional[dict], searches_used: int, max_uses: i
     return None
 
 
+def merge_observations(entry: dict, observations: dict, today_str: str):
+    """관측값 시계열 누적. 값이 바뀔 때만 새 항목, 같으면 last_seen 만 갱신."""
+    entry.setdefault("observations", {})
+    for key, value in (observations or {}).items():
+        if value in (None, "", "확인 불가", "불명"):
+            continue
+        if isinstance(value, (dict, list)):
+            value = json.dumps(value, ensure_ascii=False)
+        series = entry["observations"].setdefault(key, [])
+        if series and series[-1].get("value") == value:
+            series[-1]["last_seen"] = today_str
+        else:
+            series.append({"date": today_str, "last_seen": today_str, "value": value})
+        entry["observations"][key] = series[-MAX_OBSERVATIONS:]
+
+
 def update_state_entry(
     entry: dict, result: dict, today_str: str, mark_checked: bool = True
 ) -> dict:
@@ -1276,16 +1853,11 @@ def update_state_entry(
     if mark_checked:
         entry["last_checked"] = today_str
 
-    # 관측값: 값이 바뀔 때만 새 항목 추가, 같으면 날짜만 갱신
-    for key, value in (result.get("observations") or {}).items():
-        if value in (None, "", "확인 불가", "불명"):
-            continue
-        series = entry["observations"].setdefault(key, [])
-        if series and series[-1].get("value") == value:
-            series[-1]["last_seen"] = today_str
-        else:
-            series.append({"date": today_str, "last_seen": today_str, "value": value})
-        entry["observations"][key] = series[-MAX_OBSERVATIONS:]
+    merge_observations(entry, result.get("observations"), today_str)
+    # finding 의 quant 도 관측값이다. observations 에만 의존하면
+    # 모델이 quant 에만 숫자를 넣은 날의 시계열이 끊긴다.
+    for finding in (result.get("findings") or []):
+        merge_observations(entry, finding.get("quant"), today_str)
 
     # 열린 플래그: 같은 신호가 반복 관측되면 count 증가 → 연속 조건 판정 근거
     flags = {f.get("signal"): f for f in entry["open_flags"] if f.get("signal")}
@@ -1295,13 +1867,14 @@ def update_state_entry(
         signal = finding.get("signal") or (finding.get("summary") or "")[:60]
         if not signal:
             continue
+        sources = normalize_sources(finding)
         if signal in flags:
             flags[signal].update({
                 "level": finding["level"],
                 "last_seen": today_str,
                 "count": flags[signal].get("count", 1) + 1,
                 "summary": finding.get("summary", flags[signal].get("summary", "")),
-                "evidence_url": finding.get("evidence_url", flags[signal].get("evidence_url", "")),
+                "sources": sources or flags[signal].get("sources", []),
             })
         else:
             flags[signal] = {
@@ -1311,8 +1884,9 @@ def update_state_entry(
                 "last_seen": today_str,
                 "count": 1,
                 "summary": finding.get("summary", ""),
-                "evidence_url": finding.get("evidence_url", ""),
+                "sources": sources,
             }
+        flags[signal].pop("evidence_url", None)  # 구형 스키마 잔재 정리
 
     # 오래 재확인 안 된 플래그 정리
     entry["open_flags"] = [
@@ -1321,12 +1895,85 @@ def update_state_entry(
     ]
     return entry
 
+
+def _shift_key(finding: dict) -> str:
+    """테마 흐름의 동일성 판정 키.
+
+    같은 흐름을 매번 새 항목으로 쌓으면 count 가 안 올라가고
+    'thesis 갱신 후보' 승격이 영영 일어나지 않는다. 그래서 표현이 조금 달라도
+    같은 watch_shift 를 가리키면 한 항목으로 묶는다.
+    """
+    refs = ",".join(sorted(finding.get("refs") or []))
+    base = (finding.get("shift") or finding.get("headline") or finding.get("summary") or "")
+    base = re.sub(r"\s+", " ", base).strip().lower()[:80]
+    return f"{refs}|{base}"
+
+
+def update_theme_entry(
+    entry: dict, result: dict, today_str: str, mark_checked: bool = True
+) -> dict:
+    """테마 검색 결과를 누적. 같은 흐름의 반복 관측 횟수를 센다.
+
+    테마 레이어는 판정을 하지 않으므로 '몇 번째로 같은 방향을 봤는가' 가
+    유일한 신호 강도다. THESIS_REVIEW_THRESHOLD 회 이상이면
+    thesis 갱신 후보로 승격된다 (분기 리뷰 재료).
+    """
+    entry.setdefault("observations", {})
+    entry.setdefault("shifts", {})
+    if mark_checked:
+        entry["last_checked"] = today_str
+
+    merge_observations(entry, result.get("observations"), today_str)
+    for finding in (result.get("findings") or []):
+        merge_observations(entry, finding.get("quant"), today_str)
+
+    shifts = entry["shifts"]
+    for finding in (result.get("findings") or []):
+        key = _shift_key(finding)
+        if not key.strip("|"):
+            continue
+        prev = shifts.get(key)
+        record = {
+            "headline": finding.get("headline") or finding.get("shift") or "",
+            "shift": finding.get("shift") or "",
+            "refs": finding.get("refs") or [],
+            "direction": finding.get("direction") or "불명",
+            "affects": finding.get("affects") or [],
+            "summary": finding.get("summary", ""),
+            "sources": normalize_sources(finding),
+            "last_seen": today_str,
+        }
+        if prev:
+            # 방향이 뒤집히면 누적을 리셋한다. 순풍 2회 + 역풍 1회를
+            # "3회 연속" 으로 세면 승격 판정이 거짓이 된다.
+            flipped = (
+                prev.get("direction") in ("순풍", "역풍")
+                and record["direction"] in ("순풍", "역풍")
+                and prev["direction"] != record["direction"]
+            )
+            record["first_seen"] = today_str if flipped else prev.get("first_seen", today_str)
+            record["count"] = 1 if flipped else prev.get("count", 1) + 1
+            if flipped:
+                logger.info(f"테마 흐름 방향 전환 — 누적 리셋: {record['headline']}")
+        else:
+            record["first_seen"] = today_str
+            record["count"] = 1
+        record["thesis_review"] = record["count"] >= THESIS_REVIEW_THRESHOLD
+        shifts[key] = record
+
+    entry["shifts"] = {
+        k: v for k, v in shifts.items()
+        if (days_since(v.get("last_seen"), today_str) or 0) <= THEME_SHIFT_EXPIRE_DAYS
+    }
+    return entry
+
 def build_thesis_appendix(
     positions_doc: dict,
     position_results: list[dict],
     news_sweep: Optional[dict],
     state: dict,
     today_str: str,
+    theme_results: Optional[list[dict]] = None,
 ) -> str:
     """보유 근거(thesis) 대조표. positions.json 원문을 그대로 인용한다.
 
@@ -1345,6 +1992,21 @@ def build_thesis_appendix(
     sweep_by_label = {}
     for it in ((news_sweep or {}).get("items") or []):
         sweep_by_label.setdefault(it.get("position_label", ""), []).append(it)
+
+    # 테마 흐름을 포지션별로 뒤집어 붙인다 — 오늘 개별 검색하지 않은 포지션에도
+    # 상위 변화가 닿았는지 이 표에서 바로 보이게 하는 것이 이 레이어의 목적이다.
+    theme_by_position: dict[str, list[str]] = {}
+    for item in (theme_results or []):
+        theme = item["theme"]
+        allowed = set(theme.get("affects", []))
+        for f in ((item.get("result") or {}).get("findings") or []):
+            hits = [pid for pid in (f.get("affects") or []) if pid in allowed] or list(allowed)
+            head = f.get("headline") or f.get("shift") or ""
+            for pid in hits:
+                theme_by_position.setdefault(pid, []).append(
+                    f"- 🔷 [{theme.get('label')}] {head} ({f.get('direction', '불명')}) "
+                    f"— {f.get('summary', '')}"
+                )
 
     out = ["", "---", "", "## 📌 보유 근거 대조표", "",
            "각 포지션을 어떤 관점으로 들고 있는지와 오늘 확인된 것을 나란히 둔다.", ""]
@@ -1382,6 +2044,8 @@ def build_thesis_appendix(
         for it in sweep_by_label.get(pos.get("label", ""), []):
             out.append(f"- 📰 {it.get('summary', '')} ({it.get('reported_at', '')})")
 
+        out.extend(theme_by_position.get(pos["id"], []))
+
         flags = [f for f in entry.get("open_flags", []) if f.get("count", 1) >= 2]
         if flags:
             out.append("")
@@ -1394,6 +2058,58 @@ def build_thesis_appendix(
         out.append("")
 
     return chr(10).join(out)
+
+
+def build_theme_appendix(
+    positions_doc: dict, theme_state: dict, today_str: str
+) -> str:
+    """테마 흐름 누적표. 판정이 아니라 '무엇이 계속 쌓이고 있는가' 의 기록.
+
+    테마 레이어는 등급을 매기지 않으므로, 이 표가 유일한 신호 강도 표시다.
+    thesis 갱신 후보를 맨 위로 올려 분기 리뷰 때 바로 집히게 한다.
+    """
+    entries = (theme_state or {}).get("themes") or {}
+    if not entries:
+        return ""
+
+    by_id = {p["id"]: p for p in positions_doc.get("positions", [])}
+    themes_by_id = {t["id"]: t for t in positions_doc.get("themes", [])}
+
+    rows = []
+    for tid, entry in entries.items():
+        for rec in (entry.get("shifts") or {}).values():
+            rows.append((tid, rec))
+    if not rows:
+        return ""
+
+    # thesis 갱신 후보 우선 → 누적 횟수 → 최근 관측 순
+    rows.sort(key=lambda r: (
+        0 if r[1].get("thesis_review") else 1,
+        -r[1].get("count", 1),
+        r[1].get("last_seen", ""),
+    ), reverse=False)
+
+    out = ["", "---", "", "## 🔷 테마 흐름 누적", "",
+           f"같은 방향의 변화가 {THESIS_REVIEW_THRESHOLD}회 이상 반복되면 thesis 갱신 후보로 표시된다. "
+           "판정이 아니라 분기 리뷰 재료다.", "",
+           "| 테마 | 흐름 | 방향 | 누적 | 최초 | 최근 | 닿는 포지션 |",
+           "|---|---|---|---|---|---|---|"]
+    for tid, rec in rows[:20]:
+        label = themes_by_id.get(tid, {}).get("label", tid)
+        names = ", ".join(
+            display_name(by_id[pid]) for pid in (rec.get("affects") or []) if pid in by_id
+        ) or "-"
+        star = " ★" if rec.get("thesis_review") else ""
+        head = (rec.get("headline") or rec.get("shift") or "-").replace("|", "／")
+        out.append(
+            f"| {label} | {head}{star} | {rec.get('direction', '불명')} | "
+            f"{rec.get('count', 1)}회 | {rec.get('first_seen', '-')} | "
+            f"{rec.get('last_seen', '-')} | {names} |"
+        )
+    out.append("")
+    out.append("★ = thesis 갱신 후보")
+    out.append("")
+    return "\n".join(out)
 
 
 def build_cost_footer(usage: dict, cost: float, now_str: str) -> str:
@@ -1474,7 +2190,20 @@ async def send_telegram(
     full_message = telegram_summary + footer
 
     if len(full_message) > 4000:
-        full_message = full_message[:3950] + "\n\n... (요약 잘림)"
+        # 뒤에서 자르면 맨 끝에 붙은 📎 출처 블록이 통째로 날아간다.
+        # 각주 마커만 있고 출처가 없는 메시지가 되므로 본문을 먼저 줄인다.
+        marker = "\n📎 출처"
+        notice = "\n\n... (본문 잘림 — 전체는 첨부 파일)"
+        head, sep, sources = telegram_summary.partition(marker)
+        if sep:
+            budget = 4000 - len(sep + sources) - len(footer) - len(notice)
+            if budget > 500:
+                full_message = head[:budget] + notice + sep + sources + footer
+            else:
+                # 출처 블록만으로도 넘치는 비정상 상황 — 기존 방식으로 후퇴
+                full_message = full_message[:3950] + "\n\n... (요약 잘림)"
+        else:
+            full_message = full_message[:3950] + "\n\n... (요약 잘림)"
 
     await bot.send_message(chat_id=TELEGRAM_CHAT_ID, text=full_message)
 
@@ -1491,15 +2220,17 @@ async def send_telegram(
 # ============================================================
 
 def git_commit_and_push(file_path: Path):
-    """position_state.json 만 커밋. digest 본문은 gitignore 대상이라 제외.
+    """상태 파일만 커밋. digest 본문은 gitignore 대상이라 제외.
 
-    누적 상태를 EC2 로컬에만 두면 서버 유실 시 분기 판정 근거가 통째로 날아간다.
+    누적 상태를 EC2 로컬에만 두면 서버 유실 시 분기 판정 근거와
+    테마 흐름 누적이 통째로 날아간다.
     실패해도 다이제스트 자체는 이미 전송됐으므로 예외를 삼킨다.
     """
-    if not POSITION_STATE_PATH.exists():
+    targets = [p for p in (POSITION_STATE_PATH, THEME_STATE_PATH) if p.exists()]
+    if not targets:
         return
     try:
-        subprocess.run(["git", "add", str(POSITION_STATE_PATH)],
+        subprocess.run(["git", "add", *[str(p) for p in targets]],
                        cwd=PROJECT_ROOT, check=True, capture_output=True, timeout=30)
         staged = subprocess.run(["git", "diff", "--cached", "--quiet"],
                                 cwd=PROJECT_ROOT, capture_output=True, timeout=30)
@@ -1507,7 +2238,7 @@ def git_commit_and_push(file_path: Path):
             logger.info("상태 변경 없음 — 커밋 생략")
             return
         subprocess.run(
-            ["git", "commit", "-m", f"Update position state {datetime.now(KST):%Y-%m-%d}"],
+            ["git", "commit", "-m", f"Update monitoring state {datetime.now(KST):%Y-%m-%d}"],
             cwd=PROJECT_ROOT, check=True, capture_output=True, timeout=30)
         subprocess.run(["git", "push", "origin", "main"],
                        cwd=PROJECT_ROOT, check=True, capture_output=True, timeout=120)
@@ -1534,12 +2265,17 @@ async def main(dry_run: bool = False):
     calendar = load_text_file(CALENDAR_PATH)
     positions_doc = load_positions()
     state = load_position_state()
+    theme_state = load_theme_state()
 
     positions = positions_doc.get("positions", [])
+    themes = positions_doc.get("themes", [])
     upcoming = extract_upcoming_events(calendar, now)
     us_tickers, kr_tickers, ticker_names = collect_position_tickers(positions_doc)
 
-    logger.info(f"포지션 {len(positions)}개 로드 / 향후 {EVENT_WINDOW_DAYS}일 이벤트 {len(upcoming)}건 파싱")
+    logger.info(
+        f"포지션 {len(positions)}개 / 테마 {len(themes)}개 로드 / "
+        f"향후 {EVENT_WINDOW_DAYS}일 이벤트 {len(upcoming)}건 파싱"
+    )
 
     # 2. 시장 데이터 (포지션 종목만)
     logger.info(f"가격 수집: 미국 {len(us_tickers)} / 한국 {len(kr_tickers)}종목")
@@ -1631,16 +2367,66 @@ async def main(dry_run: bool = False):
 
         position_results.append({**cand, "result": result, "incomplete": incomplete})
 
+    # 5-2. 테마 검색 (Layer 0.5)
+    # 포지션 뒤에 두는 이유: 검색 예산이 빠듯한 날에는 포지션 점검이 우선이다.
+    # 포지션 미점검은 '이상 없음' 으로 오인될 위험이 있지만, 테마 미점검은
+    # 누적 기록이 남아 있어 다음 순번에서 이어서 볼 수 있다.
+    positions_by_id = {p["id"]: p for p in positions}
+    selected_themes, unchecked_themes = select_themes(themes, theme_state, upcoming, today_str)
+    theme_results = []
+    for cand in selected_themes:
+        theme = cand["theme"]
+        logger.info(f"선별(테마): {theme['id']} — {'; '.join(cand['reasons'])}")
+
+        if usage_total["searches"] >= DAILY_SEARCH_BUDGET:
+            logger.warning(
+                f"일일 검색 예산 {DAILY_SEARCH_BUDGET}회 소진 — 테마 {theme['id']} 생략"
+            )
+            theme_results.append({**cand, "result": None, "skipped": "일일 검색 예산 소진"})
+            continue
+
+        entry = theme_state["themes"].setdefault(
+            theme["id"], {"last_checked": None, "observations": {}, "shifts": {}}
+        )
+        result, u = search_theme(theme, positions_by_id, entry, now_str)
+        merge_usage(usage_total, u)
+
+        incomplete = is_search_incomplete(result, u["searches"], THEME_MAX_USES)
+        if result:
+            findings = result.get("findings") or []
+            theme_state["themes"][theme["id"]] = update_theme_entry(
+                entry, result, today_str,
+                mark_checked=(incomplete is None) or bool(findings),
+            )
+            promoted = sum(
+                1 for rec in theme_state["themes"][theme["id"]].get("shifts", {}).values()
+                if rec.get("thesis_review") and rec.get("last_seen") == today_str
+            )
+            logger.info(
+                f"테마 {theme['id']} 완료: findings {len(findings)}건 "
+                f"(thesis 갱신 후보 {promoted})"
+            )
+        else:
+            logger.warning(f"테마 {theme['id']} 결과 없음 ({incomplete})")
+
+        theme_results.append({**cand, "result": result, "incomplete": incomplete})
+
+    if unchecked_themes:
+        logger.info(f"오늘 미점검 테마: {', '.join(t['id'] for t in unchecked_themes)}")
+
     # 6. 상태 저장 (종합 호출 실패해도 검색 결과는 남도록 먼저 저장)
     if dry_run:
         DRY_RUN_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
         save_position_state(state, today_str, DRY_RUN_OUTPUT_DIR / f"{stamp}_position_state.json")
-        logger.info("dry-run: 실제 position_state.json 은 건드리지 않음")
+        save_theme_state(theme_state, today_str, DRY_RUN_OUTPUT_DIR / f"{stamp}_theme_state.json")
+        logger.info("dry-run: 실제 상태 파일은 건드리지 않음")
     else:
         save_position_state(state, today_str)
+        save_theme_state(theme_state, today_str)
 
     # 7. 종합 호출 (검색 없음)
     logger.info("종합 다이제스트 생성 중...")
+    registry = SourceRegistry()
     prompt = build_prompt(
         us_prices=us_prices,
         kr_prices=kr_prices,
@@ -1652,7 +2438,11 @@ async def main(dry_run: bool = False):
         unchecked=unchecked,
         upcoming=upcoming,
         state=state,
+        theme_results=theme_results,
+        theme_state=theme_state,
+        registry=registry,
     )
+    logger.info(f"각주 출처 {len(registry)}건 등록")
 
     response_text, u = call_claude(
         prompt, max_tokens=SYNTHESIS_MAX_TOKENS, effort=SYNTHESIS_EFFORT, use_search=False
@@ -1671,9 +2461,16 @@ async def main(dry_run: bool = False):
     # 텔레그램용 요약 + 파일용 markdown 분리
     telegram_summary, file_md = parse_claude_response(response_text)
     file_md += build_thesis_appendix(
-        positions_doc, position_results, news_sweep, state, today_str
+        positions_doc, position_results, news_sweep, state, today_str,
+        theme_results=theme_results,
     )
+    file_md += build_theme_appendix(positions_doc, theme_state, today_str)
+    # 📎 출처는 모델이 아니라 코드가 붙인다 — 번호와 목록이 어긋나지 않게 하기 위함.
+    # 본문에서는 각주 마커만 읽고, 필요할 때만 맨 아래를 본다.
+    file_md += registry.render_file()
     file_md += build_cost_footer(usage_total, cost, now_str)
+    if len(registry):
+        telegram_summary += "\n" + registry.render_telegram()
 
     # 8. 파일 저장
     if dry_run:
@@ -1697,6 +2494,20 @@ async def main(dry_run: bool = False):
             "cost_usd": round(cost, 4),
             "layer0": layer0_result,
             "news_sweep": news_sweep,
+            "sources": registry.items(),
+            "themes": {
+                "selected": [
+                    {
+                        "id": r["theme"]["id"],
+                        "reasons": r.get("reasons", []),
+                        "skipped": r.get("skipped"),
+                        "incomplete": r.get("incomplete"),
+                        "result": r.get("result"),
+                    }
+                    for r in theme_results
+                ],
+                "unchecked": [t["id"] for t in unchecked_themes],
+            },
             "selected": [
                 {
                     "id": r["position"]["id"],

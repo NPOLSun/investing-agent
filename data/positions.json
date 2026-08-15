@@ -14,7 +14,9 @@
       "YELLOW": "thesis 에 영향 가능하나 확인 필요",
       "WHITE": "알아둘 만하나 판단 불필요"
     },
-    "operating_rule": "RED 가 아니면 당일 행동하지 않는다. YELLOW/WHITE 는 분기 리뷰에서 모아서 본다."
+    "operating_rule": "RED 가 아니면 당일 행동하지 않는다. YELLOW/WHITE 는 분기 리뷰에서 모아서 본다.",
+    "areas_note": "areas 는 data/area_aliases.json 의 키. 포지션이 mega-change-map 의 어느 영역에 속하는지를 가리키며, 테마 레이어(themes)가 이걸로 포지션을 역참조한다. 다축 포지션은 복수 지정.",
+    "themes_note": "themes 는 Layer 0.5 — 포지션이 아니라 '변화 자체'를 감시하는 레이어. 판정(RED/YELLOW/WHITE)을 하지 않는다. kill_signals 가 '깨졌나' 를 묻는다면 watch_shifts 는 '어디로 얼마나 움직이나' 를 묻는다. 결과는 affects 의 포지션으로 팬아웃되며, 같은 흐름이 반복 관측되면 thesis 갱신 후보로 승격된다."
   },
 
   "portfolio_level": {
@@ -50,12 +52,137 @@
     ]
   },
 
+  "themes": [
+    {
+      "id": "ai-dc-power",
+      "label": "AI 데이터센터 전력 아키텍처",
+      "areas": ["power", "power-semi"],
+      "core": true,
+      "watch_shifts": [
+        "랙 전력밀도 로드맵 변경 (kW/rack) 및 실제 배치 시점",
+        "배전 전압 아키텍처 전환 (54V 랙 → 800VDC 직류) 채택 속도",
+        "GPU 세대별 전력 사양 및 전력 전달 레퍼런스 설계 변경",
+        "온사이트 발전·비계통 전력 조달 비중 (behind-the-meter, 자가발전)",
+        "계통 접속 대기열(interconnection queue) 적체 및 규제 변화"
+      ],
+      "queries": [
+        "rack power density roadmap kW",
+        "800VDC data center power architecture",
+        "OCP power specification 2026",
+        "behind the meter data center generation",
+        "grid interconnection queue data center"
+      ],
+      "affects": ["point-of-load", "us-transformer", "power-generation"]
+    },
+    {
+      "id": "optical-interconnect",
+      "label": "광 인터커넥트 · CPO",
+      "areas": ["optical"],
+      "core": true,
+      "watch_shifts": [
+        "CPO 양산 채택 일정의 전진 또는 후퇴",
+        "스케일업/스케일아웃 네트워크의 광 전환 비중",
+        "광 I/O 표준화 동향 및 주요 벤더 로드맵 변경",
+        "데이터센터 광섬유 수요 및 장기계약 규모",
+        "실리콘 포토닉스 수율·패키징 병목 해소 여부"
+      ],
+      "queries": [
+        "co-packaged optics production timeline",
+        "optical interconnect roadmap hyperscaler",
+        "silicon photonics packaging yield",
+        "OFC co-packaged optics announcement",
+        "data center fiber long term agreement"
+      ],
+      "affects": ["optical-align", "optical-material"]
+    },
+    {
+      "id": "memory-storage",
+      "label": "메모리 · 스토리지 반도체",
+      "areas": [],
+      "core": true,
+      "map_gap": "mega-change-map 에 메모리·스토리지 영역 문서가 없음. 테마만 운용 중",
+      "watch_shifts": [
+        "AI 추론 확산에 따른 eSSD·니어라인 스토리지 수요 구조 변화",
+        "HBM 세대 전환 일정 및 스택·본딩 공정 방식 변경",
+        "하이퍼스케일러 스토리지 계층 구조 변경 (HDD → QLC eSSD 전환 등)",
+        "컨트롤러 내재화 vs 외부 조달 흐름",
+        "메모리·후공정 capex 방향"
+      ],
+      "queries": [
+        "enterprise SSD demand AI inference",
+        "HBM4 bonding process roadmap",
+        "hyperscaler storage tier QLC nearline",
+        "NAND controller in-house hyperscaler",
+        "memory capex guidance 2026"
+      ],
+      "affects": ["ssd-controller", "hpa-equipment"]
+    },
+    {
+      "id": "nuclear-smr",
+      "label": "원자력 · SMR 상용화",
+      "areas": ["nuclear"],
+      "core": false,
+      "watch_shifts": [
+        "SMR 최초 상업운전 시점 컨센서스의 이동",
+        "NRC 인허가 처리 속도 변화 (정책·제도 개편 포함)",
+        "하이퍼스케일러의 원자력 전력구매계약 규모와 조건",
+        "HALEU 공급 능력 확충 속도 및 신규 진입자",
+        "대형원전 신규 발주 흐름 (미국·유럽·아시아)"
+      ],
+      "queries": [
+        "SMR first commercial operation timeline",
+        "NRC licensing reform advanced reactor",
+        "hyperscaler nuclear PPA",
+        "HALEU enrichment capacity expansion",
+        "new nuclear reactor order 2026"
+      ],
+      "affects": ["haleu", "smr-developer", "power-generation"]
+    },
+    {
+      "id": "grid-storage",
+      "label": "계통 저장 · ESS",
+      "areas": ["ess"],
+      "core": false,
+      "watch_shifts": [
+        "데이터센터 백업·피크 대응용 ESS 채택 방식 변화",
+        "계통 안정화용 대형 ESS 발주 규모",
+        "LFP·ESS 전용 셀 라인 증설과 EV 라인 전환",
+        "ESS 셀 판가 및 중국산 점유율 변화"
+      ],
+      "queries": [
+        "data center BESS backup adoption",
+        "grid scale battery storage order 2026",
+        "LFP ESS line conversion Korea",
+        "ESS cell price China share"
+      ],
+      "affects": ["ess-foil"]
+    },
+    {
+      "id": "dc-thermal",
+      "label": "데이터센터 냉각 · 랙 밀도",
+      "areas": ["cooling"],
+      "core": false,
+      "watch_shifts": [
+        "액침·D2C 액체냉각 채택 비중 변화",
+        "랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지",
+        "신규 데이터센터 설계 표준 변경 (OCP 등)"
+      ],
+      "queries": [
+        "liquid cooling adoption rate data center",
+        "direct to chip cooling deployment 2026",
+        "rack thermal limit AI cluster"
+      ],
+      "affects": ["point-of-load", "us-transformer"]
+    }
+  ],
+
   "positions": [
     {
       "id": "us-transformer",
       "label": "미국 변압기",
       "status": "holding",
       "tickers": ["298040", "267260"],
+      "areas": ["power"],
       "thesis": [
         "미국 전력망 투자는 데이터센터와 무관하게 구조적 (노후 교체 + 전기화 + 송전망 확충)",
         "권선 숙련공 양성과 capa 증설에 수년 소요되어 공급이 빠르게 못 늘어남",
@@ -105,6 +232,7 @@
       "label": "ESS 알루미늄박",
       "status": "holding",
       "tickers": ["006110"],
+      "areas": ["ess"],
       "thesis": [
         "ESS향 매출이 구조적으로 증가 중이며 시장이 아직 반영하지 않음",
         "ESS 수요는 EV와 별개 사이클로 움직임",
@@ -149,6 +277,7 @@
       "label": "SSD 컨트롤러 (파두)",
       "status": "holding",
       "tickers": ["440110"],
+      "areas": [],
       "thesis": [
         "AI 추론 확산으로 eSSD 출하량이 구조적으로 증가하고 컨트롤러는 SSD 1대당 1개씩 탑재",
         "Marvell 지연으로 확보한 Gen6 선점 우위를 디자인윈으로 전환",
@@ -199,6 +328,7 @@
       "label": "GPU 전력공급 (Vicor)",
       "status": "holding",
       "tickers": ["VICR"],
+      "areas": ["power-semi", "power"],
       "thesis": [
         "데이터센터 고전력화(800VDC)에서 point-of-load 손실이 물리적 병목",
         "1.5mm 두께에 40배 전류증폭 조합을 경쟁사가 따라오지 못함",
@@ -251,6 +381,7 @@
       "label": "광정렬 장비 (성호전자/ADS테크)",
       "status": "holding",
       "tickers": ["043260"],
+      "areas": ["optical"],
       "thesis": [
         "액티브 얼라인 장비는 ficonTEC 과 ADS테크의 과점 구조",
         "CPO 전환으로 광정렬 장비 수요가 구조적으로 증가",
@@ -300,6 +431,7 @@
       "label": "광 소재 (코닝)",
       "status": "holding",
       "tickers": ["GLW"],
+      "areas": ["optical"],
       "thesis": [
         "AI 데이터센터 광 연결 수요가 구조적으로 증가",
         "하이퍼스케일러 선약정 기반 capa 확대로 저위험 성장",
@@ -347,6 +479,7 @@
       "label": "HALEU 농축 (센트러스)",
       "status": "holding",
       "tickers": ["LEU"],
+      "areas": ["nuclear"],
       "thesis": [
         "러시아 배제로 미국 자체 HALEU 밸류체인 구축이 필수",
         "센트러스가 선발주자 우위를 실제 생산 물량으로 전환",
@@ -396,6 +529,7 @@
       "label": "SMR 개발 (X-energy)",
       "status": "holding",
       "tickers": ["XE"],
+      "areas": ["nuclear"],
       "thesis": [
         "HTGR 와 TRISO-X 연료의 수직통합이 구조적 차별화",
         "규제 경로가 실제로 뚫림 (Seadrift 건설허가)",
@@ -447,6 +581,7 @@
       "label": "고압어닐링 장비 (예스티)",
       "status": "holding",
       "tickers": ["122640"],
+      "areas": [],
       "thesis": [
         "HPA 특허 리스크 최종 해소 (서울중앙지법 침해소송 본안 포함)",
         "첫 양산기 공급 후 고객 평가 통과",
@@ -499,6 +634,7 @@
       "label": "발전 종합 (두산에너빌리티)",
       "status": "holding",
       "tickers": ["034020"],
+      "areas": ["power", "nuclear"],
       "thesis": [
         "[A축 가스터빈] AI 데이터센터發 북미 복합화력 발주로 4번째 공급자 기회 확보",
         "[A축 가스터빈] 터빈+스팀+장기서비스 묶음으로 서비스 매출 비중 상승",

@@ -11,6 +11,7 @@ Telegram Bot Listener
   /추가 [종목]   — 대화형 추가. 보유 근거·매도 조건 초안 제안
   /수정 [포지션] — 판정 기준 편집. 변경 전후 diff 확인 후 저장
   /매도 [포지션] — status → exited. 기록은 보존
+  /삭제 [포지션] — 완전 삭제. 고아 테마·상태까지 정리
   /취소          — 진행 중인 대화 중단
 
 한글 명령은 텔레그램이 봇 명령으로 태깅하지 않아 MessageHandler 로 받는다.
@@ -525,6 +526,74 @@ async def sell_confirm(update: Update, context: ContextTypes.DEFAULT_TYPE):
     return ConversationHandler.END
 
 
+# ============================================================
+# /삭제 — 완전 삭제 (매도와 다름)
+# ============================================================
+
+DELETE_CONFIRM = 30
+
+
+async def delete_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if not is_authorized(update):
+        return ConversationHandler.END
+    pos = await _resolve(update, context)
+    if not pos:
+        return ConversationHandler.END
+
+    prev = await asyncio.to_thread(pe.preview_delete, pos["id"])
+    if not prev:
+        await update.message.reply_text("포지션을 찾을 수 없습니다.")
+        return ConversationHandler.END
+
+    context.user_data.clear()
+    context.user_data["pos"] = pos
+
+    lines = [
+        "🗑 완전 삭제 — 되돌릴 수 없습니다.",
+        "",
+        f"  {pv.display_name(pos)}",
+        "",
+        "사라지는 것:",
+        f"  · 보유 근거 {len(pos.get('thesis') or [])}개, "
+        f"매도 조건 {len(pos.get('kill_signals') or [])}개",
+    ]
+    if prev["observations"] or prev["flags"]:
+        lines.append(f"  · 누적 관측 {prev['observations']}종, 열린 신호 {prev['flags']}건"
+                     f" (마지막 점검 {prev['last_checked'] or '없음'})")
+    if prev["unlinked_themes"]:
+        lines.append(f"  · 테마 연결 해제: {', '.join(prev['unlinked_themes'])}")
+    if prev["orphan_themes"]:
+        lines.append(f"  · 테마 자체 삭제: {', '.join(prev['orphan_themes'])}")
+        lines.append("    (이 포지션만 가리키던 테마라 남겨두면 매번 헛검색합니다)")
+    lines += [
+        "",
+        "판 종목을 기록으로 남기려면 삭제가 아니라 /매도 를 쓰세요.",
+        "",
+        f"진행하려면 포지션 이름을 그대로 입력하세요: {pos.get('label')}",
+        "그만두려면 /취소",
+    ]
+    for chunk in pv.split_message("\n".join(lines)):
+        await update.message.reply_text(chunk)
+    return DELETE_CONFIRM
+
+
+async def delete_confirm(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if not is_authorized(update):
+        return ConversationHandler.END
+    pos = context.user_data["pos"]
+    typed = (update.message.text or "").strip()
+    # 이름을 직접 치게 하는 이유: '네' 한 번으로 지워지면 오조작이 너무 쉽다
+    if typed != pos.get("label"):
+        await update.message.reply_text(
+            f"이름이 일치하지 않아 중단했습니다. 삭제된 것은 없습니다.\n"
+            f"(정확히 이렇게: {pos.get('label')})")
+        return ConversationHandler.END
+    await update.message.reply_text("삭제 중…")
+    ok, msg = await asyncio.to_thread(pe.delete_position, pos["id"])
+    await update.message.reply_text(msg)
+    return ConversationHandler.END
+
+
 def load_area_aliases() -> dict:
     """별명·파일 매핑 로딩."""
     if not AREA_ALIASES_PATH.exists():
@@ -763,6 +832,23 @@ def main():
         conversation_timeout=1800,
     ))
 
+    # /삭제 — 완전 삭제. 이름 입력으로만 확정
+    app.add_handler(ConversationHandler(
+        entry_points=[
+            CommandHandler("delete", delete_start),
+            MessageHandler(filters.Regex(r"^/삭제"), delete_start),
+        ],
+        states={
+            DELETE_CONFIRM: [MessageHandler(filters.TEXT & ~filters.COMMAND, delete_confirm)],
+            ConversationHandler.TIMEOUT: [MessageHandler(filters.ALL, add_timeout)],
+        },
+        fallbacks=[
+            CommandHandler("cancel", add_cancel),
+            MessageHandler(filters.Regex(r"^/취소"), add_cancel),
+        ],
+        conversation_timeout=1800,
+    ))
+
     # /매도 — status 를 exited 로 (기록은 보존)
     app.add_handler(ConversationHandler(
         entry_points=[
@@ -797,7 +883,8 @@ async def _register_commands(app: Application):
             BotCommand("positions", "보유 포지션 목록·상세 (= /포지션)"),
             BotCommand("add", "종목 추가, 대화형 (= /추가)"),
             BotCommand("edit", "판정 기준 편집 (= /수정)"),
-            BotCommand("exit", "매도 처리 (= /매도)"),
+            BotCommand("exit", "매도 처리 — 기록 보존 (= /매도)"),
+            BotCommand("delete", "완전 삭제 — 되돌릴 수 없음 (= /삭제)"),
             BotCommand("megamap", "Mega Change Map"),
             BotCommand("deepdive", "Deep-dive 영역 문서"),
             BotCommand("cancel", "진행 중인 대화 중단 (= /취소)"),

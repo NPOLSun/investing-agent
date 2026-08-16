@@ -729,6 +729,7 @@ def select_themes(
     theme_state: dict,
     upcoming: list[dict],
     today_str: str,
+    live_ids: Optional[set] = None,
 ) -> tuple[list[dict], list[dict]]:
     """테마(Layer 0.5) 검색 대상 선별. (선별됨, 미선별) 리턴.
 
@@ -741,7 +742,18 @@ def select_themes(
     entries = theme_state.get("themes", {})
 
     candidates = []
+    skipped_orphan = []
     for theme in themes:
+        # 살아있는 포지션을 하나도 안 가리키는 테마는 건너뛴다.
+        # 포지션을 매도하면 affects 에서 빠지는데, 그 포지션 때문에 만들어진
+        # 테마는 affects 가 빈 채로 남는다. 그대로 두면 로테이션 차례가 돌아왔을 때
+        # THEME_MAX_USES 회를 아무데도 닿지 않는 검색에 쓴다.
+        if live_ids is not None:
+            hits = [pid for pid in (theme.get("affects") or []) if pid in live_ids]
+            if not hits:
+                skipped_orphan.append(theme["id"])
+                continue
+
         reasons = []
 
         hay = [theme.get("label", ""), *theme.get("queries", [])]
@@ -771,9 +783,18 @@ def select_themes(
         -c["stale"],
     ))
 
+    if skipped_orphan:
+        logger.info(
+            f"살아있는 포지션이 없어 건너뛴 테마: {', '.join(skipped_orphan)} "
+            f"(정리하려면 positions.json 에서 삭제)"
+        )
+
     selected = candidates[:MAX_SEARCH_THEMES]
     selected_ids = {c["theme"]["id"] for c in selected}
-    unselected = [t for t in themes if t["id"] not in selected_ids]
+    unselected = [
+        t for t in themes
+        if t["id"] not in selected_ids and t["id"] not in skipped_orphan
+    ]
     return selected, unselected
 
 
@@ -2478,7 +2499,10 @@ async def main(dry_run: bool = False):
     # 포지션 미점검은 '이상 없음' 으로 오인될 위험이 있지만, 테마 미점검은
     # 누적 기록이 남아 있어 다음 순번에서 이어서 볼 수 있다.
     positions_by_id = {p["id"]: p for p in positions}
-    selected_themes, unchecked_themes = select_themes(themes, theme_state, upcoming, today_str)
+    live_ids = {p["id"] for p in positions if p.get("status") in MONITORED_STATUSES}
+    selected_themes, unchecked_themes = select_themes(
+        themes, theme_state, upcoming, today_str, live_ids=live_ids
+    )
     theme_results = []
     for cand in selected_themes:
         theme = cand["theme"]

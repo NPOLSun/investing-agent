@@ -500,6 +500,115 @@ def exit_position(pos_id: str, reason: str) -> tuple[bool, str]:
     )
 
 
+def preview_delete(pos_id: str) -> Optional[dict]:
+    """삭제하면 무엇이 사라지는지 미리 계산. 확인 화면용."""
+    doc = pv._load(POSITIONS_PATH, {})
+    pos = next((p for p in doc.get("positions", []) if p.get("id") == pos_id), None)
+    if pos is None:
+        return None
+
+    unlinked, orphaned = [], []
+    for t in doc.get("themes", []):
+        aff = t.get("affects") or []
+        if pos_id in aff:
+            unlinked.append(t.get("label", t["id"]))
+            if len(aff) == 1:
+                orphaned.append(t.get("label", t["id"]))
+
+    state = pv._load(pv.POSITION_STATE_PATH, {"positions": {}})
+    entry = (state.get("positions") or {}).get(pos_id, {})
+    return {
+        "position": pos,
+        "unlinked_themes": unlinked,
+        "orphan_themes": orphaned,
+        "observations": len(entry.get("observations") or {}),
+        "flags": len(entry.get("open_flags") or []),
+        "last_checked": entry.get("last_checked"),
+    }
+
+
+def delete_position(pos_id: str) -> tuple[bool, str]:
+    """포지션을 완전히 삭제. 되돌릴 수 없다 (git 이력에는 남는다).
+
+    /매도 와 다르다. 매도는 판단 기록을 남기는 것이고, 삭제는 잘못 넣었거나
+    애초에 없던 셈 치는 것이다. 그래서 남는 찌꺼기를 전부 걷어낸다:
+      - positions.json 의 포지션
+      - 모든 테마의 affects 에서 제거
+      - 그 결과 가리키는 포지션이 하나도 없어진 테마 (고아 테마)
+      - position_state.json 의 관측·플래그
+      - theme_state.json 의 고아 테마 누적
+    고아 테마를 남기면 로테이션 차례가 왔을 때 아무데도 닿지 않는 검색에
+    THEME_MAX_USES 회를 쓴다.
+    """
+    pull = _git(["pull", "--ff-only", "origin", "main"], timeout=120)
+    if pull.returncode != 0:
+        logger.warning(f"git pull 실패 (계속): {pull.stderr.decode(errors='replace')[:200]}")
+
+    doc = pv._load(POSITIONS_PATH, {})
+    if not doc.get("positions"):
+        return False, "positions.json 을 읽지 못했습니다."
+    pos = next((p for p in doc["positions"] if p.get("id") == pos_id), None)
+    if pos is None:
+        return False, f"'{pos_id}' 포지션을 찾을 수 없습니다."
+
+    doc["positions"] = [p for p in doc["positions"] if p.get("id") != pos_id]
+
+    removed_themes = []
+    kept = []
+    for t in doc.get("themes", []):
+        if pos_id in (t.get("affects") or []):
+            t["affects"].remove(pos_id)
+        if not (t.get("affects") or []):
+            removed_themes.append(t.get("label", t["id"]))
+            continue
+        kept.append(t)
+    doc["themes"] = kept
+
+    doc.setdefault("meta", {})["last_updated"] = __import__("datetime").date.today().isoformat()
+
+    bits = [f"포지션 '{pos.get('label')}'"]
+    if removed_themes:
+        bits.append(f"고아 테마 {len(removed_themes)}개 ({', '.join(removed_themes)})")
+
+    ok, msg = _write_and_push(doc, f"Delete position {pos_id} via bot",
+                              f"🗑 삭제 완료 — {' · '.join(bits)}")
+    if not ok:
+        return ok, msg
+
+    # 상태 파일 정리는 실패해도 본체 삭제를 되돌리지 않는다. 남아도 무해한 잔여물이다.
+    cleaned = []
+    try:
+        state = pv._load(pv.POSITION_STATE_PATH, None)
+        if state and pos_id in (state.get("positions") or {}):
+            del state["positions"][pos_id]
+            pv.POSITION_STATE_PATH.write_text(
+                json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+            cleaned.append("관측·플래그")
+    except Exception as e:
+        logger.warning(f"position_state 정리 실패: {e}")
+
+    try:
+        ts = pv._load(pv.THEME_STATE_PATH, None)
+        if ts:
+            live = {t["id"] for t in doc.get("themes", [])}
+            drop = [k for k in (ts.get("themes") or {}) if k not in live]
+            for k in drop:
+                del ts["themes"][k]
+            if drop:
+                pv.THEME_STATE_PATH.write_text(
+                    json.dumps(ts, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+                cleaned.append(f"테마 누적 {len(drop)}건")
+    except Exception as e:
+        logger.warning(f"theme_state 정리 실패: {e}")
+
+    if cleaned:
+        _git(["add", str(pv.POSITION_STATE_PATH), str(pv.THEME_STATE_PATH)])
+        _git(["commit", "-m", f"Clean state for deleted {pos_id}"])
+        _git(["push", "origin", "main"], timeout=120)
+        msg += f"\n상태 파일 정리: {', '.join(cleaned)}"
+    return True, msg + "\n(git 이력에는 남아 있어 복구 가능합니다)"
+
+
 def _write_and_push(doc: dict, commit_msg: str, ok_msg: str) -> tuple[bool, str]:
     """원자적 쓰기 + 검증 + git. save_draft 와 공유하는 마지막 단계."""
     original = POSITIONS_PATH.read_bytes()

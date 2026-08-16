@@ -11,6 +11,7 @@ Track 1 일간 다이제스트는 daily_digest.py 가 cron 으로 별도 처리.
 """
 
 import os
+import re
 import logging
 from pathlib import Path
 from datetime import datetime
@@ -18,11 +19,14 @@ import json
 import pytz
 
 from dotenv import load_dotenv
+import positions_view as pv
 from telegram import Update
 from telegram.ext import (
     Application,
     CommandHandler,
     ContextTypes,
+    MessageHandler,
+    filters,
 )
 
 # ============================================================
@@ -126,6 +130,46 @@ async def cmd_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "  본 안내"
     )
     await update.message.reply_text(text)
+
+async def cmd_positions(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """/포지션 [번호|이름] — 보유 포지션과 판정 기준 조회.
+
+    Claude 호출 0, 쓰기 없음. positions.json·position_state.json 을 그대로 읽어
+    보여준다. 요약하지 않는 이유: thesis 와 매도 조건은 본인이 쓴 판단 근거라
+    모델이 다시 쓰면 원문이 왜곡된다.
+    """
+    if not is_authorized(update):
+        return
+
+    doc, state, _theme_state, aliases = pv.load_all()
+    if not doc.get("positions"):
+        await update.message.reply_text("positions.json 을 읽지 못했습니다.")
+        return
+
+    today = datetime.now(KST).strftime("%Y-%m-%d")
+    # /포지션 은 텔레그램이 봇 명령 엔티티로 인식하지 않아 MessageHandler 로 받는다.
+    # 그 경로에서는 context.args 가 채워지지 않으므로 원문에서 직접 뗀다.
+    if context.args:
+        arg = " ".join(context.args).strip()
+    else:
+        arg = re.sub(r"^\S+\s*", "", (update.message.text or "")).strip()
+
+    if not arg:
+        text = pv.format_list(doc, state, today)
+    else:
+        pos, candidates = pv.find_position(doc, arg)
+        if pos:
+            text = pv.format_detail(doc, state, aliases, pos, today)
+        elif candidates:
+            text = "여러 개가 걸립니다. 더 구체적으로 적어주세요.\n\n" + "\n".join(
+                f"· {pv.display_name(p)}" for p in candidates
+            )
+        else:
+            text = f"'{arg}' 에 해당하는 포지션이 없습니다. /포지션 으로 목록을 보세요."
+
+    for chunk in pv.split_message(text):
+        await update.message.reply_text(chunk)
+
 
 def load_area_aliases() -> dict:
     """별명·파일 매핑 로딩."""
@@ -322,6 +366,10 @@ def main():
     app.add_handler(CommandHandler("help", cmd_help))
     app.add_handler(CommandHandler("megamap", cmd_megamap))
     app.add_handler(CommandHandler("deepdive", cmd_deepdive))
+    app.add_handler(CommandHandler("positions", cmd_positions))
+    app.add_handler(CommandHandler("pos", cmd_positions))
+    # 한글 명령은 텔레그램이 봇 명령으로 태깅하지 않아 CommandHandler 가 못 잡는다
+    app.add_handler(MessageHandler(filters.Regex(r"^/포지션"), cmd_positions))
 
     logger.info("Bot starting (polling mode)...")
     app.run_polling(allowed_updates=Update.ALL_TYPES)

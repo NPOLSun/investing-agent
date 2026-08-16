@@ -2569,9 +2569,12 @@ async def main(dry_run: bool = False):
 
     # 시세를 파일로 남긴다 — 포지션 페이지가 재수집 없이 읽어 쓴다.
     # 페이지 생성기는 순수 렌더링이어야 하므로 네트워크를 타지 않게 한다.
+    # ★ dry-run 은 실제 파일을 건드리지 않는다. 한 번 어겼다가 테스트용 가짜 시세가
+    #   커밋돼 사이트가 그걸 실제 종가로 표시했다 (2026-08-16).
     try:
-        MARKET_PATH.parent.mkdir(parents=True, exist_ok=True)
-        MARKET_PATH.write_text(json.dumps({
+        market_path = (DRY_RUN_OUTPUT_DIR / f"{stamp}_market.json") if dry_run else MARKET_PATH
+        market_path.parent.mkdir(parents=True, exist_ok=True)
+        market_path.write_text(json.dumps({
             "asof": now_str, "date": today_str,
             "prices": {p["ticker"]: p for p in all_prices},
         }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

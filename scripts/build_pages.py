@@ -425,8 +425,9 @@ def render_position(pos, state, theme_state, doc, market, today) -> str:
             L.append(f'<p class="ia-eyebrow">{esc(company_of(pos, t))} · {esc(t)}</p>')
         L.append(quote_strip(pos, t, market))
     if not market:
-        L.append('<div class="ia-legend"><span>시세는 매일 06:30 실행이 갱신합니다. '
-                 '평단은 봇에서 <code>/평단</code>.</span></div>')
+        L.append('<div class="ia-empty">시세 미수집 — 평일 06:30 실행이 갱신합니다</div>')
+    L.append('<div class="ia-legend"><span>평단은 봇에서 <code>/평단 &lt;종목&gt; &lt;가격&gt;</code>'
+             '</span></div>')
     L.append("")
 
     # 보유 근거 · 조건

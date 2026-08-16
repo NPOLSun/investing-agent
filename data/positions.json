@@ -45,9 +45,10 @@
       {
         "stack": "AI 전력",
         "positions": [
-          "us-transformer",
           "point-of-load",
-          "power-generation"
+          "power-generation",
+          "hyosung-transformer",
+          "hd-hyundai-electric"
         ],
         "note": "그리드 → GPU 직전 1.5mm 까지. 상위 변수 동일"
       },
@@ -93,8 +94,9 @@
       ],
       "affects": [
         "point-of-load",
-        "us-transformer",
-        "power-generation"
+        "power-generation",
+        "hyosung-transformer",
+        "hd-hyundai-electric"
       ]
     },
     {
@@ -247,45 +249,40 @@
       ],
       "affects": [
         "point-of-load",
-        "us-transformer"
+        "hyosung-transformer",
+        "hd-hyundai-electric"
       ]
     }
   ],
   "positions": [
     {
-      "id": "us-transformer",
+      "id": "hyosung-transformer",
       "label": "미국 변압기",
+      "group": "us-transformer",
       "status": "holding",
       "tickers": [
-        "298040",
-        "267260"
+        "298040"
       ],
       "companies": {
-        "298040": "효성중공업",
-        "267260": "HD현대일렉트릭"
+        "298040": "효성중공업"
       },
       "avg_cost": {},
       "areas": [
         "power"
       ],
       "thesis": [
-        "미국 전력망 투자는 데이터센터와 무관하게 구조적 (노후 교체 + 전기화 + 송전망 확충)",
-        "권선 숙련공 양성과 capa 증설에 수년 소요되어 공급이 빠르게 못 늘어남",
-        "공급자 우위가 ASP 프리미엄과 마진 확대로 이어짐",
-        "두 회사가 미국 시장에서 실제 물량을 수주하고 매출로 전환"
+        "미국 시장에서 실제 물량을 수주하고 매출로 전환",
+        "HVDC 대형 프로젝트 수주 역량 (초고압 직류 송전)"
       ],
       "kill_signals": [
-        "업계 변압기 리드타임 3년 이하로 단축 전환",
         "영업이익률 2개 분기 연속 하락",
         "수주잔고 2개 분기 연속 감소",
-        "글로벌 경쟁사 증설 물량 대거 가동 개시 (2027~2028 예상)",
-        "미국 유틸리티 T&D capex 가이던스 하향",
-        "한국산 반덤핑 관세 강화 + 미국 현지 capa 미확보"
+        "반덤핑 관세 강화 상태에서 미국 현지 capa 미확보 (멤피스 증설 가동 2027년)"
       ],
       "add_signals": [
         "리드타임 유지 + 영업이익률 상승 + 주가 조정",
         "미국 현지 증설 완료 및 가동 (Q 병목 해소)",
-        "HVDC 대형 프로젝트 수주 (효성중공업 한정)"
+        "HVDC 대형 프로젝트 수주"
       ],
       "watch": {
         "peers": [
@@ -296,18 +293,6 @@
           "LS일렉트릭"
         ],
         "indicators": [
-          {
-            "key": "lead_time",
-            "name": "업계 변압기 리드타임",
-            "unit": "주",
-            "good": "up",
-            "why": "공급자 우위의 유일한 선행 지표. 길수록 좋다",
-            "judge": "3년(약 156주) 이하로 단축 전환 → K1",
-            "refs": [
-              "T2",
-              "K1"
-            ]
-          },
           {
             "key": "operating_margin",
             "name": "영업이익률",
@@ -331,48 +316,13 @@
               "T4",
               "K3"
             ]
-          },
-          {
-            "key": "td_capex",
-            "name": "미국 유틸리티 T&D capex 가이던스",
-            "unit": "-",
-            "good": "up",
-            "why": "수요의 원천. 하향은 구조적 신호",
-            "judge": "하향 → K5",
-            "refs": [
-              "T1",
-              "K5"
-            ]
-          },
-          {
-            "key": "competitor_capacity",
-            "name": "글로벌 경쟁사 증설 (누적 카운트)",
-            "unit": "건",
-            "good": "down",
-            "why": "모두가 증설을 끝내는 시점이 공급자 우위의 종료 시점",
-            "judge": "2027~28 대거 가동 개시 → K4",
-            "refs": [
-              "K4"
-            ]
-          },
-          {
-            "key": "tariff_rate",
-            "name": "한국산 반덤핑 관세율",
-            "unit": "%",
-            "good": "down",
-            "why": "현지 capa 확보 전까지는 마진 직격",
-            "judge": "관세 강화 + 미국 현지 capa 미확보 → K6",
-            "refs": [
-              "K6"
-            ]
           }
         ],
         "queries": [
-          "transformer lead time 2026",
-          "미국 변압기 수주",
-          "utility T&D capex guidance",
-          "transformer capacity expansion",
-          "변압기 증설 발표"
+          "효성중공업 수주",
+          "효성중공업 미국 변압기",
+          "효성중공업 반덤핑 관세",
+          "효성 HVDC"
         ]
       },
       "ignore": [
@@ -381,7 +331,82 @@
         "데이터센터 관련 뉴스 단발 급등락",
         "분기 실적 1회 미스"
       ],
-      "note": "두 종목 동일 thesis 로 하나로 관리. 공급 제약은 양날 - 경쟁사도 못 늘리지만 본인도 못 늘림. 따라서 수주잔고보다 '매출 전환 속도'가 진짜 지표. 글로벌 증설 발표는 누적 카운트할 것. 모두가 증설을 완료하는 시점이 공급자 우위의 종료 시점이며 지금부터 카운트다운 진행 중."
+      "note": "2026-08 반덤핑 연례재심 예비판정에서 관세율 0% → 4.32%. 최종판정은 4분기 예정이고 멤피스 증설 가동은 2027년이라 관세 적용 구간과 1년 이상 겹친다. HVDC 는 이 종목만의 옵션."
+    },
+    {
+      "id": "hd-hyundai-electric",
+      "label": "미국 변압기",
+      "group": "us-transformer",
+      "status": "holding",
+      "tickers": [
+        "267260"
+      ],
+      "companies": {
+        "267260": "HD현대일렉트릭"
+      },
+      "avg_cost": {},
+      "areas": [
+        "power"
+      ],
+      "thesis": [
+        "미국 시장에서 실제 물량을 수주하고 매출로 전환"
+      ],
+      "kill_signals": [
+        "영업이익률 2개 분기 연속 하락",
+        "수주잔고 2개 분기 연속 감소",
+        "반덤핑 관세 강화 상태에서 미국 현지 capa 미확보"
+      ],
+      "add_signals": [
+        "리드타임 유지 + 영업이익률 상승 + 주가 조정",
+        "미국 현지 증설 완료 및 가동 (Q 병목 해소)"
+      ],
+      "watch": {
+        "peers": [
+          "GE Vernova",
+          "Hitachi Energy",
+          "Siemens Energy",
+          "Prolec-GE",
+          "LS일렉트릭"
+        ],
+        "indicators": [
+          {
+            "key": "operating_margin",
+            "name": "영업이익률",
+            "unit": "%",
+            "good": "up",
+            "why": "공급자 우위가 실제 마진으로 오는지",
+            "judge": "2개 분기 연속 하락 → K2",
+            "refs": [
+              "T3",
+              "K2"
+            ]
+          },
+          {
+            "key": "backlog",
+            "name": "수주잔고",
+            "unit": "조원",
+            "good": "up",
+            "why": "다만 잔고보다 '매출 전환 속도'가 진짜 지표 (메모 참조)",
+            "judge": "2개 분기 연속 감소 → K3",
+            "refs": [
+              "T4",
+              "K3"
+            ]
+          }
+        ],
+        "queries": [
+          "HD현대일렉트릭 수주",
+          "HD현대일렉트릭 미국 변압기",
+          "HD현대일렉트릭 실적"
+        ]
+      },
+      "ignore": [
+        "월별 단발 수주 공시",
+        "전기강판·구리 단기 가격 변동 (판가 전가 구조)",
+        "데이터센터 관련 뉴스 단발 급등락",
+        "분기 실적 1회 미스"
+      ],
+      "note": "2026-02 반덤핑 예비판정에서 '정상가격 이하 판매 없음' 판정을 받아 효성과 관세 노출이 다르다. 2026 수주목표를 22.8% 상향(42.22억→51.85억달러)."
     },
     {
       "id": "ess-foil",
@@ -1418,6 +1443,96 @@
         "원전 테마 급등락"
       ],
       "note": "'다 갖고 있다'는 KILL 조건을 만들 수 없는 thesis - 하나가 망가져도 다른 게 있다고 합리화하게 되므로 축별 분리 필수. 2026년 2분기 연결 영업이익 3,143억원인데 두산밥캣이 2,917억원 - 연결조정 감안해도 이익 상당부분이 건설기계. thesis 가 실적으로 증명되려면 에너빌리티 본업 이익률이 올라와야 하며 이것이 분기 체크 1번. 수주는 강함(상반기 7조1,225억 +89.6%, 잔고 26조3,509억 +60.4%). 수주가 이익으로 전환 안 되면 저마진 수주를 쌓는 것 - 중공업의 전형적 함정. 밥캣은 경기민감이라 원전 thesis 와 무관하게 주가가 빠질 경로. SMR 축은 haleu·smr-developer 와, 전력 축은 us-transformer 와 중복이므로 비중은 총량 기준 배분."
+    }
+  ],
+  "groups": [
+    {
+      "id": "us-transformer",
+      "label": "미국 변압기",
+      "areas": [
+        "power"
+      ],
+      "thesis": [
+        "미국 전력망 투자는 데이터센터와 무관하게 구조적 (노후 교체 + 전기화 + 송전망 확충)",
+        "권선 숙련공 양성과 capa 증설에 수년 소요되어 공급이 빠르게 못 늘어남",
+        "공급자 우위가 ASP 프리미엄과 마진 확대로 이어짐"
+      ],
+      "kill_signals": [
+        "업계 변압기 리드타임 3년 이하로 단축 전환",
+        "글로벌 경쟁사 증설 물량 대거 가동 개시 (2027~2028 예상)",
+        "미국 유틸리티 T&D capex 가이던스 하향",
+        "한국산 변압기 반덤핑 관세 강화 (연례재심 관세율 인상)"
+      ],
+      "watch": {
+        "peers": [
+          "GE Vernova",
+          "Hitachi Energy",
+          "Siemens Energy",
+          "Prolec-GE",
+          "LS일렉트릭"
+        ],
+        "indicators": [
+          {
+            "key": "lead_time",
+            "name": "업계 변압기 리드타임",
+            "unit": "주",
+            "good": "up",
+            "why": "공급자 우위의 유일한 선행 지표. 길수록 좋다",
+            "judge": "3년(약 156주) 이하로 단축 전환 → K1",
+            "refs": [
+              "T2",
+              "K1"
+            ]
+          },
+          {
+            "key": "td_capex",
+            "name": "미국 유틸리티 T&D capex 가이던스",
+            "unit": "-",
+            "good": "up",
+            "why": "수요의 원천. 하향은 구조적 신호",
+            "judge": "하향 → K5",
+            "refs": [
+              "T1",
+              "K5"
+            ]
+          },
+          {
+            "key": "competitor_capacity",
+            "name": "글로벌 경쟁사 증설 (누적 카운트)",
+            "unit": "건",
+            "good": "down",
+            "why": "모두가 증설을 끝내는 시점이 공급자 우위의 종료 시점",
+            "judge": "2027~28 대거 가동 개시 → K4",
+            "refs": [
+              "K4"
+            ]
+          },
+          {
+            "key": "tariff_rate",
+            "name": "한국산 반덤핑 관세율",
+            "unit": "%",
+            "good": "down",
+            "why": "현지 capa 확보 전까지는 마진 직격",
+            "judge": "관세 강화 + 미국 현지 capa 미확보 → K6",
+            "refs": [
+              "K6"
+            ]
+          }
+        ],
+        "queries": [
+          "transformer lead time 2026",
+          "utility T&D capex guidance",
+          "transformer capacity expansion",
+          "한국산 변압기 반덤핑 연례재심"
+        ]
+      },
+      "ignore": [
+        "월별 단발 수주 공시",
+        "전기강판·구리 단기 가격 변동 (판가 전가 구조)",
+        "데이터센터 관련 뉴스 단발 급등락",
+        "분기 실적 1회 미스"
+      ],
+      "note": "공급 제약은 양날 - 경쟁사도 못 늘리지만 본인도 못 늘림. 따라서 수주잔고보다 '매출 전환 속도'가 진짜 지표. 글로벌 증설 발표는 누적 카운트할 것. 모두가 증설을 완료하는 시점이 공급자 우위의 종료 시점이며 지금부터 카운트다운 진행 중. 관세는 한국산 전체에 걸리지만 미국 현지 capa 확보 여부가 회사마다 달라 그 부분은 개별 조건으로 둔다."
     }
   ]
 }

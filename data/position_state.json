@@ -4,89 +4,6 @@
     "last_run": "2026-08-14"
   },
   "positions": {
-    "us-transformer": {
-      "last_checked": "2026-08-14",
-      "observations": {
-        "298040_영업이익률_2026Q2": [
-          {
-            "date": "2026-08-14",
-            "last_seen": "2026-08-14",
-            "value": "15.7% (전년比 영업이익 +60.9%)"
-          }
-        ],
-        "298040_수주잔고_2026Q2": [
-          {
-            "date": "2026-08-14",
-            "last_seen": "2026-08-14",
-            "value": "17.5조원"
-          }
-        ],
-        "267260_실적": [
-          {
-            "date": "2026-08-14",
-            "last_seen": "2026-08-14",
-            "value": "미확인"
-          }
-        ],
-        "미국_유틸리티_TD_capex_2026": [
-          {
-            "date": "2026-08-14",
-            "last_seen": "2026-08-14",
-            "value": "$227.8B (S&P Global 전망), 2027E $233B, 2026-2030 누적 $1.295조"
-          }
-        ],
-        "변압기_리드타임": [
-          {
-            "date": "2026-08-14",
-            "last_seen": "2026-08-14",
-            "value": "파워 변압기 평균 128주 vs 대형 HV 변압기 60개월+ (보도 혼재)"
-          }
-        ],
-        "글로벌_증설_발표_금회_확인건수": [
-          {
-            "date": "2026-08-14",
-            "last_seen": "2026-08-14",
-            "value": "6건 (Virginia Transformer GA, JST Malaysia, PTTX Turkey, GE Vernova Charlotte NC, Siemens Energy Charlotte NC, Hitachi Energy South Boston VA) - 대부분 2027~2028 가동 예정, 최초 카운트"
-          }
-        ],
-        "한국산_변압기_반덤핑_예비판정": [
-          {
-            "date": "2026-08-14",
-            "last_seen": "2026-08-14",
-            "value": "2026-02-10 예비판정: 정상가격 이하 판매 없음(HD Hyundai Electric, Iljin) - 최종판정 대기"
-          }
-        ]
-      },
-      "open_flags": [
-        {
-          "signal": "K4. 글로벌 경쟁사 증설 물량 대거 가동 개시 (2027~2028 예상)",
-          "level": "YELLOW",
-          "first_seen": "2026-08-14",
-          "last_seen": "2026-08-14",
-          "count": 1,
-          "summary": "GE Vernova(샬럿 NC, 2027), Siemens Energy(샬럿 NC $421M, 2027-06 완공), Hitachi Energy(사우스보스턴 VA $457M, 2028 가동), Virginia Transformer(조지아 50%증설, 2027-03 완공) 등 대형 증설이 다수 발표됐으나 아직 가동 개시 전 단계 - 메모에 언급된 '2027~2028 카운트다운'과 일치, 향후 가동 시점 지속 추적 필요",
-          "evidence_url": "https://enkiai.com/data-center/siemens-energy-power-transformer-2027-421m-nc-plant/"
-        },
-        {
-          "signal": "K6. 한국산 반덤핑 관세 강화 + 미국 현지 capa 미확보",
-          "level": "YELLOW",
-          "first_seen": "2026-08-14",
-          "last_seen": "2026-08-14",
-          "count": 1,
-          "summary": "美 상무부, 한국산 대형변압기(HD Hyundai Electric·Iljin) 2023-2024 리뷰기간 반덤핑 예비판정에서 '정상가격 이하 판매 없음'으로 발표(2026-02-10) - 관세 강화 아닌 완화 가능성이나 최종판정 대기 중이라 확정 아님",
-          "evidence_url": "https://www.federalregister.gov/documents/2026/02/10/2026-02646/large-power-transformers-from-the-republic-of-korea-preliminary-results-of-antidumping-duty"
-        },
-        {
-          "signal": "A3. HVDC 대형 프로젝트 수주 (효성중공업 한정)",
-          "level": "YELLOW",
-          "first_seen": "2026-08-14",
-          "last_seen": "2026-08-14",
-          "count": 1,
-          "summary": "효성중공업, 국내 HVDC 변압기 공장 착공(2026-02, 완공 2027-06)하며 서해안 에너지고속도로 HVDC 프로젝트(2030 상용화 목표로 2년 단축) 관련 업계 수주 경쟁 본격화 보도 - 다만 효성중공업의 실제 대형 HVDC 프로젝트 수주 확정 소식은 미확인",
-          "evidence_url": "https://www.fnnews.com/news/202602161035009132"
-        }
-      ]
-    },
     "ess-foil": {
       "last_checked": "2026-08-14",
       "observations": {
@@ -294,6 +211,49 @@
           "evidence_url": "https://www.etnews.com/20260403000205"
         }
       ]
+    },
+    "hyosung-transformer": {
+      "last_checked": "2026-08-14",
+      "observations": {
+        "298040_영업이익률_2026Q2": [
+          {
+            "date": "2026-08-14",
+            "last_seen": "2026-08-14",
+            "value": "15.7% (전년比 영업이익 +60.9%)"
+          }
+        ],
+        "298040_수주잔고_2026Q2": [
+          {
+            "date": "2026-08-14",
+            "last_seen": "2026-08-14",
+            "value": "17.5조원"
+          }
+        ]
+      },
+      "open_flags": [
+        {
+          "signal": "A3. HVDC 대형 프로젝트 수주 (효성중공업 한정)",
+          "level": "YELLOW",
+          "first_seen": "2026-08-14",
+          "last_seen": "2026-08-14",
+          "count": 1,
+          "summary": "효성중공업, 국내 HVDC 변압기 공장 착공(2026-02, 완공 2027-06)하며 서해안 에너지고속도로 HVDC 프로젝트(2030 상용화 목표로 2년 단축) 관련 업계 수주 경쟁 본격화 보도 - 다만 효성중공업의 실제 대형 HVDC 프로젝트 수주 확정 소식은 미확인",
+          "evidence_url": "https://www.fnnews.com/news/202602161035009132"
+        }
+      ]
+    },
+    "hd-hyundai-electric": {
+      "last_checked": "2026-08-14",
+      "observations": {
+        "267260_실적": [
+          {
+            "date": "2026-08-14",
+            "last_seen": "2026-08-14",
+            "value": "미확인"
+          }
+        ]
+      },
+      "open_flags": []
     }
   },
   "portfolio_level": {
@@ -362,5 +322,60 @@
       }
     ],
     "last_checked": "2026-08-14"
+  },
+  "groups": {
+    "us-transformer": {
+      "last_checked": "2026-08-14",
+      "observations": {
+        "미국_유틸리티_TD_capex_2026": [
+          {
+            "date": "2026-08-14",
+            "last_seen": "2026-08-14",
+            "value": "$227.8B (S&P Global 전망), 2027E $233B, 2026-2030 누적 $1.295조"
+          }
+        ],
+        "변압기_리드타임": [
+          {
+            "date": "2026-08-14",
+            "last_seen": "2026-08-14",
+            "value": "파워 변압기 평균 128주 vs 대형 HV 변압기 60개월+ (보도 혼재)"
+          }
+        ],
+        "글로벌_증설_발표_금회_확인건수": [
+          {
+            "date": "2026-08-14",
+            "last_seen": "2026-08-14",
+            "value": "6건 (Virginia Transformer GA, JST Malaysia, PTTX Turkey, GE Vernova Charlotte NC, Siemens Energy Charlotte NC, Hitachi Energy South Boston VA) - 대부분 2027~2028 가동 예정, 최초 카운트"
+          }
+        ],
+        "한국산_변압기_반덤핑_예비판정": [
+          {
+            "date": "2026-08-14",
+            "last_seen": "2026-08-14",
+            "value": "2026-02-10 예비판정: 정상가격 이하 판매 없음(HD Hyundai Electric, Iljin) - 최종판정 대기"
+          }
+        ]
+      },
+      "open_flags": [
+        {
+          "signal": "K4. 글로벌 경쟁사 증설 물량 대거 가동 개시 (2027~2028 예상)",
+          "level": "YELLOW",
+          "first_seen": "2026-08-14",
+          "last_seen": "2026-08-14",
+          "count": 1,
+          "summary": "GE Vernova(샬럿 NC, 2027), Siemens Energy(샬럿 NC $421M, 2027-06 완공), Hitachi Energy(사우스보스턴 VA $457M, 2028 가동), Virginia Transformer(조지아 50%증설, 2027-03 완공) 등 대형 증설이 다수 발표됐으나 아직 가동 개시 전 단계 - 메모에 언급된 '2027~2028 카운트다운'과 일치, 향후 가동 시점 지속 추적 필요",
+          "evidence_url": "https://enkiai.com/data-center/siemens-energy-power-transformer-2027-421m-nc-plant/"
+        },
+        {
+          "signal": "K6. 한국산 반덤핑 관세 강화 + 미국 현지 capa 미확보",
+          "level": "YELLOW",
+          "first_seen": "2026-08-14",
+          "last_seen": "2026-08-14",
+          "count": 1,
+          "summary": "美 상무부, 한국산 대형변압기(HD Hyundai Electric·Iljin) 2023-2024 리뷰기간 반덤핑 예비판정에서 '정상가격 이하 판매 없음'으로 발표(2026-02-10) - 관세 강화 아닌 완화 가능성이나 최종판정 대기 중이라 확정 아님",
+          "evidence_url": "https://www.federalregister.gov/documents/2026/02/10/2026-02646/large-power-transformers-from-the-republic-of-korea-preliminary-results-of-antidumping-duty"
+        }
+      ]
+    }
   }
 }

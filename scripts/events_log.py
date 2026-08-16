@@ -175,20 +175,44 @@ def build_events(
         ev["sources"] = ns(f)
         add(PORTFOLIO_ID, ev)
 
-    # 개별 점검
+    # 개별 점검. 그룹 공통(G) 신호는 형제 종목에도 같이 남긴다 —
+    # 한 종목을 검색하다 찾은 산업 사실이 형제 페이지에서 빠지면 안 된다.
+    groups = {g["id"]: g for g in positions_doc.get("groups", [])}
+    by_group = {}
+    for pos in positions_doc.get("positions", []):
+        if pos.get("group"):
+            by_group.setdefault(pos["group"], []).append(pos["id"])
+
     for item in (position_results or []):
-        pid = item.get("position", {}).get("id")
+        pos = item.get("position") or {}
+        pid = pos.get("id")
         if not pid:
             continue
         for f in ((item.get("result") or {}).get("findings") or []):
-            ev = _from_finding(f, "position", {"kind": f.get("kind")})
-            ev["sources"] = ns(f)
-            add(pid, ev)
+            common = any(str(r).upper().startswith("G") for r in (f.get("refs") or []))
+            extra = {"kind": f.get("kind")}
+            targets = [pid]
+            if common and pos.get("group"):
+                g = groups.get(pos["group"], {})
+                extra["group_id"] = pos["group"]
+                extra["group_label"] = g.get("label")
+                extra["found_via"] = pid
+                targets = by_group.get(pos["group"], [pid])
+            for tid in targets:
+                ev = _from_finding(f, "position", dict(extra))
+                ev["sources"] = ns(f)
+                add(tid, ev)
 
-    # 전 종목 소식 스윕 — position_label 로 역매핑
-    by_label = {p.get("label"): p["id"] for p in positions_doc.get("positions", [])}
+    # 전 종목 소식 스윕. label 은 그룹 분리 후 중복될 수 있어 id 를 쓴다
+    live_ids = {p["id"] for p in positions_doc.get("positions", [])}
+    by_label = {}
+    for p in positions_doc.get("positions", []):
+        by_label.setdefault(p.get("label"), []).append(p["id"])
     for it in ((news_sweep or {}).get("items") or []):
-        pid = by_label.get(it.get("position_label"))
+        pid = it.get("position_id")
+        if pid not in live_ids:  # 구형 응답 하위호환 — 라벨이 유일할 때만
+            cands = by_label.get(it.get("position_label")) or []
+            pid = cands[0] if len(cands) == 1 else None
         if not pid:
             continue
         ev = _from_finding(it, "sweep", {})

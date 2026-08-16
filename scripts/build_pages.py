@@ -236,6 +236,8 @@ def event_html(ev: dict) -> str:
         cls += f" lv-{lv}"
         meta.append(pill(f"{LEVEL_MARK.get(lv,'')} {LEVEL_WORD.get(lv, lv)}",
                          LEVEL_CLS.get(lv, "ia-grey")))
+        if ev.get("group_label"):
+            meta.append(pill(f"🔗 공통 · {ev['group_label']}", "ia-blue"))
     for r in (ev.get("refs") or []):
         meta.append(f"<code>{esc(r)}</code>")
     if ev.get("count", 1) >= 2:
@@ -362,6 +364,32 @@ def render_indicators(pos: dict, entry: dict) -> str:
 # 포지션 페이지
 # ============================================================
 
+def group_of(pos, doc):
+    gid = pos.get("group")
+    return next((g for g in doc.get("groups", []) if g.get("id") == gid), None) if gid else None
+
+
+def group_header(pos, group, doc, state, market, today) -> str:
+    """형제 종목을 나란히 두고 오갈 수 있게. 성격 차이는 같이 봐야 보인다."""
+    sibs = [p for p in doc.get("positions", [])
+            if p.get("group") == group["id"] and p.get("status") in pv.MONITORED_STATUSES]
+    chips = []
+    for sp in sibs:
+        t0 = (sp.get("tickers") or [""])[0]
+        r = ret_pct(market.get(t0, {}).get("price"), (sp.get("avg_cost") or {}).get(t0))
+        tail = (f'<u class="{"ia-up" if r >= 0 else "ia-down"}">{pct(r)}</u>'
+                if r is not None else '<u style="color:var(--ia-faint)">평단 미입력</u>')
+        if sp["id"] == pos["id"]:
+            chips.append(f'<span class="ia-sib on">{esc(company_of(sp, t0))} {tail}</span>')
+        else:
+            chips.append(f'<a class="ia-sib" href="../{slug(sp["id"])}/">'
+                         f'{esc(company_of(sp, t0))} {tail}</a>')
+    return (f'<div class="ia-grouphdr"><div><span class="ia-eyebrow" '
+            f'style="display:inline">그룹</span> <b>{esc(group.get("label"))}</b>'
+            f'<span class="ia-stamp">산업 논리는 공유하되 회사별 실행은 따로 판정</span></div>'
+            f'<div>{"".join(chips)}</div></div>')
+
+
 def render_position(pos, state, theme_state, doc, market, today) -> str:
     pid = pos["id"]
     entry = (state.get("positions") or {}).get(pid, {})
@@ -384,6 +412,12 @@ def render_position(pos, state, theme_state, doc, market, today) -> str:
          f'<span class="ia-sep">·</span>{fresh_text(entry.get("last_checked"), today)}'
          f' {flag_pills(entry)}</p>', ""]
 
+    group = group_of(pos, doc)
+    gstate = (state.get("groups") or {}).get(pos.get("group"), {}) if group else {}
+    if group:
+        L.append(group_header(pos, group, doc, state, market, today))
+        L.append("")
+
     # 시세
     L += ["## 시세", ""]
     for t in tickers:
@@ -401,16 +435,33 @@ def render_position(pos, state, theme_state, doc, market, today) -> str:
                ([("", empty_note or "미작성", "", pill("확인 필요", "ia-amber"))] if empty_note
                 else [])
 
-    L += ["## 보유 근거", "", cond_list([(None, numbered(pos.get("thesis"), "T",
-          "미작성 — 왜 들고 있는지 기록이 없습니다"))]), ""]
-    L += ["## 매도 검토 조건", "", cond_list([(None, numbered(pos.get("kill_signals"), "K",
-          "미작성 — 이 포지션은 영원히 🔴 가 뜨지 않습니다"))]), ""]
+    if group:
+        gl = f'공통 — {group.get("label")} <span class="ia-pill ia-blue">두 종목 동일</span>'
+        me = f'{company_of(pos, (pos.get("tickers") or [""])[0])}만'
+        L += ["## 보유 근거", "",
+              cond_list([(gl, numbered(group.get("thesis"), "G")),
+                         (me, numbered(pos.get("thesis"), "T",
+                                       "미작성 — 왜 들고 있는지 기록이 없습니다"))]), ""]
+        L += ["## 매도 검토 조건", "",
+              cond_list([(gl + " — 걸리면 두 종목 동시에",
+                          numbered(group.get("kill_signals"), "G")),
+                         (me, numbered(pos.get("kill_signals"), "K",
+                                       "미작성 — 영원히 🔴 가 뜨지 않습니다"))]),
+              '<div class="ia-legend"><span>관세처럼 산업 전체에 걸리는 것과 현지 capa 처럼 '
+              '회사마다 다른 것을 갈라 두었습니다 — 묶여 있을 때는 이 구분이 불가능했습니다'
+              "</span></div>", ""]
+    else:
+        L += ["## 보유 근거", "", cond_list([(None, numbered(pos.get("thesis"), "T",
+              "미작성 — 왜 들고 있는지 기록이 없습니다"))]), ""]
+        L += ["## 매도 검토 조건", "", cond_list([(None, numbered(pos.get("kill_signals"), "K",
+              "미작성 — 이 포지션은 영원히 🔴 가 뜨지 않습니다"))]), ""]
     if pos.get("add_signals"):
         L += ["## 추가 검토 조건", "",
               cond_list([(None, numbered(pos.get("add_signals"), "A"))]), ""]
 
     # 반복 관측
-    flags = [f for f in (entry.get("open_flags") or []) if f.get("count", 1) >= 2]
+    flags = [f for f in ((entry.get("open_flags") or [])
+                         + (gstate.get("open_flags") or [])) if f.get("count", 1) >= 2]
     if flags:
         rows = [("", [f'<td class="co"><b>{esc(f.get("signal",""))}</b></td>',
                       f'<td>{pill(f"{LEVEL_MARK.get(f.get("level"),"")} {f.get("level","")}", LEVEL_CLS.get(f.get("level"),"ia-grey"))}</td>',
@@ -436,6 +487,9 @@ def render_position(pos, state, theme_state, doc, market, today) -> str:
 
     # 추적 지표 — 값만 던지지 말고 왜 보는지·어디에 걸리는지까지
     L += ["## 추적 지표", "", render_indicators(pos, entry), ""]
+    if group:
+        L += ['<div class="ia-subhd sep">공통 지표 — ' + esc(group.get("label")) + "</div>",
+              render_indicators({"watch": group.get("watch")}, gstate), ""]
 
     # 공시·재무
     L += ["## 공시 · 재무", "",
@@ -696,8 +750,14 @@ def build(out_dir: Path, today: str) -> dict:
         raise SystemExit("positions.json 을 읽지 못했습니다.")
     market = load_market()
 
-    (out_dir / "positions").mkdir(parents=True, exist_ok=True)
-    (out_dir / "themes").mkdir(parents=True, exist_ok=True)
+    # 이전 빌드 산출물을 지우고 시작한다. 안 지우면 이름이 바뀌거나 매도한 포지션의
+    # 페이지가 유령처럼 남아 nav 에는 없는데 URL 로는 살아 있게 된다.
+    for sub in ("positions", "themes"):
+        d = out_dir / sub
+        if d.exists():
+            for f in d.glob("*.md"):
+                f.unlink()
+        d.mkdir(parents=True, exist_ok=True)
 
     n_pos = 0
     for pos in doc["positions"]:

@@ -353,7 +353,8 @@ def load_positions() -> dict:
 
 def load_position_state() -> dict:
     """position_state.json 로드. 없으면 빈 상태로 시작."""
-    empty = {"meta": {"version": "1.0", "last_run": None}, "positions": {}, "portfolio_level": {}}
+    empty = {"meta": {"version": "1.0", "last_run": None}, "positions": {},
+             "groups": {}, "portfolio_level": {}}
     if not POSITION_STATE_PATH.exists():
         logger.info("position_state.json 없음 — 새로 시작")
         return empty
@@ -361,6 +362,7 @@ def load_position_state() -> dict:
         state = json.loads(POSITION_STATE_PATH.read_text(encoding="utf-8"))
         state.setdefault("meta", {"version": "1.0", "last_run": None})
         state.setdefault("positions", {})
+        state.setdefault("groups", {})
         state.setdefault("portfolio_level", {})
         return state
     except Exception as e:
@@ -846,15 +848,44 @@ def collect_position_tickers(positions_doc: dict) -> tuple[list[str], list[str],
 
 
 def display_name(pos: dict) -> str:
-    """출력용 포지션 표시명. 영문 슬러그(id)는 절대 노출하지 않는다."""
-    tickers = ", ".join(pos.get("tickers", []))
+    """출력용 표시명. 영문 슬러그(id)는 절대 노출하지 않는다.
+
+    회사명이 앞, 포지션명이 뒤. 그룹으로 쪼갠 뒤로는 label 이 형제 종목과
+    겹치므로(둘 다 "미국 변압기") 회사명이 없으면 구분이 안 된다.
+    """
+    tickers = pos.get("tickers", [])
+    companies = pos.get("companies") or {}
     label = pos.get("label", "")
+    base = re.sub(r"\s*\([^()]*\)\s*$", "", label).strip() or label
+
+    if companies:
+        parts = [f"{companies.get(t, t)} ({base} {t})" for t in tickers]
+        return " · ".join(parts)
+
     if not tickers:
         return label
-    # "SSD 컨트롤러 (파두)" + 티커 -> "SSD 컨트롤러 (파두 440110)" (괄호 중첩 방지)
+    joined = ", ".join(tickers)
     if label.endswith(")"):
-        return f"{label[:-1]} {tickers})"
-    return f"{label} ({tickers})"
+        return f"{label[:-1]} {joined})"
+    return f"{label} ({joined})"
+
+
+def group_of(pos: dict, positions_doc: dict) -> Optional[dict]:
+    """포지션이 속한 그룹. 없으면 None."""
+    gid = pos.get("group")
+    if not gid:
+        return None
+    return next((g for g in positions_doc.get("groups", []) if g.get("id") == gid), None)
+
+
+def group_members(gid: str, positions_doc: dict) -> list[dict]:
+    return [p for p in positions_doc.get("positions", [])
+            if p.get("group") == gid and p.get("status") in MONITORED_STATUSES]
+
+
+def is_group_finding(finding: dict) -> bool:
+    """G 번호를 참조하면 그룹 공통 신호. 형제 포지션에도 함께 적용된다."""
+    return any(str(r).upper().startswith("G") for r in (finding.get("refs") or []))
 
 
 def format_indicators(indicators) -> str:
@@ -880,6 +911,22 @@ def format_indicators(indicators) -> str:
         if it.get("judge"):
             out.append(f'      판정: {it["judge"]}')
     return chr(10).join(out)
+
+
+def format_group_config(group: dict) -> str:
+    """그룹 공통 기준. 소속 포지션 모두에 동일하게 적용된다."""
+    watch = group.get("watch", {})
+    members = ", ".join(group.get("_member_names", [])) or "-"
+    return "\n".join([
+        f"## [그룹] {group.get('label')} — 공통 기준 (적용: {members})",
+        " 아래 G 번호는 소속 종목 전부에 동일하게 걸린다. 한 종목에서 확인되면 둘 다 해당.",
+        " thesis(공통):",
+        numbered(group.get("thesis", []), "G"),
+        " kill_signals(공통):",
+        numbered(group.get("kill_signals", []), "G"),
+        " indicators(공통, 관측은 이 key 로):",
+        format_indicators(watch.get("indicators")),
+    ])
 
 
 def format_position_config(pos: dict) -> str:
@@ -943,8 +990,15 @@ def build_prompt(
     ]
 
     # ---- 포지션 판정 기준 (번호 부여) ----
-    positions_config = "\n\n".join(format_position_config(p) for p in monitored) \
-        or "(모니터링 대상 포지션 없음)"
+    blocks = []
+    for g in positions_doc.get("groups", []):
+        mem = group_members(g["id"], positions_doc)
+        if not mem:
+            continue
+        blocks.append(format_group_config(
+            dict(g, _member_names=[display_name(m) for m in mem])))
+    blocks += [format_position_config(p) for p in monitored]
+    positions_config = "\n\n".join(blocks) or "(모니터링 대상 포지션 없음)"
 
     # ---- Layer 0 ----
     layer0_config = (
@@ -1103,8 +1157,10 @@ def build_prompt(
     carry_section = "\n".join(carry_lines[:5]) or "(없음)"
 
     sweep_lines = []
+    _by_id_all = {p["id"]: p for p in positions_doc.get("positions", [])}
     for it in ((news_sweep or {}).get("items") or []):
-        who = it.get("position_label") or it.get("position_id") or "?"
+        _p = _by_id_all.get(it.get("position_id"))
+        who = display_name(_p) if _p else (it.get("position_label") or "?")
         block = [f"- {who}: {it.get('summary', '')}"]
         block += fmt_detail(it)
         sweep_lines.append(chr(10).join(block))
@@ -1156,7 +1212,8 @@ def build_prompt(
 아래 검색 결과는 이미 판정이 끝난 상태다. 등급을 임의로 올리거나 내리지 말 것.
 
 # 모니터링 대상 포지션 — 판정 기준
-status 가 holding 또는 watching 인 것만. T=thesis, K=kill_signals, A=add_signals 번호는 출력에서 역참조에 사용.
+status 가 holding 또는 watching 인 것만. T=thesis, K=kill_signals, A=add_signals.
+G=그룹 공통 기준 — 같은 그룹의 종목 전부에 걸린다. 출력에서 역참조에 사용.
 
 {positions_config}
 
@@ -1345,7 +1402,9 @@ Layer 0 에 걸린 게 있으면 이 섹션을 문서 맨 위로 올릴 것.
 
 0. 영문 슬러그(us-transformer, ess-foil 등)를 출력 어디에도 쓰지 말 것.
    포지션은 항상 한글명 + 티커로 표기한다.
-1. 파일(===FILE===) 에서는 각 항목에 연결 번호를 붙일 것: [K#] [T#] [A#] [L#] [W#].
+1. 파일(===FILE===) 에서는 각 항목에 연결 번호를 붙일 것: [K#] [T#] [A#] [L#] [W#] [G#].
+   G 는 그룹 공통이므로 '그룹 공통 — 두 종목 모두 해당' 을 함께 적을 것.
+   개별 조건에만 걸린 사실은 어느 회사 것인지 분명히 하고, 형제 종목엔 해당 없음을 밝힐 것.
    단 번호만 쓰지 말고 조건 원문을 함께 인용할 것. 텔레그램에는 번호를 쓰지 않는다.
    어느 조건에도 연결되지 않는 사실은 📰 보유 종목 소식 또는 🔷 흐름에만 넣을 것.
 2. ignore 목록에 해당하는 내용은 **아예 출력하지 말 것**. 언급조차 금지.
@@ -1700,7 +1759,7 @@ def search_news_sweep(positions: list[dict], now_str: str) -> tuple[Optional[dic
     lines = []
     for pos in positions:
         lines.append(
-            f"- {pos.get('label')} / 티커 {', '.join(pos.get('tickers', []))}"
+            f"- id={pos.get('id')} / {display_name(pos)}"
             f" / 무시할 것: {'; '.join(pos.get('ignore', [])) or '(없음)'}"
         )
     roster = chr(10).join(lines)
@@ -1722,7 +1781,8 @@ def search_news_sweep(positions: list[dict], now_str: str) -> tuple[Optional[dic
       증권사 투자의견, 근거 없는 추측성 보도
 
 소식이 없는 종목은 items 에 넣지 말 것. 억지로 채우지 말 것.
-종목당 최대 2건, 전체 최대 12건. position_label 은 위 목록의 포지션명과 정확히 일치시킬 것.
+종목당 최대 2건, 전체 최대 12건.
+position_id 는 위 목록의 id 를 그대로 쓸 것 (표시명 말고 id).
 
 {_SOURCE_RULE}
 
@@ -1731,7 +1791,7 @@ def search_news_sweep(positions: list[dict], now_str: str) -> tuple[Optional[dic
 {{
   "items": [
     {{
-      "position_label": "포지션명",
+      "position_id": "위 목록의 id",
       "summary": "한두 문장 사실 요약",
       "quant": {{"지표명": "값"}},
       "sources": [
@@ -1752,8 +1812,15 @@ def search_position(
     state_entry: dict,
     price_info: Optional[dict],
     now_str: str,
+    group: Optional[dict] = None,
+    group_state: Optional[dict] = None,
 ) -> tuple[Optional[dict], dict]:
-    """포지션 1개 개별 검색 + RED/YELLOW/WHITE 판정."""
+    """포지션 1개 개별 검색 + RED/YELLOW/WHITE 판정.
+
+    그룹에 속한 포지션이면 공통 기준(G)도 같은 호출에서 함께 확인한다.
+    그룹 조건을 종목마다 따로 검색하면 같은 산업 사실을 중복으로 캐는 셈이라,
+    한 번에 묻고 G 로 표시된 결과를 형제 포지션에 팬아웃한다.
+    """
     pos = candidate["position"]
     watch = pos.get("watch", {})
 
@@ -1770,6 +1837,27 @@ def search_position(
 
     prev = json.dumps(state_entry, ensure_ascii=False, indent=2) if state_entry else "(이전 관측 없음)"
 
+    group_block = ""
+    if group:
+        gw = group.get("watch", {})
+        gprev = (json.dumps(group_state, ensure_ascii=False, indent=2)
+                 if group_state else "(이전 관측 없음)")
+        group_block = f"""# ★ 그룹 공통 기준 — {group.get('label')}
+이 종목은 같은 산업 논리를 공유하는 그룹에 속한다. 아래 G 조건은 형제 종목에도
+동일하게 걸리므로, 해당하는 사실을 찾으면 refs 에 반드시 G 번호를 쓸 것.
+반대로 이 회사에만 해당하는 사실은 절대 G 로 표시하지 말 것 — 그러면 형제 종목에
+잘못 전파된다.
+
+ 공통 thesis:
+{numbered(group.get('thesis', []), 'G', indent='')}
+ 공통 kill_signals:
+{numbered(group.get('kill_signals', []), 'G', indent='')}
+ 공통 추적 지표:
+{format_indicators(gw.get('indicators'))}
+ 공통 검색 키워드: {', '.join(gw.get('queries', [])) or '(없음)'}
+ 그룹 이전 관측: {gprev}
+"""
+
     prompt = f"""당신은 특정 보유 포지션의 thesis 훼손 여부를 감시하는 분석가.
 
 # 현재 시점
@@ -1784,7 +1872,8 @@ def search_position(
 # 어제 가격
 {price_line}
 
-# thesis (이게 무너지면 보유 이유가 사라짐)
+{group_block}
+# thesis — 이 종목 개별 (이게 무너지면 보유 이유가 사라짐)
 {numbered(pos.get('thesis', []), 'T', indent='')}
 
 # KILL 신호 (해당하면 RED)
@@ -2161,9 +2250,14 @@ def build_thesis_appendix(
         return ""
 
     by_id = {r["position"]["id"]: r for r in position_results}
-    sweep_by_label = {}
+    sweep_by_id = {}
     for it in ((news_sweep or {}).get("items") or []):
-        sweep_by_label.setdefault(it.get("position_label", ""), []).append(it)
+        key = it.get("position_id")
+        if not key:  # 구형 응답 하위호환
+            key = next((p["id"] for p in positions_doc.get("positions", [])
+                        if p.get("label") == it.get("position_label")), None)
+        if key:
+            sweep_by_id.setdefault(key, []).append(it)
 
     # 테마 흐름을 포지션별로 뒤집어 붙인다 — 오늘 개별 검색하지 않은 포지션에도
     # 상위 변화가 닿았는지 이 표에서 바로 보이게 하는 것이 이 레이어의 목적이다.
@@ -2213,7 +2307,7 @@ def build_thesis_appendix(
             if item.get("incomplete"):
                 out.append(f"- ⚠️ 확인 미완료: {item['incomplete']}")
 
-        for it in sweep_by_label.get(pos.get("label", ""), []):
+        for it in sweep_by_id.get(pos["id"], []):
             out.append(f"- 📰 {it.get('summary', '')} ({it.get('reported_at', '')})")
 
         out.extend(theme_by_position.get(pos["id"], []))
@@ -2535,7 +2629,12 @@ async def main(dry_run: bool = False):
         entry = state["positions"].setdefault(
             pos["id"], {"last_checked": None, "observations": {}, "open_flags": []}
         )
-        result, u = search_position(cand, entry, price_info, now_str)
+        group = group_of(pos, positions_doc)
+        gstate = state["groups"].setdefault(
+            group["id"], {"last_checked": None, "observations": {}, "open_flags": []}
+        ) if group else None
+        result, u = search_position(cand, entry, price_info, now_str,
+                                    group=group, group_state=gstate)
         merge_usage(usage_total, u)
 
         incomplete = is_search_incomplete(result, u["searches"], POSITION_MAX_USES)
@@ -2544,10 +2643,22 @@ async def main(dry_run: bool = False):
             # 부분 확인도 점검으로 친다. 모델은 사소한 미확인 항목까지 정직하게 보고하는데,
             # 그때마다 last_checked 를 막으면 같은 포지션만 매일 재선별되고
             # rotation 이 영영 안 돌아 나머지 포지션이 방치된다.
+            mark = (incomplete is None) or bool(findings)
+            # 그룹 공통(G) 과 개별을 갈라 각자의 자리에 쌓는다.
+            # 공통을 종목 상태에 넣으면 형제 종목엔 안 남고, 둘 다에 넣으면 중복 집계된다.
+            gf = [f for f in findings if is_group_finding(f)]
+            pf = [f for f in findings if not is_group_finding(f)]
             state["positions"][pos["id"]] = update_state_entry(
-                entry, result, today_str,
-                mark_checked=(incomplete is None) or bool(findings),
+                entry, {**result, "findings": pf}, today_str, mark_checked=mark,
             )
+            if group and gstate is not None:
+                state["groups"][group["id"]] = update_state_entry(
+                    gstate, {"findings": gf, "observations": {}}, today_str, mark_checked=mark,
+                )
+                if gf:
+                    sibs = [m["id"] for m in group_members(group["id"], positions_doc)
+                            if m["id"] != pos["id"]]
+                    logger.info(f"{pos['id']}: 그룹 공통 신호 {len(gf)}건 → {', '.join(sibs)} 에도 적용")
             reds = sum(1 for f in findings if f.get("level") == "RED")
             if incomplete:
                 logger.warning(

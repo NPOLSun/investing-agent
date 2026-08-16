@@ -85,7 +85,8 @@ nav:
   - 오늘 한눈에: index.md
   - 보유 현황: pages/holdings.md
   - 포지션:
-    - 효성중공업 · HD현대일렉트릭 (미국 변압기): pages/positions/us-transformer.md
+    - 효성중공업 (미국 변압기): pages/positions/hyosung-transformer.md
+    - HD현대일렉트릭 (미국 변압기): pages/positions/hd-hyundai-electric.md
     - 삼아알미늄 (ESS 알루미늄박): pages/positions/ess-foil.md
     - 파두 (SSD 컨트롤러): pages/positions/ssd-controller.md
     - Vicor (GPU 전력공급): pages/positions/point-of-load.md

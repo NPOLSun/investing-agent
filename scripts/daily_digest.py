@@ -857,6 +857,31 @@ def display_name(pos: dict) -> str:
     return f"{label} ({tickers})"
 
 
+def format_indicators(indicators) -> str:
+    """지표 목록을 key 와 판정 기준까지 포함해 펼친다.
+
+    지표를 문자열 목록으로만 주면 모델이 매번 자기 식대로 키를 지어낸다
+    (실측: 2Q2026_매출, 8/13_가격하락_직접원인 …). 그러면 다음 분기에 다른 키가
+    생겨 시계열이 영원히 안 쌓인다. key 를 못박아 같은 지표가 같은 자리에 쌓이게 한다.
+    """
+    if not indicators:
+        return "  (없음)"
+    out = []
+    for it in indicators:
+        if isinstance(it, str):          # 구형 스키마 하위호환
+            out.append(f"  - {it}")
+            continue
+        bits = [f'  - {it.get("key")} = {it.get("name")}']
+        if it.get("unit") and it["unit"] != "-":
+            bits.append(f'({it["unit"]})')
+        if it.get("good"):
+            bits.append(f'· 좋은 방향 {"증가" if it["good"] == "up" else "감소"}')
+        out.append(" ".join(bits))
+        if it.get("judge"):
+            out.append(f'      판정: {it["judge"]}')
+    return chr(10).join(out)
+
+
 def format_position_config(pos: dict) -> str:
     """포지션 1개의 판정 기준을 번호 매겨 정리 (종합 프롬프트 컨텍스트용)."""
     watch = pos.get("watch", {})
@@ -869,7 +894,8 @@ def format_position_config(pos: dict) -> str:
         " add_signals:",
         numbered(pos.get("add_signals", []), "A"),
         f" peers: {', '.join(watch.get('peers', [])) or '(없음)'}",
-        f" indicators: {', '.join(watch.get('indicators', [])) or '(없음)'}",
+        " indicators (관측은 반드시 이 key 로):",
+        format_indicators(watch.get("indicators")),
         f" ignore(출력 금지): {'; '.join(pos.get('ignore', [])) or '(없음)'}",
     ])
 
@@ -1521,6 +1547,14 @@ _SIGNAL_RULE = """판정 기준:
 
 # 출처를 finding 당 여러 개 받는다. 예전에는 evidence_url 하나뿐이라
 # "같은 사건을 여러 곳이 보도" 를 표현할 방법이 없어 항목이 쪼개졌다.
+_OBSERVATION_RULE = """observations 규칙 (★ 어기면 시계열이 안 쌓인다):
+- key 는 위 '추적 지표' 에 선언된 것만 쓸 것. **새 key 를 지어내지 말 것.**
+  "2Q2026_매출" 같은 즉석 key 를 만들면 다음 분기에 다른 key 가 생겨
+  같은 지표의 추이를 영영 비교할 수 없다. 선언에 없는 사실은 finding 으로 보낼 것.
+- 값은 객체로: {"value": 숫자, "unit": "단위", "period": "2026Q2", "note": "QoQ +23%"}
+  숫자로 못 뽑으면 value 를 문자열로 두되 period 는 반드시 채울 것.
+- 이번에 확인 못 한 지표는 아예 넣지 말 것. 추측값 금지."""
+
 _SOURCE_RULE = f"""출처 규칙 (sources 배열):
 - 같은 사실을 여러 곳에서 확인했으면 **한 finding 에 모아** sources 에 전부 넣을 것.
   같은 사건을 출처 수만큼 여러 finding 으로 쪼개지 말 것.
@@ -1761,8 +1795,10 @@ def search_position(
 
 # 감시 대상
 경쟁사·비교대상: {', '.join(watch.get('peers', [])) or '(없음)'}
-추적 지표: {', '.join(watch.get('indicators', [])) or '(없음)'}
 검색 키워드: {', '.join(watch.get('queries', [])) or '(없음)'}
+
+# 추적 지표 — observations 의 key 는 반드시 아래 것만 쓸 것
+{format_indicators(watch.get('indicators'))}
 
 # 무시할 것 (노이즈 — 발견해도 보고 금지)
 {bullets(pos.get('ignore', []))}
@@ -1779,6 +1815,8 @@ web_search 로 위 KILL·ADD 신호와 추적 지표의 최신 상태를 확인�
 {_SIGNAL_RULE}
 
 {_SOURCE_RULE}
+
+{_OBSERVATION_RULE}
 
 "2개 분기 연속 감소" 처럼 누적이 필요한 신호는 오늘 1회 관측만으로 RED 로 올리지 말 것.
 이전 관측 기록과 대조해 실제로 연속 조건이 충족될 때만 RED, 1회 관측이면 YELLOW.

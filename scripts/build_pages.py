@@ -274,6 +274,90 @@ def table(headers, rows, cls="") -> str:
             f"<thead><tr>{th}</tr></thead><tbody>{body}</tbody></table></div>")
 
 
+def obs_value(v) -> tuple[str, str, str]:
+    """관측값 → (표시값, 기간, 부연). 구형 문자열과 신형 객체를 모두 받는다."""
+    if isinstance(v, dict):
+        val = v.get("value")
+        unit = v.get("unit") or ""
+        shown = f"{val:,}{unit}" if isinstance(val, (int, float)) else f"{val}{unit}"
+        return shown, v.get("period") or "", v.get("note") or ""
+    return str(v), "", ""
+
+
+def render_indicators(pos: dict, entry: dict) -> str:
+    """선언된 지표를 기준으로 렌더. 관측이 없어도 '무엇을 왜 보는지' 는 보여준다.
+
+    값만 나열하면 이게 좋은 건지 나쁜 건지, 뭘 넘으면 문제인지 알 수 없다.
+    판단 기준(why·judge·refs)은 positions.json 에 선언돼 있고 여기서 붙인다.
+    """
+    inds = (pos.get("watch") or {}).get("indicators") or []
+    obs = entry.get("observations") or {}
+    if not inds:
+        return '<div class="ia-empty">추적 지표가 선언되지 않았습니다</div>'
+
+    rows = []
+    for it in inds:
+        if isinstance(it, str):
+            rows.append(f'<div class="ia-cond"><span class="tx">{esc(it)}</span></div>')
+            continue
+        series = obs.get(it.get("key")) or obs.get(it.get("name")) or []
+        arrow = "↗ 증가가 좋음" if it.get("good") == "up" else (
+                "↘ 감소가 좋음" if it.get("good") == "down" else "")
+
+        if series:
+            cur, per, note = obs_value(series[-1].get("value"))
+            when = per or series[-1].get("date", "")
+            prev = ""
+            if len(series) > 1:
+                pv_, pper, _ = obs_value(series[-2].get("value"))
+                prev = f'<span class="ia-stamp">직전 {esc(pv_)}' +                        (f' ({esc(pper)})' if pper else "") + "</span>"
+            head = (f'<span class="ia-num" style="font-size:.95rem;font-weight:650">{esc(cur)}</span>'
+                    f'<span class="ia-stamp">{esc(when)}</span>'
+                    + (f'<span class="ia-stamp">{esc(note)}</span>' if note else "")
+                    + prev)
+        else:
+            head = '<span class="ia-stamp">아직 관측 없음</span>'
+
+        refs = "".join(f"<code>{esc(r)}</code>" for r in (it.get("refs") or []))
+        body = [f'<div class="ia-cond"><span class="ix">{esc(arrow.split()[0] if arrow else "·")}</span>',
+                '<span class="tx">',
+                f'<b>{esc(it.get("name"))}</b> '
+                f'<span class="ia-stamp">{esc(it.get("unit") or "")}</span> {refs}',
+                f'<span style="display:block;margin:.25rem 0">{head}</span>']
+        if it.get("why"):
+            body.append(f'<span class="q">왜 보나 · {esc(it["why"])}</span>')
+        if it.get("judge"):
+            body.append(f'<span class="q" style="color:var(--ia-amber)">판정 · {esc(it["judge"])}</span>')
+        if arrow:
+            body.append(f'<span class="q">{esc(arrow)}</span>')
+        body += ["</span></div>"]
+        rows.append("".join(body))
+
+    # 선언되지 않은 관측도 버리지 않는다. 지금까지 모델이 즉석 key 로 쌓아온
+    # 값들이 실제 숫자라서, 숨기면 페이지가 오히려 빈약해진다.
+    # 내일부터는 선언 key 로 쌓이므로 이 목록은 자연히 줄어든다.
+    extra = [k for k in obs if not any(
+        (isinstance(i, dict) and (i.get("key") == k or i.get("name") == k)) for i in inds)]
+    tail = ""
+    if extra:
+        er = []
+        for k in extra:
+            series = obs.get(k) or []
+            if not series:
+                continue
+            cur, per, note = obs_value(series[-1].get("value"))
+            er.append(("", [f'<td class="co"><b>{esc(k)}</b></td>',
+                            f'<td>{esc(cur)}</td>',
+                            f'<td class="r"><span class="sm">'
+                            f'{esc(per or series[-1].get("date",""))}</span></td>']))
+        tail = ('<div class="ia-subhd sep" style="margin-top:1rem">선언 외 관측</div>'
+                + table(["관측", "값", ">시점"], er)
+                + '<div class="ia-legend"><span>검색이 즉석 key 로 남긴 것들입니다. '
+                  '추이 비교가 안 되므로, 계속 볼 값이면 <code>/수정</code> 으로 '
+                  '추적 지표에 올리세요.</span></div>')
+    return f'<div class="ia-conds">{"".join(rows)}</div>{tail}'
+
+
 # ============================================================
 # 포지션 페이지
 # ============================================================
@@ -350,22 +434,8 @@ def render_position(pos, state, theme_state, doc, market, today) -> str:
             L.append(f'<div class="ia-legend"><span>외 {len(events)-TIMELINE_LIMIT}건</span></div>')
         L.append("")
 
-    # 추적 지표
-    obs = entry.get("observations") or {}
-    L += ["## 추적 지표", ""]
-    if not obs:
-        L += ['<div class="ia-empty">관측값 없음</div>', ""]
-    else:
-        rows = []
-        for k, series in obs.items():
-            if not series:
-                continue
-            cur, prev = series[-1], (series[-2]["value"] if len(series) > 1 else "—")
-            rows.append(("", [f'<td class="co"><b>{esc(k)}</b></td>',
-                              f'<td class="r">{esc(cur.get("value"))}</td>',
-                              f'<td class="r"><span class="sm">{esc(cur.get("date"))}</span></td>',
-                              f'<td class="r" style="color:var(--ia-faint)">{esc(prev)}</td>']))
-        L += [table(["지표", ">최근", ">관측일", ">직전"], rows), ""]
+    # 추적 지표 — 값만 던지지 말고 왜 보는지·어디에 걸리는지까지
+    L += ["## 추적 지표", "", render_indicators(pos, entry), ""]
 
     # 공시·재무
     L += ["## 공시 · 재무", "",
@@ -376,7 +446,6 @@ def render_position(pos, state, theme_state, doc, market, today) -> str:
     L += ["## 감시", "",
           cond_list([(None, [
               ("경쟁사", ", ".join(watch.get("peers", [])) or "(없음)", "", ""),
-              ("지표", ", ".join(watch.get("indicators", [])) or "(없음)", "", ""),
               ("검색어", ", ".join(watch.get("queries", [])) or "(없음)", "", ""),
           ])]), ""]
     if pos.get("ignore"):

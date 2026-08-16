@@ -50,10 +50,15 @@ data/*
 # (지난 뉴스를 다시 검색해 그날 상태로 복원할 수 없다). 디렉터리를 먼저 되살려야
 # 그 안의 파일이 data/* 에 안 걸린다.
 !data/events/
+# market.json 은 페이지 렌더용 시세 스냅샷 (재수집 가능하나 커밋해야 사이트 빌드가 씀)
+!data/market.json
 scripts/__pycache__/
 *.log
 digests/sent/
 digests/dry-run/
+
+# pages/ 는 build_pages.py 생성물. 빌드 때 만들므로 커밋하지 않는다
+pages/
 
 # MkDocs build output (and staging dir created by workflow / local preview)
 site/

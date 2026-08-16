@@ -219,6 +219,8 @@
       "label": "미국 변압기",
       "status": "holding",
       "tickers": ["298040", "267260"],
+      "companies": {"298040": "효성중공업", "267260": "HD현대일렉트릭"},
+      "avg_cost": {},
       "areas": ["power"],
       "thesis": [
         "미국 전력망 투자는 데이터센터와 무관하게 구조적 (노후 교체 + 전기화 + 송전망 확충)",
@@ -269,6 +271,8 @@
       "label": "ESS 알루미늄박",
       "status": "holding",
       "tickers": ["006110"],
+      "companies": {"006110": "삼아알미늄"},
+      "avg_cost": {},
       "areas": ["ess"],
       "thesis": [
         "ESS향 매출이 구조적으로 증가 중이며 시장이 아직 반영하지 않음",
@@ -314,6 +318,8 @@
       "label": "SSD 컨트롤러 (파두)",
       "status": "holding",
       "tickers": ["440110"],
+      "companies": {"440110": "파두"},
+      "avg_cost": {},
       "areas": [],
       "thesis": [
         "AI 추론 확산으로 eSSD 출하량이 구조적으로 증가하고 컨트롤러는 SSD 1대당 1개씩 탑재",
@@ -365,6 +371,8 @@
       "label": "GPU 전력공급 (Vicor)",
       "status": "holding",
       "tickers": ["VICR"],
+      "companies": {"VICR": "Vicor"},
+      "avg_cost": {},
       "areas": ["power-semi", "power"],
       "thesis": [
         "데이터센터 고전력화(800VDC)에서 point-of-load 손실이 물리적 병목",
@@ -418,6 +426,8 @@
       "label": "광정렬 장비 (성호전자/ADS테크)",
       "status": "holding",
       "tickers": ["043260"],
+      "companies": {"043260": "성호전자"},
+      "avg_cost": {},
       "areas": ["optical"],
       "thesis": [
         "액티브 얼라인 장비는 ficonTEC 과 ADS테크의 과점 구조",
@@ -468,6 +478,8 @@
       "label": "광 소재 (코닝)",
       "status": "holding",
       "tickers": ["GLW"],
+      "companies": {"GLW": "Corning"},
+      "avg_cost": {},
       "areas": ["optical"],
       "thesis": [
         "AI 데이터센터 광 연결 수요가 구조적으로 증가",
@@ -516,6 +528,8 @@
       "label": "HALEU 농축 (센트러스)",
       "status": "holding",
       "tickers": ["LEU"],
+      "companies": {"LEU": "Centrus Energy"},
+      "avg_cost": {},
       "areas": ["nuclear"],
       "thesis": [
         "러시아 배제로 미국 자체 HALEU 밸류체인 구축이 필수",
@@ -566,6 +580,8 @@
       "label": "SMR 개발 (X-energy)",
       "status": "holding",
       "tickers": ["XE"],
+      "companies": {"XE": "X-energy"},
+      "avg_cost": {},
       "areas": ["nuclear"],
       "thesis": [
         "HTGR 와 TRISO-X 연료의 수직통합이 구조적 차별화",
@@ -618,6 +634,8 @@
       "label": "고압어닐링 장비 (예스티)",
       "status": "holding",
       "tickers": ["122640"],
+      "companies": {"122640": "예스티"},
+      "avg_cost": {},
       "areas": [],
       "thesis": [
         "HPA 특허 리스크 최종 해소 (서울중앙지법 침해소송 본안 포함)",
@@ -671,6 +689,8 @@
       "label": "발전 종합 (두산에너빌리티)",
       "status": "holding",
       "tickers": ["034020"],
+      "companies": {"034020": "두산에너빌리티"},
+      "avg_cost": {},
       "areas": ["power", "nuclear"],
       "thesis": [
         "[A축 가스터빈] AI 데이터센터發 북미 복합화력 발주로 4번째 공급자 기회 확보",

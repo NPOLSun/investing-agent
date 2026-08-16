@@ -68,61 +68,67 @@ plugins:
   - redirects:
       redirect_maps: {}
 
+markdown_extensions:
+  - md_in_html
+  - attr_list
+  - tables
+  - admonition
+  - pymdownx.details
+  - toc:
+      permalink: true
+
+extra_css:
+  - assets/pages.css
+
 nav:
-  - 홈: index.md
-  - 방법론:
-    - methodology.md
-    - "구버전 (v2.1 archive)": methodology_v2.1_archive.md
-  - Megamap:
-    - mega-change-map/00_dashboard.md
-    - "구버전 Dashboard (v2.1)": mega-change-map/00_dashboard_v21_backup.md
-  - Deep-Dive:
-    - deepdive_index.md
+  # BEGIN:generated-nav
+  - 현황:
+    - 오늘 한눈에: pages/index.md
+    - 보유 현황: pages/holdings.md
+  - 포지션:
+    - 효성중공업 · HD현대일렉트릭 (미국 변압기): pages/positions/us-transformer.md
+    - 삼아알미늄 (ESS 알루미늄박): pages/positions/ess-foil.md
+    - 파두 (SSD 컨트롤러): pages/positions/ssd-controller.md
+    - Vicor (GPU 전력공급): pages/positions/point-of-load.md
+    - 성호전자 (광정렬 장비): pages/positions/optical-align.md
+    - Corning (광 소재): pages/positions/optical-material.md
+    - Centrus Energy (HALEU 농축): pages/positions/haleu.md
+    - X-energy (SMR 개발): pages/positions/smr-developer.md
+    - 예스티 (고압어닐링 장비): pages/positions/hpa-equipment.md
+    - 두산에너빌리티 (발전 종합): pages/positions/power-generation.md
+  - 테마:
+    - AI 데이터센터 전력 아키텍처: pages/themes/ai-dc-power.md
+    - 광 인터커넥트 · CPO: pages/themes/optical-interconnect.md
+    - 메모리 · 스토리지 반도체: pages/themes/memory-storage.md
+    - 원자력 · SMR 상용화: pages/themes/nuclear-smr.md
+    - 계통 저장 · ESS: pages/themes/grid-storage.md
+    - 데이터센터 냉각 · 랙 밀도: pages/themes/dc-thermal.md
+  # END:generated-nav
+  - 아카이브:
+    - 개요: index.md
+    - 방법론: methodology.md
+    - "방법론 구버전 (v2.1)": methodology_v2.1_archive.md
+    - Megamap Dashboard: mega-change-map/00_dashboard.md
+    - "Megamap 구버전 (v2.1)": mega-change-map/00_dashboard_v21_backup.md
+    - Deep-Dive 색인: deepdive_index.md
     - "Tier 1 — Deep":
       - GLP-1 생태계: mega-change-map/tier1_glp1_ecosystem_v23.md
       - 원자력 르네상스: mega-change-map/tier1_nuclear_renaissance_v23.md
       - AI Foundation / Horizontal: mega-change-map/tier1_ai_foundation_horizontal_v23.md
       - AI Vertical / AI-native: mega-change-map/tier1_ai_vertical_v23.md
       - AI DC 전력 인프라: mega-change-map/tier1_ai_dc_power_infra_v23.md
-      - K-조선 르네상스 ★ NEW: mega-change-map/tier1_kr_shipbuilding_renaissance_v23.md
-    - "Tier 2 — Tier 1 깊이":
-      - 차세대 전력반도체 (GaN·SiC): mega-change-map/tier2_power_semi_gan_sic_v23.md
+      - K-조선 르네상스: mega-change-map/tier1_kr_shipbuilding_renaissance_v23.md
+    - "Tier 2":
+      - 전력반도체 (GaN·SiC): mega-change-map/tier2_power_semi_gan_sic_v23.md
       - 국방·드론: mega-change-map/tier2_defense_drones_v23.md
       - 데이터센터 냉각: mega-change-map/tier2_data_center_cooling_v23.md
       - 자율주행 / Robotaxi: mega-change-map/tier2_autonomous_driving_v23.md
-      - 정밀 종양학 (ADC·CAR-T·RDC): mega-change-map/tier2_precision_oncology_v23.md
+      - 정밀 종양학: mega-change-map/tier2_precision_oncology_v23.md
       - 휴머노이드 로봇: mega-change-map/tier2_humanoid_robot_v23.md
       - 광인터커넥트 (CPO): mega-change-map/tier2_optical_interconnect_cpo_v23.md
       - 우주 (위성·발사체): mega-change-map/tier2_space_v23.md
-      - EV Battery + ESS ★ NEW: mega-change-map/tier2_battery_ess_v23.md
-  - 워치리스트:
-    - watchlist/00_first_watchlist_draft.md
-    - "구버전 (v2.1)": watchlist/00_first_watchlist_draft_v21_backup.md
-  - 캘린더:
-    - calendar/00_event_calendar_6months.md
-    - "구버전 (v2.1)": calendar/00_event_calendar_6months_v21_backup.md
-
-markdown_extensions:
-  - admonition
-  - attr_list
-  - footnotes
-  - md_in_html
-  - tables
-  - toc:
-      permalink: true
-      toc_depth: 3
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.tasklist:
-      custom_checkbox: true
-
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/NPOLSun/investing-agent
+      - EV Battery + ESS: mega-change-map/tier2_battery_ess_v23.md
+    - 워치리스트: watchlist/00_first_watchlist_draft.md
+    - "워치리스트 구버전": watchlist/00_first_watchlist_draft_v21_backup.md
+    - 이벤트 캘린더: calendar/00_event_calendar_6months.md
+    - "캘린더 구버전": calendar/00_event_calendar_6months_v21_backup.md

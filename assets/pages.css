@@ -1,0 +1,30 @@
+/* 포지션·테마 페이지 — 생성물 전용 보강.
+   Material 기본을 존중하고, 정보설계에 필요한 것만 더한다. */
+
+/* 신선도 강조 — 오래된 페이지가 최신처럼 읽히면 안 된다 */
+.md-typeset strong:has(+ br), .md-typeset p > strong:first-child {
+  font-variant-numeric: tabular-nums;
+}
+
+/* 숫자 정렬 */
+.md-typeset table:not([class]) td:last-child,
+.md-typeset table:not([class]) td:nth-last-child(2) {
+  font-variant-numeric: tabular-nums;
+}
+.md-typeset table:not([class]) { font-size: .74rem; }
+.md-typeset table:not([class]) th { white-space: nowrap; }
+
+/* 타임라인 항목 사이 구분 */
+.md-typeset h2 + p > strong:first-child { color: var(--md-default-fg-color); }
+
+/* 들여쓰기용 전각 공백이 뭉개지지 않게 */
+.md-typeset p { text-wrap: pretty; }
+
+/* 생성물 안내 푸터 */
+.md-typeset hr + p small { color: var(--md-default-fg-color--light); }
+
+/* 코드 인라인(조건 번호 T1/K3/W2)을 배지처럼 */
+.md-typeset code {
+  font-size: .78em;
+  padding: .1em .4em;
+}

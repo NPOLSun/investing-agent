@@ -85,6 +85,7 @@ TRACKED_STOCKS_PATH = PROJECT_ROOT / "data" / "tracked_stocks.json"
 POSITIONS_PATH = PROJECT_ROOT / "data" / "positions.json"
 POSITION_STATE_PATH = PROJECT_ROOT / "data" / "position_state.json"
 THEME_STATE_PATH = PROJECT_ROOT / "data" / "theme_state.json"
+MARKET_PATH = PROJECT_ROOT / "data" / "market.json"
 DIGEST_OUTPUT_DIR = PROJECT_ROOT / "digests" / "sent"
 DRY_RUN_OUTPUT_DIR = PROJECT_ROOT / "digests" / "dry-run"
 
@@ -244,12 +245,20 @@ def fetch_us_prices(tickers: Optional[list[str]] = None) -> list[dict]:
             volume = hist["Volume"].iloc[-1]
             avg_volume = hist["Volume"].mean()
             vol_ratio = volume / avg_volume if avg_volume > 0 else 1.0
+            # 시가총액은 포지션 페이지용. fast_info 는 실패해도 가격 수집을
+            # 망치면 안 되므로 따로 감싼다.
+            market_cap = None
+            try:
+                market_cap = getattr(t.fast_info, "market_cap", None)
+            except Exception:
+                pass
             results.append({
                 "ticker": ticker,
                 "market": "US",
                 "price": round(float(current), 2),
                 "change_pct": round(float(change_pct), 2),
                 "volume_ratio": round(float(vol_ratio), 2),
+                "market_cap": int(market_cap) if market_cap else None,
             })
         except Exception as e:
             logger.warning(f"{ticker} 수집 실패: {e}")
@@ -279,6 +288,13 @@ def fetch_kr_prices(
             volume = df["거래량"].iloc[-1]
             avg_volume = df["거래량"].mean()
             vol_ratio = volume / avg_volume if avg_volume > 0 else 1.0
+            market_cap = None
+            try:
+                capdf = krx_stock.get_market_cap_by_date(last_day, last_day, ticker)
+                if not capdf.empty:
+                    market_cap = int(capdf["시가총액"].iloc[-1])
+            except Exception:
+                pass
             results.append({
                 "ticker": ticker,
                 "name": name_map.get(ticker, ""),
@@ -286,6 +302,7 @@ def fetch_kr_prices(
                 "price": int(current),
                 "change_pct": round(float(change_pct), 2),
                 "volume_ratio": round(float(vol_ratio), 2),
+                "market_cap": market_cap,
             })
         except Exception as e:
             logger.warning(f"{ticker} ({name_map.get(ticker, '')}) 수집 실패: {e}")
@@ -2351,7 +2368,7 @@ def git_commit_and_push(file_path: Path):
     테마 흐름 누적, 종목별 이벤트 히스토리가 통째로 날아간다.
     실패해도 다이제스트 자체는 이미 전송됐으므로 예외를 삼킨다.
     """
-    targets = [p for p in (POSITION_STATE_PATH, THEME_STATE_PATH) if p.exists()]
+    targets = [p for p in (POSITION_STATE_PATH, THEME_STATE_PATH, MARKET_PATH) if p.exists()]
     ev_dir = events_log.events_dir()
     if ev_dir.exists():
         targets.append(ev_dir)
@@ -2411,6 +2428,17 @@ async def main(dry_run: bool = False):
     kr_prices = fetch_kr_prices(kr_tickers, ticker_names)
     all_prices = us_prices + kr_prices
     logger.info(f"가격 수집 완료: {len(all_prices)}종목")
+
+    # 시세를 파일로 남긴다 — 포지션 페이지가 재수집 없이 읽어 쓴다.
+    # 페이지 생성기는 순수 렌더링이어야 하므로 네트워크를 타지 않게 한다.
+    try:
+        MARKET_PATH.parent.mkdir(parents=True, exist_ok=True)
+        MARKET_PATH.write_text(json.dumps({
+            "asof": now_str, "date": today_str,
+            "prices": {p["ticker"]: p for p in all_prices},
+        }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    except Exception as e:
+        logger.warning(f"시세 파일 저장 실패 — 계속 진행: {e}")
 
     usage_total = new_usage()
 

@@ -34,11 +34,21 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements-docs.txt
 
+      # 포지션·테마 페이지는 data/ 에서 매 빌드마다 새로 찍는다.
+      # EC2 가 매일 상태와 이벤트 로그를 커밋·푸시하므로 그때마다 사이트가 갱신된다.
+      # 순수 렌더링이라 네트워크도 API 키도 필요 없다.
+      # nav 도 함께 갱신한다 — 러너 안에서만 바뀌고 커밋되지 않으므로,
+      # 봇으로 종목을 추가해도 다음 빌드에서 자동으로 메뉴에 올라온다.
+      - name: Generate position and theme pages
+        run: python scripts/build_pages.py
+
       - name: Stage markdown into docs/
         run: |
           mkdir -p docs
           cp index.md methodology.md methodology_v2.1_archive.md deepdive_index.md docs/
           cp -r mega-change-map watchlist calendar docs/
+          cp -r pages docs/
+          mkdir -p docs/assets && cp assets/*.css docs/assets/
 
       - name: Build site
         run: mkdocs build

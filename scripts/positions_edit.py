@@ -123,11 +123,27 @@ def build_draft_prompt(
     "note": "한 문단. 주의할 점·함정"
   }},
   "theme_assignment": {{
-    "existing": ["테마 id"],
+    "existing": ["기존 테마 id (없으면 빈 배열)"],
     "new_theme": null
   }},
   "notes_for_user": ["사용자에게 확인받아야 할 점"]
 }}
+
+new_theme 을 제안할 때는 null 대신 아래를 **모든 필드 채워서** 넣을 것:
+
+{{
+  "id": "소문자-하이픈",
+  "label": "한글 테마명",
+  "areas": ["영역 키 (없으면 빈 배열)"],
+  "core": false,
+  "watch_shifts": ["추적할 '변화'. kill 조건이 아니라 방향·속도를 묻는 문장. 3~5개"],
+  "queries": ["검색 키워드 3~5개"],
+  "key_vendors": ["회사 — 제품/브랜드명 (3~6개)"]
+}}
+
+★ key_vendors 를 반드시 채울 것. 업계 뉴스는 기술 일반명이 아니라 **제품 브랜드명**
+으로 보도된다. 여기가 비면 그 테마는 큰 발표를 통째로 놓친다 (실측 사례 있음).
+회사명만 쓰지 말고 제품 라인까지 적을 것 — 예: "NVIDIA — Spectrum-X Photonics(이더넷 CPO)".
 
 JSON 외 다른 텍스트 출력 금지."""
 
@@ -191,9 +207,14 @@ def validate_draft(draft: dict, doc: dict) -> tuple[list[str], list[str]]:
             errors.append("새 테마 id 형식 오류")
         elif nt["id"] in existing_ids:
             errors.append(f"새 테마 id '{nt['id']}' 가 이미 있음")
-        for f in ("label", "watch_shifts", "queries"):
+        # key_vendors 를 필수로 두는 이유: 벤더·제품명 없이 기술 일반명으로만
+        # 검색하면 브랜드명으로 보도되는 발표를 통째로 놓친다 (2026-08-16 실측).
+        for f in ("label", "watch_shifts", "queries", "key_vendors"):
             if not nt.get(f):
                 errors.append(f"새 테마의 {f} 가 비어 있음")
+        bad_theme_areas = [a for a in (nt.get("areas") or []) if a not in aliases]
+        if bad_theme_areas:
+            errors.append(f"새 테마 areas 에 등록되지 않은 키: {', '.join(bad_theme_areas)}")
 
     if not (ta.get("existing") or nt):
         warns.append("어느 테마에도 연결되지 않음 — 🔷 AI 인프라 흐름 섹션에 나오지 않음")

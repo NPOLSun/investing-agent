@@ -9,6 +9,7 @@ Telegram Bot Listener
 
 관리 (Claude 호출 + positions.json 쓰기 + git push):
   /추가 [종목]   — 대화형 추가. 보유 근거·매도 조건 초안 제안
+  /평단 [종목] [가격] — 평균단가. Claude 호출 없이 값만 쓴다
   /수정 [포지션] — 판정 기준 편집. 변경 전후 diff 확인 후 저장
   /매도 [포지션] — status → exited. 기록은 보존
   /삭제 [포지션] — 완전 삭제. 고아 테마·상태까지 정리
@@ -230,17 +231,85 @@ async def cmd_positions(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(chunk)
 
 
+def _cmd_arg(update: Update, context: ContextTypes.DEFAULT_TYPE) -> str:
+    if context.args:
+        return " ".join(context.args).strip()
+    return re.sub(r"^\S+\s*", "", (update.message.text or "")).strip()
+
+
+async def cmd_avgcost(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """/평단 [종목] [가격|삭제] — 평균단가 입력.
+
+    Claude 호출 없음. 값만 쓰고 바로 커밋한다. 대화형으로 만들 이유가 없다.
+    """
+    if not is_authorized(update):
+        return
+
+    doc, _st, _ts, _al = pv.load_all()
+    if not doc.get("positions"):
+        await update.message.reply_text("positions.json 을 읽지 못했습니다.")
+        return
+
+    arg = _cmd_arg(update, context)
+    if not arg:
+        for chunk in pv.split_message(pe.format_avg_list(doc, pv.load_market())):
+            await update.message.reply_text(chunk)
+        return
+
+    parts = arg.split()
+    name, rest = parts[0], " ".join(parts[1:]).strip()
+
+    pos, cands = pv.find_position(doc, name)
+    if not pos:
+        if cands:
+            await update.message.reply_text(
+                "여러 개가 걸립니다. 회사명이나 티커로 적어주세요.\n"
+                + "\n".join(f"· {pv.display_name(p)}" for p in cands))
+        else:
+            await update.message.reply_text(f"'{name}' 에 해당하는 포지션이 없습니다.")
+        return
+
+    ticker, choices = pe.resolve_ticker(pos, name)
+    if not ticker:
+        await update.message.reply_text(
+            "이 포지션은 종목이 여러 개입니다. 티커로 지정해주세요.\n"
+            + "\n".join(f"· /평단 {t} <가격>" for t in choices))
+        return
+
+    company = (pos.get("companies") or {}).get(ticker, ticker)
+    if not rest:
+        cur = (pos.get("avg_cost") or {}).get(ticker)
+        price = (pv.load_market().get(ticker) or {}).get("price")
+        msg = [f"{company} ({ticker})"]
+        msg.append(f"평단 {cur:,.2f}" if cur else "평단 미입력")
+        if cur and price:
+            r = (float(price) - cur) / cur * 100
+            msg.append(f"현재 {price:,.2f} · 평단 대비 {'+' if r >= 0 else ''}{r:.1f}%")
+        msg += ["", f"설정: /평단 {name} 98.20", f"해제: /평단 {name} 삭제"]
+        await update.message.reply_text("\n".join(msg))
+        return
+
+    if rest in ("삭제", "해제", "지워", "clear", "none"):
+        ok, out = await asyncio.to_thread(pe.set_avg_cost, pos["id"], ticker, None)
+        await update.message.reply_text(out)
+        return
+
+    value = pe.parse_price(rest)
+    if value is None:
+        await update.message.reply_text(
+            f"'{rest}' 를 가격으로 읽지 못했습니다.\n"
+            "예: /평단 코닝 98.20 · /평단 298040 640,000")
+        return
+
+    ok, out = await asyncio.to_thread(pe.set_avg_cost, pos["id"], ticker, value)
+    await update.message.reply_text(out)
+
+
 # ============================================================
 # /추가 — 대화형 포지션 추가
 # ============================================================
 
 ASK_REASON, REVIEW = range(2)
-
-
-def _cmd_arg(update: Update, context: ContextTypes.DEFAULT_TYPE) -> str:
-    if context.args:
-        return " ".join(context.args).strip()
-    return re.sub(r"^\S+\s*", "", (update.message.text or "")).strip()
 
 
 async def add_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -793,6 +862,8 @@ def main():
     app.add_handler(CommandHandler("pos", cmd_positions))
     # 한글 명령은 텔레그램이 봇 명령으로 태깅하지 않아 CommandHandler 가 못 잡는다
     app.add_handler(MessageHandler(filters.Regex(r"^/포지션"), cmd_positions))
+    app.add_handler(CommandHandler("avg", cmd_avgcost))
+    app.add_handler(MessageHandler(filters.Regex(r"^/평단"), cmd_avgcost))
 
     # /추가 — 대화형. 한글 명령이라 진입점도 MessageHandler 를 함께 건다.
     app.add_handler(ConversationHandler(
@@ -882,6 +953,7 @@ async def _register_commands(app: Application):
         await app.bot.set_my_commands([
             BotCommand("positions", "보유 포지션 목록·상세 (= /포지션)"),
             BotCommand("add", "종목 추가, 대화형 (= /추가)"),
+            BotCommand("avg", "평단 입력·조회 (= /평단)"),
             BotCommand("edit", "판정 기준 편집 (= /수정)"),
             BotCommand("exit", "매도 처리 — 기록 보존 (= /매도)"),
             BotCommand("delete", "완전 삭제 — 되돌릴 수 없음 (= /삭제)"),

@@ -609,6 +609,102 @@ def delete_position(pos_id: str) -> tuple[bool, str]:
     return True, msg + "\n(git 이력에는 남아 있어 복구 가능합니다)"
 
 
+_NUM_RE = re.compile(r"^[$₩]?\s*([0-9][0-9,]*(?:" + re.escape(".") + r"[0-9]+)?)\s*(?:원|달러|USD|KRW)?$",
+                     re.IGNORECASE)
+
+
+def parse_price(text: str) -> Optional[float]:
+    """'640,000' · '98.20' · '$98.2' · '640000원' 을 숫자로."""
+    m = _NUM_RE.match((text or "").strip())
+    if not m:
+        return None
+    try:
+        v = float(m.group(1).replace(",", ""))
+    except ValueError:
+        return None
+    return v if v > 0 else None
+
+
+def resolve_ticker(pos: dict, hint: str = "") -> tuple[Optional[str], list[str]]:
+    """어느 종목의 평단인지 특정. (티커, 후보들)
+
+    지금은 포지션마다 종목이 하나뿐이지만 스키마는 복수를 허용하므로,
+    둘 이상이면 어느 쪽인지 반드시 받아야 한다 — 잘못된 종목에 평단이 박히면
+    수익률이 조용히 틀어진다.
+    """
+    tickers = pos.get("tickers") or []
+    if hint:
+        h = hint.strip().lower()
+        for t in tickers:
+            if t.lower() == h or (pos.get("companies") or {}).get(t, "").lower() == h:
+                return t, []
+    if len(tickers) == 1:
+        return tickers[0], []
+    return None, tickers
+
+
+def set_avg_cost(pos_id: str, ticker: str, value: Optional[float]) -> tuple[bool, str]:
+    """평단 설정 또는 해제. Claude 호출 없음 — 값만 쓴다."""
+    pull = _git(["pull", "--ff-only", "origin", "main"], timeout=120)
+    if pull.returncode != 0:
+        logger.warning(f"git pull 실패 (계속): {pull.stderr.decode(errors='replace')[:200]}")
+
+    doc = pv._load(POSITIONS_PATH, {})
+    if not doc.get("positions"):
+        return False, "positions.json 을 읽지 못했습니다."
+    pos = next((p for p in doc["positions"] if p.get("id") == pos_id), None)
+    if pos is None:
+        return False, f"'{pos_id}' 포지션을 찾을 수 없습니다."
+    if ticker not in (pos.get("tickers") or []):
+        return False, f"{ticker} 는 이 포지션의 종목이 아닙니다."
+
+    avg = pos.setdefault("avg_cost", {})
+    company = (pos.get("companies") or {}).get(ticker, ticker)
+    if value is None:
+        if ticker not in avg:
+            return False, f"{company} 는 평단이 입력돼 있지 않습니다."
+        avg.pop(ticker, None)
+        msg = f"🗑 {company} 평단 삭제"
+    else:
+        avg[ticker] = value
+        msg = f"✅ {company} 평단 {value:,.0f}" if value >= 1000 else               f"✅ {company} 평단 {value:,.2f}"
+
+    doc.setdefault("meta", {})["last_updated"] = __import__("datetime").date.today().isoformat()
+    ok, out = _write_and_push(doc, f"Set avg cost for {ticker} via bot", msg)
+    if ok and value is not None:
+        price = (pv.load_market().get(ticker) or {}).get("price")
+        if price:
+            r = (float(price) - value) / value * 100
+            out += f"{chr(10)}현재 {price:,.2f} → 평단 대비 {'+' if r >= 0 else ''}{r:.1f}%"
+            if not (0.05 <= float(price) / value <= 20):
+                out += f"{chr(10)}⚠ 현재가와 20배 이상 차이납니다. 단위를 확인해주세요."
+    return ok, out
+
+
+def format_avg_list(doc: dict, market: dict) -> str:
+    """평단 현황 한눈에."""
+    lines = ["📌 평단 현황", ""]
+    have = 0
+    for pos in doc.get("positions", []):
+        if pos.get("status") not in pv.MONITORED_STATUSES:
+            continue
+        for t in pos.get("tickers", []):
+            company = (pos.get("companies") or {}).get(t, t)
+            avg = (pos.get("avg_cost") or {}).get(t)
+            price = (market.get(t) or {}).get("price")
+            if avg:
+                have += 1
+                r = ((float(price) - avg) / avg * 100) if price else None
+                tail = f" · {'+' if r >= 0 else ''}{r:.1f}%" if r is not None else ""
+                lines.append(f"• {company} ({t})  {avg:,.0f}{tail}" if avg >= 1000
+                             else f"• {company} ({t})  {avg:,.2f}{tail}")
+            else:
+                lines.append(f"• {company} ({t})  미입력")
+    lines += ["", f"입력 {have}건", "",
+              "설정: /평단 코닝 98.20", "해제: /평단 코닝 삭제"]
+    return chr(10).join(lines)
+
+
 def _write_and_push(doc: dict, commit_msg: str, ok_msg: str) -> tuple[bool, str]:
     """원자적 쓰기 + 검증 + git. save_draft 와 공유하는 마지막 단계."""
     original = POSITIONS_PATH.read_bytes()

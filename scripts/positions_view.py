@@ -17,6 +17,7 @@ POSITIONS_PATH = PROJECT_ROOT / "data" / "positions.json"
 POSITION_STATE_PATH = PROJECT_ROOT / "data" / "position_state.json"
 THEME_STATE_PATH = PROJECT_ROOT / "data" / "theme_state.json"
 AREA_ALIASES_PATH = PROJECT_ROOT / "data" / "area_aliases.json"
+MARKET_PATH = PROJECT_ROOT / "data" / "market.json"
 
 MONITORED_STATUSES = ("holding", "watching")
 STATUS_LABEL = {
@@ -37,6 +38,11 @@ def _load(path: Path, default: dict) -> dict:
         return default
 
 
+def load_market() -> dict:
+    """다이제스트가 남긴 시세 스냅샷. 없으면 빈 dict."""
+    return _load(MARKET_PATH, {"prices": {}}).get("prices", {})
+
+
 def load_all() -> tuple[dict, dict, dict, dict]:
     """(positions_doc, position_state, theme_state, area_aliases)"""
     return (
@@ -47,15 +53,26 @@ def load_all() -> tuple[dict, dict, dict, dict]:
     )
 
 
+def label_base(label: str) -> str:
+    return re.sub(r"\s*\([^()]*\)\s*$", "", label or "").strip() or label
+
+
 def display_name(pos: dict) -> str:
-    """출력용 표시명. 영문 슬러그(id)는 노출하지 않는다."""
-    tickers = ", ".join(pos.get("tickers", []))
-    label = pos.get("label", "")
+    """출력용 표시명. 회사명이 앞, 포지션명이 뒤.
+
+    그룹으로 쪼갠 뒤로는 label 이 형제 종목과 겹치므로(둘 다 "미국 변압기")
+    회사명이 없으면 구분이 안 된다.
+    """
+    tickers = pos.get("tickers", [])
+    companies = pos.get("companies") or {}
+    base = label_base(pos.get("label", ""))
+    if companies:
+        return " · ".join(f"{companies.get(t, t)} ({base} {t})" for t in tickers)
     if not tickers:
-        return label
-    if label.endswith(")"):
-        return f"{label[:-1]} {tickers})"
-    return f"{label} ({tickers})"
+        return pos.get("label", "")
+    joined = ", ".join(tickers)
+    label = pos.get("label", "")
+    return f"{label[:-1]} {joined})" if label.endswith(")") else f"{label} ({joined})"
 
 
 def days_since(date_str: Optional[str], today: str) -> Optional[int]:
@@ -189,6 +206,13 @@ def format_detail(doc: dict, state: dict, area_aliases: dict, pos: dict, today: 
         for i, it in enumerate(items, 1):
             out.append(f"  {i}. {it}")
 
+    group = next((g for g in doc.get("groups", []) if g.get("id") == pos.get("group")), None)
+    if group:
+        out.append("")
+        out.append(f"[그룹] {group.get('label')} — 아래 G 조건은 형제 종목과 공유")
+        block("  공통 보유 근거", group.get("thesis"))
+        block("  공통 매도 조건", group.get("kill_signals"))
+
     block("보유 근거", pos.get("thesis"), "(미작성 ⚠ — 이게 없으면 왜 들고 있는지 기록이 없습니다)")
     block("매도 검토 조건", pos.get("kill_signals"),
           "(미작성 ⚠ — 이게 없으면 이 포지션은 영원히 🔴 가 뜨지 않습니다)")
@@ -198,7 +222,9 @@ def format_detail(doc: dict, state: dict, area_aliases: dict, pos: dict, today: 
     out.append("")
     out.append("감시")
     out.append(f"  경쟁사: {', '.join(watch.get('peers', [])) or '(없음)'}")
-    out.append(f"  지표: {', '.join(watch.get('indicators', [])) or '(없음)'}")
+    inds = watch.get("indicators") or []
+    names = [i.get("name", i.get("key", "")) if isinstance(i, dict) else str(i) for i in inds]
+    out.append(f"  지표: {', '.join(n for n in names if n) or '(없음)'}")
 
     if pos.get("ignore"):
         out.append("")

@@ -1,30 +1,208 @@
-/* 포지션·테마 페이지 — 생성물 전용 보강.
-   Material 기본을 존중하고, 정보설계에 필요한 것만 더한다. */
+/* ===========================================================
+   Investing Agent — 포지션·테마 대시보드
+   목업(2026-08-16)의 디자인 토큰을 Material 위에 얹는다.
 
-/* 신선도 강조 — 오래된 페이지가 최신처럼 읽히면 안 된다 */
-.md-typeset strong:has(+ br), .md-typeset p > strong:first-child {
-  font-variant-numeric: tabular-nums;
+   신호 등급(🔴🟡⚪)과 방향(순풍/역풍)이 콘텐츠 자체이므로
+   강조색이 그걸 이기면 안 된다. 중립은 푸른기 도는 회색,
+   강조는 채도 낮춘 스틸블루 하나만.
+   =========================================================== */
+
+:root {
+  --ia-ground:#F4F6F8; --ia-surface:#FFFFFF; --ia-surface2:#FAFBFC;
+  --ia-ink:#151A21; --ia-ink2:#39424F; --ia-muted:#69737F; --ia-faint:#98A2AE;
+  --ia-line:#DEE3E9; --ia-line2:#EBEEF2;
+  --ia-accent:#2D5D7C; --ia-accent-soft:#E6EEF4;
+  --ia-red:#A8423A;   --ia-red-soft:#F6E7E5;
+  --ia-amber:#8E6A12; --ia-amber-soft:#F7EFDC;
+  --ia-teal:#2C6E5D;  --ia-teal-soft:#E3F0EC;
+  --ia-grey:#6B7480;  --ia-grey-soft:#ECEFF2;
+
+  --ia-mono: ui-monospace,"SF Mono","Cascadia Mono",Consolas,"D2Coding",monospace;
+  --ia-sans: system-ui,-apple-system,"Segoe UI","Apple SD Gothic Neo",
+             "Malgun Gothic","Noto Sans KR",sans-serif;
 }
 
-/* 숫자 정렬 */
-.md-typeset table:not([class]) td:last-child,
-.md-typeset table:not([class]) td:nth-last-child(2) {
-  font-variant-numeric: tabular-nums;
+[data-md-color-scheme="slate"] {
+  --ia-ground:#0F1217; --ia-surface:#161A20; --ia-surface2:#1B2027;
+  --ia-ink:#E7EAEE; --ia-ink2:#C2C9D2; --ia-muted:#949DA9; --ia-faint:#6B7480;
+  --ia-line:#252B33; --ia-line2:#1F242B;
+  --ia-accent:#7FB0D0; --ia-accent-soft:#1B2A35;
+  --ia-red:#DE8279;   --ia-red-soft:#33211F;
+  --ia-amber:#D3A748; --ia-amber-soft:#302819;
+  --ia-teal:#63B6A0;  --ia-teal-soft:#162B26;
+  --ia-grey:#8A939F;  --ia-grey-soft:#21262D;
 }
-.md-typeset table:not([class]) { font-size: .74rem; }
-.md-typeset table:not([class]) th { white-space: nowrap; }
 
-/* 타임라인 항목 사이 구분 */
-.md-typeset h2 + p > strong:first-child { color: var(--md-default-fg-color); }
+/* Material 기본 서체를 목업의 시스템 스택으로 */
+body, .md-typeset { font-family: var(--ia-sans); }
+.md-typeset code, .md-typeset kbd { font-family: var(--ia-mono); }
+.md-typeset { font-size: .78rem; line-height: 1.62; }
+.md-typeset h1 { font-size: 1.5rem; font-weight: 650; letter-spacing:-.02em;
+                 margin: 0 0 .3rem; color: var(--ia-ink); }
+.md-typeset h2 { font-size: .95rem; font-weight: 650; letter-spacing:-.012em;
+                 margin: 2em 0 .7em; padding-bottom: .35em;
+                 border-bottom: 1px solid var(--ia-line); color: var(--ia-ink); }
+.md-typeset h3 { font-size: .84rem; font-weight: 650; margin: 1.4em 0 .5em; }
+.md-typeset a { color: var(--ia-accent); }
 
-/* 들여쓰기용 전각 공백이 뭉개지지 않게 */
-.md-typeset p { text-wrap: pretty; }
+/* ---------- 머리말 / 도장 ---------- */
+.ia-sub { color: var(--ia-muted); font-size: .74rem; margin: 0 0 1.1rem; }
+.ia-sub .ia-sep { color: var(--ia-faint); margin: 0 .45em; }
+.ia-stamp { font-family: var(--ia-mono); font-size: .66rem; color: var(--ia-faint);
+            white-space: nowrap; }
+.ia-stamp.warn { color: var(--ia-amber); font-weight: 700; }
+.ia-eyebrow { font-family: var(--ia-mono); font-size: .62rem; font-weight: 700;
+              letter-spacing: .1em; text-transform: uppercase;
+              color: var(--ia-faint); margin: 0 0 .2rem; }
 
-/* 생성물 안내 푸터 */
-.md-typeset hr + p small { color: var(--md-default-fg-color--light); }
+/* ---------- 배지 ---------- */
+.ia-pill { display:inline-flex; align-items:center; gap:.25em;
+           font-family: var(--ia-mono); font-size:.64rem; font-weight:700;
+           padding:.12em .55em; border-radius:999px; white-space:nowrap;
+           vertical-align:.05em; }
+.ia-red   { background:var(--ia-red-soft);   color:var(--ia-red); }
+.ia-amber { background:var(--ia-amber-soft); color:var(--ia-amber); }
+.ia-teal  { background:var(--ia-teal-soft);  color:var(--ia-teal); }
+.ia-grey  { background:var(--ia-grey-soft);  color:var(--ia-grey); }
+.ia-blue  { background:var(--ia-accent-soft);color:var(--ia-accent); }
 
-/* 코드 인라인(조건 번호 T1/K3/W2)을 배지처럼 */
-.md-typeset code {
-  font-size: .78em;
-  padding: .1em .4em;
-}
+.ia-num { font-family: var(--ia-mono); font-variant-numeric: tabular-nums; }
+.ia-up { color: var(--ia-teal); } .ia-down { color: var(--ia-red); }
+
+/* ---------- KPI ---------- */
+.ia-kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(118px,1fr));
+           gap:.5rem; margin:1rem 0 1.6rem; }
+.ia-kpi { background:var(--ia-surface); border:1px solid var(--ia-line);
+          border-radius:8px; padding:.6rem .75rem; }
+.ia-kpi .k { font-family:var(--ia-mono); font-size:.6rem; letter-spacing:.06em;
+             text-transform:uppercase; color:var(--ia-faint); }
+.ia-kpi .v { font-family:var(--ia-mono); font-size:1.35rem; font-weight:600;
+             letter-spacing:-.02em; line-height:1.15; margin-top:.1rem; }
+.ia-kpi .n { font-size:.66rem; color:var(--ia-muted); }
+
+/* ---------- 시세 스트립 ---------- */
+.ia-quote { display:grid; grid-template-columns:1.35fr repeat(4,1fr); gap:1px;
+            background:var(--ia-line); border:1px solid var(--ia-line);
+            border-radius:8px; overflow:hidden; margin:.9rem 0 1.2rem; }
+.ia-quote > div { background:var(--ia-surface); padding:.6rem .8rem; }
+.ia-quote .hl { background:var(--ia-accent-soft); }
+.ia-quote .k { font-family:var(--ia-mono); font-size:.6rem; letter-spacing:.06em;
+               text-transform:uppercase; color:var(--ia-faint); }
+.ia-quote .v { font-family:var(--ia-mono); font-variant-numeric:tabular-nums;
+               font-weight:600; letter-spacing:-.02em; font-size:1.05rem;
+               margin:.15rem 0 .05rem; }
+.ia-quote .main .v { font-size:1.5rem; }
+.ia-quote .v.sm { font-size:.82rem; }
+@media (max-width:60em){ .ia-quote{ grid-template-columns:repeat(2,1fr);} }
+
+/* ---------- 카드 ---------- */
+.ia-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+           gap:.55rem; margin:.8rem 0 1.2rem; }
+.md-typeset .ia-card { display:flex; flex-direction:column; gap:.4rem;
+  background:var(--ia-surface); border:1px solid var(--ia-line); border-radius:8px;
+  padding:.7rem .8rem; text-decoration:none; color:inherit; }
+.md-typeset .ia-card:hover { border-color:var(--ia-accent); }
+.ia-card.dim { opacity:.62; }
+.ia-card .top { display:flex; justify-content:space-between; align-items:flex-start; gap:.5rem; }
+.ia-card .nm { font-weight:650; font-size:.8rem; letter-spacing:-.01em; color:var(--ia-ink); }
+.ia-card .tk { font-family:var(--ia-mono); font-size:.62rem; color:var(--ia-faint); }
+.ia-card .row { display:flex; align-items:baseline; gap:.5rem; flex-wrap:wrap; }
+.ia-card .row .big { font-family:var(--ia-mono); font-size:.9rem; font-weight:600; }
+.ia-card .last { font-size:.68rem; line-height:1.5; color:var(--ia-ink2); }
+.ia-card .foot { display:flex; justify-content:space-between; align-items:center;
+                 gap:.5rem; border-top:1px solid var(--ia-line2);
+                 padding-top:.4rem; margin-top:auto; }
+
+/* ---------- 조건 목록 ---------- */
+.ia-conds { background:var(--ia-surface); border:1px solid var(--ia-line);
+            border-radius:8px; padding:.3rem .9rem; margin:.7rem 0 1.1rem; }
+.ia-cond { display:flex; gap:.6rem; align-items:flex-start;
+           padding:.5rem 0; border-bottom:1px solid var(--ia-line2); }
+.ia-cond:last-child { border-bottom:0; }
+.ia-cond .ix { font-family:var(--ia-mono); font-size:.62rem; color:var(--ia-faint);
+               min-width:1.5rem; padding-top:.18rem; }
+.ia-cond .tx { flex:1; font-size:.75rem; line-height:1.55; color:var(--ia-ink2); }
+.ia-cond .tx .q { display:block; font-family:var(--ia-mono); font-size:.66rem;
+                  color:var(--ia-muted); margin-top:.2rem; }
+.ia-subhd { font-size:.62rem; font-weight:700; letter-spacing:.05em;
+            color:var(--ia-muted); padding:.7rem 0 .1rem;
+            display:flex; gap:.5rem; align-items:center; }
+.ia-subhd.sep { border-top:1px solid var(--ia-line); margin-top:.4rem; }
+
+/* ---------- 타임라인 ---------- */
+.ia-tl { position:relative; padding-left:1.15rem; margin:.7rem 0 1.2rem; }
+.ia-tl::before { content:""; position:absolute; left:.24rem; top:.5rem; bottom:.5rem;
+                 width:1px; background:var(--ia-line); }
+.ia-ev { position:relative; padding:.65rem 0;
+         border-bottom:1px solid var(--ia-line2); }
+.ia-ev:last-child { border-bottom:0; }
+.ia-ev::before { content:""; position:absolute; left:-1.15rem; top:.95rem;
+                 width:.5rem; height:.5rem; border-radius:50%;
+                 background:var(--ia-grey); box-shadow:0 0 0 3px var(--ia-surface); }
+.ia-ev.lv-RED::before   { background:var(--ia-red); }
+.ia-ev.lv-YELLOW::before{ background:var(--ia-amber); }
+.ia-ev.theme::before    { background:var(--ia-accent); }
+.ia-ev .meta { display:flex; gap:.45rem; align-items:center; flex-wrap:wrap;
+               margin-bottom:.2rem; }
+.ia-ev .d { font-family:var(--ia-mono); font-size:.66rem; color:var(--ia-faint); }
+.ia-ev .body { font-size:.75rem; line-height:1.6; color:var(--ia-ink2); }
+.ia-ev .body b { color:var(--ia-ink); }
+.ia-ev .sub { font-family:var(--ia-mono); font-size:.66rem;
+              color:var(--ia-muted); margin-top:.25rem; }
+.ia-ev .lk { font-size:.66rem; color:var(--ia-muted); margin-top:.25rem; }
+.ia-ev .lk a { color:var(--ia-accent); }
+
+/* ---------- 표 ---------- */
+.md-typeset .ia-table { width:100%; border-collapse:collapse;
+                        font-size:.72rem; display:table; }
+.md-typeset .ia-table th { text-align:left; font-family:var(--ia-mono);
+  font-size:.6rem; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--ia-faint); font-weight:700; padding:.4rem .5rem;
+  border-bottom:1px solid var(--ia-line); white-space:nowrap; background:none; }
+.md-typeset .ia-table td { padding:.45rem .5rem; border-top:1px solid var(--ia-line2);
+  vertical-align:top; }
+.md-typeset .ia-table tr:hover td { background:var(--ia-surface2); }
+.md-typeset .ia-table .r { text-align:right; font-family:var(--ia-mono);
+  font-variant-numeric:tabular-nums; white-space:nowrap; }
+.md-typeset .ia-table .co b { color:var(--ia-ink); font-weight:650; }
+.md-typeset .ia-table .sm { display:block; font-size:.62rem; color:var(--ia-faint);
+  font-family:var(--ia-mono); }
+.md-typeset .ia-table tr.none { opacity:.55; }
+.ia-tablewrap { overflow-x:auto; background:var(--ia-surface);
+  border:1px solid var(--ia-line); border-radius:8px; margin:.7rem 0 1.1rem; }
+
+/* 수익률 막대 */
+.ia-bar { display:block; width:110px; height:7px; background:var(--ia-grey-soft);
+          border-radius:2px; overflow:hidden; }
+.ia-bar b { display:block; height:100%; border-radius:2px; }
+.ia-bar b.pos { background:var(--ia-teal); }
+.ia-bar b.neg { background:var(--ia-red); margin-left:auto; }
+
+/* ---------- 그룹 ---------- */
+.ia-grouphdr { display:flex; justify-content:space-between; align-items:center;
+  gap:.9rem; flex-wrap:wrap; margin:.8rem 0 1rem; padding:.55rem .8rem;
+  background:var(--ia-accent-soft); border:1px solid var(--ia-line);
+  border-radius:8px; font-size:.72rem; }
+.ia-sib { display:inline-flex; gap:.4rem; font-size:.7rem; padding:.2rem .6rem;
+  border-radius:999px; background:var(--ia-surface); border:1px solid var(--ia-line);
+  text-decoration:none; color:var(--ia-ink2); }
+.md-typeset .ia-sib.on { border-color:var(--ia-accent); color:var(--ia-ink); font-weight:650; }
+
+/* ---------- 기타 ---------- */
+.ia-empty { padding:.8rem; text-align:center; color:var(--ia-faint);
+  font-size:.7rem; background:var(--ia-surface2);
+  border:1px dashed var(--ia-line); border-radius:8px; margin:.7rem 0 1.1rem; }
+.ia-note { border-left:3px solid var(--ia-accent); background:var(--ia-surface2);
+  padding:.6rem .8rem; border-radius:0 6px 6px 0; font-size:.7rem;
+  color:var(--ia-ink2); line-height:1.6; margin:.7rem 0 1.1rem; }
+.ia-legend { font-size:.66rem; color:var(--ia-muted); margin:-.5rem 0 1.2rem;
+  display:flex; gap:1rem; flex-wrap:wrap; }
+.ia-foot { margin-top:2.5rem; padding-top:.8rem; border-top:1px solid var(--ia-line);
+  font-size:.64rem; color:var(--ia-faint); font-family:var(--ia-mono); }
+
+.md-typeset .ia-conds code, .md-typeset .ia-ev code {
+  font-size:.9em; padding:.05em .35em; background:var(--ia-grey-soft);
+  color:var(--ia-muted); box-shadow:none; }
+
+/* 본문 폭을 조금 넓혀 표가 덜 눌리게 */
+.md-grid { max-width: 68rem; }

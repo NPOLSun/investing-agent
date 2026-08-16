@@ -45,9 +45,12 @@ jobs:
       - name: Stage markdown into docs/
         run: |
           mkdir -p docs
-          cp index.md methodology.md methodology_v2.1_archive.md deepdive_index.md docs/
+          cp methodology.md methodology_v2.1_archive.md deepdive_index.md docs/
           cp -r mega-change-map watchlist calendar docs/
           cp -r pages docs/
+          # 기존 홈은 아카이브 개요로 밀고, 사이트 첫 페이지는 현황판으로
+          cp index.md docs/overview.md
+          cp pages/index.md docs/index.md && rm docs/pages/index.md
           mkdir -p docs/assets && cp assets/*.css docs/assets/
 
       - name: Build site

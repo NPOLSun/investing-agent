@@ -56,9 +56,9 @@ theme:
         name: 라이트 모드로
   icon:
     repo: fontawesome/brands/github
-  font:
-    text: Noto Sans KR
-    code: JetBrains Mono
+  # 목업과 동일한 시스템 스택을 pages.css 에서 지정한다.
+  # 구글 폰트를 끄면 외부 요청도 사라진다.
+  font: false
 
 plugins:
   - search:
@@ -82,9 +82,8 @@ extra_css:
 
 nav:
   # BEGIN:generated-nav
-  - 현황:
-    - 오늘 한눈에: pages/index.md
-    - 보유 현황: pages/holdings.md
+  - 오늘 한눈에: index.md
+  - 보유 현황: pages/holdings.md
   - 포지션:
     - 효성중공업 · HD현대일렉트릭 (미국 변압기): pages/positions/us-transformer.md
     - 삼아알미늄 (ESS 알루미늄박): pages/positions/ess-foil.md
@@ -105,7 +104,7 @@ nav:
     - 데이터센터 냉각 · 랙 밀도: pages/themes/dc-thermal.md
   # END:generated-nav
   - 아카이브:
-    - 개요: index.md
+    - 개요: overview.md
     - 방법론: methodology.md
     - "방법론 구버전 (v2.1)": methodology_v2.1_archive.md
     - Megamap Dashboard: mega-change-map/00_dashboard.md

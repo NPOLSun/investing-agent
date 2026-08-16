@@ -100,6 +100,12 @@ def build_draft_prompt(
 - 사용자가 말하지 않은 판단을 지어내지 말 것. 애매하면 notes_for_user 로 물을 것.
 - id 는 소문자 영문·하이픈만. 기존 id 와 겹치지 말 것.
 - label 은 한글로. 회사명을 괄호에 넣을 것 (예: "GPU 전력공급 (Vicor)").
+- companies 는 티커마다 반드시 채울 것. 페이지·다이제스트가 회사명을 앞에 세운다
+  ("SK하이닉스 (HBM 000660)"). 비면 그 종목만 라벨로 표시돼 다른 종목과 어긋난다.
+- indicators 는 **객체**로 쓸 것. 이름만 나열하면 그 숫자가 좋은 건지 나쁜 건지,
+  뭘 넘으면 문제인지 알 수 없어 페이지에서 판단 근거가 비어버린다.
+  key 는 매 검색마다 같은 자리에 쌓이는 앵커이므로 분기·연도를 넣지 말 것
+  (quarterly_revenue O / 2Q2026_매출 X).
 
 ★ 테마 배치
 - 이 포지션이 기존 테마의 affects 에 들어가야 하면 theme_assignment.existing 에 id 를 적을 것.
@@ -114,11 +120,23 @@ def build_draft_prompt(
     "label": "한글 이름 (회사명)",
     "status": "holding",
     "tickers": ["티커"],
+    "companies": {{"티커": "회사명 (한글 종목이면 한글, 해외면 영문 정식명)"}},
+    "avg_cost": {{}},
     "areas": ["영역 키"],
     "thesis": ["...", "..."],
     "kill_signals": ["...", "..."],
     "add_signals": ["..."],
-    "watch": {{"peers": ["..."], "indicators": ["..."], "queries": ["..."]}},
+    "watch": {{
+      "peers": ["..."],
+      "indicators": [
+        {{"key": "snake_case_영문", "name": "한글 지표명", "unit": "억원|%|배|-",
+          "good": "up|down",
+          "why": "왜 이걸 보는지 한 줄 — thesis 와 연결해서",
+          "judge": "어떤 값이 어느 조건에 걸리는지. 예: 2개 분기 연속 감소 → K2",
+          "refs": ["T1", "K2"]}}
+      ],
+      "queries": ["..."]
+    }},
     "ignore": ["..."],
     "note": "한 문단. 주의할 점·함정"
   }},
@@ -198,6 +216,19 @@ def validate_draft(draft: dict, doc: dict, editing_id: Optional[str] = None) -> 
     watch = pos.get("watch")
     if watch is not None and not isinstance(watch, dict):
         errors.append("watch 는 객체여야 함")
+
+    # 회사명이 없으면 그 종목만 라벨로 표시돼 페이지·다이제스트 표기가 어긋난다
+    comp = pos.get("companies") or {}
+    missing = [t for t in (tickers if isinstance(tickers, list) else []) if not comp.get(t)]
+    if missing:
+        errors.append(f"companies 에 회사명이 없는 티커: {', '.join(missing)}")
+
+    # 지표는 객체여야 판단 근거(why·judge)가 붙는다. 문자열이면 값만 남는다
+    for it in ((watch or {}).get("indicators") or []):
+        if isinstance(it, str):
+            warns.append(f"지표 '{it}' 가 문자열 — key·why·judge 가 없어 페이지에 판단 근거가 비어 있음")
+        elif not it.get("key"):
+            errors.append(f"지표에 key 가 없음: {it.get('name', it)}")
 
     aliases = pv._load(pv.AREA_ALIASES_PATH, {"aliases": {}}).get("aliases", {})
     bad_areas = [a for a in (pos.get("areas") or []) if a not in aliases]

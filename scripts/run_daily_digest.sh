@@ -11,6 +11,14 @@ if [ -f /home/ubuntu/investing-agent/.env ]; then
   export CLAUDE_CODE_OAUTH_TOKEN=$(grep "^CLAUDE_CODE_OAUTH_TOKEN=" /home/ubuntu/investing-agent/.env | cut -d= -f2- | tr -d '"'"'"' \r')
 fi
 
+# 최신 코드·설정으로 돌린다.
+# 봇이 EC2 에서 쓰는 경로는 스스로 pull 하지만, PC 에서 푸시한 변경은
+# 여기서 당기지 않으면 cron 이 옛 코드로 돌고, 끝에 붙는 상태 push 도
+# 원격이 앞서 있어 실패한다. 실패해도 다이제스트는 계속 진행한다.
+cd /home/ubuntu/investing-agent
+git pull --ff-only origin main 2>&1 | tail -2
+cd /home/ubuntu/investing-agent/scripts
+
 LOG_DIR=/home/ubuntu/investing-agent/logs
 mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/daily_digest_$(date +%Y%m%d).log"

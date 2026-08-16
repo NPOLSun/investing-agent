@@ -152,8 +152,12 @@ JSON 외 다른 텍스트 출력 금지."""
 # 검증
 # ============================================================
 
-def validate_draft(draft: dict, doc: dict) -> tuple[list[str], list[str]]:
-    """(치명적 오류, 경고) 리턴. 오류가 하나라도 있으면 저장하지 않는다."""
+def validate_draft(draft: dict, doc: dict, editing_id: Optional[str] = None) -> tuple[list[str], list[str]]:
+    """(치명적 오류, 경고) 리턴. 오류가 하나라도 있으면 저장하지 않는다.
+
+    editing_id 가 주어지면 기존 포지션 수정으로 본다 — id 중복은 자기 자신이면
+    정상이고, 오히려 id 가 바뀌면 다른 포지션을 덮어쓰는 셈이라 막는다.
+    """
     errors, warns = [], []
     pos = (draft or {}).get("position") or {}
 
@@ -164,7 +168,10 @@ def validate_draft(draft: dict, doc: dict) -> tuple[list[str], list[str]]:
     pid = pos.get("id", "")
     if pid and not ID_RE.match(pid):
         errors.append(f"id '{pid}' 형식 오류 (소문자 영문·숫자·하이픈만)")
-    if pid and any(p.get("id") == pid for p in doc.get("positions", [])):
+    if editing_id:
+        if pid != editing_id:
+            errors.append(f"수정 중에는 id 를 바꿀 수 없음 ({editing_id} → {pid})")
+    elif pid and any(p.get("id") == pid for p in doc.get("positions", [])):
         errors.append(f"id '{pid}' 가 이미 있음")
 
     if pos.get("status") not in VALID_STATUS:
@@ -174,7 +181,11 @@ def validate_draft(draft: dict, doc: dict) -> tuple[list[str], list[str]]:
     if not isinstance(tickers, list) or not all(isinstance(t, str) and t for t in tickers):
         errors.append("tickers 는 비어있지 않은 문자열 배열이어야 함")
     else:
-        existing = {t: p.get("label") for p in doc.get("positions", []) for t in p.get("tickers", [])}
+        existing = {
+            t: p.get("label") for p in doc.get("positions", [])
+            if p.get("id") != editing_id
+            for t in p.get("tickers", [])
+        }
         for t in tickers:
             if t in existing:
                 warns.append(f"티커 {t} 는 이미 '{existing[t]}' 에 등록돼 있음")
@@ -338,33 +349,177 @@ def save_draft(draft: dict) -> tuple[bool, str]:
     meta = doc.setdefault("meta", {})
     meta["last_updated"] = __import__("datetime").date.today().isoformat()
 
+    extra = f" · 테마 '{nt['label']}' 신설" if nt else ""
+    return _write_and_push(
+        doc, f"Add position {pos['id']} via bot",
+        f"✅ 저장·커밋·푸시 완료{extra}\n내일 아침 다이제스트부터 반영됩니다.",
+    )
+
+
+# ============================================================
+# 수정
+# ============================================================
+
+_EDITABLE = ("label", "status", "tickers", "areas", "thesis", "kill_signals",
+             "add_signals", "watch", "ignore", "note")
+
+
+def build_edit_prompt(pos: dict, request: str, doc: dict) -> str:
+    """기존 포지션 수정 프롬프트. 요청한 곳만 고치게 강하게 못박는다."""
+    aliases = pv._load(pv.AREA_ALIASES_PATH, {"aliases": {}}).get("aliases", {})
+    themes = [{"id": t["id"], "label": t.get("label"), "affects": t.get("affects")}
+              for t in doc.get("themes", [])]
+
+    return f"""당신은 투자 포지션 모니터링 설정을 수정하는 조수.
+
+# 현재 설정 (원문)
+{json.dumps(pos, ensure_ascii=False, indent=1)}
+
+# 기존 테마 목록
+{json.dumps(themes, ensure_ascii=False, indent=1)}
+
+# 사용 가능한 영역 키
+{', '.join(sorted(aliases))}
+
+# 사용자의 수정 요청
+{request}
+
+# 작업
+수정된 포지션 전체를 아래 JSON 으로 출력. 웹 검색 금지.
+
+★★ 가장 중요한 규칙
+- **요청한 부분만 고칠 것.** 나머지 항목은 글자 하나 바꾸지 말고 그대로 옮길 것.
+  문장을 다듬거나 더 매끄럽게 고치지 말 것. 이건 사용자가 직접 쓴 판단 근거이고,
+  다이제스트가 이 문장을 그대로 인용한다. 임의로 바꾸면 판정 기준이 조용히 달라진다.
+- id 는 절대 바꾸지 말 것 ("{pos.get('id')}" 유지).
+- 항목을 지우라고 하면 지우고, 추가하라고 하면 추가할 것. 번호는 배열 순서다.
+- 요청이 모호하면 추측하지 말고 notes_for_user 에 무엇이 불분명한지 적고,
+  해당 부분은 원문 그대로 둘 것.
+
+{{
+  "position": {{ 수정된 포지션 전체 — 위 현재 설정과 같은 키 구성 }},
+  "theme_assignment": {{ "existing": ["연결할 테마 id — 변경 요청이 없으면 빈 배열"], "new_theme": null }},
+  "notes_for_user": ["불분명해서 손대지 않은 부분"]
+}}
+
+JSON 외 다른 텍스트 출력 금지."""
+
+
+def diff_position(old: dict, new: dict) -> str:
+    """변경 전후 비교. 모델이 요청하지 않은 문장을 손댔는지 눈으로 잡기 위한 것."""
+    lines = []
+    for f in _EDITABLE:
+        o, n = old.get(f), new.get(f)
+        if o == n:
+            continue
+        if isinstance(o, list) and isinstance(n, list):
+            lines.append(f"[{f}]")
+            for item in o:
+                if item not in n:
+                    lines.append(f"  − {item}")
+            for item in n:
+                if item not in o:
+                    lines.append(f"  + {item}")
+        else:
+            lines.append(f"[{f}]")
+            lines.append(f"  − {o}")
+            lines.append(f"  + {n}")
+    return "\n".join(lines) if lines else "(변경 없음)"
+
+
+def save_position_update(new_pos: dict, theme_assignment: Optional[dict] = None) -> tuple[bool, str]:
+    """기존 포지션 교체 저장. save_draft 와 같은 3중 안전장치를 탄다."""
+    pull = _git(["pull", "--ff-only", "origin", "main"], timeout=120)
+    if pull.returncode != 0:
+        logger.warning(f"git pull 실패 (계속): {pull.stderr.decode(errors='replace')[:200]}")
+
+    doc = pv._load(POSITIONS_PATH, {})
+    if not doc.get("positions"):
+        return False, "positions.json 을 읽지 못했습니다. 저장을 중단합니다."
+
+    pid = new_pos.get("id")
+    idx = next((i for i, p in enumerate(doc["positions"]) if p.get("id") == pid), None)
+    if idx is None:
+        return False, f"'{pid}' 포지션을 찾을 수 없습니다."
+
+    errors, _ = validate_draft({"position": new_pos,
+                                "theme_assignment": theme_assignment or {}},
+                               doc, editing_id=pid)
+    if errors:
+        return False, "검증 실패로 저장하지 않았습니다:\n" + "\n".join(f"· {e}" for e in errors)
+
+    doc["positions"][idx] = new_pos
+    for tid in ((theme_assignment or {}).get("existing") or []):
+        for t in doc.get("themes", []):
+            if t["id"] == tid and pid not in (t.get("affects") or []):
+                t.setdefault("affects", []).append(pid)
+
+    doc.setdefault("meta", {})["last_updated"] = __import__("datetime").date.today().isoformat()
+    return _write_and_push(doc, f"Update position {pid} via bot",
+                           f"✅ '{new_pos.get('label')}' 수정 완료")
+
+
+def exit_position(pos_id: str, reason: str) -> tuple[bool, str]:
+    """매도 처리 — status 를 exited 로. 기록은 지우지 않고 남긴다.
+
+    positions.json 의 status_values 가 exited 를 "기록 보존용 (판단 복기 재료)"
+    로 정의한다. 삭제하면 나중에 왜 그렇게 판단했는지 복기할 수 없다.
+    테마 affects 에서는 뺀다 — 안 그러면 판 종목이 계속 '닿는 포지션' 으로 나온다.
+    """
+    pull = _git(["pull", "--ff-only", "origin", "main"], timeout=120)
+    if pull.returncode != 0:
+        logger.warning(f"git pull 실패 (계속): {pull.stderr.decode(errors='replace')[:200]}")
+
+    doc = pv._load(POSITIONS_PATH, {})
+    if not doc.get("positions"):
+        return False, "positions.json 을 읽지 못했습니다."
+
+    pos = next((p for p in doc["positions"] if p.get("id") == pos_id), None)
+    if pos is None:
+        return False, f"'{pos_id}' 포지션을 찾을 수 없습니다."
+    if pos.get("status") == "exited":
+        return False, f"'{pos.get('label')}' 는 이미 매도 완료 상태입니다."
+
+    today = __import__("datetime").date.today().isoformat()
+    pos["status"] = "exited"
+    tail = f"[{today} 매도] {reason}".strip()
+    pos["note"] = f"{pos.get('note', '').strip()}\n{tail}".strip()
+
+    removed = []
+    for t in doc.get("themes", []):
+        if pos_id in (t.get("affects") or []):
+            t["affects"].remove(pos_id)
+            removed.append(t.get("label", t["id"]))
+
+    doc.setdefault("meta", {})["last_updated"] = today
+    extra = f"\n테마 연결 해제: {', '.join(removed)}" if removed else ""
+    return _write_and_push(
+        doc, f"Exit position {pos_id} via bot",
+        f"✅ '{pos.get('label')}' 매도 처리 완료 (기록은 보존){extra}\n"
+        f"내일 아침 다이제스트부터 모니터링 대상에서 빠집니다.",
+    )
+
+
+def _write_and_push(doc: dict, commit_msg: str, ok_msg: str) -> tuple[bool, str]:
+    """원자적 쓰기 + 검증 + git. save_draft 와 공유하는 마지막 단계."""
     original = POSITIONS_PATH.read_bytes()
     payload = json.dumps(doc, ensure_ascii=False, indent=2) + "\n"
-
     try:
         fd, tmp = tempfile.mkstemp(dir=str(POSITIONS_PATH.parent), suffix=".tmp")
         with os.fdopen(fd, "w", encoding="utf-8") as f:
             f.write(payload)
         os.replace(tmp, POSITIONS_PATH)
-        # 쓴 결과가 실제로 파싱되는지 확인 — 안 되면 즉시 되돌린다
-        check = json.loads(POSITIONS_PATH.read_text(encoding="utf-8"))
-        assert any(p["id"] == pos["id"] for p in check["positions"])
+        json.loads(POSITIONS_PATH.read_text(encoding="utf-8"))
     except Exception as e:
         POSITIONS_PATH.write_bytes(original)
         logger.exception("positions.json 쓰기 실패 — 원본 복구")
         return False, f"저장 실패, 원본을 복구했습니다: {e}"
 
-    add = _git(["add", str(POSITIONS_PATH)])
-    if add.returncode != 0:
-        return True, f"파일은 저장했으나 git add 실패: {add.stderr.decode(errors='replace')[:150]}"
-    msg = f"Add position {pos['id']} via bot"
-    commit = _git(["commit", "-m", msg])
-    if commit.returncode != 0:
-        return True, f"파일은 저장했으나 커밋 실패: {commit.stderr.decode(errors='replace')[:150]}"
+    if _git(["add", str(POSITIONS_PATH)]).returncode != 0:
+        return True, ok_msg + "\n(git add 실패 — 수동 커밋 필요)"
+    if _git(["commit", "-m", commit_msg]).returncode != 0:
+        return True, ok_msg + "\n(커밋 실패 — 수동 커밋 필요)"
     push = _git(["push", "origin", "main"], timeout=120)
     if push.returncode != 0:
-        return True, ("파일 저장·커밋은 됐으나 푸시 실패 (나중에 수동 푸시 필요): "
-                      f"{push.stderr.decode(errors='replace')[:150]}")
-
-    extra = f" · 테마 '{nt['label']}' 신설" if nt else ""
-    return True, f"✅ 저장·커밋·푸시 완료{extra}\n내일 아침 다이제스트부터 반영됩니다."
+        return True, ok_msg + "\n(푸시 실패 — 나중에 수동 푸시 필요)"
+    return True, ok_msg

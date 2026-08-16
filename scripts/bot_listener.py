@@ -16,6 +16,7 @@ import re
 import logging
 from pathlib import Path
 from datetime import datetime
+from typing import Optional
 import json
 import pytz
 
@@ -296,6 +297,181 @@ async def add_timeout(update: Update, context: ContextTypes.DEFAULT_TYPE):
     return ConversationHandler.END
 
 
+# ============================================================
+# /수정 — 대화형 포지션 편집
+# ============================================================
+
+EDIT_REQUEST, EDIT_REVIEW = range(10, 12)
+
+
+async def _resolve(update, context) -> Optional[dict]:
+    """명령 인자로 포지션 하나를 특정. 못 하면 안내하고 None."""
+    doc, _s, _t, _a = pv.load_all()
+    arg = _cmd_arg(update, context)
+    if not arg:
+        await update.message.reply_text("어느 포지션인지 적어주세요.\n/포지션 으로 번호를 볼 수 있습니다.")
+        return None
+    pos, candidates = pv.find_position(doc, arg)
+    if pos:
+        return pos
+    if candidates:
+        await update.message.reply_text(
+            "여러 개가 걸립니다. 더 구체적으로:\n" +
+            "\n".join(f"· {pv.display_name(p)}" for p in candidates))
+    else:
+        await update.message.reply_text(f"'{arg}' 에 해당하는 포지션이 없습니다.")
+    return None
+
+
+async def edit_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if not is_authorized(update):
+        return ConversationHandler.END
+    pos = await _resolve(update, context)
+    if not pos:
+        return ConversationHandler.END
+
+    context.user_data.clear()
+    context.user_data["orig"] = pos
+    doc, state, _t, aliases = pv.load_all()
+    today = datetime.now(KST).strftime("%Y-%m-%d")
+    for chunk in pv.split_message(pv.format_detail(doc, state, aliases, pos, today)):
+        await update.message.reply_text(chunk)
+    await update.message.reply_text(
+        "무엇을 고칠까요?\n"
+        "예) 매도 조건 3번을 3개 분기로 바꿔 / 보유 근거에 ~ 추가 / 무시에 ~ 넣어\n\n"
+        "(그만두려면 /취소)"
+    )
+    return EDIT_REQUEST
+
+
+async def _edit_draft_and_show(update, context, request: str):
+    doc, _s, _t, _a = pv.load_all()
+    base = context.user_data.get("draft_pos") or context.user_data["orig"]
+    prompt = pe.build_edit_prompt(base, request, doc)
+    text, cost = await asyncio.to_thread(cc.call_claude, prompt)
+    result = cc.extract_json(text)
+    if not result or not result.get("position"):
+        await update.message.reply_text("수정안 생성에 실패했습니다. /취소 후 다시 시도해주세요.")
+        return EDIT_REQUEST
+
+    new_pos = result["position"]
+    context.user_data["draft_pos"] = new_pos
+    context.user_data["theme_assignment"] = result.get("theme_assignment") or {}
+    context.user_data["cost"] = context.user_data.get("cost", 0.0) + cost
+
+    errors, warns = pe.validate_draft(
+        {"position": new_pos, "theme_assignment": context.user_data["theme_assignment"]},
+        doc, editing_id=context.user_data["orig"]["id"])
+
+    # 원본과의 diff 를 보여주는 게 이 기능의 핵심이다.
+    # 요청하지 않은 문장을 모델이 손댔는지는 diff 로만 잡을 수 있다.
+    body = "🔍 변경 사항\n\n" + pe.diff_position(context.user_data["orig"], new_pos)
+    for n in (result.get("notes_for_user") or []):
+        body += f"\n\n❓ {n}"
+    if errors:
+        body += "\n\n🚫 이대로는 저장 안 됩니다\n" + "\n".join(f"  · {e}" for e in errors)
+    if warns:
+        body += "\n\n⚠ 참고\n" + "\n".join(f"  · {w}" for w in warns)
+    body += (f"\n\n─────────\n더 고칠 부분을 말씀하시거나, 적용하려면 '저장'."
+             f"\n취소는 /취소  (여기까지 ${context.user_data['cost']:.3f})")
+
+    for chunk in pv.split_message(body):
+        await update.message.reply_text(chunk)
+    return EDIT_REVIEW
+
+
+async def edit_request(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if not is_authorized(update):
+        return ConversationHandler.END
+    await update.message.reply_text("수정안 만드는 중… (20~40초)")
+    try:
+        return await _edit_draft_and_show(update, context, (update.message.text or "").strip())
+    except Exception as e:
+        logger.exception("수정안 생성 실패")
+        await update.message.reply_text(f"⚠️ 실패: {e}")
+        return ConversationHandler.END
+
+
+async def edit_review(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if not is_authorized(update):
+        return ConversationHandler.END
+    reply = (update.message.text or "").strip()
+
+    if reply in ("저장", "저장해", "저장해줘", "적용", "ㅇㅇ", "네", "응", "ok", "OK", "save"):
+        new_pos = context.user_data.get("draft_pos")
+        if not new_pos:
+            await update.message.reply_text("적용할 수정안이 없습니다.")
+            return ConversationHandler.END
+        await update.message.reply_text("저장 중…")
+        ok, msg = await asyncio.to_thread(
+            pe.save_position_update, new_pos, context.user_data.get("theme_assignment"))
+        await update.message.reply_text(msg)
+        return ConversationHandler.END
+
+    await update.message.reply_text("반영하는 중…")
+    try:
+        return await _edit_draft_and_show(update, context, reply)
+    except Exception as e:
+        logger.exception("수정 반영 실패")
+        await update.message.reply_text(f"⚠️ 실패: {e}")
+        return EDIT_REVIEW
+
+
+# ============================================================
+# /매도 — status 를 exited 로
+# ============================================================
+
+SELL_REASON, SELL_CONFIRM = range(20, 22)
+
+
+async def sell_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if not is_authorized(update):
+        return ConversationHandler.END
+    pos = await _resolve(update, context)
+    if not pos:
+        return ConversationHandler.END
+
+    context.user_data.clear()
+    context.user_data["pos"] = pos
+    await update.message.reply_text(
+        f"'{pv.display_name(pos)}' 를 매도 처리합니다.\n\n"
+        "왜 파셨나요? 한 줄이면 됩니다 — 기록에 남겨 나중에 복기 재료로 씁니다.\n"
+        "(설명 없이 넘기려면 '없음', 그만두려면 /취소)"
+    )
+    return SELL_REASON
+
+
+async def sell_reason(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if not is_authorized(update):
+        return ConversationHandler.END
+    reason = (update.message.text or "").strip()
+    context.user_data["reason"] = "" if reason in ("없음", "-") else reason
+    pos = context.user_data["pos"]
+    await update.message.reply_text(
+        f"확인해주세요.\n\n"
+        f"  {pv.display_name(pos)}\n"
+        f"  보유 → 매도완료\n"
+        f"  사유: {context.user_data['reason'] or '(기록 안 함)'}\n\n"
+        "판정 기준과 누적 관측은 지우지 않고 남깁니다 (복기용).\n"
+        "내일부터 모니터링 대상에서 빠집니다.\n\n"
+        "진행하려면 '확인', 그만두려면 /취소"
+    )
+    return SELL_CONFIRM
+
+
+async def sell_confirm(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if not is_authorized(update):
+        return ConversationHandler.END
+    if (update.message.text or "").strip() not in ("확인", "네", "응", "ㅇㅇ", "ok", "OK", "yes"):
+        await update.message.reply_text("취소했습니다. 변경된 것은 없습니다.")
+        return ConversationHandler.END
+    pos = context.user_data["pos"]
+    await update.message.reply_text("처리 중…")
+    ok, msg = await asyncio.to_thread(pe.exit_position, pos["id"], context.user_data.get("reason", ""))
+    await update.message.reply_text(msg)
+    return ConversationHandler.END
+
+
 def load_area_aliases() -> dict:
     """별명·파일 매핑 로딩."""
     if not AREA_ALIASES_PATH.exists():
@@ -508,6 +684,42 @@ def main():
             ConversationHandler.TIMEOUT: [
                 MessageHandler(filters.ALL, add_timeout),
             ],
+        },
+        fallbacks=[
+            CommandHandler("cancel", add_cancel),
+            MessageHandler(filters.Regex(r"^/취소"), add_cancel),
+        ],
+        conversation_timeout=1800,
+    ))
+
+    # /수정 — 기존 포지션 편집
+    app.add_handler(ConversationHandler(
+        entry_points=[
+            CommandHandler("edit", edit_start),
+            MessageHandler(filters.Regex(r"^/수정"), edit_start),
+        ],
+        states={
+            EDIT_REQUEST: [MessageHandler(filters.TEXT & ~filters.COMMAND, edit_request)],
+            EDIT_REVIEW: [MessageHandler(filters.TEXT & ~filters.COMMAND, edit_review)],
+            ConversationHandler.TIMEOUT: [MessageHandler(filters.ALL, add_timeout)],
+        },
+        fallbacks=[
+            CommandHandler("cancel", add_cancel),
+            MessageHandler(filters.Regex(r"^/취소"), add_cancel),
+        ],
+        conversation_timeout=1800,
+    ))
+
+    # /매도 — status 를 exited 로 (기록은 보존)
+    app.add_handler(ConversationHandler(
+        entry_points=[
+            CommandHandler("exit", sell_start),
+            MessageHandler(filters.Regex(r"^/매도"), sell_start),
+        ],
+        states={
+            SELL_REASON: [MessageHandler(filters.TEXT & ~filters.COMMAND, sell_reason)],
+            SELL_CONFIRM: [MessageHandler(filters.TEXT & ~filters.COMMAND, sell_confirm)],
+            ConversationHandler.TIMEOUT: [MessageHandler(filters.ALL, add_timeout)],
         },
         fallbacks=[
             CommandHandler("cancel", add_cancel),

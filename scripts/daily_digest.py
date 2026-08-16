@@ -1477,8 +1477,14 @@ def call_claude_cli(prompt: str, *, use_search: bool) -> tuple[str, dict]:
     if use_search:
         cmd += ["--allowedTools", "WebSearch", "WebFetch"]
 
+    # ★ CLI 는 구독(CLAUDE_CODE_OAUTH_TOKEN)으로 인증한다.
+    # load_dotenv 가 .env 의 ANTHROPIC_API_KEY 를 os.environ 에 올려두는데,
+    # 그대로 물려주면 CLI 가 그쪽을 집어 종량과금으로 청구될 수 있다.
+    # 어느 쪽이 우선인지에 기대지 말고 아예 넘기지 않는다.
+    env = {k: v for k, v in os.environ.items() if k != "ANTHROPIC_API_KEY"}
     proc = subprocess.run(
-        cmd, cwd=PROJECT_ROOT, capture_output=True, timeout=CLAUDE_CLI_TIMEOUT
+        cmd, cwd=PROJECT_ROOT, capture_output=True,
+        timeout=CLAUDE_CLI_TIMEOUT, env=env,
     )
     if proc.returncode != 0:
         raise RuntimeError(

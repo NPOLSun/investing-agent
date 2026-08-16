@@ -45,7 +45,9 @@ def call_claude(prompt: str) -> tuple[str, float]:
     ★ 블로킹 호출이다. 봇에서는 반드시 asyncio.to_thread 로 감싸 쓸 것 —
     그냥 부르면 응답이 올 때까지 봇 전체가 멈춘다.
     """
-    env = dict(os.environ)
+    # 구독으로만 인증한다. ANTHROPIC_API_KEY 가 환경에 남아 있으면 CLI 가
+    # 그쪽을 집어 종량과금이 될 수 있으므로 빼고 넘긴다.
+    env = {k: v for k, v in os.environ.items() if k != "ANTHROPIC_API_KEY"}
     token = _env_value("CLAUDE_CODE_OAUTH_TOKEN")
     if token:
         env["CLAUDE_CODE_OAUTH_TOKEN"] = token

@@ -26,4 +26,24 @@ EXIT_CODE=$?
 
 echo "=== $(date '+%Y-%m-%d %H:%M:%S') Daily Digest 종료 (exit: $EXIT_CODE) ===" >> "$LOG_FILE"
 
+# 실패하면 알린다.
+# 성공하면 다이제스트가 오지만 죽으면 아무것도 안 온다 — 그러면 '신호 없는 조용한 날' 과
+# '스크립트가 죽은 날' 이 구분되지 않는다. 다이제스트 자체가 미점검과 이상없음을
+# 엄격히 구분하는데, 파이프라인 레벨에서 그게 무너지면 의미가 없다.
+if [ "$EXIT_CODE" -ne 0 ]; then
+  ENV_FILE=/home/ubuntu/investing-agent/.env
+  BOT_TOKEN=$(grep "^TELEGRAM_BOT_TOKEN=" "$ENV_FILE" | cut -d= -f2- | tr -d '"'"'"' \r')
+  CHAT_ID=$(grep "^TELEGRAM_CHAT_ID=" "$ENV_FILE" | cut -d= -f2- | tr -d '"'"'"' \r')
+  if [ -n "$BOT_TOKEN" ] && [ -n "$CHAT_ID" ]; then
+    curl -s -o /dev/null --max-time 20 \
+      -d chat_id="$CHAT_ID" \
+      --data-urlencode "text=⚠️ 일간 다이제스트 실패 (exit $EXIT_CODE)
+$(date '+%Y-%m-%d %H:%M') KST
+
+로그 마지막 부분:
+$(tail -c 800 "$LOG_FILE")" \
+      "https://api.telegram.org/bot$BOT_TOKEN/sendMessage"
+  fi
+fi
+
 exit $EXIT_CODE

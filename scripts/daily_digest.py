@@ -150,7 +150,11 @@ THEME_SHIFT_EXPIRE_DAYS = 240  # 이 기간 재확인 안 된 테마 흐름은 �
 
 # 각주
 MAX_SOURCES_PER_FINDING = 4    # finding 당 출처 상한 (모델에게 지시 + 코드에서 절단)
-MAX_TELEGRAM_SOURCES = 14      # 텔레그램 📎 출처 블록 표기 상한 (4000자 제한 대비)
+# 텔레그램 📎 출처는 개수가 아니라 남은 글자 예산으로 자른다.
+# 고정 개수로 자르면 본문이 인용한 번호가 목록에 없어 조회가 안 된다 (실측: 33건 인용, 14건만 표기).
+TELEGRAM_LIMIT = 4000          # 텔레그램 메시지 상한
+TELEGRAM_FOOTER_RESERVE = 320  # send_telegram 이 덧붙이는 footer 몫
+MAX_TELEGRAM_SOURCES = 40      # 그래도 목록이 본문을 압도하지 않도록 두는 천장
 # 분기 실적은 약 90일 간격이다. 120일이면 Q1 플래그가 Q2 확인 전에 만료될 수 있어
 # 분기 연속 판정이 성립하지 않는다. 1년 이상 버티게 잡는다.
 FLAG_EXPIRE_DAYS = 400         # 이 기간 재확인 안 된 플래그는 정리
@@ -538,20 +542,38 @@ class SourceRegistry:
         lines.append("")
         return "\n".join(lines)
 
-    def render_telegram(self, text: str, limit: int = MAX_TELEGRAM_SOURCES) -> str:
-        """텔레그램용 📎 출처 블록 (URL 없이 도메인·날짜만 — 4000자 제한 대비)."""
+    def render_telegram(self, text: str, budget: Optional[int] = None) -> str:
+        """텔레그램용 📎 출처 블록 (URL 없이 도메인·날짜만).
+
+        budget 은 이 블록이 쓸 수 있는 글자 수. 개수가 아니라 예산으로 자르는 이유는,
+        본문이 인용한 번호가 목록에 없으면 조회가 아예 안 되기 때문이다.
+        본문이 짧은 날에는 인용분 전부가 들어간다.
+        """
         rows = self.cited(text)
         if not rows:
             return ""
-        lines = ["", "", "📎 출처"]
-        for marker, s in rows[:limit]:
+        if budget is None:
+            budget = TELEGRAM_LIMIT
+        head = "\n\n📎 출처"
+        note_len = 26  # "(외 NN건은 첨부 파일 참조)" 자리
+
+        lines, used = [], len(head)
+        for marker, s in rows[:MAX_TELEGRAM_SOURCES]:
             label = _TIER_LABEL.get(s["tier"], s["tier"])
             date = s["date"][5:] if len(s["date"]) == 10 else s["date"]
             bits = [b for b in (date, label) if b]
-            lines.append(f"{marker} {s['outlet'] or '출처 미상'} · {' · '.join(bits)}")
-        if len(rows) > limit:
-            lines.append(f"(외 {len(rows) - limit}건은 첨부 파일 참조)")
-        return "\n".join(lines)
+            line = f"\n{marker} {s['outlet'] or '출처 미상'} · {' · '.join(bits)}"
+            # 마지막 한 줄까지 넣고 나서 '외 N건' 을 못 붙이는 상황을 피한다
+            if used + len(line) + note_len > budget:
+                break
+            lines.append(line)
+            used += len(line)
+
+        if not lines:
+            return ""
+        dropped = len(rows) - len(lines)
+        tail = f"\n(외 {dropped}건은 첨부 파일 참조)" if dropped > 0 else ""
+        return head + "".join(lines) + tail
 
 
 # ============================================================
@@ -2515,7 +2537,10 @@ async def main(dry_run: bool = False):
             logger.warning(f"{label}: 등록되지 않은 각주 마커 인용 — {', '.join(bogus)}")
     file_md += registry.render_file(file_md)
     file_md += build_cost_footer(usage_total, cost, now_str)
-    telegram_summary += registry.render_telegram(telegram_summary)
+    telegram_summary += registry.render_telegram(
+        telegram_summary,
+        budget=TELEGRAM_LIMIT - len(telegram_summary) - TELEGRAM_FOOTER_RESERVE,
+    )
 
     # 8. 파일 저장
     if dry_run:

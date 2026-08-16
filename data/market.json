@@ -1,0 +1,101 @@
+{
+  "asof": "2026-08-17 06:30 KST",
+  "date": "2026-08-17",
+  "prices": {
+    "VICR": {
+      "ticker": "VICR",
+      "market": "US",
+      "price": 234.74,
+      "change_pct": 3.57,
+      "volume_ratio": 0.81,
+      "market_cap": 10823094522
+    },
+    "GLW": {
+      "ticker": "GLW",
+      "market": "US",
+      "price": 165.99,
+      "change_pct": 4.7,
+      "volume_ratio": 1.02,
+      "market_cap": 142691287293
+    },
+    "LEU": {
+      "ticker": "LEU",
+      "market": "US",
+      "price": 190.15,
+      "change_pct": -0.87,
+      "volume_ratio": 0.93,
+      "market_cap": 3794035826
+    },
+    "XE": {
+      "ticker": "XE",
+      "market": "US",
+      "price": 20.98,
+      "change_pct": -7.7,
+      "volume_ratio": 1.26,
+      "market_cap": 6030884107
+    },
+    "298040": {
+      "ticker": "298040",
+      "name": "효성중공업",
+      "market": "KR",
+      "price": 2954000,
+      "change_pct": -2.09,
+      "volume_ratio": 0.99,
+      "market_cap": null
+    },
+    "267260": {
+      "ticker": "267260",
+      "name": "미국 변압기",
+      "market": "KR",
+      "price": 803000,
+      "change_pct": 2.29,
+      "volume_ratio": 0.79,
+      "market_cap": null
+    },
+    "006110": {
+      "ticker": "006110",
+      "name": "ESS 알루미늄박",
+      "market": "KR",
+      "price": 52900,
+      "change_pct": -2.58,
+      "volume_ratio": 0.83,
+      "market_cap": null
+    },
+    "440110": {
+      "ticker": "440110",
+      "name": "SSD 컨트롤러 (파두)",
+      "market": "KR",
+      "price": 65500,
+      "change_pct": 3.97,
+      "volume_ratio": 1.98,
+      "market_cap": null
+    },
+    "043260": {
+      "ticker": "043260",
+      "name": "광정렬 장비 (성호전자/ADS테크)",
+      "market": "KR",
+      "price": 20400,
+      "change_pct": -2.86,
+      "volume_ratio": 0.6,
+      "market_cap": null
+    },
+    "122640": {
+      "ticker": "122640",
+      "name": "고압어닐링 장비 (예스티)",
+      "market": "KR",
+      "price": 28700,
+      "change_pct": -1.37,
+      "volume_ratio": 0.79,
+      "market_cap": null
+    },
+    "034020": {
+      "ticker": "034020",
+      "name": "두산에너빌리티",
+      "market": "KR",
+      "price": 82600,
+      "change_pct": 2.1,
+      "volume_ratio": 1.12,
+      "market_cap": null
+    }
+  }
+}

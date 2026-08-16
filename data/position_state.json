@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-08-14"
+    "last_run": "2026-08-17"
   },
   "positions": {
     "ess-foil": {
@@ -254,6 +254,486 @@
         ]
       },
       "open_flags": []
+    },
+    "point-of-load": {
+      "last_checked": "2026-08-17",
+      "observations": {
+        "royalty_revenue": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "{\"value\": 15, \"unit\": \"USD million\", \"period\": \"2026Q2\", \"note\": \"신규 하이퍼스케일러 라이선스 기여분; 3Q26 5백만달러 → 4Q26~ 분기당 10백만달러 전망\"}"
+          }
+        ],
+        "book_to_bill": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "{\"value\": \">1\", \"unit\": \"ratio\", \"period\": \"2026Q2\", \"note\": \"1년 백로그 QoQ +26%(3.797억달러), YoY +145%\"}"
+          }
+        ],
+        "itc_status": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "{\"value\": \"2차 ITC(Luxshare/MetaPWR) 조사 개시, 청문회 2026-10-14 예정, 판정 전\", \"unit\": \"status\", \"period\": \"2026Q3\"}"
+          }
+        ],
+        "nvidia_reference": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "{\"value\": \"미검증 — MPS가 Vera Rubin 파워스테이지 주공급사로 거론되나 1차 소스 확인 안됨\", \"unit\": \"status\", \"period\": \"2026Q3\"}"
+          }
+        ],
+        "vdc_adoption": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "{\"value\": \"OCP LVDC 스펙 v0.3 발행(2026-07), NVIDIA 800VDC 랙 2026년말 출시, 3Q26 초기 출하 전망\", \"unit\": \"status\", \"period\": \"2026Q3\"}"
+          }
+        ],
+        "신규 라이선스 2Q26 매출 기여": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "0 → 15백만달러"
+          }
+        ],
+        "향후 분기 로열티": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "5백만달러(3Q26) → 10백만달러(4Q26~)"
+          }
+        ],
+        "Fab One 캐파 목표(연매출 기준)": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "~10억달러 → 15억달러"
+          }
+        ],
+        "1년 백로그": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "QoQ +26%, 3.797억달러"
+          }
+        ],
+        "백로그 YoY": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "+145%"
+          }
+        ],
+        "book-to-bill": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": ">1"
+          }
+        ],
+        "800VDC 랙 초기 출하 시점": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "2026년 3분기"
+          }
+        ]
+      },
+      "open_flags": [
+        {
+          "signal": "하이퍼스케일러 첫 라이선스 계약 체결",
+          "level": "YELLOW",
+          "first_seen": "2026-08-17",
+          "last_seen": "2026-08-17",
+          "count": 1,
+          "summary": "Vicor가 2026년 2분기 실적발표에서 처음으로 하이퍼스케일러 1곳과 특허 라이선스 계약을 체결했다고 공개했다. 해당 신규 라이선스가 2분기 매출에 1,500만 달러를 기여했고, 3분기 500만 달러, 4분기 이후 분기당 1,000만 달러로 확대될 전망이다. 경영진은 '다수의 OEM 라이선시 + 하이퍼스케일러 1곳'을 보유하고 있다고 언급했으나 라이선시 실명은 공개하지 않았다.",
+          "sources": [
+            {
+              "url": "https://www.sec.gov/Archives/edgar/data/751978/000119312526059563/d240534dex991.htm",
+              "outlet": "SEC 8-K (Vicor)",
+              "date": "2026-07-21",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.fool.com/earnings/call-transcripts/2026/07/21/vicor-vicr-q2-2026-earnings-call-transcript/",
+              "outlet": "Motley Fool (Q2 2026 실적 컨퍼런스콜 전문)",
+              "date": "2026-07-21",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://finance.yahoo.com/markets/stocks/articles/vicor-corporation-revises-q2-2026-120000713.html",
+              "outlet": "Yahoo Finance",
+              "date": "2026-05-26",
+              "tier": "S2",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "signal": "NVIDIA 차세대 플랫폼(Vera Rubin)에서 MPS가 파워스테이지 주공급사로 거론",
+          "level": "YELLOW",
+          "first_seen": "2026-08-17",
+          "last_seen": "2026-08-17",
+          "count": 1,
+          "summary": "복수의 애널리스트/투자 뉴스레터성 기사에서 MPS가 NVIDIA Vera Rubin 플랫폼의 파워스테이지 주요 공급사이며 NVIDIA의 800VDC 랙스케일 전력 공급 소수 실리콘 파트너 그룹에 포함됐다는 평가가 나왔다. Vicor는 이전 세대(H100)에서도 MPS에 소켓을 내준 전례가 있다. 다만 이번 Vera Rubin 관련 내용은 NVIDIA·MPS의 공식 확인 없이 애널리스트 해설·커뮤니티 성격 기사에 근거한다.",
+          "sources": [
+            {
+              "url": "https://finance.yahoo.com/news/did-analyst-optimism-nvidia-vera-081241006.html",
+              "outlet": "Yahoo Finance",
+              "date": "2026-07",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://simplywall.st/community/narratives/us/semiconductors/nasdaq-mpwr/monolithic-power-systems/cafbznfq-monolithic-power-systems-mpwr-the-ai-power-architect-at-all-time-highs",
+              "outlet": "Simply Wall St (커뮤니티)",
+              "date": "2026",
+              "tier": "S3",
+              "note": ""
+            },
+            {
+              "url": "https://www.tikr.com/blog/monolithic-power-stock-why-95-more-upside-remains-after-surging-85-last-year",
+              "outlet": "TIKR blog",
+              "date": "2026",
+              "tier": "S3",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    "optical-material": {
+      "last_checked": "2026-08-17",
+      "observations": {
+        "optical_growth": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "{\"value\": 32, \"unit\": \"%\", \"period\": \"2026Q2\", \"note\": \"YoY, AI 데이터센터 수요 견인. 2026Q1은 36%\"}"
+          }
+        ],
+        "optical_margin": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "{\"value\": 21, \"unit\": \"%\", \"period\": \"2026Q2\", \"note\": \"세그먼트 순이익률(순이익/매출), 사상 최고 수준\"}"
+          }
+        ],
+        "hyperscaler_contracts": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "{\"value\": 5, \"unit\": \"건\", \"period\": \"2026H1 누적\", \"note\": \"Meta(1월,최대60억달러), NVIDIA(5월,capa10배 파트너십), Amazon(6월,수십억달러), 미공개 2건(Q1콜에서 공개, 유사규모)\"}"
+          }
+        ],
+        "springboard": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "{\"value\": 40, \"unit\": \"십억달러(2030 연환산 매출 목표)\", \"period\": \"2030\", \"note\": \"2026-05 상향: 2028년 300억달러 목표 → 2030년 400억달러, 2026Q4~2030Q4 CAGR 19%\"}"
+          }
+        ],
+        "Meta 계약 규모": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "최대 60억달러 (2026-01)"
+          }
+        ],
+        "Amazon 계약": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "수십억달러 규모 (2026-06)"
+          }
+        ],
+        "미국 광통신 capa 확대": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "10배 (NVIDIA 파트너십, 2026-05)"
+          }
+        ],
+        "ATH(2026-06-29)": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "255.69"
+          }
+        ],
+        "저점(2026-08-초)": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "104.83"
+          }
+        ],
+        "현재가(2026-08-17)": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "165.99"
+          }
+        ],
+        "고점대비 낙폭": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "약 -35%"
+          }
+        ],
+        "Optical 매출성장(YoY)": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "32% (2026Q2), 36% (2026Q1)"
+          }
+        ],
+        "Optical 세그먼트 순이익률": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "21% (2026Q2)"
+          }
+        ],
+        "Springboard 2030 목표": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "300억달러(2028, 기존) → 400억달러(2030, 상향)"
+          }
+        ]
+      },
+      "open_flags": [
+        {
+          "signal": "Amazon-Corning 수십억달러 규모 AI데이터센터 광섬유 공급계약(2026-06); NVIDIA 미국 광통신 capa 10배 확대 파트너십(2026-05); Meta 최대 60억달러 다년계약(2026-01); Q1 2026 실적발표에서 유사 규모 미공개 하이퍼스케일러 계약 2건 추가 공개",
+          "level": "YELLOW",
+          "first_seen": "2026-08-17",
+          "last_seen": "2026-08-17",
+          "count": 1,
+          "summary": "2026년 상반기 동안 코닝은 하이퍼스케일러들과 잇따라 대형 장기 공급계약을 체결했다. 1월 Meta와 최대 60억달러 다년계약, 5월 NVIDIA와 미국 광통신 capa 10배 확대 파트너십(노스캐롤라이나·텍사스 신공장 3곳 포함), 6월 Amazon과 AWS 데이터센터용 광섬유·케이블·커넥티비티 공급을 위한 수십억달러 규모 계약을 각각 체결했다. Q1 2026 실적콜에서는 유사 규모의 미공개 하이퍼스케일러 계약 2건도 추가로 공개해, 확인된 대형 계약이 최소 5건에 달한다.",
+          "sources": [
+            {
+              "url": "https://www.cnbc.com/2026/06/08/amazon-taps-corning-for-op.html",
+              "outlet": "cnbc.com",
+              "date": "2026-06-08",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.fierce-network.com/broadband/amazon-and-corning-announce-multibillion-dollar-deal-fiber-supply",
+              "outlet": "fierce-network.com",
+              "date": "2026-06-08",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.techtimes.com/articles/318032/20260608/amazon-corning-strike-multibillion-dollar-fiber-deal-ai-data-centers-us-jobs.htm",
+              "outlet": "techtimes.com",
+              "date": "2026-06-08",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.lightreading.com/data-centers/amazon-corning-fiber-deal-keys-on-density-scaled-customization-for-data-centers",
+              "outlet": "lightreading.com",
+              "date": "2026-06-09",
+              "tier": "S2",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "signal": "GLW 종가 2026-06-29 사상최고 255.69달러 → 2026년 8월초 저점 104.83달러(-59%) → 2026-08-17 165.99달러(저점대비 +58%, 고점대비 약 -35%)",
+          "level": "YELLOW",
+          "first_seen": "2026-08-17",
+          "last_seen": "2026-08-17",
+          "count": 1,
+          "summary": "코닝 주가는 2026-06-29 사상 최고가(255.69달러) 이후, 견조한 Q2 실적(매출 +17%, Optical +32%)에도 불구하고 시장 기대치에 못 미친 Q3 가이던스(매출 49~50억달러 vs 컨센서스 49.9억달러, EPS 0.85~0.89달러)에 실망하며 8월 초 104.83달러까지 급락했다. 이후 Truist의 valuation 매력 근거 Buy 상향(8/3)과 실적 재평가로 반등해 8/17 기준 165.99달러를 기록 중이나 여전히 고점 대비 약 -35% 수준이다.",
+          "sources": [
+            {
+              "url": "https://www.ad-hoc-news.de/boerse/news/unternehmensnachrichten/corning-s-q2-beat-masks-a-guidance-miss-that-has-slashed-the-stock-in/69901065",
+              "outlet": "ad-hoc-news.de",
+              "date": "2026-07-29",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262071394-corning-glw-truist-upgrade-buy-45-percent-crash-eps-30-percent-cagr-tradingkey",
+              "outlet": "tradingkey.com",
+              "date": "2026-08-03",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://finance.biggo.com/news/e4e16ce7-279c-472a-9458-9b8bb63f849d",
+              "outlet": "biggo.com",
+              "date": "2026-07-28",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.tradingkey.com/news/market-movers/262108458-market-movers-glw-20260814",
+              "outlet": "tradingkey.com",
+              "date": "2026-08-14",
+              "tier": "S2",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    "smr-developer": {
+      "last_checked": "2026-08-17",
+      "observations": {
+        "nrc_permit": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "{\"value\": \"EA/FONSI 완료(2026-05), 최종허가 발급 목표 2027년 1분기\", \"unit\": \"status\", \"period\": \"2026Q3\", \"note\": \"아직 취득 전, 당초 2026년말에서 목표시점 구체화\"}"
+          }
+        ],
+        "dow_fid": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "{\"value\": \"2028년 이전 FID 없음\", \"unit\": \"status\", \"period\": \"2026Q3\", \"note\": \"메모상 기존 가정과 동일, 변화 없음\"}"
+          }
+        ],
+        "cash_runway": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "{\"value\": 11.1, \"unit\": \"분기\", \"period\": \"2026Q2\", \"note\": \"현금·투자자산 19억달러(2026-04 IPO 순조달 11억달러 포함) ÷ 분기 총현금소진(영업 0.973억달러+투자 0.736억달러=1.71억달러) ≈ 11.1분기(~2.8년)\"}"
+          }
+        ],
+        "competitor_first": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "{\"value\": \"Oklo Aurora-INL 2027Q4~2028Q1 목표\", \"unit\": \"status\", \"period\": \"2026Q3\", \"note\": \"Oklo Groves 시험로 임계 도달(2026-08-06)로 진척, Kairos Hermes는 2029-04로 지연\"}"
+          }
+        ],
+        "trisox": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "{\"value\": 0, \"unit\": \"%\", \"period\": \"2026Q3\", \"note\": \"TX-1 건설 약 80% 완료, 완공목표 2028H1, 아직 미가동\"}"
+          }
+        ],
+        "DOE 총 비용분담": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "약 11.5억달러 → 21.5억달러"
+          }
+        ],
+        "DOE 기지급액(6/30 기준)": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "5.47억달러"
+          }
+        ],
+        "허가 발급 목표": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "2026년말 목표 → 2027년 1분기로 구체화"
+          }
+        ],
+        "건설완료 시한": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "2026-12-31 → 2029-04-30"
+          }
+        ],
+        "건설 진척률": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "약 80%"
+          }
+        ],
+        "완공 목표": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "2028년 상반기"
+          }
+        ],
+        "연료생산 개시 목표": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "2028년초"
+          }
+        ]
+      },
+      "open_flags": [
+        {
+          "signal": "Oklo Groves 동위원소 시험로 최초 임계 도달(2026-08-06) · Aurora-INL 상업운전 목표 2027년말~2028년초",
+          "level": "YELLOW",
+          "first_seen": "2026-08-17",
+          "last_seen": "2026-08-17",
+          "count": 1,
+          "summary": "경쟁 SMR 업체 Oklo가 자체 부지(Lockhart, TX)의 Groves 동위원소 시험로에서 착공 1년 이내에 최초 임계에 도달했다고 발표했다. Oklo는 별도로 Aurora-INL 상업운전 목표를 2027년말~2028년초로 제시하고 있는데, X-energy Xe-100은 아직 건설허가조차 취득하지 못한 상태(허가발급 목표 2027년 1분기)라 Oklo가 먼저 상업운전에 도달할 가능성을 모니터링할 필요가 있다.",
+          "sources": [
+            {
+              "url": "https://oklo.com/newsroom/news-details/2026/Oklos-Groves-Reactor-Achieves-First-Criticality-in-Under-a-Year/default.aspx",
+              "outlet": "oklo.com",
+              "date": "2026-08-06",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.nucnet.org/news/oklo-s-groves-isotope-test-reactor-reaches-first-criticality-8-5-2026",
+              "outlet": "nucnet.org",
+              "date": "2026-08-05",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.tradingview.com/news/zacks:bcd8eaa2f094b:0-oklo-business-model-explained-when-revenue-could-arrive/",
+              "outlet": "tradingview.com",
+              "date": "2026-05",
+              "tier": "S2",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "signal": "경영진, 실적발표에서 '임박한 1GW 규모 유틸리티 발표' 언급",
+          "level": "YELLOW",
+          "first_seen": "2026-08-17",
+          "last_seen": "2026-08-17",
+          "count": 1,
+          "summary": "2026년 8월 13일 Q2 실적 컨퍼런스콜에서 경영진이 조만간 1GW 규모의 신규 유틸리티 고객 발표가 있을 것이라고 언급했다. 아직 확정 계약이나 FID로 이어졌는지는 확인되지 않아 후속 확인이 필요하다.",
+          "sources": [
+            {
+              "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-xenergy-posts-q2-2026-loss-as-doe-support-grows-93CH-4858034",
+              "outlet": "investing.com",
+              "date": "2026-08-13",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.benzinga.com/news/26/08/61174343/full-transcript-x-energy-q2-2026-earnings-call",
+              "outlet": "benzinga.com",
+              "date": "2026-08-13",
+              "tier": "S2",
+              "note": ""
+            }
+          ]
+        }
+      ]
     }
   },
   "portfolio_level": {
@@ -263,6 +743,11 @@
           "date": "2026-08-14",
           "last_seen": "2026-08-14",
           "value": "AMZN ~$200B, MSFT ~$190B, GOOGL $195-205B(상향), META $138.9-145B(상향) — 4사 합산 ~$725B"
+        },
+        {
+          "date": "2026-08-17",
+          "last_seen": "2026-08-17",
+          "value": "AMZN ~$200B, MSFT ~$190B대, GOOGL 상단 $205B, META $125-145B(상향) — 4사 합산 ~$700-725B, 하향 없음"
         }
       ],
       "변압기 리드타임": [
@@ -270,6 +755,11 @@
           "date": "2026-08-14",
           "last_seen": "2026-08-14",
           "value": "평균 128주(~2.5년), HV 대형 변압기 최대 60개월(5년) — 단축 아닌 확대 추세"
+        },
+        {
+          "date": "2026-08-17",
+          "last_seen": "2026-08-17",
+          "value": "평균 128주(~2.5년), HV 대형 최대 60개월(5년) — 확대 기조 지속, 2028년 이전 정상화 어려움"
         }
       ],
       "데이터센터 신규 파이프라인 추가": [
@@ -277,6 +767,11 @@
           "date": "2026-08-14",
           "last_seen": "2026-08-14",
           "value": "2025Q3 60GW+ 피크 → 2025Q4 감소 → 2026Q1 36GW(-19% QoQ), 3분기 연속 둔화"
+        },
+        {
+          "date": "2026-08-17",
+          "last_seen": "2026-08-17",
+          "value": "2025Q3 60GW+ → 2025Q4 감소 → 2026Q1 36GW(-19% QoQ), 3분기 연속 둔화, 2026Q2 수치 미확인, 실제 건설지출은 견조"
         }
       ],
       "Natrium 착공": [
@@ -284,6 +779,11 @@
           "date": "2026-08-14",
           "last_seen": "2026-08-14",
           "value": "2026년 3월 NRC 건설허가, 2026년 4월 착공"
+        },
+        {
+          "date": "2026-08-17",
+          "last_seen": "2026-08-17",
+          "value": "2026-04"
         }
       ],
       "X-energy Seadrift 착공": [
@@ -299,6 +799,83 @@
           "last_seen": "2026-08-14",
           "value": "2026년→2029년으로 연기(NRC 승인)"
         }
+      ],
+      "SMR 착공 현황": [
+        {
+          "date": "2026-08-17",
+          "last_seen": "2026-08-17",
+          "value": "Natrium 착공(2026-04), Kairos Hermes1 착공(2025-05)+Hermes2 착공(2026-04), Seadrift는 NRC 건설허가 심사 중(착공 미확정)"
+        }
+      ],
+      "4사 합산 2026 capex 가이던스": [
+        {
+          "date": "2026-08-17",
+          "last_seen": "2026-08-17",
+          "value": "$700-725B (변동없음, 전원 상향 기조 유지)"
+        }
+      ],
+      "META 2026 가이던스": [
+        {
+          "date": "2026-08-17",
+          "last_seen": "2026-08-17",
+          "value": "$115-135B → $125-145B (상향)"
+        }
+      ],
+      "신규 파이프라인 추가(WoodMac)": [
+        {
+          "date": "2026-08-17",
+          "last_seen": "2026-08-17",
+          "value": "2025Q3 60GW+ → 2025Q4 감소 → 2026Q1 36GW(-19% QoQ)"
+        }
+      ],
+      "2026년 4월 데이터센터 건설 지출": [
+        {
+          "date": "2026-08-17",
+          "last_seen": "2026-08-17",
+          "value": "$2.4B (YTD $49.5B)"
+        }
+      ],
+      "파워 트랜스포머 평균 리드타임": [
+        {
+          "date": "2026-08-17",
+          "last_seen": "2026-08-17",
+          "value": "128주(~2.5년)"
+        }
+      ],
+      "HV 대형 변압기(Tier 1)": [
+        {
+          "date": "2026-08-17",
+          "last_seen": "2026-08-17",
+          "value": "최대 60개월(5년)"
+        }
+      ],
+      "정상화 예상 시점": [
+        {
+          "date": "2026-08-17",
+          "last_seen": "2026-08-17",
+          "value": "2028년 이후"
+        }
+      ],
+      "Kairos Hermes 1 착공": [
+        {
+          "date": "2026-08-17",
+          "last_seen": "2026-08-17",
+          "value": "2025-05 (완공은 2029년으로 연기)"
+        }
+      ],
+      "Kairos Hermes 2 착공": [
+        {
+          "date": "2026-08-17",
+          "last_seen": "2026-08-17",
+          "value": "2026-04 (2030년 발전 목표)"
+        }
+      ],
+      "Seadrift(Xe-100) 상태": [
+        {
+          "date": "2026-08-17",
+          "last_seen": "2026-08-17",
+          "value": "NRC 건설허가 심사 중 (착공 여부 미확정)"
+        }
       ]
     },
     "open_flags": [
@@ -306,10 +883,39 @@
         "signal": "미국 데이터센터 신규 착공 건수 2개 분기 연속 감소",
         "level": "YELLOW",
         "first_seen": "2026-08-14",
-        "last_seen": "2026-08-14",
-        "count": 1,
-        "summary": "Wood Mackenzie 기준 신규 파이프라인 추가 용량이 3개 분기 연속 감소(2025Q3 피크 60GW+ → 2025Q4 하락 → 2026Q1 36GW, 전분기比 -19%), 허가·전력 확보 지연이 원인으로 지목되나 이는 '파이프라인 신규 추가' 지표이며 '착공 건수' 자체와 정확히 일치하는 지표인지는 추가 확인 필요, SemiAnalysis는 '절반 취소' 서술에 반박 제기 중",
-        "evidence_url": "https://www.publicpower.org/periodical/article/us-data-center-developers-shift-focus-existing-pipelines-new-capacity-additions-slow-q1-2026-report"
+        "last_seen": "2026-08-17",
+        "count": 2,
+        "summary": "기존 관측(2025Q3 60GW+ 피크 → 2025Q4 감소 → 2026Q1 36GW, -19% QoQ, 3분기 연속 둔화)에서 갱신된 2026Q2 수치는 이번 조사에서 확인되지 않아 신규 데이터포인트는 없음. 다만 ConstructConnect의 2026년 6월 보고서는 실제 건설 지출은 견조하다고 보도(4월 $2.4B, 연초누계 $49.5B)해, '신규 파이프라인 추가' 둔화가 '착공 건수' 자체의 감소로 직결되는지는 여전히 불분명함.",
+        "sources": [
+          {
+            "url": "https://www.woodmac.com/press-releases/us-data-centre-developers-shift-focus-to-existing-pipelines-as-new-capacity-additions-slow-in-q1-2026/",
+            "outlet": "Wood Mackenzie",
+            "date": "2026-08-17",
+            "tier": "S2",
+            "note": ""
+          },
+          {
+            "url": "https://www.publicpower.org/periodical/article/us-data-center-developers-shift-focus-existing-pipelines-new-capacity-additions-slow-q1-2026-report",
+            "outlet": "American Public Power Association",
+            "date": "2026-08-17",
+            "tier": "S2",
+            "note": ""
+          },
+          {
+            "url": "https://news.constructconnect.com/june-2026-data-center-report-construction-remains-strong-as-costs-rise",
+            "outlet": "ConstructConnect",
+            "date": "2026-06-01",
+            "tier": "S2",
+            "note": ""
+          },
+          {
+            "url": "https://www.networkworld.com/article/4201941/up-to-50-of-data-center-capacity-slated-for-2026-could-be-delayed.html",
+            "outlet": "Network World",
+            "date": "2026-08-17",
+            "tier": "S2",
+            "note": ""
+          }
+        ]
       },
       {
         "signal": "SMR 상업화 타임라인 2년 이상 지연 (Seadrift/Natrium/Kairos 중 어느 것도 2028년까지 미착공)",
@@ -321,7 +927,7 @@
         "evidence_url": "https://www.federalregister.gov/documents/2026/05/18/2026-09880/in-the-matter-of-kairos-power-llc-hermes-test-reactor-extension-of-latest-date-for-completion-of"
       }
     ],
-    "last_checked": "2026-08-14"
+    "last_checked": "2026-08-17"
   },
   "groups": {
     "us-transformer": {

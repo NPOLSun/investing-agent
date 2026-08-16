@@ -1,0 +1,571 @@
+{
+  "meta": {
+    "version": "1.0",
+    "last_run": "2026-08-17"
+  },
+  "themes": {
+    "ai-dc-power": {
+      "last_checked": "2026-08-17",
+      "observations": {
+        "OCP LVDC SST 스펙": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "v0.3 (2026-07 발표, 80+ 업체 참여)"
+          }
+        ],
+        "800V 파워랙 출하": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "2026 3Q(옵션, Vera Rubin) → 2027 하반기 본격화(Rubin Ultra)"
+          }
+        ],
+        "Kyber 랙 전력": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "~600kW/rack (2027)"
+          },
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "~600kW/rack (2027 출시)"
+          }
+        ],
+        "FERC 계통접속 명령": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "2026-06-18, 6개 RTO/ISO 대상 60일 시한"
+          }
+        ],
+        "계통접속 대기": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "2,060GW, 평균 약 5년 대기"
+          }
+        ],
+        "BTM 가동용량": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "2026중반 2GW → 연말 2.8~3.2GW 전망"
+          },
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "2026년 중반 약 2GW → 연말 2.8~3.2GW(전망)"
+          }
+        ],
+        "Siemens Energy 그리드 수주잔고": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "510억 유로(사상최대)"
+          },
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "사상 최대 510억 유로(2026-08-05 기준)"
+          }
+        ],
+        "HD현대일렉트릭 2Q26 수주": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "+44.6% YoY"
+          },
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "14.4억달러(YoY +44.6%)"
+          }
+        ],
+        "효성중공업 美 765kV 점유율": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "1위"
+          },
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "1위(약 50%)"
+          }
+        ],
+        "800V 파워랙 첫 출하": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "2026년 3분기(옵션)"
+          }
+        ],
+        "본격 채택 시점": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "2027년 하반기(Rubin Ultra)"
+          }
+        ],
+        "800VDC 시장 규모": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "2025년 약 30억달러, 연 40%+ 성장"
+          }
+        ],
+        "대기 물량": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "2,060GW"
+          }
+        ],
+        "평균 대기기간": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "2008년 약 2년 → 2026년 약 5년"
+          }
+        ],
+        "규칙 개정 기한": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "60일(명령일 2026-06-18 기준)"
+          }
+        ],
+        "xAI Colossus 1·2 가스터빈": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "약 1,498MW 가동 중"
+          }
+        ],
+        "HD현대일렉트릭 2Q26 매출": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "YoY +26.0%"
+          }
+        ],
+        "HD현대일렉트릭 2Q26 영업이익": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "YoY +37.3%"
+          }
+        ]
+      },
+      "shifts": {
+        "W1,W2,W3|배전 전압 아키텍처 전환(54v 랙 → 800vdc) 채택 속도 / 랙 전력밀도 로드맵": {
+          "headline": "800VDC 규격 확정, 3Q26 출하 개시",
+          "shift": "배전 전압 아키텍처 전환(54V 랙 → 800VDC) 채택 속도 / 랙 전력밀도 로드맵",
+          "refs": [
+            "W1",
+            "W2",
+            "W3"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "point-of-load"
+          ],
+          "summary": "NVIDIA·Google·Microsoft가 OCP를 통해 LVDC 솔리드스테이트 트랜스포머(SST) 스펙 v0.3을 발표했고 80개 이상 업체가 이 규격 기반 제품을 개발 중이다. TrendForce에 따르면 800V 파워랙은 Vera Rubin 세대에서 선택 옵션으로 2026년 3분기부터 출하되며, Rubin Ultra 세대(2027년 하반기, 600kW급 Kyber 랙)부터 본격 채택되고 2028년 광범위 배치가 예상된다.",
+          "sources": [
+            {
+              "url": "https://www.trendforce.com/news/2026/06/15/news-nvidia-google-may-be-first-to-adopt-800v-hvdc-initial-3q26-shipments-may-boost-delta-and-infrastructure-suppliers/",
+              "outlet": "TrendForce",
+              "date": "2026-06-15",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.trendforce.com/presscenter/news/20260625-13121.html",
+              "outlet": "TrendForce",
+              "date": "2026-06-25",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://developer.nvidia.com/blog/nvidia-800-v-hvdc-architecture-will-power-the-next-generation-of-ai-factories/",
+              "outlet": "NVIDIA Technical Blog",
+              "date": "2026-03-18",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.datacenterdynamics.com/en/dcd-broadcasts/ai-week-2026/powering-ai-growth-why-800vdc-is-reshaping-data-center-design/",
+              "outlet": "Data Center Dynamics",
+              "date": "2026-06-20",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-17",
+          "first_seen": "2026-08-17",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화": {
+          "headline": "FERC, 계통접속 규칙 개혁 명령",
+          "shift": "계통 접속 대기열(interconnection queue) 적체 및 규제 변화",
+          "refs": [
+            "W5"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "hyosung-transformer",
+            "hd-hyundai-electric"
+          ],
+          "summary": "FERC가 2026-06-18 6개 지역 계통운영자(RTO/ISO)에 대형부하(데이터센터) 접속 규정을 60일 내 개정하거나 정당화하도록 명령했고, 30일 내 발전용량 확보 계획을 담은 신뢰성 보고서 제출도 요구했다. 이는 2025-10-23 DOE가 조직법 403조를 발동해 FERC에 조치를 강제한 데 따른 후속 조치이며, 현재 대기 물량은 2,060GW·평균 대기기간은 2008년 2년에서 약 5년으로 늘어난 상태다.",
+          "sources": [
+            {
+              "url": "https://www.whitecase.com/insight-alert/ferc-orders-grid-operators-promptly-revise-or-justify-interconnection-rules-data",
+              "outlet": "White & Case",
+              "date": "2026-06-19",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.americanactionforum.org/insight/ferc-data-center-orders-accelerate-grid-connection/",
+              "outlet": "American Action Forum",
+              "date": "2026-06-20",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.utilitydive.com/news/ferc-doe-data-center-interconnection-pjm-backstop-auction/817804/",
+              "outlet": "Utility Dive",
+              "date": "2026-06-10",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-17",
+          "first_seen": "2026-08-17",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W4|온사이트 발전·비계통 전력 조달 비중(behind-the-meter)": {
+          "headline": "온사이트 발전 확대, 가스터빈 적체 심화",
+          "shift": "온사이트 발전·비계통 전력 조달 비중(behind-the-meter)",
+          "refs": [
+            "W4"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "power-generation"
+          ],
+          "summary": "2026년 8월 기준 가동 중인 behind-the-meter 발전용량은 약 2GW(xAI Colossus 1·2가 약 1.5GW로 대부분 차지)이며, 연말까지 2.8~3.2GW로 늘어날 전망이다. 같은 기간 Siemens Energy의 그리드 부문 수주잔고는 변압기 수요에 힘입어 사상 최대인 510억 유로를 기록해(2026-08-05/09 보도), 전력기기 전반의 공급 부족이 지속되고 있음을 뒷받침한다.",
+          "sources": [
+            {
+              "url": "https://www.globenewswire.com/news-release/2026/08/11/3342843/0/en/data-centers-are-running-out-of-power-and-behind-the-meter-generation-could-be-the-answer.html",
+              "outlet": "GlobeNewswire",
+              "date": "2026-08-11",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://cleanview.co/reports/behind-the-meter-data-centers",
+              "outlet": "Cleanview",
+              "date": "2026-08-01",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://mgrid.org/2026/08/09/siemens-energys-grid-order-backlog-hits-a-record-51-billion-euros-on-transformer-demand/",
+              "outlet": "mgrid.org",
+              "date": "2026-08-09",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-17",
+          "first_seen": "2026-08-17",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W5|미국 변압기 수요發 한국 공급사 실적/수주 전환": {
+          "headline": "韓 변압기 2社, 美 수주·실적 확대 지속",
+          "shift": "미국 변압기 수요發 한국 공급사 실적/수주 전환",
+          "refs": [
+            "W5"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "hyosung-transformer",
+            "hd-hyundai-electric"
+          ],
+          "summary": "HD현대일렉트릭은 2026-07-28 발표한 2분기 실적에서 매출 1조1418억원(+26.0% YoY), 영업이익 2870억원(+37.3% YoY), 수주 14.4억달러(+44.6% YoY)를 기록했고, 5월엔 SPP 장기송전마스터플랜 참여로 1730억원 규모 765kV 변압기·리액터 계약을 추가 체결했다. 효성중공업은 미국 765kV 초고압변압기 시장 점유율 1위(공급 물량 약 절반)를 유지하며 8월 테네시 멤피스 공장 등 현지생산 확대 계획을 재확인했다.",
+          "sources": [
+            {
+              "url": "https://www.huffingtonpost.kr/article/259071",
+              "outlet": "허프포스트코리아",
+              "date": "2026-07-28",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://biz.newdaily.co.kr/site/data/html/2026/08/13/2026081300091.html",
+              "outlet": "뉴데일리",
+              "date": "2026-08-13",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://core.asiae.co.kr/article/2026050715192812044",
+              "outlet": "아시아경제",
+              "date": "2026-05-07",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-17",
+          "first_seen": "2026-08-17",
+          "count": 1,
+          "thesis_review": false
+        }
+      }
+    },
+    "optical-interconnect": {
+      "last_checked": "2026-08-17",
+      "observations": {
+        "NVIDIA CPO 스위치 상태": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "2026-08 완전양산 진입"
+          }
+        ],
+        "Broadcom CPO 스위치 상태": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "볼륨 램프 진행 중(Tomahawk 6-Davisson, Bailly)"
+          }
+        ],
+        "TSMC COUPE": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "2026년 양산 목표 유지"
+          }
+        ],
+        "CPO 비중(2026 광모듈 중)": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "약 0.5%"
+          }
+        ],
+        "Corning 장기계약 누적": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "Meta 최대 $6B(2026-01) + Amazon 복수B$(2026-06)"
+          }
+        ],
+        "ASMPT 포토닉스 매출 성장": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "YoY 5배(2026 1Q)"
+          }
+        ],
+        "ASMPT 포토닉스 매출": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "YoY 5배 증가 (2026 1Q)"
+          }
+        ],
+        "Meta 계약 규모": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "최대 $6B (2026-01 발표)"
+          }
+        ],
+        "Amazon 계약": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "복수 billion 달러 (2026-06 발표, 정확한 금액 비공개)"
+          }
+        ],
+        "CPO 비중(2026, AI데이터센터 광모듈 중)": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "약 0.5%"
+          }
+        ],
+        "CPO 침투율 전망": [
+          {
+            "date": "2026-08-17",
+            "last_seen": "2026-08-17",
+            "value": "~0.5%(2026) → 35%(2030)"
+          }
+        ]
+      },
+      "shifts": {
+        "W1|cpo 양산 채택 일정의 전진 또는 후퇴": {
+          "headline": "NVIDIA CPO 완전양산 진입",
+          "shift": "CPO 양산 채택 일정의 전진 또는 후퇴",
+          "refs": [
+            "W1"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "optical-align"
+          ],
+          "summary": "NVIDIA의 Spectrum-X Ethernet Photonics(CPO 스위치)가 2026년 8월 완전양산(full production) 단계에 진입해 TSMC(실리콘 포토닉스 파운드리)·SPIL(칩스케일 패키징)·Lumentum/TFC(레이저)·Foxconn(시스템 조립) 5개 벤더 분업 공급망으로 CoreWeave·Lambda·Oracle 등에 출하가 시작됐다. TrendForce(2026-07-27)는 이를 NVIDIA·Broadcom(Tomahawk 6-Davisson, Bailly) 양쪽 모두 CPO 스위치 '볼륨 램프' 단계 진입으로 확인했다.",
+          "sources": [
+            {
+              "url": "https://www.trendforce.com/presscenter/news/20260727-13151.html",
+              "outlet": "trendforce.com",
+              "date": "2026-07-27",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.storagereview.com/news/nvidia-spectrum-x-ethernet-photonics-enters-full-production-with-4x-fewer-lasers-and-a-five-vendor-cpo-supply-chain",
+              "outlet": "storagereview.com",
+              "date": "2026-08",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.techeblog.com/nvidia-spectrum-x-ethernet-photonics-production-ai-networking-platform/",
+              "outlet": "techeblog.com",
+              "date": "2026-08",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-17",
+          "first_seen": "2026-08-17",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W5|실리콘 포토닉스 수율·패키징 병목 해소 여부": {
+          "headline": "패키징 병목 아직 미해소",
+          "shift": "실리콘 포토닉스 수율·패키징 병목 해소 여부",
+          "refs": [
+            "W5"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "optical-align"
+          ],
+          "summary": "TrendForce(2026-07-27)는 CPO 스위치 볼륨 램프에도 불구하고 ①광엔진(레이저·모듈레이터·수광소자 통합) 수율, ②실리콘포토닉스 웨이퍼/패키징 정밀도, ③COUPE 등 첨단패키징 용량(AI칩과 자원 경쟁)이 여전히 3대 병목이라고 지적했다. 별도로 ASMPT는 2026년 1분기 포토닉스 부문 매출이 전년 대비 5배 증가했다고 발표해, 정렬·패키징 장비 수요 자체는 급증 중임을 뒷받침한다.",
+          "sources": [
+            {
+              "url": "https://www.trendforce.com/presscenter/news/20260727-13151.html",
+              "outlet": "trendforce.com",
+              "date": "2026-07-27",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.ledinside.com/intelligence/2026/7/2026_07_28_04",
+              "outlet": "ledinside.com",
+              "date": "2026-07-28",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.asmpt.com/en/investor-relations/news-events/asmpt-announces-2026-first-quarter-results/",
+              "outlet": "asmpt.com",
+              "date": "2026",
+              "tier": "S1",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-17",
+          "first_seen": "2026-08-17",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W4|데이터센터 광섬유 수요 및 장기계약 규모": {
+          "headline": "Corning 장기계약 연이어 체결",
+          "shift": "데이터센터 광섬유 수요 및 장기계약 규모",
+          "refs": [
+            "W4"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "optical-material"
+          ],
+          "summary": "Corning이 2026년 1월 Meta와 최대 60억달러 규모, 2026년 6월 Amazon과 복수십억달러 규모의 다년(multi-year) 광섬유·케이블·커넥티비티 공급계약을 각각 체결했다. 두 계약 모두 노스캐롤라이나 생산시설 증설(Hickory 등)을 수반하며, Amazon 계약은 1,000개 신규 일자리 창출도 포함한다.",
+          "sources": [
+            {
+              "url": "https://www.corning.com/worldwide/en/about-us/news-events/news-releases/2026/01/corning-and-meta-announce-multiyear-up-to-6-billion-agreement-to-accelerate-us-data-center-buildout.html",
+              "outlet": "corning.com",
+              "date": "2026-01",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://investor.corning.com/news-and-events/news/news-details/2026/Corning-and-Meta-Announce-Multiyear-up-to-6-Billion-Agreement-to-Accelerate-US-Data-Center-Buildout/default.aspx",
+              "outlet": "investor.corning.com",
+              "date": "2026-01",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.trendforce.com/news/2026/06/10/news-amazon-signed-multibillion-dollar-fiber-optics-supply-agreement-with-corning/",
+              "outlet": "trendforce.com",
+              "date": "2026-06-10",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.wect.com/2026/06/08/amazons-data-center-push-fuels-1000-job-fiber-optic-agreement-with-corning/",
+              "outlet": "wect.com",
+              "date": "2026-06-08",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-17",
+          "first_seen": "2026-08-17",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W2|스케일업/스케일아웃 네트워크의 광 전환 비중": {
+          "headline": "랙 내부는 여전히 구리 우세",
+          "shift": "스케일업/스케일아웃 네트워크의 광 전환 비중",
+          "refs": [
+            "W2"
+          ],
+          "direction": "중립",
+          "affects": [],
+          "summary": "TrendForce에 따르면 CPO는 2026년 AI데이터센터 광트랜시버 모듈 중 약 0.5% 비중에 그치며, NVIDIA·Broadcom·OpenAI 모두 랙 내부(스케일업) 연결은 당분간 구리(NVLink 등)가 주력이고 광은 3m 이상 구간에서만 우세하다고 본다. CPO 침투율은 2030년 35%까지 완만히 상승할 것으로 전망되며, 랙 간(스케일업) 광 전환 본격화는 Rubin Ultra/Feynman 세대 이후로 예상된다.",
+          "sources": [
+            {
+              "url": "https://www.trendforce.com/presscenter/news/20260311-12962.html",
+              "outlet": "trendforce.com",
+              "date": "2026-03-11",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://spectrum.ieee.org/nvlink-fusion-optics",
+              "outlet": "spectrum.ieee.org",
+              "date": "2026",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-17",
+          "first_seen": "2026-08-17",
+          "count": 1,
+          "thesis_review": false
+        }
+      }
+    }
+  }
+}

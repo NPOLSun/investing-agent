@@ -10,6 +10,7 @@ Telegram Bot Listener (단순화 버전)
 Track 1 일간 다이제스트는 daily_digest.py 가 cron 으로 별도 처리.
 """
 
+import asyncio
 import os
 import re
 import logging
@@ -19,12 +20,15 @@ import json
 import pytz
 
 from dotenv import load_dotenv
+import claude_client as cc
+import positions_edit as pe
 import positions_view as pv
 from telegram import Update
 from telegram.ext import (
     Application,
     CommandHandler,
     ContextTypes,
+    ConversationHandler,
     MessageHandler,
     filters,
 )
@@ -169,6 +173,127 @@ async def cmd_positions(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     for chunk in pv.split_message(text):
         await update.message.reply_text(chunk)
+
+
+# ============================================================
+# /추가 — 대화형 포지션 추가
+# ============================================================
+
+ASK_REASON, REVIEW = range(2)
+
+
+def _cmd_arg(update: Update, context: ContextTypes.DEFAULT_TYPE) -> str:
+    if context.args:
+        return " ".join(context.args).strip()
+    return re.sub(r"^\S+\s*", "", (update.message.text or "")).strip()
+
+
+async def add_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if not is_authorized(update):
+        return ConversationHandler.END
+
+    ticker = _cmd_arg(update, context)
+    if not ticker:
+        await update.message.reply_text(
+            "종목을 적어주세요.\n예: /추가 GOOGL  또는  /추가 삼양식품 003230"
+        )
+        return ConversationHandler.END
+
+    context.user_data.clear()
+    context.user_data["ticker"] = ticker
+    await update.message.reply_text(
+        f"'{ticker}' 를 추가합니다.\n\n"
+        "왜 담으시나요? 편하게 쓰시면 됩니다 — 이 문장에서 보유 근거와\n"
+        "매도 검토 조건 초안을 잡습니다.\n\n"
+        "(그만두려면 /취소)"
+    )
+    return ASK_REASON
+
+
+async def _draft_and_show(update, context, revision: str = None):
+    """Claude 로 초안을 만들고 검증 결과와 함께 보여준다."""
+    doc, _state, _ts, _al = pv.load_all()
+    prompt = pe.build_draft_prompt(
+        context.user_data["ticker"], context.user_data["reason"], doc,
+        revision=revision, previous=context.user_data.get("draft"),
+    )
+    # ★ CLI 호출은 블로킹이다. to_thread 로 빼지 않으면 봇 전체가 멈춘다.
+    text, cost = await asyncio.to_thread(cc.call_claude, prompt)
+    draft = cc.extract_json(text)
+    if not draft or not draft.get("position"):
+        await update.message.reply_text("초안 생성에 실패했습니다. 다시 시도하려면 /추가 부터.")
+        return ConversationHandler.END
+
+    context.user_data["draft"] = draft
+    context.user_data["cost"] = context.user_data.get("cost", 0.0) + cost
+
+    errors, warns = pe.validate_draft(draft, doc)
+    body = pe.format_draft(draft, doc)
+    if errors:
+        body += "\n\n🚫 이대로는 저장 안 됩니다\n" + "\n".join(f"  · {e}" for e in errors)
+    if warns:
+        body += "\n\n⚠ 참고\n" + "\n".join(f"  · {w}" for w in warns)
+    body += (f"\n\n─────────\n고칠 부분을 말씀하시거나, 저장하려면 '저장'."
+             f"\n취소는 /취소  (여기까지 ${context.user_data['cost']:.3f})")
+
+    for chunk in pv.split_message(body):
+        await update.message.reply_text(chunk)
+    return REVIEW
+
+
+async def add_reason(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if not is_authorized(update):
+        return ConversationHandler.END
+    context.user_data["reason"] = (update.message.text or "").strip()
+    await update.message.reply_text("초안 잡는 중… (20~40초)")
+    try:
+        return await _draft_and_show(update, context)
+    except Exception as e:
+        logger.exception("초안 생성 실패")
+        await update.message.reply_text(f"⚠️ 초안 생성 실패: {e}")
+        return ConversationHandler.END
+
+
+async def add_review(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if not is_authorized(update):
+        return ConversationHandler.END
+    reply = (update.message.text or "").strip()
+
+    if reply in ("저장", "저장해", "저장해줘", "ㅇㅇ", "네", "응", "ok", "OK", "save"):
+        draft = context.user_data.get("draft")
+        if not draft:
+            await update.message.reply_text("저장할 초안이 없습니다.")
+            return ConversationHandler.END
+        await update.message.reply_text("저장 중…")
+        ok, msg = await asyncio.to_thread(pe.save_draft, draft)
+        await update.message.reply_text(msg)
+        if ok:
+            label = draft["position"].get("label")
+            await update.message.reply_text(f"확인: /포지션 {label.split('(')[0].strip()}")
+        return ConversationHandler.END
+
+    await update.message.reply_text("반영하는 중…")
+    try:
+        return await _draft_and_show(update, context, revision=reply)
+    except Exception as e:
+        logger.exception("초안 수정 실패")
+        await update.message.reply_text(f"⚠️ 수정 실패: {e}")
+        return REVIEW
+
+
+async def add_cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if not is_authorized(update):
+        return ConversationHandler.END
+    context.user_data.clear()
+    await update.message.reply_text("취소했습니다. 저장된 것은 없습니다.")
+    return ConversationHandler.END
+
+
+async def add_timeout(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    context.user_data.clear()
+    if update and update.message:
+        await update.message.reply_text("30분간 응답이 없어 종료했습니다. 저장된 것은 없습니다.")
+    return ConversationHandler.END
 
 
 def load_area_aliases() -> dict:
@@ -370,6 +495,26 @@ def main():
     app.add_handler(CommandHandler("pos", cmd_positions))
     # 한글 명령은 텔레그램이 봇 명령으로 태깅하지 않아 CommandHandler 가 못 잡는다
     app.add_handler(MessageHandler(filters.Regex(r"^/포지션"), cmd_positions))
+
+    # /추가 — 대화형. 한글 명령이라 진입점도 MessageHandler 를 함께 건다.
+    app.add_handler(ConversationHandler(
+        entry_points=[
+            CommandHandler("add", add_start),
+            MessageHandler(filters.Regex(r"^/추가"), add_start),
+        ],
+        states={
+            ASK_REASON: [MessageHandler(filters.TEXT & ~filters.COMMAND, add_reason)],
+            REVIEW: [MessageHandler(filters.TEXT & ~filters.COMMAND, add_review)],
+            ConversationHandler.TIMEOUT: [
+                MessageHandler(filters.ALL, add_timeout),
+            ],
+        },
+        fallbacks=[
+            CommandHandler("cancel", add_cancel),
+            MessageHandler(filters.Regex(r"^/취소"), add_cancel),
+        ],
+        conversation_timeout=1800,
+    ))
 
     logger.info("Bot starting (polling mode)...")
     app.run_polling(allowed_updates=Update.ALL_TYPES)

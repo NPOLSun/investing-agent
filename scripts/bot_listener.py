@@ -1,10 +1,21 @@
 """
-Telegram Bot Listener (단순화 버전)
-==================================
-명령어:
-  /start    — 봇 시작 안내
-  /help     — 명령어 안내
-  /megamap  — 캐시된 Mega Change Map 파일 답장 (Claude 호출 0)
+Telegram Bot Listener
+=====================
+조회 (Claude 호출 0, 쓰기 없음):
+  /포지션 [번호|이름|티커]  — 보유 포지션과 판정 기준
+  /megamap                  — 캐시된 Mega Change Map 파일 답장
+  /deepdive [별명]          — 영역별 deep-dive 문서
+  /help, /start             — 사용법
+
+관리 (Claude 호출 + positions.json 쓰기 + git push):
+  /추가 [종목]   — 대화형 추가. 보유 근거·매도 조건 초안 제안
+  /수정 [포지션] — 판정 기준 편집. 변경 전후 diff 확인 후 저장
+  /매도 [포지션] — status → exited. 기록은 보존
+  /취소          — 진행 중인 대화 중단
+
+한글 명령은 텔레그램이 봇 명령으로 태깅하지 않아 MessageHandler 로 받는다.
+영문 별칭(/positions /add /edit /exit /cancel)도 같은 핸들러에 연결돼 있고,
+명령 메뉴에는 영문만 등록된다 (텔레그램이 한글 명령명을 허용하지 않음).
 
 24/7 polling 모드. systemd 서비스로 관리.
 Track 1 일간 다이제스트는 daily_digest.py 가 cron 으로 별도 처리.
@@ -24,7 +35,7 @@ from dotenv import load_dotenv
 import claude_client as cc
 import positions_edit as pe
 import positions_view as pv
-from telegram import Update
+from telegram import BotCommand, Update
 from telegram.ext import (
     Application,
     CommandHandler,
@@ -109,10 +120,16 @@ async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
     text = (
         "🤖 Investing Agent — Bot Online\n\n"
-        "/megamap — Mega Change Map\n"
-        "/deepdive — Deep-dive 목록·답장\n"
-        "/help — 명령어 안내\n\n"
-        "(자동 일간 다이제스트는 매일 06:30 KST 푸시)"
+        "포지션\n"
+        "  /포지션 — 보유 목록·판정 기준\n"
+        "  /추가 — 종목 추가 (대화형)\n"
+        "  /수정 — 판정 기준 편집\n"
+        "  /매도 — 매도 처리\n\n"
+        "리서치\n"
+        "  /megamap — Mega Change Map\n"
+        "  /deepdive — Deep-dive 영역별 문서\n\n"
+        "/help — 사용법 자세히\n\n"
+        "(일간 다이제스트는 평일 06:30 KST 자동 푸시)"
     )
     await update.message.reply_text(text)
 
@@ -121,18 +138,54 @@ async def cmd_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not is_authorized(update):
         return
     text = (
-        "📋 명령어 안내\n\n"
-        "/megamap\n"
-        "  현재 Mega Change Map dashboard\n"
-        "  요약 + 파일 + GitHub URL 답장.\n"
+        "📋 사용법\n\n"
+        "━━ 포지션 조회 ━━\n"
+        "/포지션\n"
+        "  보유 목록. 마지막 점검일과\n"
+        "  열린 신호 수를 함께 표시.\n\n"
+        "/포지션 [번호|이름|티커]\n"
+        "  해당 포지션 상세 — 보유 근거,\n"
+        "  매도·추가 검토 조건, 감시 지표,\n"
+        "  반복 관측, 메모.\n"
+        "  예: /포지션 3\n"
+        "      /포지션 파두\n"
+        "      /포지션 440110\n"
         "  비용 0.\n\n"
+        "━━ 포지션 관리 ━━\n"
+        "/추가 [종목]\n"
+        "  왜 담는지 물어본 뒤 보유 근거와\n"
+        "  매도 조건 초안을 잡아줍니다.\n"
+        "  고칠 곳을 말하면 다시 만들고,\n"
+        "  '저장' 하면 반영됩니다.\n"
+        "  예: /추가 GOOGL\n\n"
+        "/수정 [번호|이름]\n"
+        "  판정 기준 편집. 고칠 내용을\n"
+        "  말로 하면 변경 전후를 diff 로\n"
+        "  보여준 뒤 '저장'.\n"
+        "  예: /수정 파두\n"
+        "      → 매도 조건 2번을 3개 분기로\n\n"
+        "/매도 [번호|이름]\n"
+        "  매도 처리. 사유를 기록하고\n"
+        "  모니터링에서 제외합니다.\n"
+        "  판정 기준은 지우지 않습니다(복기용).\n"
+        "  예: /매도 3\n\n"
+        "  ※ /추가·/수정 은 초안 1회당 약 $0.15.\n"
+        "     저장 전에는 아무것도 안 바뀝니다.\n"
+        "     중단은 /취소 (30분 무응답 시 자동)\n\n"
+        "━━ 리서치 ━━\n"
+        "/megamap\n"
+        "  Mega Change Map dashboard.\n"
+        "  요약 + 파일 + GitHub URL. 비용 0.\n\n"
         "/deepdive\n"
-        "  사용 가능한 deep-dive 영역 목록.\n\n"
+        "  Deep-dive 영역 목록.\n\n"
         "/deepdive [별명]\n"
-        "  그 영역 deep-dive 파일 답장.\n"
+        "  해당 영역 문서 답장.\n"
         "  예: /deepdive glp1\n\n"
-        "/help\n"
-        "  본 안내"
+        "━━ 참고 ━━\n"
+        "· 한글 명령이 안 먹으면 영문도 됩니다\n"
+        "  /positions /add /edit /exit /cancel\n"
+        "· 일간 다이제스트는 평일 06:30 KST 자동.\n"
+        "  실패하면 ⚠️ 알림이 옵니다."
     )
     await update.message.reply_text(text)
 
@@ -662,7 +715,7 @@ def main():
     if not BOT_TOKEN or not CHAT_ID:
         raise RuntimeError("TELEGRAM_BOT_TOKEN 또는 TELEGRAM_CHAT_ID 미설정")
 
-    app = Application.builder().token(BOT_TOKEN).build()
+    app = Application.builder().token(BOT_TOKEN).post_init(_register_commands).build()
     app.add_handler(CommandHandler("start", cmd_start))
     app.add_handler(CommandHandler("help", cmd_help))
     app.add_handler(CommandHandler("megamap", cmd_megamap))
@@ -730,6 +783,29 @@ def main():
 
     logger.info("Bot starting (polling mode)...")
     app.run_polling(allowed_updates=Update.ALL_TYPES)
+
+
+async def _register_commands(app: Application):
+    """텔레그램 명령 메뉴 등록 — 채팅창에 '/' 만 쳐도 목록이 뜬다.
+
+    한글 명령(/포지션 등)은 등록할 수 없다. 텔레그램은 명령 이름에
+    소문자 영문·숫자·밑줄만 허용한다. 그래서 메뉴에는 영문 별칭을 올리고,
+    한글 명령은 MessageHandler 로 따로 받는다 (둘 다 같은 핸들러).
+    """
+    try:
+        await app.bot.set_my_commands([
+            BotCommand("positions", "보유 포지션 목록·상세 (= /포지션)"),
+            BotCommand("add", "종목 추가, 대화형 (= /추가)"),
+            BotCommand("edit", "판정 기준 편집 (= /수정)"),
+            BotCommand("exit", "매도 처리 (= /매도)"),
+            BotCommand("megamap", "Mega Change Map"),
+            BotCommand("deepdive", "Deep-dive 영역 문서"),
+            BotCommand("cancel", "진행 중인 대화 중단 (= /취소)"),
+            BotCommand("help", "사용법"),
+        ])
+        logger.info("명령 메뉴 등록 완료")
+    except Exception as e:
+        logger.warning(f"명령 메뉴 등록 실패 (동작에는 지장 없음): {e}")
 
 
 if __name__ == "__main__":

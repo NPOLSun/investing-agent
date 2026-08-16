@@ -72,6 +72,13 @@
         "behind the meter data center generation",
         "grid interconnection queue data center"
       ],
+      "key_vendors": [
+        "NVIDIA — 랙 로드맵(Rubin, Rubin Ultra/Kyber), 800VDC 레퍼런스 아키텍처",
+        "OCP (Open Compute Project) — ORV3/800VDC·LVDC 고체변압기 스펙",
+        "Vertiv, Eaton, Schneider Electric — 데이터센터 배전·UPS",
+        "GE Vernova, Siemens Energy, Hitachi Energy — 계통·변압기",
+        "Delta Electronics, Monolithic Power Systems, Infineon — 랙·보드 전력단"
+      ],
       "affects": ["point-of-load", "us-transformer", "power-generation"]
     },
     {
@@ -92,6 +99,14 @@
         "silicon photonics packaging yield",
         "OFC co-packaged optics announcement",
         "data center fiber long term agreement"
+      ],
+      "key_vendors": [
+        "NVIDIA — Spectrum-X Photonics(이더넷 CPO), Quantum-X Photonics(인피니밴드 CPO)",
+        "Broadcom — Tomahawk 시리즈, Bailly CPO 스위치",
+        "Marvell, Astera Labs — 광 인터커넥트·리타이머",
+        "Coherent, Lumentum, Fabrinet — 광엔진·트랜시버",
+        "TSMC — COUPE 실리콘 포토닉스 패키징",
+        "ficonTEC, ASMPT — 액티브 얼라인 장비 (경쟁사)"
       ],
       "affects": ["optical-align", "optical-material"]
     },
@@ -115,6 +130,12 @@
         "NAND controller in-house hyperscaler",
         "memory capex guidance 2026"
       ],
+      "key_vendors": [
+        "SK하이닉스, 삼성전자, Micron — HBM4 세대 전환·eSSD",
+        "Marvell, Silicon Motion, Phison — SSD 컨트롤러",
+        "Kioxia, Solidigm, SanDisk — NAND·QLC 니어라인",
+        "HPSP, 예스티 — 고압어닐링 장비"
+      ],
       "affects": ["ssd-controller", "hpa-equipment"]
     },
     {
@@ -136,6 +157,12 @@
         "HALEU enrichment capacity expansion",
         "new nuclear reactor order 2026"
       ],
+      "key_vendors": [
+        "NRC, DOE — 인허가·자금 지원 정책",
+        "TerraPower(Natrium), Kairos(Hermes), Oklo(Aurora), NuScale — 경쟁 SMR",
+        "X-energy(Xe-100), Centrus, Urenco USA, General Matter — 보유·연료 체인",
+        "Westinghouse(AP1000/AP300), 두산에너빌리티 — 주기기 제작"
+      ],
       "affects": ["haleu", "smr-developer", "power-generation"]
     },
     {
@@ -155,6 +182,11 @@
         "LFP ESS line conversion Korea",
         "ESS cell price China share"
       ],
+      "key_vendors": [
+        "Tesla(Megapack), Fluence — 대형 ESS 시스템",
+        "CATL, BYD, LG에너지솔루션, 삼성SDI, SK온 — ESS 전용 셀 라인",
+        "동일알루미늄, 롯데알미늄, Toyo Aluminium — 알루미늄박 경쟁사"
+      ],
       "affects": ["ess-foil"]
     },
     {
@@ -171,6 +203,11 @@
         "liquid cooling adoption rate data center",
         "direct to chip cooling deployment 2026",
         "rack thermal limit AI cluster"
+      ],
+      "key_vendors": [
+        "NVIDIA — GB/VR 랙 냉각 레퍼런스 설계",
+        "Vertiv, Boyd, CoolIT, Motivair — 액체냉각 시스템",
+        "LiquidStack, Submer — 액침냉각"
       ],
       "affects": ["point-of-load", "us-transformer"]
     }

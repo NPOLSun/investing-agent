@@ -1776,6 +1776,9 @@ def search_theme(
     판정 등급의 의미가 희석되고 다이제스트를 안 믿게 된다.
     승격 경로는 오직 '반복 관측 누적' 하나뿐이다.
     """
+    def bullets(items):
+        return "\n".join(f"- {i}" for i in items) if items else "- (없음)"
+
     affects = [pid for pid in theme.get("affects", []) if pid in positions_by_id]
 
     affected_lines = []
@@ -1800,8 +1803,11 @@ def search_theme(
 # 추적 대상 변화 (W번호로 역참조)
 {numbered(theme.get('watch_shifts', []), 'W', indent='')}
 
-# 검색 키워드
+# 검색 키워드 (기술 일반명 — 이것만으로는 부족하다)
 {', '.join(theme.get('queries', [])) or '(없음)'}
+
+# 핵심 벤더·제품명 (★ 반드시 제품명으로도 검색할 것)
+{bullets(theme.get('key_vendors', []))}
 
 # 이 테마에 연결된 보유 포지션
 {affected}
@@ -1820,6 +1826,18 @@ web_search 로 위 추적 대상 변화 각각의 최신 상태를 확인하고 
 최근 90일 이내 변화에 집중할 것. 이미 널리 알려진 배경 설명은 쓰지 말 것.
 "변화가 없음" 도 유의미한 관측이다 — 억지로 findings 를 채우지 말고 no_news=true 로 둘 것.
 finding 은 최대 4건. 중요도 순.
+
+★★ 검색 방법 (이걸 안 지키면 큰 건을 통째로 놓친다)
+1. 기술 일반명("co-packaged optics" 등)으로만 검색하지 말 것.
+   업계 뉴스는 **제품 브랜드명**으로 보도된다. 위 핵심 벤더의 제품명을 직접
+   검색어에 넣을 것 (예: "Spectrum-X Photonics 양산", "Rubin Ultra rack power").
+   실측 사례: 기술명으로만 검색해 NVIDIA CPO 스위치 양산 진입을 통째로 놓쳤다.
+2. 벤더의 **공식 뉴스룸·IR·기술 블로그**를 우선 확인할 것 (S1 등급).
+   2차 매체 논평만 모으면 이미 결착된 사안을 "논쟁 중" 으로 잘못 보고하게 된다.
+3. ★ 보도가 서로 엇갈리면 거기서 멈추지 말 것. 해당 벤더가 그 사이
+   공식 발표·출하·양산 개시를 했는지 반드시 확인할 것. 1차 확인으로 결착되면
+   direction 을 확정하고, 확정된 사실을 summary 에 쓸 것.
+   1차 확인을 시도하지 않은 채 "불명" 으로 남기지 말 것.
 
 direction 은 **연결된 포지션 관점에서** 판단할 것:
   순풍 = 보유 근거를 강화하는 방향 / 역풍 = 약화하는 방향

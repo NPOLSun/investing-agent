@@ -169,6 +169,11 @@ logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s",
     level=logging.INFO,
 )
+# httpx 는 요청 URL 을 INFO 로 찍는데 텔레그램 API URL 에는 봇 토큰이 그대로 들어간다.
+# 그대로 두면 logs/daily_digest_*.log 에 매일 토큰이 평문으로 적재된다.
+# bot_listener.py 가 같은 이유로 이미 막고 있다 — 여기만 빠져 있었다.
+logging.getLogger("httpx").setLevel(logging.WARNING)
+logging.getLogger("httpcore").setLevel(logging.WARNING)
 logger = logging.getLogger(__name__)
 
 

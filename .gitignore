@@ -46,6 +46,10 @@ data/*
 # '같은 흐름 N회 반복' 누적이 유일한 신호 강도이며, 날아가면 복구가 불가능하다.
 # ★ 여기 빠뜨리면 git add 가 무시된 파일에서 실패해 position_state 커밋까지 함께 죽는다.
 !data/theme_state.json
+# events/ 는 종목별 이벤트 히스토리. 포지션 페이지의 원재료이고 재수집이 불가능하다
+# (지난 뉴스를 다시 검색해 그날 상태로 복원할 수 없다). 디렉터리를 먼저 되살려야
+# 그 안의 파일이 data/* 에 안 걸린다.
+!data/events/
 scripts/__pycache__/
 *.log
 digests/sent/

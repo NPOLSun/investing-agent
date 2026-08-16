@@ -41,6 +41,8 @@ from typing import Optional
 import pytz
 import requests
 import yfinance as yf
+
+import events_log
 from dotenv import load_dotenv
 from anthropic import Anthropic, APIStatusError
 from telegram import Bot
@@ -2343,13 +2345,16 @@ async def send_telegram(
 # ============================================================
 
 def git_commit_and_push(file_path: Path):
-    """상태 파일만 커밋. digest 본문은 gitignore 대상이라 제외.
+    """상태 파일과 이벤트 로그만 커밋. digest 본문은 gitignore 대상이라 제외.
 
     누적 상태를 EC2 로컬에만 두면 서버 유실 시 분기 판정 근거와
-    테마 흐름 누적이 통째로 날아간다.
+    테마 흐름 누적, 종목별 이벤트 히스토리가 통째로 날아간다.
     실패해도 다이제스트 자체는 이미 전송됐으므로 예외를 삼킨다.
     """
     targets = [p for p in (POSITION_STATE_PATH, THEME_STATE_PATH) if p.exists()]
+    ev_dir = events_log.events_dir()
+    if ev_dir.exists():
+        targets.append(ev_dir)
     if not targets:
         return
     try:
@@ -2361,7 +2366,7 @@ def git_commit_and_push(file_path: Path):
             logger.info("상태 변경 없음 — 커밋 생략")
             return
         subprocess.run(
-            ["git", "commit", "-m", f"Update monitoring state {datetime.now(KST):%Y-%m-%d}"],
+            ["git", "commit", "-m", f"Update monitoring state and event log {datetime.now(KST):%Y-%m-%d}"],
             cwd=PROJECT_ROOT, check=True, capture_output=True, timeout=30)
         subprocess.run(["git", "push", "origin", "main"],
                        cwd=PROJECT_ROOT, check=True, capture_output=True, timeout=120)
@@ -2545,6 +2550,21 @@ async def main(dry_run: bool = False):
 
     if unchecked_themes:
         logger.info(f"오늘 미점검 테마: {', '.join(t['id'] for t in unchecked_themes)}")
+
+    # 5-3. 이벤트 로그 — 오늘 찾은 finding 원문을 종목별로 누적
+    # 지금까지는 다이제스트에 한 번 렌더하고 버려서, 나중에 "이 종목에 무슨 일이
+    # 있었나" 를 되짚을 방법이 없었다. 포지션 페이지의 재료이기도 하다.
+    # ★ 기록은 부가 기능이다. 실패해도 다이제스트를 죽이지 않는다.
+    try:
+        added, touched = events_log.record_run(
+            today_str, positions_doc, layer0_result, news_sweep,
+            position_results, theme_results,
+            normalize_sources=normalize_sources,
+            base=(DRY_RUN_OUTPUT_DIR / stamp) if dry_run else None,
+        )
+        logger.info(f"이벤트 로그: 신규 {added}건 / 대상 {touched}종목")
+    except Exception as e:
+        logger.warning(f"이벤트 로그 기록 실패 — 다이제스트는 계속 진행: {e}")
 
     # 6. 상태 저장 (종합 호출 실패해도 검색 결과는 남도록 먼저 저장)
     if dry_run:

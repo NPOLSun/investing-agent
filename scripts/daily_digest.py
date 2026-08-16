@@ -117,8 +117,12 @@ WEB_SEARCH_TOOL_TYPE = "web_search_20260209"
 LAYER0_MAX_USES = 6            # Layer 0
 NEWS_SWEEP_MAX_USES = 12       # 전 종목 소식 스윕 (판정 아님, 훑기)
 POSITION_MAX_USES = 20         # 포지션당 (실측: 가장 무거운 포지션이 13회에서 자연히 멈춤)
-THEME_MAX_USES = 8             # 테마(Layer 0.5)당
-DAILY_SEARCH_BUDGET = 90       # 하루 총량 캡 (Layer0 6 + 스윕 12 + 포지션 20x3 + 테마 8x2)
+# 테마는 watch_shifts 5개 + key_vendors 최대 6그룹 = 확인할 축이 10개 넘는다.
+# 8 로는 벤더 1차 원문까지 볼 여유가 없어, 2차 매체 논평만 긁고 끝났다
+# (실측 2026-08-16: NVIDIA Spectrum-X Photonics 양산 진입을 통째로 놓침).
+# max_uses 는 할당량이 아니라 천장이므로 올려도 평상시 비용은 그대로다.
+THEME_MAX_USES = 16            # 테마(Layer 0.5)당
+DAILY_SEARCH_BUDGET = 115      # 하루 총량 캡 (Layer0 6 + 스윕 12 + 포지션 20x3 + 테마 16x2 + 여유)
 MAX_PAUSE_CONTINUATIONS = 3    # pause_turn 재개 상한
 
 # 모니터링 대상 status (exited·paused 는 기록만 남기고 판정 대상에서 제외)
@@ -2447,7 +2451,11 @@ async def main(dry_run: bool = False):
                     f"last_checked 미갱신, 내일 재점검 대상"
                 )
             else:
-                logger.info(f"{pos['id']} 완료: findings {len(findings)}건 (RED {reds})")
+                hit = " ★천장 도달" if u["searches"] >= POSITION_MAX_USES else ""
+                logger.info(
+                    f"{pos['id']} 완료: findings {len(findings)}건 (RED {reds}) "
+                    f"/ 검색 {u['searches']}/{POSITION_MAX_USES}회{hit}"
+                )
         else:
             logger.warning(f"{pos['id']} 결과 없음 ({incomplete}) — 확인 미완료로 처리")
 
@@ -2488,9 +2496,11 @@ async def main(dry_run: bool = False):
                 1 for rec in theme_state["themes"][theme["id"]].get("shifts", {}).values()
                 if rec.get("thesis_review") and rec.get("last_seen") == today_str
             )
+            # 검색 횟수를 남긴다 — 천장에 부딪혔는지 알아야 THEME_MAX_USES 를 근거 있게 조정한다
+            hit = " ★천장 도달" if u["searches"] >= THEME_MAX_USES else ""
             logger.info(
                 f"테마 {theme['id']} 완료: findings {len(findings)}건 "
-                f"(thesis 갱신 후보 {promoted})"
+                f"(thesis 갱신 후보 {promoted}) / 검색 {u['searches']}/{THEME_MAX_USES}회{hit}"
             )
         else:
             logger.warning(f"테마 {theme['id']} 결과 없음 ({incomplete})")

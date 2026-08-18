@@ -132,9 +132,14 @@ POSITION_MAX_USES = 20         # 포지션당 (실측: 가장 무거운 포지�
 THEME_MAX_USES = 16            # 테마(Layer 0.5)당
 # ★ 실행당 캡이다. 하루 2회이므로 하루 총량은 이 값의 2배.
 # 구독(CLI) 모드에서는 검색 건당 요금이 없으므로 이 값은 비용 브레이크가 아니라
-# rate limit 에 닿기 전에 스스로 멈추는 안전판이다. 한도에 걸리면 CLI 가
-# non-zero 로 죽고 _run_search 가 그 건만 삼켜서 '판정 없음' 으로 조용히 지나간다.
-DAILY_SEARCH_BUDGET = 140      # 실행당 캡 (Layer0 6 + 포지션 20x7 상한 + 테마 16x2 중 실측 기준)
+# 폭주 감지용 안전판이다. 정상 운영에서는 걸리지 않아야 한다.
+#
+# 실측 2026-08-18 KR 실행: Layer0 5 + 포지션 7개(25·21·23·17·13·10·18 = 127)
+# + 테마 13 = 145 회. 포지션당 10 회로 잡았던 추정이 틀렸다 — 실측 10~25, 평균 18.
+# 140 으로 뒀다가 마지막 테마(dc-thermal)가 예산 소진으로 잘렸다.
+# 최악 가정(포지션 7 x 25 + Layer0 6 + 테마 16x2)이 213 이므로 그 위로 올린다.
+# 220 처럼 아슬아슬하게 잡으면 같은 사고를 반복한다.
+DAILY_SEARCH_BUDGET = 300
 MAX_PAUSE_CONTINUATIONS = 3    # pause_turn 재개 상한
 
 # 모니터링 대상 status (exited·paused 는 기록만 남기고 판정 대상에서 제외)
@@ -1002,6 +1007,7 @@ def build_prompt(
     theme_state: Optional[dict] = None,
     registry: Optional[SourceRegistry] = None,
     market: str = "all",
+    layer0_error: str = "",
 ) -> str:
     """종합 호출 프롬프트.
 
@@ -1077,10 +1083,15 @@ def build_prompt(
         return "\n".join(out)
 
     # 각주 번호는 등록 순서를 따른다. 출력에서 Layer 0 이 맨 위로 가므로 먼저 등록.
-    layer0_section = (
-        fmt_findings(layer0_result.get("findings"))
-        if layer0_result else "- (Layer 0 검색 실패 또는 미실행 — 판정 없음)"
-    )
+    if layer0_result:
+        layer0_section = fmt_findings(layer0_result.get("findings"))
+    elif layer0_error:
+        layer0_section = (
+            f"- ⚠️ 확인 미완료: {layer0_error}\n"
+            f"  Layer 0 을 오늘 못 봤다. '상위 변수 이상 없음' 으로 쓰면 안 된다."
+        )
+    else:
+        layer0_section = "- (Layer 0 미실행 — 판정 없음)"
 
     # 포지션 findings 는 등급 순으로 등록해야 번호가 읽는 순서와 대체로 맞는다
     _LEVEL_ORDER = {"RED": 0, "YELLOW": 1, "WHITE": 2}
@@ -1105,17 +1116,23 @@ def build_prompt(
 
         if item.get("skipped"):
             body = f"- ⚠️ 미점검: {item['skipped']} — 신호 없음이 아니라 확인 안 함"
+        elif item.get("incomplete") and not result:
+            # 아예 못 본 경우. 부분 확인과 문장을 갈라야 한다 —
+            # "아래 항목은 확인된 것만" 뒤에 아무것도 없으면 이상 없음처럼 읽힌다.
+            body = (
+                f"- ⚠️ 확인 못 함: {item['incomplete']}\n"
+                f"  이 포지션은 오늘 **아무것도 확인하지 못했다.** 신호 없음이 아니다."
+            )
         elif item.get("incomplete"):
-            found = fmt_findings(result.get("findings")) if result else ""
             body = (
                 f"- ⚠️ 확인 미완료: {item['incomplete']}\n"
                 f"  아래 항목은 확인된 것만이며, 이 포지션을 '이상 없음' 으로 쓰면 안 된다.\n"
-                f"{found}"
+                f"{fmt_findings(result.get('findings'))}"
             )
         elif result:
             body = fmt_findings(result.get("findings"))
         else:
-            body = "- ⚠️ 확인 미완료: 검색 실패 — 판정 없음"
+            body = "- ⚠️ 확인 못 함: 검색 실패 — 판정 없음"
 
         pos_blocks.append(
             f"## {display_name(pos)}\n"
@@ -1146,6 +1163,10 @@ def build_prompt(
 
         if item.get("skipped"):
             body = f"- ⚠️ 미점검: {item['skipped']}"
+        elif not result and item.get("incomplete"):
+            # ★ '흐름 없음' 보다 먼저 걸러야 한다. 순서가 뒤집히면
+            # 검색이 죽은 날이 "새로운 흐름 없음" 으로 먼저 읽힌다.
+            body = f"- ⚠️ 확인 못 함: {item['incomplete']} — 흐름 없음이 아니다"
         elif not result or not (result.get("findings") or []):
             note = f" (확인 미완료: {item['incomplete']})" if item.get("incomplete") else ""
             body = f"- (새로운 흐름 없음){note}"
@@ -1385,8 +1406,11 @@ plain text, 표·markdown 문법 없이. 모바일에서 그대로 읽히게. 26
 - 회사명 +N% (한 줄로 이어서. 해당 없으면: 없음)
 
 ⚠️ 확인 미완료
-- 포지션명 (회사명): 무엇을 확인 못 했는지 한 줄
-(검색 예산 소진·검색 실패로 아예 못 본 포지션도 여기 넣되, 사유를 그대로 적을 것.
+- 포지션명 (회사명): 무엇을 확인 못 했는지 한 줄 — 사유
+(검색 예산 소진·한도 도달·검색 실패로 아예 못 본 포지션도 여기 넣을 것.
+ ★ 위 검색 결과에 적힌 **사유를 그대로** 옮길 것. "검색 실패" 로 뭉뚱그리지 말 것 —
+ '구독 사용량 한도 도달' 과 '일시 오류' 는 본인이 해야 할 조치가 다르다.
+ Layer 0 이 ⚠️ 로 표시돼 있으면 그것도 여기에 반드시 넣을 것.
  "신호 없음" 과 절대 섞지 말 것. 없으면 이 섹션 자체를 생략)
 
 오늘 점검 안 함: 포지션명, 포지션명, ...
@@ -1441,7 +1465,10 @@ Layer 0 에 걸린 게 있으면 이 섹션을 문서 맨 위로 올릴 것.
 표 (날짜 / 이벤트 / 관련 포지션 / P). P1·P2만.
 
 ## ⚠️ 확인 미완료
-검색을 시작했으나 끝내지 못한 포지션. 사유와 확인된 범위를 적을 것.
+검색을 못 끝냈거나 아예 못 한 포지션·테마·Layer 0. 표로 (대상 / 사유 / 확인된 범위).
+**사유는 위 검색 결과에 적힌 문장을 그대로 옮길 것.** "검색 실패" 로 뭉뚱그리지 말 것 —
+'구독 사용량 한도 도달' 과 '일시 오류' 는 본인이 해야 할 조치가 다르다.
+한도 도달처럼 조치가 필요한 사유가 하나라도 있으면 이 섹션을 문서 맨 위로 올릴 것.
 "신호 없음" 과 절대 섞어 쓰지 말 것. 해당 없으면 "없음".
 
 ## 오늘 미점검 포지션
@@ -1706,6 +1733,31 @@ _SOURCE_RULE = f"""출처 규칙 (sources 배열):
 # 도구 미지원·인증 오류 등 구조적 실패가 나면 이후 검색 호출을 건너뛴다.
 # (전송 오류·서버 오류 같은 일시적 실패는 해당 호출만 포기하고 계속 진행)
 _search_disabled = False
+_search_disabled_reason = ""
+
+
+def classify_search_error(exc: Exception) -> str:
+    """검색 호출 예외를 사람이 읽는 사유로 바꾼다.
+
+    ★ 이게 왜 필요한가: 구독 사용량 한도에 걸리면 CLI 가 non-zero 로 죽고
+    _run_search 가 그 건만 삼킨다. 사유를 버리면 다이제스트에 '검색 실패' 로만
+    남아서, '한도라 못 봤다' 와 '일시 오류로 못 봤다' 가 구분되지 않는다.
+    미점검을 이상 없음과 섞지 않는다는 원칙이 여기서도 똑같이 걸린다.
+    """
+    text = f"{type(exc).__name__}: {exc}".lower()
+    if isinstance(exc, subprocess.TimeoutExpired):
+        return f"CLI 응답 없음 ({CLAUDE_CLI_TIMEOUT}초 초과)"
+    # CLI 는 한도 메시지를 stderr 로 흘리고 종료코드로만 알린다 — 문구로 잡는다
+    for needle in ("rate limit", "usage limit", "429", "too many requests",
+                   "quota", "limit reached", "사용량", "한도"):
+        if needle in text:
+            return "구독 사용량 한도 도달 — 검색 못 함"
+    for needle in ("401", "403", "unauthorized", "authentication", "oauth", "token"):
+        if needle in text:
+            return "인증 실패 (CLAUDE_CODE_OAUTH_TOKEN 확인 필요)"
+    if "json" in text:
+        return "CLI 응답 파싱 실패"
+    return f"검색 호출 실패 ({type(exc).__name__})"
 
 
 def _run_search(prompt: str, max_uses: int, label: str) -> tuple[Optional[dict], dict]:
@@ -1713,12 +1765,17 @@ def _run_search(prompt: str, max_uses: int, label: str) -> tuple[Optional[dict],
 
     검색이 실패해도 예외를 밖으로 내보내지 않는다 — 판정만 비고 다이제스트는 계속 생성된다.
     호출자는 None 을 '판정 없음' 으로 처리한다.
+
+    실패 사유는 usage["error"] 에 담아 돌려준다. 호출자가 이걸 '확인 미완료' 사유로
+    그대로 쓰므로, 왜 못 봤는지가 로그가 아니라 다이제스트 본문에 남는다.
     """
-    global _search_disabled
+    global _search_disabled, _search_disabled_reason
 
     if _search_disabled:
         logger.warning(f"{label}: 앞선 검색이 구조적으로 실패해 건너뜀")
-        return None, new_usage()
+        u = new_usage()
+        u["error"] = _search_disabled_reason or "앞선 검색이 구조적으로 실패해 건너뜀"
+        return None, u
 
     # CLI 모드는 max_uses 파라미터가 없어 API 처럼 강제할 수 없다. 프롬프트로 유도한다.
     if USE_CLAUDE_CLI:
@@ -1740,20 +1797,32 @@ def _run_search(prompt: str, max_uses: int, label: str) -> tuple[Optional[dict],
         status = getattr(e, "status_code", None)
         if status is not None and status < 500:
             _search_disabled = True
+            _search_disabled_reason = (
+                "구독/API 요청 거부 (HTTP 429) — 사용량 한도 도달"
+                if status == 429 else f"요청 거부 (HTTP {status}) — 설정 문제"
+            )
             logger.error(
                 f"{label}: 요청 거부 (HTTP {status}) — 설정 문제로 판단해 이후 검색 생략. "
                 f"다이제스트는 검색 없이 계속 생성: {e}"
             )
+            reason = _search_disabled_reason
         else:
             logger.error(f"{label}: 서버 오류 (HTTP {status}) — 이 건만 건너뜀: {e}")
-        return None, new_usage()
+            reason = f"서버 오류 (HTTP {status})"
+        u = new_usage()
+        u["error"] = reason
+        return None, u
     except Exception as e:
-        logger.error(f"{label}: 검색 호출 실패 — 이 건만 건너뜀: {e}")
-        return None, new_usage()
+        reason = classify_search_error(e)
+        logger.error(f"{label}: {reason} — 이 건만 건너뜀: {e}")
+        u = new_usage()
+        u["error"] = reason
+        return None, u
 
     result = extract_json(text)
     if result is None:
         logger.warning(f"{label}: 응답 JSON 파싱 실패 — 판정 없음으로 처리")
+        usage["error"] = "모델 응답을 JSON 으로 못 읽음"
     return result, usage
 
 
@@ -2087,12 +2156,20 @@ JSON 외 다른 텍스트 출력 금지."""
 # 상태 갱신
 # ============================================================
 
-def is_search_incomplete(result: Optional[dict], searches_used: int, max_uses: int) -> Optional[str]:
+def is_search_incomplete(
+    result: Optional[dict], searches_used: int, max_uses: int, error: str = ""
+) -> Optional[str]:
     """이 포지션 점검이 '확인 미완료' 인지 판정. 사유 문자열 또는 None.
 
     검색 한도에 걸려 확인을 못 끝낸 것과 '뉴스가 없는 것' 은 완전히 다른 상태인데,
     모델이 후자로 보고해버리면 미점검이 '이상 없음' 으로 둔갑한다. 그걸 막는다.
+
+    error 는 _run_search 가 usage["error"] 에 담아준 실패 사유다. 이게 있으면
+    그대로 쓴다 — "검색 실패" 로 뭉뚱그리면 구독 한도에 걸려 못 본 날과
+    일시 오류로 못 본 날이 다이제스트에서 같은 문장이 된다.
     """
+    if error:
+        return error
     if result is None:
         return "검색 호출 실패 또는 응답 파싱 실패"
     if result.get("search_complete") is False:
@@ -2322,6 +2399,10 @@ def build_thesis_appendix(
             out.append(f"- 개별 점검 안 함 (마지막 점검 {last})")
         elif item.get("skipped"):
             out.append(f"- 점검 못 함: {item['skipped']}")
+        elif not item.get("result") and item.get("incomplete"):
+            # 검색이 죽은 경우. "걸린 신호 없음" 으로 떨어지면 대조표에서
+            # 조용한 날과 못 본 날이 같은 문장이 된다.
+            out.append(f"- ⚠️ 확인 못 함: {item['incomplete']} (신호 없음이 아님)")
         else:
             findings = ((item.get("result") or {}).get("findings")) or []
             if findings:
@@ -2630,11 +2711,13 @@ async def main(dry_run: bool = False, market: str = "all"):
 
     # 3. Layer 0 (포트폴리오 상위 변수) 검색
     layer0_result = None
+    layer0_error = ""
     portfolio_level = positions_doc.get("portfolio_level", {})
     if portfolio_level:
         logger.info("Layer 0 검색 중...")
         layer0_result, u = search_layer0(portfolio_level, state.get("portfolio_level", {}), now_str)
         merge_usage(usage_total, u)
+        layer0_error = u.get("error", "")
         if layer0_result:
             state["portfolio_level"] = update_state_entry(
                 state.get("portfolio_level") or {}, layer0_result, today_str
@@ -2643,7 +2726,10 @@ async def main(dry_run: bool = False, market: str = "all"):
             reds = sum(1 for f in findings if f.get("level") == "RED")
             logger.info(f"Layer 0 완료: findings {len(findings)}건 (RED {reds})")
         else:
-            logger.warning("Layer 0 결과 파싱 실패 — 판정 없음으로 진행")
+            # Layer 0 은 포트폴리오 전체에 걸리는 층이다. 여기가 조용히 비면
+            # "상위 변수에 이상 없음" 으로 읽히므로 사유를 다이제스트까지 올린다.
+            layer0_error = layer0_error or "검색 호출 실패 또는 응답 파싱 실패"
+            logger.warning(f"Layer 0 실패 ({layer0_error}) — 판정 없음으로 진행")
     else:
         logger.warning("portfolio_level 없음 — Layer 0 검색 생략")
 
@@ -2686,7 +2772,9 @@ async def main(dry_run: bool = False, market: str = "all"):
                                     group=group, group_state=gstate)
         merge_usage(usage_total, u)
 
-        incomplete = is_search_incomplete(result, u["searches"], POSITION_MAX_USES)
+        incomplete = is_search_incomplete(
+            result, u["searches"], POSITION_MAX_USES, error=u.get("error", "")
+        )
         if result:
             findings = result.get("findings") or []
             # 부분 확인도 점검으로 친다. 모델은 사소한 미확인 항목까지 정직하게 보고하는데,
@@ -2752,7 +2840,9 @@ async def main(dry_run: bool = False, market: str = "all"):
         result, u = search_theme(theme, positions_by_id, entry, now_str)
         merge_usage(usage_total, u)
 
-        incomplete = is_search_incomplete(result, u["searches"], THEME_MAX_USES)
+        incomplete = is_search_incomplete(
+            result, u["searches"], THEME_MAX_USES, error=u.get("error", "")
+        )
         if result:
             findings = result.get("findings") or []
             theme_state["themes"][theme["id"]] = update_theme_entry(
@@ -2819,6 +2909,7 @@ async def main(dry_run: bool = False, market: str = "all"):
         theme_state=theme_state,
         registry=registry,
         market=market,
+        layer0_error=layer0_error,
     )
     logger.info(f"각주 출처 {len(registry)}건 등록")
 
@@ -2879,6 +2970,7 @@ async def main(dry_run: bool = False, market: str = "all"):
             "cost_usd": round(cost, 4),
             "market": market,
             "layer0": layer0_result,
+            "layer0_error": layer0_error,
             "sources": registry.items(),
             "themes": {
                 "selected": [
@@ -2898,6 +2990,7 @@ async def main(dry_run: bool = False, market: str = "all"):
                     "id": r["position"]["id"],
                     "reasons": r.get("reasons", []),
                     "skipped": r.get("skipped"),
+                    "incomplete": r.get("incomplete"),
                     "result": r.get("result"),
                 }
                 for r in position_results

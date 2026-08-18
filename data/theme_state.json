@@ -1074,6 +1074,353 @@
           "thesis_review": false
         }
       }
+    },
+    "grid-storage": {
+      "last_checked": "2026-08-18",
+      "observations": {
+        "삼아알미늄_가동률": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "60%(현재) → 90%+(2026 하반기 목표)"
+          }
+        ],
+        "삼아알미늄_ESS매출비중": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "80%"
+          }
+        ],
+        "국내3사_ESS2차입찰_점유율": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "SK온 50.2% / 삼성SDI 35.7% / LG엔솔 14%"
+          }
+        ],
+        "CATL_글로벌ESS점유율": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "25.6%(전년) → 27.1%(2026 상반기)"
+          }
+        ],
+        "K배터리_합산_글로벌ESS셀점유율": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "LG엔솔 2.6% + 삼성SDI 1.4% = 4.0%"
+          }
+        ],
+        "Fluence_백로그": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "$6.4B (2026 Q3 기준)"
+          }
+        ],
+        "Tesla_신규수주(6주)": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "43GWh"
+          }
+        ],
+        "ESS향 매출 증가율": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "전년比 +160%"
+          }
+        ],
+        "가동률": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "60% → 90%+ (하반기)"
+          }
+        ],
+        "2026 매출 전망": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "3,722억원 (+37% YoY)"
+          }
+        ],
+        "2026 영업이익": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "적자 → 88억원 흑자전환"
+          }
+        ],
+        "제품믹스": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "ESS 80% : EV 20%"
+          }
+        ],
+        "LG엔솔 ESS 캐파 목표(2026년말)": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "60GWh+ (북미 50GWh+, 기존 대비 2배)"
+          }
+        ],
+        "SK온 서산2공장 EV→ESS 전환": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "3GWh, 2026 하반기 구축 → 2027년초 가동"
+          }
+        ],
+        "삼성SDI 美 LFP 양산 개시": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "2026년 10월"
+          }
+        ],
+        "국내 ESS 2차 중앙계약 점유율": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "SK온 50.2% / 삼성SDI 35.7% / LG엔솔 14%"
+          }
+        ],
+        "3차 ESS 중앙계약시장 규모": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "약 1조원"
+          }
+        ],
+        "신규 데이터센터 디젤백업 커버리지": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "15~40% (기존 대비 하락)"
+          }
+        ],
+        "글로벌 BESS 시장 규모": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "2025년 $50.81B → 2030년 $105.96B 전망"
+          }
+        ],
+        "2025 연간 저장 설치량": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "112GW (+48% YoY)"
+          }
+        ],
+        "Tesla 신규수주(6주간)": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "43GWh / 약 $9B"
+          }
+        ],
+        "Tesla-NatPower 계약": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "25GWh / $5B (이탈리아·영국)"
+          }
+        ],
+        "Fluence Q3 수주": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "$1.44B (전년동기 $509M 대비 약 3배)"
+          }
+        ],
+        "Fluence 백로그": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "$6.4B (데이터센터向 $850M 포함)"
+          }
+        ]
+      },
+      "shifts": {
+        "W3,W4|lfp·ess 전용 셀 라인 증설과 ev 라인 전환 / ess 셀 판가 및 중국산 점유율 변화": {
+          "headline": "삼아알미늄 알박 쇼티지",
+          "shift": "LFP·ESS 전용 셀 라인 증설과 EV 라인 전환 / ESS 셀 판가 및 중국산 점유율 변화",
+          "refs": [
+            "W3",
+            "W4"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "ess-foil"
+          ],
+          "summary": "삼아알미늄 Corp Day에서 하반기 캐파 부족(알박 쇼티지)이 확인됐고, 압연 부문 제품믹스가 ESS향 80% : EV향 20%로 재편되며 ESS 매출이 전년比 160% 증가할 것으로 안내됐다. 가동률은 현재 60%에서 하반기 90% 이상으로 상승, 2026년 매출은 3,722억원(+37% YoY)에 영업이익 88억원으로 흑자전환이 예상된다.",
+          "sources": [
+            {
+              "url": "https://www.hankyung.com/koreamarket/consensus/pdf/2026-07-ebdc7ea96210d41b432d3a6f57cf36ac",
+              "outlet": "한국경제 컨센서스(Corp Day 노트)",
+              "date": "2026-07-24",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://news.nate.com/view/20260604n28415",
+              "outlet": "네이트뉴스",
+              "date": "2026-06-04",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://news.nate.com/view/20260428n24678",
+              "outlet": "네이트뉴스",
+              "date": "2026-04-28",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-18",
+          "first_seen": "2026-08-18",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W2,W3|lfp·ess 전용 셀 라인 증설과 ev 라인 전환": {
+          "headline": "K배터리 3사 ESS라인 전환 가속",
+          "shift": "LFP·ESS 전용 셀 라인 증설과 EV 라인 전환",
+          "refs": [
+            "W3",
+            "W2"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "ess-foil"
+          ],
+          "summary": "LG에너지솔루션은 2026년 말까지 ESS 캐파를 2배(60GWh+, 북미 50GWh+)로 확대 중이며 미국 EV라인 일부를 ESS로 전환 중이다. 삼성SDI는 미국 각형 LFP 라인 10월 양산 개시를 앞두고 2028년 캐파 초과를 전망해 추가 증설을 검토하고 있고, SK온은 서산 2공장 EV라인 3GWh를 ESS로 전환해 2027년 초 생산을 시작한다. 국내 ESS 2차 중앙계약시장에서는 SK온 50.2%, 삼성SDI 35.7%, LG엔솔 14%로 낙찰됐고, 약 1조원 규모의 3차 입찰이 8월 중~9월 공고 예정이다.",
+          "sources": [
+            {
+              "url": "https://www.mt.co.kr/industry/2026/07/30/2026073015101752355",
+              "outlet": "머니투데이",
+              "date": "2026-07-30",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://zdnet.co.kr/view/?no=20260707102927",
+              "outlet": "ZDNet Korea",
+              "date": "2026-07-07",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.ddaily.co.kr/page/view/2026081216012507955",
+              "outlet": "디지털데일리",
+              "date": "2026-08-12",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://biz.heraldcorp.com/article/10825969",
+              "outlet": "헤럴드경제",
+              "date": "2026-08-11",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-18",
+          "first_seen": "2026-08-18",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W1|데이터센터 백업·피크 대응용 ess 채택 방식 변화": {
+          "headline": "데이터센터 BESS 표준화",
+          "shift": "데이터센터 백업·피크 대응용 ESS 채택 방식 변화",
+          "refs": [
+            "W1"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "ess-foil"
+          ],
+          "summary": "AI 데이터센터의 디젤 백업 커버리지가 신규 프로젝트에서 15~40%로 축소되고 BESS가 거의 모든 신설 데이터센터 프로젝트의 표준 구성요소로 자리잡았다는 업계 보도가 나왔다. NEMA는 2026년 1월 BESS를 캠퍼스 전력 토폴로지에 통합하는 표준 설계지침을 발표해 개별 맞춤 설계 방식에서 표준화된 참조 아키텍처로 전환 중임을 시사했다.",
+          "sources": [
+            {
+              "url": "https://pv-magazine-usa.com/2026/07/15/data-center-power-shifts-favor-bess-solid-state-transformers/",
+              "outlet": "PV Magazine USA",
+              "date": "2026-07-15",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.datacenterknowledge.com/energy-power-supply/battery-storage-gains-ground-as-data-centers-seek-diesel-alternatives",
+              "outlet": "Data Center Knowledge",
+              "date": "2026-08",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://davisgraham.com/news-events/battery-storage-for-data-centers-in-2026-feoc-compliance-ferc-co-location-and-the-deals-getting-done-now/",
+              "outlet": "Davis Graham",
+              "date": "2026",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-18",
+          "first_seen": "2026-08-18",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W2|계통 안정화용 대형 ess 발주 규모": {
+          "headline": "글로벌 대형 ESS 발주 급증",
+          "shift": "계통 안정화용 대형 ESS 발주 규모",
+          "refs": [
+            "W2"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "ess-foil"
+          ],
+          "summary": "Tesla는 6주 만에 43GWh(약 90억달러) 규모의 신규 Megapack 수주를 확보했고, NatPower와는 이탈리아·영국향 25GWh(50억달러) 공급 계약을 체결했다. Fluence는 2026회계연도 3분기 수주 14.4억달러(전년동기 대비 약 3배)를 기록하며 데이터센터향 8.5억달러를 포함한 사상 최대 백로그 64억달러를 쌓았으나, 신규 위탁생산시설 지연으로 FY26 매출 가이던스는 하향했다.",
+          "sources": [
+            {
+              "url": "https://electrek.co/2026/06/23/tesla-natpower-megapack-25-gwh-europe/",
+              "outlet": "Electrek",
+              "date": "2026-06-23",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.basenor.com/blogs/news/tesla-megapack-orders-hit-9b-in-6-weeks-43-gwh-booked",
+              "outlet": "Basenor",
+              "date": "2026-08",
+              "tier": "S3",
+              "note": ""
+            },
+            {
+              "url": "https://www.dailypolitical.com/2026/08/07/fluence-energy-q3-earnings-call-highlights.html",
+              "outlet": "Daily Political (Fluence Q3 실적발표 기반)",
+              "date": "2026-08-07",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.energy-storage.news/fluence-doubles-order-intake-expects-to-book-first-big-data-centre-deal-this-quarter/",
+              "outlet": "Energy-Storage.News",
+              "date": "2026-08",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-18",
+          "first_seen": "2026-08-18",
+          "count": 1,
+          "thesis_review": false
+        }
+      }
     }
   }
 }

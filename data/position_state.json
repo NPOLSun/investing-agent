@@ -5,7 +5,7 @@
   },
   "positions": {
     "ess-foil": {
-      "last_checked": "2026-08-14",
+      "last_checked": "2026-08-18",
       "observations": {
         "ESS_매출비중_2025": [
           {
@@ -82,6 +82,27 @@
             "date": "2026-08-14",
             "last_seen": "2026-08-14",
             "value": "54300원 (+4.22%)"
+          }
+        ],
+        "ess_revenue": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "{\"value\": \"전년대비 +160%\", \"unit\": \"YoY %\", \"period\": \"FY2026E\", \"note\": \"SK증권 등 컨센서스 전망치, 절대금액(억원) 미확인. 직전 점검(2026-08-14)과 동일 수치 재확인\"}"
+          }
+        ],
+        "ess_revenue_share": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "{\"value\": 31, \"unit\": \"%\", \"period\": \"FY2026E\", \"note\": \"2025년 17% → 2026E 31% 전망 유지. 직전 점검(2026-08-14)과 동일 전망치, 신규 상향 아님\"}"
+          }
+        ],
+        "operating_margin": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "{\"value\": 2.4, \"unit\": \"%\", \"period\": \"FY2026E\", \"note\": \"매출 3,722억원/영업이익 88억원 컨센서스 역산치, 실제 분기 확정치 아님. 2026년 1분기는 영업손실 지속(전년比 손실 75.3%↑)이었고 4월 A사 오더 개시로 반등 시작이라는 기존 서사와 일치, 새 정보 아님\"}"
           }
         ]
       },
@@ -277,7 +298,7 @@
       ]
     },
     "hyosung-transformer": {
-      "last_checked": "2026-08-14",
+      "last_checked": "2026-08-18",
       "observations": {
         "298040_영업이익률_2026Q2": [
           {
@@ -307,7 +328,7 @@
       ]
     },
     "hd-hyundai-electric": {
-      "last_checked": "2026-08-14",
+      "last_checked": "2026-08-18",
       "observations": {
         "267260_실적": [
           {
@@ -315,9 +336,83 @@
             "last_seen": "2026-08-14",
             "value": "미확인"
           }
+        ],
+        "operating_margin": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "{\"value\": 25.1, \"unit\": \"%\", \"period\": \"2026Q2\", \"note\": \"1Q 24.9% → 2Q 25.1%, 2개 분기 연속 상승\"}"
+          }
+        ],
+        "backlog": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "{\"value\": 8.49, \"unit\": \"십억달러\", \"period\": \"2026Q2\", \"note\": \"YoY +29.6%, 사상 최대\"}"
+          }
+        ],
+        "HD현대일렉트릭·일진전기 관세율": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "0%"
+          }
+        ],
+        "LS일렉트릭·효성중공업 관세율": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "4.32%"
+          }
+        ],
+        "영업이익률": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "24.9%(1Q) → 25.1%(2Q)"
+          }
+        ],
+        "수주잔고": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "$8.49B (YoY +29.6%)"
+          }
+        ],
+        "2Q 신규수주": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "$1.44B (YoY +44.6%)"
+          }
         ]
       },
-      "open_flags": []
+      "open_flags": [
+        {
+          "signal": "K3. 반덤핑 관세 강화 상태에서 미국 현지 capa 미확보",
+          "level": "YELLOW",
+          "first_seen": "2026-08-18",
+          "last_seen": "2026-08-18",
+          "count": 1,
+          "summary": "美 상무부가 한국산 대형변압기(2023-2024 리뷰기간) 반덤핑 관세 최종판정을 발표(2026-08-10 결정, 08-14 관보 게재)했다. HD현대일렉트릭과 일진전기는 0% 관세율을 유지한 반면 LS일렉트릭·효성중공업은 4.32%를 부과받아, 형제 종목과 달리 이 회사는 관세 노출이 없는 것으로 확정됐다. 동시에 앨라배마 공장은 누적 변압기 1,000대 생산을 돌파했고 2억달러 규모 추가 증설(생산능력 50%↑, 2027-04 완공 예정)도 진행 중이라 현지 capa 확보도 계속되고 있다.",
+          "sources": [
+            {
+              "url": "https://www.federalregister.gov/documents/2026/08/14/2026-16663/large-power-transformers-from-the-republic-of-korea-final-results-of-antidumping-duty-administrative",
+              "outlet": "federalregister.gov",
+              "date": "2026-08-14",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.newstomato.com/ReadNews.aspx?no=1310258",
+              "outlet": "newstomato.com",
+              "date": "2026-08-14",
+              "tier": "S2",
+              "note": ""
+            }
+          ]
+        }
+      ]
     },
     "point-of-load": {
       "last_checked": "2026-08-17",
@@ -1148,6 +1243,13 @@
               "note": ""
             },
             {
+              "url": "https://en.sedaily.com/finance/2026/08/14/doosan-enerbility-to-supply-core-components-for-terrapowers",
+              "outlet": "Seoul Economic Daily",
+              "date": "2026-08-14",
+              "tier": "S2",
+              "note": ""
+            },
+            {
               "url": "https://www.newswire.co.kr/newsRead.php?no=1040577&sourceType=rss",
               "outlet": "뉴스와이어",
               "date": "2026-08-14",
@@ -1229,6 +1331,220 @@
           ]
         }
       ]
+    },
+    "optical-align": {
+      "last_checked": "2026-08-18",
+      "observations": {
+        "cpo_timeline": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "{\"value\": 2028, \"unit\": \"year\", \"period\": \"2026-08\", \"note\": \"대신증권 등 추정 유지, 지연 신호 없음(K5 미해당)\"}"
+          }
+        ],
+        "엔비디아 수주": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "약 95억원"
+          }
+        ],
+        "마벨 수주": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "약 5억원"
+          }
+        ],
+        "CPO 칩 테스터 단가": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "3.5억원 → 6.5억원"
+          }
+        ],
+        "17회차 CB 조기취득": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "액면 50억원(시가 약 2,000억원)"
+          }
+        ],
+        "14회차 BW 잔여": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "503만주"
+          }
+        ],
+        "17회차 CB 잠재 재매각": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "434만주"
+          }
+        ],
+        "잠재 희석 규모": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "전체 주식수 45%+"
+          }
+        ],
+        "인수 규모": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "약 2.6억달러(지분 100%)"
+          }
+        ],
+        "로보테크닉 시가총액": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "약 14조원(보도 기준)"
+          }
+        ]
+      },
+      "open_flags": [
+        {
+          "signal": "A1. 실제 CPO 양산 장비 수주 공시",
+          "level": "YELLOW",
+          "first_seen": "2026-08-18",
+          "last_seen": "2026-08-18",
+          "count": 1,
+          "summary": "ADS테크가 엔비디아(약 95억원)·마벨(약 5억원) CPO 얼라인 장비를 신규 수주했고, 브로드컴으로부터는 반도체 검사 기능이 결합된 'CPO 칩 테스터'를 수주해 대당 단가가 3.5억원에서 6.5억원으로 상승했다. 코닝·패브리넷·루멘텀 등 글로벌 광모듈 업체들의 발주도 이어지고 있는 것으로 보도됐다.",
+          "sources": [
+            {
+              "url": "https://www.mt.co.kr/stock/2026/06/17/2026061710331164662",
+              "outlet": "머니투데이",
+              "date": "2026-06-17",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.mt.co.kr/stock/2026/04/23/2026042314292289900",
+              "outlet": "머니투데이",
+              "date": "2026-04-23",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.38.co.kr/html/news/?o=v&m=kosdaq&no=1973001&files=2026061710331164662",
+              "outlet": "38커뮤니케이션",
+              "date": "2026-06-17",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://kr.investing.com/news/stock-market-news/article-1964869",
+              "outlet": "EBN(Investing.com)",
+              "date": "2026-06-09",
+              "tier": "S2",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "signal": "A2. 삼성전자 공동개발 성과 가시화",
+          "level": "YELLOW",
+          "first_seen": "2026-08-18",
+          "last_seen": "2026-08-18",
+          "count": 1,
+          "summary": "삼성전자와 ADS테크가 실리콘 포토닉스 기반 CPO 얼라인먼트 시스템을 공동 개발하는 계약을 체결했다고 보도됐다. 아직 양산·상용화 단계가 아닌 공동개발 계약 체결 단계다.",
+          "sources": [
+            {
+              "url": "https://www.mt.co.kr/stock/2026/06/01/2026060111260287030",
+              "outlet": "머니투데이",
+              "date": "2026-06-01",
+              "tier": "S2",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "signal": "A3. CB 전환 완료로 오버행 해소",
+          "level": "YELLOW",
+          "first_seen": "2026-08-18",
+          "last_seen": "2026-08-18",
+          "count": 1,
+          "summary": "성호전자가 17회차 사모 전환사채(액면 50억원, 전환가 1,150원, 시가환산 약 2,000억원) 전액을 만기 전 조기취득하기로 결정해 소각 시 해당 물량의 오버행 우려는 해소될 수 있다. 다만 14회차 BW 잔여 503만주와 향후 M&A 재원으로 재매각될 가능성이 거론되는 17회차 CB 434만주 등을 합치면 잠재 희석 규모가 여전히 전체 주식수의 45%를 넘어선다는 분석도 나온다.",
+          "sources": [
+            {
+              "url": "https://www.junggi.co.kr/news/articleView.html?idxno=36816",
+              "outlet": "중기이코노미",
+              "date": "2026-06-09",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://news.nate.com/view/20260612n22510",
+              "outlet": "네이트뉴스(딜인사이드)",
+              "date": "2026-06-12",
+              "tier": "S2",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "signal": "과점 상대인 독일 ficonTEC이 중국 선전 소재 상장사 로보테크닉(RoboTechnik, 300757.S",
+          "level": "YELLOW",
+          "first_seen": "2026-08-18",
+          "last_seen": "2026-08-18",
+          "count": 1,
+          "summary": "과점 상대인 독일 ficonTEC이 중국 선전 소재 상장사 로보테크닉(RoboTechnik, 300757.SZ)에 약 2.6억달러 규모로 완전 인수(지분 100%)된 것으로 확인된다. 로보테크닉은 이 인수 이후 'AI 광통신 장비업체'로 재평가받아 시가총액이 약 14조원까지 확대됐다는 보도가 나온다. K4가 지칭하는 '신규 경쟁자 진입'과는 다르지만, T1의 전제인 'ficonTEC·ADS테크 과점 구조'에서 ficonTEC이 중국계 대형 자본의 지원을 받는 구조로 바뀐 셈이어서 확인이 필요하다.",
+          "sources": [
+            {
+              "url": "https://www.forbes.com/sites/zinnialee/2026/05/15/chinese-ai-optics-billionaire-eyes-dual-listing-in-hong-kong-after-340-stock-rally/",
+              "outlet": "Forbes",
+              "date": "2026-05-15",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.laserfocusworld.com/executive-forum/article/14197662/ficontec-robotechnik-enter-structured-investment-agreement",
+              "outlet": "Laser Focus World",
+              "date": "2026",
+              "tier": "S2",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    "hpa-equipment": {
+      "last_checked": "2026-08-18",
+      "observations": {
+        "hpa_units": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "{\"value\": 1, \"unit\": \"대\", \"period\": \"2026-08\", \"note\": \"75매 장비 2026-03 출하(파운드리向, 양산 검증 중). 125매 장비(메모리向, 2025-12 수주)는 8월 납품 예정이나 오늘(8/18) 기준 완료 확인 안됨\"}"
+          }
+        ],
+        "customer_count": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "{\"value\": 2, \"unit\": \"곳\", \"period\": \"2026-08\", \"note\": \"파운드리 1곳 + 메모리 1곳 확인. 삼성전자 대상 120억원 규모 장비 계약(2026-06-02 공시)은 품목 비공개로 HPA 해당 여부 미확인\"}"
+          }
+        ],
+        "lawsuit": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "{\"value\": \"본안 미결\", \"unit\": \"상태\", \"period\": \"2026-08\", \"note\": \"서울중앙지법 침해소송 본안 8/13 변론기일 진행, 9월 최종 변론기일 예정(판결 아님). 특허법원 2심(심결취소소송 3건)은 2026-06-18 예스티 비침해로 이미 종료 — 본안과 별개 절차\"}"
+          }
+        ],
+        "hpo_orders": [
+          {
+            "date": "2026-08-18",
+            "last_seen": "2026-08-18",
+            "value": "{\"value\": 0, \"unit\": \"건\", \"period\": \"2026-08\", \"note\": \"2025-09-01 산업통상자원부 HPO 국책과제 주관기관 선정(수요기업 2곳 참여) 외 상용 수주 없음\"}"
+          }
+        ]
+      },
+      "open_flags": []
     }
   },
   "portfolio_level": {
@@ -1248,6 +1564,11 @@
           "date": "2026-08-18",
           "last_seen": "2026-08-18",
           "value": "AMZN ~$200B, MSFT ~$190B, GOOGL $195-205B(상향 확인), META $125-145B(상향) — 4사 합산 ~$700-725B, 하향 없음"
+        },
+        {
+          "date": "2026-08-18",
+          "last_seen": "2026-08-18",
+          "value": "AMZN ~$200B, MSFT ~$190B, GOOGL $195-205B(상향), META $125-145B(상향) — 4사 합산 ~$700-725B, 하향 없음"
         }
       ],
       "변압기 리드타임": [
@@ -1265,6 +1586,11 @@
           "date": "2026-08-18",
           "last_seen": "2026-08-18",
           "value": "대형 파워 트랜스포머 128주(~2.5년), GSU 144주 — 대형 변압기는 여전히 확대 기조, 배전용만 부분 완화(52주+→26-40주)"
+        },
+        {
+          "date": "2026-08-18",
+          "last_seen": "2026-08-18",
+          "value": "파워 트랜스포머 128주(~2.5년), GSU 144주, HV Tier1 최대 60개월(5년) — 확대 기조 지속, 배전용만 부분 완화(52주+→26-40주)"
         }
       ],
       "데이터센터 신규 파이프라인 추가": [
@@ -1282,6 +1608,11 @@
           "date": "2026-08-18",
           "last_seen": "2026-08-18",
           "value": "2025Q3 60GW+ → 2025Q4 감소 → 2026Q1 36GW(-19% QoQ), 3분기 연속 둔화, 누적 331GW 중 40% 활발히 개발 중, 2026Q2 수치 미확인"
+        },
+        {
+          "date": "2026-08-18",
+          "last_seen": "2026-08-18",
+          "value": "2025Q3 60GW+ → 2025Q4 감소 → 2026Q1 36GW(-19% QoQ), 3분기 연속 둔화, 2026Q2 수치 미공개, 실제 건설지출(YTD $49.5B)은 견조"
         }
       ],
       "Natrium 착공": [
@@ -1320,6 +1651,11 @@
           "date": "2026-08-18",
           "last_seen": "2026-08-18",
           "value": "Natrium 착공(2026-04), Kairos Hermes1 착공(2025-05)+Hermes2 착공(2026-04), Seadrift는 건설허가 2027Q1 예상(착공 전) — 3개 중 2개 이미 착공하여 L4 KILL 조건 사실상 반증"
+        },
+        {
+          "date": "2026-08-18",
+          "last_seen": "2026-08-18",
+          "value": "Natrium 착공(2026-04), Kairos Hermes1 착공(2025-05)+Hermes2 착공(2026-04), Seadrift는 NRC 환경평가 완료·건설허가 2027Q1 예상(착공 전) — 3개 중 2개 이미 착공하여 L4 KILL 조건 성립 안 함"
         }
       ],
       "4사 합산 2026 capex 가이던스": [
@@ -1430,6 +1766,11 @@
           "date": "2026-08-18",
           "last_seen": "2026-08-18",
           "value": "331GW"
+        },
+        {
+          "date": "2026-08-18",
+          "last_seen": "2026-08-18",
+          "value": "331GW (약 40% 활발히 개발 중)"
         }
       ],
       "활발히 개발 중 비중": [
@@ -1465,6 +1806,95 @@
           "date": "2026-08-18",
           "last_seen": "2026-08-18",
           "value": "2027 Q1"
+        },
+        {
+          "date": "2026-08-18",
+          "last_seen": "2026-08-18",
+          "value": "2027Q1"
+        }
+      ],
+      "4사 합산 2026 capex": [
+        {
+          "date": "2026-08-18",
+          "last_seen": "2026-08-18",
+          "value": "~$700-725B (변동 없음)"
+        }
+      ],
+      "GOOGL": [
+        {
+          "date": "2026-08-18",
+          "last_seen": "2026-08-18",
+          "value": "$180-190B → $195-205B (상향)"
+        }
+      ],
+      "META": [
+        {
+          "date": "2026-08-18",
+          "last_seen": "2026-08-18",
+          "value": "$115-135B → $125-145B (상향)"
+        }
+      ],
+      "AMZN": [
+        {
+          "date": "2026-08-18",
+          "last_seen": "2026-08-18",
+          "value": "~$200B (변동 없음)"
+        }
+      ],
+      "MSFT": [
+        {
+          "date": "2026-08-18",
+          "last_seen": "2026-08-18",
+          "value": "~$190B (변동 없음)"
+        }
+      ],
+      "파이프라인 신규 추가": [
+        {
+          "date": "2026-08-18",
+          "last_seen": "2026-08-18",
+          "value": "2025Q3 60GW+ → 2025Q4 감소 → 2026Q1 36GW(-19% QoQ)"
+        }
+      ],
+      "2026년 4월 데이터센터 건설지출": [
+        {
+          "date": "2026-08-18",
+          "last_seen": "2026-08-18",
+          "value": "$2.4B (YTD $49.5B, 전년동기 $13.6B 대비 대폭 증가)"
+        }
+      ],
+      "GSU 리드타임": [
+        {
+          "date": "2026-08-18",
+          "last_seen": "2026-08-18",
+          "value": "144주"
+        }
+      ],
+      "HV Tier1 변압기": [
+        {
+          "date": "2026-08-18",
+          "last_seen": "2026-08-18",
+          "value": "최대 60개월(5년)"
+        }
+      ],
+      "배전용 변압기": [
+        {
+          "date": "2026-08-18",
+          "last_seen": "2026-08-18",
+          "value": "52주+ → 26-40주 (완화)"
+        }
+      ],
+      "Kairos Hermes1 착공": [
+        {
+          "date": "2026-08-18",
+          "last_seen": "2026-08-18",
+          "value": "2025-05 (완공 2029년으로 연기)"
+        }
+      ],
+      "Kairos Hermes2 착공": [
+        {
+          "date": "2026-08-18",
+          "last_seen": "2026-08-18",
+          "value": "2026-04"
         }
       ]
     },
@@ -1475,7 +1905,7 @@
         "first_seen": "2026-08-14",
         "last_seen": "2026-08-18",
         "count": 3,
-        "summary": "Wood Mackenzie 기준 미국 데이터센터 파이프라인 신규 용량 추가는 2025Q3 60GW+ 피크 이후 2025Q4, 2026Q1(36GW, -19% QoQ)까지 3개 분기 연속 둔화 추세다. 다만 이는 '파이프라인 신규 추가' 지표이며 실제 '착공' 건수와는 다르고, 누적 파이프라인은 331GW로 이 중 약 40%가 활발히 개발 중이며 53%의 프로젝트가 인허가를 통과(전체 용량의 32%)했다는 점에서 여전히 개발 자체는 진행 중이다.",
+        "summary": "Wood Mackenzie 기준 데이터센터 파이프라인 신규 용량 추가는 2025Q3 피크 이후 2025Q4, 2026Q1(36GW, -19% QoQ)까지 3개 분기 연속 둔화했다. 다만 이는 '신규 파이프라인 추가' 지표이며 실제 착공/건설지출과는 다르다 — ConstructConnect 집계로는 2026년 4월에도 건설지출이 전년 동기($13.6B) 대비 크게 늘어난 YTD $49.5B를 기록하며 견조했다. 2026Q2 파이프라인 수치는 아직 공개되지 않아 '2개 분기 연속 감소(착공 기준)' 판정에 필요한 데이터 공백이 지속된다.",
         "sources": [
           {
             "url": "https://www.woodmac.com/press-releases/us-data-centre-developers-shift-focus-to-existing-pipelines-as-new-capacity-additions-slow-in-q1-2026/",
@@ -1485,9 +1915,16 @@
             "note": ""
           },
           {
-            "url": "https://www.publicpower.org/periodical/article/us-data-center-developers-shift-focus-existing-pipelines-new-capacity-additions-slow-q1-2026-report",
-            "outlet": "American Public Power Association",
-            "date": "2026-08-17",
+            "url": "https://news.constructconnect.com/june-2026-data-center-report-construction-remains-strong-as-costs-rise",
+            "outlet": "ConstructConnect",
+            "date": "2026-06",
+            "tier": "S2",
+            "note": ""
+          },
+          {
+            "url": "https://www.networkworld.com/article/4201941/up-to-50-of-data-center-capacity-slated-for-2026-could-be-delayed.html",
+            "outlet": "Network World",
+            "date": "2026",
             "tier": "S2",
             "note": ""
           }
@@ -1507,7 +1944,7 @@
   },
   "groups": {
     "us-transformer": {
-      "last_checked": "2026-08-14",
+      "last_checked": "2026-08-18",
       "observations": {
         "미국_유틸리티_TD_capex_2026": [
           {

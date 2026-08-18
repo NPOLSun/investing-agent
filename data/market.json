@@ -1,6 +1,7 @@
 {
-  "asof": "2026-08-18 06:30 KST",
+  "asof": "2026-08-18 16:30 KST",
   "date": "2026-08-18",
+  "market": "kr",
   "prices": {
     "VICR": {
       "ticker": "VICR",
@@ -45,7 +46,7 @@
     },
     "267260": {
       "ticker": "267260",
-      "name": "미국 변압기",
+      "name": "HD현대일렉트릭",
       "market": "KR",
       "price": 803000,
       "change_pct": 2.29,
@@ -54,7 +55,7 @@
     },
     "006110": {
       "ticker": "006110",
-      "name": "ESS 알루미늄박",
+      "name": "삼아알미늄",
       "market": "KR",
       "price": 52900,
       "change_pct": -2.58,
@@ -63,7 +64,7 @@
     },
     "440110": {
       "ticker": "440110",
-      "name": "SSD 컨트롤러 (파두)",
+      "name": "파두",
       "market": "KR",
       "price": 65500,
       "change_pct": 3.97,
@@ -72,20 +73,20 @@
     },
     "043260": {
       "ticker": "043260",
-      "name": "광정렬 장비 (성호전자/ADS테크)",
+      "name": "성호전자",
       "market": "KR",
       "price": 20400,
       "change_pct": -2.86,
-      "volume_ratio": 0.57,
+      "volume_ratio": 0.58,
       "market_cap": null
     },
     "122640": {
       "ticker": "122640",
-      "name": "고압어닐링 장비 (예스티)",
+      "name": "예스티",
       "market": "KR",
       "price": 28700,
       "change_pct": -1.37,
-      "volume_ratio": 0.73,
+      "volume_ratio": 0.74,
       "market_cap": null
     },
     "034020": {

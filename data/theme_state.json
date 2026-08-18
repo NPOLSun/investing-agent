@@ -1,11 +1,11 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-08-18"
+    "last_run": "2026-08-19"
   },
   "themes": {
     "ai-dc-power": {
-      "last_checked": "2026-08-17",
+      "last_checked": "2026-08-19",
       "observations": {
         "OCP LVDC SST 스펙": [
           {
@@ -31,6 +31,16 @@
             "date": "2026-08-17",
             "last_seen": "2026-08-17",
             "value": "~600kW/rack (2027 출시)"
+          },
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "600kW (GTC26 재설계 후 재확인)"
+          },
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "600kW (재설계 후 재확인, 300kW대 추측은 반박됨)"
           }
         ],
         "FERC 계통접속 명령": [
@@ -157,6 +167,125 @@
             "last_seen": "2026-08-17",
             "value": "YoY +37.3%"
           }
+        ],
+        "FERC RTO 응답 시한": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "2026-08-17 도래"
+          }
+        ],
+        "Vicor 2Q26 매출": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "1.434억달러(QoQ +26.9%)"
+          }
+        ],
+        "Vicor 1년 백로그": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "3.797억달러(QoQ +26%)"
+          }
+        ],
+        "Vicor Fab1 연매출 런레이트 목표": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "10억달러 → 15억달러"
+          }
+        ],
+        "Vicor 2026 매출 전망": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "5.7억달러 → 6억달러+"
+          }
+        ],
+        "xAI Colossus 임시터빈": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "약 69기, 2026-08 철거 시작 → 2027-07 완료"
+          }
+        ],
+        "xAI 영구 가스발전소": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "1.2GW"
+          }
+        ],
+        "SpaceX 추가 가스터빈 투자(3년)": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "28억달러"
+          }
+        ],
+        "2Q26 매출": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "1.434억달러(QoQ +26.9%)"
+          }
+        ],
+        "1년 백로그": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "3.797억달러(QoQ +26%)"
+          }
+        ],
+        "Fab1 연매출 런레이트 목표": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "10억달러 → 15억달러"
+          }
+        ],
+        "2026년 매출 전망": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "약 5.7억달러 → 6억달러+"
+          }
+        ],
+        "임시터빈 철거": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "2026년 8월 시작 → 2027년 7월 완료"
+          }
+        ],
+        "영구 발전소 규모": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "1.2GW"
+          }
+        ],
+        "추가 가스터빈 투자(3년)": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "28억달러"
+          }
+        ],
+        "응답 시한": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "2026-08-17"
+          }
+        ],
+        "발전용량 확보 보고서 제출 시한": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "2026-07-20"
+          }
         ]
       },
       "shifts": {
@@ -209,7 +338,7 @@
           "thesis_review": false
         },
         "W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화": {
-          "headline": "FERC, 계통접속 규칙 개혁 명령",
+          "headline": "FERC 6개 RTO 응답시한 8/17 도래",
           "shift": "계통 접속 대기열(interconnection queue) 적체 및 규제 변화",
           "refs": [
             "W5"
@@ -219,37 +348,37 @@
             "hyosung-transformer",
             "hd-hyundai-electric"
           ],
-          "summary": "FERC가 2026-06-18 6개 지역 계통운영자(RTO/ISO)에 대형부하(데이터센터) 접속 규정을 60일 내 개정하거나 정당화하도록 명령했고, 30일 내 발전용량 확보 계획을 담은 신뢰성 보고서 제출도 요구했다. 이는 2025-10-23 DOE가 조직법 403조를 발동해 FERC에 조치를 강제한 데 따른 후속 조치이며, 현재 대기 물량은 2,060GW·평균 대기기간은 2008년 2년에서 약 5년으로 늘어난 상태다.",
+          "summary": "2026-06-18 FERC가 PJM·MISO·SPP·CAISO·ISO-NE·NYISO 6개 RTO/ISO에 내린 대형부하 접속규정 개정/정당화 명령(Section 206 Show Cause Order)의 60일 응답 시한이 2026-08-17 도래했다. 각 운영자는 이날까지 관세(tariff) 개정안 또는 기존 규정의 정당성 근거를 제출해야 하며, 앞서 7월20일 발전용량 확보 보고서, 8월3일 유예신청 등 단계적 절차가 이미 진행됐다.",
           "sources": [
             {
-              "url": "https://www.whitecase.com/insight-alert/ferc-orders-grid-operators-promptly-revise-or-justify-interconnection-rules-data",
-              "outlet": "White & Case",
+              "url": "https://www.ferc.gov/rm26-4",
+              "outlet": "FERC (Docket RM26-4)",
+              "date": "2026-06-18",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.akingump.com/en/insights/blogs/speaking-energy/ferc-issues-landmark-show-cause-orders-on-large-load-interconnection",
+              "outlet": "Akin Gump",
               "date": "2026-06-19",
               "tier": "S2",
               "note": ""
             },
             {
-              "url": "https://www.americanactionforum.org/insight/ferc-data-center-orders-accelerate-grid-connection/",
-              "outlet": "American Action Forum",
-              "date": "2026-06-20",
-              "tier": "S2",
-              "note": ""
-            },
-            {
-              "url": "https://www.utilitydive.com/news/ferc-doe-data-center-interconnection-pjm-backstop-auction/817804/",
-              "outlet": "Utility Dive",
-              "date": "2026-06-10",
+              "url": "https://www.mcguirewoods.com/client-resources/alerts/2026/6/ferc-issues-section-206-show-cause-orders-directing-all-six-rtos-isos-to-justify-or-reform-large-load-integration-rules/",
+              "outlet": "McGuireWoods",
+              "date": "2026-06-19",
               "tier": "S2",
               "note": ""
             }
           ],
-          "last_seen": "2026-08-17",
+          "last_seen": "2026-08-19",
           "first_seen": "2026-08-17",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W4|온사이트 발전·비계통 전력 조달 비중(behind-the-meter)": {
-          "headline": "온사이트 발전 확대, 가스터빈 적체 심화",
+          "headline": "xAI 임시터빈 철거, 영구발전 전환",
           "shift": "온사이트 발전·비계통 전력 조달 비중(behind-the-meter)",
           "refs": [
             "W4"
@@ -258,33 +387,40 @@
           "affects": [
             "power-generation"
           ],
-          "summary": "2026년 8월 기준 가동 중인 behind-the-meter 발전용량은 약 2GW(xAI Colossus 1·2가 약 1.5GW로 대부분 차지)이며, 연말까지 2.8~3.2GW로 늘어날 전망이다. 같은 기간 Siemens Energy의 그리드 부문 수주잔고는 변압기 수요에 힘입어 사상 최대인 510억 유로를 기록해(2026-08-05/09 보도), 전력기기 전반의 공급 부족이 지속되고 있음을 뒷받침한다.",
+          "summary": "미시시피주 환경당국과의 합의에 따라 xAI(스페이스X)는 2026년 8월부터 콜로서스의 무허가 임시 가스터빈(약 69기) 철거를 시작해 2027년 7월까지 완료하고, 정식 허가를 받은 1.2GW 영구 가스발전소로 대체한다. NAACP 등의 대기오염 소송은 진행 중이나 법무부(DOJ)는 스페이스X 편에 섰고, 스페이스X는 IPO 서류에서 향후 3년간 추가 가스터빈에 28억달러를 투자할 계획을 밝혔다.",
           "sources": [
             {
-              "url": "https://www.globenewswire.com/news-release/2026/08/11/3342843/0/en/data-centers-are-running-out-of-power-and-behind-the-meter-generation-could-be-the-answer.html",
-              "outlet": "GlobeNewswire",
-              "date": "2026-08-11",
+              "url": "https://naacp.org/articles/naacp-sues-xai-illegal-pollution-data-center-power-plant",
+              "outlet": "NAACP",
+              "date": "2026-04",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://theaiinsider.tech/2026/08/03/spacex-to-phase-out-unpermitted-turbines-at-xai-data-centers-by-2027-building-permanent-gas-plant/",
+              "outlet": "The AI Insider",
+              "date": "2026-08-03",
               "tier": "S2",
               "note": ""
             },
             {
-              "url": "https://cleanview.co/reports/behind-the-meter-data-centers",
-              "outlet": "Cleanview",
-              "date": "2026-08-01",
+              "url": "https://techcrunch.com/2026/07/31/spacex-wont-remove-all-of-xais-unpermitted-turbines-for-another-year/",
+              "outlet": "TechCrunch",
+              "date": "2026-07-31",
               "tier": "S2",
               "note": ""
             },
             {
-              "url": "https://mgrid.org/2026/08/09/siemens-energys-grid-order-backlog-hits-a-record-51-billion-euros-on-transformer-demand/",
-              "outlet": "mgrid.org",
-              "date": "2026-08-09",
+              "url": "https://www.engadget.com/2228277/spacexai-says-it-will-take-a-year-to-fully-remove-unpermitted-gas-turbines-from-its-mississippi-data-center/",
+              "outlet": "Engadget",
+              "date": "2026-07-31",
               "tier": "S2",
               "note": ""
             }
           ],
-          "last_seen": "2026-08-17",
+          "last_seen": "2026-08-19",
           "first_seen": "2026-08-17",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W5|미국 변압기 수요發 한국 공급사 실적/수주 전환": {
@@ -326,17 +462,102 @@
           "first_seen": "2026-08-17",
           "count": 1,
           "thesis_review": false
+        },
+        "W2,W3|배전 전압 아키텍처 전환(54v 랙 → 800vdc)에 연동된 point-of-load 공급사 실적": {
+          "headline": "Vicor 2Q 실적·가이던스 상향",
+          "shift": "배전 전압 아키텍처 전환(54V 랙 → 800VDC)에 연동된 point-of-load 공급사 실적",
+          "refs": [
+            "W2",
+            "W3"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "point-of-load"
+          ],
+          "summary": "Vicor는 2026-07-21 실적발표에서 2분기 매출 1억4340만달러(전분기 대비 +26.9%), EPS $1.04(컨센서스 상회)를 기록했다. 1년 백로그가 3억7970만달러(+26% QoQ)로 늘었고, Fab 1 연매출 런레이트 목표를 기존 약 10억달러에서 15억달러 이상으로 상향했으며 2026년 매출 전망도 6억달러 돌파로 높였다.",
+          "sources": [
+            {
+              "url": "https://www.fool.com/earnings/call-transcripts/2026/07/21/vicor-vicr-q2-2026-earnings-call-transcript/",
+              "outlet": "The Motley Fool (Vicor 실적발표 전문)",
+              "date": "2026-07-21",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://finance.yahoo.com/markets/stocks/articles/vicor-q2-earnings-beat-estimates-172100119.html",
+              "outlet": "Yahoo Finance",
+              "date": "2026-07-22",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.tradingview.com/news/zacks:2971ee7a6094b:0-vicor-and-the-ai-power-trend-reshaping-data-center-hardware/",
+              "outlet": "TradingView/Zacks",
+              "date": "2026-08-18",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-19",
+          "first_seen": "2026-08-19",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W1,W3|랙 전력밀도 로드맵 변경(kw/rack) 및 실제 배치 시점": {
+          "headline": "Kyber 랙 600kW, 재설계 후 재확인",
+          "shift": "랙 전력밀도 로드맵 변경(kW/rack) 및 실제 배치 시점",
+          "refs": [
+            "W1",
+            "W3"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "point-of-load"
+          ],
+          "summary": "GTC 2026(워싱턴DC)에서 NVIDIA는 Rubin Ultra용 Kyber 랙을 수직 컴퓨트 블레이드·미드플레인 구조로 재설계했다고 공개했다. 재설계로 GPU 밀도가 절반으로 줄어 전력이 300kW대로 낮아질 수 있다는 일부 매체 추측이 있었으나, Jensen Huang 및 다수 매체 보도는 랙당 약 600kW·800VDC 배전이 유지된다고 일관되게 확인했다.",
+          "sources": [
+            {
+              "url": "https://www.tomshardware.com/pc-components/gpus/nvidia-shows-off-rubin-ultra-with-600-000-watt-kyber-racks-and-infrastructure-coming-in-2027",
+              "outlet": "Tom's Hardware",
+              "date": "2026-03",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.datacenterdynamics.com/en/news/nvidias-rubin-ultra-nvl576-rack-expected-to-be-600kw-coming-second-half-of-2027/",
+              "outlet": "Data Center Dynamics",
+              "date": "2026-03",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.powerelectronicsnews.com/nvidia-gtc-2026-800-vdc-power-partnerships-from-grid-to-processor/",
+              "outlet": "Power Electronics News",
+              "date": "2026-08",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-19",
+          "first_seen": "2026-08-19",
+          "count": 1,
+          "thesis_review": false
         }
       }
     },
     "optical-interconnect": {
-      "last_checked": "2026-08-17",
+      "last_checked": "2026-08-19",
       "observations": {
         "NVIDIA CPO 스위치 상태": [
           {
             "date": "2026-08-17",
             "last_seen": "2026-08-17",
             "value": "2026-08 완전양산 진입"
+          },
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "2026-08 완전양산 진입, Vera Rubin 플랫폼向 올가을 출하 예정"
           }
         ],
         "Broadcom CPO 스위치 상태": [
@@ -344,6 +565,11 @@
             "date": "2026-08-17",
             "last_seen": "2026-08-17",
             "value": "볼륨 램프 진행 중(Tomahawk 6-Davisson, Bailly)"
+          },
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "볼륨 램프 진행 중(Tomahawk 6-Davisson, Bailly), Bailly는 Delta Electronics·Micas Networks 지원 하에 볼륨생산·Meta 배포검증 완료"
           }
         ],
         "TSMC COUPE": [
@@ -351,12 +577,17 @@
             "date": "2026-08-17",
             "last_seen": "2026-08-17",
             "value": "2026년 양산 목표 유지"
+          },
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "2026년 양산 목표 유지, NVIDIA·Broadcom 주문 기접수"
           }
         ],
         "CPO 비중(2026 광모듈 중)": [
           {
             "date": "2026-08-17",
-            "last_seen": "2026-08-17",
+            "last_seen": "2026-08-19",
             "value": "약 0.5%"
           }
         ],
@@ -365,6 +596,11 @@
             "date": "2026-08-17",
             "last_seen": "2026-08-17",
             "value": "Meta 최대 $6B(2026-01) + Amazon 복수B$(2026-06)"
+          },
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "Meta 최대 $6B(2026-01) + Amazon 복수B$(2026-06), 8월 신규 계약 없음"
           }
         ],
         "ASMPT 포토닉스 매출 성장": [
@@ -379,6 +615,11 @@
             "date": "2026-08-17",
             "last_seen": "2026-08-17",
             "value": "YoY 5배 증가 (2026 1Q)"
+          },
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "2Q26 $630.0M(QoQ+24.4%,YoY+52.1%), H1 플러거블 광트랜시버 매출 YoY 약 3배(~$75M), 북투빌 1.43배"
           }
         ],
         "Meta 계약 규모": [
@@ -405,8 +646,78 @@
         "CPO 침투율 전망": [
           {
             "date": "2026-08-17",
-            "last_seen": "2026-08-17",
+            "last_seen": "2026-08-19",
             "value": "~0.5%(2026) → 35%(2030)"
+          }
+        ],
+        "성호전자/ADS테크 2026 가이던스": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "매출 903억원(+64%YoY), 영업이익 433억원(+70%YoY), AA장비 연산 1,000대 목표"
+          }
+        ],
+        "Coherent CPO TAM 추정": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "$15B+"
+          }
+        ],
+        "2026 매출 가이던스": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "903억원 (YoY +64%)"
+          }
+        ],
+        "2026 영업이익 가이던스": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "433억원 (YoY +70%)"
+          }
+        ],
+        "AA장비 연간 생산능력 목표": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "약 1,000대"
+          }
+        ],
+        "2Q26 매출": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "$630.0M (QoQ +24.4%, YoY +52.1%)"
+          }
+        ],
+        "H1 2026 플러거블 광트랜시버 매출": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "YoY 거의 3배 → 약 $75M"
+          }
+        ],
+        "2Q26 북투빌 비율": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "1.43배 (2021H1 이후 최고)"
+          }
+        ],
+        "Coherent 분기 매출": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "$1.81B (사상 최대)"
+          }
+        ],
+        "Marvell 광인터커넥트 매출 가이던스(FY27)": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "YoY +70%↑"
           }
         ]
       },
@@ -451,7 +762,7 @@
           "thesis_review": false
         },
         "W5|실리콘 포토닉스 수율·패키징 병목 해소 여부": {
-          "headline": "패키징 병목 아직 미해소",
+          "headline": "ASMPT 포토닉스 매출·수주 급증",
           "shift": "실리콘 포토닉스 수율·패키징 병목 해소 여부",
           "refs": [
             "W5"
@@ -460,33 +771,26 @@
           "affects": [
             "optical-align"
           ],
-          "summary": "TrendForce(2026-07-27)는 CPO 스위치 볼륨 램프에도 불구하고 ①광엔진(레이저·모듈레이터·수광소자 통합) 수율, ②실리콘포토닉스 웨이퍼/패키징 정밀도, ③COUPE 등 첨단패키징 용량(AI칩과 자원 경쟁)이 여전히 3대 병목이라고 지적했다. 별도로 ASMPT는 2026년 1분기 포토닉스 부문 매출이 전년 대비 5배 증가했다고 발표해, 정렬·패키징 장비 수요 자체는 급증 중임을 뒷받침한다.",
+          "summary": "ASMPT 2026년 2분기 매출이 6.30억달러(QoQ +24.4%, YoY +52.1%)를 기록했고, 상반기 누적 플러거블 광트랜시버 매출은 전년 대비 거의 3배 증가한 약 7,500만달러에 달했다. 2분기 수주 9.04억달러로 북투빌 비율 1.43배를 기록해 2021년 상반기 이후 최고치를 나타내, 패키징·정렬 장비 수요가 실제 발주 단계에서도 확대되고 있음을 시사한다.",
           "sources": [
             {
-              "url": "https://www.trendforce.com/presscenter/news/20260727-13151.html",
-              "outlet": "trendforce.com",
-              "date": "2026-07-27",
-              "tier": "S2",
-              "note": ""
-            },
-            {
-              "url": "https://www.ledinside.com/intelligence/2026/7/2026_07_28_04",
-              "outlet": "ledinside.com",
-              "date": "2026-07-28",
-              "tier": "S2",
-              "note": ""
-            },
-            {
-              "url": "https://www.asmpt.com/en/investor-relations/news-events/asmpt-announces-2026-first-quarter-results/",
+              "url": "https://www.asmpt.com/en/investor-relations/news-events/asmpt-announces-2026-interim-results/",
               "outlet": "asmpt.com",
-              "date": "2026",
+              "date": "2026-08",
               "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.theglobeandmail.com/investing/markets/stocks/ASMVF/pressreleases/3623184/asmpt-earnings-call-highlights-ai-fueled-growth-momentum/",
+              "outlet": "theglobeandmail.com",
+              "date": "2026-08",
+              "tier": "S2",
               "note": ""
             }
           ],
-          "last_seen": "2026-08-17",
+          "last_seen": "2026-08-19",
           "first_seen": "2026-08-17",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W4|데이터센터 광섬유 수요 및 장기계약 규모": {
@@ -562,6 +866,98 @@
           ],
           "last_seen": "2026-08-17",
           "first_seen": "2026-08-17",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W1,W5|실리콘 포토닉스 수율·패키징 병목 해소 여부": {
+          "headline": "ADS테크 증설·가이던스 상향",
+          "shift": "실리콘 포토닉스 수율·패키징 병목 해소 여부",
+          "refs": [
+            "W1",
+            "W5"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "optical-align"
+          ],
+          "summary": "성호전자 자회사 ADS테크가 화성 동탄테크노밸리에 신규 공장을 확보해 액티브얼라인 장비 연간 생산능력을 약 1,000대 규모로 확대 중이며, 회사는 2026년 매출 903억원(YoY +64%)·영업이익 433억원(YoY +70%) 가이던스를 제시했다. 2027년부터 액티브얼라인 장비가 매출의 75% 이상을 차지할 것으로 전망되나, 스케일업 광 시장 본격 개화 시점은 2028년 이후로 여전히 후행한다.",
+          "sources": [
+            {
+              "url": "https://www.thelec.kr/news/articleView.html?idxno=58033",
+              "outlet": "thelec.kr",
+              "date": "2026",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.newspim.com/news/view/20260609000138",
+              "outlet": "newspim.com",
+              "date": "2026-06-09",
+              "tier": "S3",
+              "note": ""
+            },
+            {
+              "url": "https://www.finance-scope.com/article/view/scp202607090014",
+              "outlet": "finance-scope.com",
+              "date": "2026-07-09",
+              "tier": "S3",
+              "note": ""
+            },
+            {
+              "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=436689",
+              "outlet": "pinpointnews.co.kr",
+              "date": "2026",
+              "tier": "S3",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-19",
+          "first_seen": "2026-08-19",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W1,W3|cpo 양산 채택 일정의 전진 또는 후퇴": {
+          "headline": "광부품 벤더 실적 잇단 호조",
+          "shift": "CPO 양산 채택 일정의 전진 또는 후퇴",
+          "refs": [
+            "W1",
+            "W3"
+          ],
+          "direction": "순풍",
+          "affects": [],
+          "summary": "Coherent가 분기 매출 18.1억달러(사상 최대)를 기록하며 CPO를 150억달러+ 규모의 신규 시장으로 제시했고, NVIDIA向 스케일아웃 매출이 하반기부터 반영된다고 밝혔다. Lumentum·Fabrinet도 컨센서스를 상회하는 실적을 내놨으며, Astera Labs는 2분기 실적 발표에서 광인터커넥트·커스텀 솔루션으로 사업을 확장한다고 밝혔고 Marvell은 회계연도 2027년 광인터커넥트 매출이 70% 이상 성장할 것으로 가이던스를 제시했다.",
+          "sources": [
+            {
+              "url": "https://asteralabs.gcs-web.com/news-releases/news-release-details/astera-labs-reports-second-quarter-2026-financial-results",
+              "outlet": "asteralabs.gcs-web.com",
+              "date": "2026-08",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.techtimes.com/articles/324740/20260817/marvell-interconnect-outpacing-custom-silicon-ahead-aug-27-earnings-call.htm",
+              "outlet": "techtimes.com",
+              "date": "2026-08-17",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://finance.yahoo.com/markets/stocks/articles/coherent-shares-rise-lumentum-earnings-100003483.html",
+              "outlet": "finance.yahoo.com",
+              "date": "2026-08",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://247wallst.com/cards/fabrinet-reports-after-the-close-at-4-15-pm-et-and-as-the-c-fn-earnings-calendar-01m07f97606ew8dhmdx6kyaq21",
+              "outlet": "247wallst.com",
+              "date": "2026-08-17",
+              "tier": "S3",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-19",
+          "first_seen": "2026-08-19",
           "count": 1,
           "thesis_review": false
         }

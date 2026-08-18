@@ -50,6 +50,7 @@ import requests
 import yfinance as yf
 
 import events_log
+import positions_view          # 사이트와 공유하는 운영 파라미터의 정본 (stdlib 만 씀)
 from dotenv import load_dotenv
 from anthropic import Anthropic, APIStatusError
 from telegram import Bot
@@ -168,7 +169,9 @@ MAX_OBSERVATIONS = 12          # 지표당 보관할 관측 이력 개수
 # ★ count 는 '점검 횟수' 로 오른다. 14일 rotation 시절엔 3회 = 6주였지만,
 # 매일 점검 + 하루 1회 가드(update_state_entry) 로 바뀌면서 count = 연속 일수다.
 # 그래서 10 ≈ 2주 연속. 예전 값 3 을 그대로 두면 사흘 만에 승격이 남발된다.
-THESIS_REVIEW_THRESHOLD = 10
+# ★ 정본은 positions_view — 사이트 현황판이 이 값을 문구에 찍는다.
+#   여기서 재정의하면 "N회 반복 시 승격" 표기가 실제 동작과 어긋난다.
+THESIS_REVIEW_THRESHOLD = positions_view.THESIS_REVIEW_THRESHOLD
 THEME_SHIFT_EXPIRE_DAYS = 240  # 이 기간 재확인 안 된 테마 흐름은 정리
 
 # 각주

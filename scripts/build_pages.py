@@ -36,7 +36,9 @@ LEVEL_WORD = {"RED": "판단 필요", "YELLOW": "확인 필요", "WHITE": "참�
 LEVEL_CLS = {"RED": "ia-red", "YELLOW": "ia-amber", "WHITE": "ia-grey"}
 DIR_MARK = {"순풍": "↗", "역풍": "↘", "중립": "→", "불명": "?"}
 DIR_CLS = {"순풍": "ia-teal", "역풍": "ia-red", "중립": "ia-grey", "불명": "ia-grey"}
-STALE_DAYS = 7
+# 다이제스트와 공유하는 값 — positions_view 가 정본이다. 여기서 재정의하지 말 것
+# (예전에 7 로 박아뒀다가 로테이션이 사라진 뒤에도 "7일+ 미점검" 이 그대로 남았다).
+STALE_DAYS = pv.STALE_DAYS
 TIMELINE_LIMIT = 40
 
 
@@ -632,13 +634,16 @@ def render_home(doc, state, theme_state, market, today) -> str:
     L = ['<p class="ia-eyebrow">현황판</p>', "", "# 오늘 한눈에", "",
          f'<p class="ia-sub">{esc(today)}<span class="ia-sep">·</span>'
          f'포지션 {len(mon)}개<span class="ia-sep">·</span>'
-         f'다이제스트는 평일 06:30 KST 자동</p>',
+         f'{esc(pv.DIGEST_SCHEDULE)}</p>',
          kpis([
              ("판단 필요", f"{reds}", "🔴 kill 조건 해당", "var(--ia-red)" if reds else "var(--ia-ink)"),
              ("확인 필요", f"{yellows}", "🟡 열린 신호", "var(--ia-amber)" if yellows else "var(--ia-ink)"),
              ("인프라 흐름", f"{len(flows)}", "테마 누적", "var(--ia-ink)"),
-             ("thesis 갱신 후보", f"{promoted}", "3회 반복 시 승격", "var(--ia-ink)"),
-             ("7일+ 미점검", f"{stale}", "로테이션 대기", "var(--ia-amber)" if stale else "var(--ia-ink)"),
+             ("thesis 갱신 후보", f"{promoted}",
+              f"{pv.THESIS_REVIEW_THRESHOLD}회 반복 시 승격", "var(--ia-ink)"),
+             # 전 종목을 매일 보므로 0 이 정상이다. 0 이 아니면 점검이 누락된 것
+             ("점검 누락", f"{stale}", f"{STALE_DAYS}일+ 미점검",
+              "var(--ia-amber)" if stale else "var(--ia-ink)"),
          ]), ""]
 
     # 포지션 카드

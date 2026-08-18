@@ -28,6 +28,26 @@ STATUS_LABEL = {
 }
 TELEGRAM_LIMIT = 4096
 
+# ── 다이제스트 운영 파라미터 ────────────────────────────────────────────
+# daily_digest.py(생산자)와 build_pages.py(표시)가 **함께** 읽는다.
+# 한쪽에만 두면 사이트 문구가 조용히 낡는다 — 실제로 "3회 반복 시 승격" 과
+# "평일 06:30 KST 자동" 이 그렇게 낡은 채로 며칠 서 있었다.
+# 이 모듈에 두는 이유: 양쪽이 이미 import 하고 있고 stdlib 밖 의존이 없다.
+# (positions_view → daily_digest 방향의 import 는 여전히 금지. 위 docstring 참고)
+
+# 같은 흐름이 이 횟수 이상 반복 관측되면 'thesis 갱신 후보' 로 승격.
+# count 는 점검 횟수로 오르고 점검이 매일이므로, 사실상 '연속 일수' 다 (10 ≈ 2주).
+THESIS_REVIEW_THRESHOLD = 10
+
+# 이 기간 미점검이면 페이지에서 흐리게 표시하고 현황판에서 센다.
+# 시장별 매일 점검이므로 정상 상태에서는 1일이다. 다만 cron 이 평일만 돌아
+# 월요일 오전엔 금요일 점검분이 3일 묵는다 — 그 아래로 잡으면 매주 오탐이 난다.
+# 여기 걸린다는 건 rotation 대기가 아니라 **점검이 실제로 누락됐다**는 뜻이다.
+STALE_DAYS = 4
+
+# 현황판 부제에 그대로 박힌다.
+DIGEST_SCHEDULE = "다이제스트는 평일 07:30(미국)·16:30(한국) KST 자동"
+
 
 def _load(path: Path, default: dict) -> dict:
     if not path.exists():

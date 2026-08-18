@@ -157,7 +157,6 @@ def build_events(
     today: str,
     positions_doc: dict,
     layer0_result: Optional[dict],
-    news_sweep: Optional[dict],
     position_results: list[dict],
     theme_results: list[dict],
     normalize_sources=None,
@@ -203,21 +202,10 @@ def build_events(
                 ev["sources"] = ns(f)
                 add(tid, ev)
 
-    # 전 종목 소식 스윕. label 은 그룹 분리 후 중복될 수 있어 id 를 쓴다
-    live_ids = {p["id"] for p in positions_doc.get("positions", [])}
-    by_label = {}
-    for p in positions_doc.get("positions", []):
-        by_label.setdefault(p.get("label"), []).append(p["id"])
-    for it in ((news_sweep or {}).get("items") or []):
-        pid = it.get("position_id")
-        if pid not in live_ids:  # 구형 응답 하위호환 — 라벨이 유일할 때만
-            cands = by_label.get(it.get("position_label")) or []
-            pid = cands[0] if len(cands) == 1 else None
-        if not pid:
-            continue
-        ev = _from_finding(it, "sweep", {})
-        ev["sources"] = ns(it)
-        add(pid, ev)
+    # (전 종목 소식 스윕 레이어는 제거됐다. 매일 전 종목을 개별 심층으로 보게 되면서
+    #  같은 종목을 얕게 한 번 더 긁는 중복이 됐고, 신호에 안 걸리는 일반 소식은
+    #  이제 position 검색이 level=WHITE / kind=info 로 함께 담는다.
+    #  기존 로그에 남아 있는 layer="sweep" 이벤트는 그대로 두고 계속 렌더한다.)
 
     # 테마 흐름 — affects 로 팬아웃. 오늘 개별 점검 안 한 종목에도 들어간다
     live = {p["id"] for p in positions_doc.get("positions", [])}
@@ -244,15 +232,18 @@ def record_run(
     today: str,
     positions_doc: dict,
     layer0_result: Optional[dict],
-    news_sweep: Optional[dict],
     position_results: list[dict],
     theme_results: list[dict],
     normalize_sources=None,
     base: Optional[Path] = None,
 ) -> tuple[int, int]:
-    """하루치 실행을 종목별 로그에 기록. (신규 건수, 대상 종목 수) 리턴."""
+    """한 번의 실행을 종목별 로그에 기록. (신규 건수, 대상 종목 수) 리턴.
+
+    하루 2회(US/KR) 호출되지만 _merge 가 last_seen==today 로 count 를 막으므로
+    같은 이벤트가 두 번 세지지는 않는다.
+    """
     grouped = build_events(
-        today, positions_doc, layer0_result, news_sweep,
+        today, positions_doc, layer0_result,
         position_results, theme_results, normalize_sources,
     )
     total = 0

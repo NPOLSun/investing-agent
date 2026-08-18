@@ -1,30 +1,37 @@
 """
 Daily Digest Generator
 ======================
-매일 새벽 06:30 KST 자동 실행 (cron).
+하루 2회 자동 실행 (cron). 시장 마감 직후에 그 시장을 본다.
+
+  07:30 KST  --market us   미국장 마감 확정 후 (US 포지션)
+  16:30 KST  --market kr   한국장 마감(15:30) 후 (KR 포지션)
+
+시장을 가르는 이유: 06:30 1회 실행은 양쪽 모두에게 어정쩡했다. 미국장은 마감
+직후라 종가 확정이 아슬아슬하고, 한국 종목은 전 영업일 데이터로 판정하게 된다.
 
 작동 순서:
 1. positions.json·position_state.json·theme_state.json·캘린더 로드
-2. 포지션 종목만 yfinance·pykrx 로 가격 수집 (레거시 워치리스트 32종목 미사용)
-3. Layer 0 (포트폴리오 상위 변수) web_search 1회
-4. 전 종목 소식 스윕 1회 (판정 아님)
-5. 검색 대상 포지션 선별 (가격 ±3% / 7일 내 이벤트 / N일 미점검 rotation)
-6. 선별된 포지션만 개별 web_search → RED·YELLOW·WHITE 판정
-7. Layer 0.5 테마 검색 (판정 없음) → 결과를 affects 포지션으로 팬아웃
-8. position_state.json·theme_state.json 에 관측값·플래그·흐름 누적
-9. 종합 호출로 일간 다이제스트 생성 (각주 번호는 코드가 부여)
-10. 파일 저장 (digests/sent/YYYY-MM-DD.md) + 📎 출처 블록 자동 첨부
-11. 텔레그램 푸시 (요약 + 파일 첨부 + GitHub URL)
+2. 해당 시장 포지션 종목만 yfinance·pykrx 로 가격 수집
+3. Layer 0 (포트폴리오 상위 변수) web_search 1회 — 시장 무관
+4. 해당 시장 포지션 전부 개별 web_search → RED·YELLOW·WHITE 판정
+5. Layer 0.5 테마 검색 (판정 없음) → 결과를 affects 포지션으로 팬아웃
+6. position_state.json·theme_state.json 에 관측값·플래그·흐름 누적
+7. 종합 호출로 일간 다이제스트 생성 (각주 번호는 코드가 부여)
+8. 파일 저장 (digests/sent/YYYY-MM-DD_<market>.md) + 📎 출처 블록 자동 첨부
+9. 텔레그램 푸시 (요약 + 파일 첨부 + GitHub URL)
 
 레이어 구분:
 - 포지션 판정 (🔴🟡⚪) — kill_signals·thesis 에 실제로 걸릴 때만. 조치 판단 대상
+  어느 신호에도 안 걸리는 일반 소식은 level=WHITE / kind=info 로 같은 호출에 담긴다.
+  (예전엔 이걸 '전 종목 소식 스윕' 이 따로 훑었는데, 매일 전 종목을 심층으로
+   보게 되면서 같은 종목을 얕게 한 번 더 긁는 중복이 되어 걷어냈다.)
 - Layer 0.5 테마 (🔷) — 상위 변화 추적. 등급 없음. 반복 관측 누적만이 승격 경로
-  포지션 검색은 하루 MAX_SEARCH_POSITIONS 개뿐이라 여러 포지션을 동시에 흔드는
-  상위 변화가 통째로 새어나간다. 그 구멍을 메우는 레이어.
+  테마는 시장을 가로지르므로(6개 중 4개가 US+KR 혼재) 시장 필터를 걸지 않는다.
+  같은 날 두 번째 실행에서는 stale=0 이라 rotation 이 자동으로 중복을 막는다.
 
-하루 API 호출: Layer 0 (1) + 스윕 (1) + 선별 포지션 (0~3) + 테마 (0~2) + 종합 (1)
-하루 검색: 호출당 상한(LAYER0_MAX_USES / POSITION_MAX_USES / THEME_MAX_USES)
-          + 총량 캡(DAILY_SEARCH_BUDGET)
+실행당 API 호출: Layer 0 (1) + 포지션 (4~7) + 테마 (0~2) + 종합 (1)
+실행당 검색: 호출당 상한(LAYER0_MAX_USES / POSITION_MAX_USES / THEME_MAX_USES)
+            + 총량 캡(DAILY_SEARCH_BUDGET, 실행당)
 """
 
 import os
@@ -77,8 +84,6 @@ GITHUB_REPO_NAME = os.getenv("GITHUB_REPO_NAME", "investing-agent")
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 # 경로
-WATCHLIST_PATH = PROJECT_ROOT / "watchlist" / "00_first_watchlist_draft.md"
-DASHBOARD_PATH = PROJECT_ROOT / "mega-change-map" / "00_dashboard.md"
 CALENDAR_PATH = PROJECT_ROOT / "calendar" / "00_event_calendar_6months.md"
 TEMPLATE_PATH = PROJECT_ROOT / "digests" / "templates" / "track1_daily_template.md"
 TRACKED_STOCKS_PATH = PROJECT_ROOT / "data" / "tracked_stocks.json"
@@ -118,14 +123,17 @@ WEB_SEARCH_TOOL_TYPE = "web_search_20260209"
 # 실측: 검색 1회당 입력 약 11K 토큰이 재과금되므로 검색 수가 비용을 지배한다.
 # 검색 1회 ≈ $0.043 (입력 $0.033 + 검색료 $0.01).
 LAYER0_MAX_USES = 6            # Layer 0
-NEWS_SWEEP_MAX_USES = 12       # 전 종목 소식 스윕 (판정 아님, 훑기)
 POSITION_MAX_USES = 20         # 포지션당 (실측: 가장 무거운 포지션이 13회에서 자연히 멈춤)
 # 테마는 watch_shifts 5개 + key_vendors 최대 6그룹 = 확인할 축이 10개 넘는다.
 # 8 로는 벤더 1차 원문까지 볼 여유가 없어, 2차 매체 논평만 긁고 끝났다
 # (실측 2026-08-16: NVIDIA Spectrum-X Photonics 양산 진입을 통째로 놓침).
 # max_uses 는 할당량이 아니라 천장이므로 올려도 평상시 비용은 그대로다.
 THEME_MAX_USES = 16            # 테마(Layer 0.5)당
-DAILY_SEARCH_BUDGET = 115      # 하루 총량 캡 (Layer0 6 + 스윕 12 + 포지션 20x3 + 테마 16x2 + 여유)
+# ★ 실행당 캡이다. 하루 2회이므로 하루 총량은 이 값의 2배.
+# 구독(CLI) 모드에서는 검색 건당 요금이 없으므로 이 값은 비용 브레이크가 아니라
+# rate limit 에 닿기 전에 스스로 멈추는 안전판이다. 한도에 걸리면 CLI 가
+# non-zero 로 죽고 _run_search 가 그 건만 삼켜서 '판정 없음' 으로 조용히 지나간다.
+DAILY_SEARCH_BUDGET = 140      # 실행당 캡 (Layer0 6 + 포지션 20x7 상한 + 테마 16x2 중 실측 기준)
 MAX_PAUSE_CONTINUATIONS = 3    # pause_turn 재개 상한
 
 # 모니터링 대상 status (exited·paused 는 기록만 남기고 판정 대상에서 제외)
@@ -135,24 +143,32 @@ MONITORED_STATUSES = ("holding", "watching")
 PRICE_MOVE_THRESHOLD = 3.0     # ±% 이상이면 검색 트리거 (내부 판단용, 출력 아님)
 PRICE_DISPLAY_THRESHOLD = 5.0  # ±% 이상만 다이제스트 맨 아래 한 줄로 표기
 EVENT_WINDOW_DAYS = 7          # 캘린더 이벤트 감시 창
-SEARCH_ROTATION_DAYS = 14      # 이 기간 미점검이면 순번으로 강제 점검
-# 회당 검색을 줄이면 '확인 미완료' 가 잦아진다. 반쪽 점검 2개보다
-# 제대로 된 1개가 낫고, 못 끝낸 건 last_checked 미갱신으로 내일 재시도된다.
-MAX_SEARCH_POSITIONS = 3       # 하루 개별 검색 상한
+# 1 = 해당 시장 포지션을 매일 전부 본다. rotation 은 원래 슬롯이 3개뿐이라 있던
+# 장치였는데, 시장을 갈라 실행당 4~7개만 보게 되면서 제약이 사라졌다.
+# 0 이 아니라 1 인 이유: 같은 날 두 번째 실행에서는 stale=0 이므로 후보에서 빠진다.
+# 즉 이 값이 같은 날 중복 점검을 막는 가드 역할을 겸한다.
+SEARCH_ROTATION_DAYS = 1
+# 실행당 개별 검색 상한. 시장별 최대치(KR 7개)보다 여유를 둔 안전 상한일 뿐,
+# 평상시엔 해당 시장 포지션 전부가 이 아래로 들어온다.
+MAX_SEARCH_POSITIONS = 8
 
 # 테마 레이어 (Layer 0.5) 선별 규칙
 # 포지션은 '내 thesis 가 깨졌나' 를 묻고, 테마는 '상위 변화가 어디로 가나' 를 묻는다.
-# 포지션 검색은 하루 3개뿐이라, 여러 포지션을 동시에 흔드는 상위 변화는
-# 그날 뽑힌 포지션에 우연히 걸리지 않으면 통째로 새어나간다. 그 구멍을 메우는 레이어.
-MAX_SEARCH_THEMES = 2          # 하루 테마 검색 상한
-THEME_ROTATION_DAYS_CORE = 3   # core 테마 재점검 주기
-THEME_ROTATION_DAYS = 7        # 비 core 테마 재점검 주기
+# 포지션을 전부 보게 된 뒤에도 이 레이어는 남는다 — 개별 종목 검색은 그 종목 안에서만
+# 보므로, 여러 포지션을 동시에 흔드는 축의 이동은 여전히 어느 종목에도 안 잡힌다.
+# ★ 테마에는 시장 필터를 걸지 않는다. 6개 중 4개가 US·KR 혼재라 가를 수가 없다.
+MAX_SEARCH_THEMES = 2          # 실행당 테마 검색 상한 (하루 2회 = 최대 4개)
+THEME_ROTATION_DAYS_CORE = 2   # core 테마 재점검 주기
+THEME_ROTATION_DAYS = 4        # 비 core 테마 재점검 주기
 
 # 상태 파일 관리
 MAX_OBSERVATIONS = 12          # 지표당 보관할 관측 이력 개수
 # 같은 흐름이 이 횟수 이상 반복 관측되면 'thesis 갱신 후보' 로 승격한다.
 # 테마 레이어는 판정을 하지 않으므로, 누적만이 유일한 승격 경로다.
-THESIS_REVIEW_THRESHOLD = 3
+# ★ count 는 '점검 횟수' 로 오른다. 14일 rotation 시절엔 3회 = 6주였지만,
+# 매일 점검 + 하루 1회 가드(update_state_entry) 로 바뀌면서 count = 연속 일수다.
+# 그래서 10 ≈ 2주 연속. 예전 값 3 을 그대로 두면 사흘 만에 승격이 남발된다.
+THESIS_REVIEW_THRESHOLD = 10
 THEME_SHIFT_EXPIRE_DAYS = 240  # 이 기간 재확인 안 된 테마 흐름은 정리
 
 # 각주
@@ -185,40 +201,14 @@ logger = logging.getLogger(__name__)
 
 
 # ============================================================
-# 워치리스트 종목 (28개 — 워치리스트 markdown 에서 자동 추출도 가능하나 일단 하드코딩)
-# ============================================================
-
-US_TICKERS = [
-    "NVDA",                                                          # AI Foundation (cross 다중)
-    "LEU", "CEG", "BWXT",                                            # Nuclear
-    "GEV", "VRT", "ETN", "PWR",                                      # AI DC Power
-    "MTSI", "LITE", "COHR",                                          # 광인터커넥트
-    "TSEM", "WOLF", "VICR", "STM", "POWI", "NVTS", "MPWR",          # 전력반도체
-    "MOD", "CC",                                                     # 냉각
-    "TSLA",                                                          # 휴머노이드 + 자율
-]
-KR_TICKERS = [
-    "034020", "052690",                                              # Nuclear (K-원전)
-    "298040",                                                        # AI DC Power (K-그리드)
-    "425420",                                                        # 광인터커넥트 (Broadcom 납품)
-    "000990", "009150",                                              # 전력반도체
-    "005380", "058610",                                              # 휴머노이드 + 자율
-    "087010",                                                        # GLP-1
-    "141080",                                                        # 정밀 종양학
-    "012450",                                                        # K-방산
-]
-KR_NAMES = {
-    "034020": "두산에너빌리티", "052690": "한전기술",
-    "298040": "효성중공업",
-    "425420": "티에프이",
-    "000990": "DB하이텍", "009150": "삼성전기",
-    "005380": "현대차", "058610": "에스피지",
-    "087010": "펩트론", "141080": "리가켐바이오", "012450": "한화에어로스페이스",
-}
-
-# ============================================================
 # 시장 데이터 수집
 # ============================================================
+#
+# 대상 종목은 positions.json 에서만 나온다 (collect_position_tickers).
+# 예전엔 여기에 워치리스트 32종목이 하드코딩돼 있었는데, 포지션 재편 이후
+# 절반은 지금 테마와 무관했고(GLP-1·종양학·방산·자율) 정작 신규 포지션 7개는
+# 빠져 있어 걷어냈다. 유사 섹터 목록이 다시 필요해지면 그때 positions.json 옆에
+# 별도 파일로 두는 편이 낫다 — 코드에 박아두면 또 낡는다.
 
 def get_last_kr_trading_day() -> str:
     """한국 마지막 거래일 (YYYYMMDD)."""
@@ -230,10 +220,10 @@ def get_last_kr_trading_day() -> str:
     return today.strftime("%Y%m%d")
 
 
-def fetch_us_prices(tickers: Optional[list[str]] = None) -> list[dict]:
-    """미국 종목 yfinance 데이터. tickers 미지정 시 레거시 워치리스트."""
+def fetch_us_prices(tickers: list[str]) -> list[dict]:
+    """미국 종목 yfinance 데이터."""
     results = []
-    for ticker in (US_TICKERS if tickers is None else tickers):
+    for ticker in tickers:
         try:
             t = yf.Ticker(ticker)
             hist = t.history(period="5d")
@@ -265,19 +255,17 @@ def fetch_us_prices(tickers: Optional[list[str]] = None) -> list[dict]:
     return results
 
 
-def fetch_kr_prices(
-    tickers: Optional[list[str]] = None, names: Optional[dict] = None
-) -> list[dict]:
-    """한국 종목 pykrx 데이터. tickers 미지정 시 레거시 워치리스트."""
+def fetch_kr_prices(tickers: list[str], names: Optional[dict] = None) -> list[dict]:
+    """한국 종목 pykrx 데이터."""
     if not PYKRX_AVAILABLE:
         return []
 
-    name_map = KR_NAMES if names is None else names
+    name_map = names or {}
     last_day = get_last_kr_trading_day()
     prev_day = (datetime.strptime(last_day, "%Y%m%d") - timedelta(days=7)).strftime("%Y%m%d")
 
     results = []
-    for ticker in (KR_TICKERS if tickers is None else tickers):
+    for ticker in tickers:
         try:
             df = krx_stock.get_market_ohlcv_by_date(prev_day, last_day, ticker)
             if df.empty or len(df) < 2:
@@ -696,11 +684,17 @@ def select_positions(
     prices: list[dict],
     upcoming: list[dict],
     today_str: str,
+    market: str = "all",
 ) -> tuple[list[dict], list[dict]]:
     """검색 대상 선별. (선별됨, 미선별) 리턴.
 
-    트리거: 가격 ±3% / 7일 내 캘린더 이벤트 키워드 매칭 / N일 미점검 rotation.
-    status 가 holding 이 아닌 포지션은 개별 검색 대상에서 제외.
+    market 이 us/kr 이면 그 시장 포지션만 후보로 잡는다. 시장 필터가 필요한 이유는
+    rotation 만으로는 부족해서다 — 오전에 본 종목은 stale=0 이라 오후 실행의
+    rotation 후보에선 빠지지만, 가격 트리거는 같은 데이터로 다시 발동한다.
+
+    SEARCH_ROTATION_DAYS=1 이므로 해당 시장 포지션은 사실상 매일 전부 선별된다.
+    그래도 이 함수를 남겨두는 이유는 reasons 때문이다 — 가격·이벤트 트리거가
+    붙었는지가 검색·종합 프롬프트에 "오늘 특별히 볼 것" 신호로 들어간다.
     """
     moved = {p["ticker"] for p in prices if abs(p.get("change_pct", 0)) >= PRICE_MOVE_THRESHOLD}
     event_text = " ".join(e["line"] for e in upcoming)
@@ -708,6 +702,8 @@ def select_positions(
     candidates = []
     for pos in positions:
         if pos.get("status") not in MONITORED_STATUSES:
+            continue
+        if market != "all" and position_market(pos) != market:
             continue
 
         reasons = []
@@ -723,7 +719,7 @@ def select_positions(
         if stale is None:
             reasons.append("최초 점검")
         elif stale >= SEARCH_ROTATION_DAYS:
-            reasons.append(f"{stale}일 미점검 (rotation)")
+            reasons.append(f"정기 점검 (마지막 {stale}일 전)")
 
         if reasons:
             candidates.append({
@@ -733,14 +729,20 @@ def select_positions(
                 "triggered": bool(price_hit or kw_hit),
             })
 
-    # 가격·이벤트 트리거가 rotation 보다 우선, 그다음 오래 방치된 순
+    # 가격·이벤트 트리거가 정기 점검보다 우선, 그다음 오래 방치된 순.
+    # 전부 도는 지금도 이 정렬은 의미가 있다 — 예산이 마르면 뒤에서부터 잘리므로,
+    # 오늘 특별히 볼 게 있는 종목이 먼저 소화된다.
     candidates.sort(key=lambda c: (0 if c["triggered"] else 1, -c["stale"]))
 
     selected = candidates[:MAX_SEARCH_POSITIONS]
     selected_ids = {c["position"]["id"] for c in selected}
+    # 미선별은 '이 시장에서 오늘 안 본 것' 만이다. 다른 시장 포지션은 애초에
+    # 이 실행의 대상이 아니므로 '미점검' 으로 세면 안 된다 (별도 실행에서 본다).
     unselected = [
         p for p in positions
-        if p.get("status") in MONITORED_STATUSES and p["id"] not in selected_ids
+        if p.get("status") in MONITORED_STATUSES
+        and p["id"] not in selected_ids
+        and (market == "all" or position_market(p) == market)
     ]
     return selected, unselected
 
@@ -757,7 +759,11 @@ def select_themes(
     포지션 선별과 같은 구조지만 트리거가 다르다. 테마는 가격으로 움직이지 않는다.
     - 캘린더 이벤트 매칭: OCP·GTC·OFC 같은 컨퍼런스에서 아키텍처 변경이 먼저 나온다.
       뉴스로 나올 땐 이미 늦으므로, 해당 주간에는 그 테마를 앞으로 당긴다.
-    - rotation: core 는 3일, 나머지는 7일
+    - rotation: core 는 2일, 나머지는 4일
+
+    ★ 시장 필터를 받지 않는다. 테마 6개 중 4개가 US·KR 포지션에 동시에 걸려 있어
+    가를 수가 없다. 대신 같은 날 두 번째 실행에서는 오전에 본 테마가 stale=0 이 되어
+    rotation 후보에서 자동으로 빠지므로, 하루 2회가 서로 다른 테마를 집는다.
     """
     event_text = " ".join(e["line"] for e in upcoming)
     entries = theme_state.get("themes", {})
@@ -830,20 +836,48 @@ def numbered(items: list, prefix: str, indent: str = "  ") -> str:
     return "\n".join(f"{indent}{prefix}{i}. {t}" for i, t in enumerate(items, 1))
 
 
-def collect_position_tickers(positions_doc: dict) -> tuple[list[str], list[str], dict]:
-    """모니터링 대상 포지션의 티커만 추출. (미국, 한국, 티커→이름)
+def market_of(ticker: str) -> str:
+    """티커 → 시장. 6자리 숫자면 한국, 아니면 미국."""
+    return "kr" if (ticker.isdigit() and len(ticker) == 6) else "us"
 
-    레거시 워치리스트 32종목 대신 이걸 쓴다. 포지션과 무관한 종목의 등락은
-    다이제스트에서 노이즈일 뿐이고, 수집 대상도 11개로 줄어든다.
+
+def position_market(pos: dict) -> Optional[str]:
+    """포지션이 속한 시장. 티커가 없으면 None.
+
+    현재 모든 포지션은 티커가 1개씩이라 시장이 유일하게 정해진다.
+    한 포지션에 양쪽 시장 티커가 섞이면 첫 티커 기준으로 잡되 경고를 남긴다 —
+    그런 포지션은 시장별 실행 어느 쪽에서도 반쪽만 보게 되므로 쪼개는 게 맞다.
+    """
+    markets = [market_of(t) for t in pos.get("tickers", [])]
+    if not markets:
+        return None
+    if len(set(markets)) > 1:
+        logger.warning(
+            f"{pos.get('id')}: 티커에 US·KR 이 섞여 있음 — {markets[0]} 실행에서만 점검된다. "
+            f"포지션을 시장별로 분리할 것"
+        )
+    return markets[0]
+
+
+def collect_position_tickers(
+    positions_doc: dict, market: str = "all"
+) -> tuple[list[str], list[str], dict]:
+    """모니터링 대상 포지션의 티커만 추출. (미국, 한국, 티커→회사명)
+
+    포지션과 무관한 종목의 등락은 다이제스트에서 노이즈일 뿐이라 여기서만 뽑는다.
+    이름은 positions.json 의 companies (티커→회사명) 가 정본이다. label 은
+    "미국 변압기" 같은 포지션명이라 그룹으로 쪼갠 형제 종목끼리 구분이 안 된다.
     """
     us, kr, names = [], [], {}
     for pos in positions_doc.get("positions", []):
         if pos.get("status") not in MONITORED_STATUSES:
             continue
-        label = pos.get("label", "")
+        companies = pos.get("companies") or {}
         for ticker in pos.get("tickers", []):
-            (kr if ticker.isdigit() and len(ticker) == 6 else us).append(ticker)
-            names[ticker] = KR_NAMES.get(ticker) or label
+            if market != "all" and market_of(ticker) != market:
+                continue
+            (kr if market_of(ticker) == "kr" else us).append(ticker)
+            names[ticker] = companies.get(ticker) or pos.get("label", "") or ticker
     return list(dict.fromkeys(us)), list(dict.fromkeys(kr)), names
 
 
@@ -957,7 +991,6 @@ def build_prompt(
     now_str: str,
     positions_doc: dict,
     layer0_result: Optional[dict],
-    news_sweep: Optional[dict],
     position_results: list[dict],
     unchecked: list[dict],
     upcoming: list[dict],
@@ -965,6 +998,7 @@ def build_prompt(
     theme_results: Optional[list[dict]] = None,
     theme_state: Optional[dict] = None,
     registry: Optional[SourceRegistry] = None,
+    market: str = "all",
 ) -> str:
     """종합 호출 프롬프트.
 
@@ -1156,21 +1190,26 @@ def build_prompt(
             )
     carry_section = "\n".join(carry_lines[:5]) or "(없음)"
 
-    sweep_lines = []
-    _by_id_all = {p["id"]: p for p in positions_doc.get("positions", [])}
-    for it in ((news_sweep or {}).get("items") or []):
-        _p = _by_id_all.get(it.get("position_id"))
-        who = display_name(_p) if _p else (it.get("position_label") or "?")
-        block = [f"- {who}: {it.get('summary', '')}"]
-        block += fmt_detail(it)
-        sweep_lines.append(chr(10).join(block))
-    sweep_section = chr(10).join(sweep_lines) or "(최근 소식 없음)"
-
     unchecked_section = "\n".join(
         f"- {display_name(p)}: 마지막 점검 "
         f"{state.get('positions', {}).get(p['id'], {}).get('last_checked') or '기록 없음'}"
         for p in unchecked
     ) or "(없음)"
+
+    # 이 실행의 대상이 아닌 시장 — '미점검' 과는 다른 상태다.
+    # 별도 실행에서 보므로 여기서 '확인 안 함' 으로 쓰면 오해를 부른다.
+    other = [
+        p for p in monitored
+        if market != "all" and position_market(p) not in (market, None)
+    ]
+    other_market_section = ", ".join(display_name(p) for p in other) or "(없음)"
+
+    market_scope = {
+        "us": "미국장 마감 직후 실행. **미국 포지션만** 개별 점검했다. "
+              "한국 포지션은 오늘 오후 별도 실행에서 점검한다.",
+        "kr": "한국장 마감 직후 실행. **한국 포지션만** 개별 점검했다. "
+              "미국 포지션은 오늘 아침 별도 실행에서 점검했다.",
+    }.get(market, "전 시장 포지션을 한 번에 점검했다.")
 
     events_section = "\n".join(
         f"- {e['date']} [{e.get('priority', '')}] {e.get('event', '')} — {e.get('area', '')}"
@@ -1197,6 +1236,9 @@ def build_prompt(
 
 # 현재 시점
 {now_str}
+
+# 이번 실행의 범위
+{market_scope}
 
 # 당신의 역할
 각 포지션의 thesis 가 유지되는지, kill_signals 에 걸리는 사실이 나왔는지만 확인해 보고한다.
@@ -1227,9 +1269,10 @@ G=그룹 공통 기준 — 같은 그룹의 종목 전부에 걸린다. 출력�
 {position_section}
 
 # Layer 0.5 — 테마 (상위 변화 추적. ★ 판정 아님)
-포지션 검색은 하루 {MAX_SEARCH_POSITIONS}개뿐이라, 여러 포지션을 동시에 흔드는
-상위 변화는 그날 뽑힌 포지션에 우연히 걸리지 않으면 통째로 새어나간다.
-이 레이어가 그 구멍을 메운다. **'닿는 포지션' 은 오늘 개별 검색했는지와 무관하게 나온다.**
+개별 포지션 검색은 그 종목 안에서만 본다. 여러 포지션을 동시에 흔드는 축의 이동은
+어느 한 종목의 검색에도 온전히 잡히지 않는다. 이 레이어가 그 구멍을 메운다.
+테마는 시장을 가로지르므로 이번 실행의 시장 범위와 무관하게 나온다.
+**'닿는 포지션' 도 오늘 개별 검색했는지와 무관하게 나온다.**
 
 등급(🔴🟡⚪)을 매기지 말 것. 여기 있는 내용은 kill_signals 에 걸린 것이 아니다.
 🔷 흐름 섹션에만 쓸 것. 조치·판단 제안 금지.
@@ -1239,12 +1282,13 @@ G=그룹 공통 기준 — 같은 그룹의 종목 전부에 걸린다. 출력�
 ## 오늘 점검하지 않은 테마 중 누적 승격분
 {carry_section}
 
-# 전 종목 최근 소식 (판정 아님 — 알아둘 것)
-오늘 깊이 점검하지 않은 종목도 포함된다. 📰 섹션 재료로 쓸 것.
-{sweep_section}
-
-# 오늘 개별 검색하지 않은 포지션
+# 오늘 개별 검색하지 않은 포지션 (이번 실행 대상 중)
 {unchecked_section}
+
+# 이번 실행 대상이 아닌 시장의 포지션
+아래 종목은 별도 실행에서 점검한다. **'미점검' 이나 '이상 없음' 으로 쓰지 말 것.**
+출력에 굳이 나열할 필요 없고, 맨 아래 한 줄로만 밝힌다.
+{other_market_section}
 
 # 향후 {EVENT_WINDOW_DAYS}일 캘린더 이벤트 (파싱 완료분)
 {events_section}
@@ -1327,8 +1371,8 @@ plain text, 표·markdown 문법 없이. 모바일에서 그대로 읽히게. 26
 
 📰 보유 종목 소식
 • 포지션명 (회사명 티커) — 한 문장 요약  근거 ⑥
-(판정 조건에 안 걸려도 알아둘 만한 것. 오늘 깊이 점검하지 않은 종목도 포함.
- 최대 8건. 해당 없으면: 없음)
+(재료는 위 판정 결과 중 kind=info 또는 어느 번호에도 안 걸린 ⚪ 항목이다.
+ 판정 조건에 안 걸려도 알아둘 만한 것. 최대 8건. 해당 없으면: 없음)
 
 📅 향후 {EVENT_WINDOW_DAYS}일
 - MM-DD 이벤트명 (관련 종목) [P1]
@@ -1339,9 +1383,14 @@ plain text, 표·markdown 문법 없이. 모바일에서 그대로 읽히게. 26
 
 ⚠️ 확인 미완료
 - 포지션명 (회사명): 무엇을 확인 못 했는지 한 줄
-(없으면 이 섹션 자체를 생략)
+(검색 예산 소진·검색 실패로 아예 못 본 포지션도 여기 넣되, 사유를 그대로 적을 것.
+ "신호 없음" 과 절대 섞지 말 것. 없으면 이 섹션 자체를 생략)
 
 오늘 점검 안 함: 포지션명, 포지션명, ...
+(이번 실행 대상 중 개별 검색을 안 한 것만. 다른 시장 포지션은 여기 넣지 말 것)
+
+다른 시장: 포지션명, 포지션명 (별도 실행에서 점검)
+(대상이 없으면 이 줄 생략)
 
 ===FILE===
 markdown. 헤더는 ##. 텔레그램 요약과 별개로 작성하되 사실이 서로 어긋나면 안 됨.
@@ -1393,7 +1442,12 @@ Layer 0 에 걸린 게 있으면 이 섹션을 문서 맨 위로 올릴 것.
 "신호 없음" 과 절대 섞어 쓰지 말 것. 해당 없으면 "없음".
 
 ## 오늘 미점검 포지션
-- 포지션명 [id] — 마지막 점검 YYYY-MM-DD (확인 안 함)
+- 포지션명 — 마지막 점검 YYYY-MM-DD (확인 안 함)
+(이번 실행 대상 중 개별 검색을 안 한 것만. 해당 없으면 "없음")
+
+## 이번 실행 대상이 아닌 시장
+- 포지션명 — 별도 실행에서 점검
+(위 '이번 실행의 범위' 를 따를 것. 이건 미점검이 아니다. 해당 없으면 이 섹션 생략)
 
 ## 가격
 ±{PRICE_DISPLAY_THRESHOLD}% 이상만 한 줄. 문서 맨 아래.
@@ -1410,6 +1464,13 @@ Layer 0 에 걸린 게 있으면 이 섹션을 문서 맨 위로 올릴 것.
 2. ignore 목록에 해당하는 내용은 **아예 출력하지 말 것**. 언급조차 금지.
 3. 해당 없으면 "없음" 한 단어로 끝낼 것. 억지로 채우거나 분량을 맞추려 하지 말 것.
    빈 섹션에 "특이사항 없으나 ..." 같은 사족 금지.
+3-1. ★ 등급 인플레 금지. 이제 해당 시장 포지션을 **매일 전부** 점검하므로,
+   대부분의 날은 🔴 도 🟡 도 없는 것이 정상이다. 조용한 날을 조용하게 쓰는 것이
+   이 시스템의 목적이다. 위 검색 결과의 level 을 그대로 따를 것.
+   분량이 적다는 이유로 ⚪ 를 🟡 로, 🟡 를 🔴 로 올리지 말 것.
+3-2. 텔레그램에서 ⚪ 참고는 별도 섹션으로 펼치지 말고 📰 소식에 한 줄씩 접어 넣을 것.
+   매일 전 종목을 보므로 ⚪ 를 다 펼치면 요약이 길이 제한에 걸려 잘린다.
+   파일(===FILE===)에서는 ## ⚪ 참고 섹션에 그대로 다 쓸 것 — 거기는 길이 제한이 없다.
 4. 판단·조치를 제안하지 말 것. "매수 검토", "비중 확대", "진입", "익절", "손절",
    "관심 필요", "대응 필요" 같은 표현 금지. 사실과 어떤 조건에 걸리는지만 쓴다.
 5. 검색으로 확인되지 않은 사실을 쓰지 말 것. 가격 변동에 추측 사유를 갖다붙이지 말 것.
@@ -1752,67 +1813,6 @@ JSON 외 다른 텍스트 출력 금지."""
     return _run_search(prompt, LAYER0_MAX_USES, "Layer 0")
 
 
-def search_news_sweep(positions: list[dict], now_str: str) -> tuple[Optional[dict], dict]:
-    """모니터링 대상 전 종목의 최근 소식을 훑는다 (판정 아님).
-
-    개별 검색은 하루 3개까지라 나머지 7개는 아무 정보도 안 나온다.
-    kill/thesis 에 안 걸려도 보유 종목에 무슨 일이 있었는지는 알아야 하므로
-    한 번의 호출로 전 종목 헤드라인 수준을 훑는다.
-    """
-    if not positions:
-        return None, new_usage()
-
-    lines = []
-    for pos in positions:
-        lines.append(
-            f"- id={pos.get('id')} / {display_name(pos)}"
-            f" / 무시할 것: {'; '.join(pos.get('ignore', [])) or '(없음)'}"
-        )
-    roster = chr(10).join(lines)
-
-    prompt = f"""당신은 보유 종목의 최근 소식을 훑는 분석가.
-
-# 현재 시점
-{now_str}
-
-# 대상 종목
-{roster}
-
-# 작업
-각 종목의 최근 7일 이내 주목할 만한 소식을 web_search 로 찾아 정리.
-매도·매수를 판정하는 자리가 아니다. **무슨 일이 있었는지 사실만** 모은다.
-
-포함: 실적·수주·계약·증설·인허가·소송·경영권 변동·정책 변화·주요 고객사 동향
-제외: 각 종목의 '무시할 것' 에 해당하는 내용, 단순 주가 등락, 목표주가 조정,
-      증권사 투자의견, 근거 없는 추측성 보도
-
-소식이 없는 종목은 items 에 넣지 말 것. 억지로 채우지 말 것.
-종목당 최대 2건, 전체 최대 12건.
-position_id 는 위 목록의 id 를 그대로 쓸 것 (표시명 말고 id).
-
-{_SOURCE_RULE}
-
-아래 JSON 만 출력:
-
-{{
-  "items": [
-    {{
-      "position_id": "위 목록의 id",
-      "summary": "한두 문장 사실 요약",
-      "quant": {{"지표명": "값"}},
-      "sources": [
-        {{"url": "출처 URL", "outlet": "도메인 또는 매체명", "date": "YYYY-MM-DD", "tier": "S1|S2|S3"}}
-      ],
-      "reported_at": "YYYY-MM-DD"
-    }}
-  ]
-}}
-
-JSON 외 다른 텍스트 출력 금지."""
-
-    return _run_search(prompt, NEWS_SWEEP_MAX_USES, "종목 소식 스윕")
-
-
 def search_position(
     candidate: dict,
     state_entry: dict,
@@ -1906,6 +1906,17 @@ def search_position(
 
 # 작업
 web_search 로 위 KILL·ADD 신호와 추적 지표의 최신 상태를 확인하고 아래 JSON 만 출력.
+
+그리고 **어느 신호에도 걸리지 않는 최근 7일 이내 소식**도 함께 담을 것.
+실적·수주·계약·증설·인허가·소송·경영권 변동·정책 변화·주요 고객사 동향 등,
+판정 대상은 아니지만 보유자가 알아둘 만한 사실. 이건 level="WHITE", kind="info",
+refs=[] 로 넣는다. 최대 2건. 없으면 넣지 말 것 — 억지로 채우지 말 것.
+(단순 주가 등락, 목표주가 조정, 증권사 투자의견, 추측성 보도는 제외.
+ '무시할 것' 에 해당하는 내용도 제외.)
+
+★ 등급 인플레 금지. 매일 점검하므로 대부분의 날은 걸리는 신호가 없는 것이 정상이다.
+   findings 가 비거나 WHITE 뿐인 것은 실패가 아니라 정상 결과다.
+   KILL·ADD 원문에 실제로 해당하는 사실이 없으면 RED·YELLOW 를 만들지 말 것.
 
 {_SIGNAL_RULE}
 
@@ -2136,10 +2147,14 @@ def update_state_entry(
             continue
         sources = normalize_sources(finding)
         if signal in flags:
+            # ★ 하루 1회만 센다. 하루 2회 실행(US/KR)에서 같은 신호가 두 번 잡히면
+            # count 가 두 배로 뛰어 '연속 며칠째' 라는 뜻이 무너진다.
+            # events_log._merge 가 같은 이유로 이미 이 가드를 쓰고 있다.
+            same_day = flags[signal].get("last_seen") == today_str
             flags[signal].update({
                 "level": finding["level"],
                 "last_seen": today_str,
-                "count": flags[signal].get("count", 1) + 1,
+                "count": flags[signal].get("count", 1) + (0 if same_day else 1),
                 "summary": finding.get("summary", flags[signal].get("summary", "")),
                 "sources": sources or flags[signal].get("sources", []),
             })
@@ -2219,9 +2234,14 @@ def update_theme_entry(
                 and prev["direction"] != record["direction"]
             )
             record["first_seen"] = today_str if flipped else prev.get("first_seen", today_str)
-            record["count"] = 1 if flipped else prev.get("count", 1) + 1
             if flipped:
+                record["count"] = 1
                 logger.info(f"테마 흐름 방향 전환 — 누적 리셋: {record['headline']}")
+            else:
+                # 포지션 플래그와 같은 이유로 하루 1회만 센다. rotation 이 같은 날
+                # 재점검을 막아주긴 하지만, 주기를 다시 줄일 때 여기부터 조용히 깨진다.
+                same_day = prev.get("last_seen") == today_str
+                record["count"] = prev.get("count", 1) + (0 if same_day else 1)
         else:
             record["first_seen"] = today_str
             record["count"] = 1
@@ -2237,10 +2257,10 @@ def update_theme_entry(
 def build_thesis_appendix(
     positions_doc: dict,
     position_results: list[dict],
-    news_sweep: Optional[dict],
     state: dict,
     today_str: str,
     theme_results: Optional[list[dict]] = None,
+    market: str = "all",
 ) -> str:
     """보유 근거(thesis) 대조표. positions.json 원문을 그대로 인용한다.
 
@@ -2256,14 +2276,6 @@ def build_thesis_appendix(
         return ""
 
     by_id = {r["position"]["id"]: r for r in position_results}
-    sweep_by_id = {}
-    for it in ((news_sweep or {}).get("items") or []):
-        key = it.get("position_id")
-        if not key:  # 구형 응답 하위호환
-            key = next((p["id"] for p in positions_doc.get("positions", [])
-                        if p.get("label") == it.get("position_label")), None)
-        if key:
-            sweep_by_id.setdefault(key, []).append(it)
 
     # 테마 흐름을 포지션별로 뒤집어 붙인다 — 오늘 개별 검색하지 않은 포지션에도
     # 상위 변화가 닿았는지 이 표에서 바로 보이게 하는 것이 이 레이어의 목적이다.
@@ -2297,7 +2309,12 @@ def build_thesis_appendix(
         entry = state.get("positions", {}).get(pos["id"], {})
         item = by_id.get(pos["id"])
         out.append("**오늘**")
-        if item is None:
+        if item is None and market != "all" and position_market(pos) not in (market, None):
+            # 미점검이 아니라 '이 실행의 대상이 아님' 이다. 둘을 같은 문장으로 쓰면
+            # 대조표에서 조용한 날과 못 본 날이 구분되지 않는다.
+            last = entry.get("last_checked") or "기록 없음"
+            out.append(f"- 이번 실행 대상 아님 — 별도 실행에서 점검 (마지막 점검 {last})")
+        elif item is None:
             last = entry.get("last_checked") or "기록 없음"
             out.append(f"- 개별 점검 안 함 (마지막 점검 {last})")
         elif item.get("skipped"):
@@ -2312,9 +2329,6 @@ def build_thesis_appendix(
                 out.append("- 걸린 신호 없음")
             if item.get("incomplete"):
                 out.append(f"- ⚠️ 확인 미완료: {item['incomplete']}")
-
-        for it in sweep_by_id.get(pos["id"], []):
-            out.append(f"- 📰 {it.get('summary', '')} ({it.get('reported_at', '')})")
 
         out.extend(theme_by_position.get(pos["id"], []))
 
@@ -2521,11 +2535,26 @@ def git_commit_and_push(file_path: Path):
             logger.info("상태 변경 없음 — 커밋 생략")
             return
         subprocess.run(
-            ["git", "commit", "-m", f"Update monitoring state and event log {datetime.now(KST):%Y-%m-%d}"],
+            ["git", "commit", "-m",
+             f"Update monitoring state and event log {datetime.now(KST):%Y-%m-%d %H:%M}"],
             cwd=PROJECT_ROOT, check=True, capture_output=True, timeout=30)
-        subprocess.run(["git", "push", "origin", "main"],
-                       cwd=PROJECT_ROOT, check=True, capture_output=True, timeout=120)
-        logger.info("position_state.json 커밋·푸시 완료")
+
+        # push 는 한 번 실패해도 재시도한다. 봇도 같은 저장소에 push 하므로
+        # 원격이 앞서 있으면 non-fast-forward 로 막히는데, 그대로 포기하면
+        # EC2 에 로컬 커밋이 쌓이고 다음 실행의 `git pull --ff-only` 까지 막혀서
+        # 그때부터 코드도 안 당겨진다. 하루 2회로 늘면서 부딪힐 창이 넓어졌다.
+        push = subprocess.run(["git", "push", "origin", "main"],
+                              cwd=PROJECT_ROOT, capture_output=True, timeout=120)
+        if push.returncode != 0:
+            logger.warning(
+                "push 실패 — 원격을 rebase 후 재시도: "
+                f"{push.stderr.decode(errors='replace')[:200]}"
+            )
+            subprocess.run(["git", "pull", "--rebase", "origin", "main"],
+                           cwd=PROJECT_ROOT, check=True, capture_output=True, timeout=120)
+            subprocess.run(["git", "push", "origin", "main"],
+                           cwd=PROJECT_ROOT, check=True, capture_output=True, timeout=120)
+        logger.info("상태 파일 커밋·푸시 완료")
     except subprocess.CalledProcessError as e:
         logger.error(f"상태 커밋 실패: {e.stderr.decode(errors='replace')[:300]}")
     except Exception as e:
@@ -2535,14 +2564,14 @@ def git_commit_and_push(file_path: Path):
 # 메인
 # ============================================================
 
-async def main(dry_run: bool = False):
+async def main(dry_run: bool = False, market: str = "all"):
     now = datetime.now(KST)
     now_str = now.strftime("%Y-%m-%d %H:%M KST")
     today_str = now.strftime("%Y-%m-%d")
     stamp = now.strftime("%Y-%m-%d_%H%M")
 
     mode = "DRY-RUN (텔레그램·git·상태갱신 없음)" if dry_run else "정식 실행"
-    logger.info(f"=== Daily Digest {today_str} 시작 — {mode} ===")
+    logger.info(f"=== Daily Digest {today_str} [{market}] 시작 — {mode} ===")
 
     # 1. 포지션 · 상태 · 캘린더 로딩 (가격 수집 대상이 여기서 나옴)
     calendar = load_text_file(CALENDAR_PATH)
@@ -2553,14 +2582,17 @@ async def main(dry_run: bool = False):
     positions = positions_doc.get("positions", [])
     themes = positions_doc.get("themes", [])
     upcoming = extract_upcoming_events(calendar, now)
-    us_tickers, kr_tickers, ticker_names = collect_position_tickers(positions_doc)
+    # 가격은 이번 실행 시장만 수집한다. 다른 시장 종목의 등락을 섞으면
+    # 가격 트리거가 그쪽 포지션을 후보로 올리려 하고, 다이제스트 가격 줄에도
+    # 오늘 점검하지 않은 종목이 끼어든다.
+    us_tickers, kr_tickers, ticker_names = collect_position_tickers(positions_doc, market)
 
     logger.info(
         f"포지션 {len(positions)}개 / 테마 {len(themes)}개 로드 / "
         f"향후 {EVENT_WINDOW_DAYS}일 이벤트 {len(upcoming)}건 파싱"
     )
 
-    # 2. 시장 데이터 (포지션 종목만)
+    # 2. 시장 데이터 (이번 실행 시장의 포지션 종목만)
     logger.info(f"가격 수집: 미국 {len(us_tickers)} / 한국 {len(kr_tickers)}종목")
     us_prices = fetch_us_prices(us_tickers)
     kr_prices = fetch_kr_prices(kr_tickers, ticker_names)
@@ -2571,12 +2603,22 @@ async def main(dry_run: bool = False):
     # 페이지 생성기는 순수 렌더링이어야 하므로 네트워크를 타지 않게 한다.
     # ★ dry-run 은 실제 파일을 건드리지 않는다. 한 번 어겼다가 테스트용 가짜 시세가
     #   커밋돼 사이트가 그걸 실제 종가로 표시했다 (2026-08-16).
+    # ★ 시장별 실행이므로 통째로 덮어쓰면 안 된다. us 실행이 kr 시세를 지워버리면
+    #   한국 포지션 페이지가 오후 실행 전까지 가격 없이 뜬다. 이번에 수집한
+    #   티커만 갱신하고 나머지는 그대로 둔다.
     try:
         market_path = (DRY_RUN_OUTPUT_DIR / f"{stamp}_market.json") if dry_run else MARKET_PATH
         market_path.parent.mkdir(parents=True, exist_ok=True)
+        merged = {}
+        if MARKET_PATH.exists():
+            try:
+                merged = (json.loads(MARKET_PATH.read_text(encoding="utf-8")) or {}).get("prices") or {}
+            except Exception as e:
+                logger.warning(f"기존 시세 파일을 못 읽음 — 이번 수집분만 기록: {e}")
+        merged.update({p["ticker"]: p for p in all_prices})
         market_path.write_text(json.dumps({
-            "asof": now_str, "date": today_str,
-            "prices": {p["ticker"]: p for p in all_prices},
+            "asof": now_str, "date": today_str, "market": market,
+            "prices": merged,
         }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     except Exception as e:
         logger.warning(f"시세 파일 저장 실패 — 계속 진행: {e}")
@@ -2602,35 +2644,30 @@ async def main(dry_run: bool = False):
     else:
         logger.warning("portfolio_level 없음 — Layer 0 검색 생략")
 
-    # 3-2. 전 종목 소식 스윕 (개별 검색은 하루 3개뿐이라 나머지는 이걸로 커버)
-    monitored = [p for p in positions if p.get("status") in MONITORED_STATUSES]
-    logger.info(f"전 종목 소식 스윕 중... ({len(monitored)}종목)")
-    news_sweep, u = search_news_sweep(monitored, now_str)
-    merge_usage(usage_total, u)
-    if news_sweep:
-        logger.info(f"소식 스윕 완료: {len((news_sweep.get('items') or []))}건")
-    else:
-        logger.warning("소식 스윕 실패 — 📰 섹션 없이 진행")
-
     # 4. 검색 대상 선별 (API 호출 없음)
-    selected, unchecked = select_positions(positions, state, all_prices, upcoming, today_str)
+    # SEARCH_ROTATION_DAYS=1 이므로 이번 시장 포지션은 사실상 전부 뽑힌다.
+    # 선별을 남겨두는 이유는 reasons 다 — 가격·이벤트 트리거가 붙었는지가
+    # 검색·종합 프롬프트에 "오늘 특별히 볼 것" 신호로 들어간다.
+    selected, unchecked = select_positions(
+        positions, state, all_prices, upcoming, today_str, market=market
+    )
     if selected:
         for c in selected:
             logger.info(f"선별: {c['position']['id']} — {'; '.join(c['reasons'])}")
     else:
-        logger.info("트리거된 포지션 없음 — 개별 검색 생략")
+        logger.info("선별된 포지션 없음 — 개별 검색 생략")
 
-    # 5. 선별된 포지션만 개별 검색
+    # 5. 선별된 포지션 개별 검색
     position_results = []
     for cand in selected:
         pos = cand["position"]
 
         if usage_total["searches"] >= DAILY_SEARCH_BUDGET:
             logger.warning(
-                f"일일 검색 예산 {DAILY_SEARCH_BUDGET}회 소진 "
+                f"검색 예산 {DAILY_SEARCH_BUDGET}회 소진 "
                 f"(현재 {usage_total['searches']}회) — {pos['id']} 이하 생략"
             )
-            position_results.append({**cand, "result": None, "skipped": "일일 검색 예산 소진"})
+            position_results.append({**cand, "result": None, "skipped": "검색 예산 소진"})
             continue
 
         logger.info(f"포지션 검색 중: {pos['id']} (누적 검색 {usage_total['searches']}회)")
@@ -2743,7 +2780,7 @@ async def main(dry_run: bool = False):
     # ★ 기록은 부가 기능이다. 실패해도 다이제스트를 죽이지 않는다.
     try:
         added, touched = events_log.record_run(
-            today_str, positions_doc, layer0_result, news_sweep,
+            today_str, positions_doc, layer0_result,
             position_results, theme_results,
             normalize_sources=normalize_sources,
             base=(DRY_RUN_OUTPUT_DIR / stamp) if dry_run else None,
@@ -2771,7 +2808,6 @@ async def main(dry_run: bool = False):
         now_str=now_str,
         positions_doc=positions_doc,
         layer0_result=layer0_result,
-        news_sweep=news_sweep,
         position_results=position_results,
         unchecked=unchecked,
         upcoming=upcoming,
@@ -2779,6 +2815,7 @@ async def main(dry_run: bool = False):
         theme_results=theme_results,
         theme_state=theme_state,
         registry=registry,
+        market=market,
     )
     logger.info(f"각주 출처 {len(registry)}건 등록")
 
@@ -2799,8 +2836,8 @@ async def main(dry_run: bool = False):
     # 텔레그램용 요약 + 파일용 markdown 분리
     telegram_summary, file_md = parse_claude_response(response_text)
     file_md += build_thesis_appendix(
-        positions_doc, position_results, news_sweep, state, today_str,
-        theme_results=theme_results,
+        positions_doc, position_results, state, today_str,
+        theme_results=theme_results, market=market,
     )
     file_md += build_theme_appendix(positions_doc, theme_state, today_str)
     # 📎 출처는 모델이 아니라 코드가 붙인다 — 번호와 목록이 어긋나지 않게 하기 위함.
@@ -2837,8 +2874,8 @@ async def main(dry_run: bool = False):
             "web_search_tool": WEB_SEARCH_TOOL_TYPE,
             "usage": usage_total,
             "cost_usd": round(cost, 4),
+            "market": market,
             "layer0": layer0_result,
-            "news_sweep": news_sweep,
             "sources": registry.items(),
             "themes": {
                 "selected": [
@@ -2870,11 +2907,13 @@ async def main(dry_run: bool = False):
         for p in (digest_path, tg_path, prompt_path, run_path):
             logger.info(f"  {p}")
         logger.info("dry-run: 텔레그램 전송·git commit 생략")
-        logger.info(f"=== Daily Digest {today_str} 완료 (DRY-RUN) ===")
+        logger.info(f"=== Daily Digest {today_str} [{market}] 완료 (DRY-RUN) ===")
         return
 
     DIGEST_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    output_path = DIGEST_OUTPUT_DIR / f"{today_str}.md"
+    # 하루 2회 실행이므로 시장을 파일명에 넣는다. 날짜만 쓰면 오후 kr 실행이
+    # 아침 us 다이제스트를 통째로 덮어쓴다.
+    output_path = DIGEST_OUTPUT_DIR / f"{today_str}_{market}.md"
     output_path.write_text(file_md, encoding="utf-8")
     logger.info(f"파일 저장: {output_path}")
 
@@ -2885,7 +2924,7 @@ async def main(dry_run: bool = False):
     # 10. Git commit
     git_commit_and_push(output_path)
 
-    logger.info(f"=== Daily Digest {today_str} 완료 ===")
+    logger.info(f"=== Daily Digest {today_str} [{market}] 완료 ===")
 
 
 def parse_args():
@@ -2895,9 +2934,19 @@ def parse_args():
         action="store_true",
         help="텔레그램 전송·git commit·상태 갱신 없이 결과만 digests/dry-run/ 에 저장",
     )
+    ap.add_argument(
+        "--market",
+        choices=["us", "kr", "all"],
+        default="all",
+        help=(
+            "개별 점검할 포지션의 시장. us=미국장 마감 후(07:30 KST), "
+            "kr=한국장 마감 후(16:30 KST). all 은 전 시장을 한 번에 (기본값, 롤백용). "
+            "Layer 0 과 테마는 시장을 가로지르므로 이 값과 무관하게 매 실행 돈다."
+        ),
+    )
     return ap.parse_args()
 
 
 if __name__ == "__main__":
     args = parse_args()
-    asyncio.run(main(dry_run=args.dry_run))
+    asyncio.run(main(dry_run=args.dry_run, market=args.market))

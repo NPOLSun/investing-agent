@@ -1,6 +1,10 @@
 #!/bin/bash
 # Daily Digest wrapper for cron
 # venv 활성화 + 작업 디렉토리 설정 + 스크립트 실행
+#
+# 인자는 daily_digest.py 에 그대로 넘어간다. 하루 2회 실행:
+#   run_daily_digest.sh --market us    07:30 KST (미국장 마감 후)
+#   run_daily_digest.sh --market kr    16:30 KST (한국장 마감 후)
 
 cd /home/ubuntu/investing-agent/scripts
 source /home/ubuntu/investing-agent/venv/bin/activate
@@ -21,18 +25,19 @@ cd /home/ubuntu/investing-agent/scripts
 
 LOG_DIR=/home/ubuntu/investing-agent/logs
 mkdir -p "$LOG_DIR"
+# 하루 2회 실행이 같은 파일에 이어 붙는다. 어느 실행인지는 아래 시작/종료 줄로 구분한다.
 LOG_FILE="$LOG_DIR/daily_digest_$(date +%Y%m%d).log"
 
 # 오래된 것부터 정리 (디스크 6.8GB 뿐이라 무한 적재 금지)
 find "$LOG_DIR" -name 'daily_digest_*.log' -mtime +14 -delete 2>/dev/null
 find /home/ubuntu/investing-agent/digests/dry-run -type f -mtime +14 -delete 2>/dev/null
 
-echo "=== $(date '+%Y-%m-%d %H:%M:%S') Daily Digest 시작 ===" >> "$LOG_FILE"
+echo "=== $(date '+%Y-%m-%d %H:%M:%S') Daily Digest 시작 ($*) ===" >> "$LOG_FILE"
 
-python3 daily_digest.py >> "$LOG_FILE" 2>&1
+python3 daily_digest.py "$@" >> "$LOG_FILE" 2>&1
 EXIT_CODE=$?
 
-echo "=== $(date '+%Y-%m-%d %H:%M:%S') Daily Digest 종료 (exit: $EXIT_CODE) ===" >> "$LOG_FILE"
+echo "=== $(date '+%Y-%m-%d %H:%M:%S') Daily Digest 종료 ($*, exit: $EXIT_CODE) ===" >> "$LOG_FILE"
 
 # 실패하면 알린다.
 # 성공하면 다이제스트가 오지만 죽으면 아무것도 안 온다 — 그러면 '신호 없는 조용한 날' 과
@@ -45,7 +50,7 @@ if [ "$EXIT_CODE" -ne 0 ]; then
   if [ -n "$BOT_TOKEN" ] && [ -n "$CHAT_ID" ]; then
     curl -s -o /dev/null --max-time 20 \
       -d chat_id="$CHAT_ID" \
-      --data-urlencode "text=⚠️ 일간 다이제스트 실패 (exit $EXIT_CODE)
+      --data-urlencode "text=⚠️ 일간 다이제스트 실패 ($* / exit $EXIT_CODE)
 $(date '+%Y-%m-%d %H:%M') KST
 
 로그 마지막 부분:

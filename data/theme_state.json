@@ -1817,6 +1817,239 @@
           "thesis_review": false
         }
       }
+    },
+    "dc-thermal": {
+      "last_checked": "2026-08-19",
+      "observations": {
+        "NVL72 랙 전력": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "190~230kW (Vera Rubin, Max-Q/Max-P)"
+          }
+        ],
+        "1Q26 열관리 부문 성장률": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "+50% YoY"
+          },
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "전체 DCPI +28% YoY 중 열관리 +50% YoY"
+          }
+        ],
+        "Vicor 2026 매출 가이던스": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "6억달러 이상"
+          }
+        ],
+        "효성중공업 수주잔액(1Q26)": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "15조1000억원"
+          }
+        ],
+        "HD현대일렉트릭 2Q26 북미 수주": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "1조2193억원"
+          },
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "1조2193억원 (YoY +105.5%)"
+          }
+        ],
+        "랙 전력 (NVL72)": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "140kW(GB300) → 190~230kW(Vera Rubin)"
+          }
+        ],
+        "냉각 방식": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "액냉 옵션 → 100% DLC 필수(공랭 없음)"
+          }
+        ],
+        "현재 랙 전력 (GB200 NVL72)": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "120~130kW"
+          }
+        ],
+        "2026년 예상 차세대 랙 전력 상단": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "370kW"
+          }
+        ],
+        "2분기 매출": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "1억1300만달러(1Q26 추정) → 1억4340만달러(2Q26, QoQ +26.9%)"
+          }
+        ],
+        "2026년 매출 가이던스": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "약 5억7000만달러 → 6억달러 이상"
+          }
+        ],
+        "효성중공업 1분기말 수주잔액": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "15조1000억원 (신규수주 4조1745억원)"
+          }
+        ],
+        "HD현대일렉트릭 2Q26 매출": [
+          {
+            "date": "2026-08-19",
+            "last_seen": "2026-08-19",
+            "value": "5420억원 (YoY +70.5%)"
+          }
+        ]
+      },
+      "shifts": {
+        "W1,W3|w1: 액침·d2c 액체냉각 채택 비중 변화 / w3: 신규 데이터센터 설계 표준 변경 (ocp 등)": {
+          "headline": "차세대 랙 액냉 100% 필수화",
+          "shift": "W1: 액침·D2C 액체냉각 채택 비중 변화 / W3: 신규 데이터센터 설계 표준 변경 (OCP 등)",
+          "refs": [
+            "W1",
+            "W3"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "point-of-load"
+          ],
+          "summary": "NVIDIA가 2026-07-21 공식 블로그에서 Vera Rubin NVL72는 공랭 옵션 없이 100% 직접액체냉각(DLC)만 지원한다고 밝혔고, 랙 전력은 GB300 NVL72의 140kW에서 190~230kW로 상승했다. 45°C 온수 단상 DLC로 칠러 없는 드라이쿨러 운영이 가능해졌고, OCP는 Cold Plate(NVIDIA·Meta·Dell·Intel 참여)·UQD v2.0 등 액냉 표준화를 진행 중이며, Dell'Oro는 2026년 1분기 열관리(Thermal Management) 부문이 데이터센터 물리 인프라 전체 성장률(28%)의 약 2배인 50% YoY로 확대됐다고 집계했다.",
+          "sources": [
+            {
+              "url": "https://blogs.nvidia.com/blog/vera-rubin/",
+              "outlet": "NVIDIA Blog",
+              "date": "2026-07-21",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.delloro.com/news/data-center-physical-infrastructure-market-expands-28-percent-y-y-in-1q-2026/",
+              "outlet": "Dell'Oro Group",
+              "date": "2026-07-07",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-19",
+          "first_seen": "2026-08-19",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W2|랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지": {
+          "headline": "병목은 여전히 전력망",
+          "shift": "랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지",
+          "refs": [
+            "W2"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "point-of-load",
+            "hyosung-transformer",
+            "hd-hyundai-electric"
+          ],
+          "summary": "2026년 8월 시점 업계 분석은 랙 밀도 상한의 실질 병목이 열이 아니라 그리드 전력 확보(계통 접속 대기 3~4년)에 있다고 일관되게 지적한다. GB200 NVL72가 120~130kW인 반면 2026년 차세대 랙은 최대 370kW까지 예상되지만, 냉각은 \"필수 인프라\"로 설계에 포함될 뿐 병목의 주역은 아니라는 평가가 우세하다.",
+          "sources": [
+            {
+              "url": "https://blog.se.com/datacenter/2026/07/28/data-center-power-density-planning-liquid-cooled-ai-data-centers-around-grid-and-power-constraints/",
+              "outlet": "Schneider Electric Blog",
+              "date": "2026-07-28",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.techtimes.com/articles/320529/20260715/ai-rack-limits-exposed-cooling-800vdc-fiber-data-center-insights-2026-today.htm",
+              "outlet": "Tech Times",
+              "date": "2026-07-15",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-19",
+          "first_seen": "2026-08-19",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W2|랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지 (point-of-load 벤더 실적으로 확인)": {
+          "headline": "Vicor 2분기 실적 가속",
+          "shift": "랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지 (point-of-load 벤더 실적으로 확인)",
+          "refs": [
+            "W2"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "point-of-load"
+          ],
+          "summary": "Vicor는 2026-07-21 발표한 2분기 실적에서 매출 1억4340만달러(전분기 대비 +26.9%), Advanced Products 매출 전분기 대비 +45%를 기록했고, 2026년 연간 매출 가이던스를 기존 약 5억7000만달러에서 6억달러 이상으로 상향했다. 신규 IP 라이선스 계약이 2분기에만 1500만달러 기여했다.",
+          "sources": [
+            {
+              "url": "https://www.fool.com/earnings/call-transcripts/2026/07/21/vicor-vicr-q2-2026-earnings-call-transcript/",
+              "outlet": "The Motley Fool",
+              "date": "2026-07-21",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-19",
+          "first_seen": "2026-08-19",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W2|랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지 (변압기 벤더 실적으로 확인)": {
+          "headline": "美 변압기 수주 지속 확대",
+          "shift": "랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지 (변압기 벤더 실적으로 확인)",
+          "refs": [
+            "W2"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "hyosung-transformer",
+            "hd-hyundai-electric"
+          ],
+          "summary": "효성중공업은 1분기 말 기준 수주잔액 15조1000억원(신규수주 4조1745억원)을 기록했고 테네시 멤피스 공장 증설로 2028년까지 초고압변압기 생산량을 50% 이상 늘릴 계획이다. HD현대일렉트릭은 2026년 2분기 북미 수주 1조2193억원(전년 동기 대비 +105.5%), 매출 5420억원(+70.5%)을 기록했으며 4월 IEEE PES 전시회에서 765kV 변압기·리액터 공급계약(1730억원)을 추가로 체결했다.",
+          "sources": [
+            {
+              "url": "https://biz.newdaily.co.kr/site/data/html/2026/08/13/2026081300091.html",
+              "outlet": "뉴데일리",
+              "date": "2026-08-13",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.m-i.kr/news/articleView.html?idxno=1370739",
+              "outlet": "매일일보",
+              "date": "2026-05-07",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-19",
+          "first_seen": "2026-08-19",
+          "count": 1,
+          "thesis_review": false
+        }
+      }
     }
   }
 }

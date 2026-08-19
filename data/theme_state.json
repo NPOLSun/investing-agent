@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-08-19"
+    "last_run": "2026-08-20"
   },
   "themes": {
     "ai-dc-power": {
@@ -964,7 +964,7 @@
       }
     },
     "memory-storage": {
-      "last_checked": "2026-08-18",
+      "last_checked": "2026-08-20",
       "observations": {
         "파두 컨트롤러 매출 비중": [
           {
@@ -1047,6 +1047,97 @@
             "last_seen": "2026-08-18",
             "value": "요구 10Gbps → 달성 11.7Gbps"
           }
+        ],
+        "파두 Gen6 컨트롤러 상태": [
+          {
+            "date": "2026-08-20",
+            "last_seen": "2026-08-20",
+            "value": "FMS2026 실물 공개(2026-08-05) → 2026년 하반기 공급 예정"
+          }
+        ],
+        "Marvell Bravera SC6": [
+          {
+            "date": "2026-08-20",
+            "last_seen": "2026-08-20",
+            "value": "FMS2026 발표, PCIe6.0·NAND-agnostic, 2026 Q4 샘플링"
+          }
+        ],
+        "Kioxia·SanDisk QLC 세대": [
+          {
+            "date": "2026-08-20",
+            "last_seen": "2026-08-20",
+            "value": "8세대 → 9세대(BiCS10, 332단), 비트밀도 +60%"
+          }
+        ],
+        "예스티 삼성전자 신규 장비계약": [
+          {
+            "date": "2026-08-20",
+            "last_seen": "2026-08-20",
+            "value": "123.82억원(2026-06~11), 장비명 비공개"
+          }
+        ],
+        "예스티-HPSP 서울중앙지법 본안소송": [
+          {
+            "date": "2026-08-20",
+            "last_seen": "2026-08-20",
+            "value": "2026-08-13 변론 기준 진행 중(장비 영상 추가제출 공방)"
+          }
+        ],
+        "Gen6 성능": [
+          {
+            "date": "2026-08-20",
+            "last_seen": "2026-08-20",
+            "value": "Gen5 대비 2배 이상"
+          }
+        ],
+        "Gen6 공급 시점": [
+          {
+            "date": "2026-08-20",
+            "last_seen": "2026-08-20",
+            "value": "2026년 하반기(신규 발표)"
+          }
+        ],
+        "SC5 대비 속도": [
+          {
+            "date": "2026-08-20",
+            "last_seen": "2026-08-20",
+            "value": "2배"
+          }
+        ],
+        "샘플링 시작": [
+          {
+            "date": "2026-08-20",
+            "last_seen": "2026-08-20",
+            "value": "2026년 4분기"
+          }
+        ],
+        "비트밀도": [
+          {
+            "date": "2026-08-20",
+            "last_seen": "2026-08-20",
+            "value": "8세대 대비 최대 +60%, 37Gb/mm² 초과"
+          }
+        ],
+        "레이어 수": [
+          {
+            "date": "2026-08-20",
+            "last_seen": "2026-08-20",
+            "value": "332단"
+          }
+        ],
+        "계약금액": [
+          {
+            "date": "2026-08-20",
+            "last_seen": "2026-08-20",
+            "value": "123.82억원(2025년 매출 대비 14.22%)"
+          }
+        ],
+        "계약기간": [
+          {
+            "date": "2026-08-20",
+            "last_seen": "2026-08-20",
+            "value": "2026-06-01 ~ 2026-11-30"
+          }
         ]
       },
       "shifts": {
@@ -1090,7 +1181,7 @@
           "thesis_review": false
         },
         "W1,W3|ai 추론 확산에 따른 essd·니어라인 스토리지 수요 구조 변화": {
-          "headline": "파두 컨트롤러 매출 급증",
+          "headline": "키옥시아·샌디스크 9세대 QLC",
           "shift": "AI 추론 확산에 따른 eSSD·니어라인 스토리지 수요 구조 변화",
           "refs": [
             "W1",
@@ -1100,26 +1191,33 @@
           "affects": [
             "ssd-controller"
           ],
-          "summary": "파두는 2026년 1분기 매출 595억원(전년동기 192억원 대비 +210%)을 기록하며 흑자전환했고, 컨트롤러 매출 비중은 2024년 약 55%에서 2025년 약 70%까지 확대됐다. 2026년 상반기 누적 매출(1,327억원)은 2024~2025년 합산 매출(1,395억원)에 근접했으며, 회사는 PCIe Gen6 컨트롤러 시장 대응도 준비 중이라고 밝혔다.",
+          "summary": "키옥시아와 샌디스크가 FMS 2026에서 차세대(9세대) QLC 3D 낸드 기술 'BiCS10'을 공동 발표했다. CBA(CMOS directly Bonded to Array) 공정과 332단 구조를 적용해 8세대 대비 비트밀도를 최대 60% 높였으며(37Gb/mm² 초과), AI·하이퍼스케일 데이터센터向 스토리지 확대를 목표로 한다고 밝혔다.",
           "sources": [
             {
-              "url": "https://news.bizwatch.co.kr/article/industry/2026/07/20/0007",
-              "outlet": "Bizwatch",
-              "date": "2026-07-20",
-              "tier": "S2",
+              "url": "https://www.kioxia.com/en-jp/about/news/2026/20260804-2.html",
+              "outlet": "Kioxia Newsroom",
+              "date": "2026-08-04",
+              "tier": "S1",
               "note": ""
             },
             {
-              "url": "https://www.newspim.com/news/view/20260629001356",
-              "outlet": "Newspim",
-              "date": "2026-06-29",
+              "url": "https://www.sandisk.com/company/newsroom/press-releases/2026/2026-08-04-new-3d-flash-memory-technology-from-kioxia-and-sandisk-qlc-nand",
+              "outlet": "Sandisk Newsroom",
+              "date": "2026-08-04",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.storagenewsletter.com/2026/08/05/fms-2026-new-3d-flash-memory-technology-from-kioxia-and-sandisk-achieves-industrys-highest-bit-density-for-qlc-nand/",
+              "outlet": "StorageNewsletter",
+              "date": "2026-08-05",
               "tier": "S2",
               "note": ""
             }
           ],
-          "last_seen": "2026-08-18",
+          "last_seen": "2026-08-20",
           "first_seen": "2026-08-18",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W1,W3,W5|메모리·후공정 capex 방향": {
@@ -1184,6 +1282,117 @@
           ],
           "last_seen": "2026-08-18",
           "first_seen": "2026-08-18",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W1,W4|ai 추론 확산에 따른 essd·니어라인 스토리지 수요 구조 변화 / 컨트롤러 내재화 vs 외부 조달 흐름": {
+          "headline": "파두 Gen6 실물 공개",
+          "shift": "AI 추론 확산에 따른 eSSD·니어라인 스토리지 수요 구조 변화 / 컨트롤러 내재화 vs 외부 조달 흐름",
+          "refs": [
+            "W1",
+            "W4"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "ssd-controller"
+          ],
+          "summary": "파두가 미국 산타클라라 'FMS 2026'에서 '파두 2.0' 비전을 선포하고 자사 Gen6 컨트롤러를 탑재한 실물 SSD를 처음으로 공개·시연했다. Gen5 대비 성능이 2배 이상 향상됐으며, 회사는 올해 하반기 중 Gen6 컨트롤러 납품을 시작한다고 밝혔다.",
+          "sources": [
+            {
+              "url": "https://zdnet.co.kr/view/?no=20260805103610",
+              "outlet": "ZDNet Korea",
+              "date": "2026-08-05",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.ddaily.co.kr/page/view/2026080511065912741",
+              "outlet": "디지털데일리",
+              "date": "2026-08-05",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.newspim.com/news/view/20260805000384",
+              "outlet": "Newspim",
+              "date": "2026-08-05",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-20",
+          "first_seen": "2026-08-20",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W4|컨트롤러 내재화 vs 외부 조달 흐름": {
+          "headline": "마벨 하이퍼스케일 Gen6 컨트롤러",
+          "shift": "컨트롤러 내재화 vs 외부 조달 흐름",
+          "refs": [
+            "W4"
+          ],
+          "direction": "역풍",
+          "affects": [
+            "ssd-controller"
+          ],
+          "summary": "마벨이 FMS 2026에서 하이퍼스케일러向 PCIe 6.0 SSD 컨트롤러 'Bravera SC6'를 공식 발표했다. NAND 벤더 비종속(NAND-agnostic) 구조로 여러 공급사의 낸드를 지원하며, KV캐시를 GPU 메모리에서 SSD로 오프로드하는 AI 추론용 티어드 스토리지를 겨냥했고 2026년 4분기 샘플링을 시작한다.",
+          "sources": [
+            {
+              "url": "https://investor.marvell.com/news-events/press-releases/detail/1030/marvell-advances-ai-memory-infrastructure-portfolio-to-accelerate-agentic-ai-inference",
+              "outlet": "Marvell IR",
+              "date": "2026-08-05",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.marvell.com/blogs/marvell-bravera-sc6-ssd-controller-pcie-gen6-nvme.html",
+              "outlet": "Marvell Blog",
+              "date": "2026-08-05",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://futurumgroup.com/insights/marvell-scales-ai-memory-to-48tb-behind-a-single-cxl-switch-at-fms-2026/",
+              "outlet": "Futurum Group",
+              "date": "2026-08-05",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-20",
+          "first_seen": "2026-08-20",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W2|hpa 특허 리스크 최종 해소(관련 상업 계약 동향)": {
+          "headline": "예스티 삼성 장비계약 124억",
+          "shift": "HPA 특허 리스크 최종 해소(관련 상업 계약 동향)",
+          "refs": [
+            "W2"
+          ],
+          "direction": "불명",
+          "affects": [
+            "hpa-equipment"
+          ],
+          "summary": "예스티가 삼성전자와 123.82억원(2025년 매출의 14.22%) 규모 반도체 제조장비 공급계약을 체결했다(계약기간 2026-06-01~2026-11-30). 다만 공급 장비의 구체적 명칭·용도는 영업기밀을 이유로 공시에서 비공개되어, 이번 계약이 HPA(고압어닐링) 장비인지는 원문상 확인되지 않는다(미확인).",
+          "sources": [
+            {
+              "url": "https://alphabiz.co.kr/news/view/1065596250837773",
+              "outlet": "알파경제TV",
+              "date": "2026-06-02",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03850726645477456",
+              "outlet": "이데일리",
+              "date": "2026-06-02",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-20",
+          "first_seen": "2026-08-20",
           "count": 1,
           "thesis_review": false
         }

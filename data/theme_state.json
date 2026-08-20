@@ -1,11 +1,11 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-08-20"
+    "last_run": "2026-08-21"
   },
   "themes": {
     "ai-dc-power": {
-      "last_checked": "2026-08-19",
+      "last_checked": "2026-08-21",
       "observations": {
         "OCP LVDC SST 스펙": [
           {
@@ -41,6 +41,11 @@
             "date": "2026-08-19",
             "last_seen": "2026-08-19",
             "value": "600kW (재설계 후 재확인, 300kW대 추측은 반박됨)"
+          },
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "600kW 유지(재설계 후 재확인, 변동없음)"
           }
         ],
         "FERC 계통접속 명령": [
@@ -286,6 +291,88 @@
             "last_seen": "2026-08-19",
             "value": "2026-07-20"
           }
+        ],
+        "GE Vernova 가스터빈 백로그": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "100GW(1Q26) → 116GW(2Q26)"
+          }
+        ],
+        "ERCOT 대형부하 접속대기": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "63GW(2024말) → 226GW(2026)"
+          }
+        ],
+        "FERC RTO 응답시한": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "2026-08-17 도과, 제출내용 미확인"
+          }
+        ],
+        "xAI 예비금지명령 판결": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "2026년 8월 말 예정, 미확정"
+          }
+        ],
+        "OCP LVDC SST v0.3": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "2026-07 발표, 80개 이상 업체 참여(변동없음)"
+          }
+        ],
+        "Vicor 주가": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "8/10 -5.6% → 8/14 +3.6%(변동성 확대, 내부자 매도 지속)"
+          }
+        ],
+        "데이터센터 비중": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "약 20%"
+          },
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "77%"
+          }
+        ],
+        "가격 프리미엄": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "2025년 4분기 대비 +10~20%p"
+          }
+        ],
+        "ERCOT 대형부하 대기": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "63GW(2024말) → 226GW(2026)"
+          }
+        ],
+        "2026 1분기 신규신청": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "198GW"
+          }
+        ],
+        "응답시한": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "2026-08-17(도과, 결과 미확인)"
+          }
         ]
       },
       "shifts": {
@@ -338,7 +425,7 @@
           "thesis_review": false
         },
         "W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화": {
-          "headline": "FERC 6개 RTO 응답시한 8/17 도래",
+          "headline": "ERCOT 대형부하 대기 4배 급증",
           "shift": "계통 접속 대기열(interconnection queue) 적체 및 규제 변화",
           "refs": [
             "W5"
@@ -348,33 +435,19 @@
             "hyosung-transformer",
             "hd-hyundai-electric"
           ],
-          "summary": "2026-06-18 FERC가 PJM·MISO·SPP·CAISO·ISO-NE·NYISO 6개 RTO/ISO에 내린 대형부하 접속규정 개정/정당화 명령(Section 206 Show Cause Order)의 60일 응답 시한이 2026-08-17 도래했다. 각 운영자는 이날까지 관세(tariff) 개정안 또는 기존 규정의 정당성 근거를 제출해야 하며, 앞서 7월20일 발전용량 확보 보고서, 8월3일 유예신청 등 단계적 절차가 이미 진행됐다.",
+          "summary": "ERCOT(텍사스)의 대형부하(20MW 이상) 접속 대기 물량이 2024년 말 63GW에서 2026년 현재 226GW로 약 4배 늘었으며, 이 중 77%가 데이터센터發이다. 2026년 1분기에만 198GW가 신규 신청되어 특정 지역(ERCOT)의 적체 심화 속도가 전국 평균보다 빠르게 나타나고 있다.",
           "sources": [
             {
-              "url": "https://www.ferc.gov/rm26-4",
-              "outlet": "FERC (Docket RM26-4)",
-              "date": "2026-06-18",
-              "tier": "S1",
-              "note": ""
-            },
-            {
-              "url": "https://www.akingump.com/en/insights/blogs/speaking-energy/ferc-issues-landmark-show-cause-orders-on-large-load-interconnection",
-              "outlet": "Akin Gump",
-              "date": "2026-06-19",
-              "tier": "S2",
-              "note": ""
-            },
-            {
-              "url": "https://www.mcguirewoods.com/client-resources/alerts/2026/6/ferc-issues-section-206-show-cause-orders-directing-all-six-rtos-isos-to-justify-or-reform-large-load-integration-rules/",
-              "outlet": "McGuireWoods",
-              "date": "2026-06-19",
+              "url": "https://www.latitudemedia.com/news/ercots-large-load-queue-has-nearly-quadrupled-in-a-single-year/",
+              "outlet": "Latitude Media",
+              "date": "2026-08",
               "tier": "S2",
               "note": ""
             }
           ],
-          "last_seen": "2026-08-19",
+          "last_seen": "2026-08-21",
           "first_seen": "2026-08-17",
-          "count": 2,
+          "count": 3,
           "thesis_review": false
         },
         "W4|온사이트 발전·비계통 전력 조달 비중(behind-the-meter)": {
@@ -542,11 +615,115 @@
           "first_seen": "2026-08-19",
           "count": 1,
           "thesis_review": false
+        },
+        "W4|온사이트 발전·비계통 전력 조달 비중(behind-the-meter) / 가스터빈 공급망 타이트": {
+          "headline": "GE Vernova 가스터빈 백로그 급증",
+          "shift": "온사이트 발전·비계통 전력 조달 비중(behind-the-meter) / 가스터빈 공급망 타이트",
+          "refs": [
+            "W4"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "power-generation"
+          ],
+          "summary": "GE Vernova의 가스터빈 수주잔고가 2026년 1분기 100GW에서 2분기 116GW로 3개월 만에 16GW 늘었다. 이 중 약 20%가 데이터센터向 부하와 직결되며, 가격은 2025년 4분기 대비 10~20%p 높게 형성되어 있어 GE Vernova·Mitsubishi Power·Siemens Energy 3사가 물량을 소화하지 못하는 상황이 이어지고 있다.",
+          "sources": [
+            {
+              "url": "https://www.power-eng.com/gas/turbines/data-centers-drive-record-surge-in-ge-vernova-power-equipment-orders-as-turbine-slots-tighten-through-2030/",
+              "outlet": "Power Engineering",
+              "date": "2026-08",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.turbomachinerymag.com/view/ge-vernova-gas-turbine-backlog-hits-116-gw-as-power-orders-more-than-double",
+              "outlet": "Turbomachinery Magazine",
+              "date": "2026-08",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.cnbc.com/2026/06/27/ge-vernova-gas-turbines-ai-data-centers.html",
+              "outlet": "CNBC",
+              "date": "2026-06-27",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-21",
+          "first_seen": "2026-08-21",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — ferc 6개 rto 응답": {
+          "headline": "FERC 응답시한 도과, 결과는 미확인",
+          "shift": "계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — FERC 6개 RTO 응답",
+          "refs": [
+            "W5"
+          ],
+          "direction": "불명",
+          "affects": [
+            "hyosung-transformer",
+            "hd-hyundai-electric"
+          ],
+          "summary": "PJM·MISO·SPP·CAISO·ISO-NE·NYISO에 대한 FERC의 대형부하 접속규정 개정/정당화 명령(RM26-4) 60일 응답 시한이 2026-08-17로 예정대로 도래했다. 다만 각 RTO/ISO가 실제로 관세 개정안을 제출했는지, 제출했다면 구체적 내용이 무엇인지는 2026-08-21 현재 공개 보도로 확인되지 않는다 — FERC 사이트 및 법무법인 코멘트에도 8/17 이전 시점 설명만 있고 사후 결과는 아직 나오지 않았다.",
+          "sources": [
+            {
+              "url": "https://www.ferc.gov/rm26-4",
+              "outlet": "FERC (Docket RM26-4)",
+              "date": "2026-06-18",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.akingump.com/en/insights/blogs/speaking-energy/ferc-issues-landmark-show-cause-orders-on-large-load-interconnection",
+              "outlet": "Akin Gump",
+              "date": "2026-06-19",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-21",
+          "first_seen": "2026-08-21",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W4|온사이트 발전·비계통 전력 조달 비중(behind-the-meter) — xai 콜로서스 소송": {
+          "headline": "xAI 임시금지명령 판결 임박",
+          "shift": "온사이트 발전·비계통 전력 조달 비중(behind-the-meter) — xAI 콜로서스 소송",
+          "refs": [
+            "W4"
+          ],
+          "direction": "불명",
+          "affects": [
+            "power-generation"
+          ],
+          "summary": "NAACP·남부환경법센터가 제기한 xAI 콜로서스2 무허가 가스터빈 가동중지 소송에서, 연방판사가 예비금지명령(preliminary injunction) 여부를 2026년 8월 말 중 판단할 예정이나 2026-08-21 현재 아직 판결이 나오지 않았다. DOJ는 xAI의 Grok이 국가안보 자산이라는 논리로 이미 xAI 편에 개입한 상태다.",
+          "sources": [
+            {
+              "url": "https://www.mlex.com/mlex/energy/articles/2502247",
+              "outlet": "MLex",
+              "date": "2026-08",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.utilitydive.com/news/doj-intervenes-xai-data-center-gas-turbine-lawsuit/823267/",
+              "outlet": "Utility Dive",
+              "date": "2026-06",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-21",
+          "first_seen": "2026-08-21",
+          "count": 1,
+          "thesis_review": false
         }
       }
     },
     "optical-interconnect": {
-      "last_checked": "2026-08-19",
+      "last_checked": "2026-08-21",
       "observations": {
         "NVIDIA CPO 스위치 상태": [
           {
@@ -558,6 +735,11 @@
             "date": "2026-08-19",
             "last_seen": "2026-08-19",
             "value": "2026-08 완전양산 진입, Vera Rubin 플랫폼向 올가을 출하 예정"
+          },
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "완전양산 지속, Vera Rubin 플랫폼으로 OpenAI·CoreWeave·Google Cloud·Azure·Meta·Dell 출하 중(7/21 발표 재확인)"
           }
         ],
         "Broadcom CPO 스위치 상태": [
@@ -570,6 +752,11 @@
             "date": "2026-08-19",
             "last_seen": "2026-08-19",
             "value": "볼륨 램프 진행 중(Tomahawk 6-Davisson, Bailly), Bailly는 Delta Electronics·Micas Networks 지원 하에 볼륨생산·Meta 배포검증 완료"
+          },
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "Bailly 볼륨생산 지속, Meta 배포검증 완료"
           }
         ],
         "TSMC COUPE": [
@@ -582,6 +769,11 @@
             "date": "2026-08-19",
             "last_seen": "2026-08-19",
             "value": "2026년 양산 목표 유지, NVIDIA·Broadcom 주문 기접수"
+          },
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "2026 양산목표 유지, PIC 캐파 3년내 30배 확대 계획"
           }
         ],
         "CPO 비중(2026 광모듈 중)": [
@@ -648,6 +840,11 @@
             "date": "2026-08-17",
             "last_seen": "2026-08-19",
             "value": "~0.5%(2026) → 35%(2030)"
+          },
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "~0.5%(2026) → 35%(2030), 변곡점은 2027~2028년으로 후행(ASMPT 발언)"
           }
         ],
         "성호전자/ADS테크 2026 가이던스": [
@@ -719,46 +916,184 @@
             "last_seen": "2026-08-19",
             "value": "YoY +70%↑"
           }
+        ],
+        "Corning 장기계약": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "Meta 최대$6B(2026-01)+Amazon 복수B$(2026-06), 8월 신규계약 없음"
+          }
+        ],
+        "Coherent CPO TAM": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "$15B+, scale-out 매출인식 2026년 12월분기부터"
+          }
+        ],
+        "Lumentum CPO 일정": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "scale-up 2027년 하반기 양산, 2028년 첫 고객 배포"
+          }
+        ],
+        "Marvell 광인터커넥트 FY27 가이던스": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "YoY +70%↑ (실적발표 8/27 예정, 아직 미발표)"
+          }
+        ],
+        "OCP CPO 표준화": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "Lightmatter 주도 20개사 참여, 스펙 초안 목표 2026 Q4"
+          }
+        ],
+        "성호전자/ADS테크 자금상황": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "최대주주 담보위기로 7~8월 1,350억원 조기상환 + 인티맥스 잔금 315억원 조달, 주가 고점대비 약-50%"
+          }
+        ],
+        "ADS테크 나스닥 상장 검토": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "예비 기업가치 $70~100억, 프리IPO 검토(H2 2026~H1 2027), 목표 2028년(미확정)"
+          }
+        ],
+        "최대주주 조기상환액(7/8~7/31)": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "1,350억원"
+          }
+        ],
+        "인티맥스 인수 2차대금": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "315억원(8/11 예정)"
+          }
+        ],
+        "주가": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "고점 대비 약 -50%"
+          }
+        ],
+        "예비 기업가치": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "$70억~100억(약10~14조원)"
+          }
+        ],
+        "목표 상장시점": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "2028년(미확정)"
+          }
+        ],
+        "Coherent CPO 매출인식 시점": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "2026년 12월분기(scale-out)"
+          }
+        ],
+        "Lumentum scale-up 양산": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "2027년 하반기"
+          }
+        ],
+        "OCP 표준 참여사": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "20개사"
+          }
+        ],
+        "스펙 초안 목표": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "2026 Q4"
+          }
+        ],
+        "Coherent FY26 Q4 매출": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "$2.045B (YoY+33.7%)"
+          }
+        ],
+        "Coherent 데이터센터·통신 매출": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "$1.615B (+59%YoY, 비중79%)"
+          }
+        ],
+        "Fabrinet FY26 Q4 매출": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "$1.316B (컨센서스 $1.27B 상회)"
+          }
+        ],
+        "Fabrinet 주가(8/18)": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "-20%"
+          }
         ]
       },
       "shifts": {
         "W1|cpo 양산 채택 일정의 전진 또는 후퇴": {
-          "headline": "NVIDIA CPO 완전양산 진입",
+          "headline": "광부품주 실적발 변동성",
           "shift": "CPO 양산 채택 일정의 전진 또는 후퇴",
           "refs": [
             "W1"
           ],
-          "direction": "순풍",
-          "affects": [
-            "optical-align"
-          ],
-          "summary": "NVIDIA의 Spectrum-X Ethernet Photonics(CPO 스위치)가 2026년 8월 완전양산(full production) 단계에 진입해 TSMC(실리콘 포토닉스 파운드리)·SPIL(칩스케일 패키징)·Lumentum/TFC(레이저)·Foxconn(시스템 조립) 5개 벤더 분업 공급망으로 CoreWeave·Lambda·Oracle 등에 출하가 시작됐다. TrendForce(2026-07-27)는 이를 NVIDIA·Broadcom(Tomahawk 6-Davisson, Bailly) 양쪽 모두 CPO 스위치 '볼륨 램프' 단계 진입으로 확인했다.",
+          "direction": "중립",
+          "affects": [],
+          "summary": "Coherent가 FY26 4분기 매출 20.45억달러(YoY+33.7%, 데이터센터·통신부문 16.15억달러·+59%YoY로 사상최대)를 기록하며 호실적을 냈지만, 같은 주 Fabrinet은 4분기 실적(매출 13.16억달러, EPS $4.10 모두 컨센서스 상회)에도 FY27 1분기 가이던스가 순차 둔화를 시사하고 마진·잉여현금흐름이 부진해 8월 18일 주가가 20% 급락, 광학 섹터 전반을 끌어내렸다. 이후 TSMC·NVIDIA 양산 로드맵 재확인으로 일부 반등이 나타나는 등 실적 호조와 밸류에이션 조정이 뒤섞인 변동 장세다.",
           "sources": [
             {
-              "url": "https://www.trendforce.com/presscenter/news/20260727-13151.html",
-              "outlet": "trendforce.com",
-              "date": "2026-07-27",
+              "url": "https://www.sec.gov/Archives/edgar/data/0000820318/000119312526208972/d57080dex991.htm",
+              "outlet": "sec.gov (Coherent 8-K)",
+              "date": "2026-08-12",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.fool.com/investing/2026/08/18/why-fabrinet-stock-just-plummeted/",
+              "outlet": "fool.com",
+              "date": "2026-08-18",
               "tier": "S2",
               "note": ""
             },
             {
-              "url": "https://www.storagereview.com/news/nvidia-spectrum-x-ethernet-photonics-enters-full-production-with-4x-fewer-lasers-and-a-five-vendor-cpo-supply-chain",
-              "outlet": "storagereview.com",
-              "date": "2026-08",
-              "tier": "S2",
-              "note": ""
-            },
-            {
-              "url": "https://www.techeblog.com/nvidia-spectrum-x-ethernet-photonics-production-ai-networking-platform/",
-              "outlet": "techeblog.com",
-              "date": "2026-08",
+              "url": "https://seekingalpha.com/news/4634204-fabrinet-stock-tumbles-despite-upbeat-q1-outlook-q4-earnings-beat",
+              "outlet": "seekingalpha.com",
+              "date": "2026-08-18",
               "tier": "S2",
               "note": ""
             }
           ],
-          "last_seen": "2026-08-17",
+          "last_seen": "2026-08-21",
           "first_seen": "2026-08-17",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W5|실리콘 포토닉스 수율·패키징 병목 해소 여부": {
@@ -870,7 +1205,7 @@
           "thesis_review": false
         },
         "W1,W5|실리콘 포토닉스 수율·패키징 병목 해소 여부": {
-          "headline": "ADS테크 증설·가이던스 상향",
+          "headline": "ADS테크 나스닥 상장 검토",
           "shift": "실리콘 포토닉스 수율·패키징 병목 해소 여부",
           "refs": [
             "W1",
@@ -880,40 +1215,19 @@
           "affects": [
             "optical-align"
           ],
-          "summary": "성호전자 자회사 ADS테크가 화성 동탄테크노밸리에 신규 공장을 확보해 액티브얼라인 장비 연간 생산능력을 약 1,000대 규모로 확대 중이며, 회사는 2026년 매출 903억원(YoY +64%)·영업이익 433억원(YoY +70%) 가이던스를 제시했다. 2027년부터 액티브얼라인 장비가 매출의 75% 이상을 차지할 것으로 전망되나, 스케일업 광 시장 본격 개화 시점은 2028년 이후로 여전히 후행한다.",
+          "summary": "성호전자가 글로벌 투자은행으로부터 자회사 ADS테크의 2028년 나스닥 상장 및 예비 기업가치 70억~100억달러(약 10~14조원) 범위를 담은 검토자료를 수령했으며, 올 하반기~내년 상반기 사이 프리IPO 투자유치를 검토 중이라고 밝혔다. 회사 측은 이것이 주관사 선정이나 상장 조건 확정을 의미하지 않는다고 명시해, 아직 초기 검토 단계임을 강조했다.",
           "sources": [
             {
-              "url": "https://www.thelec.kr/news/articleView.html?idxno=58033",
-              "outlet": "thelec.kr",
-              "date": "2026",
+              "url": "https://www.mt.co.kr/stock/2026/07/08/2026070809474354868",
+              "outlet": "mt.co.kr",
+              "date": "2026-07-08",
               "tier": "S2",
-              "note": ""
-            },
-            {
-              "url": "https://www.newspim.com/news/view/20260609000138",
-              "outlet": "newspim.com",
-              "date": "2026-06-09",
-              "tier": "S3",
-              "note": ""
-            },
-            {
-              "url": "https://www.finance-scope.com/article/view/scp202607090014",
-              "outlet": "finance-scope.com",
-              "date": "2026-07-09",
-              "tier": "S3",
-              "note": ""
-            },
-            {
-              "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=436689",
-              "outlet": "pinpointnews.co.kr",
-              "date": "2026",
-              "tier": "S3",
               "note": ""
             }
           ],
-          "last_seen": "2026-08-19",
+          "last_seen": "2026-08-21",
           "first_seen": "2026-08-19",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W1,W3|cpo 양산 채택 일정의 전진 또는 후퇴": {
@@ -958,6 +1272,91 @@
           ],
           "last_seen": "2026-08-19",
           "first_seen": "2026-08-19",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W1,W5|실리콘 포토닉스 수율·패키징 병목 해소 여부(ads테크/성호전자 자금여력)": {
+          "headline": "성호전자 재무 균열",
+          "shift": "실리콘 포토닉스 수율·패키징 병목 해소 여부(ADS테크/성호전자 자금여력)",
+          "refs": [
+            "W1",
+            "W5"
+          ],
+          "direction": "역풍",
+          "affects": [
+            "optical-align"
+          ],
+          "summary": "성호전자 최대주주 서룡전자가 주가 급락(고점 대비 약 -50%)으로 담보비율 위기에 몰려 7월 8~31일 다섯 차례에 걸쳐 총 1,350억원을 조기상환했고, 반도체 검사장비사 인티맥스 인수 2차 대금 315억원도 8월 11일 자기 신주인수권부사채(BW) 매각으로 조달했다. ADS테크 인수 이후 M&A를 이어가는 구조 자체가 주가 의존형이어서, 주가 변동성이 확장 자금 조달의 직접 변수로 작용하는 취약점이 드러났다.",
+          "sources": [
+            {
+              "url": "https://www.ajunews.com/view/20260805155640195",
+              "outlet": "ajunews.com",
+              "date": "2026-08-05",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.greened.kr/news/articleView.html?idxno=343759",
+              "outlet": "greened.kr",
+              "date": "2026-08",
+              "tier": "S3",
+              "note": ""
+            },
+            {
+              "url": "https://news.mtn.co.kr/news-detail/2026080422561076443",
+              "outlet": "news.mtn.co.kr",
+              "date": "2026-08-04",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-21",
+          "first_seen": "2026-08-21",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W1,W3|cpo 양산 채택 일정의 전진 또는 후퇴 / 광 i/o 표준화 동향": {
+          "headline": "CPO 지연설 반박·표준화 착수",
+          "shift": "CPO 양산 채택 일정의 전진 또는 후퇴 / 광 I/O 표준화 동향",
+          "refs": [
+            "W1",
+            "W3"
+          ],
+          "direction": "순풍",
+          "affects": [],
+          "summary": "6월 SemiAnalysis 보고서發 'CPO 2028년 이후 지연' 우려에 대해 Lumentum·Coherent가 실적 발표에서 일정 불변을 공식 확인했고, Coherent는 스케일아웃 CPO 매출을 2026년 12월분기부터 정식 인식한다고 밝혔다. 8월 13일에는 Lightmatter 주도로 TSMC·삼성 등 20개사가 참여하는 'Open Silicon Photonics for AI Systems' 워크스트림이 OCP 공식 채택되어 2026년 4분기까지 스펙 초안 제출을 목표로 하는 300페이지 아키텍처 청사진을 발표했다.",
+          "sources": [
+            {
+              "url": "https://nvidianews.nvidia.com/news/vera-rubin-full-production-agentic-ai-factory",
+              "outlet": "nvidianews.nvidia.com",
+              "date": "2026-07-21",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://lightmatter.co/press-release/lightmatter-announces-reference-architecture-initiative-with-industry-leaders-in-the-open-compute-project-for-co-packaged-optics/",
+              "outlet": "lightmatter.co",
+              "date": "2026-08-13",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.techtimes.com/articles/324563/20260815/co-packaged-optics-standard-gets-q4-deadline-ocp-blueprint-targets-wasted-ai-compute.htm",
+              "outlet": "techtimes.com",
+              "date": "2026-08-15",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://wccftech.com/nvidia-optics-partners-crush-cpo-delay-rumors-with-coherents-scale-out-revenue-starting-late-2026/",
+              "outlet": "wccftech.com",
+              "date": "2026-06",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-21",
+          "first_seen": "2026-08-21",
           "count": 1,
           "thesis_review": false
         }

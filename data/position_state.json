@@ -5,7 +5,7 @@
   },
   "positions": {
     "ess-foil": {
-      "last_checked": "2026-08-20",
+      "last_checked": "2026-08-21",
       "observations": {
         "ESS_매출비중_2025": [
           {
@@ -94,6 +94,11 @@
             "date": "2026-08-20",
             "last_seen": "2026-08-20",
             "value": "{\"value\": \"전년대비 +160%\", \"unit\": \"YoY %\", \"period\": \"FY2026E\", \"note\": \"컨센서스 전망치 재확인, 절대금액(억원) 및 2Q 실적 확정치 미확인. 2026-08-18 점검과 동일 수치\"}"
+          },
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "{\"value\": \"전년대비 +160%\", \"unit\": \"YoY %\", \"period\": \"FY2026E\", \"note\": \"SK증권 등 컨센서스 전망치 재확인. 절대금액(억원) 및 2Q 실제 확정치는 검색으로 미확인. 2026-08-18/08-20 점검과 동일 수치\"}"
           }
         ],
         "ess_revenue_share": [
@@ -106,6 +111,11 @@
             "date": "2026-08-20",
             "last_seen": "2026-08-20",
             "value": "{\"value\": 31, \"unit\": \"%\", \"period\": \"FY2026E\", \"note\": \"2025년 17%→2026E 31% 전망 유지, 신규 상향 아님. 2026-08-18 점검과 동일\"}"
+          },
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "{\"value\": 31, \"unit\": \"%\", \"period\": \"FY2026E\", \"note\": \"2025년 17%→2026E 31% 전망 유지, 신규 상향 아님. 직전 점검들과 동일\"}"
           }
         ],
         "operating_margin": [
@@ -118,6 +128,11 @@
             "date": "2026-08-20",
             "last_seen": "2026-08-20",
             "value": "{\"value\": 2.4, \"unit\": \"%\", \"period\": \"FY2026E\", \"note\": \"매출 3,722억원/영업이익 88억원 컨센서스 역산치, 2Q·상반기 실제 확정치는 검색으로 확인 불가. 1Q2026은 영업손실 지속(전년比 손실폭 75.3%↑)이 최후 확정 실적. 2026-08-18 점검과 동일\"}"
+          },
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "{\"value\": 2.4, \"unit\": \"%\", \"period\": \"FY2026E\", \"note\": \"매출 3,722억원/영업이익 88억원 컨센서스 역산치. 2Q2026 개별 추정치는 매출 925억원·영업이익 19억원(영업이익률 2.0%, 흑자전환 전망)이나 이는 SK증권 등 리포트의 추정치이며 실제 확정 공시 실적은 검색으로 확인 불가. 1Q2026 영업손실이 최후 확정 실적\"}"
           }
         ]
       },
@@ -152,7 +167,7 @@
       ]
     },
     "ssd-controller": {
-      "last_checked": "2026-08-19",
+      "last_checked": "2026-08-21",
       "observations": {
         "2Q2026_매출": [
           {
@@ -227,6 +242,11 @@
             "date": "2026-08-19",
             "last_seen": "2026-08-19",
             "value": "{\"value\": 732, \"unit\": \"억원\", \"period\": \"2026Q2\", \"note\": \"재확인, 전년동기 대비 +208.9%, 변동 없음\"}"
+          },
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "{\"value\": 732, \"unit\": \"억원\", \"period\": \"2026Q2\", \"note\": \"재확인, 변동 없음 (3Q26 실적 미발표)\"}"
           }
         ],
         "operating_margin": [
@@ -239,6 +259,11 @@
             "date": "2026-08-19",
             "last_seen": "2026-08-19",
             "value": "{\"value\": 22.2, \"unit\": \"%\", \"period\": \"2026Q2\", \"note\": \"재확인, 1Q26 12.9%→2Q26 22.2%, 변동 없음\"}"
+          },
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "{\"value\": 22.2, \"unit\": \"%\", \"period\": \"2026Q2\", \"note\": \"재확인, 변동 없음 (3Q26 실적 미발표)\"}"
           }
         ],
         "marvell_gen6": [
@@ -251,6 +276,11 @@
             "date": "2026-08-19",
             "last_seen": "2026-08-19",
             "value": "{\"value\": \"샘플링 2026Q4 목표(Bravera SC6), 드라이브 상용화 2027년 말~2028년 예상\", \"unit\": \"시점\", \"period\": \"2026-08\", \"note\": \"직전 관측(2026-08-18) 대비 변동 없음\"}"
+          },
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "{\"value\": \"샘플링 2026Q4 목표(Bravera SC6, MV-SF1410), 드라이브 상용화 2027년 말~2028년 예상\", \"unit\": \"시점\", \"period\": \"2026-08\", \"note\": \"재확인, 변동 없음\"}"
           }
         ],
         "essd_shipment": [
@@ -285,6 +315,20 @@
             "last_seen": "2026-08-18",
             "value": "3,000억원+"
           }
+        ],
+        "에이직랜드 설계계약금액": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "319억원"
+          }
+        ],
+        "계약기간": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "2025-05-27 ~ 2027-12-31"
+          }
         ]
       },
       "open_flags": [
@@ -301,21 +345,21 @@
           "signal": "A2",
           "level": "YELLOW",
           "first_seen": "2026-08-14",
-          "last_seen": "2026-08-18",
-          "count": 2,
-          "summary": "파두가 북미 빅테크向 SSD 컨트롤러 매출에 더해 대만 등 아시아向 화이트라벨 SSD 매출도 함께 늘며 복수 하이퍼스케일러 고객 기반으로 확장 중이라는 보도가 이어졌다. 다만 고객사별 매출 비중을 수치로 확인할 공시 자료는 여전히 없다.",
+          "last_seen": "2026-08-21",
+          "count": 3,
+          "summary": "파두 2Q26 실적발표에서 경영진이 신규 서버 OEM 고객사 확보 등 고객 다변화를 통한 매출 성장을 언급했다. 하반기 성장 가속을 전망했으나, 고객사별 매출 비중을 수치로 확인할 공시자료는 여전히 없다.",
           "sources": [
             {
-              "url": "https://kr.investing.com/news/economy-news/article-1609904",
-              "outlet": "economicreview(투자닷컴 재게재)",
-              "date": "2026-08-05",
+              "url": "https://www.etoday.co.kr/news/view/2605126",
+              "outlet": "이투데이",
+              "date": "2026-07-20",
               "tier": "S2",
               "note": ""
             },
             {
-              "url": "https://www.greened.kr/news/articleView.html?idxno=332877",
-              "outlet": "greened.kr",
-              "date": "2025-11-06",
+              "url": "https://www.news1.kr/industry/general-industry/6232594",
+              "outlet": "뉴스1",
+              "date": "2026-07-20",
               "tier": "S2",
               "note": ""
             }
@@ -325,15 +369,30 @@
           "signal": "K5",
           "level": "YELLOW",
           "first_seen": "2026-08-14",
-          "last_seen": "2026-08-14",
-          "count": 1,
-          "summary": "삼성전자, RISC-V 기반 자체 SSD 컨트롤러 탑재 신제품 'BM9K1' 개발 확인 — 다만 PCIe 5.0 QLC 클라이언트(개인용 AI 타겟) SSD로, 파두 주력인 엔터프라이즈 eSSD 세그먼트와는 다름. 양산 목표는 2027년",
-          "evidence_url": "https://www.etnews.com/20260403000205"
+          "last_seen": "2026-08-21",
+          "count": 2,
+          "summary": "SK하이닉스가 자회사 솔리다임을 통해 eSSD(기업용 SSD) 컨트롤러 내재화를 지속 추진 중이며, TSMC 선단공정 기반 차세대 eSSD 컨트롤러 설계를 위해 에이직랜드와 약 319억원 규모 계약(2025-05-27~2027-12-31)을 체결한 사실이 확인됐다. 보도에 따르면 SK하이닉스는 eSSD 컨트롤러를 전부 인하우스로 전환하는 방향이며, 파두는 SK하이닉스향으로는 cSSD(소비자용) 컨트롤러 공급사로만 언급된다.",
+          "sources": [
+            {
+              "url": "https://biz.heraldcorp.com/article/10791298",
+              "outlet": "헤럴드경제",
+              "date": "2026-06-29",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://m.thebell.co.kr/m/newsview.asp?svccode=&newskey=202509171603066160105586",
+              "outlet": "thebell",
+              "date": "2025-09-18",
+              "tier": "S2",
+              "note": ""
+            }
+          ]
         }
       ]
     },
     "hyosung-transformer": {
-      "last_checked": "2026-08-20",
+      "last_checked": "2026-08-21",
       "observations": {
         "298040_영업이익률_2026Q2": [
           {
@@ -347,6 +406,20 @@
             "date": "2026-08-14",
             "last_seen": "2026-08-14",
             "value": "17.5조원"
+          }
+        ],
+        "operating_margin": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "{\"value\": 15.7, \"unit\": \"%\", \"period\": \"2026Q2\", \"note\": \"전년比 영업이익 +60.9%, 전분기 대비 변동 없음(신규 분기 실적 미발표)\"}"
+          }
+        ],
+        "backlog": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "{\"value\": 17.5, \"unit\": \"조원\", \"period\": \"2026Q2\", \"note\": \"미국향 비중 57%, 신규 분기 데이터 없음\"}"
           }
         ]
       },
@@ -363,7 +436,7 @@
       ]
     },
     "hd-hyundai-electric": {
-      "last_checked": "2026-08-20",
+      "last_checked": "2026-08-21",
       "observations": {
         "267260_실적": [
           {
@@ -1480,7 +1553,7 @@
       ]
     },
     "power-generation": {
-      "last_checked": "2026-08-20",
+      "last_checked": "2026-08-21",
       "observations": {
         "energy_opm": [
           {
@@ -1628,6 +1701,34 @@
             "last_seen": "2026-08-18",
             "value": "11.9%"
           }
+        ],
+        "gasturbine_orders": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "{\"value\": 12, \"unit\": \"기\", \"period\": \"2026-08 누적(북미)\", \"note\": \"누적치 변동 없음(기존 관측과 동일). 참고: McCoy 2026Q1 미 H-class 가스터빈 수주 집계에서 두산 7기·GE버노바 6기·MHI 4기·지멘스에너지 1기로 물량 기준 1위 보도(CEOSCOREDAILY, 2026-08-18)\"}"
+          }
+        ],
+        "계약금액": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "9,300억원 (2026-06-15 보도 시점 5,300억원 → 2026-08-21 보도 9,300억원, 금액 상향 사유 미확인)"
+          }
+        ],
+        "발전용량": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "1,700MW"
+          }
+        ],
+        "준공목표": [
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "2029년 4월"
+          }
         ]
       },
       "open_flags": [
@@ -1744,7 +1845,7 @@
       ]
     },
     "optical-align": {
-      "last_checked": "2026-08-20",
+      "last_checked": "2026-08-21",
       "observations": {
         "cpo_timeline": [
           {
@@ -2118,7 +2219,7 @@
       ]
     },
     "hpa-equipment": {
-      "last_checked": "2026-08-20",
+      "last_checked": "2026-08-21",
       "observations": {
         "hpa_units": [
           {
@@ -2135,6 +2236,11 @@
             "date": "2026-08-20",
             "last_seen": "2026-08-20",
             "value": "{\"value\": 2, \"unit\": \"대\", \"period\": \"2026-08\", \"note\": \"75매(파운드리向)+125매(메모리向) 출하 완료 상태 유지. 반복 수주 확인 안됨\"}"
+          },
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "{\"value\": 2, \"unit\": \"대\", \"period\": \"2026-08\", \"note\": \"75매(파운드리向)+125매(메모리向) 출하 완료 상태 유지. 반복 수주(2nd order) 확인 안됨\"}"
           }
         ],
         "customer_count": [
@@ -2150,7 +2256,7 @@
           },
           {
             "date": "2026-08-20",
-            "last_seen": "2026-08-20",
+            "last_seen": "2026-08-21",
             "value": "{\"value\": 2, \"unit\": \"곳\", \"period\": \"2026-08\", \"note\": \"파운드리 1곳+메모리 1곳 유지. 3번째 고객사 확대 소식 없음\"}"
           }
         ],
@@ -2169,6 +2275,11 @@
             "date": "2026-08-20",
             "last_seen": "2026-08-20",
             "value": "{\"value\": \"본안 미결\", \"unit\": \"상태\", \"period\": \"2026-08\", \"note\": \"판결 없음. 9월 말 최종 변론기일 예정. HPSP측이 특허법원 2심(특허 유효) 승소를 근거로 서울중앙지법 본안에서 '본격 대응' 방침을 밝혔으나 이는 절차성 발언으로 findings 미등록\"}"
+          },
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "{\"value\": \"본안 미결\", \"unit\": \"상태\", \"period\": \"2026-08\", \"note\": \"8/13 변론기일 이후 추가 진행 없음. 9월 말 최종 변론기일 예정. 판결 없음\"}"
           }
         ],
         "hpo_orders": [
@@ -2186,6 +2297,11 @@
             "date": "2026-08-20",
             "last_seen": "2026-08-20",
             "value": "{\"value\": 0, \"unit\": \"건\", \"period\": \"2026-08\", \"note\": \"상용 수주 없음. 알파기 공정조건 확보, 글로벌 고객 평가 진행 중, 양산테스트용 장비 2027년초 완료 목표\"}"
+          },
+          {
+            "date": "2026-08-21",
+            "last_seen": "2026-08-21",
+            "value": "{\"value\": 0, \"unit\": \"건\", \"period\": \"2026-08\", \"note\": \"상용 수주 없음. 알파기 공정조건 확보, 글로벌 고객 평가 진행 중\"}"
           }
         ],
         "HPA 장비 출하 대수": [
@@ -2307,7 +2423,7 @@
         },
         {
           "date": "2026-08-17",
-          "last_seen": "2026-08-20",
+          "last_seen": "2026-08-21",
           "value": "2026-04"
         }
       ],
@@ -2345,6 +2461,11 @@
           "date": "2026-08-20",
           "last_seen": "2026-08-20",
           "value": "Natrium·Kairos Hermes1·Hermes2 착공 완료, Seadrift만 건설허가 심사 중(2027Q1 예상)"
+        },
+        {
+          "date": "2026-08-21",
+          "last_seen": "2026-08-21",
+          "value": "Natrium·Hermes1·Hermes2 착공 완료, Seadrift만 심사 중"
         }
       ],
       "4사 합산 2026 capex 가이던스": [
@@ -2367,6 +2488,11 @@
           "date": "2026-08-21",
           "last_seen": "2026-08-21",
           "value": "$775-800B (오라클 포함), 하향 없음"
+        },
+        {
+          "date": "2026-08-21",
+          "last_seen": "2026-08-21",
+          "value": "$700-800B (오라클 포함 시 $775-800B), 하향 없음"
         }
       ],
       "META 2026 가이던스": [
@@ -2520,6 +2646,11 @@
           "date": "2026-08-21",
           "last_seen": "2026-08-21",
           "value": "331GW (약 40% 활발히 개발 중, 53% 인허가 통과·용량기준 32%)"
+        },
+        {
+          "date": "2026-08-21",
+          "last_seen": "2026-08-21",
+          "value": "331GW(약 40% 활발히 개발 중)"
         }
       ],
       "활발히 개발 중 비중": [
@@ -2582,6 +2713,11 @@
           "date": "2026-08-20",
           "last_seen": "2026-08-20",
           "value": "~$700-800B, 하향 없음"
+        },
+        {
+          "date": "2026-08-21",
+          "last_seen": "2026-08-21",
+          "value": "~$700-725B (오라클 포함 시 $775-800B), 하향 사례 0건"
         }
       ],
       "GOOGL": [
@@ -2692,6 +2828,11 @@
           "date": "2026-08-19",
           "last_seen": "2026-08-20",
           "value": "2025-05"
+        },
+        {
+          "date": "2026-08-21",
+          "last_seen": "2026-08-21",
+          "value": "2025-05 (완공 2029년으로 연기)"
         }
       ],
       "Kairos Hermes2 착공": [
@@ -2709,6 +2850,11 @@
           "date": "2026-08-19",
           "last_seen": "2026-08-20",
           "value": "2026-04-17"
+        },
+        {
+          "date": "2026-08-21",
+          "last_seen": "2026-08-21",
+          "value": "2026-04"
         }
       ],
       "AMZN 2026 capex 가이던스": [
@@ -2792,6 +2938,11 @@
           "date": "2026-08-19",
           "last_seen": "2026-08-19",
           "value": "~$200B (변동없음)"
+        },
+        {
+          "date": "2026-08-21",
+          "last_seen": "2026-08-21",
+          "value": "~$200B (일부 미확인 출처는 ~$220B 언급)"
         }
       ],
       "MSFT 2026 capex": [
@@ -2804,6 +2955,11 @@
           "date": "2026-08-21",
           "last_seen": "2026-08-21",
           "value": "~$190B (표기상 ~$175B는 리스 재분류, 실지출 변동 없음)"
+        },
+        {
+          "date": "2026-08-21",
+          "last_seen": "2026-08-21",
+          "value": "~$190B"
         }
       ],
       "GOOGL 2026 capex": [
@@ -2811,6 +2967,11 @@
           "date": "2026-08-19",
           "last_seen": "2026-08-19",
           "value": "$180-190B → $190-205B (상향)"
+        },
+        {
+          "date": "2026-08-21",
+          "last_seen": "2026-08-21",
+          "value": "$195-205B"
         }
       ],
       "META 2026 capex": [
@@ -2818,6 +2979,11 @@
           "date": "2026-08-19",
           "last_seen": "2026-08-19",
           "value": "$115-135B → $125-145B (상향)"
+        },
+        {
+          "date": "2026-08-21",
+          "last_seen": "2026-08-21",
+          "value": "$125-145B"
         }
       ],
       "4사 합산": [
@@ -2952,6 +3118,11 @@
           "date": "2026-08-21",
           "last_seen": "2026-08-21",
           "value": "60GW+ (피크)"
+        },
+        {
+          "date": "2026-08-21",
+          "last_seen": "2026-08-21",
+          "value": "60GW+(피크)"
         }
       ],
       "2026Q1 신규 파이프라인": [
@@ -2959,6 +3130,11 @@
           "date": "2026-08-21",
           "last_seen": "2026-08-21",
           "value": "36GW (-19% QoQ)"
+        },
+        {
+          "date": "2026-08-21",
+          "last_seen": "2026-08-21",
+          "value": "36GW(-19% QoQ)"
         }
       ],
       "고급 협상 단계": [
@@ -3001,6 +3177,16 @@
           "date": "2026-08-21",
           "last_seen": "2026-08-21",
           "value": "2026년 말 (기존 전망 2027Q1에서 앞당겨짐)"
+        },
+        {
+          "date": "2026-08-21",
+          "last_seen": "2026-08-21",
+          "value": "2026년 말(기존 2027Q1에서 앞당겨짐)"
+        },
+        {
+          "date": "2026-08-21",
+          "last_seen": "2026-08-21",
+          "value": "2027Q1 → 2026년 말(앞당겨짐)"
         }
       ],
       "Dow 실제 착공(그린라이트) 예상": [
@@ -3008,6 +3194,27 @@
           "date": "2026-08-21",
           "last_seen": "2026-08-21",
           "value": "2028년 이전 가능성 낮음"
+        }
+      ],
+      "2026Q1 신규 데이터센터 파이프라인": [
+        {
+          "date": "2026-08-21",
+          "last_seen": "2026-08-21",
+          "value": "36GW(-19% QoQ), 3개 분기 연속 둔화, 2026Q2 수치 미공개 지속"
+        }
+      ],
+      "HV Tier1 대형 변압기 리드타임": [
+        {
+          "date": "2026-08-21",
+          "last_seen": "2026-08-21",
+          "value": "최대 48-60개월(4-5년), 일부 매체는 최대 4년 보도"
+        }
+      ],
+      "AMZN 신규 언급 수치(미확인)": [
+        {
+          "date": "2026-08-21",
+          "last_seen": "2026-08-21",
+          "value": "~$200B → ~$220B"
         }
       ]
     },
@@ -3018,7 +3225,7 @@
         "first_seen": "2026-08-14",
         "last_seen": "2026-08-21",
         "count": 6,
-        "summary": "Wood Mackenzie의 최신 공식 수치는 여전히 2026Q1(36GW, 전분기 대비 -19%)이며, 2025Q3(60GW+ 피크)→Q4→2026Q1로 이어지는 3개 분기 연속 신규 파이프라인 추가 둔화가 최신 검색에서도 그대로 확인됨. 2026Q2 수치는 이번 검색에서도 아직 공개되지 않아 데이터 공백이 지속됨.",
+        "summary": "Wood Mackenzie 최신 자료(Q2 2026 보고서에서도 실제 최신 수치는 2026Q1) 기준 2025Q3(60GW+ 피크)→Q4→2026Q1(36GW, -19% QoQ)로 3개 분기 연속 신규 파이프라인 추가 둔화가 재확인됨. 2026Q2 신규 추가분 수치는 이번 검색에서도 아직 공개되지 않아 최신 착공 트렌드 판정에 데이터 공백 지속.",
         "sources": [
           {
             "url": "https://www.woodmac.com/press-releases/us-data-centre-developers-shift-focus-to-existing-pipelines-as-new-capacity-additions-slow-in-q1-2026/",
@@ -3040,17 +3247,39 @@
         "signal": "SMR 상업화 타임라인 2년 이상 지연 (Seadrift/Natrium/Kairos 중 어느 것도 2028년까지 미착공)",
         "level": "YELLOW",
         "first_seen": "2026-08-14",
-        "last_seen": "2026-08-14",
-        "count": 1,
-        "summary": "Kairos Hermes 1(테스트로) 완공 시점이 2026년→2029년으로 NRC 승인 하에 연기됨. 다만 Natrium은 2026년 3월 건설허가 취득 후 4월 착공했고, X-energy Seadrift(Xe-100)도 2026년 착공 진행 중(Fluor PM 계약 체결)이라 'Seadrift/Natrium/Kairos 모두 2028년까지 미착공' 조건은 충족되지 않음",
-        "evidence_url": "https://www.federalregister.gov/documents/2026/05/18/2026-09880/in-the-matter-of-kairos-power-llc-hermes-test-reactor-extension-of-latest-date-for-completion-of"
+        "last_seen": "2026-08-21",
+        "count": 2,
+        "summary": "Natrium, Kairos Hermes 1(2025-05 착공), Hermes 2(2026-04 착공)는 이미 착공을 완료해 3개 프로젝트 중 2개(Natrium·Kairos)가 이미 건설 중임이 재확인됨. Seadrift(X-energy/Dow)만 NRC 건설허가 심사 중으로 착공 전 단계이나, 심사 일정이 표준 36개월에서 18개월로 가속되어 2026년 말 허가 결정 가능성이 제기됨. 다만 Kairos Hermes 1 테스트로 완공 자체는 2026년→2029년으로 연기되어 SMR 상업화 지연 우려는 부분적으로 유효.",
+        "sources": [
+          {
+            "url": "https://www.federalregister.gov/documents/2026/05/18/2026-09880/in-the-matter-of-kairos-power-llc-hermes-test-reactor-extension-of-latest-date-for-completion-of",
+            "outlet": "Federal Register (NRC)",
+            "date": "2026-05-18",
+            "tier": "S1",
+            "note": ""
+          },
+          {
+            "url": "https://www.kairospower.com/updates/kairos-power-breaks-ground-on-hermes-2-demonstration-plant",
+            "outlet": "Kairos Power",
+            "date": "2026",
+            "tier": "S1",
+            "note": ""
+          },
+          {
+            "url": "https://www.ans.org/news/2025-05-08/article-7010/first-concrete-marks-start-of-safetyrelated-construction-for-hermes-test-reactor/",
+            "outlet": "ANS Nuclear Newswire",
+            "date": "2025-05-08",
+            "tier": "S2",
+            "note": ""
+          }
+        ]
       }
     ],
     "last_checked": "2026-08-21"
   },
   "groups": {
     "us-transformer": {
-      "last_checked": "2026-08-20",
+      "last_checked": "2026-08-21",
       "observations": {
         "미국_유틸리티_TD_capex_2026": [
           {

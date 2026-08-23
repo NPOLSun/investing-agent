@@ -1,17 +1,22 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-08-21"
+    "last_run": "2026-08-24"
   },
   "themes": {
     "ai-dc-power": {
-      "last_checked": "2026-08-21",
+      "last_checked": "2026-08-24",
       "observations": {
         "OCP LVDC SST 스펙": [
           {
             "date": "2026-08-17",
             "last_seen": "2026-08-17",
             "value": "v0.3 (2026-07 발표, 80+ 업체 참여)"
+          },
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "v0.3 유지(2026-07 발표 이후 업데이트 없음)"
           }
         ],
         "800V 파워랙 출하": [
@@ -84,6 +89,11 @@
             "date": "2026-08-17",
             "last_seen": "2026-08-17",
             "value": "사상 최대 510억 유로(2026-08-05 기준)"
+          },
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "510억유로(변동없음)"
           }
         ],
         "HD현대일렉트릭 2Q26 수주": [
@@ -297,6 +307,11 @@
             "date": "2026-08-21",
             "last_seen": "2026-08-21",
             "value": "100GW(1Q26) → 116GW(2Q26)"
+          },
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "116GW(2Q26) → 연말 125GW 목표, 3Q26 연 20GW 출하 체제"
           }
         ],
         "ERCOT 대형부하 접속대기": [
@@ -372,6 +387,90 @@
             "date": "2026-08-21",
             "last_seen": "2026-08-21",
             "value": "2026-08-17(도과, 결과 미확인)"
+          }
+        ],
+        "FERC RTO 응답": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "2026-08-17 6개 모두 제출 확인, PJM은 8/13 IRAS 제안(10/12 발효 목표)"
+          }
+        ],
+        "Siemens Energy 가스터빈 백로그": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "69GW(2Q26, 분기 출하 6GW)"
+          }
+        ],
+        "Vicor 3개월 내부자 순매도": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "1억7220만달러(매수 0)"
+          }
+        ],
+        "Delta-Infineon SiC 공급계약": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "20억달러"
+          }
+        ],
+        "xAI 예비금지명령": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "2026-08-24 현재 미확정"
+          }
+        ],
+        "FERC 응답 시한": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "2026-08-17 도과, 6개 RTO 모두 응답 제출(확인)"
+          }
+        ],
+        "PJM IRAS 제안 발효 목표일": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "2026-10-12"
+          }
+        ],
+        "Delta-Infineon 공급계약 규모": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "20억달러"
+          }
+        ],
+        "Delta 800VDC 파워랙": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "660kW(BBU 포함), AC-DC 효율 98%"
+          }
+        ],
+        "3개월 내부자 순매도": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "1억7220만달러(매수 0)"
+          }
+        ],
+        "8월 주가 등락(8/10→8/14→8/20)": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "-5.6% → +3.6% → -4.5%"
+          }
+        ],
+        "애널리스트 목표주가 상승여력": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "+43.4%"
           }
         ]
       },
@@ -537,43 +636,43 @@
           "thesis_review": false
         },
         "W2,W3|배전 전압 아키텍처 전환(54v 랙 → 800vdc)에 연동된 point-of-load 공급사 실적": {
-          "headline": "Vicor 2Q 실적·가이던스 상향",
+          "headline": "Vicor 내부자 매도 지속, 주가 변동",
           "shift": "배전 전압 아키텍처 전환(54V 랙 → 800VDC)에 연동된 point-of-load 공급사 실적",
           "refs": [
             "W2",
             "W3"
           ],
-          "direction": "순풍",
+          "direction": "중립",
           "affects": [
             "point-of-load"
           ],
-          "summary": "Vicor는 2026-07-21 실적발표에서 2분기 매출 1억4340만달러(전분기 대비 +26.9%), EPS $1.04(컨센서스 상회)를 기록했다. 1년 백로그가 3억7970만달러(+26% QoQ)로 늘었고, Fab 1 연매출 런레이트 목표를 기존 약 10억달러에서 15억달러 이상으로 상향했으며 2026년 매출 전망도 6억달러 돌파로 높였다.",
+          "summary": "Vicor 주가는 8월 중 -5.6%(8/10)→+3.6%(8/14)→-4.5%(8/20)로 큰 폭 등락을 반복했다. 최근 3개월간 이사 등 내부자의 순매도 금액이 총 1억7220만달러에 달하고 매수는 전무한 것으로 집계됐으며, 이는 기존에 관측된 '내부자 매도 지속' 흐름이 이어지고 규모가 구체화된 것이다. 반면 월가 평균 목표주가는 현재가 대비 약 43% 높은 수준을 유지하고 있다.",
           "sources": [
             {
-              "url": "https://www.fool.com/earnings/call-transcripts/2026/07/21/vicor-vicr-q2-2026-earnings-call-transcript/",
-              "outlet": "The Motley Fool (Vicor 실적발표 전문)",
-              "date": "2026-07-21",
-              "tier": "S1",
-              "note": ""
-            },
-            {
-              "url": "https://finance.yahoo.com/markets/stocks/articles/vicor-q2-earnings-beat-estimates-172100119.html",
-              "outlet": "Yahoo Finance",
-              "date": "2026-07-22",
+              "url": "https://www.tipranks.com/news/insider-trading/vicor-insider-shake-up-directors-major-stock-move-grabs-wall-streets-attention-insider-trading-news",
+              "outlet": "TipRanks",
+              "date": "2026-08-18",
               "tier": "S2",
               "note": ""
             },
             {
-              "url": "https://www.tradingview.com/news/zacks:2971ee7a6094b:0-vicor-and-the-ai-power-trend-reshaping-data-center-hardware/",
-              "outlet": "TradingView/Zacks",
-              "date": "2026-08-18",
+              "url": "https://www.gurufocus.com/news/9046489/vicor-corp-vicr-stock-price-fall-45",
+              "outlet": "GuruFocus",
+              "date": "2026-08-20",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.gurufocus.com/news/9022780/vicor-corp-vicr-stock-down-56-but-still-overvalued-gf-score-81100",
+              "outlet": "GuruFocus",
+              "date": "2026-08-10",
               "tier": "S2",
               "note": ""
             }
           ],
-          "last_seen": "2026-08-19",
+          "last_seen": "2026-08-24",
           "first_seen": "2026-08-19",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W1,W3|랙 전력밀도 로드맵 변경(kw/rack) 및 실제 배치 시점": {
@@ -656,40 +755,47 @@
           "thesis_review": false
         },
         "W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — ferc 6개 rto 응답": {
-          "headline": "FERC 응답시한 도과, 결과는 미확인",
+          "headline": "PJM, FERC에 정식 제안서 제출",
           "shift": "계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — FERC 6개 RTO 응답",
           "refs": [
             "W5"
           ],
-          "direction": "불명",
+          "direction": "순풍",
           "affects": [
             "hyosung-transformer",
             "hd-hyundai-electric"
           ],
-          "summary": "PJM·MISO·SPP·CAISO·ISO-NE·NYISO에 대한 FERC의 대형부하 접속규정 개정/정당화 명령(RM26-4) 60일 응답 시한이 2026-08-17로 예정대로 도래했다. 다만 각 RTO/ISO가 실제로 관세 개정안을 제출했는지, 제출했다면 구체적 내용이 무엇인지는 2026-08-21 현재 공개 보도로 확인되지 않는다 — FERC 사이트 및 법무법인 코멘트에도 8/17 이전 시점 설명만 있고 사후 결과는 아직 나오지 않았다.",
+          "summary": "6개 RTO/ISO가 예정대로 2026-08-17 FERC 쇼코즈 명령에 응답을 제출했으며, 이 중 PJM은 2026-08-13 자체 발전설비 없이 접속하려는 대형부하(데이터센터)를 위한 '임시 자원적정성 서비스(IRAS)' 프레임워크를 공식 제안했다. 전력공급이 부족한 비상시 신규 대형부하 전력을 우선 감축·차단하는 조건으로 신속 접속을 허용하며, 2026-10-12 발효를 목표로 한다. 이전 관측(8/21)의 '결과 미확인' 상태가 이번에 실제 필링 내용 확인으로 해소됐다.",
           "sources": [
             {
-              "url": "https://www.ferc.gov/rm26-4",
-              "outlet": "FERC (Docket RM26-4)",
+              "url": "https://www.ferc.gov/news-events/news/ferc-launches-aggressive-targeted-action-speed-large-load-integration",
+              "outlet": "FERC",
               "date": "2026-06-18",
               "tier": "S1",
               "note": ""
             },
             {
-              "url": "https://www.akingump.com/en/insights/blogs/speaking-energy/ferc-issues-landmark-show-cause-orders-on-large-load-interconnection",
-              "outlet": "Akin Gump",
-              "date": "2026-06-19",
+              "url": "http://paenvironmentdaily.blogspot.com/2026/08/pjm-formally-submits-ferc-proposal-on.html",
+              "outlet": "PA Environment Digest",
+              "date": "2026-08-13",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.datacenterknowledge.com/energy-power-supply/pjm-s-new-deal-for-data-centers-bring-power-or-face-cuts",
+              "outlet": "Data Center Knowledge",
+              "date": "2026-08",
               "tier": "S2",
               "note": ""
             }
           ],
-          "last_seen": "2026-08-21",
+          "last_seen": "2026-08-24",
           "first_seen": "2026-08-21",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W4|온사이트 발전·비계통 전력 조달 비중(behind-the-meter) — xai 콜로서스 소송": {
-          "headline": "xAI 임시금지명령 판결 임박",
+          "headline": "xAI 예비금지명령 판결 여전히 미정",
           "shift": "온사이트 발전·비계통 전력 조달 비중(behind-the-meter) — xAI 콜로서스 소송",
           "refs": [
             "W4"
@@ -698,25 +804,72 @@
           "affects": [
             "power-generation"
           ],
-          "summary": "NAACP·남부환경법센터가 제기한 xAI 콜로서스2 무허가 가스터빈 가동중지 소송에서, 연방판사가 예비금지명령(preliminary injunction) 여부를 2026년 8월 말 중 판단할 예정이나 2026-08-21 현재 아직 판결이 나오지 않았다. DOJ는 xAI의 Grok이 국가안보 자산이라는 논리로 이미 xAI 편에 개입한 상태다.",
+          "summary": "NAACP·SELC가 제기한 xAI 콜로서스2 무허가 가스터빈 소송에서 미시시피 연방판사의 예비금지명령 결정이 2026년 8월 말로 예정돼 있었으나, 2026-08-24 현재까지 판결이 내려지지 않은 것으로 확인된다. DOJ의 국가안보 논리에 따른 개입 상태는 그대로 유지되고 있다.",
           "sources": [
             {
-              "url": "https://www.mlex.com/mlex/energy/articles/2502247",
-              "outlet": "MLex",
+              "url": "https://naacp.org/articles/naacp-sues-xai-illegal-pollution-data-center-power-plant",
+              "outlet": "NAACP",
+              "date": "2026-04",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://tech-insider.org/xai-colossus-2-naacp-lawsuit-illegal-gas-turbines-memphis-2026/",
+              "outlet": "Tech Insider",
               "date": "2026-08",
               "tier": "S2",
               "note": ""
             },
             {
-              "url": "https://www.utilitydive.com/news/doj-intervenes-xai-data-center-gas-turbine-lawsuit/823267/",
-              "outlet": "Utility Dive",
-              "date": "2026-06",
+              "url": "https://www.cnbc.com/2026/06/16/usdepartment-of-justice-calls-for-dismissal-of-naacp-xai-lawsuit-.html",
+              "outlet": "CNBC",
+              "date": "2026-06-16",
               "tier": "S2",
               "note": ""
             }
           ],
-          "last_seen": "2026-08-21",
+          "last_seen": "2026-08-24",
           "first_seen": "2026-08-21",
+          "count": 2,
+          "thesis_review": false
+        },
+        "W2,W3|배전 전압 아키텍처 전환(54v 랙 → 800vdc) 채택 속도": {
+          "headline": "800VDC 생태계 참여사 확대",
+          "shift": "배전 전압 아키텍처 전환(54V 랙 → 800VDC) 채택 속도",
+          "refs": [
+            "W2",
+            "W3"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "point-of-load"
+          ],
+          "summary": "GTC 2026 후속으로 Vertiv가 Kyber 랙向 800VDC MGX 레퍼런스 아키텍처(전력+냉각 통합)를 공개했고 HPE도 Kyber 제품 지원을 발표했다. Delta Electronics는 Infineon과 SiC 전력반도체 장기공급계약(20억달러 규모)을 체결해 800VDC 공급망을 선점하고 있으며, Delta의 800VDC 인로우 파워랙(660kW, AC-DC 효율 98%)은 2026년 하반기 초도 출하 예정으로 기존 로드맵과 시기는 동일하다.",
+          "sources": [
+            {
+              "url": "https://www.deltaww.com/en-US/press/40334",
+              "outlet": "Delta Electronics (공식)",
+              "date": "2026-03",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.digitimes.com/news/a20260707PD228/delta-electronics-capex-data-center-design-2026-shipments.html",
+              "outlet": "DigiTimes",
+              "date": "2026-07-07",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.bit.fan/en/news/list/delta-electronics-infineon-sic-800vdc-supply-deal-en-d5f223a6-en-keyName-6241b4e0",
+              "outlet": "Bit.Fan",
+              "date": "2026-08",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-24",
+          "first_seen": "2026-08-24",
           "count": 1,
           "thesis_review": false
         }
@@ -1363,7 +1516,7 @@
       }
     },
     "memory-storage": {
-      "last_checked": "2026-08-20",
+      "last_checked": "2026-08-24",
       "observations": {
         "파두 컨트롤러 매출 비중": [
           {
@@ -1377,6 +1530,16 @@
             "date": "2026-08-18",
             "last_seen": "2026-08-18",
             "value": "52주 이상 (업계 보도)"
+          },
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "최대 2년"
+          },
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "52주 이상 → 최대 2년"
           }
         ],
         "HBM4 3사 인증": [
@@ -1536,6 +1699,123 @@
             "date": "2026-08-20",
             "last_seen": "2026-08-20",
             "value": "2026-06-01 ~ 2026-11-30"
+          }
+        ],
+        "파두 2분기 매출": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "732억원"
+          }
+        ],
+        "파두 2분기 영업이익": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "163억원"
+          }
+        ],
+        "파두 상반기 누적매출": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "1327억원"
+          }
+        ],
+        "eSSD 비중(낸드 비트출하)": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "48%(2Q26)"
+          },
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "26%(2Q25) → 48%(2Q26)"
+          }
+        ],
+        "Marvell SC6 드라이브 시장출시": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "2027말~2028(추정)"
+          }
+        ],
+        "삼성 PM1763": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "양산 개시(2026-07), 4nm 자체컨트롤러·9세대 V낸드, 16TB 모델 순차속도 28.4GB/s"
+          }
+        ],
+        "Micron HBM4": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "베라루빈向 양산 중, 48GB 16-high 스택 샘플링 진행"
+          }
+        ],
+        "HBM4 하이브리드본딩": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "7월 이후 추가 공식 확인 없음, 기존 HBM4E/HBM5E 순연 전망 유지"
+          }
+        ],
+        "예스티-HPSP 본안소송": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "8/13 변론 이후 추가 진행상황 미확인"
+          }
+        ],
+        "분기 매출": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "595억원(1Q26) → 732억원(2Q26, +23%)"
+          }
+        ],
+        "분기 영업이익": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "77억원(1Q26) → 163억원(2Q26, +111%)"
+          }
+        ],
+        "상반기 누적매출": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "1327억원(2024~2025 합산 1395억원에 근접)"
+          }
+        ],
+        "삼성 낸드매출 QoQ": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "+70.7%(약 230.6억달러)"
+          }
+        ],
+        "SK하이닉스 낸드매출 QoQ": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "+89.5%(약 142.7억달러)"
+          }
+        ],
+        "5대 낸드업체 합산매출 QoQ": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "+77%(688.7억달러)"
+          }
+        ],
+        "SC6 탑재 드라이브 시장 출시": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "2026 Q4 샘플링 → 2027말~2028 드라이브 출시"
           }
         ]
       },
@@ -1792,6 +2072,138 @@
           ],
           "last_seen": "2026-08-20",
           "first_seen": "2026-08-20",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W1,W4|파두 컨트롤러 매출 성장 (분기 실적)": {
+          "headline": "파두 2Q 실적 서프라이즈",
+          "shift": "파두 컨트롤러 매출 성장 (분기 실적)",
+          "refs": [
+            "W1",
+            "W4"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "ssd-controller"
+          ],
+          "summary": "파두가 2026년 2분기 매출 732억원, 영업이익 163억원을 기록하며 1분기(매출 595억원, 영업이익 77억원) 대비 큰 폭 성장했다. 상반기 누적매출은 1327억원으로 2024~2025년 합산 매출(1395억원)에 육박했으며, 회사는 하반기 Gen6 컨트롤러 공급 확대로 추가 성장을 예상한다고 밝혔다.",
+          "sources": [
+            {
+              "url": "https://www.etoday.co.kr/news/view/2605126",
+              "outlet": "이투데이",
+              "date": "2026-07-20",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.hankyung.com/article/202607204214i",
+              "outlet": "한국경제",
+              "date": "2026-07-20",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.ajunews.com/view/20260720101754325",
+              "outlet": "아주경제",
+              "date": "2026-07-20",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-24",
+          "first_seen": "2026-08-24",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W1,W3,W5|ai 추론 확산에 따른 essd·니어라인 스토리지 수요 구조 변화": {
+          "headline": "eSSD 비중 26%→48% 급증",
+          "shift": "AI 추론 확산에 따른 eSSD·니어라인 스토리지 수요 구조 변화",
+          "refs": [
+            "W1",
+            "W3",
+            "W5"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "ssd-controller"
+          ],
+          "summary": "2026년 2분기 eSSD가 전체 낸드 비트 출하량에서 차지하는 비중이 전년 동기 26%에서 48%로 급증했다. 같은 기간 삼성전자 낸드 매출은 전분기 대비 70.7%, SK하이닉스는 89.5% 급증했고, 상위 5개 낸드업체 합산 매출은 688.7억달러로 전분기 대비 77% 늘었다.",
+          "sources": [
+            {
+              "url": "https://www.newspim.com/news/view/20260818001180",
+              "outlet": "Newspim",
+              "date": "2026-08-18",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.etoday.co.kr/news/view/2613623",
+              "outlet": "이투데이",
+              "date": "2026-08-19",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-24",
+          "first_seen": "2026-08-24",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W1,W3|니어라인 hdd 리드타임": {
+          "headline": "HDD 리드타임 최대 2년",
+          "shift": "니어라인 HDD 리드타임",
+          "refs": [
+            "W1",
+            "W3"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "ssd-controller"
+          ],
+          "summary": "니어라인 기업용 HDD 리드타임이 기존 52주 이상에서 최대 2년까지 확대된 것으로 보도됐다. 씨게이트·WD 모두 2026년 니어라인 용량이 사실상 완판 상태이며, WD는 2027~2028년까지 장기공급계약을 체결한 것으로 확인돼 하이퍼스케일러의 QLC eSSD 전환 압력이 커지고 있다.",
+          "sources": [
+            {
+              "url": "https://www.tomshardware.com/pc-components/hdds/ai-triggers-hard-drive-shortage-amidst-dram-squeeze-enterprise-hard-drives-on-backorder-by-2-years-as-hyperscalers-switch-to-qlc-ssds",
+              "outlet": "Tom's Hardware",
+              "date": "2026-08",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.datacenterdynamics.com/en/analysis/storage-wars-is-this-the-end-for-hard-drives-in-the-data-center/",
+              "outlet": "DatacenterDynamics",
+              "date": "2026-08",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-24",
+          "first_seen": "2026-08-24",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W4|컨트롤러 내재화 vs 외부 조달 흐름 (마벨 bravera sc6 후속)": {
+          "headline": "SC6 실제 드라이브 출시 2027~28년",
+          "shift": "컨트롤러 내재화 vs 외부 조달 흐름 (마벨 Bravera SC6 후속)",
+          "refs": [
+            "W4"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "ssd-controller"
+          ],
+          "summary": "마벨 Bravera SC6는 2026년 4분기 샘플링을 시작하지만, 이를 탑재한 실제 SSD 드라이브의 시장 출시는 2027년 말 또는 2028년으로 예상된다고 StorageReview가 보도했다. 파두 Gen6가 2026년 하반기 공급을 시작하는 것과 비교하면 마벨의 실질적 경쟁 진입 시점은 1년 이상 늦어지는 셈이다.",
+          "sources": [
+            {
+              "url": "https://www.storagereview.com/news/marvell-bravera-sc6-doubles-gen5-speeds-as-optical-memory-reaches-32tb-of-shared-kv-cache",
+              "outlet": "StorageReview",
+              "date": "2026-08",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-24",
+          "first_seen": "2026-08-24",
           "count": 1,
           "thesis_review": false
         }

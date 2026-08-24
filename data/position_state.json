@@ -99,6 +99,11 @@
             "date": "2026-08-21",
             "last_seen": "2026-08-21",
             "value": "{\"value\": \"전년대비 +160%\", \"unit\": \"YoY %\", \"period\": \"FY2026E\", \"note\": \"SK증권 등 컨센서스 전망치 재확인. 절대금액(억원) 및 2Q 실제 확정치는 검색으로 미확인. 2026-08-18/08-20 점검과 동일 수치\"}"
+          },
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "{\"value\": \"전년대비 +160%\", \"unit\": \"YoY %\", \"period\": \"FY2026E\", \"note\": \"SK증권 등 컨센서스 전망치 재확인, 절대금액(억원) 및 2Q 확정 실적 미확인. 2026-08-21 점검과 동일 수치 유지\"}"
           }
         ],
         "ess_revenue_share": [
@@ -114,7 +119,7 @@
           },
           {
             "date": "2026-08-21",
-            "last_seen": "2026-08-21",
+            "last_seen": "2026-08-24",
             "value": "{\"value\": 31, \"unit\": \"%\", \"period\": \"FY2026E\", \"note\": \"2025년 17%→2026E 31% 전망 유지, 신규 상향 아님. 직전 점검들과 동일\"}"
           }
         ],
@@ -133,6 +138,11 @@
             "date": "2026-08-21",
             "last_seen": "2026-08-21",
             "value": "{\"value\": 2.4, \"unit\": \"%\", \"period\": \"FY2026E\", \"note\": \"매출 3,722억원/영업이익 88억원 컨센서스 역산치. 2Q2026 개별 추정치는 매출 925억원·영업이익 19억원(영업이익률 2.0%, 흑자전환 전망)이나 이는 SK증권 등 리포트의 추정치이며 실제 확정 공시 실적은 검색으로 확인 불가. 1Q2026 영업손실이 최후 확정 실적\"}"
+          },
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "{\"value\": 2.4, \"unit\": \"%\", \"period\": \"FY2026E\", \"note\": \"매출 3,722억원/영업이익 88억원 컨센서스 역산치 재확인. 2Q2026 개별 추정(매출 925억원·영업이익 19억원, 흑자전환)도 여전히 추정치일 뿐 실제 확정 공시는 검색으로 확인 불가. 1Q2026 확정실적은 영업손실 확대(YoY +75.3%)가 최후 확정치\"}"
           }
         ]
       },
@@ -167,7 +177,7 @@
       ]
     },
     "ssd-controller": {
-      "last_checked": "2026-08-21",
+      "last_checked": "2026-08-24",
       "observations": {
         "2Q2026_매출": [
           {
@@ -281,6 +291,11 @@
             "date": "2026-08-21",
             "last_seen": "2026-08-21",
             "value": "{\"value\": \"샘플링 2026Q4 목표(Bravera SC6, MV-SF1410), 드라이브 상용화 2027년 말~2028년 예상\", \"unit\": \"시점\", \"period\": \"2026-08\", \"note\": \"재확인, 변동 없음\"}"
+          },
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "{\"value\": \"샘플링 2026Q4 목표(Bravera SC6, MV-SF1410), 드라이브 상용화 2027년말~2028년 예상. 경쟁사 Phison(PS5303-X3)은 2026-12 샘플링/2027중반 양산, Silicon Motion(SM8466)도 개발 중 — 파두 대비 모두 후행\", \"unit\": \"시점\", \"period\": \"2026-08\", \"note\": \"재확인, 직전 관측(2026-08-21) 대비 변동 없음\"}"
           }
         ],
         "essd_shipment": [
@@ -329,6 +344,41 @@
             "last_seen": "2026-08-21",
             "value": "2025-05-27 ~ 2027-12-31"
           }
+        ],
+        "삼성 PM1763 양산 개시": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "2026-07-08"
+          }
+        ],
+        "PM1763 연속읽기속도(16TB)": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "28,400 MB/s (전작 대비 약 2배)"
+          }
+        ],
+        "PM1763 컨트롤러": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "9세대 V낸드 + 자체 개발 4nm 컨트롤러"
+          }
+        ],
+        "삼성전자 낸드 매출 QoQ": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "+70.7%"
+          }
+        ],
+        "SK하이닉스 낸드 매출 QoQ": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "+89.5%"
+          }
         ]
       },
       "open_flags": [
@@ -369,21 +419,35 @@
           "signal": "K5",
           "level": "YELLOW",
           "first_seen": "2026-08-14",
-          "last_seen": "2026-08-21",
-          "count": 2,
-          "summary": "SK하이닉스가 자회사 솔리다임을 통해 eSSD(기업용 SSD) 컨트롤러 내재화를 지속 추진 중이며, TSMC 선단공정 기반 차세대 eSSD 컨트롤러 설계를 위해 에이직랜드와 약 319억원 규모 계약(2025-05-27~2027-12-31)을 체결한 사실이 확인됐다. 보도에 따르면 SK하이닉스는 eSSD 컨트롤러를 전부 인하우스로 전환하는 방향이며, 파두는 SK하이닉스향으로는 cSSD(소비자용) 컨트롤러 공급사로만 언급된다.",
+          "last_seen": "2026-08-24",
+          "count": 3,
+          "summary": "삼성전자가 2026-07-08부터 자체 개발 4나노 컨트롤러를 탑재한 차세대 eSSD 'PM1763' 양산을 시작해 엔비디아 베라루빈 플랫폼에 공급 중이다. 성능(16TB 모델 기준 연속읽기 28.4GB/s)은 Gen6급으로, 파두의 Gen6 컨트롤러(하반기 고객 납품 예정)나 Marvell·Phison·Silicon Motion의 Gen6 컨트롤러(2026년 4분기~2026년말 샘플링 예정)보다 먼저 유사 성능 제품을 자체 컨트롤러로 실전 공급하고 있다는 점에서, 낸드 3사의 컨트롤러 내재화 흐름이 AI 데이터센터급 eSSD로 확장되고 있음을 재확인한다. 다만 삼성 자체 SSD는 원래부터 자체 컨트롤러를 써왔던 제품군이라 파두의 기존 고객(외부 낸드사·하이퍼스케일러) 이탈을 직접 증명하는 사건은 아니다.",
           "sources": [
             {
-              "url": "https://biz.heraldcorp.com/article/10791298",
-              "outlet": "헤럴드경제",
-              "date": "2026-06-29",
+              "url": "https://www.newsis.com/view/NISX20260708_0003700103",
+              "outlet": "뉴시스",
+              "date": "2026-07-08",
               "tier": "S2",
               "note": ""
             },
             {
-              "url": "https://m.thebell.co.kr/m/newsview.asp?svccode=&newskey=202509171603066160105586",
-              "outlet": "thebell",
-              "date": "2025-09-18",
+              "url": "https://www.edaily.co.kr/News/Read?newsId=02706006645512552&mediaCodeNo=257",
+              "outlet": "이데일리",
+              "date": "2026-07-08",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.ajunews.com/view/20260708081756292",
+              "outlet": "아주경제",
+              "date": "2026-07-08",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.newspim.com/news/view/20260708000079",
+              "outlet": "뉴스핌",
+              "date": "2026-07-08",
               "tier": "S2",
               "note": ""
             }
@@ -392,7 +456,7 @@
       ]
     },
     "hyosung-transformer": {
-      "last_checked": "2026-08-21",
+      "last_checked": "2026-08-24",
       "observations": {
         "298040_영업이익률_2026Q2": [
           {
@@ -421,6 +485,20 @@
             "last_seen": "2026-08-21",
             "value": "{\"value\": 17.5, \"unit\": \"조원\", \"period\": \"2026Q2\", \"note\": \"미국향 비중 57%, 신규 분기 데이터 없음\"}"
           }
+        ],
+        "효성중공업_최종관세율": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "4.32% (2026-02 예비판정 및 직전 심사와 동일, 변동 없음)"
+          }
+        ],
+        "HD현대일렉트릭_일진전기_최종관세율": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "0%"
+          }
         ]
       },
       "open_flags": [
@@ -432,11 +510,42 @@
           "count": 1,
           "summary": "효성중공업, 국내 HVDC 변압기 공장 착공(2026-02, 완공 2027-06)하며 서해안 에너지고속도로 HVDC 프로젝트(2030 상용화 목표로 2년 단축) 관련 업계 수주 경쟁 본격화 보도 - 다만 효성중공업의 실제 대형 HVDC 프로젝트 수주 확정 소식은 미확인",
           "evidence_url": "https://www.fnnews.com/news/202602161035009132"
+        },
+        {
+          "signal": "K3. 반덤핑 관세 강화 상태에서 미국 현지 capa 미확보 (멤피스 증설 가동 2027년)",
+          "level": "YELLOW",
+          "first_seen": "2026-08-24",
+          "last_seen": "2026-08-24",
+          "count": 1,
+          "summary": "미 상무부가 2026-08-10(현지시간) 한국산 대형변압기 반덤핑 연례재심(조사기간 2023.8~2024.7) 최종판정을 발표했다. 직접조사 대상인 HD현대일렉트릭·일진전기는 0%를 받은 반면, 비조사 대상(all-others)인 효성중공업·LS일렉트릭은 직전 심사와 동일한 4.32% 관세율로 확정됐다. 2026-02 예비판정 대비 관세율 변동은 없으며, 예치율도 동일하게 유지된다.",
+          "sources": [
+            {
+              "url": "https://www.federalregister.gov/documents/2026/08/14/2026-16663/large-power-transformers-from-the-republic-of-korea-final-results-of-antidumping-duty-administrative",
+              "outlet": "federalregister.gov",
+              "date": "2026-08-14",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.newstomato.com/ReadNews.aspx?no=1310258",
+              "outlet": "뉴스토마토",
+              "date": "2026-08-11",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.thecommoditiesnews.com/news/articleView.html?idxno=10710",
+              "outlet": "더커머디티뉴스",
+              "date": "2026-02-22",
+              "tier": "S2",
+              "note": ""
+            }
+          ]
         }
       ]
     },
     "hd-hyundai-electric": {
-      "last_checked": "2026-08-21",
+      "last_checked": "2026-08-24",
       "observations": {
         "267260_실적": [
           {
@@ -499,6 +608,13 @@
             "date": "2026-08-20",
             "last_seen": "2026-08-20",
             "value": "약 3조원(3B달러)"
+          }
+        ],
+        "변압기 규격": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "262톤급, 3대 중 1호기 도착"
           }
         ]
       },
@@ -1627,7 +1743,7 @@
       ]
     },
     "power-generation": {
-      "last_checked": "2026-08-21",
+      "last_checked": "2026-08-24",
       "observations": {
         "energy_opm": [
           {
@@ -1919,7 +2035,7 @@
       ]
     },
     "optical-align": {
-      "last_checked": "2026-08-21",
+      "last_checked": "2026-08-24",
       "observations": {
         "cpo_timeline": [
           {
@@ -1936,6 +2052,11 @@
             "date": "2026-08-20",
             "last_seen": "2026-08-20",
             "value": "{\"value\": 2028, \"unit\": \"year\", \"period\": \"2026-08\", \"note\": \"ficonTEC/로보테크닉도 CPO 주문 지연 없다고 밝혀 2028년 상용화 전망 유지, 지연 신호 없음(K5 미해당)\"}"
+          },
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "{\"value\": 2028, \"unit\": \"year\", \"period\": \"2026-08\", \"note\": \"ficonTEC/로보테크닉 신규 계약(7/23) 및 정상 수주 지속 확인, 딜리버리 지연 언급 없음. 6/9 SemiAnalysis 지연설(2028~29년)은 이미 반영된 구정보. K5 미해당\"}"
           }
         ],
         "엔비디아 수주": [
@@ -2084,6 +2205,34 @@
             "last_seen": "2026-08-20",
             "value": "연간 수주의 약 50%"
           }
+        ],
+        "신규 수주금액": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "235억원(1,645만달러)"
+          }
+        ],
+        "고객사": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "NYSE 상장 'C사'(사명 비공개)"
+          }
+        ],
+        "계약금액": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "RMB 1.29억(약 EUR 1,674만, 약 235억원)"
+          }
+        ],
+        "2025년 감사매출 대비 비중": [
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "약 13.59%"
+          }
         ]
       },
       "open_flags": [
@@ -2091,35 +2240,21 @@
           "signal": "A1. 실제 CPO 양산 장비 수주 공시",
           "level": "YELLOW",
           "first_seen": "2026-08-18",
-          "last_seen": "2026-08-18",
-          "count": 1,
-          "summary": "ADS테크가 엔비디아(약 95억원)·마벨(약 5억원) CPO 얼라인 장비를 신규 수주했고, 브로드컴으로부터는 반도체 검사 기능이 결합된 'CPO 칩 테스터'를 수주해 대당 단가가 3.5억원에서 6.5억원으로 상승했다. 코닝·패브리넷·루멘텀 등 글로벌 광모듈 업체들의 발주도 이어지고 있는 것으로 보도됐다.",
+          "last_seen": "2026-08-24",
+          "count": 2,
+          "summary": "ADS테크가 미국 뉴욕증권거래소 상장 기술기업 'C사'(사명 비공개)로부터 CPO 생산용 액티브얼라인먼트 장비 235억원(1,645만달러) 규모의 구매주문(PO)을 신규 수령했다(발주 2026-08-05, 보도 2026-08-21). 광섬유·렌즈를 나노미터 단위로 정렬·접합하고 완성품질을 검사하는 설비로, 기존 엔비디아·마벨·브로드컴·코닝·패브리넷·루멘텀에 이은 추가 대형 고객사 확보 사례다.",
           "sources": [
             {
-              "url": "https://www.mt.co.kr/stock/2026/06/17/2026061710331164662",
-              "outlet": "머니투데이",
-              "date": "2026-06-17",
+              "url": "https://www.bloter.net/news/articleView.html?idxno=671446",
+              "outlet": "블로터",
+              "date": "2026-08-21",
               "tier": "S2",
               "note": ""
             },
             {
-              "url": "https://www.mt.co.kr/stock/2026/04/23/2026042314292289900",
-              "outlet": "머니투데이",
-              "date": "2026-04-23",
-              "tier": "S2",
-              "note": ""
-            },
-            {
-              "url": "https://www.38.co.kr/html/news/?o=v&m=kosdaq&no=1973001&files=2026061710331164662",
-              "outlet": "38커뮤니케이션",
-              "date": "2026-06-17",
-              "tier": "S2",
-              "note": ""
-            },
-            {
-              "url": "https://kr.investing.com/news/stock-market-news/article-1964869",
-              "outlet": "EBN(Investing.com)",
-              "date": "2026-06-09",
+              "url": "https://www.bloter.net/news/articleView.html?idxno=671452",
+              "outlet": "블로터",
+              "date": "2026-08-21",
               "tier": "S2",
               "note": ""
             }
@@ -2263,28 +2398,14 @@
           "signal": "과점 상대 ficonTEC(중국 로보테크닉 계열) 동향",
           "level": "YELLOW",
           "first_seen": "2026-08-20",
-          "last_seen": "2026-08-20",
-          "count": 1,
-          "summary": "ficonTEC을 인수한 중국 로보테크닉(300757.SZ)의 반기보고서 기준 광전자·반도체 부문 수주잔고는 약 6.62억 위안(약 1,200억원)이며, CPO향 수주가 연간 수주의 약 50%를 차지한다고 밝혔다. 회사 측은 CPO 장비 딜리버리 지연이 없다고 밝혔고, 홍콩 증시 이중상장도 검토 중이다.",
+          "last_seen": "2026-08-24",
+          "count": 2,
+          "summary": "ficonTEC의 모회사인 중국 로보테크닉(선전거래소 300757)의 자회사 ficonTEC Service GmbH가 2026-07-23 뉴욕증권거래소 상장 'H사'와 광섬유배열유닛(FAU) 등 광부품 양산 자동화장비·서비스 공급계약(RMB 1.29억, 약 235억원)을 신규 체결했다. 회사 측은 CPO 장비 딜리버리 지연이 없다고 재확인했다.",
           "sources": [
             {
-              "url": "https://stock.stockstar.com/RB2026071500010275.shtml",
-              "outlet": "证券之星",
-              "date": "2026-07-15",
-              "tier": "S2",
-              "note": ""
-            },
-            {
-              "url": "https://www.cls.cn/detail/1364761",
-              "outlet": "财联社",
-              "date": "2026",
-              "tier": "S2",
-              "note": ""
-            },
-            {
-              "url": "https://news.futunn.com/en/post/31137442/robotechnik-intelligent-technology-300757-announcement-of-the-ficontec-acquisition-plan",
-              "outlet": "Futunn",
-              "date": "2026",
+              "url": "https://news.futunn.com/en/post/76646048/robotechnik-300757-sz-subsidiary-ficontec-has-signed-a-contract-worth",
+              "outlet": "Futunn(证券之星 재인용)",
+              "date": "2026-07-23",
               "tier": "S2",
               "note": ""
             }
@@ -2315,6 +2436,11 @@
             "date": "2026-08-21",
             "last_seen": "2026-08-21",
             "value": "{\"value\": 2, \"unit\": \"대\", \"period\": \"2026-08\", \"note\": \"75매(파운드리向)+125매(메모리向) 출하 완료 상태 유지. 반복 수주(2nd order) 확인 안됨\"}"
+          },
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "{\"value\": 2, \"unit\": \"대\", \"period\": \"2026-08\", \"note\": \"75매(파운드리向)+125매(메모리向) 출하 완료 상태 유지. 반복 수주(2nd order) 소식 없음 — 재확인\"}"
           }
         ],
         "customer_count": [
@@ -2332,6 +2458,11 @@
             "date": "2026-08-20",
             "last_seen": "2026-08-21",
             "value": "{\"value\": 2, \"unit\": \"곳\", \"period\": \"2026-08\", \"note\": \"파운드리 1곳+메모리 1곳 유지. 3번째 고객사 확대 소식 없음\"}"
+          },
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "{\"value\": 2, \"unit\": \"곳\", \"period\": \"2026-08\", \"note\": \"파운드리 1곳+메모리 1곳 유지. 일부 기사에서 삼성·SK하이닉스·TSMC·마이크론·인텔을 '고객사'로 묶어 언급하나 구체적 수주·평가 근거 없는 개괄적 서술이라 반영 안 함\"}"
           }
         ],
         "lawsuit": [
@@ -2354,6 +2485,11 @@
             "date": "2026-08-21",
             "last_seen": "2026-08-21",
             "value": "{\"value\": \"본안 미결\", \"unit\": \"상태\", \"period\": \"2026-08\", \"note\": \"8/13 변론기일 이후 추가 진행 없음. 9월 말 최종 변론기일 예정. 판결 없음\"}"
+          },
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "{\"value\": \"본안 미결\", \"unit\": \"상태\", \"period\": \"2026-08\", \"note\": \"8/13 변론기일 이후 추가 변론기일 없음. 9월 말 최종 변론기일 예정, 판결 없음. 재확인 결과 8/21 대비 변화 없음\"}"
           }
         ],
         "hpo_orders": [
@@ -2376,6 +2512,11 @@
             "date": "2026-08-21",
             "last_seen": "2026-08-21",
             "value": "{\"value\": 0, \"unit\": \"건\", \"period\": \"2026-08\", \"note\": \"상용 수주 없음. 알파기 공정조건 확보, 글로벌 고객 평가 진행 중\"}"
+          },
+          {
+            "date": "2026-08-24",
+            "last_seen": "2026-08-24",
+            "value": "{\"value\": 0, \"unit\": \"건\", \"period\": \"2026-08\", \"note\": \"상용 수주 없음, 변화 없음\"}"
           }
         ],
         "HPA 장비 출하 대수": [
@@ -2540,6 +2681,11 @@
           "date": "2026-08-21",
           "last_seen": "2026-08-21",
           "value": "Natrium·Hermes1·Hermes2 착공 완료, Seadrift만 심사 중"
+        },
+        {
+          "date": "2026-08-24",
+          "last_seen": "2026-08-24",
+          "value": "Natrium·Kairos Hermes1/2 착공 완료(3개 중 2개), Seadrift는 NRC 환경평가(FONSI) 완료(2026-05)+DOE $1B 자금지원, FID는 2028년 이전 불가 입장 유지"
         }
       ],
       "4사 합산 2026 capex 가이던스": [
@@ -2625,6 +2771,11 @@
           "date": "2026-08-24",
           "last_seen": "2026-08-24",
           "value": "128주(~2.5년)"
+        },
+        {
+          "date": "2026-08-24",
+          "last_seen": "2026-08-24",
+          "value": "128주(~2.5년), 단축 조짐 없음, 2028년 이전 정상화 어려움 (변동 없음)"
         }
       ],
       "HV 대형 변압기(Tier 1)": [
@@ -2703,6 +2854,11 @@
           "date": "2026-08-24",
           "last_seen": "2026-08-24",
           "value": "36GW(-19% QoQ)"
+        },
+        {
+          "date": "2026-08-24",
+          "last_seen": "2026-08-24",
+          "value": "36GW (-19% QoQ)"
         }
       ],
       "누적 파이프라인": [
@@ -2807,6 +2963,11 @@
           "date": "2026-08-21",
           "last_seen": "2026-08-21",
           "value": "~$700-725B (오라클 포함 시 $775-800B), 하향 사례 0건"
+        },
+        {
+          "date": "2026-08-24",
+          "last_seen": "2026-08-24",
+          "value": "~$725-745B (AMZN 상향 반영, 오라클 포함 시 ~$800-820B 추정)"
         }
       ],
       "GOOGL": [
@@ -2901,6 +3062,11 @@
           "date": "2026-08-18",
           "last_seen": "2026-08-19",
           "value": "144주"
+        },
+        {
+          "date": "2026-08-24",
+          "last_seen": "2026-08-24",
+          "value": "144주 (변동 없음)"
         }
       ],
       "HV Tier1 변압기": [
@@ -2971,6 +3137,11 @@
           "date": "2026-08-19",
           "last_seen": "2026-08-19",
           "value": "~$200B (변동없음)"
+        },
+        {
+          "date": "2026-08-24",
+          "last_seen": "2026-08-24",
+          "value": "~$200B → ~$220B (2026-07-30 Q2 실적발표에서 공식 상향 확인)"
         }
       ],
       "MSFT 2026 capex 가이던스": [
@@ -3062,6 +3233,11 @@
           "date": "2026-08-24",
           "last_seen": "2026-08-24",
           "value": "~$200B (일부 미확인 매체 ~$220B)"
+        },
+        {
+          "date": "2026-08-24",
+          "last_seen": "2026-08-24",
+          "value": "~$200B → ~$220B (상향, 공식 확인)"
         }
       ],
       "MSFT 2026 capex": [
@@ -3110,6 +3286,11 @@
           "date": "2026-08-19",
           "last_seen": "2026-08-19",
           "value": "~$700-725B (일부 자료는 오라클 포함 $775-800B로 제시)"
+        },
+        {
+          "date": "2026-08-24",
+          "last_seen": "2026-08-24",
+          "value": "~$700-725B → ~$725-745B (AMZN 상향 반영, 오라클 포함 시 더 높음)"
         }
       ],
       "인허가 통과 비중": [
@@ -3377,6 +3558,55 @@
           "last_seen": "2026-08-24",
           "value": "약 20%"
         }
+      ],
+      "2026년 6월 데이터센터 착공 지출": [
+        {
+          "date": "2026-08-24",
+          "last_seen": "2026-08-24",
+          "value": "$22.3B (역대 2위, 1위는 1월 $25.5B)"
+        }
+      ],
+      "2026 YTD 데이터센터 착공 지출": [
+        {
+          "date": "2026-08-24",
+          "last_seen": "2026-08-24",
+          "value": "$81.5B (2025년 전체 $72.5B 상회)"
+        }
+      ],
+      "2026년 6월 착공 지출": [
+        {
+          "date": "2026-08-24",
+          "last_seen": "2026-08-24",
+          "value": "$22.3B (역대 2위)"
+        }
+      ],
+      "2026 YTD 착공 지출": [
+        {
+          "date": "2026-08-24",
+          "last_seen": "2026-08-24",
+          "value": "$81.5B (2025년 전체 $72.5B 상회)"
+        }
+      ],
+      "착공 완료": [
+        {
+          "date": "2026-08-24",
+          "last_seen": "2026-08-24",
+          "value": "3개 중 2개 (Natrium, Kairos Hermes1/2)"
+        }
+      ],
+      "Seadrift NRC 환경평가(FONSI) 완료": [
+        {
+          "date": "2026-08-24",
+          "last_seen": "2026-08-24",
+          "value": "2026-05 (예정보다 앞당겨짐)"
+        }
+      ],
+      "Seadrift DOE 신규 자금지원": [
+        {
+          "date": "2026-08-24",
+          "last_seen": "2026-08-24",
+          "value": "$1B"
+        }
       ]
     },
     "open_flags": [
@@ -3386,7 +3616,7 @@
         "first_seen": "2026-08-14",
         "last_seen": "2026-08-24",
         "count": 7,
-        "summary": "WoodMac 공식 수치는 여전히 2026Q1(36GW, -19% QoQ)에 머물러 있고 Q2 수치는 이번에도 미공개. Dodge Construction Network는 2026년 데이터센터 착공 증가율이 39.9%로 둔화(2025년 68.4%에서 하락)될 것으로 전망했고, Dodge Momentum Index(계획 단계)도 5→6월 6.9% 감소했다. 한편 2026년 예정 프로젝트의 30~50%가 지연·취소될 것이라는 Bisnow/techradar 보도가 있었으나, SemiAnalysis는 이 '절반 취소' 주장이 과장이라고 반박했다.",
+        "summary": "WoodMac의 GW 기준 신규 파이프라인 추가 지표는 여전히 2026Q1(36GW, -19% QoQ) 1개 분기만 확인되고 Q2 수치는 이번에도 미공개다. 반면 ConstructConnect의 달러 기준 착공 지출은 2026년 6월 $22.3B로 역대 2위(1위는 1월 $25.5B), 상반기 누적 $81.5B로 2025년 전체($72.5B)를 이미 상회해 실제 건설 활동은 견조함을 보여준다.",
         "sources": [
           {
             "url": "https://www.woodmac.com/press-releases/us-data-centre-developers-shift-focus-to-existing-pipelines-as-new-capacity-additions-slow-in-q1-2026/",
@@ -3396,23 +3626,9 @@
             "note": ""
           },
           {
-            "url": "https://www.constructiondive.com/news/cooling-data-center-surge-slip-june-construction-planning/824862/",
-            "outlet": "Construction Dive",
-            "date": "2026-07-10",
-            "tier": "S2",
-            "note": ""
-          },
-          {
-            "url": "https://www.bisnow.com/national/news/data-center-development/data-center-pipeline-slows-as-canceled-projects-pile-up-135381",
-            "outlet": "Bisnow",
-            "date": "2026-07-10",
-            "tier": "S2",
-            "note": ""
-          },
-          {
-            "url": "https://newsletter.semianalysis.com/p/stop-saying-half-of-2026-us-datacenter",
-            "outlet": "SemiAnalysis",
-            "date": "2026",
+            "url": "https://news.constructconnect.com/august-2026-data-center-report-construction-starts-total-22.3-billion-second-highest-on-record",
+            "outlet": "ConstructConnect",
+            "date": "2026-08",
             "tier": "S2",
             "note": ""
           }
@@ -3424,26 +3640,26 @@
         "first_seen": "2026-08-14",
         "last_seen": "2026-08-24",
         "count": 3,
-        "summary": "Natrium(TerraPower)과 Kairos Hermes1/Hermes2는 이미 착공을 완료해 3개 프로젝트 중 2개가 건설 중임이 재확인됐다. Seadrift(Dow/X-energy)는 NRC가 2026년 말까지 건설허가를 승인할 수 있다는 보도가 있었지만, Dow는 최종투자결정(FID)을 2028년 이전에는 내리지 않겠다고 명시했다. Kairos는 Hermes1 완공기한을 NRC에 2029년 4월로 연장 신청했으나 회사 자체는 2028년 완공을 목표로 한다고 밝혔다.",
+        "summary": "Natrium과 Kairos Hermes1/2는 이미 착공을 완료해 3개 프로젝트 중 2개가 건설 중임이 재확인됐다. Seadrift(Dow/X-energy)는 NRC가 2026년 5월 환경평가(FONSI)를 예정보다 앞당겨 완료했고, DOE로부터 Advanced Reactor Demonstration Program을 통해 $1B 규모의 신규 자금 지원을 받는 것으로 확인돼 진행 속도가 오히려 개선되는 모습이다. 다만 Dow는 최종투자결정(FID)을 2028년 이전에는 내리지 않겠다는 입장을 유지 중이다.",
         "sources": [
           {
-            "url": "https://investors.dow.com/en/news/news-details/2026/NRC-Issues-Environmental-Assessment-with-Finding-of-No-Significant-Impact-for-Dow-and-X-energys-Proposed-Advanced-Nuclear-Project-in-Texas/default.aspx",
-            "outlet": "Dow Investor Relations",
-            "date": "2026",
+            "url": "https://x-energy.com/news/nrc-issues-environmental-assessment-with-finding-of-no-significant-impact-for-dow-and-x-energys-propsed-advanced-nuclear-project-in-texas/",
+            "outlet": "X-energy (기업 발표)",
+            "date": "2026-05",
             "tier": "S1",
+            "note": ""
+          },
+          {
+            "url": "https://www.hydrocarbonprocessing.com/news/2026/08/dow-x-energy-to-receive-1-b-in-us-doe-funding-for-nuclear-power-project-at-seadrift/",
+            "outlet": "Hydrocarbon Processing",
+            "date": "2026-08",
+            "tier": "S2",
             "note": ""
           },
           {
             "url": "https://www.utilitydive.com/news/nrc-speeds-timeline-for-dowx-energy-reactor-permit-review/751050/",
             "outlet": "Utility Dive",
             "date": "2026",
-            "tier": "S2",
-            "note": ""
-          },
-          {
-            "url": "https://www.ans.org/news/article-8226/industry-updateaugust-2026/",
-            "outlet": "ANS Nuclear Newswire",
-            "date": "2026-08",
             "tier": "S2",
             "note": ""
           }
@@ -3454,7 +3670,7 @@
   },
   "groups": {
     "us-transformer": {
-      "last_checked": "2026-08-21",
+      "last_checked": "2026-08-24",
       "observations": {
         "미국_유틸리티_TD_capex_2026": [
           {

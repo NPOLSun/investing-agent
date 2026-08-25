@@ -1,7 +1,7 @@
 {
-  "asof": "2026-08-25 07:30 KST",
+  "asof": "2026-08-25 16:30 KST",
   "date": "2026-08-25",
-  "market": "us",
+  "market": "kr",
   "prices": {
     "VICR": {
       "ticker": "VICR",
@@ -39,63 +39,63 @@
       "ticker": "298040",
       "name": "효성중공업",
       "market": "KR",
-      "price": 2721000,
-      "change_pct": -4.76,
-      "volume_ratio": 0.9,
+      "price": 2792000,
+      "change_pct": 2.61,
+      "volume_ratio": 0.86,
       "market_cap": null
     },
     "267260": {
       "ticker": "267260",
       "name": "HD현대일렉트릭",
       "market": "KR",
-      "price": 718000,
-      "change_pct": -3.75,
-      "volume_ratio": 1.32,
+      "price": 720000,
+      "change_pct": 0.28,
+      "volume_ratio": 0.69,
       "market_cap": null
     },
     "006110": {
       "ticker": "006110",
       "name": "삼아알미늄",
       "market": "KR",
-      "price": 48150,
-      "change_pct": -12.14,
-      "volume_ratio": 1.33,
+      "price": 58700,
+      "change_pct": 21.91,
+      "volume_ratio": 1.66,
       "market_cap": null
     },
     "440110": {
       "ticker": "440110",
       "name": "파두",
       "market": "KR",
-      "price": 61900,
-      "change_pct": -6.07,
-      "volume_ratio": 0.65,
+      "price": 62000,
+      "change_pct": 0.16,
+      "volume_ratio": 0.49,
       "market_cap": null
     },
     "043260": {
       "ticker": "043260",
       "name": "성호전자",
       "market": "KR",
-      "price": 18120,
-      "change_pct": -6.6,
-      "volume_ratio": 0.38,
+      "price": 17940,
+      "change_pct": -0.99,
+      "volume_ratio": 0.31,
       "market_cap": null
     },
     "122640": {
       "ticker": "122640",
       "name": "예스티",
       "market": "KR",
-      "price": 29550,
-      "change_pct": 2.43,
-      "volume_ratio": 1.2,
+      "price": 28450,
+      "change_pct": -3.72,
+      "volume_ratio": 0.68,
       "market_cap": null
     },
     "034020": {
       "ticker": "034020",
       "name": "두산에너빌리티",
       "market": "KR",
-      "price": 73300,
-      "change_pct": -3.43,
-      "volume_ratio": 1.23,
+      "price": 73000,
+      "change_pct": -0.41,
+      "volume_ratio": 0.71,
       "market_cap": null
     }
   }

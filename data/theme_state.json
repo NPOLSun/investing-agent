@@ -1,11 +1,11 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-08-25"
+    "last_run": "2026-08-26"
   },
   "themes": {
     "ai-dc-power": {
-      "last_checked": "2026-08-24",
+      "last_checked": "2026-08-26",
       "observations": {
         "OCP LVDC SST 스펙": [
           {
@@ -94,6 +94,11 @@
             "date": "2026-08-24",
             "last_seen": "2026-08-24",
             "value": "510억유로(변동없음)"
+          },
+          {
+            "date": "2026-08-26",
+            "last_seen": "2026-08-26",
+            "value": "510억유로/59억달러(변동없음, 8/5 기준 재확인)"
           }
         ],
         "HD현대일렉트릭 2Q26 수주": [
@@ -312,6 +317,11 @@
             "date": "2026-08-24",
             "last_seen": "2026-08-24",
             "value": "116GW(2Q26) → 연말 125GW 목표, 3Q26 연 20GW 출하 체제"
+          },
+          {
+            "date": "2026-08-26",
+            "last_seen": "2026-08-26",
+            "value": "116GW(2Q26) → 연말 125GW목표(시장전망 130~140GW)"
           }
         ],
         "ERCOT 대형부하 접속대기": [
@@ -422,6 +432,11 @@
             "date": "2026-08-24",
             "last_seen": "2026-08-24",
             "value": "2026-08-24 현재 미확정"
+          },
+          {
+            "date": "2026-08-26",
+            "last_seen": "2026-08-26",
+            "value": "2026-08-26 현재 미확정(변동없음)"
           }
         ],
         "FERC 응답 시한": [
@@ -471,6 +486,83 @@
             "date": "2026-08-24",
             "last_seen": "2026-08-24",
             "value": "+43.4%"
+          }
+        ],
+        "GE Vernova 총수주잔고": [
+          {
+            "date": "2026-08-26",
+            "last_seen": "2026-08-26",
+            "value": "1760억달러(2Q26)"
+          }
+        ],
+        "PJM IRAS 의견수렴 마감": [
+          {
+            "date": "2026-08-26",
+            "last_seen": "2026-08-26",
+            "value": "2026-09-03"
+          }
+        ],
+        "PJM IRAS 적용개시": [
+          {
+            "date": "2026-08-26",
+            "last_seen": "2026-08-26",
+            "value": "2027-06-01"
+          }
+        ],
+        "PJM VRR 변경 적용": [
+          {
+            "date": "2026-08-26",
+            "last_seen": "2026-08-26",
+            "value": "2029/30 공급연도"
+          }
+        ],
+        "Vicor 주가(8/10→8/14→8/20)": [
+          {
+            "date": "2026-08-26",
+            "last_seen": "2026-08-26",
+            "value": "-5.6%→+3.6%→-4.5%(변동없음, 재확인)"
+          }
+        ],
+        "OCP LVDC SST": [
+          {
+            "date": "2026-08-26",
+            "last_seen": "2026-08-26",
+            "value": "v0.3 유지, MV AC→800VDC 변환 워크스트림 진행중(2026-08-11 발표, 실행조율 단계)"
+          }
+        ],
+        "FERC 의견수렴 마감": [
+          {
+            "date": "2026-08-26",
+            "last_seen": "2026-08-26",
+            "value": "2026-09-03"
+          }
+        ],
+        "IRAS 적용 개시": [
+          {
+            "date": "2026-08-26",
+            "last_seen": "2026-08-26",
+            "value": "2027-06-01"
+          }
+        ],
+        "PJM 2024-2030 부하증가 중 데이터센터 비중": [
+          {
+            "date": "2026-08-26",
+            "last_seen": "2026-08-26",
+            "value": "30GW / 32GW"
+          }
+        ],
+        "가스터빈 수주잔고": [
+          {
+            "date": "2026-08-26",
+            "last_seen": "2026-08-26",
+            "value": "100GW(1Q26) → 116GW(2Q26)"
+          }
+        ],
+        "연말 목표 vs 시장전망": [
+          {
+            "date": "2026-08-26",
+            "last_seen": "2026-08-26",
+            "value": "125GW(가이던스) vs 130~140GW(애널리스트 전망)"
           }
         ]
       },
@@ -716,7 +808,7 @@
           "thesis_review": false
         },
         "W4|온사이트 발전·비계통 전력 조달 비중(behind-the-meter) / 가스터빈 공급망 타이트": {
-          "headline": "GE Vernova 가스터빈 백로그 급증",
+          "headline": "GE Vernova 총수주잔고 1760억달러",
           "shift": "온사이트 발전·비계통 전력 조달 비중(behind-the-meter) / 가스터빈 공급망 타이트",
           "refs": [
             "W4"
@@ -725,33 +817,26 @@
           "affects": [
             "power-generation"
           ],
-          "summary": "GE Vernova의 가스터빈 수주잔고가 2026년 1분기 100GW에서 2분기 116GW로 3개월 만에 16GW 늘었다. 이 중 약 20%가 데이터센터向 부하와 직결되며, 가격은 2025년 4분기 대비 10~20%p 높게 형성되어 있어 GE Vernova·Mitsubishi Power·Siemens Energy 3사가 물량을 소화하지 못하는 상황이 이어지고 있다.",
+          "summary": "GE Vernova 2분기 실적에서 총 수주잔고가 1760억달러로 집계됐고, 이 중 가스터빈 수주잔고는 1분기 100GW에서 2분기 116GW로 늘었다. 회사는 연말 최소 125GW 목표를 유지했으나 애널리스트들은 실제 130~140GW 도달을 전망하며, 2027년까지 전체 수주잔고 2000억달러 도달 전망도 제기됐다.",
           "sources": [
             {
-              "url": "https://www.power-eng.com/gas/turbines/data-centers-drive-record-surge-in-ge-vernova-power-equipment-orders-as-turbine-slots-tighten-through-2030/",
-              "outlet": "Power Engineering",
-              "date": "2026-08",
+              "url": "https://www.fool.com/investing/2026/08/22/ge-vernovas-backlog-is-bigger-than-some-countries/",
+              "outlet": "The Motley Fool",
+              "date": "2026-08-22",
               "tier": "S2",
               "note": ""
             },
             {
-              "url": "https://www.turbomachinerymag.com/view/ge-vernova-gas-turbine-backlog-hits-116-gw-as-power-orders-more-than-double",
-              "outlet": "Turbomachinery Magazine",
+              "url": "https://www.utilitydive.com/news/ge-vernova-gas-turbine-backlog-climbs-to-116-gw/826039/",
+              "outlet": "Utility Dive",
               "date": "2026-08",
-              "tier": "S2",
-              "note": ""
-            },
-            {
-              "url": "https://www.cnbc.com/2026/06/27/ge-vernova-gas-turbines-ai-data-centers.html",
-              "outlet": "CNBC",
-              "date": "2026-06-27",
               "tier": "S2",
               "note": ""
             }
           ],
-          "last_seen": "2026-08-21",
+          "last_seen": "2026-08-26",
           "first_seen": "2026-08-21",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — ferc 6개 rto 응답": {
@@ -795,7 +880,7 @@
           "thesis_review": false
         },
         "W4|온사이트 발전·비계통 전력 조달 비중(behind-the-meter) — xai 콜로서스 소송": {
-          "headline": "xAI 예비금지명령 판결 여전히 미정",
+          "headline": "xAI 예비금지명령 판결 계속 지연",
           "shift": "온사이트 발전·비계통 전력 조달 비중(behind-the-meter) — xAI 콜로서스 소송",
           "refs": [
             "W4"
@@ -804,18 +889,11 @@
           "affects": [
             "power-generation"
           ],
-          "summary": "NAACP·SELC가 제기한 xAI 콜로서스2 무허가 가스터빈 소송에서 미시시피 연방판사의 예비금지명령 결정이 2026년 8월 말로 예정돼 있었으나, 2026-08-24 현재까지 판결이 내려지지 않은 것으로 확인된다. DOJ의 국가안보 논리에 따른 개입 상태는 그대로 유지되고 있다.",
+          "summary": "NAACP가 제기한 xAI 콜로서스2 무허가 가스터빈 소송의 예비금지명령 판결이 2026년 8월 말로 예정되어 있었으나, 2026-08-26 현재까지 미시시피 연방법원(Debra Brown 판사)의 판결은 나오지 않은 것으로 확인된다. DOJ의 국가안보 근거 개입·기각 요청 상태도 그대로 유지되고 있어 8/24 관측 대비 진전이 없다.",
           "sources": [
             {
-              "url": "https://naacp.org/articles/naacp-sues-xai-illegal-pollution-data-center-power-plant",
-              "outlet": "NAACP",
-              "date": "2026-04",
-              "tier": "S1",
-              "note": ""
-            },
-            {
-              "url": "https://tech-insider.org/xai-colossus-2-naacp-lawsuit-illegal-gas-turbines-memphis-2026/",
-              "outlet": "Tech Insider",
+              "url": "https://www.mississippifreepress.org/xai-gas-turbines-causing-harm-in-southaven-naacp-argues-in-motion-to-shut-them-down/",
+              "outlet": "Mississippi Free Press",
               "date": "2026-08",
               "tier": "S2",
               "note": ""
@@ -828,9 +906,9 @@
               "note": ""
             }
           ],
-          "last_seen": "2026-08-24",
+          "last_seen": "2026-08-26",
           "first_seen": "2026-08-21",
-          "count": 2,
+          "count": 3,
           "thesis_review": false
         },
         "W2,W3|배전 전압 아키텍처 전환(54v 랙 → 800vdc) 채택 속도": {
@@ -872,6 +950,46 @@
           "first_seen": "2026-08-24",
           "count": 1,
           "thesis_review": false
+        },
+        "W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — pjm iras 세부일정": {
+          "headline": "PJM IRAS 의견수렴·시행일정 공개",
+          "shift": "계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — PJM IRAS 세부일정",
+          "refs": [
+            "W5"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "hyosung-transformer",
+            "hd-hyundai-electric"
+          ],
+          "summary": "PJM이 2026-08-13 FERC에 제출한 IRAS(임시자원적정성서비스) 제안의 세부 일정이 확인됐다. 의견수렴 마감은 2026-09-03이며, 자체 발전 없이 접속하는 신규 대형부하에 대한 IRAS 노출은 2027-06-01부터, 가변자원요건(VRR) 변경은 2029/30 공급연도부터 적용된다. PJM은 2024~2030년 예상 부하증가 32GW 중 30GW가 데이터센터發이라고 밝혔다.",
+          "sources": [
+            {
+              "url": "https://insidelines.pjm.com/pjm-proposes-framework-to-connect-data-centers-without-compromising-reliability-affordability/",
+              "outlet": "PJM Inside Lines",
+              "date": "2026-08-13",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.datacenterknowledge.com/energy-power-supply/pjm-s-new-deal-for-data-centers-bring-power-or-face-cuts",
+              "outlet": "Data Center Knowledge",
+              "date": "2026-08",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "http://paenvironmentdaily.blogspot.com/2026/08/pjm-formally-submits-ferc-proposal-on.html",
+              "outlet": "PA Environment Digest",
+              "date": "2026-08-13",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-26",
+          "first_seen": "2026-08-26",
+          "count": 1,
+          "thesis_review": false
         }
       }
     },
@@ -893,6 +1011,11 @@
             "date": "2026-08-21",
             "last_seen": "2026-08-21",
             "value": "완전양산 지속, Vera Rubin 플랫폼으로 OpenAI·CoreWeave·Google Cloud·Azure·Meta·Dell 출하 중(7/21 발표 재확인)"
+          },
+          {
+            "date": "2026-08-26",
+            "last_seen": "2026-08-26",
+            "value": "변동 없음 — Vera Rubin NVL72(Spectrum-X Ethernet Photonics) 완전양산 지속, Microsoft 첫 파워온(8/21) 이후 추가 배송 소식 미확인, 가을 본격 출하 예정 유지"
           }
         ],
         "Broadcom CPO 스위치 상태": [
@@ -910,6 +1033,11 @@
             "date": "2026-08-21",
             "last_seen": "2026-08-21",
             "value": "Bailly 볼륨생산 지속, Meta 배포검증 완료"
+          },
+          {
+            "date": "2026-08-26",
+            "last_seen": "2026-08-26",
+            "value": "변동 없음 — Tomahawk 6-Davisson / Bailly 볼륨 생산 지속, 신규 발표 없음"
           }
         ],
         "TSMC COUPE": [
@@ -927,6 +1055,11 @@
             "date": "2026-08-21",
             "last_seen": "2026-08-21",
             "value": "2026 양산목표 유지, PIC 캐파 3년내 30배 확대 계획"
+          },
+          {
+            "date": "2026-08-26",
+            "last_seen": "2026-08-26",
+            "value": "변동 없음 — 2026 양산목표 유지, PIC 캐파 확장 로드맵(2026 2Q~10K → 2026 4Q~15K → 2028 25K장/월) 재확인, 신규 발표 없음"
           }
         ],
         "CPO 비중(2026 광모듈 중)": [
@@ -1075,6 +1208,11 @@
             "date": "2026-08-21",
             "last_seen": "2026-08-21",
             "value": "Meta 최대$6B(2026-01)+Amazon 복수B$(2026-06), 8월 신규계약 없음"
+          },
+          {
+            "date": "2026-08-26",
+            "last_seen": "2026-08-26",
+            "value": "8/21 이후 신규 계약 확인 안됨 (Meta $6B, Amazon 복수B$ 기존 계약 유지)"
           }
         ],
         "Coherent CPO TAM": [
@@ -1117,6 +1255,11 @@
             "date": "2026-08-21",
             "last_seen": "2026-08-21",
             "value": "예비 기업가치 $70~100억, 프리IPO 검토(H2 2026~H1 2027), 목표 2028년(미확정)"
+          },
+          {
+            "date": "2026-08-26",
+            "last_seen": "2026-08-26",
+            "value": "변동 없음 — 목표시점 2028년, 예비 기업가치 $70~100억 유지, 8월 중 신규 진전 확인 안됨"
           }
         ],
         "최대주주 조기상환액(7/8~7/31)": [
@@ -1229,6 +1372,11 @@
             "date": "2026-08-24",
             "last_seen": "2026-08-24",
             "value": "8/27 예정, 아직 미발표"
+          },
+          {
+            "date": "2026-08-26",
+            "last_seen": "2026-08-26",
+            "value": "8/27(미국시간) 예정, 아직 미발표. 시장 컨센서스는 매출 약 $2.7B(YoY+35%), 광인터커넥트 매출 성장률 가이던스 기존 50%→70%+ 상향 유지"
           }
         ],
         "성호전자 최대주주 담보위기": [
@@ -1243,6 +1391,27 @@
             "date": "2026-08-24",
             "last_seen": "2026-08-24",
             "value": "8/21 이후 신규 계약 확인 안됨"
+          }
+        ],
+        "성호전자/서룡전자 담보위기": [
+          {
+            "date": "2026-08-26",
+            "last_seen": "2026-08-26",
+            "value": "8/21 관측 이후 8/26까지 추가 공시나 신규 상환/담보 이벤트 확인 안됨. 7월말 기준 담보대출 잔액 1,650억원까지 축소된 상태에서 정체"
+          }
+        ],
+        "OCP CPO 표준화(Lightmatter 주도)": [
+          {
+            "date": "2026-08-26",
+            "last_seen": "2026-08-26",
+            "value": "변동 없음 — 8/13 발표된 20개사 참여 아키텍처 청사진 유지, 스펙 초안 목표 2026 Q4 그대로"
+          }
+        ],
+        "광부품 벤더 주가 변동성": [
+          {
+            "date": "2026-08-26",
+            "last_seen": "2026-08-26",
+            "value": "Fabrinet(-20%, 8/18), Coherent(-20%, 실적 발표 후) 등 8월 중순 조정 이후 8/24~26 사이 새로운 실적/주가 이벤트 없음"
           }
         ]
       },

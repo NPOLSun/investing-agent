@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-08-26"
+    "last_run": "2026-08-27"
   },
   "positions": {
     "ess-foil": {
@@ -717,7 +717,7 @@
       ]
     },
     "point-of-load": {
-      "last_checked": "2026-08-26",
+      "last_checked": "2026-08-27",
       "observations": {
         "royalty_revenue": [
           {
@@ -751,6 +751,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "{\"value\": \">1\", \"unit\": \"ratio\", \"period\": \"2026Q2\", \"note\": \"1년 백로그 3.797억달러(QoQ +26%, YoY +145%), book-to-bill >1 — 2026-08-25 관측치와 동일. Q3 실적 미발표(통상 10월)로 신규 분기 데이터 없음\"}"
+          },
+          {
+            "date": "2026-08-27",
+            "last_seen": "2026-08-27",
+            "value": "{\"value\": \">1\", \"unit\": \"ratio\", \"period\": \"2026Q2\", \"note\": \"1년 백로그 3.797억달러(QoQ +26%, YoY +145%), book-to-bill >1 — 2026-08-26 관측치와 동일, 변화 없음. Q3 실적 미발표(통상 10월)로 신규 분기 데이터 없음\"}"
           }
         ],
         "itc_status": [
@@ -783,6 +788,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "{\"value\": \"2차 ITC(Luxshare/MetaPWR) 조사 진행 중, 공청회 2026-10-14 예정, 최종판정 2027년 전망\", \"unit\": \"status\", \"period\": \"2026Q3\", \"note\": \"2026-08-25 관측치와 동일, 변화 없음. 1차 ITC Foxconn 라이선스 인정 건 Federal Circuit 항소(Case No. 25-1616)도 계류 중, 심리기일·판결 미확인\"}"
+          },
+          {
+            "date": "2026-08-27",
+            "last_seen": "2026-08-27",
+            "value": "{\"value\": \"2차 ITC(Luxshare/MetaPWR) 조사 진행 중, 공청회 2026-10-14 예정, 최종판정 2027년 전망\", \"unit\": \"status\", \"period\": \"2026Q3\", \"note\": \"2026-08-26 관측치와 동일, 변화 없음. 1차 ITC Foxconn/Ingrasys 라이선스 인정 건 Federal Circuit 항소(Case No. 25-1616)도 계류 중 — 오늘 재확인 결과 심리기일·판결 여전히 미확인\"}"
           }
         ],
         "nvidia_reference": [
@@ -805,6 +815,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "{\"value\": \"미검증 — MPS가 NVIDIA Vera Rubin 파워스테이지 주공급사로 다수 애널리스트/뉴스레터에 거론되나 NVIDIA·MPS 공식 확인 없음\", \"unit\": \"status\", \"period\": \"2026Q3\", \"note\": \"2026-08-25 관측치와 동일, 신규 1차 소스 확인 없음\"}"
+          },
+          {
+            "date": "2026-08-27",
+            "last_seen": "2026-08-27",
+            "value": "{\"value\": \"미검증 — MPS가 NVIDIA Vera Rubin 파워스테이지 주공급사(점유율 추정 최대 70%)로 다수 애널리스트/뉴스레터에 거론되나 NVIDIA·MPS 공식 확인 없음\", \"unit\": \"status\", \"period\": \"2026Q3\", \"note\": \"2026-08-26 관측치와 동일, 신규 1차 소스 없음. 별도로 SemiAnalysis 등은 Blackwell 세대 MPWR 점유율이 100%→약50%로 정상화될 것으로 전망(Infineon·Renesas 신규 진입)한다고 보도했으나, 이는 MPS의 수평형 VRM 시장 동향이며 Vicor의 수직형 point-of-load(VPD)와 직접 경쟁 관계인지는 미확인\"}"
           }
         ],
         "vdc_adoption": [
@@ -832,6 +847,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "{\"value\": \"NVIDIA 800VDC MGX 아키텍처에 Infineon·Renesas·Delta·MPS 등 다수 실리콘 파트너 참여, OCP LVDC v0.3 스펙 기준\", \"unit\": \"status\", \"period\": \"2026Q3\", \"note\": \"2026-08-25 관측치와 동일, 변화 없음\"}"
+          },
+          {
+            "date": "2026-08-27",
+            "last_seen": "2026-08-27",
+            "value": "{\"value\": \"NVIDIA 800VDC(MGX/Vera Rubin) 3Q26 초기 출하 목표 유지(선택적 구성), Infineon·Renesas·Delta·MPS 등 다수 실리콘 파트너 참여, OCP LVDC v0.3 기준\", \"unit\": \"status\", \"period\": \"2026Q3\", \"note\": \"2026-08-26 관측치와 동일, 변화 없음. TrendForce: Vera Rubin 세대는 800V가 옵션 구성이며 Rubin Ultra 세대에서 본격 채택 전망\"}"
           }
         ],
         "신규 라이선스 2Q26 매출 기여": [
@@ -950,7 +970,7 @@
       ]
     },
     "optical-material": {
-      "last_checked": "2026-08-26",
+      "last_checked": "2026-08-27",
       "observations": {
         "optical_growth": [
           {
@@ -1009,7 +1029,7 @@
         "ATH(2026-06-29)": [
           {
             "date": "2026-08-17",
-            "last_seen": "2026-08-26",
+            "last_seen": "2026-08-27",
             "value": "255.69"
           }
         ],
@@ -1115,6 +1135,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "약 -42.4%"
+          },
+          {
+            "date": "2026-08-27",
+            "last_seen": "2026-08-27",
+            "value": "약 -40.3%"
           }
         ],
         "전일종가": [
@@ -1143,6 +1168,13 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "66.0배 (S&P500 중앙값 23.5배)"
+          }
+        ],
+        "전일종가(2026-08-26)": [
+          {
+            "date": "2026-08-27",
+            "last_seen": "2026-08-27",
+            "value": "152.78 (+3.82%)"
           }
         ]
       },
@@ -1227,21 +1259,21 @@
           "signal": "A3. thesis 유지 상태에서 20% 이상 조정",
           "level": "YELLOW",
           "first_seen": "2026-08-19",
-          "last_seen": "2026-08-26",
-          "count": 3,
-          "summary": "GLW는 최근 5거래일 연속 하락하며 시가총액 약 240억달러가 증발했고(-16%), 8/25 소폭 반등(147.16달러, +1.11%)했음에도 사상최고가(255.69, 2026-06-29) 대비 낙폭은 여전히 약 -42% 수준이다. 하락은 Optical 사업 자체의 훼손이 아니라 밸류에이션(PER 66배, S&P500 중앙값 23.5배 대비 고평가) 재평가가 주된 원인으로, 이번 검색에서도 수주 취소·마진 악화·Springboard 하향 등 thesis 훼손 사실은 확인되지 않았다.",
+          "last_seen": "2026-08-27",
+          "count": 4,
+          "summary": "GLW는 8/26 +3.82%(152.78달러)로 반등했으나 사상최고가(255.69, 2026-06-29) 대비 낙폭은 여전히 약 -40% 수준이다. 반등은 7/28 Q3 가이던스 미스 이후 과매도 인식과 월가 목표주가 상향 흐름에 따른 것이며, 이번 검색에서도 Optical 성장률·마진·하이퍼스케일러 계약·Springboard 목표 등 thesis 핵심 지표를 훼손하는 새로운 사실은 확인되지 않았다.",
           "sources": [
             {
-              "url": "https://www.trefis.com/stock/glw/articles/612800/a-5-day-losing-streak-has-corning-stock-down-16/2026-08-25",
-              "outlet": "trefis.com",
-              "date": "2026-08-25",
+              "url": "https://www.benzinga.com/trading-ideas/movers/26/08/60903715/why-is-corning-stock-surging-on-tuesday",
+              "outlet": "benzinga.com",
+              "date": "2026-08-26",
               "tier": "S2",
               "note": ""
             },
             {
-              "url": "https://www.gurufocus.com/news/9051982/glw-looks-1269-overvalued-on-gf-value",
-              "outlet": "gurufocus.com",
-              "date": "2026-08-25",
+              "url": "https://finance.yahoo.com/quote/GLW/",
+              "outlet": "finance.yahoo.com",
+              "date": "2026-08-26",
               "tier": "S2",
               "note": ""
             }
@@ -1281,7 +1313,7 @@
       ]
     },
     "smr-developer": {
-      "last_checked": "2026-08-26",
+      "last_checked": "2026-08-27",
       "observations": {
         "nrc_permit": [
           {
@@ -1313,6 +1345,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "{\"value\": \"Final Safety Evaluation 목표 2026년 11월 유지, 공청회 2026-09-22 예정(Federal Register 공고 기확인), 건설허가(Long Mott/Seadrift) 결정은 2027년 상반기 전망 재확인\", \"unit\": \"status\", \"period\": \"2026Q3\", \"note\": \"8/25 관측 대비 변화 없음. Waterkeeper 재무적격성 이의는 2026년 2월 청문 건으로 기존에 반영된 절차이며 신규 지연 아님. K1/A1 해당없음\"}"
+          },
+          {
+            "date": "2026-08-27",
+            "last_seen": "2026-08-27",
+            "value": "{\"value\": \"Final Safety Evaluation 목표 2026년 11월 유지, 공청회 2026-09-22 예정(Federal Register 공고), 건설허가(Long Mott/Seadrift) 결정은 2027년 상반기 전망 재확인\", \"unit\": \"status\", \"period\": \"2026Q3\", \"note\": \"8/26 관측 대비 변화 없음. 일부 구언론(NRC 5월 보도자료, FONSI 시점 기준)이 '2026년말 허가 가능'을 언급하나 이는 8월 이전 구시점 자료이며 회사·NRC의 최신 가이던스(11월 FSE→2027년 상반기 결정)와 상충되지 않음. K1/A1 해당없음\"}"
           }
         ],
         "dow_fid": [
@@ -1345,6 +1382,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "{\"value\": \"2028년 이전 FID 없음\", \"unit\": \"status\", \"period\": \"2026Q3\", \"note\": \"변화 없음. K2 해당없음\"}"
+          },
+          {
+            "date": "2026-08-27",
+            "last_seen": "2026-08-27",
+            "value": "{\"value\": \"2028년 이전 FID 없음\", \"unit\": \"status\", \"period\": \"2026Q3\", \"note\": \"Dow 공식 입장 재확인, 변화 없음. K2 해당없음\"}"
           }
         ],
         "cash_runway": [
@@ -1367,6 +1409,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "{\"value\": 11.1, \"unit\": \"분기\", \"period\": \"2026Q2\", \"note\": \"신규 10-Q 없음(다음 분기보고 전). Form S-1MEF·S-8 신규 확인되었으나 각각 IPO 초과배정분 등록·임직원 스톡플랜 등록으로 신규 현금조달 아님. K5 해당없음\"}"
+          },
+          {
+            "date": "2026-08-27",
+            "last_seen": "2026-08-27",
+            "value": "{\"value\": 11.1, \"unit\": \"분기\", \"period\": \"2026Q2\", \"note\": \"신규 10-Q·신규 증자 공시 없음. 8/26 관측과 동일. K5 해당없음\"}"
           }
         ],
         "competitor_first": [
@@ -1404,6 +1451,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "{\"value\": \"Oklo Aurora-INL 2028년 목표(최선두), Kairos Hermes2 2030년, TerraPower Kemmerer 2030~2031년 - 변동 없음\", \"unit\": \"status\", \"period\": \"2026Q3\", \"note\": \"NuScale은 2026-08-24 Q2 실적에서 매출이 800만달러(전년동기)→7.5만달러로 급감, TVA·ENTRA1 프레임워크는 여전히 비구속적(PPA 미체결)이며 상업운전 시점 불변. 경쟁사 중 X-energy보다 먼저 상업운전 도달한 곳 없음. K6 해당없음\"}"
+          },
+          {
+            "date": "2026-08-27",
+            "last_seen": "2026-08-27",
+            "value": "{\"value\": \"Oklo Aurora-INL 2027말~2028년초 목표(최선두), Kairos Hermes2 2030년, TerraPower Kemmerer 2030~2031년, NuScale 2030년 - 전부 변동 없음\", \"unit\": \"status\", \"period\": \"2026Q3\", \"note\": \"이번 주 경쟁사 상업운전 시점 관련 신규 공식 발표 없음. K6 해당없음\"}"
           }
         ],
         "trisox": [
@@ -1436,6 +1488,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "{\"value\": 0, \"unit\": \"%\", \"period\": \"2026Q3\", \"note\": \"TX-1 건설 다음 단계(부속건물·내부설비) 진입(2026-08-24 발표), 여전히 미가동. 완공목표 2028년 상반기 유지. K4 해당없음\"}"
+          },
+          {
+            "date": "2026-08-27",
+            "last_seen": "2026-08-27",
+            "value": "{\"value\": 0, \"unit\": \"%\", \"period\": \"2026Q3\", \"note\": \"TX-1 여전히 미가동, 건설 진행중(8/24 발표된 '다음 단계 진입'은 이미 8/26 관측에 반영됨, 신규 아님). K4 해당없음\"}"
           }
         ],
         "DOE 총 비용분담": [
@@ -1613,7 +1670,7 @@
       ]
     },
     "haleu": {
-      "last_checked": "2026-08-26",
+      "last_checked": "2026-08-27",
       "observations": {
         "haleu_capacity": [
           {
@@ -1650,6 +1707,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "{\"value\": 0.9, \"unit\": \"톤/년 (실제 가동 기준)\", \"period\": \"2026-07\", \"note\": \"12톤/년 상업capa 목표는 900M 태스크오더로 착수 단계, 신규 정보 없음, 08-26 재확인\"}"
+          },
+          {
+            "date": "2026-08-27",
+            "last_seen": "2026-08-27",
+            "value": "{\"value\": 0.9, \"unit\": \"톤/년 (실제 가동 기준)\", \"period\": \"2026-07\", \"note\": \"12톤/년 상업capa 목표는 900M 태스크오더로 착수 단계, 신규 정보 없음, 08-27 재확인\"}"
           }
         ],
         "competitor_haleu": [
@@ -1687,6 +1749,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "{\"value\": 0, \"unit\": \"개사 (상업 HALEU 생산 개시)\", \"period\": \"2026-08\", \"note\": \"General Matter(Paducah, 가동목표 2034), Urenco USA(신규 카스케이드 2032년 첫생산 예정, HALEU 아님), Orano USA(Project IKE, LEU 목표, HALEU 아님) 모두 상업 HALEU 미개시로 재확인. 변동 없음, 08-26 재확인\"}"
+          },
+          {
+            "date": "2026-08-27",
+            "last_seen": "2026-08-27",
+            "value": "{\"value\": 0, \"unit\": \"개사 (상업 HALEU 생산 개시)\", \"period\": \"2026-08\", \"note\": \"General Matter(Paducah, 가동목표 2030년대 초), Urenco USA(신규 카스케이드 2032년 첫생산 예정, HALEU 아님, 5번째 캐스케이드 가동 진행 중), Orano USA(Project IKE, LEU 목표, HALEU 아님) 모두 상업 HALEU 미개시. 변동 없음, 08-27 재확인\"}"
           }
         ],
         "doe_award": [
@@ -1719,6 +1786,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "{\"value\": \"옵션 미행사 + FY27 예산 미반영(기존 HALEU Operation Contract 한정) 유지, 별도 900M 상업전환 태스크오더는 유효\", \"unit\": \"정성\", \"period\": \"2026-08-05\", \"note\": \"White House FY27 예산요청에 LEU/HALEU 전체 프로그램용 22억달러 별도 편성 확인되나, 이는 기존 HALEU Operation Contract 옵션 미행사 건과는 별개 사안. 08-05 공시 내용 그대로, 08-26 재확인\"}"
+          },
+          {
+            "date": "2026-08-27",
+            "last_seen": "2026-08-27",
+            "value": "{\"value\": \"옵션 미행사 + FY27 예산 미반영(기존 HALEU Operation Contract 한정) 유지, 별도 900M 상업전환 태스크오더는 유효\", \"unit\": \"정성\", \"period\": \"2026-08-05\", \"note\": \"FY2027 DOE 예산 관련 신규 공시 확인 안됨, 08-05 실적발표 내용 그대로, 08-27 재확인\"}"
           }
         ],
         "leu_backlog": [
@@ -1756,6 +1828,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "{\"value\": 37, \"unit\": \"억달러 (LEU 세그먼트 백로그)\", \"period\": \"2026Q2\", \"note\": \"신규 공시 없음(2026Q3 실적 미발표), 08-05 실적발표 수치와 동일, 08-26 재확인\"}"
+          },
+          {
+            "date": "2026-08-27",
+            "last_seen": "2026-08-27",
+            "value": "{\"value\": 37, \"unit\": \"억달러 (LEU 세그먼트 백로그)\", \"period\": \"2026Q2\", \"note\": \"전사 백로그 45억달러 유지(2026Q3 실적 미발표), 08-05 실적발표 수치와 동일, 08-27 재확인\"}"
           }
         ],
         "DOE 태스크오더 규모": [
@@ -3025,6 +3102,11 @@
           "date": "2026-08-26",
           "last_seen": "2026-08-26",
           "value": "3개 중 2개 착공 완료(Natrium, Kairos Hermes1/2), Seadrift는 허가심사 단계(FID는 2028년 이전 어려움)"
+        },
+        {
+          "date": "2026-08-27",
+          "last_seen": "2026-08-27",
+          "value": "3개 중 2개 착공 완료(Natrium, Kairos Hermes1/2), Seadrift는 NRC 심사 중(Final SE 2026-11 목표, 건설허가 결정 2026년 말 목표)"
         }
       ],
       "4사 합산 2026 capex 가이던스": [
@@ -3065,7 +3147,7 @@
         },
         {
           "date": "2026-08-26",
-          "last_seen": "2026-08-26",
+          "last_seen": "2026-08-27",
           "value": "~$725B (오라클 포함 시 ~$775-800B), 하향 없음"
         }
       ],
@@ -3133,8 +3215,13 @@
         },
         {
           "date": "2026-08-26",
-          "last_seen": "2026-08-26",
+          "last_seen": "2026-08-27",
           "value": "128주(~2.5년), 단축 조짐 없음"
+        },
+        {
+          "date": "2026-08-27",
+          "last_seen": "2026-08-27",
+          "value": "128주(~2.5년)"
         }
       ],
       "HV 대형 변압기(Tier 1)": [
@@ -3226,7 +3313,7 @@
         },
         {
           "date": "2026-08-25",
-          "last_seen": "2026-08-26",
+          "last_seen": "2026-08-27",
           "value": "36GW (-19% QoQ)"
         }
       ],
@@ -3270,6 +3357,11 @@
           "date": "2026-08-25",
           "last_seen": "2026-08-26",
           "value": "331GW (약 40% 활발히 개발 중)"
+        },
+        {
+          "date": "2026-08-27",
+          "last_seen": "2026-08-27",
+          "value": "331GW (약 40% 활발히 개발 중, 53% 인허가 통과·용량기준 32%)"
         }
       ],
       "활발히 개발 중 비중": [
@@ -3294,7 +3386,7 @@
         },
         {
           "date": "2026-08-25",
-          "last_seen": "2026-08-26",
+          "last_seen": "2026-08-27",
           "value": "144주(~2.8년)"
         }
       ],
@@ -3659,7 +3751,7 @@
         },
         {
           "date": "2026-08-26",
-          "last_seen": "2026-08-26",
+          "last_seen": "2026-08-27",
           "value": "331GW (약 40% 활발히 개발 중)"
         }
       ],
@@ -3668,6 +3760,11 @@
           "date": "2026-08-19",
           "last_seen": "2026-08-19",
           "value": "최대 60개월(5년), 단축 조짐 없음"
+        },
+        {
+          "date": "2026-08-27",
+          "last_seen": "2026-08-27",
+          "value": "최대 4년 (일부 보도 4년 초과)"
         }
       ],
       "Seadrift 건설허가": [
@@ -3938,7 +4035,7 @@
       "GSU 평균": [
         {
           "date": "2026-08-21",
-          "last_seen": "2026-08-26",
+          "last_seen": "2026-08-27",
           "value": "144주(~2.8년)"
         }
       ],
@@ -4084,7 +4181,7 @@
       "착공 완료": [
         {
           "date": "2026-08-24",
-          "last_seen": "2026-08-26",
+          "last_seen": "2026-08-27",
           "value": "3개 중 2개 (Natrium, Kairos Hermes1/2)"
         }
       ],
@@ -4112,7 +4209,7 @@
       "HV 대형(Tier1)": [
         {
           "date": "2026-08-25",
-          "last_seen": "2026-08-25",
+          "last_seen": "2026-08-27",
           "value": "최대 4년"
         }
       ],
@@ -4149,6 +4246,16 @@
           "date": "2026-08-26",
           "last_seen": "2026-08-26",
           "value": "미공개(요약본에 Q1 수치만 반복 인용)"
+        },
+        {
+          "date": "2026-08-27",
+          "last_seen": "2026-08-27",
+          "value": "미공개 지속"
+        },
+        {
+          "date": "2026-08-27",
+          "last_seen": "2026-08-27",
+          "value": "미공개(유료 리포트 내부 수록 가능성, 미확인)"
         }
       ],
       "Seadrift Draft Safety Evaluation": [
@@ -4161,14 +4268,14 @@
       "Seadrift Final SE 목표": [
         {
           "date": "2026-08-26",
-          "last_seen": "2026-08-26",
+          "last_seen": "2026-08-27",
           "value": "2026-11"
         }
       ],
       "Seadrift 건설허가 결정 목표": [
         {
           "date": "2026-08-26",
-          "last_seen": "2026-08-26",
+          "last_seen": "2026-08-27",
           "value": "2026년 말"
         }
       ]
@@ -4178,9 +4285,9 @@
         "signal": "미국 데이터센터 신규 착공 건수 2개 분기 연속 감소",
         "level": "YELLOW",
         "first_seen": "2026-08-14",
-        "last_seen": "2026-08-26",
-        "count": 9,
-        "summary": "Wood Mackenzie가 'US Data Center Pipeline Q2 2026' 보고서를 발간했지만 공개 요약본에는 여전히 2026Q1 수치(36GW, -19% QoQ)만 반복 인용되며 Q2 실제 신규 파이프라인 추가치는 이번 검색에서도 확인되지 않았다. 2025Q3 60GW+ → Q4 감소 → 2026Q1 36GW로 이어지는 3개 분기 연속 둔화 추세 자체는 그대로 유지된다.",
+        "last_seen": "2026-08-27",
+        "count": 10,
+        "summary": "Wood Mackenzie의 'US Data Center Pipeline Q2 2026' 리포트가 발간되었지만 공개된 요약·보도자료에는 여전히 2026Q1 수치(36GW, 전분기 대비 -19%)만 반복 인용되고 있어 Q2 실측 신규 파이프라인 추가치는 이번 검색에서도 확인되지 않았다. 2025Q3 60GW+ → Q4 감소 → 2026Q1 36GW로 이어지는 3개 분기 연속 둔화 추세는 그대로 유지된다.",
         "sources": [
           {
             "url": "https://www.woodmac.com/reports/power-markets-us-data-center-pipeline-q2-2026-150486407",
@@ -4230,7 +4337,7 @@
         ]
       }
     ],
-    "last_checked": "2026-08-26"
+    "last_checked": "2026-08-27"
   },
   "groups": {
     "us-transformer": {

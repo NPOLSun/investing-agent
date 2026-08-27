@@ -1,11 +1,11 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-08-27"
+    "last_run": "2026-08-28"
   },
   "themes": {
     "ai-dc-power": {
-      "last_checked": "2026-08-26",
+      "last_checked": "2026-08-28",
       "observations": {
         "OCP LVDC SST 스펙": [
           {
@@ -322,6 +322,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "116GW(2Q26) → 연말 125GW목표(시장전망 130~140GW)"
+          },
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "116GW(2Q26) → 연말 125GW 목표(변동없음)"
           }
         ],
         "ERCOT 대형부하 접속대기": [
@@ -329,6 +334,16 @@
             "date": "2026-08-21",
             "last_seen": "2026-08-21",
             "value": "63GW(2024말) → 226GW(2026)"
+          },
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "226GW → 474GW"
+          },
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "226GW(2026-08-21 관측) → 474GW(2026-08-03 지사 발표)"
           }
         ],
         "FERC RTO 응답시한": [
@@ -418,6 +433,11 @@
             "date": "2026-08-24",
             "last_seen": "2026-08-24",
             "value": "1억7220만달러(매수 0)"
+          },
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "1억7220만달러(매수 0, 변동없음)"
           }
         ],
         "Delta-Infineon SiC 공급계약": [
@@ -500,6 +520,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "2026-09-03"
+          },
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "2026-09-03(변동없음)"
           }
         ],
         "PJM IRAS 적용개시": [
@@ -528,6 +553,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "v0.3 유지, MV AC→800VDC 변환 워크스트림 진행중(2026-08-11 발표, 실행조율 단계)"
+          },
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "v0.3 유지(2026-07 발표 이후 업데이트 없음)"
           }
         ],
         "FERC 의견수렴 마감": [
@@ -563,6 +593,88 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "125GW(가이던스) vs 130~140GW(애널리스트 전망)"
+          }
+        ],
+        "Kyber 랙 출시 목표": [
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "2027년(기존) → 2028년(SemiAnalysis 보도, NVIDIA 부인·미확정)"
+          },
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "2027년(기존 로드맵) → 2028년(SemiAnalysis 보도, NVIDIA는 미확정 반박)"
+          }
+        ],
+        "ERCOT Batch Zero 절차": [
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "정상진행 → 잠정중단(2026-08-03~, 수개월)"
+          }
+        ],
+        "PJM 백스탑 조달": [
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "약 60GW, 경매 2026-09-30~10-21, 결과 12월"
+          }
+        ],
+        "xAI 예비금지명령 심리": [
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "2026-08-24 개최 확인, 판결은 2026-08-28 현재 미확정"
+          }
+        ],
+        "Vicor 자사주매입 한도": [
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "1억달러 → 1.5억달러(만기없음)"
+          }
+        ],
+        "Batch Zero 절차": [
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "정상진행 → 수개월 잠정중단(2026-08-03~)"
+          }
+        ],
+        "백스탑 조달 대상 용량": [
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "약 60GW"
+          }
+        ],
+        "경매 기간": [
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "2026-09-30 ~ 2026-10-21"
+          }
+        ],
+        "결과 발표": [
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "2026-12"
+          }
+        ],
+        "IRAS 의견수렴 마감": [
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "2026-09-03(변동없음)"
+          }
+        ],
+        "자사주매입 한도": [
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "1억달러(2024-07) → 1.5억달러(2026-08-25, 만기없음)"
           }
         ]
       },
@@ -990,11 +1102,179 @@
           "first_seen": "2026-08-26",
           "count": 1,
           "thesis_review": false
+        },
+        "W1,W3|랙 전력밀도 로드맵 변경(kw/rack) 및 실제 배치 시점 — kyber 랙 지연 논란": {
+          "headline": "Kyber 랙 2028년 지연설",
+          "shift": "랙 전력밀도 로드맵 변경(kW/rack) 및 실제 배치 시점 — Kyber 랙 지연 논란",
+          "refs": [
+            "W1",
+            "W3"
+          ],
+          "direction": "역풍",
+          "affects": [
+            "point-of-load"
+          ],
+          "summary": "SemiAnalysis는 2026-07-06 Rubin Ultra용 Kyber NVL144 랙이 78레이어 PCB 미드플레인 제조 문제로 12개월 이상 지연돼 2028년으로 밀릴 것이라 보도했고, 임시 대체안이었던 NVL72x2 랙도 고객사 반대로 폐기됐다고 전했다. NVIDIA는 당일 '로드맵은 그대로'라는 포괄적 입장을 냈지만 2028년설을 구체적으로 반박하지는 않았고, 2026-08-26 실적발표에서도 Rubin Ultra/Kyber는 여전히 향후 로드맵 항목으로만 언급돼 지연 논란이 해소되지 않았다.",
+          "sources": [
+            {
+              "url": "https://www.cnbc.com/2026/07/06/nvidia-kyber-rack-system-delays-manufacturing-taiwan-rubin-chips-.html",
+              "outlet": "CNBC",
+              "date": "2026-07-06",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.tomshardware.com/pc-components/gpus/nvidias-kyber-rack-for-rubin-ultra-slips-to-2028",
+              "outlet": "Tom's Hardware",
+              "date": "2026-07-06",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.datacenterdynamics.com/en/news/nvidia-pushes-kyber-release-to-2028-following-manufacturing-concerns-report/",
+              "outlet": "Data Center Dynamics",
+              "date": "2026-07",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://finance.yahoo.com/technology/article/nvidia-denies-report-its-next-generation-ai-server-faces-delays-says-roadmap-is-intact-183310296.html",
+              "outlet": "Yahoo Finance(NVIDIA 성명 인용)",
+              "date": "2026-07-06",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-28",
+          "first_seen": "2026-08-28",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — 텍사스 데이터센터 감사·접속절차 중단": {
+          "headline": "ERCOT 대기열 474GW, 접속절차 중단",
+          "shift": "계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — 텍사스 데이터센터 감사·접속절차 중단",
+          "refs": [
+            "W5"
+          ],
+          "direction": "불명",
+          "affects": [
+            "hyosung-transformer",
+            "hd-hyundai-electric"
+          ],
+          "summary": "텍사스 애벗 주지사가 2026-08-03 데이터센터 대형부하 프로젝트 전수 검증·감사를 지시했고, ERCOT는 이에 따라 Batch Zero 접속연구 일정 자체를 수개월간 잠정 중단하겠다고 요청했다. 애벗 주지사는 현재 대기 물량이 텍사스 역대 최대 전력수요의 5배가 넘는 약 474GW에 달한다고 밝혔으며, 이는 직전 관측(2026-08-21, 226GW)에서 더 급증한 수치다.",
+          "sources": [
+            {
+              "url": "https://www.ercot.com/services/comm/mkt_notices/M-A080326-01",
+              "outlet": "ERCOT(공식 공지)",
+              "date": "2026-08-03",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.utilitydive.com/news/texas-hits-pause-data-center-interconnections/827046/",
+              "outlet": "Utility Dive",
+              "date": "2026-08",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.hklaw.com/en/insights/publications/2026/08/texas-gov-abbott-directs-data-center-audit",
+              "outlet": "Holland & Knight",
+              "date": "2026-08",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.gibsondunn.com/what-governor-abbotts-data-center-audit-directive-means-for-ercot-and-the-batch-zero-study-process/",
+              "outlet": "Gibson Dunn",
+              "date": "2026-08",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-28",
+          "first_seen": "2026-08-28",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — pjm 백스탑 용량조달": {
+          "headline": "PJM 60GW 백스탑 용량경매",
+          "shift": "계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — PJM 백스탑 용량조달",
+          "refs": [
+            "W5"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "hyosung-transformer",
+            "hd-hyundai-electric",
+            "power-generation"
+          ],
+          "summary": "PJM은 약 60GW 규모의 용량 부족분(shortfall)을 메우기 위해 2026-09-30~10-21 '신뢰성 백스탑 조달(Reliability Backstop Procurement)' 경매를 실시하며 결과는 12월 발표된다. 앞서 제출된 IRAS(임시자원적정성서비스) 제안의 의견수렴 마감(2026-09-03)은 그대로 유지되고 있어 별도 트랙으로 병행 진행 중이다.",
+          "sources": [
+            {
+              "url": "https://www.utilitydive.com/news/pjm-board-backstop-capacity-auction-data-center-curtailment/826347/",
+              "outlet": "Utility Dive",
+              "date": "2026-08",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.datacenterknowledge.com/energy-power-supply/pjm-s-new-deal-for-data-centers-bring-power-or-face-cuts",
+              "outlet": "Data Center Knowledge",
+              "date": "2026-08",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://natlawreview.com/article/pjms-proposal-ferc-targets-data-centers-and-other-large-load-customers",
+              "outlet": "National Law Review",
+              "date": "2026-08",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-28",
+          "first_seen": "2026-08-28",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W2,W3|배전 전압 아키텍처 전환(54v 랙 → 800vdc)에 연동된 point-of-load 공급사 실적 — vicor 자본정책": {
+          "headline": "Vicor 자사주매입 1.5억달러로 확대",
+          "shift": "배전 전압 아키텍처 전환(54V 랙 → 800VDC)에 연동된 point-of-load 공급사 실적 — Vicor 자본정책",
+          "refs": [
+            "W2",
+            "W3"
+          ],
+          "direction": "중립",
+          "affects": [
+            "point-of-load"
+          ],
+          "summary": "Vicor 이사회는 2026-08-25 기존 1억달러(2024-07 승인) 자사주매입 프로그램을 대체하는 만기 없는 1.5억달러 규모 신규 매입 한도를 승인했다. 다만 최근 3개월간 내부자 순매도(1억7220만달러, 매수 0)는 이번 발표 이후에도 별도로 계속 보고되고 있어, 자사주매입 확대와 내부자 매도가 동시에 진행되는 모습이 유지된다.",
+          "sources": [
+            {
+              "url": "https://www.tipranks.com/news/company-announcements/vicor-announces-new-150-million-share-repurchase-plan",
+              "outlet": "TipRanks",
+              "date": "2026-08-25",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.tradingview.com/news/tradingview:aab8bb90146fe:0-vicor-approves-150m-open-ended-share-repurchase-authorization/",
+              "outlet": "TradingView",
+              "date": "2026-08-25",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-28",
+          "first_seen": "2026-08-28",
+          "count": 1,
+          "thesis_review": false
         }
       }
     },
     "optical-interconnect": {
-      "last_checked": "2026-08-26",
+      "last_checked": "2026-08-28",
       "observations": {
         "NVIDIA CPO 스위치 상태": [
           {
@@ -1021,6 +1301,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "변동 없음 — Vera Rubin NVL72(Spectrum-X Ethernet Photonics) 완전양산 지속, OpenAI·CoreWeave·Google Cloud·Azure·Meta·Dell向 출하 진행 중, 신규 발표 없음"
+          },
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "변동 없음 — Spectrum-X Ethernet Photonics 완전양산 지속, Vera Rubin 가을 본격 출하 예정 유지, 8/26 이후 신규 발표 없음"
           }
         ],
         "Broadcom CPO 스위치 상태": [
@@ -1043,6 +1328,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "변동 없음 — Tomahawk 6-Davisson / Bailly 볼륨 생산 지속, 신규 발표 없음"
+          },
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "변동 없음 — Tomahawk 6-Davisson/Bailly 볼륨 생산 지속, 신규 발표 없음"
           }
         ],
         "TSMC COUPE": [
@@ -1070,6 +1360,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "변동 없음 — 2026 양산목표 유지, NVIDIA·Broadcom 주문 기접수, 캐파 확장 로드맵 그대로"
+          },
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "변동 없음 — 2026 양산목표·PIC 캐파 확장 로드맵 유지, 신규 발표 없음"
           }
         ],
         "CPO 비중(2026 광모듈 중)": [
@@ -1094,6 +1389,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "Meta 최대$6B(2026-01) + Amazon 복수B$(2026-06) + Zayo 신규 확대(2026-08-20, 2030년까지)"
+          },
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "변동 없음 — Meta 최대$6B + Amazon 복수B$ + Zayo(2026-08-20) 유지, 8/26 이후 신규 계약 없음"
           }
         ],
         "ASMPT 포토닉스 매출 성장": [
@@ -1278,7 +1578,7 @@
           },
           {
             "date": "2026-08-26",
-            "last_seen": "2026-08-26",
+            "last_seen": "2026-08-28",
             "value": "변동 없음 — 목표 2028년, 예비 기업가치 $70~100억 유지"
           }
         ],
@@ -1428,6 +1728,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "변동 없음 — 담보대출 잔액 1,650억원 수준에서 정체, 8/26까지 신규 상환·담보 이벤트 없음"
+          },
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "변동 없음 — 8/26 이후 신규 공시 확인 안됨, 담보대출 잔액 축소 흐름 유지"
           }
         ],
         "OCP CPO 표준화(Lightmatter 주도)": [
@@ -1440,6 +1745,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "변동 없음 — 8/13 발표된 아키텍처 청사진(코어 10개사+신규 9개사=19개사) 유지, 스펙 초안 목표 2026 Q4"
+          },
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "변동 없음 — 8/13 발표된 아키텍처 청사진 유지, 스펙 초안 목표 2026 Q4"
           }
         ],
         "광부품 벤더 주가 변동성": [
@@ -1461,6 +1771,34 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "8,000+ miles"
+          }
+        ],
+        "Marvell FY27 2Q 실적": [
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "매출 $2.739B(YoY+37%), 데이터센터 $2.17B(YoY+46%), 광인터커넥트 FY27 가이던스 50%→70%+ 상향 확정(8/27)"
+          }
+        ],
+        "2Q FY27 매출": [
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "$2.739B (YoY +37%, 사상최대)"
+          }
+        ],
+        "데이터센터 매출": [
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "$2.17B (YoY +46%, 비중 79%)"
+          }
+        ],
+        "FY27 광인터커넥트 매출 성장 가이던스": [
+          {
+            "date": "2026-08-28",
+            "last_seen": "2026-08-28",
+            "value": "기존 50%↑ → 70%+↑ (상향 확정)"
           }
         ]
       },
@@ -1763,6 +2101,44 @@
           ],
           "last_seen": "2026-08-21",
           "first_seen": "2026-08-21",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W1,W3|cpo 양산 채택 일정의 전진 또는 후퇴 / 광 i/o 표준화 동향 및 주요 벤더 로드맵 변경": {
+          "headline": "Marvell 실적 서프라이즈",
+          "shift": "CPO 양산 채택 일정의 전진 또는 후퇴 / 광 I/O 표준화 동향 및 주요 벤더 로드맵 변경",
+          "refs": [
+            "W1",
+            "W3"
+          ],
+          "direction": "순풍",
+          "affects": [],
+          "summary": "Marvell이 2026-08-27(미국시간) FY2027 2분기 실적을 발표, 매출 27.39억달러(YoY+37%, 사상최대)와 데이터센터 매출 21.7억달러(YoY+46%, 비중79%)를 기록했다. 기존 컨센서스로만 존재하던 '광인터커넥트 매출 YoY 70%+ 성장' 가이던스가 실적발표를 통해 기존 50% 전망에서 상향 확정되었으며, 800G/1.6T 스케일아웃 광트랜시버와 CPO/NPO용 스케일업 광솔루션이 핵심 성장동력으로 지목됐다.",
+          "sources": [
+            {
+              "url": "https://investor.marvell.com/news-events/press-releases/detail/1031/marvell-technology-inc-reports-second-quarter-of-fiscal-year-2027-financial-results",
+              "outlet": "investor.marvell.com",
+              "date": "2026-08-27",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://finance.yahoo.com/markets/stocks/articles/marvell-q2-fy2027-earnings-record-202719586.html",
+              "outlet": "finance.yahoo.com",
+              "date": "2026-08-27",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://qz.com/marvell-record-revenue-ai-chips-guidance-raise-082726",
+              "outlet": "qz.com",
+              "date": "2026-08-27",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-28",
+          "first_seen": "2026-08-28",
           "count": 1,
           "thesis_review": false
         }

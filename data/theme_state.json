@@ -1,11 +1,11 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-08-28"
+    "last_run": "2026-08-31"
   },
   "themes": {
     "ai-dc-power": {
-      "last_checked": "2026-08-28",
+      "last_checked": "2026-08-31",
       "observations": {
         "OCP LVDC SST 스펙": [
           {
@@ -327,6 +327,11 @@
             "date": "2026-08-28",
             "last_seen": "2026-08-28",
             "value": "116GW(2Q26) → 연말 125GW 목표(변동없음)"
+          },
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "116GW(2Q26, 변동없음)"
           }
         ],
         "ERCOT 대형부하 접속대기": [
@@ -438,6 +443,11 @@
             "date": "2026-08-28",
             "last_seen": "2026-08-28",
             "value": "1억7220만달러(매수 0, 변동없음)"
+          },
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "약 1억8500만달러(매수 0)"
           }
         ],
         "Delta-Infineon SiC 공급계약": [
@@ -457,6 +467,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "2026-08-26 현재 미확정(변동없음)"
+          },
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "2026-08-31 현재 판결 미확정(변동없음)"
           }
         ],
         "FERC 응답 시한": [
@@ -492,6 +507,11 @@
             "date": "2026-08-24",
             "last_seen": "2026-08-24",
             "value": "1억7220만달러(매수 0)"
+          },
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "1억7220만달러 → 약 1억8500만달러(매수 0)"
           }
         ],
         "8월 주가 등락(8/10→8/14→8/20)": [
@@ -525,6 +545,11 @@
             "date": "2026-08-28",
             "last_seen": "2026-08-28",
             "value": "2026-09-03(변동없음)"
+          },
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "2026-09-03(변동없음, 아직 도래 전)"
           }
         ],
         "PJM IRAS 적용개시": [
@@ -676,6 +701,111 @@
             "last_seen": "2026-08-28",
             "value": "1억달러(2024-07) → 1.5억달러(2026-08-25, 만기없음)"
           }
+        ],
+        "ERCOT PUCT 굿코즈예외 승인일": [
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "2026-08-20"
+          }
+        ],
+        "ERCOT 감사 최종보고 시한": [
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "2026-12-10"
+          }
+        ],
+        "ERCOT 감사대상": [
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "250~300개 프로젝트(약 200GW)"
+          }
+        ],
+        "HD현대일렉 빅테크 장기공급계약": [
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "1조1212억원(2026-07-02, 2029-01-01까지 공급)"
+          }
+        ],
+        "Siemens Energy 그리드 백로그": [
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "510억유로(변동없음, Q3 FY26 실적서 재확인)"
+          }
+        ],
+        "Siemens Energy 총 수주잔고": [
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "1620억유로(사상최대, Q3 FY26)"
+          }
+        ],
+        "PJM IRAS 발효 목표일": [
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "2026-10-12(변동없음)"
+          }
+        ],
+        "Kyber 랙 2028년 지연설": [
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "NVIDIA '로드맵 유지' 입장 반복, 구체적 반박 없음(변동없음)"
+          }
+        ],
+        "PUCT 유예 승인일": [
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "2026-08-20"
+          }
+        ],
+        "감사대상 프로젝트": [
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "250~300개 (약 200GW)"
+          }
+        ],
+        "최종보고서 제출 시한": [
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "2026-12-10"
+          }
+        ],
+        "계약규모": [
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "7.21억달러(약 1조1212억원)"
+          }
+        ],
+        "배전기기": [
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "5539억원"
+          }
+        ],
+        "전력기기": [
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "5673억원"
+          }
+        ],
+        "공급기간": [
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "2026-07-02 ~ 2029-01-01"
+          }
         ]
       },
       "shifts": {
@@ -800,43 +930,42 @@
           "thesis_review": false
         },
         "W5|미국 변압기 수요發 한국 공급사 실적/수주 전환": {
-          "headline": "韓 변압기 2社, 美 수주·실적 확대 지속",
+          "headline": "HD현대일렉, 빅테크 1.1조원 수주",
           "shift": "미국 변압기 수요發 한국 공급사 실적/수주 전환",
           "refs": [
             "W5"
           ],
           "direction": "순풍",
           "affects": [
-            "hyosung-transformer",
             "hd-hyundai-electric"
           ],
-          "summary": "HD현대일렉트릭은 2026-07-28 발표한 2분기 실적에서 매출 1조1418억원(+26.0% YoY), 영업이익 2870억원(+37.3% YoY), 수주 14.4억달러(+44.6% YoY)를 기록했고, 5월엔 SPP 장기송전마스터플랜 참여로 1730억원 규모 765kV 변압기·리액터 계약을 추가 체결했다. 효성중공업은 미국 765kV 초고압변압기 시장 점유율 1위(공급 물량 약 절반)를 유지하며 8월 테네시 멤피스 공장 등 현지생산 확대 계획을 재확인했다.",
+          "summary": "HD현대일렉트릭은 글로벌 빅테크 기업과 7억2129만달러(약 1조1212억원) 규모의 배전기기·전력기기 장기공급 기본계약을 체결했다고 공시했다(배전기기 5539억원, 전력기기 5673억원). 고객사의 북미 데이터센터에 2026년 7월부터 2029년 1월까지 순차 공급할 예정으로, 데이터센터 전력 인프라 수요가 실제 수주·매출로 전환되는 흐름을 재확인한다.",
           "sources": [
             {
-              "url": "https://www.huffingtonpost.kr/article/259071",
-              "outlet": "허프포스트코리아",
-              "date": "2026-07-28",
+              "url": "https://www.khan.co.kr/article/202607022026005",
+              "outlet": "경향신문",
+              "date": "2026-07-02",
               "tier": "S2",
               "note": ""
             },
             {
-              "url": "https://biz.newdaily.co.kr/site/data/html/2026/08/13/2026081300091.html",
-              "outlet": "뉴데일리",
-              "date": "2026-08-13",
+              "url": "https://www.ajunews.com/view/20260702110308228",
+              "outlet": "아주경제",
+              "date": "2026-07-02",
               "tier": "S2",
               "note": ""
             },
             {
-              "url": "https://core.asiae.co.kr/article/2026050715192812044",
-              "outlet": "아시아경제",
-              "date": "2026-05-07",
+              "url": "https://www.energydaily.co.kr/news/articleView.html?idxno=201057",
+              "outlet": "에너지데일리",
+              "date": "2026-07-02",
               "tier": "S2",
               "note": ""
             }
           ],
-          "last_seen": "2026-08-17",
+          "last_seen": "2026-08-31",
           "first_seen": "2026-08-17",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W2,W3|배전 전압 아키텍처 전환(54v 랙 → 800vdc)에 연동된 point-of-load 공급사 실적": {
@@ -1151,7 +1280,7 @@
           "thesis_review": false
         },
         "W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — 텍사스 데이터센터 감사·접속절차 중단": {
-          "headline": "ERCOT 대기열 474GW, 접속절차 중단",
+          "headline": "ERCOT 감사 절차 구체화, 12/10 시한",
           "shift": "계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — 텍사스 데이터센터 감사·접속절차 중단",
           "refs": [
             "W5"
@@ -1161,40 +1290,33 @@
             "hyosung-transformer",
             "hd-hyundai-electric"
           ],
-          "summary": "텍사스 애벗 주지사가 2026-08-03 데이터센터 대형부하 프로젝트 전수 검증·감사를 지시했고, ERCOT는 이에 따라 Batch Zero 접속연구 일정 자체를 수개월간 잠정 중단하겠다고 요청했다. 애벗 주지사는 현재 대기 물량이 텍사스 역대 최대 전력수요의 5배가 넘는 약 474GW에 달한다고 밝혔으며, 이는 직전 관측(2026-08-21, 226GW)에서 더 급증한 수치다.",
+          "summary": "PUCT는 2026-08-20 공개회의에서 ERCOT의 Batch Zero 관련 기한 유예(good cause exception) 요청을 승인했다. ERCOT는 이에 따라 대상 250~300개 프로젝트(약 200GW)에 정보요청서(RFI)를 8월 말~9월부터 순차 발송하고 10~11월 추가 라운드를 거쳐 2026-12-10 검증·감사 보고서를 PUCT에 제출할 계획이다.",
           "sources": [
             {
               "url": "https://www.ercot.com/services/comm/mkt_notices/M-A080326-01",
               "outlet": "ERCOT(공식 공지)",
-              "date": "2026-08-03",
+              "date": "2026-08",
               "tier": "S1",
               "note": ""
             },
             {
-              "url": "https://www.utilitydive.com/news/texas-hits-pause-data-center-interconnections/827046/",
+              "url": "https://www.utilitydive.com/news/ercot-texas-puc-data-center-audit/828472/",
               "outlet": "Utility Dive",
               "date": "2026-08",
               "tier": "S2",
               "note": ""
             },
             {
-              "url": "https://www.hklaw.com/en/insights/publications/2026/08/texas-gov-abbott-directs-data-center-audit",
-              "outlet": "Holland & Knight",
-              "date": "2026-08",
-              "tier": "S2",
-              "note": ""
-            },
-            {
-              "url": "https://www.gibsondunn.com/what-governor-abbotts-data-center-audit-directive-means-for-ercot-and-the-batch-zero-study-process/",
-              "outlet": "Gibson Dunn",
+              "url": "https://www.powermag.com/texas-audit-could-delay-49-8-gw-of-data-center-load-cost-projects-up-to-15-billion-bnef-warns/",
+              "outlet": "POWER Magazine(BNEF 인용)",
               "date": "2026-08",
               "tier": "S2",
               "note": ""
             }
           ],
-          "last_seen": "2026-08-28",
+          "last_seen": "2026-08-31",
           "first_seen": "2026-08-28",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — pjm 백스탑 용량조달": {
@@ -1268,6 +1390,32 @@
           ],
           "last_seen": "2026-08-28",
           "first_seen": "2026-08-28",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W2,W3|배전 전압 아키텍처 전환(54v 랙 → 800vdc)에 연동된 point-of-load 공급사 실적 — vicor 내부자 매도": {
+          "headline": "Vicor 내부자 순매도 규모 소폭 확대",
+          "shift": "배전 전압 아키텍처 전환(54V 랙 → 800VDC)에 연동된 point-of-load 공급사 실적 — Vicor 내부자 매도",
+          "refs": [
+            "W2",
+            "W3"
+          ],
+          "direction": "중립",
+          "affects": [
+            "point-of-load"
+          ],
+          "summary": "최근 3개월 기준 Vicor 내부자 순매도 누적액이 기존 관측(1억7220만달러)에서 약 1억8500만달러로 소폭 늘어난 것으로 집계됐고, 이 기간 매수는 여전히 전무하다. 8/25 승인된 1.5억달러 자사주매입 한도와 병행해 내부자 매도 흐름 자체는 지속되고 있다.",
+          "sources": [
+            {
+              "url": "https://simplywall.st/stocks/us/capital-goods/nasdaq-vicr/vicor",
+              "outlet": "Simply Wall St",
+              "date": "2026-08",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-08-31",
+          "first_seen": "2026-08-31",
           "count": 1,
           "thesis_review": false
         }
@@ -1528,6 +1676,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "8/21 이후 신규 계약 확인 안됨 (Meta $6B, Amazon 복수B$ 기존 계약 유지)"
+          },
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "변동 없음 — Meta 최대$6B + Amazon 복수B$ + Zayo(2026-08-20) 유지, 신규 계약 확인 안됨"
           }
         ],
         "Coherent CPO TAM": [
@@ -1578,7 +1731,7 @@
           },
           {
             "date": "2026-08-26",
-            "last_seen": "2026-08-28",
+            "last_seen": "2026-08-31",
             "value": "변동 없음 — 목표 2028년, 예비 기업가치 $70~100억 유지"
           }
         ],
@@ -1733,6 +1886,11 @@
             "date": "2026-08-28",
             "last_seen": "2026-08-28",
             "value": "변동 없음 — 8/26 이후 신규 공시 확인 안됨, 담보대출 잔액 축소 흐름 유지"
+          },
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "8/26~28 관측과 동일한 수준(담보대출 잔액 축소 흐름) 재확인, 8/29~31 관련 추가 보도는 원문 특정 실패로 미검증"
           }
         ],
         "OCP CPO 표준화(Lightmatter 주도)": [
@@ -1799,6 +1957,34 @@
             "date": "2026-08-28",
             "last_seen": "2026-08-28",
             "value": "기존 50%↑ → 70%+↑ (상향 확정)"
+          }
+        ],
+        "NVIDIA Vera Rubin/Spectrum-X Photonics 상태": [
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "변동 없음 — 완전양산 지속, 서버 OEM향 가을(9~11월) 본격 출하 예정 유지, 8/28 이후 신규 발표 없음"
+          }
+        ],
+        "Broadcom Tomahawk 6-Davisson/Bailly 상태": [
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "변동 없음 — 볼륨 생산 지속, 신규 발표 없음"
+          }
+        ],
+        "TSMC COUPE 양산목표": [
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "변동 없음 — 2026 양산목표 유지, 신규 발표 없음"
+          }
+        ],
+        "OCP CPO 표준화(Lightmatter)": [
+          {
+            "date": "2026-08-31",
+            "last_seen": "2026-08-31",
+            "value": "변동 없음 — 8/13 발표된 20개사 참여 아키텍처 청사진 유지, 스펙 초안 목표 2026 Q4 그대로"
           }
         ]
       },

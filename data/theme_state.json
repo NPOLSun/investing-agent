@@ -3480,7 +3480,7 @@
       }
     },
     "nuclear-smr": {
-      "last_checked": "2026-08-28",
+      "last_checked": "2026-09-01",
       "observations": {
         "ADVANCE Act 이행률": [
           {
@@ -3502,6 +3502,11 @@
             "date": "2026-08-28",
             "last_seen": "2026-08-28",
             "value": "31/36 마일스톤(86%, 2026-04월 기준) — 8월까지 변동 없음"
+          },
+          {
+            "date": "2026-09-01",
+            "last_seen": "2026-09-01",
+            "value": "31/36 마일스톤(86%, 2026-04월 기준) — 9월초까지 변동 확인 안됨"
           }
         ],
         "하이퍼스케일러 원자력 누적계약": [
@@ -3519,6 +3524,11 @@
             "date": "2026-08-28",
             "last_seen": "2026-08-28",
             "value": "약 9.8GW, 13개 프로젝트 — 6개 대형계약 중 1개만 2030년 이전 가동 예정"
+          },
+          {
+            "date": "2026-09-01",
+            "last_seen": "2026-09-01",
+            "value": "약 9.8~10GW, 13개+ 프로젝트 — 변동 없음"
           }
         ],
         "Centrus 주가(LEU)": [
@@ -3696,6 +3706,11 @@
             "date": "2026-08-28",
             "last_seen": "2026-08-28",
             "value": "$186.72(8/17) → $185~208 범위(8/26~27)"
+          },
+          {
+            "date": "2026-09-01",
+            "last_seen": "2026-09-01",
+            "value": "$185~208(8/26-27) → $171~178(9/1)"
           }
         ],
         "Centrus 2분기 매출": [
@@ -3743,6 +3758,11 @@
             "date": "2026-08-28",
             "last_seen": "2026-08-28",
             "value": "체코 두코바니 5·6호기 NSSS $5.6조원 (2025-12 공시, 신규 변동 없음)"
+          },
+          {
+            "date": "2026-09-01",
+            "last_seen": "2026-09-01",
+            "value": "체코 두코바니 $5.6조원(2025-12 공시) — 9월 신규 원전 수주 확인 안됨"
           }
         ],
         "계약 체결일": [
@@ -3791,6 +3811,104 @@
           {
             "date": "2026-08-28",
             "last_seen": "2026-08-28",
+            "value": "2026년말"
+          }
+        ],
+        "Centrus 주가": [
+          {
+            "date": "2026-09-01",
+            "last_seen": "2026-09-01",
+            "value": "$171.10~$178.09 (2026-09-01)"
+          }
+        ],
+        "Centrus 2026 매출 가이던스": [
+          {
+            "date": "2026-09-01",
+            "last_seen": "2026-09-01",
+            "value": "$4.5억~5.0억"
+          }
+        ],
+        "X-energy Xe-100 건설허가 목표": [
+          {
+            "date": "2026-09-01",
+            "last_seen": "2026-09-01",
+            "value": "2027년 1분기 (세분화, 기존 2026년말)"
+          }
+        ],
+        "TerraPower Kemmerer 완공 목표": [
+          {
+            "date": "2026-09-01",
+            "last_seen": "2026-09-01",
+            "value": "2030년 — 변동 없음, 2026-04-23 착공 진행중"
+          }
+        ],
+        "Westinghouse DOE AP1000 대출공약": [
+          {
+            "date": "2026-09-01",
+            "last_seen": "2026-09-01",
+            "value": "$175억 (2026-06-23, 최대 10기/5개 프로젝트)"
+          }
+        ],
+        "DOE 조건부 대출 신규 발표": [
+          {
+            "date": "2026-09-01",
+            "last_seen": "2026-09-01",
+            "value": "$175억 (2026-06-23)"
+          }
+        ],
+        "대상 물량": [
+          {
+            "date": "2026-09-01",
+            "last_seen": "2026-09-01",
+            "value": "최대 AP1000 10기 (5개 프로젝트)"
+          }
+        ],
+        "허가 발급 목표": [
+          {
+            "date": "2026-09-01",
+            "last_seen": "2026-09-01",
+            "value": "2026년말 → 2027년 1분기 (세분화)"
+          }
+        ],
+        "안전성 이슈 종결 목표": [
+          {
+            "date": "2026-09-01",
+            "last_seen": "2026-09-01",
+            "value": "2026-08월말"
+          }
+        ],
+        "FSER(최종안전성평가) 목표": [
+          {
+            "date": "2026-09-01",
+            "last_seen": "2026-09-01",
+            "value": "2026-11월"
+          }
+        ],
+        "2026 매출 가이던스": [
+          {
+            "date": "2026-09-01",
+            "last_seen": "2026-09-01",
+            "value": "$4.5억~5.0억"
+          }
+        ],
+        "방사선방호 규칙안 게재일": [
+          {
+            "date": "2026-09-01",
+            "last_seen": "2026-09-01",
+            "value": "2026-07-15"
+          }
+        ],
+        "의견수렴 마감": [
+          {
+            "date": "2026-09-01",
+            "last_seen": "2026-09-01",
+            "value": "2026-08-31"
+          }
+        ],
+        "최종규칙 목표": [
+          {
+            "date": "2026-09-01",
+            "last_seen": "2026-09-01",
             "value": "2026년말"
           }
         ]
@@ -3884,7 +4002,7 @@
           "thesis_review": false
         },
         "W5|대형원전 신규 발주 흐름 (미국·유럽·아시아)": {
-          "headline": "테라파워 나트륨 확장",
+          "headline": "AP1000 $175억 대출공약",
           "shift": "대형원전 신규 발주 흐름 (미국·유럽·아시아)",
           "refs": [
             "W5"
@@ -3893,99 +4011,106 @@
           "affects": [
             "power-generation"
           ],
-          "summary": "두산에너빌리티가 2026-08-14 테라파워와 나트륨 원자로(Kemmerer) 핵심기자재(원자로 보호용기·지지구조물·내부구조물) 정식 제작계약을 체결했다. 같은 날 테라파워는 현대건설(HDEC)을 향후 나트륨 원자로 최대 8기의 EPC 계약자로 선정하고, SK이노베이션과 한국 최초 상업용 나트륨 발전소 개발 텀시트를 체결하며 국제 확장을 발표했다.",
+          "summary": "DOE가 2026-06-23 웨스팅하우스 AP1000 최대 10기(5개 프로젝트) 건설용 장납기 기자재 조달에 $175억 규모 조건부 대출을 발표했다. 프로젝트당 유틸리티 파트너가 자기자본 $5억을 선투입해야 하며 착공 목표는 2030년이다. 8월에는 웨스팅하우스가 아멘텀(Amentum)과 AP1000 함대급 배치 및 AP300 SMR 개발을 지원하는 협력계약을 추가로 체결했고, 두산에너빌리티·HD현대중공업 등 한국 중공업사가 원자로용기·증기발생기 등 장납기 기자재 수주 후보로 거론된다.",
           "sources": [
             {
-              "url": "https://biz.heraldcorp.com/article/10840995",
-              "outlet": "헤럴드경제",
-              "date": "2026-08-14",
+              "url": "https://info.westinghousenuclear.com/news/westinghouse-announces-department-of-energy-partnership-to-jumpstart-large-scale-nuclear-supply-chain",
+              "outlet": "westinghousenuclear.com",
+              "date": "2026-06-23",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.ans.org/news/2026-06-23/article-8142/doe-announces-175b-in-conditional-loans-for-ap1000-builds/",
+              "outlet": "ans.org",
+              "date": "2026-06-23",
               "tier": "S2",
               "note": ""
             },
             {
-              "url": "https://www.world-nuclear-news.org/articles/terrapower-expands-cooperation-with-korean-partners",
+              "url": "https://www.world-nuclear-news.org/articles/us-federal-loan-to-jumpstart-ap1000-reactor-supply-chain",
               "outlet": "world-nuclear-news.org",
-              "date": "2026-08-14",
+              "date": "2026-06",
               "tier": "S2",
               "note": ""
             },
             {
-              "url": "https://www.prnewswire.com/news-releases/terrapower-accelerates-natrium-reactor-deployment-following-landmark-meetings-with-korean-leaders-302851765.html",
-              "outlet": "prnewswire.com (TerraPower)",
-              "date": "2026-08-14",
-              "tier": "S1",
-              "note": ""
-            }
-          ],
-          "last_seen": "2026-08-24",
-          "first_seen": "2026-08-18",
-          "count": 2,
-          "thesis_review": false
-        },
-        "W4|haleu 공급 능력 확충 속도 및 신규 진입자": {
-          "headline": "Centrus 수주잔고 $45억 확정",
-          "shift": "HALEU 공급 능력 확충 속도 및 신규 진입자",
-          "refs": [
-            "W4"
-          ],
-          "direction": "순풍",
-          "affects": [
-            "haleu"
-          ],
-          "summary": "Centrus가 2026-08-13 2분기 실적발표에서 수주잔고가 2040년까지 $45억(계약형 LEU/HALEU $30억 포함, 해당 계약의 재정적 컨틴전시 해소 반영)로 확대됐다고 확정해, 직전 관측된 $37억은 집계 기준 차이에 따른 일시적 저평가였음이 드러났다. 8/21에는 국방용 농축우라늄 공급을 위한 오하이오 ACP 확장용 $9억 규모 DOE 태스크오더도 공식화됐으며, 매출은 전년동기 대비 14% 증가한 $1.761억을 기록했다.",
-          "sources": [
-            {
-              "url": "https://investors.centrusenergy.com/news-releases/news-release-details/centrus-reports-second-quarter-2026-results",
-              "outlet": "investors.centrusenergy.com",
-              "date": "2026-08-13",
-              "tier": "S1",
-              "note": ""
-            },
-            {
-              "url": "https://www.bloomberg.com/news/articles/2026-08-21/centrus-sees-us-military-as-key-market-for-its-enriched-uranium",
-              "outlet": "bloomberg.com",
-              "date": "2026-08-21",
-              "tier": "S2",
-              "note": ""
-            },
-            {
-              "url": "https://stockstotrade.com/news/centrus-energy-corp-leu-news-2026_08_25/",
-              "outlet": "stockstotrade.com",
-              "date": "2026-08-25",
+              "url": "https://www.ans.org/news/2026-08-05/article-8272/westinghouse-updates-ap1000-potential-ipo-amentum-partnership/",
+              "outlet": "ans.org",
+              "date": "2026-08-05",
               "tier": "S2",
               "note": ""
             }
           ],
-          "last_seen": "2026-08-28",
+          "last_seen": "2026-09-01",
           "first_seen": "2026-08-18",
           "count": 3,
           "thesis_review": false
         },
+        "W4|haleu 공급 능력 확충 속도 및 신규 진입자": {
+          "headline": "Centrus 주가 소폭 조정",
+          "shift": "HALEU 공급 능력 확충 속도 및 신규 진입자",
+          "refs": [
+            "W4"
+          ],
+          "direction": "중립",
+          "affects": [
+            "haleu"
+          ],
+          "summary": "Centrus 주가가 2026-08-26~27 $185~208 범위에서 2026-09-01 $171~178 범위로 소폭 하락했다. 회사는 오하이오 증설 시공사로 Geiger Brothers를 선정했고 오크리지 신규 원심분리기 1호기 완공을 2026년말로 목표하고 있으며, 2분기 실적발표에서 2026년 연간 매출 가이던스를 $4.5억~5.0억으로 제시했다.",
+          "sources": [
+            {
+              "url": "https://www.sec.gov/Archives/edgar/data/0001065059/000162828026053433/ex991-10q2026_08x05.htm",
+              "outlet": "sec.gov (Centrus 8-K)",
+              "date": "2026-08-05",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.centrusenergy.com/news/",
+              "outlet": "centrusenergy.com",
+              "date": "2026-08",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://robinhood.com/us/en/stocks/LEU/",
+              "outlet": "robinhood.com (시세)",
+              "date": "2026-09-01",
+              "tier": "S3",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-09-01",
+          "first_seen": "2026-08-18",
+          "count": 4,
+          "thesis_review": false
+        },
         "W2,W3|nrc 인허가 처리 속도 변화 (정책·제도 개편 포함) / 하이퍼스케일러의 원자력 전력구매계약 규모와 조건": {
-          "headline": "Xe-100 건설허가 연말 목표 순항",
+          "headline": "Xe-100 허가 Q1 2027로 세분화",
           "shift": "NRC 인허가 처리 속도 변화 (정책·제도 개편 포함) / 하이퍼스케일러의 원자력 전력구매계약 규모와 조건",
           "refs": [
             "W2",
             "W3"
           ],
-          "direction": "순풍",
+          "direction": "중립",
           "affects": [
             "smr-developer"
           ],
-          "summary": "X-energy Long Mott(Dow Seadrift) Xe-100 프로젝트는 NRC 환경평가 FONSI(중대영향없음) 판정을 이미 받았고, 18개월 심사 일정에 따라 2026년말 건설허가 결정 목표를 유지한 채 순항 중이다. Centrus와의 8/6 HALEU 계약 발표에서 X-energy의 상업 파이프라인 규모가 11.5GW로 처음 공개됐다.",
+          "summary": "X-energy가 2026-08-13 2분기 실적발표에서 Dow Seadrift Xe-100 건설허가 일정을 구체화했다. NRC 안전성 이슈는 2026년 8월말까지 종결, 최종 심사(FSER)는 2026년 11월, 허가 발급은 2027년 1분기를 목표로 제시했다. 기존 '2026년말' 목표에서 발급 시점이 다음 분기로 세분화됐으나, 애초 18개월 심사 일정(2025-05 도킹 기준) 범위 안에 있다.",
           "sources": [
             {
-              "url": "https://x-energy.com/news/nrc-publishes-18-month-review-schedule-for-xe-100-construction-permit-application/",
+              "url": "https://x-energy.com/news/nrc-issues-environmental-assessment-with-finding-of-no-significant-impact-for-dow-and-x-energys-propsed-advanced-nuclear-project-in-texas/",
               "outlet": "x-energy.com",
               "date": "2026",
               "tier": "S1",
               "note": ""
             },
             {
-              "url": "https://investors.x-energy.com/news-releases/news-release-details/x-energy-centrus-sign-haleu-supply-agreement-xe-100-advanced",
-              "outlet": "investors.x-energy.com",
-              "date": "2026-08-06",
-              "tier": "S1",
+              "url": "https://finance.biggo.com/news/US_XE_2026-08-13",
+              "outlet": "biggo.com (X-energy Q2 실적발표 기반)",
+              "date": "2026-08-13",
+              "tier": "S2",
               "note": ""
             },
             {
@@ -3996,13 +4121,13 @@
               "note": ""
             }
           ],
-          "last_seen": "2026-08-28",
+          "last_seen": "2026-09-01",
           "first_seen": "2026-08-24",
-          "count": 2,
+          "count": 3,
           "thesis_review": false
         },
         "W2|nrc 인허가 처리 속도 변화 (정책·제도 개편 포함)": {
-          "headline": "ADVANCE Act 마일스톤 정체",
+          "headline": "방사선방호 규칙 연내 최종화 목표",
           "shift": "NRC 인허가 처리 속도 변화 (정책·제도 개편 포함)",
           "refs": [
             "W2"
@@ -4012,26 +4137,33 @@
             "smr-developer",
             "power-generation"
           ],
-          "summary": "NRC ADVANCE Act 이행 마일스톤은 2026년 4월말 기준 31/36(86%)에서 8월까지 추가 변동이 확인되지 않았다. 다만 신규 원자로 인허가 프레임워크 Part 53 규칙은 예정대로 2026-03-26 확정, 2026-04-29 발효됐다. NRC는 NEPA 이행 개정과 방사선방호체계 개정 규칙안을 각각 8/21, 8/31까지 공개의견 수렴 중이어서 다음 단계 진전이 예상된다.",
+          "summary": "ADVANCE Act 이행 마일스톤은 4월말 기준 31/36(86%)에서 9월초까지 추가 완료가 확인되지 않았다. 다만 NRC가 2026-07-15 '방사선방호체계 개편(ALARA 대체)' 규칙안을 연방관보에 공식 게재했고, 2026-08-31 의견수렴 마감 후 최종규칙은 2026년말 목표로 확인됐다 — 사업자에게 예측가능성을 높이는 방향의 규제 완화다.",
           "sources": [
             {
-              "url": "https://www.nrc.gov/about-nrc/governing-laws/advance-act",
+              "url": "https://www.federalregister.gov/documents/2026/07/15/2026-14208/reforming-and-modernizing-the-nrcs-radiation-protection-framework",
+              "outlet": "federalregister.gov",
+              "date": "2026-07-15",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.nrc.gov/about-nrc/governing-laws/advance-act/dashboard",
               "outlet": "nrc.gov",
               "date": "2026-08",
               "tier": "S1",
               "note": ""
             },
             {
-              "url": "https://nuclearinnovationalliance.org/sites/default/files/2026-05/May%20Regulatory%20Implementation%20Summary%20NRC%20Progress%20Under%20the%20ADVANCE%20Act%20.pdf",
-              "outlet": "nuclearinnovationalliance.org",
-              "date": "2026-05",
+              "url": "https://www.hklaw.com/en/insights/publications/2026/07/nrc-proposes-overhaul-of-radiation-protection-framework",
+              "outlet": "hklaw.com",
+              "date": "2026-07",
               "tier": "S2",
               "note": ""
             }
           ],
-          "last_seen": "2026-08-28",
+          "last_seen": "2026-09-01",
           "first_seen": "2026-08-28",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         }
       }

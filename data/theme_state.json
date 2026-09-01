@@ -1,11 +1,11 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-09-01"
+    "last_run": "2026-09-02"
   },
   "themes": {
     "ai-dc-power": {
-      "last_checked": "2026-08-31",
+      "last_checked": "2026-09-02",
       "observations": {
         "OCP LVDC SST 스펙": [
           {
@@ -17,6 +17,11 @@
             "date": "2026-08-24",
             "last_seen": "2026-08-24",
             "value": "v0.3 유지(2026-07 발표 이후 업데이트 없음)"
+          },
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "v0.3 유지(변동없음)"
           }
         ],
         "800V 파워랙 출하": [
@@ -99,6 +104,11 @@
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "510억유로/59억달러(변동없음, 8/5 기준 재확인)"
+          },
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "510억유로(변동없음, Q3 FY26 재확인)"
           }
         ],
         "HD현대일렉트릭 2Q26 수주": [
@@ -332,6 +342,11 @@
             "date": "2026-08-31",
             "last_seen": "2026-08-31",
             "value": "116GW(2Q26, 변동없음)"
+          },
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "116GW(2Q26, 3Q26 실적 미발표로 갱신 없음)"
           }
         ],
         "ERCOT 대형부하 접속대기": [
@@ -363,6 +378,11 @@
             "date": "2026-08-21",
             "last_seen": "2026-08-21",
             "value": "2026년 8월 말 예정, 미확정"
+          },
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "2026-09-01 현재도 미확정(당초 예상 8월말 도과)"
           }
         ],
         "OCP LVDC SST v0.3": [
@@ -550,6 +570,11 @@
             "date": "2026-08-31",
             "last_seen": "2026-08-31",
             "value": "2026-09-03(변동없음, 아직 도래 전)"
+          },
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "2026-09-03(변동없음, 임박)"
           }
         ],
         "PJM IRAS 적용개시": [
@@ -742,6 +767,11 @@
             "date": "2026-08-31",
             "last_seen": "2026-08-31",
             "value": "1620억유로(사상최대, Q3 FY26)"
+          },
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "1620억유로(변동없음)"
           }
         ],
         "PJM IRAS 발효 목표일": [
@@ -805,6 +835,62 @@
             "date": "2026-08-31",
             "last_seen": "2026-08-31",
             "value": "2026-07-02 ~ 2029-01-01"
+          }
+        ],
+        "ERCOT 감사 RFI 발송": [
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "2026년 8월말~9월초 발송 시작(계획대로 진행 중)"
+          }
+        ],
+        "NVIDIA Kyber 랙 2028 지연설": [
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "NVIDIA 반박 없이 '로드맵 유지' 입장 반복(변동없음)"
+          }
+        ],
+        "HD현대일렉트릭 2026 수주목표": [
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "42.22억달러 → 51.85억달러(+22.8%)"
+          }
+        ],
+        "효성중공업 중공업 수주가이던스": [
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "8.45조원 → 12조원"
+          }
+        ],
+        "효성중공업 765kV 단일수주(2월)": [
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "7870억원(업계 사상 최대)"
+          }
+        ],
+        "Vera Rubin 3Q26 매출 전망": [
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "약 200억달러(데이터센터 매출 약 20%)"
+          }
+        ],
+        "첫 상용 배치": [
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "2026년 8월, Microsoft"
+          }
+        ],
+        "Vinciarelli 매도플랜 가격밴드": [
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "$202~400(2/26 개설) → $404~800(6/8 신규 개설)"
           }
         ]
       },
@@ -930,42 +1016,50 @@
           "thesis_review": false
         },
         "W5|미국 변압기 수요發 한국 공급사 실적/수주 전환": {
-          "headline": "HD현대일렉, 빅테크 1.1조원 수주",
+          "headline": "양사 연간 수주목표 동반 상향",
           "shift": "미국 변압기 수요發 한국 공급사 실적/수주 전환",
           "refs": [
             "W5"
           ],
           "direction": "순풍",
           "affects": [
+            "hyosung-transformer",
             "hd-hyundai-electric"
           ],
-          "summary": "HD현대일렉트릭은 글로벌 빅테크 기업과 7억2129만달러(약 1조1212억원) 규모의 배전기기·전력기기 장기공급 기본계약을 체결했다고 공시했다(배전기기 5539억원, 전력기기 5673억원). 고객사의 북미 데이터센터에 2026년 7월부터 2029년 1월까지 순차 공급할 예정으로, 데이터센터 전력 인프라 수요가 실제 수주·매출로 전환되는 흐름을 재확인한다.",
+          "summary": "HD현대일렉트릭은 2026-07-06 정정공시를 통해 연간 수주목표를 42.22억달러에서 51.85억달러로 22.8% 상향했다. 효성중공업도 중공업 부문 수주 가이던스를 8.45조원에서 12조원으로 올려잡았으며, 2월에는 국내 전력기기업계 사상 최대 규모(7870억원)의 765kV 초고압 변압기 단일수주를 확보한 바 있다. 양사 모두 북미 데이터센터發 변압기·배전기기 수요를 가이던스 상향의 핵심 근거로 명시했다.",
           "sources": [
             {
-              "url": "https://www.khan.co.kr/article/202607022026005",
-              "outlet": "경향신문",
-              "date": "2026-07-02",
+              "url": "https://www.hankyung.com/article/202607067655P",
+              "outlet": "한국경제",
+              "date": "2026-07-06",
               "tier": "S2",
               "note": ""
             },
             {
-              "url": "https://www.ajunews.com/view/20260702110308228",
-              "outlet": "아주경제",
-              "date": "2026-07-02",
+              "url": "https://www.thebigdata.co.kr/view.php?ud=202607061157071737570d99e4c8_23",
+              "outlet": "빅데이터뉴스",
+              "date": "2026-07-06",
               "tier": "S2",
               "note": ""
             },
             {
-              "url": "https://www.energydaily.co.kr/news/articleView.html?idxno=201057",
-              "outlet": "에너지데일리",
-              "date": "2026-07-02",
+              "url": "https://ket.kr/news/article.html?no=39851",
+              "outlet": "경제타임스",
+              "date": "2026-08",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://kr.investing.com/news/stock-market-news/article-1915502",
+              "outlet": "Investing.com(인포스탁데일리)",
+              "date": "2026-08",
               "tier": "S2",
               "note": ""
             }
           ],
-          "last_seen": "2026-08-31",
+          "last_seen": "2026-09-02",
           "first_seen": "2026-08-17",
-          "count": 2,
+          "count": 3,
           "thesis_review": false
         },
         "W2,W3|배전 전압 아키텍처 전환(54v 랙 → 800vdc)에 연동된 point-of-load 공급사 실적": {
@@ -1121,7 +1215,7 @@
           "thesis_review": false
         },
         "W4|온사이트 발전·비계통 전력 조달 비중(behind-the-meter) — xai 콜로서스 소송": {
-          "headline": "xAI 예비금지명령 판결 계속 지연",
+          "headline": "xAI 예비금지명령 판결 예상시점 도과",
           "shift": "온사이트 발전·비계통 전력 조달 비중(behind-the-meter) — xAI 콜로서스 소송",
           "refs": [
             "W4"
@@ -1130,26 +1224,33 @@
           "affects": [
             "power-generation"
           ],
-          "summary": "NAACP가 제기한 xAI 콜로서스2 무허가 가스터빈 소송의 예비금지명령 판결이 2026년 8월 말로 예정되어 있었으나, 2026-08-26 현재까지 미시시피 연방법원(Debra Brown 판사)의 판결은 나오지 않은 것으로 확인된다. DOJ의 국가안보 근거 개입·기각 요청 상태도 그대로 유지되고 있어 8/24 관측 대비 진전이 없다.",
+          "summary": "당초 2026년 8월 말로 예상됐던 미시시피 연방법원의 xAI 콜로서스2 무허가 가스터빈 예비금지명령 판결이 2026-09-01 현재까지도 나오지 않은 것으로 확인된다. DOJ의 국가안보 근거 개입·기각 요청 상태도 그대로 유지되고 있어, 예상 판결시점 자체가 지연되는 모습이 새로 관측됐다.",
           "sources": [
             {
-              "url": "https://www.mississippifreepress.org/xai-gas-turbines-causing-harm-in-southaven-naacp-argues-in-motion-to-shut-them-down/",
-              "outlet": "Mississippi Free Press",
+              "url": "https://www.utilitydive.com/news/doj-intervenes-xai-data-center-gas-turbine-lawsuit/823267/",
+              "outlet": "Utility Dive",
               "date": "2026-08",
               "tier": "S2",
               "note": ""
             },
             {
-              "url": "https://www.cnbc.com/2026/06/16/usdepartment-of-justice-calls-for-dismissal-of-naacp-xai-lawsuit-.html",
-              "outlet": "CNBC",
-              "date": "2026-06-16",
+              "url": "https://earthjustice.org/press/2026/naacp-asks-court-for-emergency-action-to-stop-illegal-air-pollution-from-xais-data-center-power-plant",
+              "outlet": "Earthjustice",
+              "date": "2026-08",
               "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://tech-insider.org/xai-colossus-2-naacp-lawsuit-illegal-gas-turbines-memphis-2026/",
+              "outlet": "Tech Insider",
+              "date": "2026-08",
+              "tier": "S3",
               "note": ""
             }
           ],
-          "last_seen": "2026-08-26",
+          "last_seen": "2026-09-02",
           "first_seen": "2026-08-21",
-          "count": 3,
+          "count": 4,
           "thesis_review": false
         },
         "W2,W3|배전 전압 아키텍처 전환(54v 랙 → 800vdc) 채택 속도": {
@@ -1394,7 +1495,7 @@
           "thesis_review": false
         },
         "W2,W3|배전 전압 아키텍처 전환(54v 랙 → 800vdc)에 연동된 point-of-load 공급사 실적 — vicor 내부자 매도": {
-          "headline": "Vicor 내부자 순매도 규모 소폭 확대",
+          "headline": "CEO 매도플랜 가격밴드 2배 상향",
           "shift": "배전 전압 아키텍처 전환(54V 랙 → 800VDC)에 연동된 point-of-load 공급사 실적 — Vicor 내부자 매도",
           "refs": [
             "W2",
@@ -1404,25 +1505,73 @@
           "affects": [
             "point-of-load"
           ],
-          "summary": "최근 3개월 기준 Vicor 내부자 순매도 누적액이 기존 관측(1억7220만달러)에서 약 1억8500만달러로 소폭 늘어난 것으로 집계됐고, 이 기간 매수는 여전히 전무하다. 8/25 승인된 1.5억달러 자사주매입 한도와 병행해 내부자 매도 흐름 자체는 지속되고 있다.",
+          "summary": "Vicor CEO Patrizio Vinciarelli는 2026-02-26 $202~400 가격구간 매도플랜(최대 100만주)에 이어 2026-06-08 $404~800 구간의 신규 매도플랜(역시 최대 100만주)을 추가로 개설했다. 두 플랜이 순차 실행되며 내부자 순매도가 지속되는 가운데, 매도 상한가 자체가 주가 상승분을 반영해 2배로 높아진 점이 새로 확인됐다.",
           "sources": [
             {
-              "url": "https://simplywall.st/stocks/us/capital-goods/nasdaq-vicr/vicor",
-              "outlet": "Simply Wall St",
-              "date": "2026-08",
+              "url": "https://www.sec.gov/Archives/edgar/data/0000751978/000119312526334255/ownership.xml",
+              "outlet": "SEC EDGAR (Form 4)",
+              "date": "2026-06",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.stocktitan.net/sec-filings/VICR/form-4-vicor-corp-insider-trading-activity-d8c145384641.html",
+              "outlet": "StockTitan",
+              "date": "2026-06",
               "tier": "S2",
               "note": ""
             }
           ],
-          "last_seen": "2026-08-31",
+          "last_seen": "2026-09-02",
           "first_seen": "2026-08-31",
+          "count": 2,
+          "thesis_review": false
+        },
+        "W1,W2,W3|랙 전력밀도 로드맵 변경(kw/rack) 및 실제 배치 시점": {
+          "headline": "Vera Rubin 첫 출하, 3Q26 200억달러 전망",
+          "shift": "랙 전력밀도 로드맵 변경(kW/rack) 및 실제 배치 시점",
+          "refs": [
+            "W1",
+            "W2",
+            "W3"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "point-of-load"
+          ],
+          "summary": "NVIDIA가 2026년 8월부터 Vera Rubin(VR200 NVL72) 랙의 첫 상용 출하를 시작했고 마이크로소프트가 최초 상용 배치 고객으로 확인됐다. 회사는 3분기 Vera Rubin 시스템 매출이 약 200억달러(데이터센터 매출의 약 20%)에 달해 역대 가장 빠른 램프업이 될 것으로 전망했다. 800VDC 파워랙은 이 세대에서 여전히 옵션 사양(busbar는 50V 유지)으로, 기존 로드맵(3Q26 옵션 출하)과 시기는 일치한다.",
+          "sources": [
+            {
+              "url": "https://developer.nvidia.com/blog/nvidia-vera-rubin-pod-seven-chips-five-rack-scale-systems-one-ai-supercomputer/",
+              "outlet": "NVIDIA Technical Blog",
+              "date": "2026-08",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-expects-to-sell-usd20-billion-worth-of-vera-rubin-hardware-this-quarter-would-account-for-20-percent-of-data-center-revenue-its-fastest-ramp-in-company-history",
+              "outlet": "Tom's Hardware",
+              "date": "2026-08",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.trendforce.com/presscenter/news/20260625-13121.html",
+              "outlet": "TrendForce",
+              "date": "2026-06-25",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-09-02",
+          "first_seen": "2026-09-02",
           "count": 1,
           "thesis_review": false
         }
       }
     },
     "optical-interconnect": {
-      "last_checked": "2026-08-31",
+      "last_checked": "2026-09-02",
       "observations": {
         "NVIDIA CPO 스위치 상태": [
           {
@@ -1459,6 +1608,11 @@
             "date": "2026-08-31",
             "last_seen": "2026-08-31",
             "value": "변동 없음 — Spectrum-X Ethernet Photonics/Quantum-X Photonics 완전양산 지속, 서버 OEM향 가을(9~11월) 본격 출하 예정 유지, 8/28 이후 신규 발표 없음"
+          },
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "변동 없음 — Spectrum-X/Quantum-X Photonics 완전양산 지속, 가을 본격 출하 예정 유지"
           }
         ],
         "Broadcom CPO 스위치 상태": [
@@ -1491,6 +1645,11 @@
             "date": "2026-08-31",
             "last_seen": "2026-08-31",
             "value": "변동 없음 — Tomahawk 6-Davisson/Bailly 볼륨 생산 지속(Delta Electronics·Micas Networks 지원), 신규 발표 없음"
+          },
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "변동 없음 — Tomahawk 6-Davisson/Bailly 볼륨생산 지속, 신규 발표 없음"
           }
         ],
         "TSMC COUPE": [
@@ -1528,6 +1687,11 @@
             "date": "2026-08-31",
             "last_seen": "2026-08-31",
             "value": "변동 없음 — 2026 양산목표 유지, 신규 발표 없음"
+          },
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "변동 없음 — 2026 양산목표 유지"
           }
         ],
         "CPO 비중(2026 광모듈 중)": [
@@ -1562,6 +1726,11 @@
             "date": "2026-08-31",
             "last_seen": "2026-08-31",
             "value": "변동 없음 — Meta 최대$6B + Amazon 복수B$ + Zayo(2026-08-20, 15,000 route mile) 유지, 신규 계약 확인 안됨"
+          },
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) 유지, 신규 계약 미확인"
           }
         ],
         "ASMPT 포토닉스 매출 성장": [
@@ -2010,6 +2179,11 @@
             "date": "2026-08-31",
             "last_seen": "2026-08-31",
             "value": "변동 없음 — 20개사 참여 아키텍처 청사진 유지, 스펙 초안 목표 2026 Q4"
+          },
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지"
           }
         ],
         "성호전자/서룡전자 주식담보대출 잔액": [
@@ -2017,6 +2191,11 @@
             "date": "2026-08-31",
             "last_seen": "2026-08-31",
             "value": "1,650억원(8/31 기준), 다올투자증권 300억원은 타담보 차입으로 전환·전액상환"
+          },
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "변동 없음 — 1,650억원 수준(8/31 기준) 유지, 9/1~2 신규 공시 미확인"
           }
         ],
         "ADS테크 신규수주(CPO 장비)": [
@@ -2031,6 +2210,11 @@
             "date": "2026-08-31",
             "last_seen": "2026-08-31",
             "value": "Lumentum YTD +158%, Coherent YTD +90% (8월 중순 조정 이후 추가 급변 없음)"
+          },
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "Lumentum·Coherent·Fabrinet·Applied Optoelectronics·Corning 등 7월말 이후 +25% 이상 랠리, Coherent +48%(누적)"
           }
         ],
         "주식담보대출 잔액": [
@@ -2059,6 +2243,13 @@
             "date": "2026-08-31",
             "last_seen": "2026-08-31",
             "value": "1,645만달러(약 235억원)"
+          }
+        ],
+        "공급망 확정 벤더수": [
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "0(미공개) → 5개사(TSMC/SPIL/Lumentum/TFC/Foxconn)"
           }
         ]
       },
@@ -2101,7 +2292,7 @@
           "thesis_review": false
         },
         "W5|실리콘 포토닉스 수율·패키징 병목 해소 여부": {
-          "headline": "ASMPT 포토닉스 매출·수주 급증",
+          "headline": "SEMICON Taiwan CPO 쇼케이스 확대",
           "shift": "실리콘 포토닉스 수율·패키징 병목 해소 여부",
           "refs": [
             "W5"
@@ -2110,26 +2301,33 @@
           "affects": [
             "optical-align"
           ],
-          "summary": "ASMPT 2026년 2분기 매출이 6.30억달러(QoQ +24.4%, YoY +52.1%)를 기록했고, 상반기 누적 플러거블 광트랜시버 매출은 전년 대비 거의 3배 증가한 약 7,500만달러에 달했다. 2분기 수주 9.04억달러로 북투빌 비율 1.43배를 기록해 2021년 상반기 이후 최고치를 나타내, 패키징·정렬 장비 수요가 실제 발주 단계에서도 확대되고 있음을 시사한다.",
+          "summary": "2026-09-02~04 SEMICON Taiwan에서 실리콘 포토닉스·CPO가 핵심 주제로 부상, ASMPT·ficonTEC·EVG·AUO에 이어 Kulicke & Soffa(9/1 발표)까지 CPO 관련 패키징 솔루션(TCB·하이브리드본딩 등)을 전시한다. 다만 K&S·EVG의 TCB/하이브리드본딩은 칩 다이본딩 공정으로, ADS테크·ficonTEC의 핵심 영역인 '광섬유-도파로 액티브얼라인먼트'와는 다른 공정 단계다.",
           "sources": [
             {
-              "url": "https://www.asmpt.com/en/investor-relations/news-events/asmpt-announces-2026-interim-results/",
-              "outlet": "asmpt.com",
-              "date": "2026-08",
+              "url": "https://www.prnewswire.com/news-releases/kulicke--soffa-advances-ai-infrastructure-through-co-packaged-optics-cpo-and-advanced-packaging-leadership-302865846.html",
+              "outlet": "prnewswire.com (Kulicke & Soffa)",
+              "date": "2026-09-01",
               "tier": "S1",
               "note": ""
             },
             {
-              "url": "https://www.theglobeandmail.com/investing/markets/stocks/ASMVF/pressreleases/3623184/asmpt-earnings-call-highlights-ai-fueled-growth-momentum/",
-              "outlet": "theglobeandmail.com",
-              "date": "2026-08",
+              "url": "https://www.techtimes.com/articles/326056/20260831/semicon-taiwan-2026-kicks-off-ai-chips-bottleneck-wires-connecting-them.htm",
+              "outlet": "techtimes.com",
+              "date": "2026-08-31",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.digitimes.com/news/a20260826PR202.html",
+              "outlet": "digitimes.com (ASMPT)",
+              "date": "2026-08-26",
               "tier": "S2",
               "note": ""
             }
           ],
-          "last_seen": "2026-08-19",
+          "last_seen": "2026-09-02",
           "first_seen": "2026-08-17",
-          "count": 2,
+          "count": 3,
           "thesis_review": false
         },
         "W4|데이터센터 광섬유 수요 및 장기계약 규모": {
@@ -2344,7 +2542,7 @@
           "thesis_review": false
         },
         "W1,W3|cpo 양산 채택 일정의 전진 또는 후퇴 / 광 i/o 표준화 동향 및 주요 벤더 로드맵 변경": {
-          "headline": "Marvell 실적 서프라이즈",
+          "headline": "Spectrum-X 공급망 5개사 확정",
           "shift": "CPO 양산 채택 일정의 전진 또는 후퇴 / 광 I/O 표준화 동향 및 주요 벤더 로드맵 변경",
           "refs": [
             "W1",
@@ -2352,33 +2550,19 @@
           ],
           "direction": "순풍",
           "affects": [],
-          "summary": "Marvell이 2026-08-27(미국시간) FY2027 2분기 실적을 발표, 매출 27.39억달러(YoY+37%, 사상최대)와 데이터센터 매출 21.7억달러(YoY+46%, 비중79%)를 기록했다. 기존 컨센서스로만 존재하던 '광인터커넥트 매출 YoY 70%+ 성장' 가이던스가 실적발표를 통해 기존 50% 전망에서 상향 확정되었으며, 800G/1.6T 스케일아웃 광트랜시버와 CPO/NPO용 스케일업 광솔루션이 핵심 성장동력으로 지목됐다.",
+          "summary": "NVIDIA Spectrum-X Ethernet Photonics의 완전양산 공급망이 TSMC(실리콘포토닉스 파운드리)-SPIL(칩스케일 패키징·테스트)-Lumentum(레이저칩)-TFC Communication(레이저모듈 서브어셈블리)-Foxconn(스위치 최종조립) 5개사 체제로 구체화되어 보도됐다. 레이저 개수 4배 감소, 전력소비 5배 절감, 평균고장간격(MTBI) 10배 개선이 재확인됐다.",
           "sources": [
             {
-              "url": "https://investor.marvell.com/news-events/press-releases/detail/1031/marvell-technology-inc-reports-second-quarter-of-fiscal-year-2027-financial-results",
-              "outlet": "investor.marvell.com",
-              "date": "2026-08-27",
-              "tier": "S1",
-              "note": ""
-            },
-            {
-              "url": "https://finance.yahoo.com/markets/stocks/articles/marvell-q2-fy2027-earnings-record-202719586.html",
-              "outlet": "finance.yahoo.com",
-              "date": "2026-08-27",
-              "tier": "S2",
-              "note": ""
-            },
-            {
-              "url": "https://qz.com/marvell-record-revenue-ai-chips-guidance-raise-082726",
-              "outlet": "qz.com",
-              "date": "2026-08-27",
+              "url": "https://www.storagereview.com/news/nvidia-spectrum-x-ethernet-photonics-enters-full-production-with-4x-fewer-lasers-and-a-five-vendor-cpo-supply-chain",
+              "outlet": "storagereview.com",
+              "date": "2026-08",
               "tier": "S2",
               "note": ""
             }
           ],
-          "last_seen": "2026-08-28",
+          "last_seen": "2026-09-02",
           "first_seen": "2026-08-28",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         }
       }

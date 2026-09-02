@@ -2568,7 +2568,7 @@
       }
     },
     "memory-storage": {
-      "last_checked": "2026-08-31",
+      "last_checked": "2026-09-02",
       "observations": {
         "파두 컨트롤러 매출 비중": [
           {
@@ -2689,6 +2689,11 @@
             "date": "2026-08-31",
             "last_seen": "2026-08-31",
             "value": "2026 Q4 샘플링 예정(변화없음), FMS2026 발표 후 주가 급등"
+          },
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "2026 Q4 샘플링 예정(변화없음)"
           }
         ],
         "Kioxia·SanDisk QLC 세대": [
@@ -2725,6 +2730,11 @@
             "date": "2026-08-31",
             "last_seen": "2026-08-31",
             "value": "8/13 변론 이후 추가 진행상황 미확인(변화없음 지속, 8/31 재확인)"
+          },
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "8/13 변론 이후 추가 진행상황 미확인(변화없음 지속)"
           }
         ],
         "Gen6 성능": [
@@ -3032,7 +3042,7 @@
         "ScaleFlux FC6116": [
           {
             "date": "2026-08-28",
-            "last_seen": "2026-08-31",
+            "last_seen": "2026-09-02",
             "value": "2026 Q4 주요고객 샘플링 예정(변화없음)"
           }
         ],
@@ -3133,6 +3143,121 @@
             "last_seen": "2026-08-31",
             "value": "2027년 2개사, 2028년 1개사"
           }
+        ],
+        "eSSD 시장 top5 합산매출(QoQ)": [
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "375.9억달러(+103.6%, 2Q26)"
+          }
+        ],
+        "삼성 eSSD 매출(QoQ)": [
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "143.5억달러(+100%이상, 2Q26)"
+          },
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "→ +100%이상(2Q26, 143.5억달러)"
+          }
+        ],
+        "SK하이닉스 eSSD 매출(QoQ)": [
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "86.3억달러(+85.9%, 2Q26)"
+          },
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "→ +85.9%(2Q26, 86.3억달러)"
+          }
+        ],
+        "씨게이트 FY2026 데이터센터 매출(YoY)": [
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "+55~57%"
+          }
+        ],
+        "씨게이트 FY2026 연매출(YoY)": [
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "+34%(122억달러)"
+          }
+        ],
+        "Micron FY2027 capex": [
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "중반 40억달러대 상회 전망(FY2026 약 270억달러에서 증액)"
+          }
+        ],
+        "솔리다임 재공시 예정일": [
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "2026-09-04(미발생, 임박)"
+          }
+        ],
+        "top5 eSSD 매출(QoQ)": [
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "→ +103.6%(2Q26, 375.9억달러)"
+          }
+        ],
+        "삼성+SK하이닉스 합산 점유율": [
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "56.2%(2Q26)"
+          }
+        ],
+        "데이터센터 매출(YoY)": [
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "→ +55~57%(FY2026 Q4)"
+          }
+        ],
+        "연간매출(YoY)": [
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "→ +34%(FY2026, 122억달러)"
+          }
+        ],
+        "매출총이익률": [
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "→ 52.3%(FY2026 Q4, GAAP)"
+          }
+        ],
+        "재공시 예정일": [
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "2026-09-04(예정, 미확정)"
+          }
+        ],
+        "목표기업가치": [
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "약 350억달러(50조원)"
+          }
+        ],
+        "조달목표": [
+          {
+            "date": "2026-09-02",
+            "last_seen": "2026-09-02",
+            "value": "35억~70억달러(5조~10조원)"
+          }
         ]
       },
       "shifts": {
@@ -3176,7 +3301,7 @@
           "thesis_review": false
         },
         "W1,W3|ai 추론 확산에 따른 essd·니어라인 스토리지 수요 구조 변화": {
-          "headline": "eSSD·HDD 가격격차 확대",
+          "headline": "eSSD 매출 2Q26 두 배 급증",
           "shift": "AI 추론 확산에 따른 eSSD·니어라인 스토리지 수요 구조 변화",
           "refs": [
             "W1",
@@ -3186,26 +3311,26 @@
           "affects": [
             "ssd-controller"
           ],
-          "summary": "VDURA의 2026년 8월 지수 기준 30TB 기업용 TLC eSSD 참조가격이 22,600달러로 동급 니어라인 HDD(1,216달러) 대비 약 18배까지 벌어졌고, QLC eSSD도 18,080달러(HDD 2,768달러 대비 약 6.5배)로 집계됐다. 트렌드포스는 삼성전자의 QLC 기반 eSSD 출하량이 2026년 하반기에 상반기 대비 2배 이상 늘어날 것으로 전망했다.",
+          "summary": "2026년 2분기 글로벌 상위 5개 eSSD 업체 합산 매출이 375.9억달러로 전분기 대비 103.6% 급증했다. 삼성전자는 176단 QLC 출하 확대와 PCIe5.0 비중 증가로 매출이 143.5억달러(+100%이상 QoQ)로 뛰며 1위를 지켰고, SK하이닉스(솔리다임 포함)는 86.3억달러(+85.9%)로 2위, 양사 합산 점유율은 56.2%에 달했다.",
           "sources": [
             {
-              "url": "https://mlq.ai/news/ai-storage-squeeze-lifts-30tb-enterprise-ssd-to-22600-while-hdd-capacity-is-booked-years-ahead/",
-              "outlet": "MLQ News",
-              "date": "2026-08-25",
+              "url": "https://view.asiae.co.kr/article/2026090116201513844",
+              "outlet": "아시아경제",
+              "date": "2026-09-01",
               "tier": "S2",
               "note": ""
             },
             {
-              "url": "https://www.trendforce.com/news/2026/07/31/news-nands-2026-playbook-samsung-sk-hynix-chase-upgrades-and-ssd-mix-over-volume/",
-              "outlet": "TrendForce",
-              "date": "2026-07-31",
+              "url": "https://www.ebn.co.kr/news/articleView.html?idxno=1722564",
+              "outlet": "EBN뉴스센터",
+              "date": "2026-09-01",
               "tier": "S2",
               "note": ""
             }
           ],
-          "last_seen": "2026-08-31",
+          "last_seen": "2026-09-02",
           "first_seen": "2026-08-18",
-          "count": 3,
+          "count": 4,
           "thesis_review": false
         },
         "W1,W3,W5|메모리·후공정 capex 방향": {
@@ -3244,33 +3369,33 @@
           "thesis_review": false
         },
         "W2|hbm 세대 전환 일정 및 스택·본딩 공정 방식 변경": {
-          "headline": "HBM4 12단→8단 비중 확대",
+          "headline": "SK하이닉스 iHBM·삼성 HPB로 우회",
           "shift": "HBM 세대 전환 일정 및 스택·본딩 공정 방식 변경",
           "refs": [
             "W2"
           ],
           "direction": "불명",
           "affects": [],
-          "summary": "삼성전자와 SK하이닉스가 엔비디아 '베라-루빈'向 HBM4 공급에서 기존 12단 중심 구성을 8단 비중을 늘리는 방향으로 조정 중인 것으로 트렌드포스 등이 보도했다. 발열·수율 관리를 위해 엔비디아가 HBM 옵션을 다변화하려는 전략이며, 차기 HBM4E도 8단이 주력이 될 가능성이 거론된다.",
+          "summary": "SK하이닉스가 2026-08-23 Hot Chips에서 하이브리드본딩을 HBM4E가 아닌 HBM5부터 적용하겠다고 공식화한 데 이어(기존 관측과 동일), JEDEC 두께규격 완화와 엔비디아의 16단 수요 지연이 순연 배경으로 재확인됐다. 두 회사는 과도기 대안으로 삼성의 '히트패스블록(HPB)', SK하이닉스의 'iHBM(ICE HBM)' 기술을 HBM5向으로 테스트 중인 것으로 보도됐다.",
           "sources": [
             {
-              "url": "https://zdnet.co.kr/view/?no=20260826094826",
-              "outlet": "ZDNet Korea",
-              "date": "2026-08-26",
+              "url": "https://www.tomshardware.com/tech-industry/semiconductors/sk-hynix-says-hybrid-bonding-wont-be-ready-for-hbm4e-as-ai-memory-runs-into-a-775-micron-ceiling",
+              "outlet": "Tom's Hardware",
+              "date": "2026-08-23",
               "tier": "S2",
               "note": ""
             },
             {
-              "url": "https://www.g-enews.com/article/Global-Biz/2026/08/202608101555456998fbbec65dfb_1",
-              "outlet": "글로벌이코노믹",
-              "date": "2026-08-10",
+              "url": "https://www.trendforce.com/news/2026/07/07/news-samsung-sk-hynix-reportedly-reconsider-hybrid-bonding-timeline-16-high-hbm4e-may-be-earliest-adoption/",
+              "outlet": "TrendForce",
+              "date": "2026-07-07",
               "tier": "S2",
               "note": ""
             }
           ],
-          "last_seen": "2026-08-28",
+          "last_seen": "2026-09-02",
           "first_seen": "2026-08-18",
-          "count": 3,
+          "count": 4,
           "thesis_review": false
         },
         "W1,W4|ai 추론 확산에 따른 essd·니어라인 스토리지 수요 구조 변화 / 컨트롤러 내재화 vs 외부 조달 흐름": {
@@ -3622,7 +3747,7 @@
           "thesis_review": false
         },
         "W1,W3|ai 추론 확산에 따른 essd·니어라인 스토리지 수요 구조 변화 (관련 자본시장 동향)": {
-          "headline": "솔리다임 프리IPO 추진",
+          "headline": "솔리다임 프리IPO 재공시 임박(9/4)",
           "shift": "AI 추론 확산에 따른 eSSD·니어라인 스토리지 수요 구조 변화 (관련 자본시장 동향)",
           "refs": [
             "W1",
@@ -3632,32 +3757,65 @@
           "affects": [
             "ssd-controller"
           ],
-          "summary": "SK하이닉스의 낸드·eSSD 자회사 솔리다임이 나스닥 상장을 염두에 둔 프리IPO를 추진 중이며, 모건스탠리·골드만삭스를 주관사로 선정해 기업가치 50조원을 목표로 5조~10조원 규모 투자유치를 타진하고 있다고 8월 초 보도됐다. SK하이닉스는 8월5일 공시로 '검토 중이나 확정된 사항 없다'고 공식 확인했으며, 거버넌스포럼 등은 모회사-자회사 중복상장 우려를 제기했다.",
+          "summary": "SK하이닉스는 2026-08-05 공시에서 솔리다임 관련 사항이 확정되면 1개월 내 재공시하겠다고 밝혔으며, 재공시 예정일이 2026-09-04로 설정된 것으로 확인됐다(아직 미발생). 목표 기업가치는 약 350억달러(50조원), 조달 목표는 35억~70억달러(5조~10조원)로 재확인됐고, 지배구조 포럼 등의 중복상장 우려와 솔리다임의 높은 부채비율(약 4,485%)이 리스크로 계속 거론된다.",
           "sources": [
             {
-              "url": "https://www.hankyung.com/article/202608056378i",
-              "outlet": "한국경제",
-              "date": "2026-08-05",
+              "url": "https://finance.biggo.com/news/e0e87b50-ae9f-4192-ab0f-6e6d94a1d4bb",
+              "outlet": "BigGo Finance",
+              "date": "2026-08",
               "tier": "S2",
               "note": ""
             },
             {
-              "url": "https://www.newspim.com/news/view/20260806000792",
-              "outlet": "Newspim",
-              "date": "2026-08-06",
+              "url": "https://www.koreatimes.co.kr/business/20260814/sk-hynix-faces-backlash-over-potential-solidigm-nasdaq-listing",
+              "outlet": "Korea Times",
+              "date": "2026-08-14",
               "tier": "S2",
               "note": ""
             },
             {
-              "url": "https://www.investchosun.com/site/data/html_dir/2026/08/13/2026081380151.html",
-              "outlet": "인베스트조선",
-              "date": "2026-08-13",
+              "url": "https://www.digitimes.com/news/a20260807VL216/solidigm-sk-hynix-funding-nand-demand.html",
+              "outlet": "DigiTimes",
+              "date": "2026-08-07",
               "tier": "S2",
               "note": ""
             }
           ],
-          "last_seen": "2026-08-31",
+          "last_seen": "2026-09-02",
           "first_seen": "2026-08-31",
+          "count": 2,
+          "thesis_review": false
+        },
+        "W1,W3|니어라인 hdd 리드타임 (관련 실적 확인)": {
+          "headline": "씨게이트 FY26 데이터센터 매출 최대",
+          "shift": "니어라인 HDD 리드타임 (관련 실적 확인)",
+          "refs": [
+            "W1",
+            "W3"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "ssd-controller"
+          ],
+          "summary": "씨게이트가 2026-07-28 발표한 회계연도 4분기(FY2026 Q4) 실적에서 매출 36억달러(총이익률 52.3%)를 기록했고, 데이터센터向 매출은 전년대비 약 55~57% 급증하며 사상 최대치를 기록했다. 전체 FY2026 연매출은 122억달러로 전년대비 34% 성장했으며, 니어라인 HDD 완판·가격 상승 기조가 실적으로 확인됐다.",
+          "sources": [
+            {
+              "url": "https://investors.seagate.com/news/news-details/2026/Seagate-Technology-Reports-Fiscal-Fourth-Quarter-and-Fiscal-Year-2026-Financial-Results/default.aspx",
+              "outlet": "Seagate IR",
+              "date": "2026-07-28",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.techpowerup.com/351162/seagate-reports-fiscal-fourth-quarter-and-fiscal-year-2026-financial-results",
+              "outlet": "TechPowerUp",
+              "date": "2026-07-28",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-09-02",
+          "first_seen": "2026-09-02",
           "count": 1,
           "thesis_review": false
         }

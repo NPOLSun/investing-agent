@@ -27,6 +27,13 @@ desktop.ini
 *.log
 logs/
 
+# 텔레그램 사용자 세션 (Telethon). 계정 접근 권한 그 자체라 절대 커밋 금지.
+# data/feed_channels.json 과 data/feed/ 는 data/* 규칙에 이미 걸려 있다 —
+# 구독 채널 목록과 원문은 개인 정보이므로 화이트리스트에 넣지 말 것.
+.telegram_user.session*
+*.session
+*.session-journal
+
 # AWS
 .aws/
 

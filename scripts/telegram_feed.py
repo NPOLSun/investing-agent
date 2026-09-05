@@ -1,0 +1,399 @@
+"""텔레그램 구독 채널 수집기 (Layer -1 · 원문 피드).
+
+web_search 로 뉴스를 '발굴'하려던 기존 방식은 실패했다. 실측 결과 이벤트의 45%가
+보고 시점보다 15일 이상 오래된 기사를 재확인한 것이었다. 검색 엔진은 오늘 뭐가
+새로 터졌는지를 모른다 — 이미 색인된 것 중 질의어에 맞는 걸 줄 뿐이다.
+
+대신 사용자가 직접 골라 구독 중인 텔레그램 채널을 원천으로 삼는다. 사람이 이미
+큐레이션한 피드이므로 신선도와 관련성이 검색보다 압도적으로 낫고, 여러 채널이
+같은 건을 동시에 다루면 그 자체가 중요도 신호가 된다 (dupe_count).
+
+★ Bot API 로는 불가능하다. 봇은 자신이 멤버인 방만 읽는다. 사용자가 구독한
+  채널을 읽으려면 MTProto 사용자 세션이 필요하다 → Telethon.
+  .env 에 TELEGRAM_API_ID / TELEGRAM_API_HASH (my.telegram.org 발급) 필요.
+
+사용법:
+  python scripts/telegram_feed.py --login          최초 1회. 전화번호 + 인증코드
+  python scripts/telegram_feed.py --list           구독 채널 목록 (번호 확인용)
+  python scripts/telegram_feed.py --enable 1,4,9   수집 대상 지정
+  python scripts/telegram_feed.py --fetch          새 글 수집 → data/feed/
+  python scripts/telegram_feed.py --show           오늘 수집분 미리보기
+"""
+
+import argparse
+import asyncio
+import hashlib
+import json
+import logging
+import os
+import re
+import sys
+from datetime import datetime, timedelta
+from pathlib import Path
+from typing import Optional
+
+import pytz
+from dotenv import load_dotenv
+
+logger = logging.getLogger(__name__)
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+load_dotenv(PROJECT_ROOT / ".env")
+
+KST = pytz.timezone("Asia/Seoul")
+
+SESSION_PATH = PROJECT_ROOT / ".telegram_user"      # Telethon 이 .session 을 붙인다
+CHANNELS_PATH = PROJECT_ROOT / "data" / "feed_channels.json"
+FEED_DIR = PROJECT_ROOT / "data" / "feed"
+
+API_ID = os.getenv("TELEGRAM_API_ID")
+API_HASH = os.getenv("TELEGRAM_API_HASH")
+
+# 최초 수집 시 얼마나 거슬러 올라갈지. 이후로는 채널별 last_id 부터만 읽는다.
+FIRST_RUN_HOURS = 24
+# 채널 하나당 한 번에 가져올 상한. 폭주 채널이 하루치를 다 먹는 걸 막는다.
+MAX_PER_CHANNEL = 120
+# 이보다 짧은 글은 버린다 (이모지 한 줄, "ㅋㅋ" 같은 잡음)
+MIN_TEXT_LEN = 25
+
+
+# ============================================================
+# 설정 파일
+# ============================================================
+
+def load_channels() -> dict:
+    if not CHANNELS_PATH.exists():
+        return {"channels": []}
+    try:
+        return json.loads(CHANNELS_PATH.read_text(encoding="utf-8")) or {"channels": []}
+    except Exception as e:
+        logger.error(f"feed_channels.json 읽기 실패: {e}")
+        return {"channels": []}
+
+
+def save_channels(doc: dict):
+    CHANNELS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    CHANNELS_PATH.write_text(
+        json.dumps(doc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+# ============================================================
+# 중복 판정
+# ============================================================
+
+_URL_RE = re.compile(r"https?://\S+")
+_NOISE_RE = re.compile(r"[^\w가-힣]+")
+
+# 4-gram 이 이 비율 이상 겹치면 같은 건으로 본다. 채널마다 "[속보]" 같은
+# 머리말과 자기 코멘트를 덧붙이므로 완전 일치로는 절대 안 잡힌다.
+DUPE_SIMILARITY = 0.55
+# 유사도 비교에 쓸 본문 길이. 뒤에 붙는 채널 홍보 문구를 잘라내는 효과도 있다.
+DUPE_PREFIX_LEN = 200
+
+
+def text_shingles(text: str) -> set:
+    """유사도 비교용 문자 4-gram 집합. URL·기호·공백은 털어낸다."""
+    t = _URL_RE.sub("", text or "")
+    t = _NOISE_RE.sub("", t).lower()[:DUPE_PREFIX_LEN]
+    return {t[i:i + 4] for i in range(max(0, len(t) - 3))}
+
+
+def similarity(a: set, b: set) -> float:
+    """자카드가 아니라 포함률(작은 쪽 기준)을 쓴다.
+
+    한 채널은 헤드라인만, 다른 채널은 기사 본문까지 붙이는 일이 흔하다.
+    자카드로 재면 길이 차 때문에 같은 건인데도 점수가 주저앉는다.
+    """
+    if not a or not b:
+        return 0.0
+    return len(a & b) / min(len(a), len(b))
+
+
+def group_duplicates(items: list[dict]) -> None:
+    """같은 뉴스를 옮긴 항목끼리 dupe_group 을 공유하도록 제자리에서 표시.
+
+    여러 채널이 동시에 다룬다는 것 자체가 중요도 신호다 (dupe_count).
+    항목 수가 하루 수백 건 수준이라 단순 O(n²) 비교로 충분하다.
+    """
+    sigs = [text_shingles(x["text"]) for x in items]
+    parent = list(range(len(items)))
+
+    def find(i):
+        while parent[i] != i:
+            parent[i] = parent[parent[i]]
+            i = parent[i]
+        return i
+
+    for i in range(len(items)):
+        for j in range(i + 1, len(items)):
+            if similarity(sigs[i], sigs[j]) >= DUPE_SIMILARITY:
+                ri, rj = find(i), find(j)
+                if ri != rj:
+                    parent[rj] = ri
+
+    groups: dict[int, list[int]] = {}
+    for i in range(len(items)):
+        groups.setdefault(find(i), []).append(i)
+
+    for root, members in groups.items():
+        # 그룹 id 는 대표 항목 본문으로 고정한다 — 실행이 갈려도 같은 값이 나온다.
+        gid = hashlib.sha1(
+            "".join(sorted(text_shingles(items[root]["text"]))).encode("utf-8")
+        ).hexdigest()[:16]
+        names = sorted({items[m]["channel"] for m in members})
+        for m in members:
+            items[m]["dupe_group"] = gid
+            items[m]["dupe_count"] = len(names)
+            items[m]["also_in"] = [n for n in names if n != items[m]["channel"]]
+
+
+# ============================================================
+# 수집
+# ============================================================
+
+def _require_creds():
+    if not API_ID or not API_HASH:
+        sys.exit(
+            "TELEGRAM_API_ID / TELEGRAM_API_HASH 가 .env 에 없습니다.\n"
+            "  1) https://my.telegram.org -> API development tools 에서 앱 생성\n"
+            "  2) .env 에 아래 두 줄 추가\n"
+            "       TELEGRAM_API_ID=12345678\n"
+            "       TELEGRAM_API_HASH=0123456789abcdef...\n"
+            "  3) python scripts/telegram_feed.py --login"
+        )
+
+
+def _client():
+    from telethon import TelegramClient
+    return TelegramClient(str(SESSION_PATH), int(API_ID), API_HASH)
+
+
+async def cmd_login():
+    """최초 1회. 전화번호와 인증코드를 물어보고 세션 파일을 만든다."""
+    _require_creds()
+    client = _client()
+    await client.start()                    # 대화형 — 전화번호·코드·2FA 프롬프트
+    me = await client.get_me()
+    print(f"로그인 완료: {me.first_name} (@{me.username or '-'})")
+    print(f"세션 파일: {SESSION_PATH}.session  <- .gitignore 대상, EC2 로 따로 복사할 것")
+    await client.disconnect()
+
+
+async def cmd_list():
+    """구독 중인 채널·그룹을 번호와 함께 출력. --enable 에 쓸 번호를 여기서 고른다."""
+    _require_creds()
+    from telethon.tl.types import Channel
+    client = _client()
+    await client.start()
+    enabled = {c["id"] for c in load_channels()["channels"] if c.get("enabled")}
+    rows = []
+    async for d in client.iter_dialogs():
+        ent = d.entity
+        if not isinstance(ent, Channel):
+            continue                        # 개인 대화·소규모 그룹은 제외
+        rows.append({
+            "id": ent.id,
+            "title": d.name,
+            "username": getattr(ent, "username", None),
+            "broadcast": bool(getattr(ent, "broadcast", False)),
+        })
+    await client.disconnect()
+
+    print(f"\n채널 {len(rows)}개\n")
+    for i, r in enumerate(rows, 1):
+        mark = "*" if r["id"] in enabled else " "
+        kind = "채널" if r["broadcast"] else "그룹"
+        uname = f"@{r['username']}" if r["username"] else f"id:{r['id']}"
+        print(f" {mark} {i:>3}. [{kind}] {r['title'][:42]:<44} {uname}")
+    print("\n수집할 번호 지정:  python scripts/telegram_feed.py --enable 1,4,9")
+
+    # 번호 -> id 매핑을 남겨야 --enable 이 번호로 동작한다
+    doc = load_channels()
+    doc["last_listing"] = rows
+    save_channels(doc)
+
+
+def cmd_enable(spec: str):
+    """--list 가 남긴 번호 매핑을 보고 수집 대상을 켠다. 기존 선택은 대체된다."""
+    doc = load_channels()
+    listing = doc.get("last_listing") or []
+    if not listing:
+        sys.exit("먼저 --list 를 실행해 채널 목록을 받아야 합니다.")
+
+    try:
+        picks = [int(x) for x in re.split(r"[,\s]+", spec.strip()) if x]
+    except ValueError:
+        sys.exit("번호는 쉼표로 구분한 정수여야 합니다 (예: 1,4,9)")
+
+    prev = {c["id"]: c for c in doc.get("channels", [])}
+    chosen = []
+    for n in picks:
+        if not (1 <= n <= len(listing)):
+            sys.exit(f"{n} 번은 목록(1~{len(listing)}) 범위 밖입니다.")
+        r = listing[n - 1]
+        old = prev.get(r["id"], {})
+        chosen.append({
+            "id": r["id"],
+            "title": r["title"],
+            "username": r["username"],
+            "enabled": True,
+            "last_id": old.get("last_id", 0),   # 워터마크는 보존
+        })
+    doc["channels"] = chosen
+    save_channels(doc)
+    print(f"수집 대상 {len(chosen)}개 저장:")
+    for c in chosen:
+        print(f"  - {c['title']}")
+
+
+def _msg_url(ch: dict, msg_id: int) -> str:
+    if ch.get("username"):
+        return f"https://t.me/{ch['username']}/{msg_id}"
+    return f"https://t.me/c/{ch['id']}/{msg_id}"
+
+
+async def cmd_fetch(dry_run: bool = False) -> list[dict]:
+    """켜둔 채널의 새 메시지를 읽어 data/feed/YYYY-MM-DD.jsonl 에 적재."""
+    _require_creds()
+    doc = load_channels()
+    channels = [c for c in doc.get("channels", []) if c.get("enabled")]
+    if not channels:
+        sys.exit("수집 대상 채널이 없습니다. --list 후 --enable 로 지정하세요.")
+
+    now = datetime.now(KST)
+    cutoff = now - timedelta(hours=FIRST_RUN_HOURS)
+
+    client = _client()
+    await client.start()
+
+    collected: list[dict] = []
+    for ch in channels:
+        last_id = int(ch.get("last_id") or 0)
+        got, newest = 0, last_id
+        try:
+            # min_id 를 쓰면 그 이후만 온다. 최초 실행(last_id=0)은 시간으로 자른다.
+            kwargs = {"limit": MAX_PER_CHANNEL}
+            if last_id:
+                kwargs["min_id"] = last_id
+            async for m in client.iter_messages(ch["id"], **kwargs):
+                if not last_id and m.date and m.date.astimezone(KST) < cutoff:
+                    break
+                text = (m.text or "").strip()
+                if len(text) < MIN_TEXT_LEN:
+                    continue
+                collected.append({
+                    "channel_id": ch["id"],
+                    "channel": ch["title"],
+                    "msg_id": m.id,
+                    "date": m.date.astimezone(KST).isoformat(timespec="minutes"),
+                    "text": text,
+                    "url": _msg_url(ch, m.id),
+                    "views": getattr(m, "views", None) or 0,
+                    "forwards": getattr(m, "forwards", None) or 0,
+                })
+                got += 1
+                newest = max(newest, m.id)
+        except Exception as e:
+            logger.error(f"[{ch['title']}] 수집 실패 — 건너뜀: {e}")
+            continue
+        logger.info(f"[{ch['title']}] {got}건")
+        if not dry_run:
+            ch["last_id"] = newest
+
+    await client.disconnect()
+
+    # 여러 채널이 같은 건을 옮겼는지 묶는다. 반복 횟수 자체가 중요도 신호다.
+    group_duplicates(collected)
+    collected.sort(key=lambda x: x["date"])
+
+    if dry_run:
+        print(f"[dry-run] {len(collected)}건 수집 (저장 안 함)")
+        return collected
+
+    FEED_DIR.mkdir(parents=True, exist_ok=True)
+    out = FEED_DIR / f"{now:%Y-%m-%d}.jsonl"
+    seen = set()
+    if out.exists():
+        for line in out.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            try:
+                r = json.loads(line)
+                seen.add((r["channel_id"], r["msg_id"]))
+            except Exception:
+                continue
+    fresh = [x for x in collected if (x["channel_id"], x["msg_id"]) not in seen]
+    with out.open("a", encoding="utf-8") as f:
+        for x in fresh:
+            f.write(json.dumps(x, ensure_ascii=False) + "\n")
+
+    save_channels(doc)          # 워터마크 갱신
+    logger.info(f"총 {len(fresh)}건 신규 -> {out.name}")
+    print(f"{len(fresh)}건 저장 -> {out}")
+    return fresh
+
+
+# ============================================================
+# 다이제스트에서 쓰는 읽기 API
+# ============================================================
+
+def load_feed(hours: int = 24, now: Optional[datetime] = None) -> list[dict]:
+    """최근 N시간 피드를 시간순으로 반환. daily_digest 가 이걸 물어 쓴다."""
+    now = now or datetime.now(KST)
+    cutoff = now - timedelta(hours=hours)
+    rows = []
+    # 자정을 걸치면 어제 파일에도 걸리므로 이틀치를 훑는다
+    for d in sorted({(now - timedelta(days=i)).strftime("%Y-%m-%d") for i in (0, 1)}):
+        p = FEED_DIR / f"{d}.jsonl"
+        if not p.exists():
+            continue
+        for line in p.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            try:
+                r = json.loads(line)
+                if datetime.fromisoformat(r["date"]) >= cutoff:
+                    rows.append(r)
+            except Exception:
+                continue
+    rows.sort(key=lambda x: x["date"])
+    return rows
+
+
+def cmd_show(hours: int):
+    rows = load_feed(hours)
+    print(f"\n최근 {hours}시간 · {len(rows)}건\n")
+    for r in rows:
+        dupe = f"  [{r.get('dupe_count', 1)}개 채널]" if r.get("dupe_count", 1) > 1 else ""
+        head = r["text"].splitlines()[0][:70]
+        print(f"{r['date'][5:16]}  {r['channel'][:16]:<18} {head}{dupe}")
+
+
+def main():
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
+    ap = argparse.ArgumentParser(description="텔레그램 구독 채널 수집기")
+    ap.add_argument("--login", action="store_true", help="최초 1회 사용자 인증")
+    ap.add_argument("--list", action="store_true", help="구독 채널 목록")
+    ap.add_argument("--enable", metavar="N,N", help="수집할 채널 번호")
+    ap.add_argument("--fetch", action="store_true", help="새 글 수집")
+    ap.add_argument("--show", action="store_true", help="수집분 미리보기")
+    ap.add_argument("--hours", type=int, default=24, help="--show 조회 범위")
+    ap.add_argument("--dry-run", action="store_true", help="--fetch 시 저장하지 않음")
+    a = ap.parse_args()
+
+    if a.login:
+        asyncio.run(cmd_login())
+    elif a.list:
+        asyncio.run(cmd_list())
+    elif a.enable:
+        cmd_enable(a.enable)
+    elif a.fetch:
+        asyncio.run(cmd_fetch(dry_run=a.dry_run))
+    elif a.show:
+        cmd_show(a.hours)
+    else:
+        ap.print_help()
+
+
+if __name__ == "__main__":
+    main()

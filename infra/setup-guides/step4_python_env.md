@@ -208,7 +208,8 @@ pip install \
   pykrx \
   requests \
   pandas \
-  pytz
+  pytz \
+  telethon
 ```
 
 각 패키지 용도:
@@ -220,6 +221,7 @@ pip install \
 - **requests**: HTTP 요청 (일반)
 - **pandas**: 데이터 정리
 - **pytz**: 시간대 처리 (한국 시간)
+- **telethon**: 텔레그램 사용자 세션. 구독 채널 원문 수집용 (봇 토큰으로는 구독 채널을 못 읽는다)
 
 → 1~2분 소요. 다 설치되면 출력 끝.
 

@@ -50,7 +50,9 @@ import requests
 import yfinance as yf
 
 import events_log
+import feed_router             # 구독 채널 원문을 포지션·테마별로 가르는 분류기
 import positions_view          # 사이트와 공유하는 운영 파라미터의 정본 (stdlib 만 씀)
+import telegram_feed           # 구독 채널 수집기 (Layer -1)
 from dotenv import load_dotenv
 from anthropic import Anthropic, APIStatusError
 from telegram import Bot
@@ -163,6 +165,11 @@ MAX_SEARCH_POSITIONS = 8
 # 포지션을 전부 보게 된 뒤에도 이 레이어는 남는다 — 개별 종목 검색은 그 종목 안에서만
 # 보므로, 여러 포지션을 동시에 흔드는 축의 이동은 여전히 어느 종목에도 안 잡힌다.
 # ★ 테마에는 시장 필터를 걸지 않는다. 6개 중 4개가 US·KR 혼재라 가를 수가 없다.
+# 피드는 실행 간격(07:30 / 16:30 → 9h·15h)보다 넉넉히 잡아 되돌아본다.
+# 겹쳐 들어온 건은 events_log 가 event_key 로 병합하므로 중복 보고되지 않는다.
+# 짧게 잡아 구멍이 나면 그 뉴스는 영영 안 본다 — 겹치는 쪽이 안전하다.
+FEED_LOOKBACK_HOURS = 16
+
 MAX_SEARCH_THEMES = 2          # 실행당 테마 검색 상한 (하루 2회 = 최대 4개)
 THEME_ROTATION_DAYS_CORE = 2   # core 테마 재점검 주기
 THEME_ROTATION_DAYS = 4        # 비 core 테마 재점검 주기
@@ -693,6 +700,7 @@ def select_positions(
     upcoming: list[dict],
     today_str: str,
     market: str = "all",
+    feed_by_target: Optional[dict] = None,
 ) -> tuple[list[dict], list[dict]]:
     """검색 대상 선별. (선별됨, 미선별) 리턴.
 
@@ -706,6 +714,7 @@ def select_positions(
     """
     moved = {p["ticker"] for p in prices if abs(p.get("change_pct", 0)) >= PRICE_MOVE_THRESHOLD}
     event_text = " ".join(e["line"] for e in upcoming)
+    feed_by_target = feed_by_target or {}
 
     candidates = []
     for pos in positions:
@@ -723,6 +732,16 @@ def select_positions(
         if kw_hit:
             reasons.append(f"{EVENT_WINDOW_DAYS}일 내 이벤트 매칭: {', '.join(kw_hit[:3])}")
 
+        # 구독 채널에 이 종목 관련 원문이 들어왔으면 무조건 본다. 예산이 말라
+        # 뒤에서 잘리더라도 실제 뉴스가 있는 종목이 먼저 소화되게 앞으로 당긴다.
+        feed_hit = feed_by_target.get(pos["id"]) or []
+        if feed_hit:
+            heavy = sum(1 for x in feed_hit if x.get("route_weight") == "high")
+            reasons.append(
+                f"구독 채널 원문 {len(feed_hit)}건"
+                + (f" (실질 {heavy}건)" if heavy else "")
+            )
+
         stale = days_since(state["positions"].get(pos["id"], {}).get("last_checked"), today_str)
         if stale is None:
             reasons.append("최초 점검")
@@ -734,7 +753,7 @@ def select_positions(
                 "position": pos,
                 "reasons": reasons,
                 "stale": 9999 if stale is None else stale,
-                "triggered": bool(price_hit or kw_hit),
+                "triggered": bool(price_hit or kw_hit or feed_hit),
             })
 
     # 가격·이벤트 트리거가 정기 점검보다 우선, 그다음 오래 방치된 순.
@@ -1008,6 +1027,7 @@ def build_prompt(
     registry: Optional[SourceRegistry] = None,
     market: str = "all",
     layer0_error: str = "",
+    notable: Optional[list] = None,
 ) -> str:
     """종합 호출 프롬프트.
 
@@ -1240,6 +1260,20 @@ def build_prompt(
         for e in upcoming
     ) or f"(향후 {EVENT_WINDOW_DAYS}일 내 캘린더 이벤트 없음)"
 
+    # ---- 감시 목록 밖 (구독 채널에서 올라왔으나 어느 포지션에도 안 걸린 것) ----
+    # 이 통로가 없으면 시스템은 등록된 포지션 밖의 일을 구조적으로 볼 수 없다.
+    # 검색이 못 잡던 '핵심 뉴스' 상당수가 실제로는 여기로 들어온다.
+    notable_lines = []
+    for it in (notable or []):
+        head = re.sub(r"\s+", " ", it.get("text", ""))[:200]
+        when = it["date"][5:16].replace("T", " ")
+        dupe = f" · {it['dupe_count']}개 채널" if it.get("dupe_count", 1) > 1 else ""
+        notable_lines.append(
+            f"- [{when} · {it['channel']}{dupe}] {head}\n"
+            f"  주목 이유: {it.get('route_why', '-')}"
+        )
+    notable_section = "\n".join(notable_lines) or "(없음)"
+
     # ---- 가격: 표시 임계치 이상만, 맨 아래 한 줄용 ----
     def price_str(p: dict) -> str:
         sign = "+" if p["change_pct"] >= 0 else ""
@@ -1313,6 +1347,11 @@ G=그룹 공통 기준 — 같은 그룹의 종목 전부에 걸린다. 출력�
 아래 종목은 별도 실행에서 점검한다. **'미점검' 이나 '이상 없음' 으로 쓰지 말 것.**
 출력에 굳이 나열할 필요 없고, 맨 아래 한 줄로만 밝힌다.
 {other_market_section}
+
+# 감시 목록 밖 — 구독 채널에서 올라왔으나 어느 포지션·테마에도 안 걸린 것
+등록된 포지션 밖의 변화를 놓치지 않으려고 따로 낸 통로다. 아직 판정도 검증도
+거치지 않은 채널 원문이므로, **사실로 단정하지 말고 들어온 그대로** 전달할 것.
+{notable_section}
 
 # 향후 {EVENT_WINDOW_DAYS}일 캘린더 이벤트 (파싱 완료분)
 {events_section}
@@ -1397,6 +1436,14 @@ plain text, 표·markdown 문법 없이. 모바일에서 그대로 읽히게. 26
 • 포지션명 (회사명 티커) — 한 문장 요약  근거 ⑥
 (재료는 위 판정 결과 중 kind=info 또는 어느 번호에도 안 걸린 ⚪ 항목이다.
  판정 조건에 안 걸려도 알아둘 만한 것. 최대 8건. 해당 없으면: 없음)
+
+🌐 감시 목록 밖
+• 무슨 일이 있었는지 한 문장 — 내 포지션과 어떻게 닿을 수 있는지 한 마디
+  ↳ 미검증 · 채널명
+(위 '감시 목록 밖' 재료만 쓸 것. 최대 4건. 해당 없으면: 없음)
+★ 여기 항목에는 근거 마커를 붙이지 말 것 — 1차 출처를 확인하지 않은 원문이다.
+★ 확정된 사실처럼 쓰지 말 것. "~라고 전해진다", "~보도가 돌았다" 로 쓸 것.
+★ 시황·수급·주가 이야기는 싣지 말 것.
 
 📅 향후 {EVENT_WINDOW_DAYS}일
 - MM-DD 이벤트명 (관련 종목) [P1]
@@ -1826,7 +1873,59 @@ def _run_search(prompt: str, max_uses: int, label: str) -> tuple[Optional[dict],
     return result, usage
 
 
-def search_layer0(portfolio_level: dict, prev_state: dict, now_str: str) -> tuple[Optional[dict], dict]:
+async def collect_and_route_feed(positions_doc: dict) -> tuple[dict, dict]:
+    """구독 채널 원문을 긁어 포지션·테마별로 가른다. (라우팅 결과, usage) 리턴.
+
+    검색이 아니라 이쪽이 뉴스의 1차 재료다. 여기가 비면 그날 다이제스트는
+    사실상 눈을 감고 도는 셈이므로, 실패해도 조용히 넘기지 말고 사유를 남긴다.
+    """
+    usage = new_usage()
+    empty = {"by_target": {}, "notable": [], "unrouted": 0,
+             "failed_batches": 0, "total": 0}
+
+    try:
+        # 수집은 다이제스트와 별도 프로세스로 돌 수도 있다 (cron 분리).
+        # 여기서 한 번 더 당겨두면 마지막 수집 이후 들어온 글까지 챙긴다.
+        # ★ main() 이 이미 이벤트 루프 안이다. asyncio.run 을 부르면
+        #   RuntimeError 로 죽는다 — 반드시 await 로 부를 것.
+        await telegram_feed.cmd_fetch()
+    except SystemExit as e:
+        # 미설정(세션·채널 없음)은 정상 상태로 본다. 피드 없이 검색만으로 돈다.
+        logger.warning(f"피드 수집 건너뜀: {e}")
+    except Exception as e:
+        logger.error(f"피드 수집 실패 — 이미 저장된 분까지만 씀: {e}")
+
+    try:
+        feed = telegram_feed.load_feed(hours=FEED_LOOKBACK_HOURS)
+    except Exception as e:
+        logger.error(f"피드 읽기 실패: {e}")
+        return {**empty, "error": f"피드 읽기 실패: {e}"}, usage
+
+    if not feed:
+        logger.warning("피드가 비었다 — 채널 설정과 세션을 확인할 것")
+        return {**empty, "error": "수집된 원문 없음"}, usage
+
+    logger.info(f"피드 {len(feed)}건 수집 — 분류 시작")
+
+    def _call(prompt: str) -> str:
+        text, u = call_claude(prompt, max_tokens=SEARCH_MAX_TOKENS,
+                              effort=SEARCH_EFFORT, use_search=False)
+        merge_usage(usage, u)
+        return text
+
+    routed = feed_router.route(feed, positions_doc, _call)
+    routed["total"] = len(feed)
+    hit = sum(len(v) for v in routed["by_target"].values())
+    logger.info(
+        f"피드 분류 완료: {len(feed)}건 중 {len(feed) - routed['unrouted']}건이 "
+        f"{len(routed['by_target'])}개 대상에 배정 (연결 {hit}건), "
+        f"실패 배치 {routed['failed_batches']}개"
+    )
+    return routed, usage
+
+
+def search_layer0(portfolio_level: dict, prev_state: dict, now_str: str,
+                  feed_items: Optional[list] = None) -> tuple[Optional[dict], dict]:
     """포트폴리오 상위 변수 판정. 개별 포지션과 별도로 먼저 확인."""
     if not portfolio_level:
         return None, new_usage()
@@ -1834,6 +1933,7 @@ def search_layer0(portfolio_level: dict, prev_state: dict, now_str: str) -> tupl
     kill_list = numbered(portfolio_level.get("layer0_kill_signals", []), "L", indent="")
     queries = ", ".join(portfolio_level.get("layer0_queries", []))
     prev = json.dumps(prev_state, ensure_ascii=False, indent=2) if prev_state else "(이전 관측 없음)"
+    feed_block = feed_router.format_block(feed_items or [])
 
     prompt = f"""당신은 투자 포트폴리오의 상위 변수(Layer 0)를 감시하는 분석가.
 
@@ -1852,8 +1952,15 @@ def search_layer0(portfolio_level: dict, prev_state: dict, now_str: str) -> tupl
 # 이전 관측 기록 (누적 판정용 — "2개 분기 연속" 류는 이 기록과 대조할 것)
 {prev}
 
+# ★ 오늘 들어온 원문 (구독 채널 피드)
+포트폴리오 상위 변수로 분류된 구독 채널 글이다. 검색보다 먼저 읽는다.
+{feed_block}
+
 # 작업
-web_search 로 위 KILL 신호 각각의 최신 상태를 확인하고 아래 JSON 만 출력.
+위 피드 원문을 먼저 훑어 KILL 신호에 걸리는 것을 고르고, 그 다음 web_search 로
+사실 확인과 미확인 신호 보강을 하여 아래 JSON 만 출력.
+★ 최근 7일 이내에 나온 것만 새 소식으로 취급한다. 그보다 오래된 자료뿐이면
+  finding 을 만들지 말고 observations 만 갱신할 것.
 
 {_SIGNAL_RULE}
 
@@ -1892,6 +1999,7 @@ def search_position(
     now_str: str,
     group: Optional[dict] = None,
     group_state: Optional[dict] = None,
+    feed_items: Optional[list] = None,
 ) -> tuple[Optional[dict], dict]:
     """포지션 1개 개별 검색 + RED/YELLOW/WHITE 판정.
 
@@ -1936,6 +2044,8 @@ def search_position(
  그룹 이전 관측: {gprev}
 """
 
+    feed_block = feed_router.format_block(feed_items or [])
+
     prompt = f"""당신은 특정 보유 포지션의 thesis 훼손 여부를 감시하는 분석가.
 
 # 현재 시점
@@ -1976,19 +2086,37 @@ def search_position(
 # 메모
 {pos.get('note', '')}
 
-# 작업
-web_search 로 위 KILL·ADD 신호와 추적 지표의 최신 상태를 확인하고 아래 JSON 만 출력.
+# ★ 오늘 들어온 원문 (구독 채널 피드)
+사용자가 직접 골라 구독 중인 채널에서 방금 수집한 글이다. 이게 1차 재료다 —
+검색으로 뉴스를 찾아 나서기 전에 여기부터 읽는다. '2개 채널 동시보도' 처럼
+여러 곳이 같은 건을 옮겼으면 그만큼 업계가 중요하게 본다는 뜻이다.
+{feed_block}
 
-그리고 **어느 신호에도 걸리지 않는 최근 7일 이내 소식**도 함께 담을 것.
-실적·수주·계약·증설·인허가·소송·경영권 변동·정책 변화·주요 고객사 동향 등,
-판정 대상은 아니지만 보유자가 알아둘 만한 사실. 이건 level="WHITE", kind="info",
-refs=[] 로 넣는다. 최대 2건. 없으면 넣지 말 것 — 억지로 채우지 말 것.
+# 작업
+아래 순서로 처리하고 JSON 만 출력.
+
+1) 위 피드 원문을 먼저 처리한다. 각 항목이 KILL·ADD·추적지표에 걸리는지 보고,
+   걸리면 해당 refs 로, 안 걸려도 보유자가 알아야 할 사실이면 WHITE/info 로 담는다.
+   ★ 채널 글은 그 자체로는 출처가 아니다. 전언·요약·오보가 섞인다.
+     담을 항목은 web_search 로 원 보도나 1차 자료(공시·IR·규제기관 문서)를 찾아
+     사실 여부와 수치를 확인하고, 확인된 쪽을 sources 에 적는다.
+     확인이 안 되면 버리지 말고 sources 에 채널 원문 URL 을 tier="S3" 으로 적고
+     qual 에 "1차 출처 미확인" 이라고 명시한다.
+   ★ 피드에 있는데 담지 않은 항목이 있으면 skipped_feed 에 번호와 이유를 적는다.
+     (예: ["F3 단순 주가 코멘트", "F5 이미 8/20 에 보고된 건"])
+
+2) 그 다음, 피드로 확인되지 않은 KILL·ADD 신호와 추적 지표만 web_search 로 확인한다.
+   ★ 최근 7일 이내에 나온 것만 '새 소식' 으로 취급한다. 그보다 오래된 자료밖에
+     못 찾았으면 새 finding 을 만들지 말고 observations 에만 값을 갱신하며,
+     note 에 자료 날짜를 적는다. 2주 전 기사를 오늘 뉴스처럼 보고하지 말 것.
+
 (단순 주가 등락, 목표주가 조정, 증권사 투자의견, 추측성 보도는 제외.
  '무시할 것' 에 해당하는 내용도 제외.)
 
-★ 등급 인플레 금지. 매일 점검하므로 대부분의 날은 걸리는 신호가 없는 것이 정상이다.
-   findings 가 비거나 WHITE 뿐인 것은 실패가 아니라 정상 결과다.
-   KILL·ADD 원문에 실제로 해당하는 사실이 없으면 RED·YELLOW 를 만들지 말 것.
+★ 등급 인플레 금지. KILL·ADD 원문에 실제로 해당하는 사실이 없으면
+   RED·YELLOW 를 만들지 말 것. 신호에 안 걸리는 날은 WHITE 뿐인 게 정상이다.
+   다만 **피드에 실질적인 사실이 들어왔는데 아무것도 담지 않는 것은 실패다.**
+   판정할 게 없다는 것과 알릴 게 없다는 것은 다르다.
 
 {_SIGNAL_RULE}
 
@@ -2010,6 +2138,7 @@ refs=[] 로 넣는다. 최대 2건. 없으면 넣지 말 것 — 억지로 채�
   "position_id": "{pos.get('id')}",
   "search_complete": true,
   "unchecked": [],
+  "skipped_feed": [],
   "findings": [
     {{
       "level": "RED|YELLOW|WHITE",
@@ -2039,6 +2168,7 @@ def search_theme(
     positions_by_id: dict,
     state_entry: dict,
     now_str: str,
+    feed_items: Optional[list] = None,
 ) -> tuple[Optional[dict], dict]:
     """테마 1개 검색 (Layer 0.5). ★ 판정하지 않는다.
 
@@ -2063,6 +2193,7 @@ def search_theme(
     affected = chr(10).join(affected_lines) or "- (연결된 포지션 없음)"
 
     prev = json.dumps(state_entry, ensure_ascii=False, indent=2) if state_entry else "(이전 관측 없음)"
+    feed_block = feed_router.format_block(feed_items or [])
 
     prompt = f"""당신은 특정 기술·산업 테마의 '변화 방향과 속도' 를 추적하는 분석가.
 
@@ -2087,8 +2218,14 @@ def search_theme(
 # 이전 관측 기록 (같은 흐름의 반복 여부 판정용)
 {prev}
 
+# ★ 오늘 들어온 원문 (구독 채널 피드)
+이 테마로 분류된 구독 채널 글이다. 검색보다 먼저 읽는다.
+{feed_block}
+
 # 작업
-web_search 로 위 추적 대상 변화 각각의 최신 상태를 확인하고 아래 JSON 만 출력.
+위 피드 원문을 먼저 훑어 추적 대상 변화(W)에 걸리는 것을 고르고,
+그 다음 web_search 로 사실 확인과 미확인 항목 보강을 하여 아래 JSON 만 출력.
+채널 글은 출처가 아니다 — 담을 건은 원 보도나 1차 자료를 찾아 sources 에 적을 것.
 
 ★ 이 레이어는 **판정하지 않는다.**
 - RED/YELLOW/WHITE 등급을 매기지 말 것. level 필드 자체가 없다.
@@ -2709,13 +2846,22 @@ async def main(dry_run: bool = False, market: str = "all"):
 
     usage_total = new_usage()
 
+    # 2.5 구독 채널 원문 수집 · 분류 (Layer -1)
+    # 검색보다 먼저 돈다. 오늘 실제로 무슨 일이 있었는지는 여기에 들어 있고,
+    # 검색은 그걸 확인·보강하는 데 쓴다. 순서가 뒤집히면 예전 기사를 다시 캔다.
+    logger.info("구독 채널 피드 수집 중...")
+    routed, u = await collect_and_route_feed(positions_doc)
+    merge_usage(usage_total, u)
+    feed_by_target = routed.get("by_target", {})
+
     # 3. Layer 0 (포트폴리오 상위 변수) 검색
     layer0_result = None
     layer0_error = ""
     portfolio_level = positions_doc.get("portfolio_level", {})
     if portfolio_level:
         logger.info("Layer 0 검색 중...")
-        layer0_result, u = search_layer0(portfolio_level, state.get("portfolio_level", {}), now_str)
+        layer0_result, u = search_layer0(portfolio_level, state.get("portfolio_level", {}), now_str,
+                                         feed_items=feed_by_target.get("portfolio"))
         merge_usage(usage_total, u)
         layer0_error = u.get("error", "")
         if layer0_result:
@@ -2738,7 +2884,8 @@ async def main(dry_run: bool = False, market: str = "all"):
     # 선별을 남겨두는 이유는 reasons 다 — 가격·이벤트 트리거가 붙었는지가
     # 검색·종합 프롬프트에 "오늘 특별히 볼 것" 신호로 들어간다.
     selected, unchecked = select_positions(
-        positions, state, all_prices, upcoming, today_str, market=market
+        positions, state, all_prices, upcoming, today_str, market=market,
+        feed_by_target=feed_by_target,
     )
     if selected:
         for c in selected:
@@ -2768,8 +2915,20 @@ async def main(dry_run: bool = False, market: str = "all"):
         gstate = state["groups"].setdefault(
             group["id"], {"last_checked": None, "observations": {}, "open_flags": []}
         ) if group else None
+        # 그룹 형제 종목에 배정된 원문도 같이 넘긴다. 같은 산업 논리를 공유하므로
+        # "경쟁사 A 수주" 같은 건은 어느 종목으로 분류됐든 이 종목 판정에도 쓰인다.
+        pos_feed = list(feed_by_target.get(pos["id"], []))
+        if group:
+            seen = {(x["channel_id"], x["msg_id"]) for x in pos_feed}
+            for sib in group_members(group["id"], positions_doc):
+                for x in feed_by_target.get(sib["id"], []):
+                    if (x["channel_id"], x["msg_id"]) not in seen:
+                        seen.add((x["channel_id"], x["msg_id"]))
+                        pos_feed.append(x)
+
         result, u = search_position(cand, entry, price_info, now_str,
-                                    group=group, group_state=gstate)
+                                    group=group, group_state=gstate,
+                                    feed_items=pos_feed)
         merge_usage(usage_total, u)
 
         incomplete = is_search_incomplete(
@@ -2837,7 +2996,8 @@ async def main(dry_run: bool = False, market: str = "all"):
         entry = theme_state["themes"].setdefault(
             theme["id"], {"last_checked": None, "observations": {}, "shifts": {}}
         )
-        result, u = search_theme(theme, positions_by_id, entry, now_str)
+        result, u = search_theme(theme, positions_by_id, entry, now_str,
+                                 feed_items=feed_by_target.get(theme['id']))
         merge_usage(usage_total, u)
 
         incomplete = is_search_incomplete(
@@ -2910,6 +3070,7 @@ async def main(dry_run: bool = False, market: str = "all"):
         registry=registry,
         market=market,
         layer0_error=layer0_error,
+        notable=routed.get("notable"),
     )
     logger.info(f"각주 출처 {len(registry)}건 등록")
 

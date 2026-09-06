@@ -1,11 +1,11 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-09-04"
+    "last_run": "2026-09-07"
   },
   "themes": {
     "ai-dc-power": {
-      "last_checked": "2026-09-04",
+      "last_checked": "2026-09-07",
       "observations": {
         "OCP LVDC SST 스펙": [
           {
@@ -352,6 +352,11 @@
             "date": "2026-09-04",
             "last_seen": "2026-09-04",
             "value": "116GW(2Q26, 3Q26 실적 미발표로 갱신 없음), 연말 125GW·2028년 24GW·2030년 30GW 생산목표 재확인"
+          },
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "116GW(2Q26, 변동없음), 3Q26 연환산 20GW 출하목표·연말 125GW 목표 재확인, Power부문 수주 2Q26 +134%(organic)"
           }
         ],
         "ERCOT 대형부하 접속대기": [
@@ -738,6 +743,11 @@
             "date": "2026-08-28",
             "last_seen": "2026-08-28",
             "value": "2026-09-03(변동없음)"
+          },
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "2026-09-03(도달, 결과 미확인)"
           }
         ],
         "자사주매입 한도": [
@@ -881,6 +891,11 @@
             "date": "2026-09-02",
             "last_seen": "2026-09-02",
             "value": "42.22억달러 → 51.85억달러(+22.8%)"
+          },
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "51.85억달러(변동없음, 9/6 재확인), 울산공장 증설 9월 완료 예정"
           }
         ],
         "효성중공업 중공업 수주가이던스": [
@@ -998,6 +1013,118 @@
             "date": "2026-09-04",
             "last_seen": "2026-09-04",
             "value": "61.6%"
+          }
+        ],
+        "Siemens Energy": [
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "Q3 FY26 수주잔고 1620억유로 최대치 유지, Q4 실적은 11월 발표 예정(아직 미발표)"
+          }
+        ],
+        "ERCOT 감사": [
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "RFI 8월말~9월초 발송, 10~11월 추가라운드, 12/10 검증보고서 제출·12/17 PUCT 공개회의 일정 재확인"
+          }
+        ],
+        "PJM IRAS 세부": [
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "2027-06-01부터 신규 대형부하 대상 적용 개시(변동없음)"
+          }
+        ],
+        "RBP 목표용량": [
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "약 60GW(기존 관측, 오류) → 14.9GW(정정)"
+          }
+        ],
+        "RBP 1단계(상호계약)": [
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "2026-09 ~ 2027-03"
+          }
+        ],
+        "RBP 2단계(중앙조달 경매)": [
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "2027-03"
+          }
+        ],
+        "PJM 2038년까지 신규 대형부하 증가 전망": [
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "약 70GW"
+          }
+        ],
+        "2022년 이후 발전설비 퇴출": [
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "약 15GW"
+          }
+        ],
+        "IRAS 발효목표": [
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "2026-10-12(변동없음)"
+          }
+        ],
+        "주가(8/20→9/3)": [
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "$207.64 → $172.56~$182.26"
+          }
+        ],
+        "52주 고점 대비": [
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "약 -52~55%"
+          }
+        ],
+        "최근 1개월 낙폭": [
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "-22.6%"
+          }
+        ],
+        "최근 12개월 내부자 순매도": [
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "$410.1M(매수 0)"
+          }
+        ],
+        "심리 예정일": [
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "2026-08-24(예정) → 연기(2026-08-21 공지 확인)"
+          }
+        ],
+        "OCP SST Option A 양산": [
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "3Q26"
+          }
+        ],
+        "OCP SST Option B(중앙집중형)": [
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "3Q27"
           }
         ]
       },
@@ -1322,7 +1449,7 @@
           "thesis_review": false
         },
         "W4|온사이트 발전·비계통 전력 조달 비중(behind-the-meter) — xai 콜로서스 소송": {
-          "headline": "xAI 금지명령 판결 지연 장기화",
+          "headline": "xAI 심리 8/24 예정→실제 연기 확인",
           "shift": "온사이트 발전·비계통 전력 조달 비중(behind-the-meter) — xAI 콜로서스 소송",
           "refs": [
             "W4"
@@ -1331,26 +1458,33 @@
           "affects": [
             "power-generation"
           ],
-          "summary": "2026-08-24 심리가 열렸음에도 미시시피 연방법원의 xAI(SpaceXAI) 콜로서스2 무허가 가스터빈 예비금지명령 판결이 2026-09-04 현재까지 나오지 않고 있다. 당초 8월 말로 예상됐던 판결 시점이 재차 도과되며 지연이 한 달 가까이 이어지는 모습이며, DOJ의 국가안보 근거 개입·기각 요청 상태는 그대로 유지되고 있다.",
+          "summary": "당초 2026-08-24로 예정됐던 미시시피 연방법원의 xAI(SpaceXAI) 콜로서스2 예비금지명령 심리가 법원에 2026-08-21 접수된 공지(Notice)에 따라 실제로는 연기됐던 것으로 CourtListener 판례기록 및 복수 매체에서 확인됐다(이전 관측의 '8/24 심리 개최 확인'은 정정 필요). 이에 따라 판결은 2026-09-07 현재까지도 나오지 않고 있으며, 지연이 예상보다 더 장기화되고 있다.",
           "sources": [
+            {
+              "url": "https://www.aol.com/articles/spacexai-hearing-decide-future-southaven-100436000.html",
+              "outlet": "AOL/Yahoo News",
+              "date": "2026-08-21",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.courtlistener.com/docket/73188848/national-association-for-the-advancement-of-colored-people-v-xai-corp/",
+              "outlet": "CourtListener(법원 판례기록)",
+              "date": "2026-08",
+              "tier": "S1",
+              "note": ""
+            },
             {
               "url": "https://www.mississippifreepress.org/xai-gas-turbines-causing-harm-in-southaven-naacp-argues-in-motion-to-shut-them-down/",
               "outlet": "Mississippi Free Press",
               "date": "2026-08",
               "tier": "S2",
               "note": ""
-            },
-            {
-              "url": "https://www.yahoo.com/news/us/articles/spacexai-hearing-decide-future-southaven-100436668.html",
-              "outlet": "Yahoo News",
-              "date": "2026-08-24",
-              "tier": "S2",
-              "note": ""
             }
           ],
-          "last_seen": "2026-09-04",
+          "last_seen": "2026-09-07",
           "first_seen": "2026-08-21",
-          "count": 5,
+          "count": 6,
           "thesis_review": false
         },
         "W2,W3|배전 전압 아키텍처 전환(54v 랙 → 800vdc) 채택 속도": {
@@ -1514,31 +1648,37 @@
           "thesis_review": false
         },
         "W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — pjm 백스탑 용량조달": {
-          "headline": "PJM 60GW 백스탑 용량경매",
+          "headline": "PJM 백스탑 목표용량·일정 정정",
           "shift": "계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — PJM 백스탑 용량조달",
           "refs": [
             "W5"
           ],
-          "direction": "순풍",
+          "direction": "중립",
           "affects": [
             "hyosung-transformer",
-            "hd-hyundai-electric",
-            "power-generation"
+            "hd-hyundai-electric"
           ],
-          "summary": "PJM은 약 60GW 규모의 용량 부족분(shortfall)을 메우기 위해 2026-09-30~10-21 '신뢰성 백스탑 조달(Reliability Backstop Procurement)' 경매를 실시하며 결과는 12월 발표된다. 앞서 제출된 IRAS(임시자원적정성서비스) 제안의 의견수렴 마감(2026-09-03)은 그대로 유지되고 있어 별도 트랙으로 병행 진행 중이다.",
+          "summary": "PJM 공식자료 및 복수 매체를 재확인한 결과, Reliability Backstop Procurement(RBP)의 실제 목표 용량은 약 14.9GW(기존 관측 '약 60GW'는 총 부족분과 혼동된 수치로 정정)이다. 절차도 기존 관측(9/30~10/21 경매, 12월 결과)과 달리 1단계 상호계약(2026년 9월~2027년 3월)과 2단계 중앙조달(pay-as-bid 경매, 2027년 3월)의 2단계 구조로 확인됐다. 별도로 PJM IRAS 제안의 FERC 의견수렴 마감(9/3)이 도래했으나 결과는 아직 확인되지 않았고, 발효목표(10/12)는 유지된다.",
           "sources": [
             {
-              "url": "https://www.utilitydive.com/news/pjm-board-backstop-capacity-auction-data-center-curtailment/826347/",
+              "url": "https://www.utilitydive.com/news/pjm-backstop-capacity-procurement-data-centers-ferc/817286/",
               "outlet": "Utility Dive",
               "date": "2026-08",
               "tier": "S2",
               "note": ""
             },
             {
-              "url": "https://www.datacenterknowledge.com/energy-power-supply/pjm-s-new-deal-for-data-centers-bring-power-or-face-cuts",
-              "outlet": "Data Center Knowledge",
+              "url": "https://www.renewableenergyworld.com/power-grid/pjm-reliability-backstop-procurement/",
+              "outlet": "Renewable Energy World",
               "date": "2026-08",
               "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://insidelines.pjm.com/pjm-reliability-backstop-proposal-outlines-steps-to-secure-new-supply-and-maintain-reliability/",
+              "outlet": "PJM Inside Lines",
+              "date": "2026-08",
+              "tier": "S1",
               "note": ""
             },
             {
@@ -1549,9 +1689,9 @@
               "note": ""
             }
           ],
-          "last_seen": "2026-08-28",
+          "last_seen": "2026-09-07",
           "first_seen": "2026-08-28",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W2,W3|배전 전압 아키텍처 전환(54v 랙 → 800vdc)에 연동된 point-of-load 공급사 실적 — vicor 자본정책": {
@@ -1660,11 +1800,85 @@
           "first_seen": "2026-09-02",
           "count": 1,
           "thesis_review": false
+        },
+        "W2,W3|배전 전압 아키텍처 전환(54v 랙 → 800vdc)에 연동된 point-of-load 공급사 실적 — vicor 주가": {
+          "headline": "Vicor 주가 52주 고점 대비 반토막",
+          "shift": "배전 전압 아키텍처 전환(54V 랙 → 800VDC)에 연동된 point-of-load 공급사 실적 — Vicor 주가",
+          "refs": [
+            "W2",
+            "W3"
+          ],
+          "direction": "역풍",
+          "affects": [
+            "point-of-load"
+          ],
+          "summary": "Vicor 주가가 8/20 $207.64에서 9/3 기준 $172.56~$182.26 구간으로 추가 하락했다. 52주 고점($382.65) 대비 약 -52~55% 수준까지 밀린 것으로, 최근 1개월 낙폭만 약 -22.6%로 집계됐다. 2분기 매출(+1.6% YoY, 백로그 +145% YoY)이 견조했음에도 최근 12개월간 내부자 순매도액이 총 4억1010만달러(매수 0)에 달하는 것으로 새로 집계되며 밸류에이션 부담·차익실현 심리가 하락 배경으로 지목됐다.",
+          "sources": [
+            {
+              "url": "https://www.gurufocus.com/news/9046489/vicor-corp-vicr-shares-fall-45-what-gf-score-of-81-tells-investors",
+              "outlet": "GuruFocus",
+              "date": "2026-08-20",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.cnn.com/markets/stocks/VICR",
+              "outlet": "CNN Markets",
+              "date": "2026-09-03",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-09-07",
+          "first_seen": "2026-09-07",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W1,W2,W3|랙 전력밀도 로드맵 변경(kw/rack) 및 실제 배치 시점 — kyber 지연 논란 / ocp·vera rubin 로드맵": {
+          "headline": "Kyber 지연설·OCP·Vera Rubin 변동없음",
+          "shift": "랙 전력밀도 로드맵 변경(kW/rack) 및 실제 배치 시점 — Kyber 지연 논란 / OCP·Vera Rubin 로드맵",
+          "refs": [
+            "W1",
+            "W2",
+            "W3"
+          ],
+          "direction": "중립",
+          "affects": [
+            "point-of-load"
+          ],
+          "summary": "Kyber 랙 2028년 지연설에 대해 NVIDIA는 여전히 '로드맵 유지'라는 포괄적 입장만 반복 중이며 구체적 반박은 없어 논란이 해소되지 않았다. OCP LVDC SST 스펙은 v0.3 유지 상태에서 세부적으로 Option A(3Q26 양산, 기존 415/480VAC→800VDC)와 Option B(3Q27, 중앙집중형 Power Center)의 2단계 로드맵이 확인됐다. NVIDIA의 800V 파워랙은 Vera Rubin 세대에서 3분기(2026) 옵션 출하 일정대로 진행 중임이 재확인됐다.",
+          "sources": [
+            {
+              "url": "https://www.opencompute.org/documents/ocp-sst-design-specification-v0-3-final-pdf",
+              "outlet": "Open Compute Project(공식)",
+              "date": "2026-07",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://www.tomshardware.com/pc-components/gpus/nvidias-kyber-rack-for-rubin-ultra-slips-to-2028",
+              "outlet": "Tom's Hardware",
+              "date": "2026-07-06",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.trendforce.com/presscenter/news/20260625-13121.html",
+              "outlet": "TrendForce",
+              "date": "2026-06-25",
+              "tier": "S2",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-09-07",
+          "first_seen": "2026-09-07",
+          "count": 1,
+          "thesis_review": false
         }
       }
     },
     "optical-interconnect": {
-      "last_checked": "2026-09-04",
+      "last_checked": "2026-09-07",
       "observations": {
         "NVIDIA CPO 스위치 상태": [
           {
@@ -1709,7 +1923,7 @@
           },
           {
             "date": "2026-09-04",
-            "last_seen": "2026-09-04",
+            "last_seen": "2026-09-07",
             "value": "변동 없음 — Spectrum-X/Quantum-X Photonics 완전양산 지속, 가을(9~11월) 본격 출하 예정 유지"
           }
         ],
@@ -1748,6 +1962,11 @@
             "date": "2026-09-02",
             "last_seen": "2026-09-04",
             "value": "변동 없음 — Tomahawk 6-Davisson/Bailly 볼륨생산 지속, 신규 발표 없음"
+          },
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "변동 없음 — Tomahawk 6-Davisson/Bailly 볼륨생산 지속, 2026 하반기 추가 확대 전망"
           }
         ],
         "TSMC COUPE": [
@@ -1788,7 +2007,7 @@
           },
           {
             "date": "2026-09-02",
-            "last_seen": "2026-09-02",
+            "last_seen": "2026-09-07",
             "value": "변동 없음 — 2026 양산목표 유지"
           }
         ],
@@ -1829,6 +2048,11 @@
             "date": "2026-09-02",
             "last_seen": "2026-09-04",
             "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) 유지, 신규 계약 미확인"
+          },
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(2026-08-20) 유지, 신규 계약 미확인"
           }
         ],
         "ASMPT 포토닉스 매출 성장": [
@@ -2292,6 +2516,11 @@
             "date": "2026-09-04",
             "last_seen": "2026-09-04",
             "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지, 참여사 10개 창립+9개 신규(총19개) 명단 구체화"
+          },
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지"
           }
         ],
         "성호전자/서룡전자 주식담보대출 잔액": [
@@ -2309,6 +2538,11 @@
             "date": "2026-09-04",
             "last_seen": "2026-09-04",
             "value": "변동 없음 — 1,650억원(8/31 기준) 유지, 9/3~4 신규 공시 미확인"
+          },
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "변동 없음 — 1,650억원(8/31 기준) 유지"
           }
         ],
         "ADS테크 신규수주(CPO 장비)": [
@@ -2384,6 +2618,20 @@
             "date": "2026-09-04",
             "last_seen": "2026-09-04",
             "value": "+50%"
+          }
+        ],
+        "Marvell CPO 상용화 스케일 시점": [
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "신규 — 2027년말부터 스케일 전망(9/1~2 SEMICON Taiwan 발언)"
+          }
+        ],
+        "Zayo 리더십": [
+          {
+            "date": "2026-09-07",
+            "last_seen": "2026-09-07",
+            "value": "9/1 CEO 교체(Steve Smith→Sowmyanarayan Sampath), CPO 테마 직접 관련성 낮음"
           }
         ]
       },
@@ -2676,7 +2924,7 @@
           "thesis_review": false
         },
         "W1,W3|cpo 양산 채택 일정의 전진 또는 후퇴 / 광 i/o 표준화 동향 및 주요 벤더 로드맵 변경": {
-          "headline": "Spectrum-X 공급망 5개사 확정",
+          "headline": "Marvell, CPO 2027년말 스케일 언급",
           "shift": "CPO 양산 채택 일정의 전진 또는 후퇴 / 광 I/O 표준화 동향 및 주요 벤더 로드맵 변경",
           "refs": [
             "W1",
@@ -2684,19 +2932,33 @@
           ],
           "direction": "순풍",
           "affects": [],
-          "summary": "NVIDIA Spectrum-X Ethernet Photonics의 완전양산 공급망이 TSMC(실리콘포토닉스 파운드리)-SPIL(칩스케일 패키징·테스트)-Lumentum(레이저칩)-TFC Communication(레이저모듈 서브어셈블리)-Foxconn(스위치 최종조립) 5개사 체제로 구체화되어 보도됐다. 레이저 개수 4배 감소, 전력소비 5배 절감, 평균고장간격(MTBI) 10배 개선이 재확인됐다.",
+          "summary": "Marvell CTO Radha Nagarajan이 2026-09-01~02 SEMICON Taiwan 실리콘포토닉스 서밋에서 CPO 상용화가 2027년 말부터 본격 스케일된다는 시점을 처음 공개적으로 언급했다. 전력·유닛 밀도 병목이 CPO 채택을 가속화하는 핵심 동인이며 구리 인터커넥트는 물리적 한계에 근접했다고 발언, 대만/TSMC가 패키징 병목 해소의 중심이 될 것이라고 밝혔다.",
           "sources": [
             {
-              "url": "https://www.storagereview.com/news/nvidia-spectrum-x-ethernet-photonics-enters-full-production-with-4x-fewer-lasers-and-a-five-vendor-cpo-supply-chain",
-              "outlet": "storagereview.com",
-              "date": "2026-08",
+              "url": "https://www.digitimes.com/news/a20260902PD227/marvell-tsmc-silicon-taiwan-photonics.html",
+              "outlet": "digitimes.com",
+              "date": "2026-09-02",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.digitimes.com/news/a20260901PD231/marvell-cpo-siph-adoption-semicon-taiwan.html",
+              "outlet": "digitimes.com",
+              "date": "2026-09-01",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.digitimes.com/news/a20260902PD244/2026-taiwan-semicon-marvell-cpo.html",
+              "outlet": "digitimes.com",
+              "date": "2026-09-02",
               "tier": "S2",
               "note": ""
             }
           ],
-          "last_seen": "2026-09-02",
+          "last_seen": "2026-09-07",
           "first_seen": "2026-08-28",
-          "count": 2,
+          "count": 3,
           "thesis_review": false
         },
         "W1,W5|cpo 양산 채택 일정의 전진 또는 후퇴 / 실리콘 포토닉스 수율·패키징 병목 해소 여부": {
@@ -2778,6 +3040,56 @@
           ],
           "last_seen": "2026-09-04",
           "first_seen": "2026-09-04",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W1,W3,W4,W5|핵심 지표 전반 변동 없음 (nvidia/broadcom cpo 양산, tsmc coupe, corning 계약, 성호전자/ads테크 담보·수주": {
+          "headline": "주요 지표 정체 3일 연속",
+          "shift": "핵심 지표 전반 변동 없음 (NVIDIA/Broadcom CPO 양산, TSMC COUPE, Corning 계약, 성호전자/ADS테크 담보·수주, OCP 표준화)",
+          "refs": [
+            "W1",
+            "W3",
+            "W4",
+            "W5"
+          ],
+          "direction": "중립",
+          "affects": [
+            "optical-align",
+            "optical-material"
+          ],
+          "summary": "2026-09-04 마지막 점검 이후 2026-09-07까지 NVIDIA Spectrum-X/Quantum-X Photonics 완전양산(가을 출하 예정 유지), Broadcom Bailly/Tomahawk 6-Davisson 볼륨생산, TSMC COUPE 2026 양산목표, Corning 장기계약(Meta $6B·Amazon·Zayo 8/20 이후 신규 없음), 성호전자/서룡전자 담보대출 잔액(1,650억원, 8/31 기준), OCP Lightmatter 표준화(2026 Q4 초안 목표) 모두 추가 발표나 수치 변동이 확인되지 않았다.",
+          "sources": [
+            {
+              "url": "https://www.storagereview.com/news/nvidia-spectrum-x-ethernet-photonics-enters-full-production-with-4x-fewer-lasers-and-a-five-vendor-cpo-supply-chain",
+              "outlet": "storagereview.com",
+              "date": "2026-08",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.sedaily.com/article/20074412",
+              "outlet": "sedaily.com",
+              "date": "2026-08-31",
+              "tier": "S2",
+              "note": ""
+            },
+            {
+              "url": "https://www.corning.com/worldwide/en/about-us/news-events/news-releases/2026/08/zayo-stays-ahead-of-ai-infrastructure-demand-through-long-term-fiber-supply-agreement-with-corning.html",
+              "outlet": "corning.com",
+              "date": "2026-08-20",
+              "tier": "S1",
+              "note": ""
+            },
+            {
+              "url": "https://lightmatter.co/press-release/industry-leaders-formally-launch-cpo-system-architecture-initiative-within-the-open-compute-project/",
+              "outlet": "lightmatter.co",
+              "date": "2026-08",
+              "tier": "S1",
+              "note": ""
+            }
+          ],
+          "last_seen": "2026-09-07",
+          "first_seen": "2026-09-07",
           "count": 1,
           "thesis_review": false
         }

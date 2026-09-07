@@ -132,6 +132,7 @@ POSITION_MAX_USES = 20         # 포지션당 (실측: 가장 무거운 포지�
 # (실측 2026-08-16: NVIDIA Spectrum-X Photonics 양산 진입을 통째로 놓침).
 # max_uses 는 할당량이 아니라 천장이므로 올려도 평상시 비용은 그대로다.
 THEME_MAX_USES = 16            # 테마(Layer 0.5)당
+EVENT_MAX_USES = 14            # 큰 건 영향 분석당. 사실 확인이 먼저라 여유를 둔다
 # ★ 실행당 캡이다. 하루 2회이므로 하루 총량은 이 값의 2배.
 # 구독(CLI) 모드에서는 검색 건당 요금이 없으므로 이 값은 비용 브레이크가 아니라
 # 폭주 감지용 안전판이다. 정상 운영에서는 걸리지 않아야 한다.
@@ -1064,6 +1065,7 @@ def build_prompt(
     market: str = "all",
     layer0_error: str = "",
     notable: Optional[list] = None,
+    event_results: Optional[list] = None,
 ) -> str:
     """종합 호출 프롬프트.
 
@@ -1296,6 +1298,41 @@ def build_prompt(
         for e in upcoming
     ) or f"(향후 {EVENT_WINDOW_DAYS}일 내 캘린더 이벤트 없음)"
 
+    # ---- 오늘의 큰 건 + 포지션별 영향 ----
+    by_pid = {p["id"]: p for p in positions_doc.get("positions", [])}
+    ev_blocks = []
+    for ev in (event_results or []):
+        lines = [f"## {ev['label']}", f"무슨 일: {ev.get('what', '')}",
+                 f"왜 큰 건인가: {ev.get('why_big', '')}",
+                 f"구독 채널 언급 {ev.get('mentions', 0)}건"]
+        if ev.get("error"):
+            lines.append(f"- ⚠️ 영향 분석 못 함: {ev['error']} — 영향 없음이 아니다")
+            ev_blocks.append("\n".join(lines))
+            continue
+
+        a = ev.get("analysis") or {}
+        if not a.get("confirmed", True):
+            lines.append("- ⚠️ 1차 출처로 확인되지 않음. 채널 전언 수준으로만 다룰 것")
+        if a.get("fact_check"):
+            lines.append(f"확인된 사실: {a['fact_check']}")
+
+        # '없음' 도 그대로 싣는다. 전부 수혜로 적히면 아무 정보도 못 준다.
+        for imp in (a.get("impacts") or []):
+            pos = by_pid.get(imp.get("position_id"))
+            if not pos:
+                continue
+            lines.append(
+                f"- {display_name(pos)} [{imp.get('direction', '불명')}·"
+                f"{imp.get('strength', '불명')}]\n"
+                f"  경로: {imp.get('path', '')}\n"
+                f"  시차: {imp.get('lag', '-')} / 확인 지표: {imp.get('watch', '-')}"
+            )
+        marks = registry.add_all(normalize_sources(a))
+        if marks:
+            lines.append(f"  각주: {marks}")
+        ev_blocks.append("\n".join(lines))
+    events_big_section = "\n\n".join(ev_blocks) or "(오늘 큰 건 없음)"
+
     # ---- 감시 목록 밖 (구독 채널에서 올라왔으나 어느 포지션에도 안 걸린 것) ----
     # 이 통로가 없으면 시스템은 등록된 포지션 밖의 일을 구조적으로 볼 수 없다.
     # 검색이 못 잡던 '핵심 뉴스' 상당수가 실제로는 여기로 들어온다.
@@ -1352,6 +1389,12 @@ status 가 holding 또는 watching 인 것만. T=thesis, K=kill_signals, A=add_s
 G=그룹 공통 기준 — 같은 그룹의 종목 전부에 걸린다. 출력에서 역참조에 사용.
 
 {positions_config}
+
+# 오늘의 큰 건 — 수요·공급을 통째로 움직이는 사건과 포지션별 영향
+개별 kill_signal 판정과는 다른 층이다. 사건 하나가 여러 포지션에 어떤 경로로
+얼마나 닿는지를 따진 결과다. 등급(🔴🟡⚪)을 매기지 말 것 — 판정이 아니다.
+strength 가 '없음' 인 포지션은 굳이 쓰지 말 것. '직접' 을 먼저, '간접' 을 그다음.
+{events_big_section}
 
 # Layer 0 — 포트폴리오 상위 변수 (개별 포지션보다 우선)
 {layer0_config}
@@ -1450,6 +1493,16 @@ plain text, 표·markdown 문법 없이. 모바일에서 그대로 읽히게. 26
   ↳ 관련 근거: "해당 thesis 또는 add_signal 원문을 그대로 인용"
   근거 ③
 (해당 없으면: 없음)
+
+⚡ 오늘의 큰 건
+• 사건명 — 무슨 일인지 한두 문장. 확인된 사실만.
+  ↳ 포지션명 (회사명 티커) [순풍·직접] 전달 경로를 화살표로 한 줄
+     시차: 언제쯤 숫자로 / 확인: 무엇을 보면 아는지
+  ↳ 포지션명 (회사명 티커) [역풍·간접] …
+  근거 ①②
+(위 '오늘의 큰 건' 재료만 쓸 것. 최대 2건, 사건당 포지션 최대 4개.
+ strength='없음' 은 쓰지 말 것. 1차 확인이 안 된 사건은 '미확인' 을 명시할 것.
+ 해당 없으면: 없음)
 
 🔷 AI 인프라 흐름
 • [순풍] 흐름 제목 — 무엇이 어디서 어디로 움직였는지 2~3문장. 숫자 포함.
@@ -1983,6 +2036,14 @@ async def collect_and_route_feed(positions_doc: dict) -> tuple[dict, dict]:
     for it in routed.get("notable", []):
         head = re.sub(r"\s+", " ", it.get("text", ""))[:60]
         logger.info(f"  감시목록밖 ← {it['channel'][:12]} | {head}")
+
+    # 오늘의 큰 건 + 포지션별 영향. 분류·판정 레이어는 "내 kill_signal 에 걸리나"
+    # 만 묻기 때문에, 수요를 통째로 움직이는 사건이 터져도 각 포지션에 얼마나
+    # 닿는지를 아무도 따지지 않는다. GPT-6 출시가 파두 주가 설명 각주로만 남았다.
+    routed["events"] = feed_router.detect_events(feed, _call)
+    for ev in routed["events"]:
+        logger.info(f"  큰 건: {ev['label']} ({ev['mentions']}건 언급)")
+
     hit = sum(len(v) for v in routed["by_target"].values())
     logger.info(
         f"피드 분류 완료: {len(feed)}건 중 {len(feed) - routed['unrouted']}건이 "
@@ -1990,6 +2051,37 @@ async def collect_and_route_feed(positions_doc: dict) -> tuple[dict, dict]:
         f"실패 배치 {routed['failed_batches']}개"
     )
     return routed, usage
+
+
+def analyze_events(events: list, positions_doc: dict) -> tuple[list, dict]:
+    """오늘의 큰 건 각각에 대해 사실 확인 + 포지션별 영향 분석.
+
+    다른 레이어와 묻는 것이 다르다. 포지션 검색은 "내 kill_signal 에 걸리나",
+    테마는 "축이 어디로 움직이나" 를 묻는다. 여기는 **하나의 사건이 11개 포지션
+    각각에 어떤 경로로 얼마나 닿나** 를 묻는다. 이 질문을 하는 자리가 없어서
+    GPT-6 출시 같은 사건이 주가 등락 설명 각주로만 남았다.
+    """
+    usage = new_usage()
+    if not events:
+        return [], usage
+
+    out = []
+    for ev in events[:feed_router.MAX_EVENTS]:
+        logger.info(f"영향 분석 중: {ev['label']}")
+        result, u = _run_search(
+            feed_router.build_impact_prompt(ev, positions_doc),
+            EVENT_MAX_USES, f"큰 건 {ev['label'][:20]}",
+        )
+        merge_usage(usage, u)
+        if not result:
+            # 분석에 실패해도 사건 자체는 남긴다 — 큰 건이 있었다는 사실을
+            # 조용히 삼키면 '조용한 날' 과 구분되지 않는다.
+            out.append({**ev, "error": u.get("error", "영향 분석 실패")})
+            continue
+        if not result.get("confirmed", True):
+            logger.info(f"  1차 확인 실패 — 미확인으로 표기: {ev['label']}")
+        out.append({**ev, "analysis": result})
+    return out, usage
 
 
 def search_layer0(portfolio_level: dict, prev_state: dict, now_str: str,
@@ -2938,6 +3030,12 @@ async def main(dry_run: bool = False, market: str = "all"):
     merge_usage(usage_total, u)
     feed_by_target = routed.get("by_target", {})
 
+    # 2.7 오늘의 큰 건 — 포지션별 영향 분석
+    event_results = []
+    if routed.get("events"):
+        event_results, u = analyze_events(routed["events"], positions_doc)
+        merge_usage(usage_total, u)
+
     # 3. Layer 0 (포트폴리오 상위 변수) 검색
     layer0_result = None
     layer0_error = ""
@@ -3155,6 +3253,7 @@ async def main(dry_run: bool = False, market: str = "all"):
         market=market,
         layer0_error=layer0_error,
         notable=routed.get("notable"),
+        event_results=event_results,
     )
     logger.info(f"각주 출처 {len(registry)}건 등록")
 

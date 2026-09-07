@@ -27,6 +27,8 @@ MAX_ITEMS_PER_TARGET = 12
 MAX_LOW_PER_TARGET = 2
 # 감시 목록 밖 '그래도 중요한 것' 상한. 여기가 넓어지면 다이제스트가 뉴스 요약이 된다.
 MAX_NOTABLE = 6
+# 하루에 다룰 '큰 건' 상한. 건당 영향 분석 호출이 하나씩 붙는다.
+MAX_EVENTS = 3
 # 분류 단계에서 첨부 리포트 본문을 얼마나 보여줄지. 여기서는 '어디로 보낼지' 만
 # 정하면 되므로 앞부분(표지·요약)이면 충분하다. 정독은 뒤의 정리 단계 몫이다.
 DOC_SNIPPET_LEN = 700
@@ -94,8 +96,15 @@ def build_prompt(batch: list[tuple[int, dict]], targets: list[dict],
 
 - weight 는 이 원문이 얼마나 실질적인지다. 사실이 담긴 것일수록 높다.
   "high"  실적·수주·계약·증설·인허가·규제·소송·가격/물량 수치·경영권 변동
+          **그리고 수요를 바꾸는 대형 사건** — 주요 AI 모델·제품 출시, 성능 도약,
+          표준 채택, 대형 고객사의 도입 결정. 계약금액이 안 붙어도 high 다.
   "mid"   업계 동향·전방 투자계획·경쟁사 움직임·정책 논의
   "low"   시황 코멘트·주가 등락·수급 이야기·목표주가·추측성 전망·홍보
+
+★ 사건 자체와 그 사건에 대한 코멘트를 구분할 것. 큰 사건을 다룬 글이면
+  글쓴이가 개인 감상으로 썼더라도 사건의 무게로 매긴다. 실측 사례: GPT-6 출시를
+  다룬 글이 "계약금액이 없다" 는 이유로 전부 low 로 떨어져, 메모리 수요를 뒤흔드는
+  사건이 시황 잡담과 같은 칸에 묶였다.
 
 그리고 **어느 대상에도 안 걸리지만 그 자체로 중요한 것**은 notable 에 따로 담는다.
 지금 감시 목록에 없다는 이유로 큰 변화를 통째로 놓치는 걸 막는 통로다.
@@ -258,6 +267,159 @@ def route(
         "unrouted": len(feed) - len(routed_idx),
         "failed_batches": failed,
     }
+
+
+def build_event_prompt(feed: list[dict]) -> str:
+    """오늘 피드에서 '큰 건' 을 찾는 프롬프트. 제목 줄만 훑는다.
+
+    분류(route)와 따로 도는 이유: 분류는 50건씩 배치로 쪼개는데, 큰 사건은
+    여러 배치에 흩어져 나타난다. 배치 안에서만 보면 "여러 글이 같은 걸 말하고
+    있다" 는 신호 자체가 안 보인다. 여기서는 전체를 한 번에 훑는다.
+    """
+    lines = []
+    for i, it in enumerate(feed):
+        head = re.sub(r"\s+", " ", it.get("text", ""))[:110]
+        lines.append(f"[{i}] ({it['channel'][:12]}) {head}")
+    body = "\n".join(lines)
+
+    return f"""당신은 하루치 뉴스 피드에서 **오늘의 큰 건**을 골라내는 분석가.
+
+# 오늘 들어온 글 (제목 줄)
+{body}
+
+# 작업
+여러 글이 반복해서 다루고 있는 사건, 또는 한 건뿐이어도 산업의 수요·공급·경쟁
+구도를 바꿀 사건을 골라 JSON 만 출력.
+
+무엇이 '큰 건' 인가:
+- 주요 AI 모델·제품의 출시나 성능 도약 (수요를 통째로 움직인다)
+- 대형 정책·규제 확정, 관세·수출통제 변경
+- 주요 기업의 대규모 투자·증설·인수 발표
+- 공급망 충격 (사고·분쟁·제재·병목)
+- 가격의 추세 전환 (원자재·메모리·운임 등)
+
+무엇이 아닌가:
+- 시황·수급·주가 등락, 목표주가, 개인 감상만 있고 사건이 없는 글
+- 이미 몇 주 전에 알려져 오늘 새로울 게 없는 사안
+
+★ 여러 글이 같은 사건을 다루면 **하나의 event 로 묶고** idxs 에 전부 넣을 것.
+   글쓴이가 개인 코멘트로 썼더라도 다루는 사건이 크면 큰 건이다.
+★ 최대 3건. 오늘 큰 건이 없으면 빈 배열이 정상이다. 억지로 채우지 말 것.
+
+{{
+  "events": [
+    {{
+      "label": "사건을 한 줄로 (예: OpenAI GPT-6 Astra 공개)",
+      "idxs": [12, 45, 78],
+      "what": "무슨 일이 있었는지 2~3문장. 확인된 사실만",
+      "why_big": "왜 큰 건인지 한 줄"
+    }}
+  ]
+}}
+
+JSON 외 다른 텍스트 출력 금지."""
+
+
+def detect_events(feed: list[dict], call: Callable[[str], str]) -> list[dict]:
+    """오늘의 큰 건을 찾는다. 실패하면 빈 목록 (다이제스트는 계속 돈다)."""
+    if not feed:
+        return []
+    try:
+        data = _extract_json(call(build_event_prompt(feed)))
+        if data is None:
+            raise ValueError("JSON 파싱 실패")
+    except Exception as e:
+        logger.error(f"큰 건 탐지 실패: {e}")
+        return []
+
+    events = []
+    for e in (data.get("events") or [])[:MAX_EVENTS]:
+        idxs = [i for i in (e.get("idxs") or []) if isinstance(i, int) and 0 <= i < len(feed)]
+        if not e.get("label"):
+            continue
+        events.append({
+            "label": e["label"],
+            "what": e.get("what", ""),
+            "why_big": e.get("why_big", ""),
+            "sources": [{"channel": feed[i]["channel"], "url": feed[i].get("url", ""),
+                         "date": feed[i]["date"]} for i in idxs[:6]],
+            "mentions": len(idxs),
+        })
+    return events
+
+
+def build_impact_prompt(event: dict, positions_doc: dict) -> str:
+    """사건 하나가 보유 포지션 각각에 어떻게 닿는지 묻는 프롬프트.
+
+    기존 레이어들은 "내 kill_signal 에 걸리나" 만 묻는다. 큰 사건이 터졌을 때
+    "11개 포지션 각각에 어떤 경로로 얼마나 닿나" 를 묻는 자리가 없었다.
+    그래서 GPT-6 출시 같은 건이 주가 설명 각주로만 남았다.
+    """
+    blocks = []
+    for p in positions_doc.get("positions", []):
+        if p.get("status") not in ("holding", "watching"):
+            continue
+        thesis = (p.get("thesis") or ["(thesis 미작성)"])[0]
+        blocks.append(
+            f"- {p['id']} · {p.get('label')} ({', '.join(p.get('tickers', []))})\n"
+            f"  보유 근거: {thesis}"
+        )
+    positions = "\n".join(blocks)
+    srcs = "\n".join(f"  - {s['channel']} {s['date'][:16].replace('T', ' ')} {s['url']}"
+                     for s in event.get("sources", []))
+
+    return f"""당신은 하나의 사건이 특정 포트폴리오에 어떻게 닿는지 따지는 분석가.
+
+# 사건
+{event['label']}
+{event.get('what', '')}
+(구독 채널에서 {event.get('mentions', 0)}건 언급)
+{srcs}
+
+# 내 보유 포지션
+{positions}
+
+# 작업
+web_search 로 이 사건의 사실관계를 먼저 확인한 뒤, 아래 JSON 만 출력.
+
+★ 먼저 사실을 확인할 것. 채널 글은 전언이라 과장·오보가 섞인다. 발표 주체의
+  공식 자료나 1차 보도로 무엇이 실제로 발표됐는지 확인하고, 확인된 것만 쓴다.
+  확인이 안 되면 confirmed=false 로 두고 impacts 를 비울 것.
+
+★ 전달 경로를 구체적으로 쓸 것. "AI 수요 증가로 수혜" 같은 문장은 쓸모가 없다.
+  무엇이 늘어서 → 어디를 거쳐 → 이 회사의 무엇이 바뀌는지를 쓴다.
+  예: "추론 토큰 수요 증가 → 하이퍼스케일러 eSSD 발주 증가 → 컨트롤러 물량 증가"
+
+★ 강도는 정직하게 매길 것. 대부분의 포지션에는 '없음' 이거나 '간접' 이 정상이다.
+  전부 수혜라고 쓰면 아무 정보도 주지 못한다.
+  "직접"  이 회사의 매출·원가·수주에 이번 분기 안에 반영될 경로가 있다
+  "간접"  전방 수요를 거쳐 몇 분기 뒤에 닿는다
+  "없음"  연결 경로가 없다 (이렇게 쓰는 걸 두려워하지 말 것)
+
+★ 반대 방향도 볼 것. 같은 사건이 어떤 포지션에는 역풍일 수 있다
+  (예: 자체 칩 내재화 가속 → 외부 컨트롤러 벤더에 역풍).
+
+★ 시차와 확인 지표를 쓸 것. 언제쯤 숫자로 나타나는지, 무엇을 보면 확인되는지.
+
+{{
+  "confirmed": true,
+  "fact_check": "1차 확인 결과 실제로 무엇이 발표됐는지 2~3문장",
+  "impacts": [
+    {{
+      "position_id": "ssd-controller",
+      "direction": "순풍|역풍|중립",
+      "strength": "직접|간접|없음",
+      "path": "전달 경로를 화살표로",
+      "lag": "언제쯤 숫자로 나타나는지",
+      "watch": "무엇을 보면 확인되는지"
+    }}
+  ],
+  "sources": [
+    {{"url": "출처 URL", "outlet": "매체명", "date": "YYYY-MM-DD", "tier": "S1|S2|S3"}}
+  ]
+}}
+
+JSON 외 다른 텍스트 출력 금지."""
 
 
 def build_doc_prompt(item: dict, targets: list[dict], body: str) -> str:

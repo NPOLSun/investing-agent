@@ -22,6 +22,9 @@ ROUTE_BATCH = 50
 SNIPPET_LEN = 400
 # 포지션 하나에 붙일 원문 상한. 같은 뉴스가 채널마다 도배되는 걸 막는다.
 MAX_ITEMS_PER_TARGET = 12
+# 그 중 low(시황 코멘트·주가 이야기)로 채울 수 있는 몫. 사실 옆에 잡담이
+# 나란히 놓이면 판정 프롬프트에서 주의가 그만큼 흩어진다.
+MAX_LOW_PER_TARGET = 2
 # 감시 목록 밖 '그래도 중요한 것' 상한. 여기가 넓어지면 다이제스트가 뉴스 요약이 된다.
 MAX_NOTABLE = 6
 # 분류 단계에서 첨부 리포트 본문을 얼마나 보여줄지. 여기서는 '어디로 보낼지' 만
@@ -212,15 +215,25 @@ def route(
             notable.append(item)
 
     # 대상별로 자른다. 같은 뉴스가 채널마다 도배되면 위쪽만 남는다.
+    #
+    # ★ low 는 따로 상한을 둔다. 실측(2026-09-07): memory-storage 에 12건이
+    #   붙었는데 그 중 6건이 low 였다 — "이거의 80-90% 성능을 1/3가격에 제공해줄
+    #   업체만 기다리는 중" 같은 한 줄 채팅이 SK증권 리포트와 나란히 판정
+    #   프롬프트에 들어간다. 분류는 옳았는데 상한이 안 걸러줬다.
+    #   시황 코멘트가 사실 옆에 놓이면 모델의 주의가 그만큼 흩어진다.
     order = {"high": 0, "mid": 1, "low": 2}
     for tid, items in by_target.items():
         seen_groups: set = set()
-        picked = []
+        picked, lows = [], 0
         for it in sorted(items, key=lambda x: (order.get(x.get("route_weight"), 1),
-                                               x["date"]), reverse=False):
+                                               x["date"])):
             g = it.get("dupe_group")
             if g and g in seen_groups:
                 continue
+            if it.get("route_weight") == "low":
+                if lows >= MAX_LOW_PER_TARGET:
+                    continue
+                lows += 1
             if g:
                 seen_groups.add(g)
             picked.append(it)

@@ -1926,6 +1926,13 @@ async def collect_and_route_feed(positions_doc: dict) -> tuple[dict, dict]:
 
     routed = feed_router.route(feed, positions_doc, _call, channel_notes=notes)
     routed["total"] = len(feed)
+
+    # 첨부 리포트 정독. 분류 뒤에 도는 이유는 어느 포지션에도 안 걸린 리포트를
+    # 정독하는 게 낭비이기 때문이다. 증권사 리포트는 채널 글보다 근거가 두껍다.
+    read = feed_router.read_documents(
+        routed, positions_doc, _call, telegram_feed.read_doc_text)
+    if read:
+        logger.info(f"첨부 리포트 {read}건 정독 완료")
     hit = sum(len(v) for v in routed["by_target"].values())
     logger.info(
         f"피드 분류 완료: {len(feed)}건 중 {len(feed) - routed['unrouted']}건이 "
@@ -1944,7 +1951,7 @@ def search_layer0(portfolio_level: dict, prev_state: dict, now_str: str,
     kill_list = numbered(portfolio_level.get("layer0_kill_signals", []), "L", indent="")
     queries = ", ".join(portfolio_level.get("layer0_queries", []))
     prev = json.dumps(prev_state, ensure_ascii=False, indent=2) if prev_state else "(이전 관측 없음)"
-    feed_block = feed_router.format_block(feed_items or [])
+    feed_block = feed_router.format_block(feed_items or [], "portfolio")
 
     prompt = f"""당신은 투자 포트폴리오의 상위 변수(Layer 0)를 감시하는 분석가.
 
@@ -2055,7 +2062,7 @@ def search_position(
  그룹 이전 관측: {gprev}
 """
 
-    feed_block = feed_router.format_block(feed_items or [])
+    feed_block = feed_router.format_block(feed_items or [], pos.get("id"))
 
     prompt = f"""당신은 특정 보유 포지션의 thesis 훼손 여부를 감시하는 분석가.
 
@@ -2204,7 +2211,7 @@ def search_theme(
     affected = chr(10).join(affected_lines) or "- (연결된 포지션 없음)"
 
     prev = json.dumps(state_entry, ensure_ascii=False, indent=2) if state_entry else "(이전 관측 없음)"
-    feed_block = feed_router.format_block(feed_items or [])
+    feed_block = feed_router.format_block(feed_items or [], theme.get("id"))
 
     prompt = f"""당신은 특정 기술·산업 테마의 '변화 방향과 속도' 를 추적하는 분석가.
 

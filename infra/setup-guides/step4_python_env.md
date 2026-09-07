@@ -209,7 +209,8 @@ pip install \
   requests \
   pandas \
   pytz \
-  telethon
+  telethon \
+  pypdf
 ```
 
 각 패키지 용도:
@@ -222,6 +223,7 @@ pip install \
 - **pandas**: 데이터 정리
 - **pytz**: 시간대 처리 (한국 시간)
 - **telethon**: 텔레그램 사용자 세션. 구독 채널 원문 수집용 (봇 토큰으로는 구독 채널을 못 읽는다)
+- **pypdf**: 채널에 첨부된 증권사 리포트 PDF 본문 추출. 없으면 첨부를 못 읽고 제목만 쓴다
 
 → 1~2분 소요. 다 설치되면 출력 끝.
 

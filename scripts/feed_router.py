@@ -24,6 +24,13 @@ SNIPPET_LEN = 400
 MAX_ITEMS_PER_TARGET = 12
 # 감시 목록 밖 '그래도 중요한 것' 상한. 여기가 넓어지면 다이제스트가 뉴스 요약이 된다.
 MAX_NOTABLE = 6
+# 분류 단계에서 첨부 리포트 본문을 얼마나 보여줄지. 여기서는 '어디로 보낼지' 만
+# 정하면 되므로 앞부분(표지·요약)이면 충분하다. 정독은 뒤의 정리 단계 몫이다.
+DOC_SNIPPET_LEN = 700
+# 한 번 실행에서 정독할 리포트 수 상한. 리포트당 호출이 하나씩 붙는다.
+MAX_DOC_DIGESTS = 8
+# 정독 호출에 넣을 리포트 본문 길이. 증권사 리포트는 보통 이 안에 들어간다.
+DOC_READ_CHARS = 40000
 
 
 def compact(item: dict, idx: int) -> str:
@@ -33,7 +40,16 @@ def compact(item: dict, idx: int) -> str:
     if item.get("dupe_count", 1) > 1:
         dupe = f" [{item['dupe_count']}개 채널 동시보도]"
     when = item["date"][5:16].replace("T", " ")
-    return f"[{idx}] ({when} · {item['channel']}){dupe} {text}"
+    line = f"[{idx}] ({when} · {item['channel']}){dupe} {text}"
+
+    # 증권사 리포트 채널은 본문이 "[SK증권 반도체 한동희]" 한 줄이라 이것만 보면
+    # 분류가 불가능하다. 첨부에서 뽑은 앞부분을 같이 줘야 어디로 보낼지 정해진다.
+    doc = item.get("doc") or {}
+    if doc.get("name"):
+        head = re.sub(r"\s+", " ", item.get("doc_head", ""))[:DOC_SNIPPET_LEN]
+        line += f"\n     [첨부: {doc['name']}] {head}" if head else \
+                f"\n     [첨부: {doc['name']} — 본문 추출 실패]"
+    return line
 
 
 def build_prompt(batch: list[tuple[int, dict]], targets: list[dict],
@@ -230,6 +246,117 @@ def route(
     }
 
 
+def build_doc_prompt(item: dict, targets: list[dict], body: str) -> str:
+    """첨부 리포트 정독 프롬프트.
+
+    범용 요약을 시키면 안 된다 — "반도체 업황이 좋다" 같은 글이 나오고 그건
+    이미 아는 얘기다. 내 포지션에 닿는 대목만, 숫자와 함께 뽑아내게 한다.
+    """
+    target_lines = "\n".join(
+        f"- {t['id']} · {t['label']} — {t['hint']}" for t in targets
+    )
+    doc = item.get("doc") or {}
+    return f"""당신은 증권사 리포트에서 **특정 포지션에 닿는 대목만** 뽑아내는 분석가.
+
+# 리포트
+{doc.get('name', '(파일명 없음)')} — {item['channel']} {item['date'][:16].replace('T', ' ')}
+원문 링크: {item.get('url', '-')}
+
+# 내가 보유·감시 중인 대상
+{target_lines}
+
+# 리포트 본문 (PDF 추출본. 표·그림은 깨져 있을 수 있다)
+{body}
+
+# 작업
+아래 JSON 만 출력.
+
+★ 범용 요약을 하지 말 것. "업황이 개선되고 있다" 같은 문장은 쓸모가 없다.
+   위 감시 대상에 닿는 대목만, **숫자와 근거를 붙여** 뽑는다.
+★ 리포트에 그 대상 얘기가 없으면 findings 를 빈 배열로 둔다. 그게 정상이다.
+   억지로 연결하지 말 것 — 없는 연결을 만들면 판정 전체가 오염된다.
+★ 목표주가·투자의견·투자의견 변경은 담지 말 것. 사실이 아니라 남의 의견이다.
+   단, 그 근거로 제시된 **실적 추정치·출하량·가격·capex 숫자**는 담을 것.
+★ 추출본이 깨져 읽을 수 없으면 readable=false 로 정직하게 보고할 것.
+   내용 없이 지어내지 말 것.
+
+{{
+  "readable": true,
+  "findings": [
+    {{
+      "target": "위 목록의 id 중 하나",
+      "point": "이 리포트가 그 대상에 대해 말하는 것 2~3문장. 숫자 포함",
+      "numbers": {{"지표명": "값"}},
+      "page_hint": "본문 어디쯤인지 (알 수 있으면)"
+    }}
+  ],
+  "one_line": "이 리포트 전체를 한 줄로 (감시 대상과 무관해도 무슨 리포트인지)"
+}}
+
+JSON 외 다른 텍스트 출력 금지."""
+
+
+def read_documents(
+    routed: dict,
+    positions_doc: dict,
+    call: Callable[[str], str],
+    load_text: Callable[[int], str],
+) -> int:
+    """분류 결과에서 첨부 리포트를 골라 정독하고 결과를 항목에 붙인다.
+
+    분류 **뒤에** 도는 이유: 어느 포지션에도 안 걸린 리포트를 정독하는 건 낭비다.
+    이미 대상에 배정된 것만 편다. 정독 결과는 같은 doc id 를 가진 모든 사본에
+    붙여 같은 리포트를 두 번 읽지 않는다.
+
+    반환: 정독한 리포트 수.
+    """
+    targets = _targets_from(positions_doc)
+
+    # doc id -> 그 리포트를 물고 있는 모든 항목 (여러 대상에 배정됐을 수 있다)
+    by_doc: dict[int, list[dict]] = {}
+    for items in routed.get("by_target", {}).values():
+        for it in items:
+            doc = it.get("doc") or {}
+            if doc.get("id") and doc.get("chars"):
+                by_doc.setdefault(doc["id"], []).append(it)
+    for it in routed.get("notable", []):
+        doc = it.get("doc") or {}
+        if doc.get("id") and doc.get("chars"):
+            by_doc.setdefault(doc["id"], []).append(it)
+
+    if not by_doc:
+        return 0
+
+    # 여러 대상에 걸린 리포트가 더 중요하다고 보고 먼저 읽는다.
+    order = sorted(by_doc.items(), key=lambda kv: -len(kv[1]))
+    done = 0
+    for doc_id, copies in order[:MAX_DOC_DIGESTS]:
+        body = (load_text(doc_id) or "")[:DOC_READ_CHARS]
+        if not body.strip():
+            continue
+        try:
+            data = _extract_json(call(build_doc_prompt(copies[0], targets, body)))
+            if data is None:
+                raise ValueError("JSON 파싱 실패")
+        except Exception as e:
+            logger.error(f"리포트 정독 실패 (doc {doc_id}): {e}")
+            continue
+
+        if not data.get("readable", True):
+            logger.info(f"리포트 추출본을 못 읽음 (doc {doc_id}) — 건너뜀")
+            continue
+        for it in copies:
+            it["doc_digest"] = data
+        done += 1
+
+    if len(by_doc) > MAX_DOC_DIGESTS:
+        logger.warning(
+            f"첨부 리포트 {len(by_doc)}건 중 {MAX_DOC_DIGESTS}건만 정독 "
+            f"(상한). 나머지는 첨부 앞부분만 쓴다"
+        )
+    return done
+
+
 def _extract_json(text: str) -> Optional[dict]:
     if not text:
         return None
@@ -244,7 +371,7 @@ def _extract_json(text: str) -> Optional[dict]:
         return None
 
 
-def format_block(items: list[dict]) -> str:
+def format_block(items: list[dict], target_id: Optional[str] = None) -> str:
     """검색 프롬프트에 붙일 원문 블록.
 
     출처 URL(t.me 링크)까지 같이 준다. 모델이 '이 건의 1차 출처를 찾아라' 를
@@ -258,8 +385,34 @@ def format_block(items: list[dict]) -> str:
         dupe = (f" · {it['dupe_count']}개 채널 동시보도"
                 if it.get("dupe_count", 1) > 1 else "")
         when = it["date"][5:16].replace("T", " ")
-        out.append(
-            f"F{i}. [{when} · {it['channel']}{dupe}] {text}\n"
-            f"    원문: {it.get('url', '-')}"
-        )
+        block = [
+            f"F{i}. [{when} · {it['channel']}{dupe}] {text}",
+            f"    원문: {it.get('url', '-')}",
+        ]
+
+        # 첨부 리포트를 정독했으면 그 결과를 붙인다. 리포트는 채널 글보다
+        # 근거가 두껍다 — 증권사가 이름을 걸고 낸 추정치와 숫자다.
+        digest = it.get("doc_digest") or {}
+        doc = it.get("doc") or {}
+        if digest:
+            # 한 리포트가 여러 대상을 다루므로 이 대상 얘기만 남긴다. 변압기
+            # 프롬프트에 eSSD 대목이 섞이면 그만큼 모델의 주의가 흩어진다.
+            found = digest.get("findings") or []
+            if target_id:
+                mine = [f for f in found if f.get("target") == target_id]
+                found = mine or found
+            out_lines = [f"    ▣ 첨부 리포트: {doc.get('name', '')}"]
+            if digest.get("one_line"):
+                out_lines.append(f"      개요: {digest['one_line']}")
+            for f in found[:4]:
+                out_lines.append(f"      · {f.get('point', '')}")
+                nums = f.get("numbers") or {}
+                if isinstance(nums, dict) and nums:
+                    out_lines.append(
+                        "        수치: " + " · ".join(f"{k} = {v}" for k, v in nums.items()))
+            block += out_lines
+        elif doc.get("name"):
+            block.append(f"    ▣ 첨부 리포트: {doc['name']} (정독하지 않음 — 제목만)")
+
+        out.append("\n".join(block))
     return "\n".join(out)

@@ -19,6 +19,12 @@ web_search 로 뉴스를 '발굴'하려던 기존 방식은 실패했다. 실측
   python scripts/telegram_feed.py --fetch          새 글 수집 → data/feed/
   python scripts/telegram_feed.py --show           오늘 수집분 미리보기
   python scripts/telegram_feed.py --stats          튜닝용 실측 (물량·길이·중복·표본)
+
+채널별 설정 (data/feed_channels.json 을 직접 고치지 않아도 된다):
+  --set-note '시그널랩' '증권사 리포트 요약. 밀도 최고'
+  --set-drop '특파원' '비트코인|암호화폐'      무엇이 걸리는지 바로 보여준다
+  --unset-drop '특파원'                        현재 패턴 목록
+  --set-docs '시그널랩' on                     첨부 PDF 리포트까지 읽는다
 """
 
 import argparse
@@ -58,6 +64,18 @@ FIRST_RUN_HOURS = 24
 MAX_PER_CHANNEL = 200
 # 이보다 짧은 글은 버린다 (이모지 한 줄, "ㅋㅋ" 같은 잡음)
 MIN_TEXT_LEN = 25
+
+# 첨부 리포트(PDF) 처리. 증권사 리포트를 옮기는 채널은 본문이 "[SK증권 반도체
+# 한동희]" 한 줄이고 알맹이는 전부 첨부에 있다. 그걸 안 열면 그 채널을 구독한
+# 의미가 없다.
+#
+# ★ 채널별로 켠다 (feed_channels.json 의 "fetch_docs": true). 전 채널에 켜면
+#   짤·이미지까지 받느라 디스크와 시간을 태운다.
+DOCS_DIR = FEED_DIR / "docs"
+# 이보다 큰 첨부는 건너뛴다. EC2 디스크가 6.8GB 뿐이다.
+MAX_DOC_MB = 25
+# 추출 텍스트 보관 기간. 원본 PDF 는 추출 직후 지우고 텍스트만 남긴다.
+DOC_RETENTION_DAYS = 30
 
 # 매일 같은 모양으로 반복되는 정기 잡음. 실측(2026-09-07) 204건 중 20건 이상이
 # 이것이었다. 채널 공지·기상통보·2시간마다 올라오는 리포트 목차 같은 것들.
@@ -262,6 +280,191 @@ def cmd_enable(spec: str):
         print(f"  - {c['title']}")
 
 
+def doc_text_path(doc_id: int) -> Path:
+    return DOCS_DIR / f"{doc_id}.txt"
+
+
+def read_doc_text(doc_id: int, limit: Optional[int] = None) -> str:
+    p = doc_text_path(doc_id)
+    if not p.exists():
+        return ""
+    try:
+        t = p.read_text(encoding="utf-8")
+    except Exception as e:
+        logger.warning(f"첨부 텍스트 읽기 실패 ({doc_id}): {e}")
+        return ""
+    return t[:limit] if limit else t
+
+
+def _pdf_to_text(path: Path) -> tuple[str, int]:
+    """PDF 에서 본문 텍스트를 뽑는다. (텍스트, 페이지수).
+
+    스캔 이미지로만 된 리포트는 빈 문자열이 나온다 — OCR 은 하지 않는다.
+    그런 경우 호출자가 '본문 추출 실패' 로 남겨 사람이 알 수 있게 한다.
+    """
+    try:
+        from pypdf import PdfReader
+    except ImportError:
+        logger.error("pypdf 가 없어 첨부를 못 읽는다 — pip install pypdf")
+        return "", 0
+    try:
+        reader = PdfReader(str(path))
+        pages = [(p.extract_text() or "") for p in reader.pages]
+        return "\n".join(pages).strip(), len(pages)
+    except Exception as e:
+        logger.warning(f"PDF 파싱 실패 ({path.name}): {e}")
+        return "", 0
+
+
+async def _grab_document(client, msg, ch: dict) -> Optional[dict]:
+    """메시지에 붙은 PDF 를 받아 텍스트만 남긴다.
+
+    같은 파일이 여러 채널에 돌면 document.id 가 같으므로 한 번만 받는다.
+    원본 PDF 는 추출 직후 삭제한다 — 디스크가 6.8GB 뿐이고, 다시 필요하면
+    텔레그램 원문 링크로 돌아갈 수 있다.
+    """
+    doc = getattr(msg, "document", None)
+    if doc is None:
+        return None
+
+    name = ""
+    for attr in (getattr(doc, "attributes", None) or []):
+        name = getattr(attr, "file_name", "") or name
+    mime = (getattr(doc, "mime_type", "") or "").lower()
+    if "pdf" not in mime and not name.lower().endswith(".pdf"):
+        return None
+
+    size_mb = (getattr(doc, "size", 0) or 0) / (1024 * 1024)
+    if size_mb > MAX_DOC_MB:
+        logger.info(f"[{ch['title']}] 첨부 건너뜀 ({size_mb:.1f}MB > {MAX_DOC_MB}MB): {name}")
+        return None
+
+    DOCS_DIR.mkdir(parents=True, exist_ok=True)
+    out = doc_text_path(doc.id)
+    if out.exists():                       # 이미 받아 뽑아둔 파일
+        return {"id": doc.id, "name": name, "chars": len(out.read_text(encoding="utf-8"))}
+
+    pdf_path = DOCS_DIR / f"{doc.id}.pdf"
+    try:
+        await client.download_media(msg, file=str(pdf_path))
+    except Exception as e:
+        logger.warning(f"[{ch['title']}] 첨부 다운로드 실패 ({name}): {e}")
+        return None
+
+    text, pages = _pdf_to_text(pdf_path)
+    try:
+        pdf_path.unlink()                  # 텍스트만 남기고 원본은 버린다
+    except Exception:
+        pass
+
+    if not text:
+        logger.info(f"[{ch['title']}] 본문 추출 실패 (스캔본으로 보임): {name}")
+        return {"id": doc.id, "name": name, "chars": 0, "pages": pages}
+
+    out.write_text(text, encoding="utf-8")
+    logger.info(f"[{ch['title']}] 첨부 {name} — {pages}쪽 {len(text):,}자 추출")
+    return {"id": doc.id, "name": name, "chars": len(text), "pages": pages}
+
+
+def prune_docs(days: int = DOC_RETENTION_DAYS):
+    """오래된 추출 텍스트 정리. 디스크가 6.8GB 뿐이라 무한 적재 금지."""
+    if not DOCS_DIR.exists():
+        return
+    cutoff = datetime.now().timestamp() - days * 86400
+    for p in DOCS_DIR.iterdir():
+        try:
+            if p.stat().st_mtime < cutoff:
+                p.unlink()
+        except Exception:
+            continue
+
+
+def _find_channel(doc: dict, needle: str) -> dict:
+    """제목 일부로 수집 대상 채널 하나를 찾는다.
+
+    번호로 지정하게 하면 --list 를 다시 돌려야 하고, 목록 순서는 대화 활동에
+    따라 바뀐다. 제목 일부가 사람이 쓰기에도 안전하다.
+    """
+    hits = [c for c in doc.get("channels", []) if needle.lower() in c["title"].lower()]
+    if not hits:
+        names = "\n".join(f"  - {c['title']}" for c in doc.get("channels", []))
+        sys.exit(f"'{needle}' 와 맞는 채널이 없습니다. 현재 수집 대상:\n{names}")
+    if len(hits) > 1:
+        names = "\n".join(f"  - {c['title']}" for c in hits)
+        sys.exit(f"'{needle}' 가 여러 채널과 맞습니다. 더 길게 지정하세요:\n{names}")
+    return hits[0]
+
+
+def cmd_set_note(needle: str, note: str):
+    """채널 성격 메모. 분류 프롬프트에 그대로 들어간다."""
+    doc = load_channels()
+    ch = _find_channel(doc, needle)
+    ch["note"] = note
+    save_channels(doc)
+    print(f"[{ch['title']}] 메모 설정:\n  {note}")
+
+
+def cmd_set_drop(needle: str, pattern: str):
+    """채널별 잡음 패턴(정규식). 읽을 때만 적용되고 원문은 그대로 남는다."""
+    doc = load_channels()
+    ch = _find_channel(doc, needle)
+    try:
+        rx = re.compile(pattern)
+    except re.error as e:
+        sys.exit(f"정규식이 잘못됐습니다: {e}")
+
+    ch.setdefault("drop", [])
+    if pattern in ch["drop"]:
+        sys.exit(f"[{ch['title']}] 에 이미 있는 패턴입니다.")
+    ch["drop"].append(pattern)
+    save_channels(doc)
+
+    # 저장한 패턴이 실제로 뭘 얼마나 거르는지 바로 보여준다. 정규식을
+    # 눈으로만 확인하면 너무 넓게 잡아 알짜까지 날리는 걸 알 수 없다.
+    recent = [r for r in load_feed(48, drop_noise=False)
+              if r.get("channel_id") == ch["id"]]
+    hits = [r for r in recent if rx.search(r.get("text", ""))]
+    print(f"[{ch['title']}] 패턴 추가: {pattern}")
+    print(f"최근 48시간 {len(recent)}건 중 {len(hits)}건이 걸립니다.")
+    for r in hits[:8]:
+        print(f"  - {r['text'].splitlines()[0][:64]}")
+    if len(hits) > 8:
+        print(f"  ... 외 {len(hits) - 8}건")
+    print("\n너무 많이 걸리면 --unset-drop 으로 되돌리세요 (원문은 안 지워집니다).")
+
+
+def cmd_set_docs(needle: str, onoff: str):
+    """첨부 PDF 수집 on/off. 리포트 채널에만 켠다."""
+    doc = load_channels()
+    ch = _find_channel(doc, needle)
+    if onoff.lower() not in ("on", "off"):
+        sys.exit("on 또는 off 로 지정하세요.")
+    ch["fetch_docs"] = onoff.lower() == "on"
+    save_channels(doc)
+    state = "받는다" if ch["fetch_docs"] else "안 받는다"
+    print(f"[{ch['title']}] 첨부 PDF 리포트를 {state}.")
+    if ch["fetch_docs"]:
+        print("다음 --fetch 부터 적용됩니다. 이미 지나간 글의 첨부는 안 받습니다\n"
+              "(워터마크가 지나갔기 때문). 과거분이 필요하면 last_id 를 낮추세요.")
+
+
+def cmd_unset_drop(needle: str, pattern: Optional[str]):
+    doc = load_channels()
+    ch = _find_channel(doc, needle)
+    if not ch.get("drop"):
+        sys.exit(f"[{ch['title']}] 에 설정된 패턴이 없습니다.")
+    if pattern is None:
+        print(f"[{ch['title']}] 패턴 목록:")
+        for p in ch["drop"]:
+            print(f"  {p}")
+        return
+    if pattern not in ch["drop"]:
+        sys.exit(f"그런 패턴이 없습니다. --unset-drop '{needle}' 만 쳐서 목록을 보세요.")
+    ch["drop"].remove(pattern)
+    save_channels(doc)
+    print(f"[{ch['title']}] 패턴 제거: {pattern}")
+
+
 def _msg_url(ch: dict, msg_id: int) -> str:
     if ch.get("username"):
         return f"https://t.me/{ch['username']}/{msg_id}"
@@ -285,7 +488,7 @@ async def cmd_fetch(dry_run: bool = False) -> list[dict]:
     collected: list[dict] = []
     for ch in channels:
         last_id = int(ch.get("last_id") or 0)
-        got, newest = 0, last_id
+        got, newest, docs_got = 0, last_id, 0
         try:
             # min_id 를 쓰면 그 이후만 온다. 최초 실행(last_id=0)은 시간으로 자른다.
             kwargs = {"limit": MAX_PER_CHANNEL}
@@ -295,9 +498,16 @@ async def cmd_fetch(dry_run: bool = False) -> list[dict]:
                 if not last_id and m.date and m.date.astimezone(KST) < cutoff:
                     break
                 text = (m.text or "").strip()
-                if len(text) < MIN_TEXT_LEN:
+
+                # 첨부는 본문 길이 검사보다 먼저 본다. 리포트 채널은 본문이
+                # "[SK증권 반도체 한동희]" 한 줄이라 길이로 자르면 알맹이째 버린다.
+                doc_info = None
+                if ch.get("fetch_docs") and not dry_run:
+                    doc_info = await _grab_document(client, m, ch)
+
+                if len(text) < MIN_TEXT_LEN and not doc_info:
                     continue
-                collected.append({
+                item = {
                     "channel_id": ch["id"],
                     "channel": ch["title"],
                     "msg_id": m.id,
@@ -306,17 +516,23 @@ async def cmd_fetch(dry_run: bool = False) -> list[dict]:
                     "url": _msg_url(ch, m.id),
                     "views": getattr(m, "views", None) or 0,
                     "forwards": getattr(m, "forwards", None) or 0,
-                })
+                }
+                if doc_info:
+                    item["doc"] = doc_info
+                    docs_got += 1
+                collected.append(item)
                 got += 1
                 newest = max(newest, m.id)
         except Exception as e:
             logger.error(f"[{ch['title']}] 수집 실패 — 건너뜀: {e}")
             continue
-        logger.info(f"[{ch['title']}] {got}건")
+        logger.info(f"[{ch['title']}] {got}건"
+                    + (f" (첨부 리포트 {docs_got}건)" if docs_got else ""))
         if not dry_run:
             ch["last_id"] = newest
 
     await client.disconnect()
+    prune_docs()
 
     # 여러 채널이 같은 건을 옮겼는지 묶는다. 반복 횟수 자체가 중요도 신호다.
     group_duplicates(collected)
@@ -405,6 +621,11 @@ def load_feed(hours: int = 24, now: Optional[datetime] = None,
                 if drop_noise and is_noise(r, glob, per_channel):
                     dropped += 1
                     continue
+                # 첨부가 있으면 앞부분을 실어 보낸다. 리포트 채널은 본문이
+                # 한 줄이라 이게 없으면 분류기가 판단할 근거가 없다.
+                doc = r.get("doc") or {}
+                if doc.get("id") and doc.get("chars"):
+                    r["doc_head"] = read_doc_text(doc["id"], limit=1200)
                 rows.append(r)
             except Exception:
                 continue
@@ -480,6 +701,14 @@ def main():
     ap.add_argument("--fetch", action="store_true", help="새 글 수집")
     ap.add_argument("--show", action="store_true", help="수집분 미리보기")
     ap.add_argument("--stats", action="store_true", help="튜닝용 실측 (채널별 물량·길이·중복·표본)")
+    ap.add_argument("--set-note", nargs=2, metavar=("채널", "메모"),
+                    help="채널 성격 메모 (분류 프롬프트에 들어간다)")
+    ap.add_argument("--set-drop", nargs=2, metavar=("채널", "정규식"),
+                    help="채널별 잡음 패턴 추가. 무엇이 걸리는지 바로 보여준다")
+    ap.add_argument("--unset-drop", nargs="+", metavar="채널 [정규식]",
+                    help="패턴 제거. 정규식을 빼면 현재 목록을 출력한다")
+    ap.add_argument("--set-docs", nargs=2, metavar=("채널", "on|off"),
+                    help="첨부 PDF 리포트 수집 여부")
     ap.add_argument("--hours", type=int, default=24, help="--show 조회 범위")
     ap.add_argument("--dry-run", action="store_true", help="--fetch 시 저장하지 않음")
     a = ap.parse_args()
@@ -496,6 +725,15 @@ def main():
         cmd_show(a.hours)
     elif a.stats:
         cmd_stats(a.hours)
+    elif a.set_note:
+        cmd_set_note(*a.set_note)
+    elif a.set_drop:
+        cmd_set_drop(*a.set_drop)
+    elif a.unset_drop:
+        cmd_unset_drop(a.unset_drop[0],
+                       a.unset_drop[1] if len(a.unset_drop) > 1 else None)
+    elif a.set_docs:
+        cmd_set_docs(*a.set_docs)
     else:
         ap.print_help()
 

@@ -18,6 +18,7 @@ web_search 로 뉴스를 '발굴'하려던 기존 방식은 실패했다. 실측
   python scripts/telegram_feed.py --enable 1,4,9   수집 대상 지정
   python scripts/telegram_feed.py --fetch          새 글 수집 → data/feed/
   python scripts/telegram_feed.py --show           오늘 수집분 미리보기
+  python scripts/telegram_feed.py --stats          튜닝용 실측 (물량·길이·중복·표본)
 """
 
 import argparse
@@ -52,9 +53,24 @@ API_HASH = os.getenv("TELEGRAM_API_HASH")
 # 최초 수집 시 얼마나 거슬러 올라갈지. 이후로는 채널별 last_id 부터만 읽는다.
 FIRST_RUN_HOURS = 24
 # 채널 하나당 한 번에 가져올 상한. 폭주 채널이 하루치를 다 먹는 걸 막는다.
-MAX_PER_CHANNEL = 120
+# 실측(2026-09-07): 가장 폭주하는 채널이 24시간에 109건. 평일은 더 늘 수 있어
+# 여유를 둔다 — 여기서 잘리면 오래된 쪽이 아니라 **최신 쪽이 남고 옛것이 잘린다**.
+MAX_PER_CHANNEL = 200
 # 이보다 짧은 글은 버린다 (이모지 한 줄, "ㅋㅋ" 같은 잡음)
 MIN_TEXT_LEN = 25
+
+# 매일 같은 모양으로 반복되는 정기 잡음. 실측(2026-09-07) 204건 중 20건 이상이
+# 이것이었다. 채널 공지·기상통보·2시간마다 올라오는 리포트 목차 같은 것들.
+#
+# ★ 수집 때가 아니라 **읽을 때** 거른다. 원문은 그대로 저장해 둔다 —
+#   패턴을 잘못 잡아 알짜를 버려도 되돌릴 수 있어야 하기 때문이다.
+#   수집 단계에서 버리면 워터마크가 이미 지나가 복구가 불가능하다.
+DROP_PATTERNS = [
+    r"현재 채널은.*딜레이가 있는",          # 채널 자체 공지
+    r"^\s*\[단기예보\]\s*기상청 통보문",     # 기상청 자동 포스팅
+    r"^\s*\*{0,2}\d+\.\s*📚.*리포트\*{0,2}\s*\(\d{1,2}-\d{1,2}\s+\d{1,2}:\d{2}\s*기준\)",
+                                            # 2시간마다 올라오는 리포트 목차
+]
 
 
 # ============================================================
@@ -337,10 +353,42 @@ async def cmd_fetch(dry_run: bool = False) -> list[dict]:
 # 다이제스트에서 쓰는 읽기 API
 # ============================================================
 
-def load_feed(hours: int = 24, now: Optional[datetime] = None) -> list[dict]:
-    """최근 N시간 피드를 시간순으로 반환. daily_digest 가 이걸 물어 쓴다."""
+def _compiled_filters() -> tuple[list, dict]:
+    """전역 잡음 패턴 + 채널별 추가 패턴을 컴파일해 돌려준다.
+
+    채널별 패턴은 feed_channels.json 의 각 채널에 "drop": ["정규식", ...] 로 둔다.
+    폭주 채널 하나 때문에 전역 패턴을 넓히면 다른 채널의 알짜까지 날아간다.
+    """
+    glob = [re.compile(p) for p in DROP_PATTERNS]
+    per_channel = {}
+    for c in load_channels().get("channels", []):
+        pats = c.get("drop") or []
+        if pats:
+            per_channel[c["id"]] = [re.compile(p) for p in pats]
+    return glob, per_channel
+
+
+def is_noise(item: dict, glob: list, per_channel: dict) -> bool:
+    text = item.get("text", "")
+    for rx in glob:
+        if rx.search(text):
+            return True
+    for rx in per_channel.get(item.get("channel_id"), []):
+        if rx.search(text):
+            return True
+    return False
+
+
+def load_feed(hours: int = 24, now: Optional[datetime] = None,
+              drop_noise: bool = True) -> list[dict]:
+    """최근 N시간 피드를 시간순으로 반환. daily_digest 가 이걸 물어 쓴다.
+
+    저장된 원문은 손대지 않고 여기서만 거른다 (DROP_PATTERNS 주석 참고).
+    """
     now = now or datetime.now(KST)
     cutoff = now - timedelta(hours=hours)
+    glob, per_channel = _compiled_filters() if drop_noise else ([], {})
+    dropped = 0
     rows = []
     # 자정을 걸치면 어제 파일에도 걸리므로 이틀치를 훑는다
     for d in sorted({(now - timedelta(days=i)).strftime("%Y-%m-%d") for i in (0, 1)}):
@@ -352,12 +400,66 @@ def load_feed(hours: int = 24, now: Optional[datetime] = None) -> list[dict]:
                 continue
             try:
                 r = json.loads(line)
-                if datetime.fromisoformat(r["date"]) >= cutoff:
-                    rows.append(r)
+                if datetime.fromisoformat(r["date"]) < cutoff:
+                    continue
+                if drop_noise and is_noise(r, glob, per_channel):
+                    dropped += 1
+                    continue
+                rows.append(r)
             except Exception:
                 continue
     rows.sort(key=lambda x: x["date"])
+    if dropped:
+        logger.info(f"정기 잡음 {dropped}건 제외 — 남은 {len(rows)}건")
     return rows
+
+
+def cmd_stats(hours: int):
+    """튜닝용 실측. 채널별 물량·길이·중복 묶임 상태와 표본을 뽑는다.
+
+    상수(배치 크기·중복 임계값·잡음 패턴)를 감으로 정하면 반드시 틀린다.
+    실제 채널이 어떤 문체로 무엇을 얼마나 쏟아내는지 보고 정하기 위한 출력이다.
+    """
+    raw = load_feed(hours, drop_noise=False)
+    kept = load_feed(hours, drop_noise=True)
+    kept_keys = {(r["channel_id"], r["msg_id"]) for r in kept}
+
+    print(f"\n최근 {hours}시간 — 원문 {len(raw)}건, 잡음 제외 후 {len(kept)}건 "
+          f"({len(raw) - len(kept)}건 걸러짐)\n")
+
+    by_ch: dict = {}
+    for r in raw:
+        b = by_ch.setdefault(r["channel"], {"n": 0, "kept": 0, "lens": []})
+        b["n"] += 1
+        b["lens"].append(len(r.get("text", "")))
+        if (r["channel_id"], r["msg_id"]) in kept_keys:
+            b["kept"] += 1
+
+    print(f"{'채널':<26} {'전체':>5} {'유효':>5} {'평균길이':>7} {'중간길이':>7}")
+    for name, b in sorted(by_ch.items(), key=lambda x: -x[1]["n"]):
+        lens = sorted(b["lens"])
+        avg = sum(lens) // len(lens)
+        med = lens[len(lens) // 2]
+        print(f"{name[:24]:<26} {b['n']:>5} {b['kept']:>5} {avg:>7} {med:>7}")
+
+    groups: dict = {}
+    for r in kept:
+        groups.setdefault(r.get("dupe_group") or r["msg_id"], []).append(r)
+    multi = {k: v for k, v in groups.items()
+             if len({x["channel"] for x in v}) > 1}
+    print(f"\n여러 채널이 동시에 다룬 건: {len(multi)}묶음")
+    for v in list(multi.values())[:5]:
+        chans = ", ".join(sorted({x["channel"][:12] for x in v}))
+        print(f"  [{chans}] {v[0]['text'].splitlines()[0][:60]}")
+
+    print("\n=== 채널별 본문 표본 (긴 글 2개씩, 400자까지) ===")
+    for name in by_ch:
+        samples = sorted((r for r in kept if r["channel"] == name),
+                         key=lambda x: -len(x.get("text", "")))[:2]
+        for s in samples:
+            body = re.sub(r"\s+", " ", s["text"])[:400]
+            print(f"\n--- [{name[:20]}] {s['date'][5:16].replace('T', ' ')} "
+                  f"({len(s['text'])}자)\n{body}")
 
 
 def cmd_show(hours: int):
@@ -377,6 +479,7 @@ def main():
     ap.add_argument("--enable", metavar="N,N", help="수집할 채널 번호")
     ap.add_argument("--fetch", action="store_true", help="새 글 수집")
     ap.add_argument("--show", action="store_true", help="수집분 미리보기")
+    ap.add_argument("--stats", action="store_true", help="튜닝용 실측 (채널별 물량·길이·중복·표본)")
     ap.add_argument("--hours", type=int, default=24, help="--show 조회 범위")
     ap.add_argument("--dry-run", action="store_true", help="--fetch 시 저장하지 않음")
     a = ap.parse_args()
@@ -391,6 +494,8 @@ def main():
         asyncio.run(cmd_fetch(dry_run=a.dry_run))
     elif a.show:
         cmd_show(a.hours)
+    elif a.stats:
+        cmd_stats(a.hours)
     else:
         ap.print_help()
 

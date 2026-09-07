@@ -1913,7 +1913,18 @@ async def collect_and_route_feed(positions_doc: dict) -> tuple[dict, dict]:
         merge_usage(usage, u)
         return text
 
-    routed = feed_router.route(feed, positions_doc, _call)
+    # 채널 성격 메모(feed_channels.json 의 note)를 분류기에 넘긴다. 같은 헤드라인도
+    # 증권사 리포트를 옮기는 채널에서 온 것과 지정학 속보 firehose 에서 온 것은
+    # 무게가 다르다. 이걸 안 주면 분류기가 채널 이름만 보고 짐작한다.
+    try:
+        notes = {c["title"]: c["note"]
+                 for c in telegram_feed.load_channels().get("channels", [])
+                 if c.get("note")}
+    except Exception as e:
+        logger.warning(f"채널 메모를 못 읽음 — 없이 진행: {e}")
+        notes = {}
+
+    routed = feed_router.route(feed, positions_doc, _call, channel_notes=notes)
     routed["total"] = len(feed)
     hit = sum(len(v) for v in routed["by_target"].values())
     logger.info(

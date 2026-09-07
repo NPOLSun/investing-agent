@@ -36,14 +36,24 @@ def compact(item: dict, idx: int) -> str:
     return f"[{idx}] ({when} · {item['channel']}){dupe} {text}"
 
 
-def build_prompt(batch: list[tuple[int, dict]], targets: list[dict]) -> str:
+def build_prompt(batch: list[tuple[int, dict]], targets: list[dict],
+                 channel_notes: Optional[dict] = None) -> str:
     target_lines = "\n".join(
         f"- {t['id']} · {t['label']} — {t['hint']}" for t in targets
     )
     items = "\n\n".join(compact(item, idx) for idx, item in batch)
 
-    return f"""당신은 뉴스 원문을 감시 대상별로 분류하는 사서. 판정도 요약도 하지 않는다.
+    # 채널마다 성격이 완전히 다르다. 같은 헤드라인이라도 증권사 리포트를 옮기는
+    # 채널에서 온 것과 지정학 속보 firehose 에서 온 것은 무게가 다르다.
+    notes = channel_notes or {}
+    seen = [item["channel"] for _, item in batch]
+    note_lines = "\n".join(
+        f"- {name}: {notes[name]}" for name in dict.fromkeys(seen) if notes.get(name)
+    )
+    channel_block = f"\n# 채널 성격 (분류 판단에 참고)\n{note_lines}\n" if note_lines else ""
 
+    return f"""당신은 뉴스 원문을 감시 대상별로 분류하는 사서. 판정도 요약도 하지 않는다.
+{channel_block}
 # 감시 대상
 {target_lines}
 - portfolio — 개별 종목이 아니라 포트폴리오 전체에 걸리는 상위 변수
@@ -120,6 +130,7 @@ def route(
     feed: list[dict],
     positions_doc: dict,
     call: Callable[[str], str],
+    channel_notes: Optional[dict] = None,
 ) -> dict:
     """피드를 대상별로 가른다.
 
@@ -146,7 +157,7 @@ def route(
     for start in range(0, len(indexed), ROUTE_BATCH):
         batch = indexed[start:start + ROUTE_BATCH]
         try:
-            text = call(build_prompt(batch, targets))
+            text = call(build_prompt(batch, targets, channel_notes))
             data = _extract_json(text)
             if data is None:
                 raise ValueError("JSON 파싱 실패")

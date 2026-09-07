@@ -458,6 +458,11 @@ def _outlet_from_url(url: str) -> str:
     return m.group(1) if m else (url or "").strip()[:40]
 
 
+def is_feed_source(url: str) -> bool:
+    """구독 채널 원문 링크인지. t.me 는 언론사가 아니라 내 채널이다."""
+    return bool(re.match(r"^\s*(?:https?://)?(?:www\.)?t\.me/", url or ""))
+
+
 def normalize_sources(finding: dict) -> list[dict]:
     """finding 에서 출처 목록을 정규화한다.
 
@@ -477,15 +482,22 @@ def normalize_sources(finding: dict) -> list[dict]:
             continue
         url = (item.get("url") or "").strip()
         outlet = (item.get("outlet") or "").strip() or _outlet_from_url(url)
+        if is_feed_source(url) and (not outlet or "t.me" in outlet.lower()):
+            outlet = "구독 채널"        # 도메인만 찍으면 아무 정보도 안 준다
         if not url and not outlet:
             continue
         tier = (item.get("tier") or "S2").upper()
+        # 구독 채널 링크는 어떤 등급으로 왔든 미검증이다. 채널 글은 전언·요약이라
+        # 원 보도를 못 찾았다는 뜻이고, 모델이 S2 로 올려 보내는 일이 있다.
+        if is_feed_source(url):
+            tier = "S3"
         out.append({
             "url": url,
             "outlet": outlet,
             "date": (item.get("date") or finding.get("reported_at") or "").strip(),
             "tier": tier if tier in _TIER_LABEL else "S2",
             "note": (item.get("note") or "").strip(),
+            "from_feed": is_feed_source(url),
         })
     return out[:MAX_SOURCES_PER_FINDING]
 
@@ -540,6 +552,25 @@ class SourceRegistry:
     def __len__(self) -> int:
         return len(self._items)
 
+    def mix(self, text: Optional[str] = None) -> dict:
+        """출처 구성. 오늘 근거가 어디서 왔는지 세어 다이제스트에 밝힌다.
+
+        소스를 다각화해놓고 어느 게 어디서 왔는지 안 보이면 다각화한 의미가
+        절반이다. 채널 전언만으로 채워진 날과 1차 원문까지 확인한 날은
+        같은 분량이어도 신뢰도가 전혀 다르다.
+        """
+        rows = ([s for _, s in self.cited(text)] if text is not None
+                else list(self._items))
+        m = {"1차": 0, "언론": 0, "채널": 0}
+        for s in rows:
+            if s.get("from_feed"):
+                m["채널"] += 1
+            elif s.get("tier") == "S1":
+                m["1차"] += 1
+            else:
+                m["언론"] += 1
+        return m
+
     def items(self) -> list[dict]:
         """번호 순 출처 목록 (dry-run 산출물·디버깅용)."""
         return [{"marker": _marker(i), **s} for i, s in enumerate(self._items)]
@@ -565,7 +596,9 @@ class SourceRegistry:
         rows = self.cited(text)
         if not rows:
             return ""
-        lines = ["", "---", "", "## 📎 출처", ""]
+        mix = self.mix(text)
+        lines = ["", "---", "", "## 📎 출처",
+                 f"근거 구성: 1차 원문 {mix['1차']} · 언론 {mix['언론']} · 구독 채널(미검증) {mix['채널']}", ""]
         for marker, s in rows:
             label = _TIER_LABEL.get(s["tier"], s["tier"])
             name = s["outlet"] or "출처 미상"
@@ -587,7 +620,10 @@ class SourceRegistry:
             return ""
         if budget is None:
             budget = TELEGRAM_LIMIT
-        head = "\n\n📎 출처"
+        # 근거 구성을 머리에 박는다. 채널 전언만으로 채워진 날과 1차 원문까지
+        # 확인한 날은 분량이 같아도 신뢰도가 전혀 다르다.
+        m = self.mix(text)
+        head = f"\n\n📎 출처 (1차 {m['1차']} · 언론 {m['언론']} · 채널 {m['채널']})"
         note_len = 26  # "(외 NN건은 첨부 파일 참조)" 자리
 
         lines, used = [], len(head)

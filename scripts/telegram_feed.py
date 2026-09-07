@@ -648,9 +648,17 @@ def load_feed(hours: int = 24, now: Optional[datetime] = None,
                     continue
                 # 첨부가 있으면 앞부분을 실어 보낸다. 리포트 채널은 본문이
                 # 한 줄이라 이게 없으면 분류기가 판단할 근거가 없다.
+                #
+                # ★ 저장된 chars 를 믿지 말고 추출 파일을 직접 본다. 추출이
+                #   나중에 고쳐지는 일이 있다 — 암호화 PDF 를 cryptography 설치
+                #   후 다시 뽑은 경우, jsonl 의 항목은 chars=0 으로 굳어 있어
+                #   멀쩡한 리포트를 영영 안 읽게 된다 (msg_id 중복이라 재저장도 안 된다).
                 doc = r.get("doc") or {}
-                if doc.get("id") and doc.get("chars"):
-                    r["doc_head"] = read_doc_text(doc["id"], limit=1200)
+                if doc.get("id"):
+                    head = read_doc_text(doc["id"], limit=1200)
+                    if head:
+                        r["doc_head"] = head
+                        doc["chars"] = doc.get("chars") or len(head)
                 rows.append(r)
             except Exception:
                 continue

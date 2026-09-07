@@ -1969,6 +1969,20 @@ async def collect_and_route_feed(positions_doc: dict) -> tuple[dict, dict]:
         routed, positions_doc, _call, telegram_feed.read_doc_text)
     if read:
         logger.info(f"첨부 리포트 {read}건 정독 완료")
+
+    # 어느 원문이 어디로 갔는지 남긴다. 이게 없으면 "채널 원문 1건" 이 붙은
+    # 종목이 findings 0건으로 끝났을 때 분류가 틀린 건지 그 글이 원래 별것
+    # 아니었는지 구분할 수 없다 — 즉 분류 품질을 영영 튜닝하지 못한다.
+    for tid, items in sorted(routed["by_target"].items()):
+        for it in items:
+            head = re.sub(r"\s+", " ", it.get("text", ""))[:60]
+            logger.info(
+                f"  배정 {tid} ← [{it.get('route_weight', '?')}] "
+                f"{it['channel'][:12]} | {head} | {it.get('route_why', '')[:40]}"
+            )
+    for it in routed.get("notable", []):
+        head = re.sub(r"\s+", " ", it.get("text", ""))[:60]
+        logger.info(f"  감시목록밖 ← {it['channel'][:12]} | {head}")
     hit = sum(len(v) for v in routed["by_target"].values())
     logger.info(
         f"피드 분류 완료: {len(feed)}건 중 {len(feed) - routed['unrouted']}건이 "

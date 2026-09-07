@@ -29,8 +29,9 @@ MAX_NOTABLE = 6
 DOC_SNIPPET_LEN = 700
 # 한 번 실행에서 정독할 리포트 수 상한. 리포트당 호출이 하나씩 붙는다.
 MAX_DOC_DIGESTS = 8
-# 정독 호출에 넣을 리포트 본문 길이. 증권사 리포트는 보통 이 안에 들어간다.
-DOC_READ_CHARS = 40000
+# 정독 호출에 넣을 리포트 본문 길이. 실측(2026-09-07): DELL 실적발표 49쪽이
+# 50,703자, HPE 34쪽이 48,355자였다. 4만자로 자르면 뒤쪽 가이던스가 날아간다.
+DOC_READ_CHARS = 60000
 
 
 def compact(item: dict, idx: int) -> str:

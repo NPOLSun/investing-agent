@@ -315,7 +315,13 @@ def _pdf_to_text(path: Path) -> tuple[str, int]:
         pages = [(p.extract_text() or "") for p in reader.pages]
         return "\n".join(pages).strip(), len(pages)
     except Exception as e:
-        logger.warning(f"PDF 파싱 실패 ({path.name}): {e}")
+        msg = str(e)
+        if "cryptography" in msg or "AES" in msg:
+            # 암호화된 PDF. pip install cryptography 로 풀리는 문제라
+            # '스캔본' 으로 뭉뚱그리면 고칠 수 있는 걸 못 고친다.
+            logger.error(f"PDF 가 암호화돼 있다 — pip install cryptography ({path.name})")
+        else:
+            logger.warning(f"PDF 파싱 실패 ({path.name}): {e}")
         return "", 0
 
 

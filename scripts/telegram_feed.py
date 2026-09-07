@@ -83,6 +83,9 @@ DOC_RETENTION_DAYS = 30
 # ★ 수집 때가 아니라 **읽을 때** 거른다. 원문은 그대로 저장해 둔다 —
 #   패턴을 잘못 잡아 알짜를 버려도 되돌릴 수 있어야 하기 때문이다.
 #   수집 단계에서 버리면 워터마크가 이미 지나가 복구가 불가능하다.
+# 채널별 잡음 패턴을 걸 범위. 제목 줄 앞부분만 본다 (headline 주석 참고).
+DROP_HEADLINE_CHARS = 160
+
 DROP_PATTERNS = [
     r"현재 채널은.*딜레이가 있는",          # 채널 자체 공지
     r"^\s*\[단기예보\]\s*기상청 통보문",     # 기상청 자동 포스팅
@@ -423,9 +426,9 @@ def cmd_set_drop(needle: str, pattern: str):
     # 눈으로만 확인하면 너무 넓게 잡아 알짜까지 날리는 걸 알 수 없다.
     recent = [r for r in load_feed(48, drop_noise=False)
               if r.get("channel_id") == ch["id"]]
-    hits = [r for r in recent if rx.search(r.get("text", ""))]
+    hits = [r for r in recent if rx.search(headline(r.get("text", "")))]
     print(f"[{ch['title']}] 패턴 추가: {pattern}")
-    print(f"최근 48시간 {len(recent)}건 중 {len(hits)}건이 걸립니다.")
+    print(f"최근 48시간 {len(recent)}건 중 {len(hits)}건이 걸립니다. (제목 줄 기준)")
     for r in hits[:8]:
         print(f"  - {r['text'].splitlines()[0][:64]}")
     if len(hits) > 8:
@@ -569,6 +572,21 @@ async def cmd_fetch(dry_run: bool = False) -> list[dict]:
 # 다이제스트에서 쓰는 읽기 API
 # ============================================================
 
+def headline(text: str) -> str:
+    """메시지의 제목 줄. 채널별 잡음 패턴은 여기에만 걸린다.
+
+    ★ 본문 전체에 걸면 주제가 섞인 긴 글이 통째로 날아간다. 실측(2026-09-07):
+      암호화폐 패턴을 본문 전체에 걸었더니 "9월 6일 시장 아침 브리핑" 이
+      함께 걸렸다 — 브리핑이 여러 시장을 훑다가 코인을 한 줄 언급했기 때문이다.
+      속보 채널은 한 건에 헤드라인 하나라 제목 줄만 보면 정확히 갈린다.
+    """
+    for line in (text or "").splitlines():
+        s = line.strip()
+        if s:
+            return s[:DROP_HEADLINE_CHARS]
+    return ""
+
+
 def _compiled_filters() -> tuple[list, dict]:
     """전역 잡음 패턴 + 채널별 추가 패턴을 컴파일해 돌려준다.
 
@@ -586,11 +604,12 @@ def _compiled_filters() -> tuple[list, dict]:
 
 def is_noise(item: dict, glob: list, per_channel: dict) -> bool:
     text = item.get("text", "")
-    for rx in glob:
+    for rx in glob:                       # 전역 패턴은 이미 ^ 로 묶여 있다
         if rx.search(text):
             return True
+    head = headline(text)                 # 채널별 패턴은 제목 줄에만 건다
     for rx in per_channel.get(item.get("channel_id"), []):
-        if rx.search(text):
+        if rx.search(head):
             return True
     return False
 

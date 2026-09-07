@@ -126,6 +126,10 @@ _NOISE_RE = re.compile(r"[^\w가-힣]+")
 DUPE_SIMILARITY = 0.55
 # 유사도 비교에 쓸 본문 길이. 뒤에 붙는 채널 홍보 문구를 잘라내는 효과도 있다.
 DUPE_PREFIX_LEN = 200
+# 4-gram 이 이보다 적은 짧은 글은 묶음 판정에서 뺀다.
+# 포함률은 작은 쪽을 분모로 쓰므로 짧을수록 점수가 부풀려진다. 실측(2026-09-07):
+# "한국 공포·탐욕 지수: 52" 한 줄이 무관한 글 12건과 0.31 로 나란히 걸렸다.
+MIN_SHINGLES_FOR_DUPE = 40
 
 
 def text_shingles(text: str) -> set:
@@ -141,7 +145,7 @@ def similarity(a: set, b: set) -> float:
     한 채널은 헤드라인만, 다른 채널은 기사 본문까지 붙이는 일이 흔하다.
     자카드로 재면 길이 차 때문에 같은 건인데도 점수가 주저앉는다.
     """
-    if not a or not b:
+    if len(a) < MIN_SHINGLES_FOR_DUPE or len(b) < MIN_SHINGLES_FOR_DUPE:
         return 0.0
     return len(a & b) / min(len(a), len(b))
 

@@ -1,11 +1,11 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-09-08"
+    "last_run": "2026-09-09"
   },
   "themes": {
     "ai-dc-power": {
-      "last_checked": "2026-09-07",
+      "last_checked": "2026-09-09",
       "observations": {
         "OCP LVDC SST 스펙": [
           {
@@ -1126,6 +1126,67 @@
             "last_seen": "2026-09-07",
             "value": "3Q27"
           }
+        ],
+        "구글-블랙스톤 Project Braid 지연": [
+          {
+            "date": "2026-09-09",
+            "last_seen": "2026-09-09",
+            "value": "변압기 확보 실패로 특정 부지 부적합 판정(2026-09-08 확인, 신규)"
+          }
+        ],
+        "한미 텍사스 엔시날 가스발전 투자": [
+          {
+            "date": "2026-09-09",
+            "last_seen": "2026-09-09",
+            "value": "223억달러/6.3GW 잠정 논의, 한국 정부 미확정 입장(2026-09-07~08, 신규)"
+          }
+        ],
+        "LME 구리 가격": [
+          {
+            "date": "2026-09-09",
+            "last_seen": "2026-09-09",
+            "value": "톤당 약 14,600달러대 사상최고치(2026년 9월초, 신규)"
+          },
+          {
+            "date": "2026-09-09",
+            "last_seen": "2026-09-09",
+            "value": "톤당 약 14,600달러대(9월 초 사상최고치)"
+          }
+        ],
+        "Project Braid 2027년 목표 용량": [
+          {
+            "date": "2026-09-09",
+            "last_seen": "2026-09-09",
+            "value": "500MW"
+          }
+        ],
+        "변압기 등 장비 대기기간": [
+          {
+            "date": "2026-09-09",
+            "last_seen": "2026-09-09",
+            "value": "약 1년 근접"
+          }
+        ],
+        "총 사업비": [
+          {
+            "date": "2026-09-09",
+            "last_seen": "2026-09-09",
+            "value": "223억달러(약 30조원)"
+          }
+        ],
+        "총 발전용량": [
+          {
+            "date": "2026-09-09",
+            "last_seen": "2026-09-09",
+            "value": "6.3GW"
+          }
+        ],
+        "1단계 가스터빈 용량": [
+          {
+            "date": "2026-09-09",
+            "last_seen": "2026-09-09",
+            "value": "1.4GW"
+          }
         ]
       },
       "shifts": {
@@ -1178,7 +1239,7 @@
           "thesis_review": false
         },
         "W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화": {
-          "headline": "ERCOT 대형부하 대기 4배 급증",
+          "headline": "구글-블랙스톤 JV, 변압기 부족으로 지연",
           "shift": "계통 접속 대기열(interconnection queue) 적체 및 규제 변화",
           "refs": [
             "W5"
@@ -1188,19 +1249,20 @@
             "hyosung-transformer",
             "hd-hyundai-electric"
           ],
-          "summary": "ERCOT(텍사스)의 대형부하(20MW 이상) 접속 대기 물량이 2024년 말 63GW에서 2026년 현재 226GW로 약 4배 늘었으며, 이 중 77%가 데이터센터發이다. 2026년 1분기에만 198GW가 신규 신청되어 특정 지역(ERCOT)의 적체 심화 속도가 전국 평균보다 빠르게 나타나고 있다.",
+          "summary": "Alphabet(구글)과 Blackstone의 클라우드 합작사('Project Braid')가 주요 데이터센터 부지 건설에서 지연에 직면했다고 Bloomberg가 2026-09-08 보도했다. 검토 중이던 한 부지는 적절한 변압기를 확보하지 못해 부적합 판정을 받았으며, 업계 전반에서 데이터센터 건설사들이 이런 장비를 받기까지 거의 1년 가까이 대기하는 것으로 확인됐다.",
           "sources": [
             {
-              "url": "https://www.latitudemedia.com/news/ercots-large-load-queue-has-nearly-quadrupled-in-a-single-year/",
-              "outlet": "Latitude Media",
-              "date": "2026-08",
+              "url": "https://www.bloomberg.com/news/articles/2026-09-08/google-blackstone-venture-faces-delays-at-data-center-sites",
+              "outlet": "Bloomberg",
+              "date": "2026-09-08",
               "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
             }
           ],
-          "last_seen": "2026-08-21",
+          "last_seen": "2026-09-09",
           "first_seen": "2026-08-17",
-          "count": 3,
+          "count": 4,
           "thesis_review": false
         },
         "W4|온사이트 발전·비계통 전력 조달 비중(behind-the-meter)": {
@@ -1874,11 +1936,88 @@
           "first_seen": "2026-09-07",
           "count": 1,
           "thesis_review": false
+        },
+        "W4|온사이트 발전·비계통 전력 조달 비중(behind-the-meter) / 가스터빈 신규 발주 기회": {
+          "headline": "韓 대미투자 1호, 텍사스 6.3GW 가스발전",
+          "shift": "온사이트 발전·비계통 전력 조달 비중(behind-the-meter) / 가스터빈 신규 발주 기회",
+          "refs": [
+            "W4"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "power-generation"
+          ],
+          "summary": "한국의 대미 350억달러 투자패키지 1호 사업으로 텍사스 엔시날에 223억달러(약 30조원) 규모 6.3GW 가스복합화력발전소 건설이 잠정 논의되고 있다고 복수 매체가 2026-09-07~08 보도했다. 1단계로 1.4GW 가스터빈을 우선 건설한 뒤 수요를 확인하며 4.9GW 복합화력을 단계적으로 증설하는 구조이며, 최종 전력수요처 중 하나로 인근 AI 데이터센터 개발이 거론된다. 다만 한국 산업통상자원부는 해당 보도가 부정확하다며 협상이 진행 중이라고 밝혀 아직 확정된 사안은 아니다.",
+          "sources": [
+            {
+              "url": "https://www.techradar.com/pro/south-korea-us-agree-on-usd22-billion-deal-for-6-3-gw-texas-gas-power-plant-encinal-facility-to-feed-ai-data-centers-under-washington-and-seouls-usd350-billion-pact",
+              "outlet": "TechRadar Pro",
+              "date": "2026-09-07",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://dallasexpress.com/state/south-korea-says-22-3b-texas-ai-power-deal-is-not-final-as-talks-continue/",
+              "outlet": "Dallas Express",
+              "date": "2026-09-07",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.ebn.co.kr/news/articleView.html?idxno=1723335",
+              "outlet": "EBN뉴스센터",
+              "date": "2026-09-08",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.economytribune.co.kr/news/articleView.html?idxno=3903817",
+              "outlet": "이코노미트리뷴",
+              "date": "2026-09-08",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-09-09",
+          "first_seen": "2026-09-09",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W5|계통 접속 대기열 적체 및 배전기기 공급부족에 연동된 원자재(구리) 비용 압박": {
+          "headline": "구리 사상최고치, 변압기 원가 압박",
+          "shift": "계통 접속 대기열 적체 및 배전기기 공급부족에 연동된 원자재(구리) 비용 압박",
+          "refs": [
+            "W5"
+          ],
+          "direction": "불명",
+          "affects": [
+            "hyosung-transformer",
+            "hd-hyundai-electric"
+          ],
+          "summary": "LME 구리 가격이 관세 우려발 미국 선매수와 AI 데이터센터·재생에너지·전력망발 수요 증가가 겹치며 2026년 9월 초 톤당 약 14,600달러대로 사상 최고치를 기록했다고 Bloomberg가 2026-09-08 보도했다. 구리는 변압기 권선의 핵심 소재로, 미국 관세로 인한 자국 내 유입 집중이 글로벌 재고 감소를 가속화하고 있다.",
+          "sources": [
+            {
+              "url": "https://www.bloomberg.com/news/articles/2026-09-08/copper-price-record-high-how-tariff-fears-are-driving-a-supply-squeeze",
+              "outlet": "Bloomberg",
+              "date": "2026-09-08",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-09-09",
+          "first_seen": "2026-09-09",
+          "count": 1,
+          "thesis_review": false
         }
       }
     },
     "optical-interconnect": {
-      "last_checked": "2026-09-07",
+      "last_checked": "2026-09-09",
       "observations": {
         "NVIDIA CPO 스위치 상태": [
           {
@@ -1925,6 +2064,11 @@
             "date": "2026-09-04",
             "last_seen": "2026-09-07",
             "value": "변동 없음 — Spectrum-X/Quantum-X Photonics 완전양산 지속, 가을(9~11월) 본격 출하 예정 유지"
+          },
+          {
+            "date": "2026-09-09",
+            "last_seen": "2026-09-09",
+            "value": "변동 없음 — Spectrum-X/Quantum-X Photonics 완전양산 지속, 가을(9~11월) 본격 출하 예정 유지, 9/7 이후 신규 발표 없음"
           }
         ],
         "Broadcom CPO 스위치 상태": [
@@ -1967,6 +2111,11 @@
             "date": "2026-09-07",
             "last_seen": "2026-09-07",
             "value": "변동 없음 — Tomahawk 6-Davisson/Bailly 볼륨생산 지속, 2026 하반기 추가 확대 전망"
+          },
+          {
+            "date": "2026-09-09",
+            "last_seen": "2026-09-09",
+            "value": "변동 없음 — Tomahawk 6-Davisson/Bailly 볼륨생산 지속, 9/7 이후 신규 발표 없음"
           }
         ],
         "TSMC COUPE": [
@@ -2007,7 +2156,7 @@
           },
           {
             "date": "2026-09-02",
-            "last_seen": "2026-09-07",
+            "last_seen": "2026-09-09",
             "value": "변동 없음 — 2026 양산목표 유지"
           }
         ],
@@ -2053,6 +2202,11 @@
             "date": "2026-09-07",
             "last_seen": "2026-09-07",
             "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(2026-08-20) 유지, 신규 계약 미확인"
+          },
+          {
+            "date": "2026-09-09",
+            "last_seen": "2026-09-09",
+            "value": "Meta 최대$6B(2026-01) + Amazon 복수B$(2026-06) + Zayo(2026-08-20) + Verizon 신규(2026-09-08, 멀티빌리언$, 8,000만+마일, 2027~2032)"
           }
         ],
         "ASMPT 포토닉스 매출 성장": [
@@ -2519,7 +2673,7 @@
           },
           {
             "date": "2026-09-07",
-            "last_seen": "2026-09-07",
+            "last_seen": "2026-09-09",
             "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지"
           }
         ],
@@ -2543,6 +2697,11 @@
             "date": "2026-09-07",
             "last_seen": "2026-09-07",
             "value": "변동 없음 — 1,650억원(8/31 기준) 유지"
+          },
+          {
+            "date": "2026-09-09",
+            "last_seen": "2026-09-09",
+            "value": "변동 없음 — 1,650억원(8/31 기준) 수준 유지, 9/8~9 신규 공시 확인 안됨"
           }
         ],
         "ADS테크 신규수주(CPO 장비)": [
@@ -2625,6 +2784,11 @@
             "date": "2026-09-07",
             "last_seen": "2026-09-07",
             "value": "신규 — 2027년말부터 스케일 전망(9/1~2 SEMICON Taiwan 발언)"
+          },
+          {
+            "date": "2026-09-09",
+            "last_seen": "2026-09-09",
+            "value": "변동 없음 — 2027년말부터 스케일 전망(9/1~2 발언) 유지"
           }
         ],
         "Zayo 리더십": [
@@ -2632,6 +2796,20 @@
             "date": "2026-09-07",
             "last_seen": "2026-09-07",
             "value": "9/1 CEO 교체(Steve Smith→Sowmyanarayan Sampath), CPO 테마 직접 관련성 낮음"
+          }
+        ],
+        "신규 공급기간": [
+          {
+            "date": "2026-09-09",
+            "last_seen": "2026-09-09",
+            "value": "2027~2032"
+          }
+        ],
+        "신규 공급규모": [
+          {
+            "date": "2026-09-09",
+            "last_seen": "2026-09-09",
+            "value": "8,000만+ 마일"
           }
         ]
       },
@@ -2713,7 +2891,7 @@
           "thesis_review": false
         },
         "W4|데이터센터 광섬유 수요 및 장기계약 규모": {
-          "headline": "Corning-Zayo 신규 장기계약",
+          "headline": "Corning-Verizon 신규 초대형 계약",
           "shift": "데이터센터 광섬유 수요 및 장기계약 규모",
           "refs": [
             "W4"
@@ -2722,33 +2900,36 @@
           "affects": [
             "optical-material"
           ],
-          "summary": "Corning이 2026-08-20 Zayo Group과 2030년까지 이어지는 신규 장기 광섬유 공급계약 확대를 공식 발표했다. Zayo는 이 계약을 통해 15,000 route mile 신규 장거리망 구축(이 중 8,000마일 이상은 NVIDIA와 협력하는 구간) 계획에 필요한 광섬유를 확보한다. 발표 당일 Corning 주가는 5% 하락했으나, 이는 계약 자체보다 7/28 실적발표 후 3분기 가이던스 실망·AI섹터 로테이션 등 기존 매크로 요인의 연장선으로 분석된다(미검증).",
+          "summary": "Corning이 2026-09-08 Verizon과 2027~2032년 8,000만 마일 이상의 고밀도 광섬유·커넥티비티 솔루션을 공급하는 신규 멀티빌리언달러 규모 장기계약을 공식 발표했다. 브로드밴드 확장(4,000만~5,000만 가구 목표)과 AI 컴퓨팅 관련 커넥티비티 수요를 동시에 겨냥한 계약으로, 기존 Meta($6B)·Amazon·Zayo(8/20) 계약에 이어 Corning의 4번째 대형 장기계약이 확인됐다.",
           "sources": [
             {
-              "url": "https://www.corning.com/worldwide/en/about-us/news-events/news-releases/2026/08/zayo-stays-ahead-of-ai-infrastructure-demand-through-long-term-fiber-supply-agreement-with-corning.html",
+              "url": "https://www.corning.com/worldwide/en/about-us/news-events/news-releases/2026/09/verizon-and-corning-announce-multi-year-multi-billion-dollar-supply-agreement-for-broadband-expansion-and-next-gen-ai-infrastructure.html",
               "outlet": "corning.com",
-              "date": "2026-08-20",
+              "date": "2026-09-08",
               "tier": "S1",
-              "note": ""
+              "note": "",
+              "from_feed": false
             },
             {
-              "url": "https://www.telecomramblings.com/2026/08/zayo-taps-corning-for-more-fiber/",
-              "outlet": "telecomramblings.com",
-              "date": "2026-08",
-              "tier": "S2",
-              "note": ""
+              "url": "https://www.verizon.com/about/news/verizon-corning-broadband-ai-fiber-agreement",
+              "outlet": "verizon.com",
+              "date": "2026-09-08",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
             },
             {
-              "url": "https://blockonomi.com/corning-glw-shares-decline-5-following-zayos-long-term-fiber-agreement-through-2030/",
-              "outlet": "blockonomi.com",
-              "date": "2026-08",
+              "url": "https://www.globenewswire.com/news-release/2026/09/08/3357726/0/en/verizon-and-corning-announce-multi-year-multi-billion-dollar-supply-agreement-for-broadband-expansion-and-next-gen-ai-infrastructure.html",
+              "outlet": "globenewswire.com",
+              "date": "2026-09-08",
               "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
             }
           ],
-          "last_seen": "2026-08-26",
+          "last_seen": "2026-09-09",
           "first_seen": "2026-08-17",
-          "count": 2,
+          "count": 3,
           "thesis_review": false
         },
         "W2|스케일업/스케일아웃 네트워크의 광 전환 비중": {

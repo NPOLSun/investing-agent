@@ -3534,7 +3534,7 @@
       }
     },
     "memory-storage": {
-      "last_checked": "2026-09-09",
+      "last_checked": "2026-09-11",
       "observations": {
         "파두 컨트롤러 매출 비중": [
           {
@@ -3716,6 +3716,11 @@
             "date": "2026-09-09",
             "last_seen": "2026-09-09",
             "value": "8/13 변론 이후 추가 진행상황 미확인(9/9 재확인, 변화없음 지속)"
+          },
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "8/13 변론 이후 추가 진행상황 미확인(9/11 재확인, 변화없음 지속)"
           }
         ],
         "Gen6 성능": [
@@ -4279,6 +4284,11 @@
             "date": "2026-09-09",
             "last_seen": "2026-09-09",
             "value": "8/12 공시(395.83억원) 이후 추가 신규계약 공시 미확인(9/9 재확인, 변화없음 지속)"
+          },
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "8/12 공시(395.83억원) 이후 추가 신규계약 공시 미확인(9/11 재확인, 변화없음 지속)"
           }
         ],
         "SK하이닉스 1c D램 비중": [
@@ -4293,6 +4303,11 @@
             "date": "2026-09-07",
             "last_seen": "2026-09-07",
             "value": "2026-09-04 공시, 확정사항 없음 → 재공시 시한 2026-12-04로 연기"
+          },
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "2026-09-04 공시 이후 재공시 시한 2026-12-04로 연기, 9/8 SK하이닉스 재확인(변화없음 지속)"
           }
         ],
         "1c D램 비중": [
@@ -4356,6 +4371,55 @@
             "date": "2026-09-09",
             "last_seen": "2026-09-09",
             "value": "90% 이상"
+          }
+        ],
+        "화웨이 Ascend 950DT 가격": [
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "2개월 전 대비 20~50% 인상, 25만위안 초과(2026-09-10 로이터 단독보도, 신규)"
+          }
+        ],
+        "HBM4 스택 구성(8단 비중)": [
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "12단 중심 → 8단 비중 확대 검토(변화없음 지속)"
+          }
+        ],
+        "Micron FY2026 4분기 실적발표일": [
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "2026-09-30 예정(신규 확인, 아직 미발표)"
+          }
+        ],
+        "어센드 950DT 가격": [
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "2개월 전 대비 20~50%↑ (25만위안 초과, 블룸버그 기준 3개월간 +60%)"
+          }
+        ],
+        "어센드 950PR 가격": [
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "6만위안(2026년초) → 8만위안 초과"
+          }
+        ],
+        "어센드 910C 가격": [
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "약 9만위안 → 11만위안 초과"
+          }
+        ],
+        "캠브리콘 차세대칩(690) 가격": [
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "+20~30%"
           }
         ]
       },
@@ -4468,51 +4532,43 @@
           "thesis_review": false
         },
         "W2|hbm 세대 전환 일정 및 스택·본딩 공정 방식 변경": {
-          "headline": "삼성·SK하이닉스 High-NA EUV D램 확정",
+          "headline": "中 HBM 품귀, AI칩값 최대 60%↑",
           "shift": "HBM 세대 전환 일정 및 스택·본딩 공정 방식 변경",
           "refs": [
             "W2"
           ],
           "direction": "중립",
           "affects": [],
-          "summary": "삼성전자와 SK하이닉스가 2026-09-08 각각 ASML과의 협력 확대를 공식 발표하며, 2028년 첨단 D램 양산 공정에 High-NA EUV(개구수 0.55) 노광장비를 업계 최초로 도입하겠다고 밝혔다. 양사 모두 ASML·TSMC가 주도하는 6인치→12인치 포토마스크 전환 '대형 마스크 컨소시엄'에도 참여(SK하이닉스는 참여 검토 단계)한다고 밝혔다.",
+          "summary": "로이터 단독보도(2026-09-10)에 따르면 화웨이·캠브리콘·메타엑스·일루바타 코어엑스 등 중국 AI 반도체 업체들이 HBM 조달난 심화로 최근 2~3개월 새 AI 가속기 제시가를 일제히 인상했다. 화웨이 최신 '어센드 950DT'는 25만위안(약 3만7천달러) 이상으로 두 달 전 대비 20~50% 올랐고, 블룸버그는 3개월간 약 60% 인상됐다고 보도했다. 대중 HBM 수출통제로 중국 업체들이 비정상 유통망을 통해 수 배의 프리미엄을 주고 조달 중인 것으로 파악된다.",
           "sources": [
             {
-              "url": "https://www.asml.com/en/news/press-releases/2026/samsung-electronics-and-asml-expand-collaboration-on-next-generation-semiconductor-manufacturing",
-              "outlet": "ASML",
-              "date": "2026-09-08",
-              "tier": "S1",
+              "url": "https://www.investing.com/news/stock-market-news/exclusivechinas-ai-chipmakers-raise-prices-as-highbandwidth-memory-shortage-bites-4894950",
+              "outlet": "Reuters (via Investing.com)",
+              "date": "2026-09-10",
+              "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://news.samsung.com/global/samsung-electronics-and-asml-expand-strategic-collaboration-for-next-generation-semiconductor-manufacturing",
-              "outlet": "Samsung Newsroom",
-              "date": "2026-09-08",
-              "tier": "S1",
+              "url": "https://www.hankyung.com/article/202609107533i",
+              "outlet": "한국경제",
+              "date": "2026-09-10",
+              "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://news.skhynix.co.kr/high-na-euv-introduce/",
-              "outlet": "SK hynix Newsroom",
-              "date": "2026-09-08",
-              "tier": "S1",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.fnnews.com/news/202609081825075709",
-              "outlet": "파이낸셜뉴스",
-              "date": "2026-09-08",
+              "url": "https://www.edaily.co.kr/News/Read?newsId=04375526645578808",
+              "outlet": "이데일리",
+              "date": "2026-09-11",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-09",
+          "last_seen": "2026-09-11",
           "first_seen": "2026-08-18",
-          "count": 6,
+          "count": 7,
           "thesis_review": false
         },
         "W1,W4|ai 추론 확산에 따른 essd·니어라인 스토리지 수요 구조 변화 / 컨트롤러 내재화 vs 외부 조달 흐름": {
@@ -4980,7 +5036,7 @@
       }
     },
     "nuclear-smr": {
-      "last_checked": "2026-09-07",
+      "last_checked": "2026-09-11",
       "observations": {
         "ADVANCE Act 이행률": [
           {
@@ -5012,6 +5068,11 @@
             "date": "2026-09-07",
             "last_seen": "2026-09-07",
             "value": "31/36 마일스톤(86%) — 9월초까지 변동 확인 안됨"
+          },
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "33/36 마일스톤(92%, 2026-08-20 기준) — 31/36에서 상향"
           }
         ],
         "하이퍼스케일러 원자력 누적계약": [
@@ -5039,6 +5100,11 @@
             "date": "2026-09-07",
             "last_seen": "2026-09-07",
             "value": "약 9.8GW, 13개+ 프로젝트 — 변동 없음"
+          },
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "약 9.8~10GW, 13개+ 프로젝트 — 9월초까지 변동 확인 안됨"
           }
         ],
         "Centrus 주가(LEU)": [
@@ -5169,6 +5235,11 @@
             "date": "2026-08-24",
             "last_seen": "2026-08-24",
             "value": "2026-08-14 정식 제작계약 체결"
+          },
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "원자로압력용기·노내구조물 정식 제작계약(2026-08-14) — 변동 없음"
           }
         ],
         "TerraPower 신규 EPC 파트너": [
@@ -5261,6 +5332,11 @@
             "date": "2026-08-28",
             "last_seen": "2026-08-28",
             "value": "신규 공개 11.5GW"
+          },
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "144기 Xe-100, 약 11.5GW(Dow·Amazon·Centrica) — 변동 없음"
           }
         ],
         "두산에너빌리티 원전 수주": [
@@ -5308,6 +5384,11 @@
             "date": "2026-08-28",
             "last_seen": "2026-08-28",
             "value": "31/36(86%, 2026-04월 기준) — 변동없음 (8월까지)"
+          },
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "31/36(86%, 4월) → 33/36(92%, 8월20일 기준)"
           }
         ],
         "Part53 발효일": [
@@ -5456,6 +5537,76 @@
             "last_seen": "2026-09-07",
             "value": "약 214,000 sq ft"
           }
+        ],
+        "한미 대미투자 원전 프로젝트": [
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "1,200억달러, AP1000 6기+APR1400 2기(잠정), 발표 거론 2026-09-18 — 미확정"
+          }
+        ],
+        "HD현대중공업 SMR 투자": [
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "2,386억원(2026.10~2029.4), Natrium 격납구조물 우선공급권, 공장완공 2029년 상반기"
+          }
+        ],
+        "규모": [
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "1,200억달러(약 161조원)"
+          }
+        ],
+        "구성(잠정)": [
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "AP1000 6기 + APR1400 2기"
+          }
+        ],
+        "발표 거론 시점": [
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "2026-09-18"
+          }
+        ],
+        "SMR 투자액": [
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "2,386억원"
+          }
+        ],
+        "SMR 투자기간": [
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "2026.10~2029.4"
+          }
+        ],
+        "SMR 공장 완공 목표": [
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "2029년 상반기"
+          }
+        ],
+        "발전엔진 투자액": [
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "8,336억원(3GW)"
+          }
+        ],
+        "총 투자액": [
+          {
+            "date": "2026-09-11",
+            "last_seen": "2026-09-11",
+            "value": "1조722억원"
+          }
         ]
       },
       "shifts": {
@@ -5547,7 +5698,7 @@
           "thesis_review": false
         },
         "W5|대형원전 신규 발주 흐름 (미국·유럽·아시아)": {
-          "headline": "AP1000 $175억 대출공약",
+          "headline": "한미 원전 8기 대미투자 협상",
           "shift": "대형원전 신규 발주 흐름 (미국·유럽·아시아)",
           "refs": [
             "W5"
@@ -5556,40 +5707,36 @@
           "affects": [
             "power-generation"
           ],
-          "summary": "DOE가 2026-06-23 웨스팅하우스 AP1000 최대 10기(5개 프로젝트) 건설용 장납기 기자재 조달에 $175억 규모 조건부 대출을 발표했다. 프로젝트당 유틸리티 파트너가 자기자본 $5억을 선투입해야 하며 착공 목표는 2030년이다. 8월에는 웨스팅하우스가 아멘텀(Amentum)과 AP1000 함대급 배치 및 AP300 SMR 개발을 지원하는 협력계약을 추가로 체결했고, 두산에너빌리티·HD현대중공업 등 한국 중공업사가 원자로용기·증기발생기 등 장납기 기자재 수주 후보로 거론된다.",
+          "summary": "한미 양국이 대미 투자 패키지 중 1,200억달러(약 161조원) 규모를 미국 내 원전 8기 건설에 배정하는 방안을 논의 중이며, 웨스팅하우스 AP1000 6기와 한국형 APR1400 2기를 병행 발주하는 절충안에 잠정 합의한 것으로 보도됐다. 합의 발표는 2026-09-18경으로 거론되나 아직 공식 서명 전 협상 단계다.",
           "sources": [
             {
-              "url": "https://info.westinghousenuclear.com/news/westinghouse-announces-department-of-energy-partnership-to-jumpstart-large-scale-nuclear-supply-chain",
-              "outlet": "westinghousenuclear.com",
-              "date": "2026-06-23",
-              "tier": "S1",
-              "note": ""
+              "url": "https://en.sedaily.com/finance/2026/09/08/korea-us-plan-eight-nuclear-reactors-lng-plant-comes-first",
+              "outlet": "Seoul Economic Daily",
+              "date": "2026-09-08",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
             },
             {
-              "url": "https://www.ans.org/news/2026-06-23/article-8142/doe-announces-175b-in-conditional-loans-for-ap1000-builds/",
-              "outlet": "ans.org",
-              "date": "2026-06-23",
+              "url": "https://www.koreajoongangdaily.com/business/korea-weighs-120-billion-investment-in-8-nuclear-reactors-in-us-as-part-of-tariff-deal/12863947",
+              "outlet": "Korea JoongAng Daily",
+              "date": "2026-09-08",
               "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
             },
             {
-              "url": "https://www.world-nuclear-news.org/articles/us-federal-loan-to-jumpstart-ap1000-reactor-supply-chain",
-              "outlet": "world-nuclear-news.org",
-              "date": "2026-06",
+              "url": "https://www.fnnews.com/news/202609081609525566",
+              "outlet": "파이낸셜뉴스",
+              "date": "2026-09-08",
               "tier": "S2",
-              "note": ""
-            },
-            {
-              "url": "https://www.ans.org/news/2026-08-05/article-8272/westinghouse-updates-ap1000-potential-ipo-amentum-partnership/",
-              "outlet": "ans.org",
-              "date": "2026-08-05",
-              "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
             }
           ],
-          "last_seen": "2026-09-01",
+          "last_seen": "2026-09-11",
           "first_seen": "2026-08-18",
-          "count": 3,
+          "count": 4,
           "thesis_review": false
         },
         "W4|haleu 공급 능력 확충 속도 및 신규 진입자": {
@@ -5667,85 +5814,80 @@
           "thesis_review": false
         },
         "W2|nrc 인허가 처리 속도 변화 (정책·제도 개편 포함)": {
-          "headline": "방사선방호 규칙 연내 최종화 목표",
+          "headline": "ADVANCE Act 이행률 31→33/36",
           "shift": "NRC 인허가 처리 속도 변화 (정책·제도 개편 포함)",
           "refs": [
             "W2"
           ],
-          "direction": "중립",
+          "direction": "순풍",
           "affects": [
             "smr-developer",
             "power-generation"
           ],
-          "summary": "ADVANCE Act 이행 마일스톤은 4월말 기준 31/36(86%)에서 9월초까지 추가 완료가 확인되지 않았다. 다만 NRC가 2026-07-15 '방사선방호체계 개편(ALARA 대체)' 규칙안을 연방관보에 공식 게재했고, 2026-08-31 의견수렴 마감 후 최종규칙은 2026년말 목표로 확인됐다 — 사업자에게 예측가능성을 높이는 방향의 규제 완화다.",
+          "summary": "NRC의 ADVANCE Act 이행 마일스톤이 4월 기준 31/36(86%)에서 8월 20일 기준 33/36(92%)으로 상향된 것이 이번에 새로 확인됐다. 직전 조사(9/7)까지는 '변동 없음'으로 파악됐으나, 이는 최신 업데이트를 놓친 것으로 실제로는 8월 중 2건이 추가 완료됐다. NRC 대시보드 자체도 2026-08-27자로 최근 갱신된 상태다.",
           "sources": [
-            {
-              "url": "https://www.federalregister.gov/documents/2026/07/15/2026-14208/reforming-and-modernizing-the-nrcs-radiation-protection-framework",
-              "outlet": "federalregister.gov",
-              "date": "2026-07-15",
-              "tier": "S1",
-              "note": ""
-            },
             {
               "url": "https://www.nrc.gov/about-nrc/governing-laws/advance-act/dashboard",
               "outlet": "nrc.gov",
-              "date": "2026-08",
+              "date": "2026-08-27",
               "tier": "S1",
-              "note": ""
+              "note": "",
+              "from_feed": false
             },
             {
-              "url": "https://www.hklaw.com/en/insights/publications/2026/07/nrc-proposes-overhaul-of-radiation-protection-framework",
-              "outlet": "hklaw.com",
-              "date": "2026-07",
+              "url": "https://nuclearinnovationalliance.org/regulatory-implementation-summary-nrc-progress-under-advance-act",
+              "outlet": "nuclearinnovationalliance.org",
+              "date": "2026-08-20",
               "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
             }
           ],
-          "last_seen": "2026-09-01",
+          "last_seen": "2026-09-11",
           "first_seen": "2026-08-28",
-          "count": 2,
+          "count": 3,
           "thesis_review": false
         },
         "W1|smr 최초 상업운전 시점 컨센서스의 이동": {
-          "headline": "Kemmerer 공급망 12개사 추가",
+          "headline": "HD현대중공업 SMR 1조원 투자",
           "shift": "SMR 최초 상업운전 시점 컨센서스의 이동",
           "refs": [
             "W1"
           ],
-          "direction": "순풍",
+          "direction": "중립",
           "affects": [
             "power-generation"
           ],
-          "summary": "TerraPower가 2026-09-02 Natrium 1호기(Kemmerer, 와이오밍) 건설을 위한 12개 신규 공급사 계약 체결을 발표했다(Merrick & Company, Mirion Technologies, BWXT Canada, Teledyne Brown Engineering 등). 두산에너빌리티는 이번 계약 명단에 없으나, 두산이 별도로 코어배럴 등 원자로 기자재를 공급 중인 동일 프로젝트가 2030년 완공 목표를 향해 계속 진행되고 있음을 보여주는 간접 신호다.",
+          "summary": "HD현대중공업이 2026-09-10 발전엔진(3GW 힘센엔진, 8,336억원)과 테라파워 Natrium SMR 주기기(2,386억원, 2026.10~2029.4)에 총 1조722억원을 투자한다고 발표했다. 울산조선소 내 SMR 주기기 전용공장을 건립해 2029년 상반기 완공 목표이며, 테라파워 Natrium 원자로의 격납구조물(RES) 우선공급권을 근거로 한 투자다.",
           "sources": [
             {
-              "url": "https://www.nucnet.org/news/terrapower-continues-supply-chain-buildout-for-first-natrium-nuclear-plant-9-2-2026",
-              "outlet": "nucnet.org",
-              "date": "2026-09-02",
+              "url": "https://www.hankyung.com/article/2026091074191",
+              "outlet": "한국경제",
+              "date": "2026-09-10",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://world-nuclear-news.org/articles/terrapower-selects-more-suppliers-for-natrium-components",
-              "outlet": "world-nuclear-news.org",
-              "date": "2026-09-02",
+              "url": "https://www.fnnews.com/news/202609101834187832",
+              "outlet": "파이낸셜뉴스",
+              "date": "2026-09-10",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.exchangemonitor.com/terrapower-awards-12-new-supplier-contracts-for-kemmerer-unit-1-project/",
-              "outlet": "exchangemonitor.com",
-              "date": "2026-09-02",
+              "url": "https://www.etoday.co.kr/news/view/2624053",
+              "outlet": "이투데이",
+              "date": "2026-09-10",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-07",
+          "last_seen": "2026-09-11",
           "first_seen": "2026-09-07",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         }
       }

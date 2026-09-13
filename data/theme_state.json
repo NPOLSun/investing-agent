@@ -1,11 +1,11 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-09-11"
+    "last_run": "2026-09-14"
   },
   "themes": {
     "ai-dc-power": {
-      "last_checked": "2026-09-11",
+      "last_checked": "2026-09-14",
       "observations": {
         "OCP LVDC SST 스펙": [
           {
@@ -22,6 +22,11 @@
             "date": "2026-09-02",
             "last_seen": "2026-09-02",
             "value": "v0.3 유지(변동없음)"
+          },
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "v0.3 유지(2026-07 발표 이후 업데이트 없음, 80개+ 업체 참여 변동없음)"
           }
         ],
         "800V 파워랙 출하": [
@@ -403,6 +408,11 @@
             "date": "2026-09-02",
             "last_seen": "2026-09-02",
             "value": "2026-09-01 현재도 미확정(당초 예상 8월말 도과)"
+          },
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "9월 14일 현재도 미확정(변동없음, 지연 장기화)"
           }
         ],
         "OCP LVDC SST v0.3": [
@@ -836,6 +846,11 @@
             "date": "2026-08-31",
             "last_seen": "2026-08-31",
             "value": "NVIDIA '로드맵 유지' 입장 반복, 구체적 반박 없음(변동없음)"
+          },
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "NVIDIA 구체적 반박 없이 '로드맵 유지' 입장 반복(변동없음)"
           }
         ],
         "PUCT 유예 승인일": [
@@ -1326,6 +1341,76 @@
             "last_seen": "2026-09-11",
             "value": "약 1조원(~6%)"
           }
+        ],
+        "Vicor Fab 증설": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "Fab-1(32만sqft) → Fab-2+3(뉴햄프셔, 합계 약 100만sqft) 신규 착공(2026-09-11 발표)"
+          }
+        ],
+        "HD현대중공업 힘센엔진 생산능력": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "3GW → 7.2GW(2030년 목표), 투자 1조722억원(2026-09-10 공시)"
+          }
+        ],
+        "PJM IRAS 의견수렴 결과": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "IMM·EPSA 반대 항의서 접수 확인(2026-09-03), 발효목표 10/12는 변동없음(미확정)"
+          }
+        ],
+        "효성중공업/HD현대일렉트릭 9월 신규수주": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "14일 내 신규 공시 확인 안됨(85억달러 수주잔고는 9/7 기존관측 유지)"
+          }
+        ],
+        "생산시설 면적": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "Fab-1 32만sqft → Fab-2+3 합계 약 100만sqft(신규)"
+          }
+        ],
+        "Fab-2 초기가동까지 리드타임": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "약 1년"
+          }
+        ],
+        "발표일 주가 변동": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "+11~12%"
+          }
+        ],
+        "투자규모": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "1조722억원(발전엔진 8336억원+SMR 2386억원)"
+          }
+        ],
+        "힘센엔진 생산능력": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "3GW(현재) → 7.2GW(2030년)"
+          }
+        ],
+        "신규기지 가동목표": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "2028년 5월"
+          }
         ]
       },
       "shifts": {
@@ -1477,43 +1562,46 @@
           "thesis_review": false
         },
         "W2,W3|배전 전압 아키텍처 전환(54v 랙 → 800vdc)에 연동된 point-of-load 공급사 실적": {
-          "headline": "Vicor 내부자 매도 지속, 주가 변동",
+          "headline": "Vicor 신규 Fab 2곳 확보, 증설 착수",
           "shift": "배전 전압 아키텍처 전환(54V 랙 → 800VDC)에 연동된 point-of-load 공급사 실적",
           "refs": [
             "W2",
             "W3"
           ],
-          "direction": "중립",
+          "direction": "순풍",
           "affects": [
             "point-of-load"
           ],
-          "summary": "Vicor 주가는 8월 중 -5.6%(8/10)→+3.6%(8/14)→-4.5%(8/20)로 큰 폭 등락을 반복했다. 최근 3개월간 이사 등 내부자의 순매도 금액이 총 1억7220만달러에 달하고 매수는 전무한 것으로 집계됐으며, 이는 기존에 관측된 '내부자 매도 지속' 흐름이 이어지고 규모가 구체화된 것이다. 반면 월가 평균 목표주가는 현재가 대비 약 43% 높은 수준을 유지하고 있다.",
+          "summary": "Vicor가 2026-09-11 뉴햄프셔주 메리맥(33.4만sqft 건물, 66에이커)과 훅셋(54에이커) 부지를 매입해 ChiP Fab-2·Fab-3(합계 약 100만sqft)을 건설한다고 발표했다. 기존 Fab-1(매사추세츠 앤도버, 32만sqft)이 가동률 한계에 근접함에 따른 증설로, 발표 직후 주가가 약 11~12% 급등했다.",
           "sources": [
             {
-              "url": "https://www.tipranks.com/news/insider-trading/vicor-insider-shake-up-directors-major-stock-move-grabs-wall-streets-attention-insider-trading-news",
+              "url": "https://www.globenewswire.com/news-release/2026/09/11/3360412/0/en/vicor-acquires-sites-for-additional-chip-fabs.html",
+              "outlet": "GlobeNewswire(Vicor 공식보도자료)",
+              "date": "2026-09-11",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.tipranks.com/news/vicor-stock-vicr-soars-11-on-new-manufacturing-site-acquisitions",
               "outlet": "TipRanks",
-              "date": "2026-08-18",
+              "date": "2026-09-11",
               "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
             },
             {
-              "url": "https://www.gurufocus.com/news/9046489/vicor-corp-vicr-stock-price-fall-45",
-              "outlet": "GuruFocus",
-              "date": "2026-08-20",
+              "url": "https://www.benzinga.com/markets/tech/26/09/61746170/vicor-stock-climbs-with-backlog-up-145-more-capacity-coming",
+              "outlet": "Benzinga",
+              "date": "2026-09-11",
               "tier": "S2",
-              "note": ""
-            },
-            {
-              "url": "https://www.gurufocus.com/news/9022780/vicor-corp-vicr-stock-down-56-but-still-overvalued-gf-score-81100",
-              "outlet": "GuruFocus",
-              "date": "2026-08-10",
-              "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
             }
           ],
-          "last_seen": "2026-08-24",
+          "last_seen": "2026-09-14",
           "first_seen": "2026-08-19",
-          "count": 2,
+          "count": 3,
           "thesis_review": false
         },
         "W1,W3|랙 전력밀도 로드맵 변경(kw/rack) 및 실제 배치 시점": {
@@ -1701,43 +1789,38 @@
           "thesis_review": false
         },
         "W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — pjm iras 세부일정": {
-          "headline": "PJM IRAS 의견수렴·시행일정 공개",
+          "headline": "PJM IRAS에 시장감시인·발전업계 반발",
           "shift": "계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — PJM IRAS 세부일정",
           "refs": [
             "W5"
           ],
-          "direction": "순풍",
+          "direction": "불명",
           "affects": [
             "hyosung-transformer",
             "hd-hyundai-electric"
           ],
-          "summary": "PJM이 2026-08-13 FERC에 제출한 IRAS(임시자원적정성서비스) 제안의 세부 일정이 확인됐다. 의견수렴 마감은 2026-09-03이며, 자체 발전 없이 접속하는 신규 대형부하에 대한 IRAS 노출은 2027-06-01부터, 가변자원요건(VRR) 변경은 2029/30 공급연도부터 적용된다. PJM은 2024~2030년 예상 부하증가 32GW 중 30GW가 데이터센터發이라고 밝혔다.",
+          "summary": "PJM 독립시장감시인(IMM)이 2026-09-03 FERC에 IRAS(임시자원적정성서비스) 제안을 \"모순되고 혼란스러운 제안\"이라 비판하는 항의서를 제출했고, 같은 날 발전사업자 단체 EPSA도 IRAS가 신규·기존 용량자원을 부당하게 차별하고 용량시장 가격신호를 왜곡할 수 있다며 별도 항의서를 냈다. 이는 지난 관측(9/3 의견수렴 마감, 결과 미확인)의 후속 확인으로, 10/12 발효 목표를 둔 PJM 제안에 실제 반대 의견이 구체적으로 제기됐음이 새로 드러났다.",
           "sources": [
             {
-              "url": "https://insidelines.pjm.com/pjm-proposes-framework-to-connect-data-centers-without-compromising-reliability-affordability/",
-              "outlet": "PJM Inside Lines",
-              "date": "2026-08-13",
+              "url": "https://www.monitoringanalytics.com/filings/2026/IMM_Protest_Docket_No_ER26-3515_20260903.pdf",
+              "outlet": "Monitoring Analytics(PJM 독립시장감시인, 공식 제출서)",
+              "date": "2026-09-03",
               "tier": "S1",
-              "note": ""
+              "note": "",
+              "from_feed": false
             },
             {
-              "url": "https://www.datacenterknowledge.com/energy-power-supply/pjm-s-new-deal-for-data-centers-bring-power-or-face-cuts",
-              "outlet": "Data Center Knowledge",
-              "date": "2026-08",
-              "tier": "S2",
-              "note": ""
-            },
-            {
-              "url": "http://paenvironmentdaily.blogspot.com/2026/08/pjm-formally-submits-ferc-proposal-on.html",
-              "outlet": "PA Environment Digest",
-              "date": "2026-08-13",
-              "tier": "S2",
-              "note": ""
+              "url": "https://epsa.org/filings/epsa-protests-pjm-interim-resource-adequacy-service-proposal/",
+              "outlet": "EPSA(공식 제출서)",
+              "date": "2026-09-03",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
             }
           ],
-          "last_seen": "2026-08-26",
+          "last_seen": "2026-09-14",
           "first_seen": "2026-08-26",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W1,W3|랙 전력밀도 로드맵 변경(kw/rack) 및 실제 배치 시점 — kyber 랙 지연 논란": {
@@ -2202,11 +2285,45 @@
           "first_seen": "2026-09-11",
           "count": 1,
           "thesis_review": false
+        },
+        "W4|온사이트 발전·비계통 전력 조달 비중(behind-the-meter) / 가스터빈·발전엔진 공급망": {
+          "headline": "HD현대중공업, 발전엔진·SMR에 1조 투자",
+          "shift": "온사이트 발전·비계통 전력 조달 비중(behind-the-meter) / 가스터빈·발전엔진 공급망",
+          "refs": [
+            "W4"
+          ],
+          "direction": "중립",
+          "affects": [
+            "power-generation"
+          ],
+          "summary": "HD현대중공업이 2026-09-10 공시를 통해 울산 온산에 3GW급 힘센(HiMSEN) 발전엔진 신규 생산기지(8336억원)와 SMR 주기기 전용공장(2386억원)에 총 1조722억원을 투자한다고 밝혔다. AI 데이터센터發 전력수요 급증에 대응해 전체 힘센엔진 생산능력을 현재 3GW에서 2030년 7.2GW로 확대하는 것이 목표로, 2028년 5월 가동을 예정하고 있다.",
+          "sources": [
+            {
+              "url": "https://www.gukjenews.com/news/articleView.html?idxno=3691289",
+              "outlet": "국제뉴스",
+              "date": "2026-09-10",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.fnnews.com/news/202609111038072017",
+              "outlet": "파이낸셜뉴스",
+              "date": "2026-09-11",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-09-14",
+          "first_seen": "2026-09-14",
+          "count": 1,
+          "thesis_review": false
         }
       }
     },
     "optical-interconnect": {
-      "last_checked": "2026-09-11",
+      "last_checked": "2026-09-14",
       "observations": {
         "NVIDIA CPO 스위치 상태": [
           {
@@ -2263,6 +2380,11 @@
             "date": "2026-09-11",
             "last_seen": "2026-09-11",
             "value": "변동 없음 — Spectrum-X/Quantum-X Photonics 완전양산 지속, 가을(9~11월) 본격 출하 예정 유지, 9/9 이후 신규 발표 없음"
+          },
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "변동 없음 — Spectrum-X/Quantum-X Photonics 완전양산 지속, 가을(9~11월) 본격 출하 예정 유지, 9/11 이후 신규 발표 없음"
           }
         ],
         "Broadcom CPO 스위치 상태": [
@@ -2315,6 +2437,11 @@
             "date": "2026-09-11",
             "last_seen": "2026-09-11",
             "value": "변동 없음 — Tomahawk 6-Davisson/Bailly 볼륨생산 지속, 9/9 이후 신규 발표 없음"
+          },
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "변동 없음 — Tomahawk 6-Davisson/Bailly 볼륨생산 지속, 9/11 이후 신규 발표 없음"
           }
         ],
         "TSMC COUPE": [
@@ -2362,6 +2489,11 @@
             "date": "2026-09-11",
             "last_seen": "2026-09-11",
             "value": "변동 없음 — 2026 하반기 양산목표 유지"
+          },
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "변동 없음 — 2026 하반기 양산목표 유지, SiPh 통합 플랫폼 고도화 관련 분석글만 확인(1차 발표 아님)"
           }
         ],
         "CPO 비중(2026 광모듈 중)": [
@@ -2414,7 +2546,7 @@
           },
           {
             "date": "2026-09-11",
-            "last_seen": "2026-09-11",
+            "last_seen": "2026-09-14",
             "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) + Verizon(9/8) 유지, 9/9 이후 신규 계약 미확인"
           }
         ],
@@ -2887,7 +3019,7 @@
           },
           {
             "date": "2026-09-07",
-            "last_seen": "2026-09-09",
+            "last_seen": "2026-09-14",
             "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지"
           }
         ],
@@ -2921,6 +3053,11 @@
             "date": "2026-09-11",
             "last_seen": "2026-09-11",
             "value": "변동 없음 — 1,650억원(8/31 기준) 수준 유지로 추정, 9월 신규 공시 확인 안됨(검색된 '410억 조기상환, 2,400→1,990억' 자료는 2026-07-10 기사로 확인되어 9월 신규 아님)"
+          },
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "변동 없음 — 1,650억원(8/31 기준) 수준 유지로 추정, 9월 신규 공시 확인 안됨"
           }
         ],
         "ADS테크 신규수주(CPO 장비)": [
@@ -3036,6 +3173,27 @@
             "date": "2026-09-11",
             "last_seen": "2026-09-11",
             "value": "Insertion 1~4 단계별 난제 상존, '100% 테스트' 체제는 2027년 가속화 전망(Chroma ATE·Digitimes, 9/4~9/8)"
+          }
+        ],
+        "NPO 국제표준 합의(신규)": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "2026-09-10 IPEC·OIF 공동주최 선전 서밋에서 컨센서스 도출, CAICT·Tencent·Alibaba·Baidu·Huawei·Broadcom·SENKO·Amphenol·Yamaichi 참여"
+          }
+        ],
+        "Huawei NPO 모듈(신규)": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "7.2Tbps(36채널×200G), 업계 최초 시연(9/10~11, CIOE 선전), 개발단계·양산시점 미정"
+          }
+        ],
+        "화웨이 NPO 모듈 대역폭": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "7.2Tbps (36채널×200G)"
           }
         ]
       },
@@ -3528,6 +3686,47 @@
           ],
           "last_seen": "2026-09-11",
           "first_seen": "2026-09-11",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W1,W3|광 i/o 표준화 동향 및 주요 벤더 로드맵 변경": {
+          "headline": "화웨이 NPO 7.2T 시연·국제표준 합의",
+          "shift": "광 I/O 표준화 동향 및 주요 벤더 로드맵 변경",
+          "refs": [
+            "W3",
+            "W1"
+          ],
+          "direction": "불명",
+          "affects": [],
+          "summary": "2026-09-10 IPEC와 OIF가 공동주최한 NPO Standards Industry Summit이 선전에서 열려 CAICT·Tencent·Alibaba Cloud·Baidu·Huawei·Broadcom·SENKO·Amphenol·Yamaichi 등이 참여해 국제 NPO(Near-Packaged Optics) 표준에 대한 컨센서스를 도출했다. 같은 주 CIOE 전시(선전)에서 화웨이는 36채널×200G로 총 7.2Tbps 대역폭을 내는 '업계 최초' NPO 모듈을 시연했으나, 회사측은 아직 개발 단계이며 양산 시점은 공급망·제조체계 준비 상황에 달려있다고 밝혔다.",
+          "sources": [
+            {
+              "url": "https://businessintelligence.mo/2026/09/10/ipec-successfully-holds-npo-standards-industry-summit-aiming-to-build-a-robust-international-standards-ecosystem/",
+              "outlet": "businessintelligence.mo (Media OutReach)",
+              "date": "2026-09-10",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://cn.technode.com/post/2026-09-11/huawei-72tbps-near-package-optics-module/",
+              "outlet": "technode.com",
+              "date": "2026-09-11",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.c114.com.cn/news/6564/a1310169.html",
+              "outlet": "c114.com.cn",
+              "date": "2026-09",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-09-14",
+          "first_seen": "2026-09-14",
           "count": 1,
           "thesis_review": false
         }

@@ -3733,7 +3733,7 @@
       }
     },
     "memory-storage": {
-      "last_checked": "2026-09-11",
+      "last_checked": "2026-09-14",
       "observations": {
         "파두 컨트롤러 매출 비중": [
           {
@@ -3920,6 +3920,11 @@
             "date": "2026-09-11",
             "last_seen": "2026-09-11",
             "value": "8/13 변론 이후 추가 진행상황 미확인(9/11 재확인, 변화없음 지속)"
+          },
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "8/13 변론 이후 추가 진행상황 미확인(9/14 재확인, 변화없음 지속)"
           }
         ],
         "Gen6 성능": [
@@ -4488,6 +4493,11 @@
             "date": "2026-09-11",
             "last_seen": "2026-09-11",
             "value": "8/12 공시(395.83억원) 이후 추가 신규계약 공시 미확인(9/11 재확인, 변화없음 지속)"
+          },
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "8/12 공시(395.83억원) 이후 추가 신규계약 공시 미확인(9/14 재확인, 변화없음 지속)"
           }
         ],
         "SK하이닉스 1c D램 비중": [
@@ -4619,6 +4629,55 @@
             "date": "2026-09-11",
             "last_seen": "2026-09-11",
             "value": "+20~30%"
+          }
+        ],
+        "CXMT HBM3E 리스크생산": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "개시 확인(2026-09-01 보도), 알리바바 T-Head·캠브리콘 평가 중, 상용화 목표 2027년"
+          }
+        ],
+        "삼성 일본 요코하마 첨단패키징 R&D 거점": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "2026-09-08 개소, 5년간 400억엔(3500억원) 투자, 2027년까지 연구인력 100명+"
+          }
+        ],
+        "솔리다임 재공시 시한": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "2026-12-04로 연기(변화없음 지속)"
+          }
+        ],
+        "CXMT 진행 세대": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "HBM3(8단, 수율 약25%) → HBM3E 리스크생산 착수"
+          }
+        ],
+        "상용화 목표": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "2027년(테스트 순조 시)"
+          }
+        ],
+        "투자 규모": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "5년간 400억엔(약 3500억원)"
+          }
+        ],
+        "목표 연구인력": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "2027년까지 100명 이상"
           }
         ]
       },
@@ -5193,42 +5252,82 @@
           "thesis_review": false
         },
         "W2|hbm 세대 전환 일정 및 스택·본딩 공정 방식 변경 (중국 경쟁사 동향)": {
-          "headline": "CXMT HBM 수율 25% 정체",
+          "headline": "CXMT, HBM3E 리스크생산 개시",
           "shift": "HBM 세대 전환 일정 및 스택·본딩 공정 방식 변경 (중국 경쟁사 동향)",
           "refs": [
             "W2"
           ],
           "direction": "중립",
           "affects": [],
-          "summary": "중국 CXMT의 HBM3 8단 제품 수율이 약 25%(4개 중 3개 불량) 수준에서 정체돼 있다는 분석이 2026-09-09 보도됐다. SemiAnalysis는 전공정 수율 약 35%·후공정(TSV 형성 관련) 약 70%로 종합 수율 25% 안팎을 추정했으며, 이는 SK하이닉스가 2022년 HBM3 양산 개시 이후 확보한 90%대 수율과 큰 격차다.",
+          "summary": "중국 CXMT가 HBM3E 메모리 리스크(위험) 생산에 착수했다고 2026-09-01 보도됐다. 알리바바 T-Head와 캠브리콘이 자사 프로세서와의 호환성을 테스트·평가 중이며, 순조로울 경우 2027년 상용 제품 채택이 가능할 것으로 전망됐다. 다만 이는 검증되지 않은 초기 생산 단계이며, 기존에 확인된 HBM3 8단 수율 약 25%(9/9 보도) 문제와 별개로 CXMT가 세대를 HBM3E로 진전시켰다는 점이 새로운 사실이다.",
           "sources": [
             {
-              "url": "https://newsletter.semianalysis.com/p/chinas-cxmt-is-set-to-challenge-dram",
-              "outlet": "SemiAnalysis",
-              "date": "2026-09",
+              "url": "https://www.tomshardware.com/pc-components/dram/cxmt-reportedly-begins-risk-production-of-hbm3e-memory-in-breakthrough-for-chinese-dram-production-company-could-be-in-mass-production-in-2027",
+              "outlet": "Tom's Hardware",
+              "date": "2026-09-01",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://wccftech.com/cxmt-faces-hbm-memory-chip-shock-as-yields-sink-to-25-with-close-to-80-out-of-100-hbm3-chips-failing-final-tests-says-report/",
-              "outlet": "Wccftech",
-              "date": "2026-09-09",
+              "url": "https://www.techtimes.com/articles/326159/20260901/cxmt-ships-hbm3e-ai-memory-alibaba-cambricon-us-export-controls-failed-stop-it.htm",
+              "outlet": "Tech Times",
+              "date": "2026-09-01",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://chipbriefing.substack.com/p/daily-cxmts-hbm3-yield-stagnates",
-              "outlet": "Chip Briefing",
-              "date": "2026-09",
-              "tier": "S3",
+              "url": "https://finance.yahoo.com/technology/ai/articles/china-memory-leader-cxmt-begins-135543896.html",
+              "outlet": "Yahoo Finance (Reuters)",
+              "date": "2026-09-01",
+              "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-09",
+          "last_seen": "2026-09-14",
           "first_seen": "2026-09-09",
+          "count": 2,
+          "thesis_review": false
+        },
+        "W2|hbm 세대 전환 일정 및 스택·본딩 공정 방식 변경 (후공정 r&d 거점 확대)": {
+          "headline": "삼성, 日요코하마 패키징 거점 개소",
+          "shift": "HBM 세대 전환 일정 및 스택·본딩 공정 방식 변경 (후공정 R&D 거점 확대)",
+          "refs": [
+            "W2"
+          ],
+          "direction": "중립",
+          "affects": [],
+          "summary": "삼성전자가 2026-09-08 일본 요코하마에 첨단 패키징 연구소를 정식 개소했다. 2024년부터 5년간 400억엔(약 3500억원)을 투자해 AI 가속기·HBM 등을 결합하는 후공정 기술을 개발하며, 2027년까지 연구인력 100명 이상을 확보할 계획이다. 도쿄대·요코하마국립대 및 레조낙·디스코 등 현지 소부장 생태계 인접성이 입지 선정 이유로 꼽혔다.",
+          "sources": [
+            {
+              "url": "https://biz.heraldcorp.com/article/10866841",
+              "outlet": "헤럴드경제",
+              "date": "2026-09-08",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.inews24.com/view/2003460",
+              "outlet": "아이뉴스24",
+              "date": "2026-09-08",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.etoday.co.kr/news/view/2623272",
+              "outlet": "이투데이",
+              "date": "2026-09-08",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-09-14",
+          "first_seen": "2026-09-14",
           "count": 1,
           "thesis_review": false
         }
@@ -6092,7 +6191,7 @@
       }
     },
     "grid-storage": {
-      "last_checked": "2026-09-08",
+      "last_checked": "2026-09-14",
       "observations": {
         "삼아알미늄_가동률": [
           {
@@ -6134,6 +6233,11 @@
             "date": "2026-08-18",
             "last_seen": "2026-08-18",
             "value": "$6.4B (2026 Q3 기준)"
+          },
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "$6.4B (2026-08-05 발표, 변동 없음)"
           }
         ],
         "Tesla_신규수주(6주)": [
@@ -6577,6 +6681,48 @@
             "last_seen": "2026-09-08",
             "value": "SK온 50.3% / 삼성SDI 35.7% / LG엔솔 14%"
           }
+        ],
+        "美_대중_배터리전력장비_규제": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "EO14420(2026-08-26, BESS포함 국가비상사태 선포) + DOT장관 서한(2026-09-03, 포드-CATL 관계 재고 요구, 포드는 반박)"
+          }
+        ],
+        "CATL_314Ah_셀_자체견적": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "0.414위안/Wh → 0.423위안/Wh (2026-09-09 기준)"
+          }
+        ],
+        "중국_리튬배터리_소비세": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "0% → 2%(2026-09-01 시행), 2027-09 4% 예정"
+          }
+        ],
+        "3차_ESS_중앙계약_입찰공고": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "1조원 안팎, 2028년 공급물량, 9월중 공고·사업설명회 예정 (2026-09-14 기준 아직 미공고, 1·2차 누적점유율 삼성SDI 56%/SK온 25%/LG엔솔 19% 유지)"
+          }
+        ],
+        "CATL 314Ah 셀 견적": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "0.414위안/Wh → 0.423위안/Wh (+2.2%)"
+          }
+        ],
+        "중국 리튬배터리 소비세": [
+          {
+            "date": "2026-09-14",
+            "last_seen": "2026-09-14",
+            "value": "0% → 2%(2026-09-01 시행, 2027-09 4%로 인상 예정)"
+          }
         ]
       },
       "shifts": {
@@ -6779,7 +6925,7 @@
           "thesis_review": false
         },
         "W4|ess 셀 판가 및 중국산 점유율 변화": {
-          "headline": "중국 셀가 고점서 소폭 조정",
+          "headline": "中 소비세 부활, ESS셀값 인상",
           "shift": "ESS 셀 판가 및 중국산 점유율 변화",
           "refs": [
             "W4"
@@ -6788,26 +6934,36 @@
           "affects": [
             "ess-foil"
           ],
-          "summary": "InfoLink에 따르면 중국 314Ah LFP 셀가격은 2025년 10월 위안화 0.300/Wh에서 2026년 4월 0.365/Wh까지 약 22% 급등한 뒤, 8월 31일 기준 평균 0.34위안/Wh(전월比 -2.9%)로 소폭 조정됐다. 8월 중국 내 대형 ESS 입찰 수요가 314Ah 오더를 지속적으로 늘리며 280Ah 비중을 축소시키고 있다.",
+          "summary": "중국이 9/1부로 리튬이온배터리에 11년 만에 소비세(2%, 2027년 9월 4%로 인상 예정)를 재부과하면서 CATL이 314Ah ESS셀 자체 견적을 위안화 0.414→0.423/Wh로 인상했고, EVE에너지·리쉔(Lishen) 등 후발 업체도 2~10%씩 잇따라 가격을 올렸다.",
           "sources": [
             {
-              "url": "https://www.infolink-group.com/energy-article/ess-spot-price-20260812",
-              "outlet": "InfoLink Consulting",
-              "date": "2026-08-12",
+              "url": "https://www.energy-storage.news/catl-eve-energy-lead-chinese-manufacturers-battery-storage-cell-price-hikes/",
+              "outlet": "Energy-Storage.News",
+              "date": "2026-09-09",
               "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
             },
             {
-              "url": "https://www.ess-news.com/2026/04/22/chinas-314-ah-storage-cell-prices-climb-more-than-20-in-six-months/",
-              "outlet": "Energy-Storage.News",
-              "date": "2026-04-22",
+              "url": "https://www.caixinglobal.com/2026-08-26/chinese-battery-makers-raise-prices-as-consumption-tax-returns-102478191.html",
+              "outlet": "Caixin Global",
+              "date": "2026-08-26",
               "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.pv-magazine.com/2026/09/01/china-restores-2-lithium-ion-battery-tax-after-11-year-exemption/",
+              "outlet": "PV Magazine",
+              "date": "2026-09-01",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
             }
           ],
-          "last_seen": "2026-08-25",
+          "last_seen": "2026-09-14",
           "first_seen": "2026-08-25",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W2,W3|계통 안정화용 대형 ess 발주 규모 / lfp·ess 전용 셀 라인 증설과 ev 라인 전환": {
@@ -6914,6 +7070,57 @@
           ],
           "last_seen": "2026-09-01",
           "first_seen": "2026-09-01",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W2,W4|계통 안정화용 대형 ess 발주 규모 / ess 셀 판가 및 중국산 점유율 변화": {
+          "headline": "美, 중국산 BESS·배터리 규제 강화",
+          "shift": "계통 안정화용 대형 ESS 발주 규모 / ESS 셀 판가 및 중국산 점유율 변화",
+          "refs": [
+            "W2",
+            "W4"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "ess-foil"
+          ],
+          "summary": "트럼프 대통령이 8/26 서명한 행정명령 14420호는 배터리저장장치(BESS)를 포함한 대량전력망(bulk-power system) 장비의 중국산 수입·설치를 국가안보 이유로 제한하는 국가비상사태를 선포했다. 이어 9/3자(9/8 공개) DOT장관 Sean Duffy의 서한은 포드에 CATL 라이선스 LFP배터리 기술 사용 중단을 공개 압박했고 포드는 'wrongheaded'라며 반박했다. 이는 '트럼프가 중국차 美생산을 완화할 수 있다'는 시장 추측과 반대로, 배터리·전력장비 분야 대중(對中) 규제가 오히려 강화되는 방향으로 움직이고 있음을 보여준다.",
+          "sources": [
+            {
+              "url": "https://www.transportation.gov/sites/dot.gov/files/2026-09/NHTSA-260820-001_Signed.pdf",
+              "outlet": "U.S. DOT",
+              "date": "2026-09-03",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.transportation.gov/briefing-room/trumps-transportation-secretary-sean-p-duffy-urges-ford-cut-ties-china-and-prioritize",
+              "outlet": "U.S. DOT",
+              "date": "2026-09-08",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.hklaw.com/en/insights/publications/2026/09/executive-order-declares-national-emergency-to-secure-us",
+              "outlet": "Holland & Knight",
+              "date": "2026-09",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.detroitnews.com/story/business/autos/ford/2026/09/08/trump-administration-criticizes-ford-for-intertwining-with-chinese-firms/91662495007/",
+              "outlet": "Detroit News",
+              "date": "2026-09-08",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-09-14",
+          "first_seen": "2026-09-14",
           "count": 1,
           "thesis_review": false
         }

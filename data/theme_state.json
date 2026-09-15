@@ -1,11 +1,11 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-09-15"
+    "last_run": "2026-09-16"
   },
   "themes": {
     "ai-dc-power": {
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-16",
       "observations": {
         "OCP LVDC SST 스펙": [
           {
@@ -27,6 +27,11 @@
             "date": "2026-09-14",
             "last_seen": "2026-09-14",
             "value": "v0.3 유지(2026-07 발표 이후 업데이트 없음, 80개+ 업체 참여 변동없음)"
+          },
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "v0.3 유지(변동없음)"
           }
         ],
         "800V 파워랙 출하": [
@@ -66,6 +71,11 @@
             "date": "2026-09-11",
             "last_seen": "2026-09-11",
             "value": "600kW(2027년 Rubin Ultra, 변동없음)"
+          },
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "600kW 유지(변동없음, Rubin Ultra 2027년 하반기)"
           }
         ],
         "FERC 계통접속 명령": [
@@ -413,6 +423,11 @@
             "date": "2026-09-14",
             "last_seen": "2026-09-14",
             "value": "9월 14일 현재도 미확정(변동없음, 지연 장기화)"
+          },
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "9/16 현재도 미확정(변동없음, 지연 장기화)"
           }
         ],
         "OCP LVDC SST v0.3": [
@@ -849,7 +864,7 @@
           },
           {
             "date": "2026-09-14",
-            "last_seen": "2026-09-14",
+            "last_seen": "2026-09-16",
             "value": "NVIDIA 구체적 반박 없이 '로드맵 유지' 입장 반복(변동없음)"
           }
         ],
@@ -1347,6 +1362,11 @@
             "date": "2026-09-14",
             "last_seen": "2026-09-14",
             "value": "Fab-1(32만sqft) → Fab-2+3(뉴햄프셔, 합계 약 100만sqft) 신규 착공(2026-09-11 발표)"
+          },
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "Fab-2+3(뉴햄프셔) 착공 확인(9/11, 변동없음)"
           }
         ],
         "HD현대중공업 힘센엔진 생산능력": [
@@ -1410,6 +1430,118 @@
             "date": "2026-09-14",
             "last_seen": "2026-09-14",
             "value": "2028년 5월"
+          }
+        ],
+        "효성중공업 美 빅테크 변압기 수주(9/15)": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "3865억원(765kV 2200억원+345kV 1665억원), 연간 수주목표 8.4조→12조원"
+          }
+        ],
+        "효성중공업 1~8월 누적 수주": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "약 9.3조원(전년 연간 초과)"
+          }
+        ],
+        "BNEF 데이터센터 가스수요전망(2035년까지 일일 증가분)": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "6.9Bcf/d(2025-12) → 15Bcf/d(2026-09)"
+          }
+        ],
+        "ERCOT 감사 설문 대상": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "461개 데이터센터(대형247+중형214), 문항 약130개, 응답마감 10월중순"
+          }
+        ],
+        "ERCOT 최종보고서 제출 시한": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "2026-12-10(변동없음)"
+          }
+        ],
+        "PJM IRAS 발효목표": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "2026-10-12(변동없음, FERC 최종명령 아직 미발표)"
+          }
+        ],
+        "Google-Blackstone Project Braid": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "변압기 부족 등으로 일부 부지 지연 지속, 500MW(2027년) 목표는 유지(9/8 보도, 변동없음)"
+          }
+        ],
+        "이번 계약 규모": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "3865억원(765kV 2200억원+345kV 1665억원)"
+          }
+        ],
+        "1~8월 누적 수주": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "약 9.3조원(전년 연간 실적 초과)"
+          }
+        ],
+        "연간 수주목표": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "8.4조원 → 12조원"
+          }
+        ],
+        "2035년까지 일일 가스수요 증가 전망": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "6.9Bcf/d(2025-12 전망) → 15Bcf/d(2026-09 전망)"
+          }
+        ],
+        "신규 데이터센터 전력 중 가스 비중 전망": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "69%"
+          }
+        ],
+        "설문 대상": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "461개 데이터센터(대형 247개+중형 214개)"
+          }
+        ],
+        "설문 문항수": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "약 130개"
+          }
+        ],
+        "응답 마감": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "2026년 10월 중순"
+          }
+        ],
+        "최종보고서 제출": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "2026-12-10(변동없음)"
           }
         ]
       },
@@ -1536,29 +1668,53 @@
           "thesis_review": false
         },
         "W5|미국 변압기 수요發 한국 공급사 실적/수주 전환": {
-          "headline": "HD현대일렉 수주잔고 85억달러",
+          "headline": "효성중공업 빅테크 3865억 수주",
           "shift": "미국 변압기 수요發 한국 공급사 실적/수주 전환",
           "refs": [
             "W5"
           ],
           "direction": "순풍",
           "affects": [
-            "hd-hyundai-electric"
+            "hyosung-transformer"
           ],
-          "summary": "HD현대일렉트릭의 수주잔고가 2026-09-07 기준 85억달러(향후 4~5년 치 일감)를 넘어선 것으로 확인됐다. 북미 대형 변압기의 70% 이상이 가동 25년(설계수명 약 30년)을 넘어 교체수요가 몰리는 가운데, 아마존·마이크로소프트·구글 등 하이퍼스케일러의 데이터센터向 고용량 변압기 발주가 겹치며 수주잔고가 늘었다고 보도됐다.",
+          "summary": "효성중공업이 2026-09-15 공시를 통해 미국 빅테크 2곳과 초고압변압기 공급계약(765kV급 2200억원, 345kV급 1665억원, 합계 3865억원)을 체결했다고 밝혔다. 미국 남부·북부에 신규 건설되는 AI 데이터센터向 물량으로, 회사는 1~8월 누적 수주 9.3조원(이미 전년 연간 수주 초과)을 근거로 연간 수주목표를 기존 8.4조원에서 12조원으로 상향했다.",
           "sources": [
             {
-              "url": "https://www.gokorea.kr/news/articleView.html?idxno=877524",
-              "outlet": "공감신문",
-              "date": "2026-09-07",
+              "url": "https://www.thelec.kr/news/articleView.html?idxno=62283",
+              "outlet": "디일렉(THE ELEC)",
+              "date": "2026-09-15",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.businesspost.co.kr/BP?command=article_view&num=447202",
+              "outlet": "비즈니스포스트",
+              "date": "2026-09-15",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.g-enews.com/article/Industry/2026/09/20260915093600512427fa31d75c_1",
+              "outlet": "글로벌이코노믹",
+              "date": "2026-09-15",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.mt.co.kr/industry/2026/09/15/2026091508292920343",
+              "outlet": "머니투데이",
+              "date": "2026-09-15",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-11",
+          "last_seen": "2026-09-16",
           "first_seen": "2026-08-17",
-          "count": 4,
+          "count": 5,
           "thesis_review": false
         },
         "W2,W3|배전 전압 아키텍처 전환(54v 랙 → 800vdc)에 연동된 point-of-load 공급사 실적": {
@@ -1871,7 +2027,7 @@
           "thesis_review": false
         },
         "W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — 텍사스 데이터센터 감사·접속절차 중단": {
-          "headline": "ERCOT 감사 절차 구체화, 12/10 시한",
+          "headline": "ERCOT 감사, 461개소 설문 착수",
           "shift": "계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — 텍사스 데이터센터 감사·접속절차 중단",
           "refs": [
             "W5"
@@ -1881,33 +2037,36 @@
             "hyosung-transformer",
             "hd-hyundai-electric"
           ],
-          "summary": "PUCT는 2026-08-20 공개회의에서 ERCOT의 Batch Zero 관련 기한 유예(good cause exception) 요청을 승인했다. ERCOT는 이에 따라 대상 250~300개 프로젝트(약 200GW)에 정보요청서(RFI)를 8월 말~9월부터 순차 발송하고 10~11월 추가 라운드를 거쳐 2026-12-10 검증·감사 보고서를 PUCT에 제출할 계획이다.",
+          "summary": "ERCOT가 애벗 주지사 지시에 따른 감사의 일환으로 461개 데이터센터(75MW 이상 대형 247개, 25~75MW 중형 214개)를 대상으로 약 130개 문항(재정지원·전력자립·용수·냉각·지역영향·소유구조 등)의 설문을 시작했으며 응답 마감은 10월 중순이다. 기존에 파악된 대상 규모(250~300개 프로젝트, 약 200GW)가 데이터센터 단위로 구체화됐고, 12월 10일 PUCT 최종보고서 제출 일정은 변동 없다.",
           "sources": [
             {
-              "url": "https://www.ercot.com/services/comm/mkt_notices/M-A080326-01",
-              "outlet": "ERCOT(공식 공지)",
-              "date": "2026-08",
-              "tier": "S1",
-              "note": ""
+              "url": "https://www.houstonpublicmedia.org/articles/news/energy-environment/2026/09/11/561649/ercot-to-survey-more-400-data-centers-as-part-of-gov-abbott-audit/",
+              "outlet": "Houston Public Media",
+              "date": "2026-09-11",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.keranews.org/texas-news/2026-09-14/ercot-to-survey-more-than-400-data-centers-as-part-of-gov-abbotts-audit",
+              "outlet": "KERA News",
+              "date": "2026-09-14",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
             },
             {
               "url": "https://www.utilitydive.com/news/ercot-texas-puc-data-center-audit/828472/",
               "outlet": "Utility Dive",
-              "date": "2026-08",
+              "date": "2026-09",
               "tier": "S2",
-              "note": ""
-            },
-            {
-              "url": "https://www.powermag.com/texas-audit-could-delay-49-8-gw-of-data-center-load-cost-projects-up-to-15-billion-bnef-warns/",
-              "outlet": "POWER Magazine(BNEF 인용)",
-              "date": "2026-08",
-              "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
             }
           ],
-          "last_seen": "2026-08-31",
+          "last_seen": "2026-09-16",
           "first_seen": "2026-08-28",
-          "count": 2,
+          "count": 3,
           "thesis_review": false
         },
         "W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — pjm 백스탑 용량조달": {
@@ -2139,7 +2298,7 @@
           "thesis_review": false
         },
         "W4|온사이트 발전·비계통 전력 조달 비중(behind-the-meter) / 가스터빈 신규 발주 기회": {
-          "headline": "韓 대미투자 1호, 텍사스 6.3GW 가스발전",
+          "headline": "데이터센터 가스수요 전망 2배 상향",
           "shift": "온사이트 발전·비계통 전력 조달 비중(behind-the-meter) / 가스터빈 신규 발주 기회",
           "refs": [
             "W4"
@@ -2148,44 +2307,28 @@
           "affects": [
             "power-generation"
           ],
-          "summary": "한국의 대미 350억달러 투자패키지 1호 사업으로 텍사스 엔시날에 223억달러(약 30조원) 규모 6.3GW 가스복합화력발전소 건설이 잠정 논의되고 있다고 복수 매체가 2026-09-07~08 보도했다. 1단계로 1.4GW 가스터빈을 우선 건설한 뒤 수요를 확인하며 4.9GW 복합화력을 단계적으로 증설하는 구조이며, 최종 전력수요처 중 하나로 인근 AI 데이터센터 개발이 거론된다. 다만 한국 산업통상자원부는 해당 보도가 부정확하다며 협상이 진행 중이라고 밝혀 아직 확정된 사안은 아니다.",
+          "summary": "BloombergNEF가 2026-09-14 발표한 개정 전망에서 미국 데이터센터의 발전용 천연가스 소비량이 2035년까지 일일 15Bcf 늘어날 것으로 예측했다. 이는 작년 12월 전망치(6.9Bcf/d) 대비 2배 이상 상향된 수치로, 신규로 그리드에 연결되는 데이터센터 전력수요의 69%를 가스가 공급할 것으로 전망했다.",
           "sources": [
             {
-              "url": "https://www.techradar.com/pro/south-korea-us-agree-on-usd22-billion-deal-for-6-3-gw-texas-gas-power-plant-encinal-facility-to-feed-ai-data-centers-under-washington-and-seouls-usd350-billion-pact",
-              "outlet": "TechRadar Pro",
-              "date": "2026-09-07",
+              "url": "https://www.bloomberg.com/news/articles/2026-09-14/us-data-centers-set-to-burn-more-natural-gas-than-most-nations",
+              "outlet": "Bloomberg",
+              "date": "2026-09-14",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://dallasexpress.com/state/south-korea-says-22-3b-texas-ai-power-deal-is-not-final-as-talks-continue/",
-              "outlet": "Dallas Express",
-              "date": "2026-09-07",
-              "tier": "S2",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.ebn.co.kr/news/articleView.html?idxno=1723335",
-              "outlet": "EBN뉴스센터",
-              "date": "2026-09-08",
-              "tier": "S2",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.economytribune.co.kr/news/articleView.html?idxno=3903817",
-              "outlet": "이코노미트리뷴",
-              "date": "2026-09-08",
+              "url": "https://finance.yahoo.com/energy/articles/us-data-centers-more-natural-151146687.html",
+              "outlet": "Yahoo Finance(Bloomberg 인용)",
+              "date": "2026-09-14",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-09",
+          "last_seen": "2026-09-16",
           "first_seen": "2026-09-09",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W5|계통 접속 대기열 적체 및 배전기기 공급부족에 연동된 원자재(구리) 비용 압박": {
@@ -2323,14 +2466,9 @@
       }
     },
     "optical-interconnect": {
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-16",
       "observations": {
         "NVIDIA CPO 스위치 상태": [
-          {
-            "date": "2026-08-17",
-            "last_seen": "2026-08-17",
-            "value": "2026-08 완전양산 진입"
-          },
           {
             "date": "2026-08-19",
             "last_seen": "2026-08-19",
@@ -2385,6 +2523,11 @@
             "date": "2026-09-14",
             "last_seen": "2026-09-14",
             "value": "변동 없음 — Spectrum-X/Quantum-X Photonics 완전양산 지속, 가을(9~11월) 본격 출하 예정 유지, 9/11 이후 신규 발표 없음"
+          },
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "변동 없음 — Spectrum-X/Quantum-X Photonics 완전양산 지속, 가을(9~11월) 본격 출하 예정 유지, 9/14 이후 신규 발표 없음"
           }
         ],
         "Broadcom CPO 스위치 상태": [
@@ -2442,6 +2585,11 @@
             "date": "2026-09-14",
             "last_seen": "2026-09-14",
             "value": "변동 없음 — Tomahawk 6-Davisson/Bailly 볼륨생산 지속, 9/11 이후 신규 발표 없음"
+          },
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "변동 없음 — Tomahawk 6-Davisson/Bailly 볼륨생산 지속, 9/14 이후 신규 발표 없음"
           }
         ],
         "TSMC COUPE": [
@@ -2494,6 +2642,11 @@
             "date": "2026-09-14",
             "last_seen": "2026-09-14",
             "value": "변동 없음 — 2026 하반기 양산목표 유지, SiPh 통합 플랫폼 고도화 관련 분석글만 확인(1차 발표 아님)"
+          },
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "변동 없음 — 2026 하반기 양산목표 유지"
           }
         ],
         "CPO 비중(2026 광모듈 중)": [
@@ -2546,7 +2699,7 @@
           },
           {
             "date": "2026-09-11",
-            "last_seen": "2026-09-14",
+            "last_seen": "2026-09-16",
             "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) + Verizon(9/8) 유지, 9/9 이후 신규 계약 미확인"
           }
         ],
@@ -2720,6 +2873,11 @@
             "date": "2026-09-11",
             "last_seen": "2026-09-11",
             "value": "변동 없음(초안 목표 2026 Q4) — 단, OCP SiPh 외 Open CPX MSA·XPO MSA·OCP 광트랜시버 신뢰성 워크스트림 등 4개 병행 트랙 존재가 재조명됨(9/8, 미검증 분석)"
+          },
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지"
           }
         ],
         "성호전자/ADS테크 자금상황": [
@@ -3058,6 +3216,11 @@
             "date": "2026-09-14",
             "last_seen": "2026-09-14",
             "value": "변동 없음 — 1,650억원(8/31 기준) 수준 유지로 추정, 9월 신규 공시 확인 안됨"
+          },
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "변동 없음(추정) — 1,650억원(8/31 기준) 수준, 9월 신규 상환·담보 공시 미확인"
           }
         ],
         "ADS테크 신규수주(CPO 장비)": [
@@ -3194,6 +3357,69 @@
             "date": "2026-09-14",
             "last_seen": "2026-09-14",
             "value": "7.2Tbps (36채널×200G)"
+          }
+        ],
+        "Marvell FY27+FY28 합산 매출 전망(신규)": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "$20B → $30B (2026-09-09 Citi TMT 컨퍼런스 발언)"
+          }
+        ],
+        "NPO/CPO 스케일 시점 전언(신규, 미검증)": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "NPO 2027 진입·2028 본격, CPO 2028~2029로 후행 언급(Lightmatter, Citi TMT 9/8~9, S3 전언)"
+          }
+        ],
+        "성호전자 CB-최대주주 차입 연계 의혹(신규)": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "895억원 CB(8/6 결의)와 서룡전자 차입 695억원 상환 간 연계성에 대한 언론·사정당국 의혹 제기(hbnpress, 미검증)"
+          }
+        ],
+        "CB 발행규모": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "895억원(당초 계획 1,000억원 중 조정)"
+          }
+        ],
+        "최대주주 차입 조기상환": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "695억원(만기 2028-04 잔여분 조기상환)"
+          }
+        ],
+        "FY27+FY28 합산 매출 전망": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "$20B → $30B"
+          }
+        ],
+        "데이터센터 매출(2023→2027E)": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "$2.2B → $15~16B"
+          }
+        ],
+        "NPO 시점": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "2027 진입 → 2028 본격채택"
+          }
+        ],
+        "CPO 스케일 시점": [
+          {
+            "date": "2026-09-16",
+            "last_seen": "2026-09-16",
+            "value": "2027~2028(기존 컨센서스) → 2028~2029(신규 전언)"
           }
         ]
       },
@@ -3425,74 +3651,79 @@
           "thesis_review": false
         },
         "W1,W5|실리콘 포토닉스 수율·패키징 병목 해소 여부(ads테크/성호전자 자금여력)": {
-          "headline": "성호전자 담보구조 개선",
+          "headline": "성호전자 CB 자금흐름 의혹 제기",
           "shift": "실리콘 포토닉스 수율·패키징 병목 해소 여부(ADS테크/성호전자 자금여력)",
           "refs": [
             "W1",
             "W5"
           ],
-          "direction": "순풍",
+          "direction": "역풍",
           "affects": [
             "optical-align"
           ],
-          "summary": "성호전자 최대주주 서룡전자가 8월 29일 200억원, 8월 31일 140억원을 추가 조기상환해 H2ON발 주식담보대출 잔액이 1,650억원으로 줄었다. 동시에 주가 변동에 노출됐던 다올투자증권 300억원 대출은 주식담보 대신 타(他)담보 기반 단기차입으로 전환해 전액 상환, 회사측은 담보비율 200% 기준 필요담보가치가 6,000억원에서 3,000억원으로 절반 축소되고 반대매매 기준주가가 8,000원 아래로 낮아져 리스크가 사실상 해소 단계에 들어섰다고 설명했다.",
+          "summary": "국내 매체(hbnpress)가 성호전자의 1,548억원 어매이징홀딩스(ADST 인수 관련) M&A와 뒤이은 895억원 전환사채(2026-08-06 이사회 결의, 8/14 납입) 발행 간 연결고리를 짚으며, 최대주주 서룡전자 차입금 695억원(만기 2028-04)의 조기상환과 CB 최대 40% 콜옵션 설계가 하나의 재무전략으로 짜여진 것인지에 대한 사정당국 관계자의 의문을 보도했다. 회사측은 최대주주 리스크 이전이 아닌 차입조건 개선이라고 해명했다.",
           "sources": [
             {
-              "url": "https://www.sedaily.com/article/20074412",
-              "outlet": "sedaily.com",
-              "date": "2026-08-31",
+              "url": "https://hbnpress.com/news/view/1065583723979662",
+              "outlet": "hbnpress.com",
+              "date": "2026-09-09",
+              "tier": "S3",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.cbci.co.kr/news/articleView.html?idxno=595405",
+              "outlet": "cbci.co.kr",
+              "date": "2026-08-06",
               "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.mt.co.kr/stock/2026/08/07/2026080710359672935",
+              "outlet": "mt.co.kr (더벨)",
+              "date": "2026-08-07",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
             }
           ],
-          "last_seen": "2026-08-31",
-          "first_seen": "2026-08-31",
+          "last_seen": "2026-09-16",
+          "first_seen": "2026-09-16",
           "count": 1,
           "thesis_review": false
         },
         "W1,W3|cpo 양산 채택 일정의 전진 또는 후퇴 / 광 i/o 표준화 동향": {
-          "headline": "CPO 지연설 반박·표준화 착수",
+          "headline": "CPO 스케일 시점, NPO에 밀려 후행 전언",
           "shift": "CPO 양산 채택 일정의 전진 또는 후퇴 / 광 I/O 표준화 동향",
           "refs": [
             "W1",
             "W3"
           ],
-          "direction": "순풍",
+          "direction": "불명",
           "affects": [],
-          "summary": "6월 SemiAnalysis 보고서發 'CPO 2028년 이후 지연' 우려에 대해 Lumentum·Coherent가 실적 발표에서 일정 불변을 공식 확인했고, Coherent는 스케일아웃 CPO 매출을 2026년 12월분기부터 정식 인식한다고 밝혔다. 8월 13일에는 Lightmatter 주도로 TSMC·삼성 등 20개사가 참여하는 'Open Silicon Photonics for AI Systems' 워크스트림이 OCP 공식 채택되어 2026년 4분기까지 스펙 초안 제출을 목표로 하는 300페이지 아키텍처 청사진을 발표했다.",
+          "summary": "2026-09-08~09 Citi Global TMT 컨퍼런스에서 나온 Lightmatter 경영진 발언을 인용한 복수 애널리스트 블로그에 따르면, NPO(Near-Packaged Optics)는 2027년 시장진입·2028년 본격채택이 예상되는 반면 CPO 스케일업 시점은 2028~2029년으로 종전(2027~2028년) 컨센서스보다 다소 후행한다고 언급됐다. CPO 확장의 핵심 병목이 광학 자체가 아닌 '테스트 역량'이라는 점도 같은 자리에서 재확인됐다.",
           "sources": [
             {
-              "url": "https://nvidianews.nvidia.com/news/vera-rubin-full-production-agentic-ai-factory",
-              "outlet": "nvidianews.nvidia.com",
-              "date": "2026-07-21",
-              "tier": "S1",
-              "note": ""
+              "url": "https://allweatherfinance.com/citigroup-tmt-conference-npos-are-racing-ahead-the-bottleneck-for-cpos-is-testing-and-optical-interconnects-are-the-next-hbm/",
+              "outlet": "allweatherfinance.com",
+              "date": "2026-09",
+              "tier": "S3",
+              "note": "",
+              "from_feed": false
             },
             {
-              "url": "https://lightmatter.co/press-release/lightmatter-announces-reference-architecture-initiative-with-industry-leaders-in-the-open-compute-project-for-co-packaged-optics/",
-              "outlet": "lightmatter.co",
-              "date": "2026-08-13",
-              "tier": "S1",
-              "note": ""
-            },
-            {
-              "url": "https://www.techtimes.com/articles/324563/20260815/co-packaged-optics-standard-gets-q4-deadline-ocp-blueprint-targets-wasted-ai-compute.htm",
-              "outlet": "techtimes.com",
-              "date": "2026-08-15",
-              "tier": "S2",
-              "note": ""
-            },
-            {
-              "url": "https://wccftech.com/nvidia-optics-partners-crush-cpo-delay-rumors-with-coherents-scale-out-revenue-starting-late-2026/",
-              "outlet": "wccftech.com",
-              "date": "2026-06",
-              "tier": "S2",
-              "note": ""
+              "url": "https://fundaai.substack.com/p/researchoptics-conference-season",
+              "outlet": "fundaai.substack.com",
+              "date": "2026-09",
+              "tier": "S3",
+              "note": "",
+              "from_feed": false
             }
           ],
-          "last_seen": "2026-08-21",
+          "last_seen": "2026-09-16",
           "first_seen": "2026-08-21",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W1,W3|cpo 양산 채택 일정의 전진 또는 후퇴 / 광 i/o 표준화 동향 및 주요 벤더 로드맵 변경": {

@@ -1,47 +1,47 @@
 {
-  "asof": "2026-09-17 07:30 KST",
-  "date": "2026-09-17",
+  "asof": "2026-09-18 07:30 KST",
+  "date": "2026-09-18",
   "market": "us",
   "prices": {
     "VICR": {
       "ticker": "VICR",
       "market": "US",
-      "price": 183.91,
-      "change_pct": -0.03,
-      "volume_ratio": 0.89,
-      "market_cap": 8479489250
+      "price": 216.39,
+      "change_pct": 17.66,
+      "volume_ratio": 1.92,
+      "market_cap": 9977035709
     },
     "GLW": {
       "ticker": "GLW",
       "market": "US",
-      "price": 144.16,
-      "change_pct": 0.41,
-      "volume_ratio": 0.94,
-      "market_cap": 123925392000
+      "price": 147.8,
+      "change_pct": 2.52,
+      "volume_ratio": 0.88,
+      "market_cap": 127313197950
     },
     "LEU": {
       "ticker": "LEU",
       "market": "US",
-      "price": 139.01,
-      "change_pct": -2.19,
-      "volume_ratio": 1.0,
-      "market_cap": 2843186430
+      "price": 149.85,
+      "change_pct": 7.8,
+      "volume_ratio": 0.9,
+      "market_cap": 3064898358
     },
     "XE": {
       "ticker": "XE",
       "market": "US",
-      "price": 14.57,
-      "change_pct": -3.06,
-      "volume_ratio": 0.87,
-      "market_cap": 4188273666
+      "price": 16.33,
+      "change_pct": 12.08,
+      "volume_ratio": 1.14,
+      "market_cap": 4694201104
     },
     "298040": {
       "ticker": "298040",
       "name": "효성중공업",
       "market": "KR",
-      "price": 2725000,
-      "change_pct": -2.36,
-      "volume_ratio": 1.42,
+      "price": 2797000,
+      "change_pct": 2.64,
+      "volume_ratio": 1.31,
       "market_cap": null
     },
     "267260": {
@@ -49,53 +49,53 @@
       "name": "HD현대일렉트릭",
       "market": "KR",
       "price": 709000,
-      "change_pct": -2.88,
-      "volume_ratio": 1.41,
+      "change_pct": 0.0,
+      "volume_ratio": 1.02,
       "market_cap": null
     },
     "006110": {
       "ticker": "006110",
       "name": "삼아알미늄",
       "market": "KR",
-      "price": 59200,
-      "change_pct": 0.51,
-      "volume_ratio": 0.48,
+      "price": 58000,
+      "change_pct": -2.03,
+      "volume_ratio": 0.46,
       "market_cap": null
     },
     "440110": {
       "ticker": "440110",
       "name": "파두",
       "market": "KR",
-      "price": 61500,
-      "change_pct": 1.82,
-      "volume_ratio": 0.38,
+      "price": 59300,
+      "change_pct": -3.58,
+      "volume_ratio": 0.55,
       "market_cap": null
     },
     "043260": {
       "ticker": "043260",
       "name": "성호전자",
       "market": "KR",
-      "price": 16950,
-      "change_pct": 0.71,
-      "volume_ratio": 0.38,
+      "price": 18880,
+      "change_pct": 11.39,
+      "volume_ratio": 1.95,
       "market_cap": null
     },
     "122640": {
       "ticker": "122640",
       "name": "예스티",
       "market": "KR",
-      "price": 28600,
-      "change_pct": 0.35,
-      "volume_ratio": 0.47,
+      "price": 28800,
+      "change_pct": 0.7,
+      "volume_ratio": 0.52,
       "market_cap": null
     },
     "034020": {
       "ticker": "034020",
       "name": "두산에너빌리티",
       "market": "KR",
-      "price": 86800,
-      "change_pct": 1.4,
-      "volume_ratio": 0.65,
+      "price": 84100,
+      "change_pct": -3.11,
+      "volume_ratio": 0.77,
       "market_cap": null
     }
   }

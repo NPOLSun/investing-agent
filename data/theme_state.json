@@ -1,11 +1,11 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-09-17"
+    "last_run": "2026-09-18"
   },
   "themes": {
     "ai-dc-power": {
-      "last_checked": "2026-09-16",
+      "last_checked": "2026-09-18",
       "observations": {
         "OCP LVDC SST 스펙": [
           {
@@ -30,7 +30,7 @@
           },
           {
             "date": "2026-09-16",
-            "last_seen": "2026-09-16",
+            "last_seen": "2026-09-18",
             "value": "v0.3 유지(변동없음)"
           }
         ],
@@ -256,6 +256,11 @@
             "date": "2026-09-11",
             "last_seen": "2026-09-11",
             "value": "약 5.7억달러 → 6억달러+(변동없음)"
+          },
+          {
+            "date": "2026-09-18",
+            "last_seen": "2026-09-18",
+            "value": "6억달러+ (변동없음, 라이선스 매출로 재확인)"
           }
         ],
         "xAI Colossus 임시터빈": [
@@ -382,6 +387,11 @@
             "date": "2026-09-07",
             "last_seen": "2026-09-07",
             "value": "116GW(2Q26, 변동없음), 3Q26 연환산 20GW 출하목표·연말 125GW 목표 재확인, Power부문 수주 2Q26 +134%(organic)"
+          },
+          {
+            "date": "2026-09-18",
+            "last_seen": "2026-09-18",
+            "value": "116GW(2Q26, 3Q26 실적 미발표로 갱신 없음)"
           }
         ],
         "ERCOT 대형부하 접속대기": [
@@ -428,6 +438,11 @@
             "date": "2026-09-16",
             "last_seen": "2026-09-16",
             "value": "9/16 현재도 미확정(변동없음, 지연 장기화)"
+          },
+          {
+            "date": "2026-09-18",
+            "last_seen": "2026-09-18",
+            "value": "9/18 현재도 미확정(변동없음, 지연 장기화 지속)"
           }
         ],
         "OCP LVDC SST v0.3": [
@@ -866,6 +881,11 @@
             "date": "2026-09-14",
             "last_seen": "2026-09-16",
             "value": "NVIDIA 구체적 반박 없이 '로드맵 유지' 입장 반복(변동없음)"
+          },
+          {
+            "date": "2026-09-18",
+            "last_seen": "2026-09-18",
+            "value": "9/18 현재도 NVIDIA 구체적 반박 없이 '로드맵 유지' 입장 반복(변동없음)"
           }
         ],
         "PUCT 유예 승인일": [
@@ -1388,6 +1408,11 @@
             "date": "2026-09-14",
             "last_seen": "2026-09-14",
             "value": "14일 내 신규 공시 확인 안됨(85억달러 수주잔고는 9/7 기존관측 유지)"
+          },
+          {
+            "date": "2026-09-18",
+            "last_seen": "2026-09-18",
+            "value": "효성중공업 美 빅테크向 3865억원(9/15 공시)이 최신, 9/18까지 추가 신규 공시 확인 안됨"
           }
         ],
         "생산시설 면적": [
@@ -1470,7 +1495,7 @@
         "PJM IRAS 발효목표": [
           {
             "date": "2026-09-16",
-            "last_seen": "2026-09-16",
+            "last_seen": "2026-09-18",
             "value": "2026-10-12(변동없음, FERC 최종명령 아직 미발표)"
           }
         ],
@@ -1542,6 +1567,41 @@
             "date": "2026-09-16",
             "last_seen": "2026-09-16",
             "value": "2026-12-10(변동없음)"
+          }
+        ],
+        "Vicor VPD 라이선스 계약": [
+          {
+            "date": "2026-09-18",
+            "last_seen": "2026-09-18",
+            "value": "2026-09-16 신규 AI OEM 1곳에 비독점 라이선스 체결(신규)"
+          }
+        ],
+        "Vicor 라이선스 로열티 매출 전망": [
+          {
+            "date": "2026-09-18",
+            "last_seen": "2026-09-18",
+            "value": "3Q26 500만달러 → 이후 4개분기 분기당 1000만달러"
+          }
+        ],
+        "Vicor 3분기 매출 가이던스": [
+          {
+            "date": "2026-09-18",
+            "last_seen": "2026-09-18",
+            "value": "QoQ 약 +10%"
+          }
+        ],
+        "라이선스 로열티 매출": [
+          {
+            "date": "2026-09-18",
+            "last_seen": "2026-09-18",
+            "value": "0 → 3Q26 500만달러, 이후 4개분기 분기당 1000만달러"
+          }
+        ],
+        "3분기 매출 가이던스(QoQ)": [
+          {
+            "date": "2026-09-18",
+            "last_seen": "2026-09-18",
+            "value": "약 +10%"
           }
         ]
       },
@@ -1718,7 +1778,7 @@
           "thesis_review": false
         },
         "W2,W3|배전 전압 아키텍처 전환(54v 랙 → 800vdc)에 연동된 point-of-load 공급사 실적": {
-          "headline": "Vicor 신규 Fab 2곳 확보, 증설 착수",
+          "headline": "Vicor, VPD 특허 라이선스 신규 체결",
           "shift": "배전 전압 아키텍처 전환(54V 랙 → 800VDC)에 연동된 point-of-load 공급사 실적",
           "refs": [
             "W2",
@@ -1728,36 +1788,28 @@
           "affects": [
             "point-of-load"
           ],
-          "summary": "Vicor가 2026-09-11 뉴햄프셔주 메리맥(33.4만sqft 건물, 66에이커)과 훅셋(54에이커) 부지를 매입해 ChiP Fab-2·Fab-3(합계 약 100만sqft)을 건설한다고 발표했다. 기존 Fab-1(매사추세츠 앤도버, 32만sqft)이 가동률 한계에 근접함에 따른 증설로, 발표 직후 주가가 약 11~12% 급등했다.",
+          "summary": "Vicor가 2026-09-16 자사 특허 기술인 Vertical Power Delivery(VPD, 고성능 AI 프로세서에 저전압·고전류를 공급하는 수직전력전달 방식)를 신규 AI OEM 1곳에 비독점 라이선스했다고 공식 발표했다. 회사는 이 라이선스 로열티 매출이 3분기 500만달러, 이후 4개 분기는 분기당 1000만달러씩 반영될 것으로 안내하며 3분기 매출 가이던스를 전분기 대비 약 10% 증가로, 2026년 연매출 전망을 6억달러 이상으로 재확인했다.",
           "sources": [
             {
-              "url": "https://www.globenewswire.com/news-release/2026/09/11/3360412/0/en/vicor-acquires-sites-for-additional-chip-fabs.html",
+              "url": "https://www.globenewswire.com/news-release/2026/09/16/3363526/0/en/vicor-licenses-vpd-to-a-leading-ai-oem.html",
               "outlet": "GlobeNewswire(Vicor 공식보도자료)",
-              "date": "2026-09-11",
+              "date": "2026-09-16",
               "tier": "S1",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.tipranks.com/news/vicor-stock-vicr-soars-11-on-new-manufacturing-site-acquisitions",
-              "outlet": "TipRanks",
-              "date": "2026-09-11",
-              "tier": "S2",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.benzinga.com/markets/tech/26/09/61746170/vicor-stock-climbs-with-backlog-up-145-more-capacity-coming",
-              "outlet": "Benzinga",
-              "date": "2026-09-11",
+              "url": "https://www.stocktitan.net/news/VICR/vicor-licenses-vpd-to-a-leading-ai-qeofzjgy0yjq.html",
+              "outlet": "StockTitan",
+              "date": "2026-09-17",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-14",
+          "last_seen": "2026-09-18",
           "first_seen": "2026-08-19",
-          "count": 3,
+          "count": 4,
           "thesis_review": false
         },
         "W1,W3|랙 전력밀도 로드맵 변경(kw/rack) 및 실제 배치 시점": {
@@ -2466,7 +2518,7 @@
       }
     },
     "optical-interconnect": {
-      "last_checked": "2026-09-16",
+      "last_checked": "2026-09-18",
       "observations": {
         "NVIDIA CPO 스위치 상태": [
           {
@@ -2701,6 +2753,11 @@
             "date": "2026-09-11",
             "last_seen": "2026-09-16",
             "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) + Verizon(9/8) 유지, 9/9 이후 신규 계약 미확인"
+          },
+          {
+            "date": "2026-09-18",
+            "last_seen": "2026-09-18",
+            "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) + Verizon(9/8) 유지, 9/9 이후 신규 계약 미확인 (단 9/11 $2B 자사주 유상증자는 일반 운영자금 목적으로 확인, 특정 캐파투자 연계 불명)"
           }
         ],
         "ASMPT 포토닉스 매출 성장": [
@@ -3138,7 +3195,7 @@
         "Broadcom Tomahawk 6-Davisson/Bailly 상태": [
           {
             "date": "2026-08-31",
-            "last_seen": "2026-08-31",
+            "last_seen": "2026-09-18",
             "value": "변동 없음 — 볼륨 생산 지속, 신규 발표 없음"
           }
         ],
@@ -3152,6 +3209,11 @@
             "date": "2026-09-04",
             "last_seen": "2026-09-04",
             "value": "변동 없음(2026 하반기) — 단, SiPh 트랜시버 시장점유율 50%+(2027) 신규 전망 제시(9/1)"
+          },
+          {
+            "date": "2026-09-18",
+            "last_seen": "2026-09-18",
+            "value": "변동 없음 — 2026 하반기 양산목표 유지"
           }
         ],
         "OCP CPO 표준화(Lightmatter)": [
@@ -3177,7 +3239,7 @@
           },
           {
             "date": "2026-09-07",
-            "last_seen": "2026-09-14",
+            "last_seen": "2026-09-18",
             "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지"
           }
         ],
@@ -3219,7 +3281,7 @@
           },
           {
             "date": "2026-09-16",
-            "last_seen": "2026-09-16",
+            "last_seen": "2026-09-18",
             "value": "변동 없음(추정) — 1,650억원(8/31 기준) 수준, 9월 신규 상환·담보 공시 미확인"
           }
         ],
@@ -3421,44 +3483,102 @@
             "last_seen": "2026-09-16",
             "value": "2027~2028(기존 컨센서스) → 2028~2029(신규 전언)"
           }
+        ],
+        "GF-Marvell SiGe 광커넥티비티 캐파 확장(신규)": [
+          {
+            "date": "2026-09-18",
+            "last_seen": "2026-09-18",
+            "value": "2026-09-17 발표, 200G/lane 지원, NPO/CPO용 드라이버·TIA 대상"
+          }
+        ],
+        "ficonTEC CPO Insertion2 테스트 솔루션(신규)": [
+          {
+            "date": "2026-09-18",
+            "last_seen": "2026-09-18",
+            "value": "2026-09-10 공개(Hermes Testing 협력), 18~24개월 내 1,000대+ 출하 전망"
+          }
+        ],
+        "NVIDIA 2027 칩판매 전망(신규)": [
+          {
+            "date": "2026-09-18",
+            "last_seen": "2026-09-18",
+            "value": "2026 대비 약 2배, Vera Rubin GW당 매출기회 $40B(Blackwell $25B 대비)"
+          }
+        ],
+        "NVIDIA Spectrum-X/Quantum-X Photonics 상태": [
+          {
+            "date": "2026-09-18",
+            "last_seen": "2026-09-18",
+            "value": "변동 없음 — 완전양산 지속, 가을(9~11월) 본격 출하 예정 유지, 9/16 이후 신규 발표 없음"
+          }
+        ],
+        "GF SiGe 광링크 지원 규격": [
+          {
+            "date": "2026-09-18",
+            "last_seen": "2026-09-18",
+            "value": "200G/lane"
+          }
+        ],
+        "발표일": [
+          {
+            "date": "2026-09-18",
+            "last_seen": "2026-09-18",
+            "value": "2026-09-17"
+          }
+        ],
+        "ficonTEC 예상 출하량(18~24개월)": [
+          {
+            "date": "2026-09-18",
+            "last_seen": "2026-09-18",
+            "value": "1,000대+"
+          }
+        ],
+        "2027 칩판매 전망": [
+          {
+            "date": "2026-09-18",
+            "last_seen": "2026-09-18",
+            "value": "2026 대비 약 2배"
+          }
+        ],
+        "Vera Rubin GW당 매출기회": [
+          {
+            "date": "2026-09-18",
+            "last_seen": "2026-09-18",
+            "value": "$40B (Blackwell $25B 대비)"
+          }
         ]
       },
       "shifts": {
         "W1|cpo 양산 채택 일정의 전진 또는 후퇴": {
-          "headline": "Rubin 첫 실물배송",
+          "headline": "젠슨황, 2027 칩판매 2배 전망",
           "shift": "CPO 양산 채택 일정의 전진 또는 후퇴",
           "refs": [
             "W1"
           ],
           "direction": "순풍",
           "affects": [],
-          "summary": "NVIDIA Vera Rubin NVL72(Spectrum-X Ethernet Photonics CPO 스위치 포함) 시스템이 2026-08-21 Microsoft 데이터센터에 실제 도착해 파워온·밸리데이션에 들어갔다. NVIDIA 공식 계정과 Satya Nadella가 직접 확인했으며, 7월21일 '완전양산 진입' 발표가 실물 배송·가동 단계로 넘어간 첫 사례다.",
+          "summary": "엔비디아 CEO 젠슨 황이 2026-09-17 스코틀랜드 행사에서 2027년 칩 판매량이 2026년 대비 약 2배로 늘어날 것이라고 밝혔으며, 이는 Vera Rubin 플랫폼(GPU당 매출 기회 $40B, Blackwell $25B 대비 상향)이 견인한다고 설명했다. Vera Rubin은 Spectrum-X/Quantum-X Photonics CPO 스위치와 함께 출하되는 플랫폼이므로, 이 전망은 CPO 스위치 물량 확대 기조를 뒷받침하는 수요 신호다.",
           "sources": [
             {
-              "url": "https://x.com/nvidia/status/2090944279103635481",
-              "outlet": "NVIDIA (X)",
-              "date": "2026-08-21",
-              "tier": "S1",
-              "note": ""
-            },
-            {
-              "url": "https://x.com/satyanadella/status/2090929770779521310",
-              "outlet": "Satya Nadella (X)",
-              "date": "2026-08-21",
-              "tier": "S1",
-              "note": ""
-            },
-            {
-              "url": "https://www.datacenterdynamics.com/en/news/microsoft-claims-to-be-first-hyperscaler-to-power-on-nvidia-vera-rubin-nvl72-system/",
-              "outlet": "datacenterdynamics.com",
-              "date": "2026-08-22",
+              "url": "https://www.gurufocus.com/news/9086678/nvidia-stock-rises-jensen-huang-sees-chip-sales-doubling-in-2027",
+              "outlet": "gurufocus.com",
+              "date": "2026-09-17",
               "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://247wallst.com/investing/2026/09/17/nvidia-expects-chip-sales-to-double-in-2027/",
+              "outlet": "247wallst.com",
+              "date": "2026-09-17",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
             }
           ],
-          "last_seen": "2026-08-24",
+          "last_seen": "2026-09-18",
           "first_seen": "2026-08-17",
-          "count": 3,
+          "count": 4,
           "thesis_review": false
         },
         "W5|실리콘 포토닉스 수율·패키징 병목 해소 여부": {
@@ -3573,36 +3693,38 @@
           "thesis_review": false
         },
         "W1,W5|실리콘 포토닉스 수율·패키징 병목 해소 여부": {
-          "headline": "CPO 테스트 병목 신규 부각",
+          "headline": "ficonTEC CPO 테스트 신제품",
           "shift": "실리콘 포토닉스 수율·패키징 병목 해소 여부",
           "refs": [
             "W5",
             "W1"
           ],
           "direction": "중립",
-          "affects": [],
-          "summary": "SEMICON Taiwan 2026에서 Chroma ATE(포토닉스&정밀계측 사업부 대표 Jeff Lee, 9/4)가 CPO는 광학엔진 단위 스크리닝을 패키지 통합 이전 단계로 앞당겨야 한다고 밝혔고, 뒤이은 Digitimes 보도(9/8)는 CPO 테스트가 Insertion 1~4 단계별로 서로 다른 난제에 부딪혀 있으며 '100% 테스트' 체제는 2027년에야 가속화될 것이라고 전했다. CPO가 양산 단계에 진입했음에도 수율 보증용 테스트 표준·장비가 아직 성숙하지 않았다는 점을 보여주는 새로운 병목 축이다.",
+          "affects": [
+            "optical-align"
+          ],
+          "summary": "ADS테크·성호전자의 경쟁사인 ficonTEC이 2026-09-10 업계 최초라고 주장하는 'Insertion 2' 자동화 광테스트 솔루션(CPO '전기입력-광출력' 테스트)을 Hermes Testing Solutions와 공동으로 공개했다. ficonTEC은 향후 18~24개월 내 관련 장비 출하량이 1,000대를 넘어설 것으로 전망했는데, 이는 앞서 관측된 'CPO 테스트 병목'(9/4~9/11 관측)이 장비단에서 구체적으로 풀리기 시작했음을 보여주는 동시에, 액티브얼라인 과점 경쟁사가 테스트 영역까지 제품을 확장하고 있음을 시사한다.",
           "sources": [
             {
-              "url": "https://www.digitimes.com/news/a20260908PD215/cpo-testing-optics-2027.html",
+              "url": "https://www.digitimes.com/news/a20260910PD231/cpo-siph-silicon-testing-equipment.html",
               "outlet": "digitimes.com",
-              "date": "2026-09-08",
+              "date": "2026-09-10",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.digitimes.com/news/a20260904VL219/cpo-testing-optics-equipment-chipmakers.html",
-              "outlet": "digitimes.com",
-              "date": "2026-09-04",
-              "tier": "S2",
+              "url": "https://www.ficontec.com/news/",
+              "outlet": "ficontec.com",
+              "date": "2026-09",
+              "tier": "S1",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-11",
+          "last_seen": "2026-09-18",
           "first_seen": "2026-08-19",
-          "count": 5,
+          "count": 6,
           "thesis_review": false
         },
         "W1,W3|cpo 양산 채택 일정의 전진 또는 후퇴": {
@@ -3958,6 +4080,47 @@
           ],
           "last_seen": "2026-09-14",
           "first_seen": "2026-09-14",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W1,W5|실리콘 포토닉스 수율·패키징 병목 해소 여부 / cpo 양산 채택 일정의 전진 또는 후퇴": {
+          "headline": "GF-Marvell 광IC 캐파 증설",
+          "shift": "실리콘 포토닉스 수율·패키징 병목 해소 여부 / CPO 양산 채택 일정의 전진 또는 후퇴",
+          "refs": [
+            "W5",
+            "W1"
+          ],
+          "direction": "순풍",
+          "affects": [],
+          "summary": "GlobalFoundries와 Marvell이 2026-09-17 버몬트주 벌링턴 공장의 SiGe(실리콘저마늄) 캐파를 확대하는 다년 계약을 발표했다. 이 SiGe 공정은 차세대 플러거블 광트랜시버·NPO(Near-Packaged Optics)·CPO용 드라이버/TIA 칩에 쓰이며, 200G/lane급 광링크를 지원하고 상위 세대 로드맵도 준비 중이다. AI 데이터센터발 광 인터커넥트 부품 수요 증가에 대응한 공급망 확장으로, 10년 이상 이어온 양사 협력의 연장선이다.",
+          "sources": [
+            {
+              "url": "https://www.globenewswire.com/news-release/2026/09/17/3364000/0/en/globalfoundries-and-marvell-expand-collaboration-for-next-generation-optical-connectivity.html",
+              "outlet": "globenewswire.com (GF/Marvell 공동발표)",
+              "date": "2026-09-17",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.hpcwire.com/off-the-wire/globalfoundries-and-marvell-expand-collaboration-for-next-gen-optical-connectivity/",
+              "outlet": "hpcwire.com",
+              "date": "2026-09-17",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.stocktitan.net/news/GFS/global-foundries-and-marvell-expand-collaboration-for-next-y5c35g15v396.html",
+              "outlet": "stocktitan.net",
+              "date": "2026-09-17",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-09-18",
+          "first_seen": "2026-09-18",
           "count": 1,
           "thesis_review": false
         }

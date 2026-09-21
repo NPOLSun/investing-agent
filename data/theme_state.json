@@ -4274,7 +4274,7 @@
       }
     },
     "memory-storage": {
-      "last_checked": "2026-09-18",
+      "last_checked": "2026-09-21",
       "observations": {
         "파두 컨트롤러 매출 비중": [
           {
@@ -5361,6 +5361,83 @@
             "last_seen": "2026-09-18",
             "value": "2028년"
           }
+        ],
+        "4Q26 기업용 SSD 가격 전망": [
+          {
+            "date": "2026-09-21",
+            "last_seen": "2026-09-21",
+            "value": "3Q26 대비 추가 상승 지속(TrendForce, QLC가 성장 촉매)"
+          }
+        ],
+        "HBM 수출단가(kg당)": [
+          {
+            "date": "2026-09-21",
+            "last_seen": "2026-09-21",
+            "value": "76.14달러(7월) → 73.39달러(8월, -3.6%), 3~7월 누적 +87% 급등 후 첫 하락"
+          }
+        ],
+        "삼성+SK 합산 D램 점유율": [
+          {
+            "date": "2026-09-21",
+            "last_seen": "2026-09-21",
+            "value": "67.3%(1Q26) → 64.3%(2Q26)"
+          }
+        ],
+        "CXMT D램 공정": [
+          {
+            "date": "2026-09-21",
+            "last_seen": "2026-09-21",
+            "value": "4세대 → 5세대(11.95nm), LPDDR5X 24Gb 양산, LPDDR6 공식화"
+          }
+        ],
+        "9월1~20일 반도체 수출 총액": [
+          {
+            "date": "2026-09-21",
+            "last_seen": "2026-09-21",
+            "value": "341억달러(+259.4% YoY), 전체수출 비중 47.8%"
+          }
+        ],
+        "9월1~20일 품목별 전월대비 비중(SK증권 집계, 미검증)": [
+          {
+            "date": "2026-09-21",
+            "last_seen": "2026-09-21",
+            "value": "DRAM 68%, DRAM모듈 107%, NAND 54%, MCP 64%, SSD 35%(SSD만 유일하게 감소 추정, 공식 관세청 원문 미확인)"
+          }
+        ],
+        "HBM 평균 수출단가(kg당)": [
+          {
+            "date": "2026-09-21",
+            "last_seen": "2026-09-21",
+            "value": "76.14달러(7월) → 73.39달러(8월, -3.6% MoM)"
+          }
+        ],
+        "3~7월 누적 상승률": [
+          {
+            "date": "2026-09-21",
+            "last_seen": "2026-09-21",
+            "value": "약 87%"
+          }
+        ],
+        "미세공정 선폭": [
+          {
+            "date": "2026-09-21",
+            "last_seen": "2026-09-21",
+            "value": "11.95nm(5세대)"
+          }
+        ],
+        "웨이퍼당 다이 수(8Gb 기준)": [
+          {
+            "date": "2026-09-21",
+            "last_seen": "2026-09-21",
+            "value": "4세대 대비 +50% 이상"
+          }
+        ],
+        "LPDDR5X 신제품 용량 증가": [
+          {
+            "date": "2026-09-21",
+            "last_seen": "2026-09-21",
+            "value": "동급 기존 제품 대비 +50%"
+          }
         ]
       },
       "shifts": {
@@ -5404,7 +5481,7 @@
           "thesis_review": false
         },
         "W1,W3|ai 추론 확산에 따른 essd·니어라인 스토리지 수요 구조 변화": {
-          "headline": "eSSD 매출 2Q26 두 배 급증",
+          "headline": "4Q26 eSSD 가격 추가 상승",
           "shift": "AI 추론 확산에 따른 eSSD·니어라인 스토리지 수요 구조 변화",
           "refs": [
             "W1",
@@ -5414,26 +5491,20 @@
           "affects": [
             "ssd-controller"
           ],
-          "summary": "2026년 2분기 글로벌 상위 5개 eSSD 업체 합산 매출이 375.9억달러로 전분기 대비 103.6% 급증했다. 삼성전자는 176단 QLC 출하 확대와 PCIe5.0 비중 증가로 매출이 143.5억달러(+100%이상 QoQ)로 뛰며 1위를 지켰고, SK하이닉스(솔리다임 포함)는 86.3억달러(+85.9%)로 2위, 양사 합산 점유율은 56.2%에 달했다.",
+          "summary": "트렌드포스가 2026-09-21 발표한 보고서에서 북미 CSP들이 최근 2주간 기업용 SSD 수요 전망을 상향 조정했으며, 4분기 기업용 SSD 주문이 이미 높은 3분기 수준을 넘어서 강한 상승 추세가 이어질 것이라고 밝혔다. 고성능 TLC뿐 아니라 비용 효율성이 뛰어난 QLC 제품이 벡터DB·KV캐시 오프로딩 용도로 채택이 확대되며 중요한 성장 촉매로 지목됐다.",
           "sources": [
             {
-              "url": "https://view.asiae.co.kr/article/2026090116201513844",
-              "outlet": "아시아경제",
-              "date": "2026-09-01",
+              "url": "https://www.trendforce.com/presscenter/news/20260921-13246.html",
+              "outlet": "TrendForce",
+              "date": "2026-09-21",
               "tier": "S2",
-              "note": ""
-            },
-            {
-              "url": "https://www.ebn.co.kr/news/articleView.html?idxno=1722564",
-              "outlet": "EBN뉴스센터",
-              "date": "2026-09-01",
-              "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
             }
           ],
-          "last_seen": "2026-09-02",
+          "last_seen": "2026-09-21",
           "first_seen": "2026-08-18",
-          "count": 4,
+          "count": 5,
           "thesis_review": false
         },
         "W1,W3,W5|메모리·후공정 capex 방향": {
@@ -6093,11 +6164,75 @@
           "first_seen": "2026-09-18",
           "count": 1,
           "thesis_review": false
+        },
+        "W2|hbm 세대 전환 일정 및 스택·본딩 공정 방식 변경 (관련 가격 동향)": {
+          "headline": "HBM 수출단가 5개월만에 하락",
+          "shift": "HBM 세대 전환 일정 및 스택·본딩 공정 방식 변경 (관련 가격 동향)",
+          "refs": [
+            "W2"
+          ],
+          "direction": "중립",
+          "affects": [],
+          "summary": "HBM 평균 수출단가가 2026년 3월 40.68달러에서 7월 76.14달러까지 4개월 연속 급등(누적 +87%)한 뒤, 8월 73.39달러로 전월 대비 3.6% 하락하며 처음으로 꺾였다. 삼성전자·SK하이닉스 합산 D램 점유율도 1분기 67.3%에서 64.3%로 낮아진 것으로 나타나, 마이크론·CXMT의 점유율 확대와 맞물려 가격 상승 국면이 정상화 단계에 진입했다는 해석이 나온다.",
+          "sources": [
+            {
+              "url": "https://www.seoul.co.kr/news/economy/industry/2026/09/21/20260921030001",
+              "outlet": "서울신문",
+              "date": "2026-09-21",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-09-21",
+          "first_seen": "2026-09-21",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W2|hbm 세대 전환 일정 및 스택·본딩 공정 방식 변경 (중국 경쟁사 d램 미세공정 동향)": {
+          "headline": "CXMT 5세대 D램 양산 개시",
+          "shift": "HBM 세대 전환 일정 및 스택·본딩 공정 방식 변경 (중국 경쟁사 D램 미세공정 동향)",
+          "refs": [
+            "W2"
+          ],
+          "direction": "중립",
+          "affects": [],
+          "summary": "CXMT가 2026-09-20 핵심 구조 간격을 11.95nm로 좁힌 5세대 D램 공정 양산에 돌입했다고 발표했다. 쿼드러플 패터닝(QTP) 적용으로 8Gb 기준 웨이퍼당 칩 생산량이 4세대 대비 50% 이상 늘었으며, 이 공정 기반의 24Gb LPDDR5X 신제품 2종을 공개하고 LPDDR6 양산도 공식화했다. HBM 자체가 아닌 범용 D램 공정 전환이지만, CXMT의 미세공정 추격 속도를 보여주는 사례다.",
+          "sources": [
+            {
+              "url": "https://www.etoday.co.kr/news/view/2627637",
+              "outlet": "이투데이",
+              "date": "2026-09-20",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.fnnews.com/news/202609201704467601",
+              "outlet": "파이낸셜뉴스",
+              "date": "2026-09-20",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://newsway.co.kr/news/view?ud=2026092018221870955",
+              "outlet": "뉴스웨이",
+              "date": "2026-09-20",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-09-21",
+          "first_seen": "2026-09-21",
+          "count": 1,
+          "thesis_review": false
         }
       }
     },
     "nuclear-smr": {
-      "last_checked": "2026-09-15",
+      "last_checked": "2026-09-21",
       "observations": {
         "ADVANCE Act 이행률": [
           {
@@ -6139,6 +6274,11 @@
             "date": "2026-09-15",
             "last_seen": "2026-09-15",
             "value": "33/36 마일스톤(92%, 2026-08-20 기준) — 9월 15일까지 추가 변동 확인 안됨"
+          },
+          {
+            "date": "2026-09-21",
+            "last_seen": "2026-09-21",
+            "value": "33/36 마일스톤(92%, 2026-08-20 기준) — 변동 확인 안됨"
           }
         ],
         "하이퍼스케일러 원자력 누적계약": [
@@ -6174,7 +6314,7 @@
           },
           {
             "date": "2026-09-15",
-            "last_seen": "2026-09-15",
+            "last_seen": "2026-09-21",
             "value": "약 9.8~10GW, 13개+ 프로젝트 — 변동 없음"
           }
         ],
@@ -6495,6 +6635,11 @@
             "date": "2026-09-01",
             "last_seen": "2026-09-01",
             "value": "2027년 1분기 (세분화, 기존 2026년말)"
+          },
+          {
+            "date": "2026-09-21",
+            "last_seen": "2026-09-21",
+            "value": "2027년 1분기 — 변동 없음"
           }
         ],
         "TerraPower Kemmerer 완공 목표": [
@@ -6624,6 +6769,11 @@
             "date": "2026-09-15",
             "last_seen": "2026-09-15",
             "value": "1,200~1,300억달러(보도마다 금액 상이), AP1000 6기+APR1400 2기, MOU 서명 목표 2026-09-18 — 아직 미서명, 진행상황 변동 없음"
+          },
+          {
+            "date": "2026-09-21",
+            "last_seen": "2026-09-21",
+            "value": "1,200억달러, AP1000 6기+APR1400 2기(잠정) → 구성 재이견 노출(美 8기 전량 AP1000 주장 vs 韓 APR1400 최소 2기), 웨스팅하우스 지분 협상(韓 15% vs 美 5~10%)도 병행 중, 9/18 서명 목표 경과 후 미확정"
           }
         ],
         "HD현대중공업 SMR 투자": [
@@ -6709,6 +6859,55 @@
             "last_seen": "2026-09-15",
             "value": "완료 여부 9월 15일까지 미확인"
           }
+        ],
+        "1호 사업(텍사스 엔시날 가스발전)": [
+          {
+            "date": "2026-09-21",
+            "last_seen": "2026-09-21",
+            "value": "220억달러, 6.3GW — 합의 도달 보도(2026-09-18)"
+          }
+        ],
+        "원전당 투자단가(로이터 추정)": [
+          {
+            "date": "2026-09-21",
+            "last_seen": "2026-09-21",
+            "value": "약 150억달러"
+          }
+        ],
+        "Centrus HALEU 신규 고객": [
+          {
+            "date": "2026-09-21",
+            "last_seen": "2026-09-21",
+            "value": "Radiant(2026-09-09) → Antares Nuclear(2026-09-17) 추가, 조건 비공개"
+          }
+        ],
+        "미 하원 데이터센터 전력비용법": [
+          {
+            "date": "2026-09-21",
+            "last_seen": "2026-09-21",
+            "value": "417-3 가결(2026-09-17), SMR주 단기 급등 촉발"
+          }
+        ],
+        "웨스팅하우스 지분 협상": [
+          {
+            "date": "2026-09-21",
+            "last_seen": "2026-09-21",
+            "value": "한국 요구 15% vs 미국 제시 5~10%"
+          }
+        ],
+        "1호 사업(엔시날 가스발전) 규모": [
+          {
+            "date": "2026-09-21",
+            "last_seen": "2026-09-21",
+            "value": "220억달러, 6.3GW"
+          }
+        ],
+        "하원 표결 결과": [
+          {
+            "date": "2026-09-21",
+            "last_seen": "2026-09-21",
+            "value": "417-3 가결(2026-09-17)"
+          }
         ]
       },
       "shifts": {
@@ -6761,7 +6960,7 @@
           "thesis_review": false
         },
         "W3|하이퍼스케일러의 원자력 전력구매계약 규모와 조건": {
-          "headline": "X-energy 나스닥 상장",
+          "headline": "美하원, 데이터센터 전력비용법 가결",
           "shift": "하이퍼스케일러의 원자력 전력구매계약 규모와 조건",
           "refs": [
             "W3"
@@ -6770,79 +6969,82 @@
           "affects": [
             "smr-developer"
           ],
-          "summary": "X-energy가 2026년 4월 24일 나스닥에 상장(티커 XE, 공모가 $23, 첫날 종가 $29.20로 +27%, 공모 시가총액 $91.2억)해 SMR 개발사 최초로 공개시장 밸류에이션을 획득했다. 같은 시기 4대 하이퍼스케일러(MS·Google·Amazon·Meta) 모두 원자력 PPA를 체결한 상태로, 업계 트래커 기준 누적 계약용량은 약 9.8GW(2026-08 기준)에 달한다. Microsoft-Constellation의 TMI-1(Crane Clean Energy Center) 송전 웨이버는 6월 1일 FERC 승인을 받아 2027년 하반기 전력공급을 목표로 하고 있다.",
+          "summary": "미 하원이 2026-09-17 AI 데이터센터가 자신의 전력 인프라 비용을 직접 부담하도록 하는 법안을 417-3 초당적으로 가결했다. 이는 데이터센터 전기요금 부담을 일반 소비자에게 전가하지 못하게 하는 조치로, 통과 직후 Oklo(+13%), NuScale(+10%) 등 SMR 관련주가 급등했다.",
           "sources": [
             {
-              "url": "https://x-energy.com/news/x-energy-announces-pricing-of-upsized-initial-public-offering/",
-              "outlet": "x-energy.com",
-              "date": "2026-04-24",
-              "tier": "S1",
-              "note": ""
+              "url": "https://www.foreignpolicyjournal.com/2026/09/17/house-votes-417-3-to-make-ai-data-centers-cover-their-own-energy-infrastructure-costs/",
+              "outlet": "foreignpolicyjournal.com",
+              "date": "2026-09-17",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
             },
             {
-              "url": "https://smrintel.com/nuclear-data-center-deals/",
-              "outlet": "smrintel.com",
-              "date": "2026-08",
+              "url": "https://247wallst.com/investing/2026/09/17/oklo-jumps-13-nuscale-power-climbs-10-does-the-house-data-center-power-vote-reach-nuclear/",
+              "outlet": "247wallst.com",
+              "date": "2026-09-17",
               "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
             },
             {
-              "url": "https://presenc.ai/research/hyperscaler-nuclear-ppa-tracker-2026",
-              "outlet": "presenc.ai",
-              "date": "2026-08",
+              "url": "https://www.axios.com/2026/09/10/house-republicans-data-center-power-bills-ai",
+              "outlet": "axios.com",
+              "date": "2026-09-10",
               "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
             }
           ],
-          "last_seen": "2026-08-18",
+          "last_seen": "2026-09-21",
           "first_seen": "2026-08-18",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W5|대형원전 신규 발주 흐름 (미국·유럽·아시아)": {
-          "headline": "한미 원전 8기 대미투자 협상",
+          "headline": "원전8기 협상 이견 노출",
           "shift": "대형원전 신규 발주 흐름 (미국·유럽·아시아)",
           "refs": [
             "W5"
           ],
-          "direction": "순풍",
+          "direction": "중립",
           "affects": [
             "power-generation"
           ],
-          "summary": "한미 양국이 대미 투자 패키지 중 1,200억달러(약 161조원) 규모를 미국 내 원전 8기 건설에 배정하는 방안을 논의 중이며, 웨스팅하우스 AP1000 6기와 한국형 APR1400 2기를 병행 발주하는 절충안에 잠정 합의한 것으로 보도됐다. 합의 발표는 2026-09-18경으로 거론되나 아직 공식 서명 전 협상 단계다.",
+          "summary": "2026-09-18 Reuters 팩트박스와 9/20 국내 보도에 따르면 한미 대미투자 협상에서 원전당 투자단가가 약 150억달러로 추산됐고, 1호 사업인 텍사스 엔시날 가스복합발전(6.3GW, 220억달러)은 합의됐으나 원전 8기 구성은 미국이 전량 웨스팅하우스 AP1000을, 한국은 최소 2기 APR1400 포함을 주장하며 이견이 지속되고 있다. 별도로 한국의 웨스팅하우스 지분 인수 규모도 한국측 요구 15% vs 미국측 제시 5~10%로 격차가 있어, 애초 9/18로 거론되던 서명 시점을 넘겨 협상이 이어지고 있다.",
           "sources": [
             {
-              "url": "https://en.sedaily.com/finance/2026/09/08/korea-us-plan-eight-nuclear-reactors-lng-plant-comes-first",
-              "outlet": "Seoul Economic Daily",
-              "date": "2026-09-08",
+              "url": "https://www.investing.com/news/commodities-news/factboxtexas-power-plant-nuclear-projects-under-discussion-in-south-koreas-us-investment-package-4906807",
+              "outlet": "Reuters (via investing.com)",
+              "date": "2026-09-18",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.koreajoongangdaily.com/business/korea-weighs-120-billion-investment-in-8-nuclear-reactors-in-us-as-part-of-tariff-deal/12863947",
-              "outlet": "Korea JoongAng Daily",
-              "date": "2026-09-08",
+              "url": "https://www.g-enews.com/article/Global-Biz/2026/09/202609200642186569fbbec65dfb_1",
+              "outlet": "글로벌이코노믹",
+              "date": "2026-09-20",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.fnnews.com/news/202609081609525566",
-              "outlet": "파이낸셜뉴스",
-              "date": "2026-09-08",
+              "url": "https://www.hankyung.com/article/2026091566461",
+              "outlet": "한국경제",
+              "date": "2026-09-15",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-11",
+          "last_seen": "2026-09-21",
           "first_seen": "2026-08-18",
-          "count": 4,
+          "count": 5,
           "thesis_review": false
         },
         "W4|haleu 공급 능력 확충 속도 및 신규 진입자": {
-          "headline": "Centrus, Radiant와 HALEU 계약",
+          "headline": "Centrus, Antares와 HALEU 계약",
           "shift": "HALEU 공급 능력 확충 속도 및 신규 진입자",
           "refs": [
             "W4"
@@ -6851,36 +7053,36 @@
           "affects": [
             "haleu"
           ],
-          "summary": "Centrus Energy가 2026-09-09 마이크로원자로 개발사 Radiant Industries와 장기 HALEU 공급 파트너십을 공식 체결했다고 발표했다. Radiant의 Kaleidos 마이크로원자로에 미국산 'unobligated'(비의무) HALEU를 2020년대말부터 공급하며, Radiant가 Centrus의 국내 농축설비 확장을 위한 선급금을 지급하는 구조다. 계약금액과 물량은 비공개다.",
+          "summary": "Centrus Energy가 2026-09-17 우주·국방용 마이크로원자로 개발사 Antares Nuclear와 다년 HALEU 공급계약을 체결했다고 발표했다. Radiant(9/9)에 이은 두 번째 신규 고객으로, Antares의 선급금이 Centrus의 국내 농축설비 확장 자금으로 쓰이는 동일한 구조이며 인도는 2020년대말 개시 예정이다. 금액·물량은 비공개다.",
           "sources": [
             {
-              "url": "https://www.centrusenergy.com/news/centrus-and-radiant-announce-long-term-partnership-for-domestic-haleu-to-supply-kaleidos-microreactors/",
-              "outlet": "centrusenergy.com",
-              "date": "2026-09-09",
+              "url": "https://investors.centrusenergy.com/news-releases/news-release-details/centrus-and-antares-sign-multi-year-haleu-supply-contract",
+              "outlet": "centrusenergy.com (IR)",
+              "date": "2026-09-17",
               "tier": "S1",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.prnewswire.com/news-releases/centrus-and-radiant-announce-long-term-partnership-for-domestic-haleu-to-supply-kaleidos-microreactors-302873669.html",
+              "url": "https://www.prnewswire.com/news-releases/centrus-and-antares-sign-multi-year-haleu-supply-contract-302881954.html",
               "outlet": "prnewswire.com",
-              "date": "2026-09-09",
+              "date": "2026-09-17",
               "tier": "S1",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.world-nuclear-news.org/articles/centrus-to-supply-radiant-with-microreactor-fuel",
+              "url": "https://world-nuclear-news.org/articles/antares-centrus-sign-multi-year-haleu-contract",
               "outlet": "world-nuclear-news.org",
-              "date": "2026-09-09",
+              "date": "2026-09-17",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-15",
+          "last_seen": "2026-09-21",
           "first_seen": "2026-08-18",
-          "count": 6,
+          "count": 7,
           "thesis_review": false
         },
         "W2,W3|nrc 인허가 처리 속도 변화 (정책·제도 개편 포함) / 하이퍼스케일러의 원자력 전력구매계약 규모와 조건": {

@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-09-21"
+    "last_run": "2026-09-22"
   },
   "themes": {
     "ai-dc-power": {
@@ -7213,7 +7213,7 @@
       }
     },
     "grid-storage": {
-      "last_checked": "2026-09-18",
+      "last_checked": "2026-09-22",
       "observations": {
         "삼아알미늄_가동률": [
           {
@@ -7737,6 +7737,11 @@
             "date": "2026-09-14",
             "last_seen": "2026-09-14",
             "value": "0.414위안/Wh → 0.423위안/Wh (+2.2%)"
+          },
+          {
+            "date": "2026-09-22",
+            "last_seen": "2026-09-22",
+            "value": "0.423위안/Wh — 2026-09-09 기준 이후 변동 없음"
           }
         ],
         "중국 리튬배터리 소비세": [
@@ -7821,6 +7826,48 @@
             "date": "2026-09-18",
             "last_seen": "2026-09-18",
             "value": "-1000만달러 → -2억달러"
+          }
+        ],
+        "3차 ESS 중앙계약 입찰공고": [
+          {
+            "date": "2026-09-22",
+            "last_seen": "2026-09-22",
+            "value": "9월중(추석 전후) 예정 — 9/22 기준 아직 미공고, 예상 규모 1GW 안팎(1·2차 563/565MW 대비 약 2배), 비가격 평가비중 50% 유지 전망"
+          }
+        ],
+        "1·2차 ESS 중앙계약 누적점유율(MW기준 정밀치)": [
+          {
+            "date": "2026-09-22",
+            "last_seen": "2026-09-22",
+            "value": "삼성SDI 629MW(55.8%) / SK온 284MW(25.2%) / LG에너지솔루션 215MW(19.1%) — 2026-09-19 기준, 비율 자체는 9/7 확인치와 동일"
+          }
+        ],
+        "삼아알미늄 CATL 증설 이사회 결정": [
+          {
+            "date": "2026-09-22",
+            "last_seen": "2026-09-22",
+            "value": "9월중 결정 예정 — 9/22 기준 아직 미확정, LG엔솔向 2030년까지 6,950억원 장기공급계약 기확보 상태에서 CATL 물량·조건 별도 논의중"
+          }
+        ],
+        "CATL 587Ah 셀 직판가": [
+          {
+            "date": "2026-09-22",
+            "last_seen": "2026-09-22",
+            "value": "65달러/kWh — 2026-09-15 기준 이후 변동 없음"
+          }
+        ],
+        "Fluence FY26 가이던스": [
+          {
+            "date": "2026-09-22",
+            "last_seen": "2026-09-22",
+            "value": "매출 24억달러 / 조정EBITDA -2억달러 — 2026-09-16 발표 이후 변동 없음, 9/18 AES 출신 COO 영입에 이어 증권사 손해배상 소송 조사(Kirby McInerney) 착수 보도(투자 판단 근거 아님, 단순 소송 리스크)"
+          }
+        ],
+        "中 출입경관리규정(국무원령841호)": [
+          {
+            "date": "2026-09-22",
+            "last_seen": "2026-09-22",
+            "value": "2026-09-15 시행 확인 — 9/22 기준 추가 후속조치·집행사례 보도 없음"
           }
         ]
       },
@@ -8215,7 +8262,7 @@
       }
     },
     "dc-thermal": {
-      "last_checked": "2026-09-15",
+      "last_checked": "2026-09-22",
       "observations": {
         "NVL72 랙 전력": [
           {
@@ -8616,6 +8663,88 @@
             "last_seen": "2026-09-15",
             "value": "약 1년"
           }
+        ],
+        "Vicor 3Q26 QoQ 매출 가이던스": [
+          {
+            "date": "2026-09-22",
+            "last_seen": "2026-09-22",
+            "value": "10%에 가까운 수준(기존) → 20% 이상(2026-09-21 상향)"
+          },
+          {
+            "date": "2026-09-22",
+            "last_seen": "2026-09-22",
+            "value": "10%에 가까운 수준 → 20% 이상"
+          }
+        ],
+        "Vicor VPD 라이선스 계약": [
+          {
+            "date": "2026-09-22",
+            "last_seen": "2026-09-22",
+            "value": "2026-09-16 선도 AI OEM에 비독점 라이선스 부여, 누적 4개 OEM/하이퍼스케일러 확보"
+          }
+        ],
+        "효성중공업 9월 신규수주(빅테크 2곳)": [
+          {
+            "date": "2026-09-22",
+            "last_seen": "2026-09-22",
+            "value": "3865억원 (765kV 2200억원 + 345kV 1665억원), 2026-09-15 공시"
+          }
+        ],
+        "효성중공업 1~8월 누적 신규수주": [
+          {
+            "date": "2026-09-22",
+            "last_seen": "2026-09-22",
+            "value": "약 9조3000억원 (기존 연간목표 8.4조원 이미 초과)"
+          }
+        ],
+        "효성중공업 2026년 수주 목표(재확인)": [
+          {
+            "date": "2026-09-22",
+            "last_seen": "2026-09-22",
+            "value": "12조원 (2026-08-03 상향치 유지)"
+          }
+        ],
+        "HD현대일렉트릭 9월 신규 수주": [
+          {
+            "date": "2026-09-22",
+            "last_seen": "2026-09-22",
+            "value": "2026-09-08~09-22 기간 신규 확인된 개별 계약 공시 없음 (기존 수주잔고 85억달러 대비 갱신 없음)"
+          }
+        ],
+        "OCP Global Summit 2026": [
+          {
+            "date": "2026-09-22",
+            "last_seen": "2026-09-22",
+            "value": "2026-10-12~15 개최 예정(미개최), 사전 프로그램에서 800VDC/1MW+ 랙 배전, 300~600kW~MW급 랙밀도, Mini-QD/UQD v2 액체냉각 커넥터 표준 트랙 예고 — 신규 표준 확정 발표는 아직 없음"
+          }
+        ],
+        "VPD 라이선스 확보 OEM/하이퍼스케일러 수": [
+          {
+            "date": "2026-09-22",
+            "last_seen": "2026-09-22",
+            "value": "4개사"
+          }
+        ],
+        "9월 신규수주(빅테크 2곳)": [
+          {
+            "date": "2026-09-22",
+            "last_seen": "2026-09-22",
+            "value": "3865억원 (765kV 2200억원 + 345kV 1665억원)"
+          }
+        ],
+        "1~8월 누적 신규수주": [
+          {
+            "date": "2026-09-22",
+            "last_seen": "2026-09-22",
+            "value": "약 9조3000억원"
+          }
+        ],
+        "연간 수주 목표": [
+          {
+            "date": "2026-09-22",
+            "last_seen": "2026-09-22",
+            "value": "8조4000억원 → 12조원"
+          }
         ]
       },
       "shifts": {
@@ -8680,7 +8809,7 @@
           "thesis_review": false
         },
         "W2|랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지 (point-of-load 벤더 실적으로 확인)": {
-          "headline": "Vicor 美 생산능력 증설",
+          "headline": "Vicor VPD 특허 라이선싱 개시",
           "shift": "랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지 (point-of-load 벤더 실적으로 확인)",
           "refs": [
             "W2"
@@ -8689,68 +8818,78 @@
           "affects": [
             "point-of-load"
           ],
-          "summary": "Vicor가 2026-09-11 뉴햄프셔주 Merrimack(33.4만sqft, 66에이커)과 Hooksett(54에이커) 부지를 매입해 ChiP Fab-2·Fab-3(합산 약 100만sqft)을 건설한다고 발표했다. 기존 유일 생산라인인 Andover Fab-1(32만sqft)이 가동률 한계에 근접했다는 점과, OEM·하이퍼스케일러들이 '경쟁 전력공급업체의 특허침해 수입금지' 상황에서 미국 내 조달(FTO)을 요구하고 있다는 점을 증설 배경으로 명시했다.",
+          "summary": "Vicor가 2026-09-16 자사 Vertical Power Delivery(VPD) 특허에 대해 선도 AI OEM에 비독점 라이선스를 부여했다고 발표했고, 이어 09-21에는 이 라이선스 로열티 수익을 반영해 3분기 매출 가이던스(전분기 대비 성장률)를 기존 '10%에 가까운 수준'에서 '20% 이상'으로 상향했다. CEO는 OEM·하이퍼스케일러 4개사가 이미 라이선스를 확보했으며, 일부 하이퍼스케일러는 미라이선스 VPD 탑재 시스템의 수입금지 리스크 인지 후 라이선스 계약에 나섰다고 밝혔다.",
           "sources": [
             {
-              "url": "https://www.globenewswire.com/news-release/2026/09/11/3360412/0/en/vicor-acquires-sites-for-additional-chip-fabs.html",
+              "url": "https://www.globenewswire.com/news-release/2026/09/16/3363526/0/en/vicor-licenses-vpd-to-a-leading-ai-oem.html",
               "outlet": "GlobeNewswire (Vicor)",
-              "date": "2026-09-11",
+              "date": "2026-09-16",
               "tier": "S1",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.investing.com/news/company-news/vicor-acquires-new-hampshire-sites-for-chip-fab-expansion-93CH-4898176",
-              "outlet": "Investing.com",
-              "date": "2026-09-11",
-              "tier": "S2",
+              "url": "https://www.globenewswire.com/news-release/2026/09/21/3365846/0/en/vicor-corporation-raises-q3-2026-revenue-guidance.html",
+              "outlet": "GlobeNewswire (Vicor)",
+              "date": "2026-09-21",
+              "tier": "S1",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.benzinga.com/markets/tech/26/09/61746170/vicor-stock-climbs-with-backlog-up-145-more-capacity-coming",
-              "outlet": "Benzinga",
-              "date": "2026-09-11",
+              "url": "https://www.stocktitan.net/news/VICR/vicor-corporation-raises-q3-2026-revenue-yk2virh0imov.html",
+              "outlet": "StockTitan",
+              "date": "2026-09-21",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-15",
+          "last_seen": "2026-09-22",
           "first_seen": "2026-08-19",
-          "count": 3,
+          "count": 4,
           "thesis_review": false
         },
         "W2|랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지 (변압기 벤더 실적으로 확인)": {
-          "headline": "HD현대일렉트릭 수주목표 22.8%↑",
+          "headline": "효성중공업 9월 빅테크 신규수주",
           "shift": "랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지 (변압기 벤더 실적으로 확인)",
           "refs": [
             "W2"
           ],
           "direction": "순풍",
           "affects": [
-            "hd-hyundai-electric"
+            "hyosung-transformer"
           ],
-          "summary": "HD현대일렉트릭이 2026년 수주 목표를 기존 42억2200만달러에서 51억8500만달러로 22.8% 상향했다. 북미 전력 인프라 투자 확대와 765kV 초고압변압기 수요 증가, 데이터센터 확장에 따른 배전변압기 수요가 근거이며, 내년 4월 준공 예정인 북미 2공장 증설을 앞두고 선제적 수주도 반영됐다.",
+          "summary": "효성중공업이 2026-09-15 미국 판매법인 HICO America를 통해 미 빅테크 2곳과 총 3865억원 규모(765kV 초고압변압기 2200억원, 345kV 1665억원) 공급계약을 체결했다고 공시했다. 해당 물량은 미국 남·북부 지역 신설 AI 데이터센터향으로, 이로써 1~8월 누적 신규수주는 약 9조3000억원(기존 연간 목표 8조4000억원 초과)에 달해 회사는 연간 수주 목표를 12조원으로 재상향했다.",
           "sources": [
             {
-              "url": "https://www.thebigdata.co.kr/view.php?ud=202607061157071737570d99e4c8_23",
-              "outlet": "빅데이터뉴스",
-              "date": "2026-07-06",
+              "url": "https://www.fnnews.com/news/202609151809285596",
+              "outlet": "파이낸셜뉴스",
+              "date": "2026-09-15",
               "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
             },
             {
-              "url": "https://www.energydaily.co.kr/news/articleView.html?idxno=201136",
-              "outlet": "에너지데일리",
-              "date": "2026-07-06",
+              "url": "https://biz.heraldcorp.com/article/10873959",
+              "outlet": "헤럴드경제",
+              "date": "2026-09-16",
               "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.newstomato.com/ReadNews.aspx?no=1313691",
+              "outlet": "뉴스토마토",
+              "date": "2026-09-16",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
             }
           ],
-          "last_seen": "2026-08-25",
+          "last_seen": "2026-09-22",
           "first_seen": "2026-08-19",
-          "count": 2,
+          "count": 3,
           "thesis_review": false
         },
         "W1,W3|액침·d2c 액체냉각 채택 비중 변화 / 신규 데이터센터 설계 표준 변경 (ocp 등)": {

@@ -1,11 +1,11 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-09-22"
+    "last_run": "2026-09-23"
   },
   "themes": {
     "ai-dc-power": {
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-23",
       "observations": {
         "OCP LVDC SST 스펙": [
           {
@@ -1695,6 +1695,55 @@
             "last_seen": "2026-09-21",
             "value": "2024년 대비 2배 이상, 945TWh"
           }
+        ],
+        "Vicor 3분기 매출 가이던스(QoQ)": [
+          {
+            "date": "2026-09-23",
+            "last_seen": "2026-09-23",
+            "value": "10% → 20%+(2026-09-21 상향, VPD 로열티 반영)"
+          }
+        ],
+        "TCEQ 데이터센터 허가 중단": [
+          {
+            "date": "2026-09-23",
+            "last_seen": "2026-09-23",
+            "value": "2026-09-21 주지사 지시, 이행보고 시한 2026-10-19"
+          }
+        ],
+        "xAI 콜로서스2 소송 절차": [
+          {
+            "date": "2026-09-23",
+            "last_seen": "2026-09-23",
+            "value": "2026-09-18 DOJ가 제5순회 항소법원에 항소, 지방법원 예비금지명령 판결 미확정 지속"
+          }
+        ],
+        "ERCOT 감사 설문 응답마감": [
+          {
+            "date": "2026-09-23",
+            "last_seen": "2026-09-23",
+            "value": "2026-10-12(구체화, 기존 관측 '10월 중순'과 부합)"
+          }
+        ],
+        "3분기 매출성장 가이던스(QoQ)": [
+          {
+            "date": "2026-09-23",
+            "last_seen": "2026-09-23",
+            "value": "약 10% → 20%+"
+          }
+        ],
+        "3분기 매출 추정치": [
+          {
+            "date": "2026-09-23",
+            "last_seen": "2026-09-23",
+            "value": "약 1.72억달러"
+          }
+        ],
+        "TCEQ 이행보고 시한": [
+          {
+            "date": "2026-09-23",
+            "last_seen": "2026-09-23",
+            "value": "2026-10-19"
+          }
         ]
       },
       "shifts": {
@@ -1870,7 +1919,7 @@
           "thesis_review": false
         },
         "W2,W3|배전 전압 아키텍처 전환(54v 랙 → 800vdc)에 연동된 point-of-load 공급사 실적": {
-          "headline": "ST마이크로, 800V→12V/6V 신제품",
+          "headline": "Vicor 3Q 가이던스 20%+ 상향",
           "shift": "배전 전압 아키텍처 전환(54V 랙 → 800VDC)에 연동된 point-of-load 공급사 실적",
           "refs": [
             "W2",
@@ -1880,28 +1929,36 @@
           "affects": [
             "point-of-load"
           ],
-          "summary": "STMicroelectronics가 2026-09-15 서울 코엑스 기자간담회에서 NVIDIA 800VDC 레퍼런스 설계 기반의 800VDC-12V·800VDC-6V 신규 전력변환 스테이지를 출시했다고 밝혔다. 기존 800VDC-50V 솔루션에 이어 저전압 구간 커버리지를 확대한 것으로, 1200V SiC 소자가 800V DC버스 제어 핵심 부품으로 쓰인다고 설명했다.",
+          "summary": "Vicor가 2026-09-21 공식 보도자료(GlobeNewswire)를 통해 3분기 매출 성장 가이던스를 기존 QoQ 약 10%에서 20% 이상(약 1.72억달러)으로 상향했다. 9/16 체결한 VPD(Vertical Power Delivery) 기술 비독점 라이선스의 로열티 매출이 상향의 핵심 동력으로 지목됐고, Needham은 9/22 매수의견과 목표주가 320달러를 유지했다.",
           "sources": [
             {
-              "url": "https://www.thelec.kr/news/articleView.html?idxno=56739",
-              "outlet": "디일렉(THE ELEC)",
-              "date": "2026-09-15",
+              "url": "https://www.globenewswire.com/news-release/2026/09/21/3365846/0/en/vicor-corporation-raises-q3-2026-revenue-guidance.html",
+              "outlet": "GlobeNewswire(Vicor 공식)",
+              "date": "2026-09-21",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.stocktitan.net/news/VICR/vicor-corporation-raises-q3-2026-revenue-yk2virh0imov.html",
+              "outlet": "StockTitan",
+              "date": "2026-09-21",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://elec4.co.kr/contents/article_detail?article_idx=36211",
-              "outlet": "elec4",
-              "date": "2026-09-15",
+              "url": "https://www.gurufocus.com/news/9092031/vicor-vicr-boosts-q3-outlook-driven-by-ai-licensing-momentum",
+              "outlet": "GuruFocus",
+              "date": "2026-09-22",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-21",
+          "last_seen": "2026-09-23",
           "first_seen": "2026-08-19",
-          "count": 5,
+          "count": 6,
           "thesis_review": false
         },
         "W1,W3|랙 전력밀도 로드맵 변경(kw/rack) 및 실제 배치 시점": {
@@ -2017,7 +2074,7 @@
           "thesis_review": false
         },
         "W4|온사이트 발전·비계통 전력 조달 비중(behind-the-meter) — xai 콜로서스 소송": {
-          "headline": "xAI 심리 8/24 예정→실제 연기 확인",
+          "headline": "DOJ, 5항소법원에 항소장 제출",
           "shift": "온사이트 발전·비계통 전력 조달 비중(behind-the-meter) — xAI 콜로서스 소송",
           "refs": [
             "W4"
@@ -2026,33 +2083,28 @@
           "affects": [
             "power-generation"
           ],
-          "summary": "당초 2026-08-24로 예정됐던 미시시피 연방법원의 xAI(SpaceXAI) 콜로서스2 예비금지명령 심리가 법원에 2026-08-21 접수된 공지(Notice)에 따라 실제로는 연기됐던 것으로 CourtListener 판례기록 및 복수 매체에서 확인됐다(이전 관측의 '8/24 심리 개최 확인'은 정정 필요). 이에 따라 판결은 2026-09-07 현재까지도 나오지 않고 있으며, 지연이 예상보다 더 장기화되고 있다.",
+          "summary": "법무부(DOJ)가 2026-09-18 미시시피 연방지방법원이 자신의 개입신청에 대해 '적시에 판단하지 않은 것'을 사실상의 기각으로 간주하고 제5순회 항소법원에 항소장을 제출했다. NAACP의 xAI 콜로서스2 가스터빈 관련 예비금지명령 소송은 지방법원 판결이 여전히 나오지 않은 채 절차가 상급심으로 옮겨가는 모습이다.",
           "sources": [
             {
-              "url": "https://www.aol.com/articles/spacexai-hearing-decide-future-southaven-100436000.html",
-              "outlet": "AOL/Yahoo News",
-              "date": "2026-08-21",
+              "url": "https://news.bloomberglaw.com/environment-and-energy/doj-files-appeal-in-effort-to-join-naacp-xai-data-center-suit",
+              "outlet": "Bloomberg Law",
+              "date": "2026-09-18",
               "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
             },
             {
-              "url": "https://www.courtlistener.com/docket/73188848/national-association-for-the-advancement-of-colored-people-v-xai-corp/",
-              "outlet": "CourtListener(법원 판례기록)",
-              "date": "2026-08",
-              "tier": "S1",
-              "note": ""
-            },
-            {
-              "url": "https://www.mississippifreepress.org/xai-gas-turbines-causing-harm-in-southaven-naacp-argues-in-motion-to-shut-them-down/",
-              "outlet": "Mississippi Free Press",
-              "date": "2026-08",
-              "tier": "S2",
-              "note": ""
+              "url": "https://www.stevevladeck.com/p/234-doj-citizen-suits-and-the-xai",
+              "outlet": "Steve Vladeck(법률 전문 뉴스레터)",
+              "date": "2026-09",
+              "tier": "S3",
+              "note": "",
+              "from_feed": false
             }
           ],
-          "last_seen": "2026-09-07",
+          "last_seen": "2026-09-23",
           "first_seen": "2026-08-21",
-          "count": 6,
+          "count": 7,
           "thesis_review": false
         },
         "W2,W3|배전 전압 아키텍처 전환(54v 랙 → 800vdc) 채택 속도": {
@@ -2171,7 +2223,7 @@
           "thesis_review": false
         },
         "W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — 텍사스 데이터센터 감사·접속절차 중단": {
-          "headline": "ERCOT 감사, 461개소 설문 착수",
+          "headline": "텍사스, DC 환경허가 전면중단",
           "shift": "계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — 텍사스 데이터센터 감사·접속절차 중단",
           "refs": [
             "W5"
@@ -2181,36 +2233,44 @@
             "hyosung-transformer",
             "hd-hyundai-electric"
           ],
-          "summary": "ERCOT가 애벗 주지사 지시에 따른 감사의 일환으로 461개 데이터센터(75MW 이상 대형 247개, 25~75MW 중형 214개)를 대상으로 약 130개 문항(재정지원·전력자립·용수·냉각·지역영향·소유구조 등)의 설문을 시작했으며 응답 마감은 10월 중순이다. 기존에 파악된 대상 규모(250~300개 프로젝트, 약 200GW)가 데이터센터 단위로 구체화됐고, 12월 10일 PUCT 최종보고서 제출 일정은 변동 없다.",
+          "summary": "애벗 텍사스 주지사가 2026-09-21 TCEQ에 보낸 서한을 통해 ERCOT·TWDB 감사 결과가 PUC·ERCOT에 제공될 때까지 모든 데이터센터 관련 환경허가 승인을 중단하라고 지시했다. 이번 조치는 계통 접속 여부와 무관하게 비계통(섬모드) 자가발전 시설을 포함한 모든 TCEQ 허가신청에 적용되며, TCEQ는 2026-10-19까지 이행현황을 주지사실에 보고해야 한다.",
           "sources": [
             {
-              "url": "https://www.houstonpublicmedia.org/articles/news/energy-environment/2026/09/11/561649/ercot-to-survey-more-400-data-centers-as-part-of-gov-abbott-audit/",
+              "url": "https://gov.texas.gov/news/post/governor-abbott-directs-tceq-to-halt-data-center-permits",
+              "outlet": "Office of the Texas Governor(공식)",
+              "date": "2026-09-21",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.troutman.com/insights/governor-abbott-directs-tceq-to-halt-all-data-center-permits-pending-ercot-twdb-audits/",
+              "outlet": "Troutman Pepper Locke(로펌 분석)",
+              "date": "2026-09-22",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.houstonpublicmedia.org/articles/news/energy-environment/2026/09/21/562389/gov-abbott-orders-tceq-to-pause-environmental-permits-for-ai-crytocurrency-data-centers-until-audit-is-complete/",
               "outlet": "Houston Public Media",
-              "date": "2026-09-11",
+              "date": "2026-09-21",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.keranews.org/texas-news/2026-09-14/ercot-to-survey-more-than-400-data-centers-as-part-of-gov-abbotts-audit",
+              "url": "https://www.keranews.org/texas-news/2026-09-22/gov-abbott-orders-tceq-to-pause-environmental-permits-for-data-centers-until-audit-is-complete",
               "outlet": "KERA News",
-              "date": "2026-09-14",
-              "tier": "S2",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.utilitydive.com/news/ercot-texas-puc-data-center-audit/828472/",
-              "outlet": "Utility Dive",
-              "date": "2026-09",
+              "date": "2026-09-22",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-16",
+          "last_seen": "2026-09-23",
           "first_seen": "2026-08-28",
-          "count": 3,
+          "count": 4,
           "thesis_review": false
         },
         "W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — pjm 백스탑 용량조달": {
@@ -2610,7 +2670,7 @@
       }
     },
     "optical-interconnect": {
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-23",
       "observations": {
         "NVIDIA CPO 스위치 상태": [
           {
@@ -2850,6 +2910,11 @@
             "date": "2026-09-18",
             "last_seen": "2026-09-18",
             "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) + Verizon(9/8) 유지, 9/9 이후 신규 계약 미확인 (단 9/11 $2B 자사주 유상증자는 일반 운영자금 목적으로 확인, 특정 캐파투자 연계 불명)"
+          },
+          {
+            "date": "2026-09-23",
+            "last_seen": "2026-09-23",
+            "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) + Verizon(9/8) 유지, 9/9 이후 신규 계약 미확인"
           }
         ],
         "ASMPT 포토닉스 매출 성장": [
@@ -3289,6 +3354,11 @@
             "date": "2026-08-31",
             "last_seen": "2026-09-21",
             "value": "변동 없음 — 볼륨 생산 지속, 신규 발표 없음"
+          },
+          {
+            "date": "2026-09-23",
+            "last_seen": "2026-09-23",
+            "value": "변동 없음 — 볼륨 생산 지속, 9/21 이후 신규 발표 없음"
           }
         ],
         "TSMC COUPE 양산목표": [
@@ -3304,7 +3374,7 @@
           },
           {
             "date": "2026-09-18",
-            "last_seen": "2026-09-21",
+            "last_seen": "2026-09-23",
             "value": "변동 없음 — 2026 하반기 양산목표 유지"
           }
         ],
@@ -3331,7 +3401,7 @@
           },
           {
             "date": "2026-09-07",
-            "last_seen": "2026-09-21",
+            "last_seen": "2026-09-23",
             "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지"
           }
         ],
@@ -3607,6 +3677,11 @@
             "date": "2026-09-21",
             "last_seen": "2026-09-21",
             "value": "변동 없음 — 완전양산 지속, 가을(9~11월) 본격 출하 예정 유지, 9/18 이후 신규 발표 없음"
+          },
+          {
+            "date": "2026-09-23",
+            "last_seen": "2026-09-23",
+            "value": "변동 없음 — 완전양산 지속, 가을(9~11월) 본격 출하 예정 유지, 9/21 이후 신규 발표 없음 (Vera Rubin 전체 플랫폼 완전양산 재확인, 구체 출하량/수율/고객사 미공개)"
           }
         ],
         "GF SiGe 광링크 지원 규격": [
@@ -3649,6 +3724,11 @@
             "date": "2026-09-21",
             "last_seen": "2026-09-21",
             "value": "2026-09-01 서룡전자 추가 담보제공 확인(117,786주 추가, 누적 27,410,601주, 지분율 37.37%) — 20일 전 공시로 이번 관측 기간(14일) 밖이나 참고용으로 기록"
+          },
+          {
+            "date": "2026-09-23",
+            "last_seen": "2026-09-23",
+            "value": "변동 없음 — 9/1 서룡전자 추가담보(누적 27,410,601주, 지분율 37.37%) 이후 9/23까지 신규 공시 미확인"
           }
         ],
         "Coherent PhotonLink 플랫폼": [
@@ -3663,6 +3743,41 @@
             "date": "2026-09-21",
             "last_seen": "2026-09-21",
             "value": "2027년 하반기 초기매출 → 2028년 온기매출 (2026-09-09 Citi TMT 발언)"
+          }
+        ],
+        "Marvell ECOC 2026 CPO 데모(신규)": [
+          {
+            "date": "2026-09-23",
+            "last_seen": "2026-09-23",
+            "value": "102.4Tbps CPO 플랫폼(200G/lane) + 2nm 400G/lane PAM4·800G ZR/ZR+·1.6T ZR 등 38개 기술 시연(2026-09-20~21 발표)"
+          }
+        ],
+        "Furukawa-Lightera CPO 커넥터 수상(신규)": [
+          {
+            "date": "2026-09-23",
+            "last_seen": "2026-09-23",
+            "value": "Snap-Beam 커넥터, ECOC Fibre Infrastructure Innovation Award 2026 수상(2026-09-22)"
+          }
+        ],
+        "CPO 플랫폼 대역폭": [
+          {
+            "date": "2026-09-23",
+            "last_seen": "2026-09-23",
+            "value": "102.4Tbps (200G/lane)"
+          }
+        ],
+        "공정노드": [
+          {
+            "date": "2026-09-23",
+            "last_seen": "2026-09-23",
+            "value": "2nm"
+          }
+        ],
+        "ECOC 데모 건수": [
+          {
+            "date": "2026-09-23",
+            "last_seen": "2026-09-23",
+            "value": "38개"
           }
         ]
       },
@@ -3967,28 +4082,44 @@
           "thesis_review": false
         },
         "W1,W3|cpo 양산 채택 일정의 전진 또는 후퇴 / 광 i/o 표준화 동향 및 주요 벤더 로드맵 변경": {
-          "headline": "Astera Labs NPO 매출시점 제시",
+          "headline": "Marvell 2nm CPO 데모 공개",
           "shift": "CPO 양산 채택 일정의 전진 또는 후퇴 / 광 I/O 표준화 동향 및 주요 벤더 로드맵 변경",
           "refs": [
             "W1",
             "W3"
           ],
-          "direction": "중립",
+          "direction": "순풍",
           "affects": [],
-          "summary": "Astera Labs가 2026-09-09 Citi Global TMT 컨퍼런스에서 컴포넌트 단위 광 매출이 2027년부터 시작되고, NPO(narrow pluggable optics)는 2027년 하반기에 초기 매출, 2028년에 온기 매출이 발생할 것이라는 자체 로드맵을 처음 공개했다. 이는 앞서 Lightmatter 발언으로 전해졌던 'NPO 2027 진입·2028 본격화'(9/16 관측, 미검증) 시점과 같은 방향으로, 별도 벤더가 유사한 일정을 재확인한 것이다.",
+          "summary": "Marvell이 2026-09-20~24 스페인 말라가 ECOC 2026에서 2nm 공정 기반 광 인터커넥트 기술을 대거 시연했다. 200G/lane 실리콘포토닉스 기반 102.4Tbps CPO 플랫폼을 포함해 2nm 400G/lane PAM4, 800G ZR/ZR+ 플러거블 모듈, 1.6T ZR·코히런트라이트 등 총 38개 기술 데모를 공개하며 AI 데이터센터 광 연결이 1.6T에서 3.2T 이상으로 확장되는 로드맵을 제시했다.",
           "sources": [
             {
-              "url": "https://www.investing.com/news/transcripts/astera-labs-at-citis-2026-global-tmt-conference-ai-buildout-drives-growth-93CH-4893934",
-              "outlet": "investing.com (컨퍼런스 트랜스크립트)",
-              "date": "2026-09-09",
+              "url": "https://investor.marvell.com/news-events/press-releases/detail/1034/marvell-to-showcase-industry-first-2nm-optical-technology-demos-for-ai-data-center-infrastructure-at-ecoc-2026",
+              "outlet": "investor.marvell.com",
+              "date": "2026-09-21",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/marvell-details-vision-of-optically-interconnected-data-centers-spanning-across-thousands-of-kilometers-new-interconnects-sampling-later-this-year-would-allow-csps-to-pool-resources-based-on-workload",
+              "outlet": "tomshardware.com",
+              "date": "2026-09-22",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.stocktitan.net/news/MRVL/marvell-to-showcase-industry-first-2nm-optical-technology-demos-for-3xoqtb34zuns.html",
+              "outlet": "stocktitan.net",
+              "date": "2026-09-21",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-21",
+          "last_seen": "2026-09-23",
           "first_seen": "2026-08-28",
-          "count": 4,
+          "count": 5,
           "thesis_review": false
         },
         "W1,W5|cpo 양산 채택 일정의 전진 또는 후퇴 / 실리콘 포토닉스 수율·패키징 병목 해소 여부": {
@@ -4268,6 +4399,31 @@
           ],
           "last_seen": "2026-09-21",
           "first_seen": "2026-09-21",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W3,W5|광 i/o 표준화 동향 및 주요 벤더 로드맵 변경 / 실리콘 포토닉스 수율·패키징 병목 해소 여부": {
+          "headline": "PIC용 탈착 커넥터 수상",
+          "shift": "광 I/O 표준화 동향 및 주요 벤더 로드맵 변경 / 실리콘 포토닉스 수율·패키징 병목 해소 여부",
+          "refs": [
+            "W3",
+            "W5"
+          ],
+          "direction": "중립",
+          "affects": [],
+          "summary": "Furukawa Electric과 Lightera가 공동 개발한 'Snap-Beam' 커넥터가 2026-09-22 ECOC 2026 전시 산업상에서 Fibre Infrastructure Innovation Award를 수상했다. CPO 시스템에서 실리콘포토닉스 PIC와 광섬유 간을 소형·탈착식으로 연결하는 제품으로, 고밀도 광 I/O 구현을 겨냥한다.",
+          "sources": [
+            {
+              "url": "http://www.prnewswire.com/news-releases/furukawa-electric-and-lighteras-snap-beam-connector-for-co-packaged-optics-wins-ecoc-fibre-infrastructure-innovation-award-2026-302886658.html",
+              "outlet": "prnewswire.com (Furukawa/Lightera)",
+              "date": "2026-09-22",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-09-23",
+          "first_seen": "2026-09-23",
           "count": 1,
           "thesis_review": false
         }

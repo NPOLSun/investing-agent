@@ -4430,7 +4430,7 @@
       }
     },
     "memory-storage": {
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-23",
       "observations": {
         "파두 컨트롤러 매출 비중": [
           {
@@ -4574,11 +4574,6 @@
         ],
         "예스티-HPSP 서울중앙지법 본안소송": [
           {
-            "date": "2026-08-20",
-            "last_seen": "2026-08-20",
-            "value": "2026-08-13 변론 기준 진행 중(장비 영상 추가제출 공방)"
-          },
-          {
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
             "value": "8/13 변론 이후 추가 진행상황 미확인(변화없음)"
@@ -4632,6 +4627,11 @@
             "date": "2026-09-18",
             "last_seen": "2026-09-18",
             "value": "8/13 변론 이후 추가 진행상황 미확인(변화없음 지속)"
+          },
+          {
+            "date": "2026-09-23",
+            "last_seen": "2026-09-23",
+            "value": "8/13 변론 이후 추가 진행상황 미확인(9/23 재확인, 변화없음 지속)"
           }
         ],
         "Gen6 성능": [
@@ -5210,6 +5210,11 @@
             "date": "2026-09-16",
             "last_seen": "2026-09-18",
             "value": "8/12 공시(395.83억원) 이후 추가 신규계약 공시 미확인(변화없음 지속)"
+          },
+          {
+            "date": "2026-09-23",
+            "last_seen": "2026-09-23",
+            "value": "8/12 공시(395.83억원) 이후 9월 신규계약 공시 미확인(9/23 재확인, 변화없음 지속)"
           }
         ],
         "SK하이닉스 1c D램 비중": [
@@ -5593,6 +5598,48 @@
             "date": "2026-09-21",
             "last_seen": "2026-09-21",
             "value": "동급 기존 제품 대비 +50%"
+          }
+        ],
+        "솔리다임 미국 낸드공장 후보지": [
+          {
+            "date": "2026-09-23",
+            "last_seen": "2026-09-23",
+            "value": "뉴욕주 북부(upstate New York) 유력, 세부사항 미확정(2026-09-18)"
+          }
+        ],
+        "1b D램 다이가치 vs TSMC 로직 웨이퍼": [
+          {
+            "date": "2026-09-23",
+            "last_seen": "2026-09-23",
+            "value": "1b D램 $0.654/mm² > TSMC N2 $0.424/mm² > N3 $0.283/mm²(2026-09-20 Kurnal Insights)"
+          }
+        ],
+        "eSSD 수요 전망(4Q26)": [
+          {
+            "date": "2026-09-23",
+            "last_seen": "2026-09-23",
+            "value": "3Q26 수준 상회 지속 전망 재확인(머니투데이 9/22~23, TrendForce 9/21 데이터와 동일 맥락)"
+          }
+        ],
+        "1b D램 다이가치(Gb당 $1.5 기준)": [
+          {
+            "date": "2026-09-23",
+            "last_seen": "2026-09-23",
+            "value": "약 $0.654/mm²"
+          }
+        ],
+        "TSMC N2 웨이퍼 가공단가(추정)": [
+          {
+            "date": "2026-09-23",
+            "last_seen": "2026-09-23",
+            "value": "$0.424/mm²"
+          }
+        ],
+        "TSMC N3 웨이퍼 가공단가(추정)": [
+          {
+            "date": "2026-09-23",
+            "last_seen": "2026-09-23",
+            "value": "$0.283/mm²"
           }
         ]
       },
@@ -6000,7 +6047,7 @@
           "thesis_review": false
         },
         "W1,W3,W5|메모리·후공정 capex 방향 / ai 추론 확산에 따른 essd·니어라인 스토리지 수요 구조 변화": {
-          "headline": "솔리다임 美 첫 낸드공장 검토",
+          "headline": "솔리다임 美공장 후보지 뉴욕주 구체화",
           "shift": "메모리·후공정 capex 방향 / AI 추론 확산에 따른 eSSD·니어라인 스토리지 수요 구조 변화",
           "refs": [
             "W1",
@@ -6011,36 +6058,36 @@
           "affects": [
             "ssd-controller"
           ],
-          "summary": "SK하이닉스 손자회사 솔리다임이 미국 동부 지역에 첫 낸드플래시 양산라인 구축을 검토 중인 것으로 2026-09-18 보도됐다. 현재 부지·품목·양산시점 등 세부계획을 조율하는 초기 단계이며, 솔리다임은 현재 중국 다롄에만 생산거점을 두고 미국에는 본사·R&D센터만 운영 중이다. 회사측은 \"다양한 방안을 검토 중이나 확정된 바 없다\"고 공식 답변했다.",
+          "summary": "로이터가 2026-09-18 보도한 솔리다임의 미국 낸드공장 검토 건이 이후 뉴욕주 북부(upstate New York)를 유력 후보지로 하는 단계까지 구체화된 것으로 복수 매체를 통해 확인됐다. 이 프로젝트는 SK하이닉스-인텔 오하이오 공장 임대·합작 논의와는 별개 사안이며, 부지·투자규모·가동시점 등 핵심 사항은 여전히 미확정이다.",
           "sources": [
             {
-              "url": "https://www.yna.co.kr/view/AKR20260918116200003",
-              "outlet": "연합뉴스",
+              "url": "https://www.blocksandfiles.com/flash/2026/09/18/sk-hynix-considering-us-solidigm-fab/5297475",
+              "outlet": "Blocks & Files",
               "date": "2026-09-18",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.fnnews.com/news/202609181454176470",
-              "outlet": "파이낸셜뉴스",
+              "url": "https://www.koreajoongangdaily.com/business/sk-hynixs-solidigm-weighs-new-york-nand-factory/12882558",
+              "outlet": "Korea JoongAng Daily",
               "date": "2026-09-18",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://zdnet.co.kr/view/?no=20260918125305",
-              "outlet": "ZDNet Korea",
+              "url": "https://www.investing.com/news/stock-market-news/solidigm-eyes-us-factory-for-nand-chips-upstate-new-york-considered-93CH-4906733",
+              "outlet": "Investing.com (Reuters)",
               "date": "2026-09-18",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-18",
+          "last_seen": "2026-09-23",
           "first_seen": "2026-08-28",
-          "count": 2,
+          "count": 3,
           "thesis_review": false
         },
         "W1,W4|파두 컨트롤러 매출 성장 (개별 신규계약)": {
@@ -6382,6 +6429,30 @@
           ],
           "last_seen": "2026-09-21",
           "first_seen": "2026-09-21",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W5|메모리·후공정 capex 방향 (관련 메모리 가치 분석)": {
+          "headline": "D램 다이가치, 선단 로직 웨이퍼 추월",
+          "shift": "메모리·후공정 capex 방향 (관련 메모리 가치 분석)",
+          "refs": [
+            "W5"
+          ],
+          "direction": "중립",
+          "affects": [],
+          "summary": "리서치업체 Kurnal Insights가 2026-09-20 발표하고 Tom's Hardware가 2026-09-22 보도한 분석에 따르면, D램의 mm²당 이론적 판매가치가 TSMC 선단 로직 공정(N2) 웨이퍼 가공단가 추정치를 처음으로 넘어선 것으로 나타났다. Gb당 1.5달러 기준 1b D램은 mm²당 약 0.654달러로, TSMC N2(0.424달러)·N3(0.283달러) 추정치를 상회한다.",
+          "sources": [
+            {
+              "url": "https://www.tomshardware.com/pc-components/dram/dram-is-now-more-expensive-than-compute-chips-on-per-area-basis-ai-demand-drives-memory-die-value-past-leading-edge-silicon",
+              "outlet": "Tom's Hardware",
+              "date": "2026-09-22",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-09-23",
+          "first_seen": "2026-09-23",
           "count": 1,
           "thesis_review": false
         }

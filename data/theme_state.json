@@ -1,11 +1,11 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-09-24"
+    "last_run": "2026-09-25"
   },
   "themes": {
     "ai-dc-power": {
-      "last_checked": "2026-09-23",
+      "last_checked": "2026-09-25",
       "observations": {
         "OCP LVDC SST 스펙": [
           {
@@ -1744,6 +1744,55 @@
             "last_seen": "2026-09-23",
             "value": "2026-10-19"
           }
+        ],
+        "Oracle Project Jupiter 불가항력 통지": [
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "2026-09-24 발동(Bloomberg 최초보도), 원인: Bloom Energy 연료전지용 천연가스관(Green Chile Project) 인허가 지연, 목표가동 2028년 불투명"
+          }
+        ],
+        "Project Jupiter Bloom Energy 연료전지 용량": [
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "최대 2.45GW(2026-04 가스터빈에서 전환, 변동없음)"
+          }
+        ],
+        "Green Chile 파이프라인 통행권": [
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "2026-03 뉴멕시코 주토지관리국 반려(기존), 이후 Energy Transfer 가동시점 연기"
+          }
+        ],
+        "Project Jupiter 사업비": [
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "165억달러"
+          }
+        ],
+        "Bloom Energy 연료전지 용량": [
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "최대 2.45GW"
+          }
+        ],
+        "목표 가동시점": [
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "2028년(불투명)"
+          }
+        ],
+        "Oracle 주가 반응": [
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "-3~4%(9/24)"
+          }
         ]
       },
       "shifts": {
@@ -2666,11 +2715,60 @@
           "first_seen": "2026-09-14",
           "count": 1,
           "thesis_review": false
+        },
+        "W4,W5|온사이트 발전·비계통 전력 조달 비중(behind-the-meter) / 계통 접속 대기열 적체": {
+          "headline": "오라클 뉴멕시코 DC 불가항력 통지",
+          "shift": "온사이트 발전·비계통 전력 조달 비중(behind-the-meter) / 계통 접속 대기열 적체",
+          "refs": [
+            "W4",
+            "W5"
+          ],
+          "direction": "불명",
+          "affects": [],
+          "summary": "Oracle이 2026-09-24 165억달러 규모 Project Jupiter(뉴멕시코, Stargate) 데이터센터 개발사(Blue Owl Capital 계열)에 불가항력(force majeure) 통지를 보냈다고 Bloomberg가 보도했다. 원인은 해당 부지의 전력 조달 방식으로 올해 4월 가스터빈에서 전환한 Bloom Energy 연료전지(최대 2.45GW)에 천연가스를 공급할 17마일 파이프라인(Green Chile Project)이 뉴욕멕시코 주토지관리국의 통행권 반려(3월)로 지연되면서 2028년 가동 목표가 불투명해진 데 있다. Oracle은 주요 임차인 지위는 유지하되 가동 지연 시 대금 지급을 늦출 수 있는 계약상 권리를 확보한 것으로, 이 소식에 Oracle 주가는 3~4% 하락했다.",
+          "sources": [
+            {
+              "url": "https://www.bloomberg.com/news/articles/2026-09-24/oracle-cites-force-majeure-to-shield-itself-on-controversial-data-center",
+              "outlet": "Bloomberg",
+              "date": "2026-09-24",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://techcrunch.com/2026/09/24/oracle-sends-force-majeure-notice-on-its-new-mexico-stargate-data-center/",
+              "outlet": "TechCrunch",
+              "date": "2026-09-24",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.cnbc.com/2026/09/24/oracle-data-center-force-majeure.html",
+              "outlet": "CNBC",
+              "date": "2026-09-24",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.datacenterdynamics.com/en/news/new-mexico-regulators-reject-natural-gas-pipeline-for-oracles-25gw-project-jupiter-data-center/",
+              "outlet": "Data Center Dynamics",
+              "date": "2026-09",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-09-25",
+          "first_seen": "2026-09-25",
+          "count": 1,
+          "thesis_review": false
         }
       }
     },
     "optical-interconnect": {
-      "last_checked": "2026-09-23",
+      "last_checked": "2026-09-25",
       "observations": {
         "NVIDIA CPO 스위치 상태": [
           {
@@ -2915,6 +3013,11 @@
             "date": "2026-09-23",
             "last_seen": "2026-09-23",
             "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) + Verizon(9/8) 유지, 9/9 이후 신규 계약 미확인"
+          },
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) + Verizon(9/8) 유지, 9/9 이후 신규 계약 미확인 (9/11 $2B 자사주 유상증자는 일반 운영자금 목적, 특정 캐파투자 연계 불명 — 기확인 사안)"
           }
         ],
         "ASMPT 포토닉스 매출 성장": [
@@ -3359,6 +3462,11 @@
             "date": "2026-09-23",
             "last_seen": "2026-09-23",
             "value": "변동 없음 — 볼륨 생산 지속, 9/21 이후 신규 발표 없음"
+          },
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "변동 없음 — 볼륨 생산 지속, 9/23 이후 신규 발표 없음"
           }
         ],
         "TSMC COUPE 양산목표": [
@@ -3374,7 +3482,7 @@
           },
           {
             "date": "2026-09-18",
-            "last_seen": "2026-09-23",
+            "last_seen": "2026-09-25",
             "value": "변동 없음 — 2026 하반기 양산목표 유지"
           }
         ],
@@ -3401,7 +3509,7 @@
           },
           {
             "date": "2026-09-07",
-            "last_seen": "2026-09-23",
+            "last_seen": "2026-09-25",
             "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지"
           }
         ],
@@ -3682,6 +3790,11 @@
             "date": "2026-09-23",
             "last_seen": "2026-09-23",
             "value": "변동 없음 — 완전양산 지속, 가을(9~11월) 본격 출하 예정 유지, 9/21 이후 신규 발표 없음 (Vera Rubin 전체 플랫폼 완전양산 재확인, 구체 출하량/수율/고객사 미공개)"
+          },
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "변동 없음 — 완전양산 지속, 가을(9~11월) 본격 출하 예정 유지, 9/23 이후 신규 발표 없음"
           }
         ],
         "GF SiGe 광링크 지원 규격": [
@@ -3729,6 +3842,11 @@
             "date": "2026-09-23",
             "last_seen": "2026-09-23",
             "value": "변동 없음 — 9/1 서룡전자 추가담보(누적 27,410,601주, 지분율 37.37%) 이후 9/23까지 신규 공시 미확인"
+          },
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "변동 없음 — 9/1 서룡전자 추가담보(누적 27,410,601주, 지분율 37.37%) 이후 9/25까지 신규 공시 미확인"
           }
         ],
         "Coherent PhotonLink 플랫폼": [
@@ -3778,6 +3896,41 @@
             "date": "2026-09-23",
             "last_seen": "2026-09-23",
             "value": "38개"
+          }
+        ],
+        "RoboTechnik(ficonTEC 모회사) 홍콩 IPO": [
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "신규 — 2026-09-29 상장 예정(3757.HK), 공모 최대 HK$49.6억(~미화 8억달러), 순조달금 약 40% 실리콘포토닉스 장비 캐파확장에 배정"
+          }
+        ],
+        "RoboTechnik H1 2026 실리콘포토닉스 장비 매출": [
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "YoY +144.8% (6.085억위안), 순이익 흑자전환"
+          }
+        ],
+        "IPO 조달규모": [
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "최대 HK$49.6억(약 미화 8억달러)"
+          }
+        ],
+        "H1 2026 실리콘포토닉스 장비 매출": [
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "YoY +144.8% (6.085억위안)"
+          }
+        ],
+        "조달자금 중 캐파확장 배정비율": [
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "약 40%"
           }
         ]
       },
@@ -4320,43 +4473,53 @@
           "thesis_review": false
         },
         "W1,W5|실리콘 포토닉스 수율·패키징 병목 해소 여부 / cpo 양산 채택 일정의 전진 또는 후퇴": {
-          "headline": "GF-Marvell 광IC 캐파 증설",
+          "headline": "ficonTEC 모회사 홍콩증시 IPO",
           "shift": "실리콘 포토닉스 수율·패키징 병목 해소 여부 / CPO 양산 채택 일정의 전진 또는 후퇴",
           "refs": [
             "W5",
             "W1"
           ],
-          "direction": "순풍",
-          "affects": [],
-          "summary": "GlobalFoundries와 Marvell이 2026-09-17 버몬트주 벌링턴 공장의 SiGe(실리콘저마늄) 캐파를 확대하는 다년 계약을 발표했다. 이 SiGe 공정은 차세대 플러거블 광트랜시버·NPO(Near-Packaged Optics)·CPO용 드라이버/TIA 칩에 쓰이며, 200G/lane급 광링크를 지원하고 상위 세대 로드맵도 준비 중이다. AI 데이터센터발 광 인터커넥트 부품 수요 증가에 대응한 공급망 확장으로, 10년 이상 이어온 양사 협력의 연장선이다.",
+          "direction": "역풍",
+          "affects": [
+            "optical-align"
+          ],
+          "summary": "액티브얼라인 장비 시장에서 ADS테크·성호전자의 과점 경쟁사인 ficonTEC의 모회사 RoboTechnik(로보테크·선전 상장사, 3757.HK 예정)이 2026-09-29 홍콩거래소에 H주로 이중상장하며 최대 HK$49.6억(약 미화 8억달러)을 조달한다. 회사는 최고 공모가 기준 순조달금의 약 40%를 실리콘포토닉스 장비 생산능력 확장·납기단축에 투입할 계획이며, ficonTEC 편입 이후 2026 상반기 실리콘포토닉스 장비 매출이 전년동기대비 144.8% 증가(6.085억위안)하며 순이익이 흑자로 전환됐다고 밝혔다.",
           "sources": [
             {
-              "url": "https://www.globenewswire.com/news-release/2026/09/17/3364000/0/en/globalfoundries-and-marvell-expand-collaboration-for-next-generation-optical-connectivity.html",
-              "outlet": "globenewswire.com (GF/Marvell 공동발표)",
-              "date": "2026-09-17",
-              "tier": "S1",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.hpcwire.com/off-the-wire/globalfoundries-and-marvell-expand-collaboration-for-next-gen-optical-connectivity/",
-              "outlet": "hpcwire.com",
-              "date": "2026-09-17",
+              "url": "https://technode.com/2026/09/23/the-race-to-mass-produce-silicon-photonics/",
+              "outlet": "technode.com",
+              "date": "2026-09-23",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.stocktitan.net/news/GFS/global-foundries-and-marvell-expand-collaboration-for-next-y5c35g15v396.html",
-              "outlet": "stocktitan.net",
-              "date": "2026-09-17",
+              "url": "https://www.inkl.com/news/chinas-robotechnik-to-launch-800-million-hong-kong-listing-on-september-21",
+              "outlet": "inkl.com (Reuters 인용)",
+              "date": "2026-09-18",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.caproasia.com/2026/09/19/china-15-billion-high-tech-manufacturer-robotechnik-intelligent-technology-hong-kong-secondary-listing-ipo-to-raise-800-million-with-expected-ipo-listing-on-29th-september-2026-founded-in-2011-by-d/",
+              "outlet": "caproasia.com",
+              "date": "2026-09-19",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.aastocks.com/en/stocks/news/aafn-con/now.1545416/latest-news",
+              "outlet": "aastocks.com",
+              "date": "2026-09-24",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-18",
-          "first_seen": "2026-09-18",
+          "last_seen": "2026-09-25",
+          "first_seen": "2026-09-25",
           "count": 1,
           "thesis_review": false
         },

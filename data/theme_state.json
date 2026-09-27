@@ -1,11 +1,11 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-09-25"
+    "last_run": "2026-09-28"
   },
   "themes": {
     "ai-dc-power": {
-      "last_checked": "2026-09-25",
+      "last_checked": "2026-09-28",
       "observations": {
         "OCP LVDC SST 스펙": [
           {
@@ -698,6 +698,11 @@
             "date": "2026-09-11",
             "last_seen": "2026-09-11",
             "value": "v0.3 유지(Option A 3Q26 양산·Option B 3Q27, 변동없음)"
+          },
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "v0.3 유지(변동없음), TI가 GTC26서 800V→6V 2단 변환·효율 97.6%·밀도 2000W/in³ 초과 아키텍처 공개(8월, 배경)"
           }
         ],
         "FERC 의견수렴 마감": [
@@ -1018,6 +1023,11 @@
             "date": "2026-09-04",
             "last_seen": "2026-09-04",
             "value": "NVIDIA 구체적 반박 없이 '로드맵 유지' 입장 반복(변동없음)"
+          },
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "9/28 현재도 NVIDIA 구체적 반박 없이 '로드맵 유지' 입장 반복(변동없음)"
           }
         ],
         "800VDC 생태계 파트너사": [
@@ -1645,6 +1655,11 @@
             "date": "2026-09-21",
             "last_seen": "2026-09-21",
             "value": "461개 데이터센터 대상 설문 공개 완료(9/18), 응답마감 10월 중순(변동없음)"
+          },
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "461개 데이터센터 대상 공개 완료, 응답마감 10/12(변동없음)"
           }
         ],
         "Vicor VPD 라이선스": [
@@ -1659,6 +1674,11 @@
             "date": "2026-09-21",
             "last_seen": "2026-09-21",
             "value": "9/15(효성 3865억원) 이후 9/21까지 추가 신규 공시 확인 안됨"
+          },
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "9/15(효성 3865억원) 이후 9/28까지 추가 신규 공시 확인 안됨"
           }
         ],
         "MVSST 시스템 효율": [
@@ -1792,6 +1812,41 @@
             "date": "2026-09-25",
             "last_seen": "2026-09-25",
             "value": "-3~4%(9/24)"
+          }
+        ],
+        "Oracle-Bloom Project Jupiter 재확약": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "2026-09-25, 불가항력 통지 이후에도 2.4GW 계약 유지 확인"
+          }
+        ],
+        "Green Chile 파이프라인 목표가동": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "2026-08(기존) → 2027-02(재연기)"
+          }
+        ],
+        "PJM IRAS FERC 최종명령": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "9/28 현재도 미발표, 발효목표 10/12 유지(변동없음)"
+          }
+        ],
+        "xAI 콜로서스 소송": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "9/28 현재도 지방법원 판결 미확정(변동없음)"
+          }
+        ],
+        "계약 유지 규모": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "2.4GW(변동없음, 재확약)"
           }
         ]
       },
@@ -2764,18 +2819,62 @@
           "first_seen": "2026-09-25",
           "count": 1,
           "thesis_review": false
+        },
+        "W4,W5|온사이트 발전·비계통 전력 조달 비중(behind-the-meter) / 계통 접속 대기열 적체 — oracle project jupiter 불": {
+          "headline": "오라클·Bloom, 2.4GW 계약 재확약",
+          "shift": "온사이트 발전·비계통 전력 조달 비중(behind-the-meter) / 계통 접속 대기열 적체 — Oracle Project Jupiter 불가항력 통지 후속",
+          "refs": [
+            "W4",
+            "W5"
+          ],
+          "direction": "불명",
+          "affects": [],
+          "summary": "9/24 불가항력 통지로 촉발된 우려에 대해 Oracle과 Bloom Energy가 9/25 Project Jupiter의 2.4GW 연료전지 계약을 그대로 유지한다고 공동 확인했다. 다만 원인이었던 Green Chile 가스관(뉴멕시코 주토지관리국 통행권 반려로 지연)의 목표 가동시점이 기존 2026년 8월에서 2027년 2월로 추가 연기된 것으로 새로 확인됐다.",
+          "sources": [
+            {
+              "url": "https://x.com/Bloom_Energy/status/2103192271202213975",
+              "outlet": "Bloom Energy(공식 성명)",
+              "date": "2026-09-25",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.fool.com/investing/2026/09/24/a-delayed-pipeline-just-put-bloom-energy-s-role-in-a-usd165-billion-ai-project-in-question/",
+              "outlet": "The Motley Fool",
+              "date": "2026-09-24",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://fuelcellsworks.com/2026/09/25/clean-energy/bloom-energy-says-oracle-remains-committed-to-2-4gw-project-jupiter-deal-after-force-majeure-report",
+              "outlet": "Fuel Cells Works",
+              "date": "2026-09-25",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://247wallst.com/investing/2026/09/25/bloom-energy-jumps-8-as-oracle-reaffirms-2-4-gw-fuel-cell-contract-after-force-majeure-notice/",
+              "outlet": "24/7 Wall St.",
+              "date": "2026-09-25",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-09-28",
+          "first_seen": "2026-09-28",
+          "count": 1,
+          "thesis_review": false
         }
       }
     },
     "optical-interconnect": {
-      "last_checked": "2026-09-25",
+      "last_checked": "2026-09-28",
       "observations": {
         "NVIDIA CPO 스위치 상태": [
-          {
-            "date": "2026-08-19",
-            "last_seen": "2026-08-19",
-            "value": "2026-08 완전양산 진입, Vera Rubin 플랫폼向 올가을 출하 예정"
-          },
           {
             "date": "2026-08-21",
             "last_seen": "2026-08-21",
@@ -2830,14 +2929,14 @@
             "date": "2026-09-16",
             "last_seen": "2026-09-16",
             "value": "변동 없음 — Spectrum-X/Quantum-X Photonics 완전양산 지속, 가을(9~11월) 본격 출하 예정 유지, 9/14 이후 신규 발표 없음"
+          },
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "변동 없음 — Spectrum-X/Quantum-X Photonics 완전양산 지속, 가을(9~11월) 본격 출하 예정 유지, 신규 발표 없음"
           }
         ],
         "Broadcom CPO 스위치 상태": [
-          {
-            "date": "2026-08-17",
-            "last_seen": "2026-08-17",
-            "value": "볼륨 램프 진행 중(Tomahawk 6-Davisson, Bailly)"
-          },
           {
             "date": "2026-08-19",
             "last_seen": "2026-08-19",
@@ -2892,6 +2991,11 @@
             "date": "2026-09-16",
             "last_seen": "2026-09-16",
             "value": "변동 없음 — Tomahawk 6-Davisson/Bailly 볼륨생산 지속, 9/14 이후 신규 발표 없음"
+          },
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "변동 없음 — Tomahawk 6-Davisson/Bailly 볼륨 생산 지속(공랭식 확인), 신규 발표 없음"
           }
         ],
         "TSMC COUPE": [
@@ -3157,6 +3261,11 @@
             "date": "2026-08-31",
             "last_seen": "2026-08-31",
             "value": "변동 없음 — Meta 최대$6B + Amazon 복수B$ + Zayo(2026-08-20) 유지, 신규 계약 확인 안됨"
+          },
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) + Verizon(9/8) 유지, 신규 계약 미확인"
           }
         ],
         "Coherent CPO TAM": [
@@ -3484,6 +3593,11 @@
             "date": "2026-09-18",
             "last_seen": "2026-09-25",
             "value": "변동 없음 — 2026 하반기 양산목표 유지"
+          },
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "변동 없음 — 2026 하반기 양산목표 유지, COUPE 플랫폼이 '실리콘포토닉스 엔진'에서 '액티브 포토닉스 통합 플랫폼'으로 진화 중이라는 분석 확인(신규 발표 아님)"
           }
         ],
         "OCP CPO 표준화(Lightmatter)": [
@@ -3511,6 +3625,11 @@
             "date": "2026-09-07",
             "last_seen": "2026-09-25",
             "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지"
+          },
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지, 19개사 참여 아키텍처 백서 기존대로"
           }
         ],
         "성호전자/서룡전자 주식담보대출 잔액": [
@@ -3553,6 +3672,11 @@
             "date": "2026-09-16",
             "last_seen": "2026-09-18",
             "value": "변동 없음(추정) — 1,650억원(8/31 기준) 수준, 9월 신규 상환·담보 공시 미확인"
+          },
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "변동 없음(추정) — 1,650억원(8/31 기준) 수준, 9/1 서룡전자 추가담보(누적 27,410,601주, 지분율 37.37%) 이후 신규 공시 미확인"
           }
         ],
         "ADS테크 신규수주(CPO 장비)": [
@@ -3931,6 +4055,48 @@
             "date": "2026-09-25",
             "last_seen": "2026-09-25",
             "value": "약 40%"
+          }
+        ],
+        "성호전자 CB 콜옵션 지정 이해상충 의혹": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "신규 — 9/18 공시, 895억 CB 콜옵션 26억원 지정대상자 중 2명이 CB 인수 법인/조합 핵심인물과 중복"
+          }
+        ],
+        "RoboTechnik 홍콩 IPO": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "신규 확정 — 공모가 HK$436(밴드상단), 상장일 9/29, 최대 조달액 HK$68.5억"
+          }
+        ],
+        "콜옵션 지정 금액": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "26억원(지정수수료 7,800만원)"
+          }
+        ],
+        "CB 총액 대비 최대주주 콜옵션 비율": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "최대 40%(약 358억원)"
+          }
+        ],
+        "공모가": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "HK$436/주(밴드 상단)"
+          }
+        ],
+        "예상 조달액": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "최대 HK$68.5억"
           }
         ]
       },
@@ -4473,53 +4639,37 @@
           "thesis_review": false
         },
         "W1,W5|실리콘 포토닉스 수율·패키징 병목 해소 여부 / cpo 양산 채택 일정의 전진 또는 후퇴": {
-          "headline": "ficonTEC 모회사 홍콩증시 IPO",
+          "headline": "RoboTechnik 홍콩 공모가 확정",
           "shift": "실리콘 포토닉스 수율·패키징 병목 해소 여부 / CPO 양산 채택 일정의 전진 또는 후퇴",
           "refs": [
-            "W5",
-            "W1"
+            "W1",
+            "W5"
           ],
-          "direction": "역풍",
+          "direction": "순풍",
           "affects": [
             "optical-align"
           ],
-          "summary": "액티브얼라인 장비 시장에서 ADS테크·성호전자의 과점 경쟁사인 ficonTEC의 모회사 RoboTechnik(로보테크·선전 상장사, 3757.HK 예정)이 2026-09-29 홍콩거래소에 H주로 이중상장하며 최대 HK$49.6억(약 미화 8억달러)을 조달한다. 회사는 최고 공모가 기준 순조달금의 약 40%를 실리콘포토닉스 장비 생산능력 확장·납기단축에 투입할 계획이며, ficonTEC 편입 이후 2026 상반기 실리콘포토닉스 장비 매출이 전년동기대비 144.8% 증가(6.085억위안)하며 순이익이 흑자로 전환됐다고 밝혔다.",
+          "summary": "ficonTEC 모회사 RoboTechnik의 홍콩 이중상장(H주) 공모가가 2026-09-25 밴드 상단인 주당 HK$436으로 확정됐으며, 9/29 홍콩거래소 상장이 예정대로 진행된다. 조달규모는 초과배정옵션 전액행사 시 최대 HK$68.5억(약 미화 6.6~8.8억달러) 수준으로, 이전 관측(9/25)된 실리콘포토닉스 장비 캐파확장 자금 확보 계획이 그대로 실행 단계에 들어갔다.",
           "sources": [
             {
-              "url": "https://technode.com/2026/09/23/the-race-to-mass-produce-silicon-photonics/",
-              "outlet": "technode.com",
-              "date": "2026-09-23",
+              "url": "https://news.futunn.com/en/post/1000218034/robotechnic-03757-hk-fixes-the-offer-price-at-hk-436",
+              "outlet": "futunn.com",
+              "date": "2026-09-25",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.inkl.com/news/chinas-robotechnik-to-launch-800-million-hong-kong-listing-on-september-21",
-              "outlet": "inkl.com (Reuters 인용)",
-              "date": "2026-09-18",
-              "tier": "S2",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.caproasia.com/2026/09/19/china-15-billion-high-tech-manufacturer-robotechnik-intelligent-technology-hong-kong-secondary-listing-ipo-to-raise-800-million-with-expected-ipo-listing-on-29th-september-2026-founded-in-2011-by-d/",
-              "outlet": "caproasia.com",
-              "date": "2026-09-19",
-              "tier": "S2",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.aastocks.com/en/stocks/news/aafn-con/now.1545416/latest-news",
-              "outlet": "aastocks.com",
-              "date": "2026-09-24",
+              "url": "https://www.minichart.com.sg/2026/09/25/robotechnik-ipo-prices-at-hk436-per-share-listing-set-for-september-29-2026/",
+              "outlet": "minichart.com.sg",
+              "date": "2026-09-25",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-25",
-          "first_seen": "2026-09-25",
+          "last_seen": "2026-09-28",
+          "first_seen": "2026-09-28",
           "count": 1,
           "thesis_review": false
         },
@@ -4589,11 +4739,46 @@
           "first_seen": "2026-09-23",
           "count": 1,
           "thesis_review": false
+        },
+        "W1,W5|실리콘 포토닉스 수율·패키징 병목 해소 여부 (ads테크/성호전자 자금여력 및 지배구조 리스크)": {
+          "headline": "CB 콜옵션 지정 이해상충 구체화",
+          "shift": "실리콘 포토닉스 수율·패키징 병목 해소 여부 (ADS테크/성호전자 자금여력 및 지배구조 리스크)",
+          "refs": [
+            "W1",
+            "W5"
+          ],
+          "direction": "역풍",
+          "affects": [
+            "optical-align"
+          ],
+          "summary": "성호전자가 2026-09-18 공시를 통해 895억원 규모 17회차 CB의 최대주주 콜옵션(발행액의 최대 40%) 중 26억원어치를 개인 4명에게 재지정했는데, 이 중 2명이 해당 CB를 애초 인수한 법인·투자조합의 핵심 인물(단독 이사, 최대출자자)과 겹친다는 사실이 언론 보도로 드러났다. 이는 9/16 관측된 'CB-최대주주 차입 연계 의혹'을 뒷받침하는 구체적 물증으로, CB로 조달한 895억원 전액이 최대주주·인수자 채무 상환에 쓰인 점과 맞물려 최대주주 지배력 강화·이해상충 우려를 키운다.",
+          "sources": [
+            {
+              "url": "http://www.fieldnews.kr/news/articleView.html?idxno=31768",
+              "outlet": "fieldnews.kr",
+              "date": "2026-09",
+              "tier": "S3",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.chickstockfi.com/disclosures/20260918000482",
+              "outlet": "chickstockfi.com (공시요약)",
+              "date": "2026-09-18",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-09-28",
+          "first_seen": "2026-09-28",
+          "count": 1,
+          "thesis_review": false
         }
       }
     },
     "memory-storage": {
-      "last_checked": "2026-09-23",
+      "last_checked": "2026-09-25",
       "observations": {
         "파두 컨트롤러 매출 비중": [
           {
@@ -4737,11 +4922,6 @@
         ],
         "예스티-HPSP 서울중앙지법 본안소송": [
           {
-            "date": "2026-08-26",
-            "last_seen": "2026-08-26",
-            "value": "8/13 변론 이후 추가 진행상황 미확인(변화없음)"
-          },
-          {
             "date": "2026-08-28",
             "last_seen": "2026-08-28",
             "value": "8/13 변론 이후 추가 진행상황 미확인(변화없음 지속)"
@@ -4795,6 +4975,11 @@
             "date": "2026-09-23",
             "last_seen": "2026-09-23",
             "value": "8/13 변론 이후 추가 진행상황 미확인(9/23 재확인, 변화없음 지속)"
+          },
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "8/13 변론 이후 추가 진행상황 미확인(9/25 재확인, 변화없음 지속)"
           }
         ],
         "Gen6 성능": [
@@ -5378,6 +5563,11 @@
             "date": "2026-09-23",
             "last_seen": "2026-09-23",
             "value": "8/12 공시(395.83억원) 이후 9월 신규계약 공시 미확인(9/23 재확인, 변화없음 지속)"
+          },
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "8/12 공시(395.83억원) 이후 9월 신규계약 공시 미확인(9/25 재확인, 변화없음 지속)"
           }
         ],
         "SK하이닉스 1c D램 비중": [
@@ -5565,6 +5755,11 @@
             "date": "2026-09-16",
             "last_seen": "2026-09-16",
             "value": "2026-09-16 로이터 단독보도, 임대 또는 인텔+클라우드기업 합작법인(JV) 검토, 초기단계·미확정(7월 인수설과는 별개 시나리오)"
+          },
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "9/16 로이터 단독보도 이후 양사 모두 '확정된 바 없음' 입장 유지, 추가 진전 미확인(변화없음 지속)"
           }
         ],
         "애플-삼성 2027년 1분기 메모리 단가": [
@@ -5804,6 +5999,60 @@
             "last_seen": "2026-09-23",
             "value": "$0.283/mm²"
           }
+        ],
+        "4Q26 기업용 SSD 가격 전망(QoQ)": [
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "23~28% 상승(TrendForce 기반, 9/21~24 보도로 수치 구체화)"
+          },
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "23~28% 상승"
+          }
+        ],
+        "eSSD 평균 납기": [
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "8주 → 16주"
+          }
+        ],
+        "삼성전자 eSSD 매출(3Q26, QoQ)": [
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "+28.6%"
+          }
+        ],
+        "SK하이닉스 eSSD 매출(3Q26, QoQ)": [
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "+27.3%"
+          }
+        ],
+        "HBM4E/HBM5 하이브리드본딩 적용전망": [
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "SK하이닉스 Hot Chips(8/23) 공식화 이후 변화없음 지속, 삼성은 16단 HBM4E부터 부분 도입(HCB) 검토·완전 적용은 2029~2030년 목표로 SK하이닉스와 유사"
+          }
+        ],
+        "삼성전자 eSSD 매출(3Q, QoQ)": [
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "+28.6%"
+          }
+        ],
+        "SK하이닉스 eSSD 매출(3Q, QoQ)": [
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "+27.3%"
+          }
         ]
       },
       "shifts": {
@@ -5847,7 +6096,7 @@
           "thesis_review": false
         },
         "W1,W3|ai 추론 확산에 따른 essd·니어라인 스토리지 수요 구조 변화": {
-          "headline": "4Q26 eSSD 가격 추가 상승",
+          "headline": "4Q26 eSSD 가격 23~28% 급등 전망",
           "shift": "AI 추론 확산에 따른 eSSD·니어라인 스토리지 수요 구조 변화",
           "refs": [
             "W1",
@@ -5857,20 +6106,44 @@
           "affects": [
             "ssd-controller"
           ],
-          "summary": "트렌드포스가 2026-09-21 발표한 보고서에서 북미 CSP들이 최근 2주간 기업용 SSD 수요 전망을 상향 조정했으며, 4분기 기업용 SSD 주문이 이미 높은 3분기 수준을 넘어서 강한 상승 추세가 이어질 것이라고 밝혔다. 고성능 TLC뿐 아니라 비용 효율성이 뛰어난 QLC 제품이 벡터DB·KV캐시 오프로딩 용도로 채택이 확대되며 중요한 성장 촉매로 지목됐다.",
+          "summary": "TrendForce가 2026-09-21 발표한 4분기 메모리 가격전망 보고서를 근거로, 국내 매체들이 2026-09-22~24 기업용 SSD 계약가격이 전분기 대비 23~28% 오를 것이라는 구체적 수치와 함께 통상 8주였던 eSSD 납기가 16주로 두 배 늘었다고 보도했다. 3분기 삼성전자 eSSD 매출은 전분기 대비 28.6%, SK하이닉스는 27.3% 증가한 것으로 집계됐으며, 양사 모두 낸드 생산능력을 범용 제품보다 eSSD에 우선 배정하고 QLC 비트출하를 하반기 중 상반기 대비 2배 이상 늘릴 계획이라고 확인됐다.",
           "sources": [
             {
               "url": "https://www.trendforce.com/presscenter/news/20260921-13246.html",
               "outlet": "TrendForce",
               "date": "2026-09-21",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.joongangenews.com/news/articleView.html?idxno=550504",
+              "outlet": "중앙이코노미뉴스",
+              "date": "2026-09-24",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.joongangenews.com/news/articleView.html?idxno=549880",
+              "outlet": "중앙이코노미뉴스",
+              "date": "2026-09-23",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.mt.co.kr/industry/2026/09/22/2026092213161695154",
+              "outlet": "머니투데이",
+              "date": "2026-09-22",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-21",
+          "last_seen": "2026-09-25",
           "first_seen": "2026-08-18",
-          "count": 5,
+          "count": 6,
           "thesis_review": false
         },
         "W1,W3,W5|메모리·후공정 capex 방향": {
@@ -6622,7 +6895,7 @@
       }
     },
     "nuclear-smr": {
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-25",
       "observations": {
         "ADVANCE Act 이행률": [
           {
@@ -6667,7 +6940,7 @@
           },
           {
             "date": "2026-09-21",
-            "last_seen": "2026-09-21",
+            "last_seen": "2026-09-25",
             "value": "33/36 마일스톤(92%, 2026-08-20 기준) — 변동 확인 안됨"
           }
         ],
@@ -6704,7 +6977,7 @@
           },
           {
             "date": "2026-09-15",
-            "last_seen": "2026-09-21",
+            "last_seen": "2026-09-25",
             "value": "약 9.8~10GW, 13개+ 프로젝트 — 변동 없음"
           }
         ],
@@ -7164,6 +7437,11 @@
             "date": "2026-09-21",
             "last_seen": "2026-09-21",
             "value": "1,200억달러, AP1000 6기+APR1400 2기(잠정) → 구성 재이견 노출(美 8기 전량 AP1000 주장 vs 韓 APR1400 최소 2기), 웨스팅하우스 지분 협상(韓 15% vs 美 5~10%)도 병행 중, 9/18 서명 목표 경과 후 미확정"
+          },
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "1,200억달러, AP1000 6기+APR1400 2기 — IP합의 개정으로 APR1400 2기 미국건설 근거 마련(9/22 국회보고), 8기 패키지 전체 공식서명은 미확정"
           }
         ],
         "HD현대중공업 SMR 투자": [
@@ -7248,6 +7526,11 @@
             "date": "2026-09-15",
             "last_seen": "2026-09-15",
             "value": "완료 여부 9월 15일까지 미확인"
+          },
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "완료 여부 9/25까지 미확인"
           }
         ],
         "1호 사업(텍사스 엔시날 가스발전)": [
@@ -7269,6 +7552,11 @@
             "date": "2026-09-21",
             "last_seen": "2026-09-21",
             "value": "Radiant(2026-09-09) → Antares Nuclear(2026-09-17) 추가, 조건 비공개"
+          },
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "Radiant(9/9), Antares(9/17) — 9/25까지 추가 신규고객 확인 안됨"
           }
         ],
         "미 하원 데이터센터 전력비용법": [
@@ -7276,6 +7564,11 @@
             "date": "2026-09-21",
             "last_seen": "2026-09-21",
             "value": "417-3 가결(2026-09-17), SMR주 단기 급등 촉발"
+          },
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "하원가결 417-3(9/17) → 상원 저지(9/17, Heinrich 의원), 중간선거 전 통과 가능성 낮음"
           }
         ],
         "웨스팅하우스 지분 협상": [
@@ -7283,6 +7576,16 @@
             "date": "2026-09-21",
             "last_seen": "2026-09-21",
             "value": "한국 요구 15% vs 미국 제시 5~10%"
+          },
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "한국요구 15% vs 미국제시 5~10%(9/21) → 5~10% 구간, 의결권 확보 가능 보고(9/22)"
+          },
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "한국요구 15% vs 미국제시 5~10%(9/21) → 5~10% 구간 협상 중, 의결권 확보 가능(9/22)"
           }
         ],
         "1호 사업(엔시날 가스발전) 규모": [
@@ -7297,6 +7600,27 @@
             "date": "2026-09-21",
             "last_seen": "2026-09-21",
             "value": "417-3 가결(2026-09-17)"
+          }
+        ],
+        "NRC 규정개편안 코멘트 마감": [
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "미확인 → 2026-11-09(Docket NRC-2025-1138)"
+          }
+        ],
+        "APR1400 미국건설 허용": [
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "0기 → 전략투자 사업 한정 최대 2기"
+          }
+        ],
+        "코멘트 마감일": [
+          {
+            "date": "2026-09-25",
+            "last_seen": "2026-09-25",
+            "value": "미확인(9/15 관측) → 2026-11-09 확정"
           }
         ]
       },
@@ -7350,87 +7674,87 @@
           "thesis_review": false
         },
         "W3|하이퍼스케일러의 원자력 전력구매계약 규모와 조건": {
-          "headline": "美하원, 데이터센터 전력비용법 가결",
+          "headline": "상원, 전력비용법 저지",
           "shift": "하이퍼스케일러의 원자력 전력구매계약 규모와 조건",
           "refs": [
             "W3"
           ],
-          "direction": "순풍",
+          "direction": "중립",
           "affects": [
             "smr-developer"
           ],
-          "summary": "미 하원이 2026-09-17 AI 데이터센터가 자신의 전력 인프라 비용을 직접 부담하도록 하는 법안을 417-3 초당적으로 가결했다. 이는 데이터센터 전기요금 부담을 일반 소비자에게 전가하지 못하게 하는 조치로, 통과 직후 Oklo(+13%), NuScale(+10%) 등 SMR 관련주가 급등했다.",
+          "summary": "하원을 417-3으로 통과한 데이터센터 전력비용 부담법(Ratepayer Protection Act)이 2026-09-17 상원에서 민주당 하인리히 의원(에너지천연자원위 간사)의 반대로 저지됐다. 하인리히는 FERC 관할권 확대와 150MW 이상 데이터센터의 비용부담을 명시한 자체 GRID Savings Act를 대안으로 제시했으며, 상원이 중간선거 전 곧 휴회에 들어가 법안 통과 가능성은 낮아졌다.",
           "sources": [
             {
-              "url": "https://www.foreignpolicyjournal.com/2026/09/17/house-votes-417-3-to-make-ai-data-centers-cover-their-own-energy-infrastructure-costs/",
-              "outlet": "foreignpolicyjournal.com",
+              "url": "https://rollcall.com/2026/09/17/ratepayer-bill-aimed-at-data-center-buildout-blocked-in-senate/",
+              "outlet": "Roll Call",
               "date": "2026-09-17",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://247wallst.com/investing/2026/09/17/oklo-jumps-13-nuscale-power-climbs-10-does-the-house-data-center-power-vote-reach-nuclear/",
-              "outlet": "247wallst.com",
+              "url": "https://www.cnbc.com/2026/09/17/ai-data-center-utility-cost-senate.html",
+              "outlet": "CNBC",
               "date": "2026-09-17",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.axios.com/2026/09/10/house-republicans-data-center-power-bills-ai",
-              "outlet": "axios.com",
-              "date": "2026-09-10",
-              "tier": "S2",
+              "url": "https://www.husted.senate.gov/media/press-releases/husted-bill-to-protect-americans-from-footing-the-bill-for-new-data-centers-blocked-from-passage/",
+              "outlet": "husted.senate.gov (상원의원실)",
+              "date": "2026-09-18",
+              "tier": "S1",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-21",
+          "last_seen": "2026-09-25",
           "first_seen": "2026-08-18",
-          "count": 2,
+          "count": 3,
           "thesis_review": false
         },
         "W5|대형원전 신규 발주 흐름 (미국·유럽·아시아)": {
-          "headline": "원전8기 협상 이견 노출",
+          "headline": "APR1400 미국건설 2기 허용",
           "shift": "대형원전 신규 발주 흐름 (미국·유럽·아시아)",
           "refs": [
             "W5"
           ],
-          "direction": "중립",
+          "direction": "순풍",
           "affects": [
             "power-generation"
           ],
-          "summary": "2026-09-18 Reuters 팩트박스와 9/20 국내 보도에 따르면 한미 대미투자 협상에서 원전당 투자단가가 약 150억달러로 추산됐고, 1호 사업인 텍사스 엔시날 가스복합발전(6.3GW, 220억달러)은 합의됐으나 원전 8기 구성은 미국이 전량 웨스팅하우스 AP1000을, 한국은 최소 2기 APR1400 포함을 주장하며 이견이 지속되고 있다. 별도로 한국의 웨스팅하우스 지분 인수 규모도 한국측 요구 15% vs 미국측 제시 5~10%로 격차가 있어, 애초 9/18로 거론되던 서명 시점을 넘겨 협상이 이어지고 있다.",
+          "summary": "한미가 2025년 체결된 웨스팅하우스-한수원 IP 합의를 개정해, 전략투자를 활용하는 원전 사업에 한해 미국 내 APR1400 건설을 최대 2기까지 허용하기로 합의했다. 산업통상부는 2026-09-22 국회 비공개 보고에서 웨스팅하우스 지분 인수 협상이 5~10% 구간(의결권 포함)으로 좁혀졌다고 밝혔으나, 원전 8기(AP1000 6기+APR1400 2기) 패키지 전체의 공식 서명은 9/18 목표를 넘겨 여전히 미확정이다.",
           "sources": [
             {
-              "url": "https://www.investing.com/news/commodities-news/factboxtexas-power-plant-nuclear-projects-under-discussion-in-south-koreas-us-investment-package-4906807",
-              "outlet": "Reuters (via investing.com)",
-              "date": "2026-09-18",
+              "url": "https://en.sedaily.com/politics/2026/09/22/korea-to-build-two-apr1400-reactors-in-us-after-ip-deal",
+              "outlet": "Seoul Economic Daily",
+              "date": "2026-09-22",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.g-enews.com/article/Global-Biz/2026/09/202609200642186569fbbec65dfb_1",
-              "outlet": "글로벌이코노믹",
-              "date": "2026-09-20",
+              "url": "https://www.fnnews.com/news/202609221917107078",
+              "outlet": "파이낸셜뉴스",
+              "date": "2026-09-22",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.hankyung.com/article/2026091566461",
-              "outlet": "한국경제",
-              "date": "2026-09-15",
+              "url": "https://www.hankookilbo.com/news/article/A2026092210350000555",
+              "outlet": "한국일보",
+              "date": "2026-09-22",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-21",
+          "last_seen": "2026-09-25",
           "first_seen": "2026-08-18",
-          "count": 5,
+          "count": 6,
           "thesis_review": false
         },
         "W4|haleu 공급 능력 확충 속도 및 신규 진입자": {
@@ -7516,7 +7840,7 @@
           "thesis_review": false
         },
         "W2|nrc 인허가 처리 속도 변화 (정책·제도 개편 포함)": {
-          "headline": "NRC 규정 전면개편안 발표",
+          "headline": "NRC 개편안 관보게재·마감확정",
           "shift": "NRC 인허가 처리 속도 변화 (정책·제도 개편 포함)",
           "refs": [
             "W2"
@@ -7526,36 +7850,28 @@
             "smr-developer",
             "power-generation"
           ],
-          "summary": "NRC가 2026-09-11 'Regulatory Enhancements for Reactor Licensing, Decommissioning, and Operational Oversight'라는 광범위한 규정개편안을 제안했다. 행정명령 14300호와 ADVANCE Act 후속조치 성격으로, 표준설계승인 만료시한 조정, 제어실 인력배치 유연화, 기존 원전 신규요건 수립절차 개선, 결함·부적합 보고요건 명확화 등을 담았다. 댈러스 NECX 2026 컨퍼런스 개막과 맞물려 발표됐으며 기존 가동원전과 신규 원자로 신청자 모두에 적용된다.",
+          "summary": "9월 11일 발표됐던 NRC 원자로 인허가·해체·운영감독 규정개편안(Regulatory Enhancements for Reactor Licensing, Decommissioning, and Operational Oversight)이 2026-09-24 연방관보에 정식 게재됐다. 코멘트 마감은 게재 후 45일인 2026-11-09이며, 코멘트 기간 중 NRC의 화상 공개설명회도 예정됐다(Docket NRC-2025-1138).",
           "sources": [
             {
-              "url": "https://www.nrc.gov/reading-rm/doc-collections/news/2026/nrc-proposes-broad-overhaul-nuclear-reactor-regulations",
-              "outlet": "nrc.gov",
-              "date": "2026-09-11",
+              "url": "https://www.federalregister.gov/documents/2026/09/24/2026-19568/regulatory-enhancements-for-reactor-licensing-decommissioning-and-operational-oversight",
+              "outlet": "federalregister.gov",
+              "date": "2026-09-24",
               "tier": "S1",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.ans.org/news/2026-09-14/article-8384/reactor-licensing-decommissioning-operational-oversight-regulations-addressed-in-latest-nrc-rulemaking/",
-              "outlet": "ans.org",
-              "date": "2026-09-14",
-              "tier": "S2",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.nucnet.org/news/us-regulator-proposes-broad-overhaul-of-nuclear-reactor-regulations-9-1-2026",
-              "outlet": "nucnet.org",
-              "date": "2026-09-11",
-              "tier": "S2",
+              "url": "https://www.nrc.gov/node/2145291",
+              "outlet": "nrc.gov",
+              "date": "2026-09-24",
+              "tier": "S1",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-15",
+          "last_seen": "2026-09-25",
           "first_seen": "2026-08-28",
-          "count": 4,
+          "count": 5,
           "thesis_review": false
         },
         "W1|smr 최초 상업운전 시점 컨센서스의 이동": {

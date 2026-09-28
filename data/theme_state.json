@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-09-28"
+    "last_run": "2026-09-29"
   },
   "themes": {
     "ai-dc-power": {
@@ -7011,7 +7011,7 @@
       }
     },
     "nuclear-smr": {
-      "last_checked": "2026-09-25",
+      "last_checked": "2026-09-29",
       "observations": {
         "ADVANCE Act 이행률": [
           {
@@ -7058,6 +7058,11 @@
             "date": "2026-09-21",
             "last_seen": "2026-09-25",
             "value": "33/36 마일스톤(92%, 2026-08-20 기준) — 변동 확인 안됨"
+          },
+          {
+            "date": "2026-09-29",
+            "last_seen": "2026-09-29",
+            "value": "33/36 마일스톤(92%, 2026-08-20 기준) — 9/29까지 추가 변동 확인 안됨"
           }
         ],
         "하이퍼스케일러 원자력 누적계약": [
@@ -7095,6 +7100,11 @@
             "date": "2026-09-15",
             "last_seen": "2026-09-25",
             "value": "약 9.8~10GW, 13개+ 프로젝트 — 변동 없음"
+          },
+          {
+            "date": "2026-09-29",
+            "last_seen": "2026-09-29",
+            "value": "약 9.8~10GW, 13개+ 프로젝트 — 9/29까지 신규 대형계약 확인 안됨"
           }
         ],
         "Centrus 주가(LEU)": [
@@ -7702,6 +7712,11 @@
             "date": "2026-09-25",
             "last_seen": "2026-09-25",
             "value": "한국요구 15% vs 미국제시 5~10%(9/21) → 5~10% 구간 협상 중, 의결권 확보 가능(9/22)"
+          },
+          {
+            "date": "2026-09-29",
+            "last_seen": "2026-09-29",
+            "value": "한국요구 15%+의결권 vs 미국제시 5~10% — 9/27까지 타결 안됨"
           }
         ],
         "1호 사업(엔시날 가스발전) 규모": [
@@ -7737,6 +7752,69 @@
             "date": "2026-09-25",
             "last_seen": "2026-09-25",
             "value": "미확인(9/15 관측) → 2026-11-09 확정"
+          }
+        ],
+        "한미 대미투자 원전 패키지": [
+          {
+            "date": "2026-09-29",
+            "last_seen": "2026-09-29",
+            "value": "1,200억달러(AP1000 6기+APR1400 2기) — 가스발전(1호, 223억달러)은 9/22 국회보고로 확정, 원전은 9/27 기준 부지·계약시점·금융조건 미확정 지속"
+          }
+        ],
+        "TerraPower Kemmerer EPC": [
+          {
+            "date": "2026-09-29",
+            "last_seen": "2026-09-29",
+            "value": "벡텔 이탈(WARN 통지 9/15, 보도 9/22~23) → 재입찰 예정, 완공목표 2030년 유지(테라파워 발표)"
+          }
+        ],
+        "Centrus HALEU 신규고객": [
+          {
+            "date": "2026-09-29",
+            "last_seen": "2026-09-29",
+            "value": "Radiant(9/9), Antares(9/17) — 9/29까지 추가 신규고객 확인 안됨, Antares 계약금액은 비공개로 재확인"
+          }
+        ],
+        "Kairos-Samsung C&T EPC 투자": [
+          {
+            "date": "2026-09-29",
+            "last_seen": "2026-09-29",
+            "value": "바인딩 텀시트 체결(2026-09-21), 최대 1억달러 전략투자+EPC 참여"
+          }
+        ],
+        "벡텔 감원 규모": [
+          {
+            "date": "2026-09-29",
+            "last_seen": "2026-09-29",
+            "value": "약 200명"
+          }
+        ],
+        "완공 목표": [
+          {
+            "date": "2026-09-29",
+            "last_seen": "2026-09-29",
+            "value": "2030년(변동 없음, 테라파워 주장)"
+          }
+        ],
+        "1호(가스) 사업비": [
+          {
+            "date": "2026-09-29",
+            "last_seen": "2026-09-29",
+            "value": "223억달러, 6.3GW"
+          }
+        ],
+        "원전 패키지 규모": [
+          {
+            "date": "2026-09-29",
+            "last_seen": "2026-09-29",
+            "value": "1,200억달러(AP1000 6기+APR1400 2기, 미확정 지속)"
+          }
+        ],
+        "삼성물산 투자규모": [
+          {
+            "date": "2026-09-29",
+            "last_seen": "2026-09-29",
+            "value": "최대 1억달러"
           }
         ]
       },
@@ -7832,45 +7910,45 @@
           "thesis_review": false
         },
         "W5|대형원전 신규 발주 흐름 (미국·유럽·아시아)": {
-          "headline": "APR1400 미국건설 2기 허용",
+          "headline": "가스발전만 확정, 원전 패키지 지연",
           "shift": "대형원전 신규 발주 흐름 (미국·유럽·아시아)",
           "refs": [
             "W5"
           ],
-          "direction": "순풍",
+          "direction": "중립",
           "affects": [
             "power-generation"
           ],
-          "summary": "한미가 2025년 체결된 웨스팅하우스-한수원 IP 합의를 개정해, 전략투자를 활용하는 원전 사업에 한해 미국 내 APR1400 건설을 최대 2기까지 허용하기로 합의했다. 산업통상부는 2026-09-22 국회 비공개 보고에서 웨스팅하우스 지분 인수 협상이 5~10% 구간(의결권 포함)으로 좁혀졌다고 밝혔으나, 원전 8기(AP1000 6기+APR1400 2기) 패키지 전체의 공식 서명은 9/18 목표를 넘겨 여전히 미확정이다.",
+          "summary": "산업통상부가 2026-09-22 국회에 대미 전략투자 1호로 텍사스 엔시날 가스복합화력(223억달러, 6.3GW)을 공식 보고했으나, 원전 8기($1,200억, AP1000 6기+APR1400 2기) 패키지는 부지·계약시점·기당 금융 조건이 여전히 미확정 상태로 2026-09-27 시점까지 추가 지연됐다. 웨스팅하우스 지분 협상(한국 15%+의결권 vs 미국 5~10%)도 타결되지 않았다.",
           "sources": [
             {
-              "url": "https://en.sedaily.com/politics/2026/09/22/korea-to-build-two-apr1400-reactors-in-us-after-ip-deal",
-              "outlet": "Seoul Economic Daily",
-              "date": "2026-09-22",
+              "url": "https://www.upi.com/Top_News/World-News/2026/09/27/apr1400-ap1000-united-states-nuclear-power/7301790551653/",
+              "outlet": "UPI",
+              "date": "2026-09-27",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.fnnews.com/news/202609221917107078",
-              "outlet": "파이낸셜뉴스",
-              "date": "2026-09-22",
+              "url": "https://www.ans.org/news/article-8419/south-korea-invests-in-us-gas-project-nuclear-delayed/",
+              "outlet": "ANS Nuclear Newswire",
+              "date": "2026-09-23",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.hankookilbo.com/news/article/A2026092210350000555",
-              "outlet": "한국일보",
-              "date": "2026-09-22",
+              "url": "https://www.koreajoongangdaily.com/business/inside-the-koreaus-200-billion-investment-package-tugofwar/12878370",
+              "outlet": "Korea JoongAng Daily",
+              "date": "2026-09",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-25",
+          "last_seen": "2026-09-29",
           "first_seen": "2026-08-18",
-          "count": 6,
+          "count": 7,
           "thesis_review": false
         },
         "W4|haleu 공급 능력 확충 속도 및 신규 진입자": {
@@ -7991,45 +8069,45 @@
           "thesis_review": false
         },
         "W1|smr 최초 상업운전 시점 컨센서스의 이동": {
-          "headline": "HD현대중공업 SMR 1조원 투자",
+          "headline": "삼성물산, 카이로스 EPC 투자",
           "shift": "SMR 최초 상업운전 시점 컨센서스의 이동",
           "refs": [
             "W1"
           ],
           "direction": "중립",
           "affects": [
-            "power-generation"
+            "smr-developer"
           ],
-          "summary": "HD현대중공업이 2026-09-10 발전엔진(3GW 힘센엔진, 8,336억원)과 테라파워 Natrium SMR 주기기(2,386억원, 2026.10~2029.4)에 총 1조722억원을 투자한다고 발표했다. 울산조선소 내 SMR 주기기 전용공장을 건립해 2029년 상반기 완공 목표이며, 테라파워 Natrium 원자로의 격납구조물(RES) 우선공급권을 근거로 한 투자다.",
+          "summary": "카이로스파워와 삼성물산 E&C가 2026-09-21 바인딩 텀시트를 체결해, 삼성물산이 최대 1억달러(직접투자+현물 엔지니어링) 규모로 카이로스에 전략투자하고 오크리지 Hermes 2 데모플랜트의 통합 EPC팀(발전설비·BOP 영역)에 합류하기로 했다. 이는 2026-08-18 삼성물산-카이로스-바나드건설 3자 MOU의 후속 조치다.",
           "sources": [
             {
-              "url": "https://www.hankyung.com/article/2026091074191",
-              "outlet": "한국경제",
-              "date": "2026-09-10",
+              "url": "https://www.kairospower.com/updates/kairos-power-and-samsung-c-t-agree-to-pursue-strategic-investment-and-collaboration-for-kp-fhr-deployment",
+              "outlet": "kairospower.com",
+              "date": "2026-09-21",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.world-nuclear-news.org/articles/samsung-ct-invests-in-kairos-power",
+              "outlet": "World Nuclear News",
+              "date": "2026-09-22",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.fnnews.com/news/202609101834187832",
-              "outlet": "파이낸셜뉴스",
-              "date": "2026-09-10",
-              "tier": "S2",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.etoday.co.kr/news/view/2624053",
-              "outlet": "이투데이",
-              "date": "2026-09-10",
+              "url": "https://www.neimagazine.com/news/samsung-ct-joins-kairos-epc/",
+              "outlet": "Nuclear Engineering International",
+              "date": "2026-09-22",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-11",
+          "last_seen": "2026-09-29",
           "first_seen": "2026-09-07",
-          "count": 2,
+          "count": 3,
           "thesis_review": false
         }
       }
@@ -9147,7 +9225,7 @@
       }
     },
     "dc-thermal": {
-      "last_checked": "2026-09-22",
+      "last_checked": "2026-09-29",
       "observations": {
         "NVL72 랙 전력": [
           {
@@ -9629,6 +9707,34 @@
             "date": "2026-09-22",
             "last_seen": "2026-09-22",
             "value": "8조4000억원 → 12조원"
+          }
+        ],
+        "OCP Global Summit 2026 일정": [
+          {
+            "date": "2026-09-29",
+            "last_seen": "2026-09-29",
+            "value": "2026-10-12~15 예정 (미개최, 신규 표준 확정 발표 없음)"
+          }
+        ],
+        "Kyber(Rubin Ultra NVL576) 지연 상태": [
+          {
+            "date": "2026-09-29",
+            "last_seen": "2026-09-29",
+            "value": "2026-07 SemiAnalysis 보도(2028년 지연) 이후 신규 갱신 없음, 미해소 지속"
+          }
+        ],
+        "Vicor VPD 라이선스 확보 OEM/하이퍼스케일러 수": [
+          {
+            "date": "2026-09-29",
+            "last_seen": "2026-09-29",
+            "value": "4개사 (2026-09-16 발표 이후 신규 갱신 없음)"
+          }
+        ],
+        "HD현대일렉트릭·효성중공업 9월 22일 이후 신규 수주 공시": [
+          {
+            "date": "2026-09-29",
+            "last_seen": "2026-09-29",
+            "value": "없음 (검색된 2778억원 텍사스 계약 건은 2025-09-22자 1년 전 기사로 확인되어 금번 관측 기간 밖)"
           }
         ]
       },

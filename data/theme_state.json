@@ -4778,7 +4778,7 @@
       }
     },
     "memory-storage": {
-      "last_checked": "2026-09-25",
+      "last_checked": "2026-09-28",
       "observations": {
         "파두 컨트롤러 매출 비중": [
           {
@@ -4922,11 +4922,6 @@
         ],
         "예스티-HPSP 서울중앙지법 본안소송": [
           {
-            "date": "2026-08-28",
-            "last_seen": "2026-08-28",
-            "value": "8/13 변론 이후 추가 진행상황 미확인(변화없음 지속)"
-          },
-          {
             "date": "2026-08-31",
             "last_seen": "2026-08-31",
             "value": "8/13 변론 이후 추가 진행상황 미확인(변화없음 지속, 8/31 재확인)"
@@ -4980,6 +4975,11 @@
             "date": "2026-09-25",
             "last_seen": "2026-09-25",
             "value": "8/13 변론 이후 추가 진행상황 미확인(9/25 재확인, 변화없음 지속)"
+          },
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "8/13 변론 이후 추가 진행상황 미확인(변화없음 지속)"
           }
         ],
         "Gen6 성능": [
@@ -5568,6 +5568,11 @@
             "date": "2026-09-25",
             "last_seen": "2026-09-25",
             "value": "8/12 공시(395.83억원) 이후 9월 신규계약 공시 미확인(9/25 재확인, 변화없음 지속)"
+          },
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "8/12 공시(395.83억원) 이후 9월 신규계약 공시 미확인(변화없음 지속)"
           }
         ],
         "SK하이닉스 1c D램 비중": [
@@ -6053,6 +6058,76 @@
             "last_seen": "2026-09-25",
             "value": "+27.3%"
           }
+        ],
+        "SK하이닉스 16단 HBM4 상태": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "인증(Qualification) 단계(8/23 공식) → 3분기 대량출하 개시 주장(9/16 추적보고서, 미확인)"
+          }
+        ],
+        "삼성 서버용 SSD 매출비중(2026 연간전망)": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "60% 초과"
+          }
+        ],
+        "솔리다임 30TB+ eSSD 매출(QoQ)": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "3배 이상 증가(2Q26)"
+          }
+        ],
+        "중국 낸드 글로벌 생산비중 전망": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "2027년 약 19%"
+          }
+        ],
+        "9월1~20일 반도체 수출": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "341억달러(+259.4% YoY, 전체수출 비중 47.8%) - 기존 관측 재확인, 품목별 세부 전월대비 수치는 미검증"
+          }
+        ],
+        "HBM4 16단 상태(8/23 SK하이닉스 공식)": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "인증(Qualification) 단계"
+          }
+        ],
+        "HBM4 16단 상태(9/16 공급망 추적보고서, 미확인)": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "3분기 대량출하 개시 주장"
+          }
+        ],
+        "솔리다임 30TB+ eSSD 매출(QoQ, 2Q26)": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "3배 이상 증가"
+          }
+        ],
+        "SK하이닉스 eSSD 매출(QoQ, 2Q26)": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "2배 이상 증가(기존 관측 재확인)"
+          }
+        ],
+        "중국 낸드 글로벌 생산비중": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "2027년 약 19% 전망"
+          }
         ]
       },
       "shifts": {
@@ -6096,7 +6171,7 @@
           "thesis_review": false
         },
         "W1,W3|ai 추론 확산에 따른 essd·니어라인 스토리지 수요 구조 변화": {
-          "headline": "4Q26 eSSD 가격 23~28% 급등 전망",
+          "headline": "eSSD 매출비중 급증 지속",
           "shift": "AI 추론 확산에 따른 eSSD·니어라인 스토리지 수요 구조 변화",
           "refs": [
             "W1",
@@ -6106,44 +6181,20 @@
           "affects": [
             "ssd-controller"
           ],
-          "summary": "TrendForce가 2026-09-21 발표한 4분기 메모리 가격전망 보고서를 근거로, 국내 매체들이 2026-09-22~24 기업용 SSD 계약가격이 전분기 대비 23~28% 오를 것이라는 구체적 수치와 함께 통상 8주였던 eSSD 납기가 16주로 두 배 늘었다고 보도했다. 3분기 삼성전자 eSSD 매출은 전분기 대비 28.6%, SK하이닉스는 27.3% 증가한 것으로 집계됐으며, 양사 모두 낸드 생산능력을 범용 제품보다 eSSD에 우선 배정하고 QLC 비트출하를 하반기 중 상반기 대비 2배 이상 늘릴 계획이라고 확인됐다.",
+          "summary": "삼성전자는 2026년 전체 낸드 매출 중 서버용 SSD(eSSD) 비중이 60%를 넘어설 것으로 전망된다고 밝혔고, SK하이닉스 자회사 솔리다임의 30TB 이상 고용량 eSSD 매출은 2분기 전분기 대비 3배 이상 증가한 것으로 확인됐다. 양사 모두 하반기 QLC 낸드 비트 출하량을 상반기 대비 2배 이상 늘릴 계획을 재확인했다.",
           "sources": [
             {
-              "url": "https://www.trendforce.com/presscenter/news/20260921-13246.html",
-              "outlet": "TrendForce",
-              "date": "2026-09-21",
-              "tier": "S1",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.joongangenews.com/news/articleView.html?idxno=550504",
-              "outlet": "중앙이코노미뉴스",
-              "date": "2026-09-24",
-              "tier": "S2",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.joongangenews.com/news/articleView.html?idxno=549880",
-              "outlet": "중앙이코노미뉴스",
+              "url": "https://www.newspim.com/news/view/20260923000566",
+              "outlet": "Newspim",
               "date": "2026-09-23",
-              "tier": "S2",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.mt.co.kr/industry/2026/09/22/2026092213161695154",
-              "outlet": "머니투데이",
-              "date": "2026-09-22",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-25",
+          "last_seen": "2026-09-28",
           "first_seen": "2026-08-18",
-          "count": 6,
+          "count": 7,
           "thesis_review": false
         },
         "W1,W3,W5|메모리·후공정 capex 방향": {
@@ -6889,6 +6940,71 @@
           ],
           "last_seen": "2026-09-23",
           "first_seen": "2026-09-23",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W2|hbm4 세대 전환 일정 및 스택·본딩 공정 방식 변경": {
+          "headline": "SK하이닉스 16단 HBM4 출하설, 공식확인은 아직",
+          "shift": "HBM4 세대 전환 일정 및 스택·본딩 공정 방식 변경",
+          "refs": [
+            "W2"
+          ],
+          "direction": "불명",
+          "affects": [],
+          "summary": "공급망 추적보고서(2026-09-16)는 SK하이닉스가 엔비디아 베라루빈向 48GB 16단 HBM4의 대량 출하를 3분기 중 개시했다고 밝혔으나, SK하이닉스·엔비디아 모두 공식 확인하지 않았다. SK하이닉스는 2026-08-23 Hot Chips에서 '12단은 양산 중, 16단은 인증(Qualification) 단계'라고 공식 발표한 바 있고, 회사 관계자는 실질 수요·수익이 아직 12단에 집중돼 있으며 16단은 수요 발생 시 바로 생산할 예정이라고 설명해 트래커 보고서와 온도차를 보였다.",
+          "sources": [
+            {
+              "url": "https://biz.heraldcorp.com/article/10849575",
+              "outlet": "헤럴드경제",
+              "date": "2026-08-24",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.g-enews.com/article/Global-Biz/2026/09/202609170926131084fbbec65dfb_1",
+              "outlet": "글로벌이코노믹",
+              "date": "2026-09-17",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.ziksir.com/news/articleView.html?idxno=146854",
+              "outlet": "직썰",
+              "date": "2026-09-17",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-09-28",
+          "first_seen": "2026-09-28",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W1,W3|ai 추론 확산에 따른 essd·니어라인 스토리지 수요 구조 변화 (공급측 경쟁 구도)": {
+          "headline": "中 낸드 생산비중 19% 전망",
+          "shift": "AI 추론 확산에 따른 eSSD·니어라인 스토리지 수요 구조 변화 (공급측 경쟁 구도)",
+          "refs": [
+            "W1",
+            "W3"
+          ],
+          "direction": "불명",
+          "affects": [],
+          "summary": "업계 전망에 따르면 중국 낸드플래시 업체들의 글로벌 생산 비중이 2027년 약 19%까지 확대될 것으로 전망됐다. CXMT의 D램 미세공정 추격(5세대 양산 개시, HBM3E 리스크생산 착수)과 맞물려 중국의 메모리 자급 속도가 빨라지고 있음을 보여주는 수치이나, 현재의 eSSD 품귀·가격 강세 국면에 미치는 즉각적 영향은 확인되지 않는다.",
+          "sources": [
+            {
+              "url": "https://www.newspim.com/news/view/20260923000566",
+              "outlet": "Newspim",
+              "date": "2026-09-23",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-09-28",
+          "first_seen": "2026-09-28",
           "count": 1,
           "thesis_review": false
         }
@@ -7919,7 +8035,7 @@
       }
     },
     "grid-storage": {
-      "last_checked": "2026-09-22",
+      "last_checked": "2026-09-28",
       "observations": {
         "삼아알미늄_가동률": [
           {
@@ -8317,6 +8433,11 @@
             "date": "2026-09-08",
             "last_seen": "2026-09-08",
             "value": "약 1조원, 2028년 공급물량, 1GW+ 검토중"
+          },
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "1,180MW(육지 1,100MW+제주 80MW), 7.08GWh"
           }
         ],
         "8월 주가상승률": [
@@ -8504,6 +8625,11 @@
             "date": "2026-09-18",
             "last_seen": "2026-09-18",
             "value": "9GWh/1.5조원, 2027~2031년 공급(2026-08-27 체결) — 2026년 20GWh 수주목표 대부분 달성, 연내 추가 9GWh 논의중"
+          },
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "9GWh/1.5조원(2026-08-27 체결) — 추가 9GWh 논의 지속중, 신규 확정 없음"
           }
         ],
         "삼성SDI 美 LFP 양산 일정": [
@@ -8553,12 +8679,17 @@
             "date": "2026-09-22",
             "last_seen": "2026-09-22",
             "value": "9월중 결정 예정 — 9/22 기준 아직 미확정, LG엔솔向 2030년까지 6,950억원 장기공급계약 기확보 상태에서 CATL 물량·조건 별도 논의중"
+          },
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "9/28 기준 아직 미확정(변동없음, 8/31 보도 이후 추가 공시 없음)"
           }
         ],
         "CATL 587Ah 셀 직판가": [
           {
             "date": "2026-09-22",
-            "last_seen": "2026-09-22",
+            "last_seen": "2026-09-28",
             "value": "65달러/kWh — 2026-09-15 기준 이후 변동 없음"
           }
         ],
@@ -8574,6 +8705,48 @@
             "date": "2026-09-22",
             "last_seen": "2026-09-22",
             "value": "2026-09-15 시행 확인 — 9/22 기준 추가 후속조치·집행사례 보도 없음"
+          }
+        ],
+        "3차 ESS 중앙계약시장 입찰공고": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "9/22 공고 확정: 1,180MW(육지 1,100MW+제주 80MW), 7.08GWh, 입찰마감 11/11, 낙찰자선정 11월중, 준공기한 2029-02, 전력거래소와 15년 계약, 가격:비가격=50:50 유지+국산화·화재안전성 비중 강화"
+          }
+        ],
+        "Fluence-EVE Energy 배터리 장기공급계약": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "206GWh(2027년 16GWh+2028~2031년 190GWh), 2026-09-24 공식발표"
+          }
+        ],
+        "CATL 314Ah LFP 셀가격": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "0.423위안/Wh — 2026-09-09 기준 이후 신규 갱신치 미확인"
+          }
+        ],
+        "1·2차 대비": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "각 560MW 안팎 → 1,180MW(약 2배, 역대최대)"
+          }
+        ],
+        "일정": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "공고 9/22 → 입찰마감 11/11 → 낙찰자선정 11월중 → 준공기한 2029-02"
+          }
+        ],
+        "공급 규모": [
+          {
+            "date": "2026-09-28",
+            "last_seen": "2026-09-28",
+            "value": "206GWh(2027년 16GWh + 2028~2031년 190GWh)"
           }
         ]
       },
@@ -8808,7 +8981,7 @@
           "thesis_review": false
         },
         "W2,W3|계통 안정화용 대형 ess 발주 규모 / lfp·ess 전용 셀 라인 증설과 ev 라인 전환": {
-          "headline": "3차 ESS입찰, 1·2차 누적점유율 첫 확정",
+          "headline": "3차 ESS입찰 1,180MW 확정공고",
           "shift": "계통 안정화용 대형 ESS 발주 규모 / LFP·ESS 전용 셀 라인 증설과 EV 라인 전환",
           "refs": [
             "W2",
@@ -8818,28 +8991,44 @@
           "affects": [
             "ess-foil"
           ],
-          "summary": "새로 확인된 것: 3차 ESS 중앙계약시장 입찰(9월초 공고 예정)을 앞두고 1·2차 입찰 누적 점유율이 삼성SDI 56%·SK온 25%·LG에너지솔루션 19%로 처음 집계돼 보도됐다. 1차(563MW)는 삼성SDI가 약 76%를 가져갔고 2차(565MW)는 SK온이 50.3%로 역전했는데, 이번 3차는 규모가 1조원 안팎(2028년 공급물량, 1GW+ 확대 검토)으로 커지면서 점유율이 가장 낮은 LG에너지솔루션의 반격 여부가 관건으로 지목됐다.",
+          "summary": "기후에너지환경부·전력거래소가 9/22 '2026년 ESS 중앙계약시장' 3차 입찰을 공고했다. 육지 1,100MW·제주 80MW 합계 1,180MW(7.08GWh)로 1·2차(각 560MW 안팎) 대비 약 2배, 역대 최대 규모다. 입찰마감 11/11, 낙찰자 11월중 선정, 2029년 2월까지 준공, 전력거래소와 15년 장기계약 조건이며, 평가비중은 2차와 동일하게 가격:비가격 50:50을 유지하되 소재 국산화·화재안전성 등 비가격 평가가 강화돼 배터리 3사가 '국산화'를 승부처로 내걸었다.",
           "sources": [
             {
-              "url": "https://www.sidae.com/article/2026090713230374924",
-              "outlet": "사이대",
-              "date": "2026-09-07",
+              "url": "https://www.fnnews.com/news/202609221512246555",
+              "outlet": "파이낸셜뉴스",
+              "date": "2026-09-22",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.dt.co.kr/article/12079637",
-              "outlet": "디지털타임스",
-              "date": "2026-08-23",
+              "url": "https://www.newspim.com/news/view/20260922000968",
+              "outlet": "뉴스핌",
+              "date": "2026-09-22",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://zdnet.co.kr/view/?no=20260922111941",
+              "outlet": "ZDNet Korea",
+              "date": "2026-09-22",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.ebn.co.kr/news/articleView.html?idxno=1725840",
+              "outlet": "EBN뉴스센터",
+              "date": "2026-09-28",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-08",
+          "last_seen": "2026-09-28",
           "first_seen": "2026-09-01",
-          "count": 2,
+          "count": 3,
           "thesis_review": false
         },
         "W3|lfp·ess 전용 셀 라인 증설과 ev 라인 전환": {
@@ -8915,54 +9104,44 @@
           "thesis_review": false
         },
         "W2,W4|계통 안정화용 대형 ess 발주 규모 / ess 셀 판가 및 중국산 점유율 변화": {
-          "headline": "美, 중국산 BESS·배터리 규제 강화",
+          "headline": "Fluence-EVE 206GWh 공급계약",
           "shift": "계통 안정화용 대형 ESS 발주 규모 / ESS 셀 판가 및 중국산 점유율 변화",
           "refs": [
             "W2",
             "W4"
           ],
-          "direction": "순풍",
-          "affects": [
-            "ess-foil"
-          ],
-          "summary": "트럼프 대통령이 8/26 서명한 행정명령 14420호는 배터리저장장치(BESS)를 포함한 대량전력망(bulk-power system) 장비의 중국산 수입·설치를 국가안보 이유로 제한하는 국가비상사태를 선포했다. 이어 9/3자(9/8 공개) DOT장관 Sean Duffy의 서한은 포드에 CATL 라이선스 LFP배터리 기술 사용 중단을 공개 압박했고 포드는 'wrongheaded'라며 반박했다. 이는 '트럼프가 중국차 美생산을 완화할 수 있다'는 시장 추측과 반대로, 배터리·전력장비 분야 대중(對中) 규제가 오히려 강화되는 방향으로 움직이고 있음을 보여준다.",
+          "direction": "불명",
+          "affects": [],
+          "summary": "Fluence Energy가 9/24 중국 EVE Energy와 2027~2031년 206GWh 규모(2027년 16GWh, 2028~2031년 190GWh) 배터리 장기공급 프레임워크 계약을 공식 발표했다. 업계 최대급 ESS 배터리 공급계약 중 하나로, 미국 자체생산(휴스턴) 지연으로 가이던스를 두 차례 하향(9/16)한 Fluence가 중국산 셀 의존을 오히려 장기화하는 모습을 보여준다.",
           "sources": [
             {
-              "url": "https://www.transportation.gov/sites/dot.gov/files/2026-09/NHTSA-260820-001_Signed.pdf",
-              "outlet": "U.S. DOT",
-              "date": "2026-09-03",
+              "url": "https://www.globenewswire.com/news-release/2026/09/24/3368356/0/en/fluence-secures-long-term-battery-supply-through-multiyear-agreement-with-eve-power.html",
+              "outlet": "GlobeNewswire (Fluence 공식)",
+              "date": "2026-09-24",
               "tier": "S1",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.transportation.gov/briefing-room/trumps-transportation-secretary-sean-p-duffy-urges-ford-cut-ties-china-and-prioritize",
-              "outlet": "U.S. DOT",
-              "date": "2026-09-08",
-              "tier": "S1",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.hklaw.com/en/insights/publications/2026/09/executive-order-declares-national-emergency-to-secure-us",
-              "outlet": "Holland & Knight",
-              "date": "2026-09",
+              "url": "https://www.energy-storage.news/fluence-and-eve-energy-agree-206gwh-battery-supply-deal/",
+              "outlet": "Energy-Storage.News",
+              "date": "2026-09-18",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.detroitnews.com/story/business/autos/ford/2026/09/08/trump-administration-criticizes-ford-for-intertwining-with-chinese-firms/91662495007/",
-              "outlet": "Detroit News",
-              "date": "2026-09-08",
+              "url": "https://pv-magazine-usa.com/2026/09/18/eve-energy-signs-206-gwh-battery-framework-with-storage-supplier-fluence/",
+              "outlet": "PV Magazine USA",
+              "date": "2026-09-18",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-14",
+          "last_seen": "2026-09-28",
           "first_seen": "2026-09-14",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         }
       }

@@ -1,11 +1,11 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-09-29"
+    "last_run": "2026-09-30"
   },
   "themes": {
     "ai-dc-power": {
-      "last_checked": "2026-09-28",
+      "last_checked": "2026-09-30",
       "observations": {
         "OCP LVDC SST 스펙": [
           {
@@ -32,6 +32,11 @@
             "date": "2026-09-16",
             "last_seen": "2026-09-18",
             "value": "v0.3 유지(변동없음)"
+          },
+          {
+            "date": "2026-09-30",
+            "last_seen": "2026-09-30",
+            "value": "v0.3 유지(변동없음, 9/30 재확인)"
           }
         ],
         "800V 파워랙 출하": [
@@ -76,6 +81,11 @@
             "date": "2026-09-16",
             "last_seen": "2026-09-16",
             "value": "600kW 유지(변동없음, Rubin Ultra 2027년 하반기)"
+          },
+          {
+            "date": "2026-09-30",
+            "last_seen": "2026-09-30",
+            "value": "600kW 유지(Rubin Ultra, 2027년 하반기 목표, 변동없음)"
           }
         ],
         "FERC 계통접속 명령": [
@@ -1028,6 +1038,11 @@
             "date": "2026-09-28",
             "last_seen": "2026-09-28",
             "value": "9/28 현재도 NVIDIA 구체적 반박 없이 '로드맵 유지' 입장 반복(변동없음)"
+          },
+          {
+            "date": "2026-09-30",
+            "last_seen": "2026-09-30",
+            "value": "NVIDIA 구체적 반박 없이 '로드맵 유지' 입장 반복(변동없음, 9/30 재확인)"
           }
         ],
         "800VDC 생태계 파트너사": [
@@ -1679,6 +1694,11 @@
             "date": "2026-09-28",
             "last_seen": "2026-09-28",
             "value": "9/15(효성 3865억원) 이후 9/28까지 추가 신규 공시 확인 안됨"
+          },
+          {
+            "date": "2026-09-30",
+            "last_seen": "2026-09-30",
+            "value": "9/15(효성 3865억원) 이후 9/30까지 신규 공시 확인 안됨"
           }
         ],
         "MVSST 시스템 효율": [
@@ -1833,6 +1853,11 @@
             "date": "2026-09-28",
             "last_seen": "2026-09-28",
             "value": "9/28 현재도 미발표, 발효목표 10/12 유지(변동없음)"
+          },
+          {
+            "date": "2026-09-30",
+            "last_seen": "2026-09-30",
+            "value": "9/30 현재도 미발표, 발효목표 10/12 유지(변동없음)"
           }
         ],
         "xAI 콜로서스 소송": [
@@ -1840,6 +1865,11 @@
             "date": "2026-09-28",
             "last_seen": "2026-09-28",
             "value": "9/28 현재도 지방법원 판결 미확정(변동없음)"
+          },
+          {
+            "date": "2026-09-30",
+            "last_seen": "2026-09-30",
+            "value": "지방법원 예비금지명령 판결 9/30 현재도 미확정, DOJ 항소 절차 진행중(변동없음)"
           }
         ],
         "계약 유지 규모": [
@@ -1847,6 +1877,41 @@
             "date": "2026-09-28",
             "last_seen": "2026-09-28",
             "value": "2.4GW(변동없음, 재확약)"
+          }
+        ],
+        "TCEQ 데이터센터 허가중단": [
+          {
+            "date": "2026-09-30",
+            "last_seen": "2026-09-30",
+            "value": "이행보고 시한 2026-10-19 임박, 그 사이 추가 조치 없음(변동없음)"
+          }
+        ],
+        "美 데이터센터 프로젝트 차단·지연(신규)": [
+          {
+            "date": "2026-09-30",
+            "last_seen": "2026-09-30",
+            "value": "2Q26 45건/680억달러(Data Center Watch, 2026-09-21 발표)"
+          }
+        ],
+        "2Q26 차단·지연 프로젝트": [
+          {
+            "date": "2026-09-30",
+            "last_seen": "2026-09-30",
+            "value": "45건 / 약 680억달러"
+          }
+        ],
+        "1H26 누적 차단·지연 규모": [
+          {
+            "date": "2026-09-30",
+            "last_seen": "2026-09-30",
+            "value": "약 2000억달러(1Q 75건/1300억달러 포함)"
+          }
+        ],
+        "반대 단체 수": [
+          {
+            "date": "2026-09-30",
+            "last_seen": "2026-09-30",
+            "value": "843개(49개 주)"
           }
         ]
       },
@@ -1900,30 +1965,46 @@
           "thesis_review": false
         },
         "W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화": {
-          "headline": "구글-블랙스톤 JV, 변압기 부족으로 지연",
+          "headline": "美DC 2분기 680억달러 차단·지연",
           "shift": "계통 접속 대기열(interconnection queue) 적체 및 규제 변화",
           "refs": [
             "W5"
           ],
-          "direction": "순풍",
+          "direction": "역풍",
           "affects": [
             "hyosung-transformer",
             "hd-hyundai-electric"
           ],
-          "summary": "Alphabet(구글)과 Blackstone의 클라우드 합작사('Project Braid')가 주요 데이터센터 부지 건설에서 지연에 직면했다고 Bloomberg가 2026-09-08 보도했다. 검토 중이던 한 부지는 적절한 변압기를 확보하지 못해 부적합 판정을 받았으며, 업계 전반에서 데이터센터 건설사들이 이런 장비를 받기까지 거의 1년 가까이 대기하는 것으로 확인됐다.",
+          "summary": "리서치기관 Data Center Watch(10a Labs)가 2026-09-21 발표한 보고서에 따르면 2026년 2분기(4~6월) 미국에서 지역 주민 반대로 최소 45건·약 680억달러 규모 데이터센터 프로젝트가 차단되거나 지연됐다. Bloomberg가 같은 날 이를 보도했으며, 상반기 누적으로는 약 2000억달러 규모가 영향을 받았고 14개 주에서 전면 모라토리엄 법안이 발의되는 등 반대 여론이 확산 중이다.",
           "sources": [
             {
-              "url": "https://www.bloomberg.com/news/articles/2026-09-08/google-blackstone-venture-faces-delays-at-data-center-sites",
+              "url": "https://www.datacenterwatch.org/report",
+              "outlet": "Data Center Watch(10a Labs)",
+              "date": "2026-09-21",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.bloomberg.com/news/articles/2026-09-21/new-data-centers-worth-68-billion-disrupted-in-us-data-show",
               "outlet": "Bloomberg",
-              "date": "2026-09-08",
+              "date": "2026-09-21",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.tomshardware.com/tech-industry/data-centers/local-opposition-blocked-usd68-billion-worth-of-data-center-projects-in-the-second-quarter-of-2026-data-center-investments-reportedly-still-on-track-to-hit-usd32-trillion-by-2050",
+              "outlet": "Tom's Hardware",
+              "date": "2026-09-22",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-09",
-          "first_seen": "2026-08-17",
-          "count": 4,
+          "last_seen": "2026-09-30",
+          "first_seen": "2026-09-30",
+          "count": 1,
           "thesis_review": false
         },
         "W4|온사이트 발전·비계통 전력 조달 비중(behind-the-meter)": {
@@ -2872,7 +2953,7 @@
       }
     },
     "optical-interconnect": {
-      "last_checked": "2026-09-28",
+      "last_checked": "2026-09-30",
       "observations": {
         "NVIDIA CPO 스위치 상태": [
           {
@@ -2932,16 +3013,11 @@
           },
           {
             "date": "2026-09-28",
-            "last_seen": "2026-09-28",
+            "last_seen": "2026-09-30",
             "value": "변동 없음 — Spectrum-X/Quantum-X Photonics 완전양산 지속, 가을(9~11월) 본격 출하 예정 유지, 신규 발표 없음"
           }
         ],
         "Broadcom CPO 스위치 상태": [
-          {
-            "date": "2026-08-19",
-            "last_seen": "2026-08-19",
-            "value": "볼륨 램프 진행 중(Tomahawk 6-Davisson, Bailly), Bailly는 Delta Electronics·Micas Networks 지원 하에 볼륨생산·Meta 배포검증 완료"
-          },
           {
             "date": "2026-08-21",
             "last_seen": "2026-08-21",
@@ -2996,6 +3072,11 @@
             "date": "2026-09-28",
             "last_seen": "2026-09-28",
             "value": "변동 없음 — Tomahawk 6-Davisson/Bailly 볼륨 생산 지속(공랭식 확인), 신규 발표 없음"
+          },
+          {
+            "date": "2026-09-30",
+            "last_seen": "2026-09-30",
+            "value": "변동 없음 — Tomahawk 6-Davisson/Bailly 볼륨 생산 지속, 2026년 말 추가 확대 전망 유지, 신규 발표 없음"
           }
         ],
         "TSMC COUPE": [
@@ -3053,6 +3134,11 @@
             "date": "2026-09-16",
             "last_seen": "2026-09-16",
             "value": "변동 없음 — 2026 하반기 양산목표 유지"
+          },
+          {
+            "date": "2026-09-30",
+            "last_seen": "2026-09-30",
+            "value": "변동 없음 — 2026 하반기 양산목표 유지, 신규 발표 없음"
           }
         ],
         "CPO 비중(2026 광모듈 중)": [
@@ -3063,11 +3149,6 @@
           }
         ],
         "Corning 장기계약 누적": [
-          {
-            "date": "2026-08-17",
-            "last_seen": "2026-08-17",
-            "value": "Meta 최대 $6B(2026-01) + Amazon 복수B$(2026-06)"
-          },
           {
             "date": "2026-08-19",
             "last_seen": "2026-08-19",
@@ -3122,6 +3203,11 @@
             "date": "2026-09-25",
             "last_seen": "2026-09-25",
             "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) + Verizon(9/8) 유지, 9/9 이후 신규 계약 미확인 (9/11 $2B 자사주 유상증자는 일반 운영자금 목적, 특정 캐파투자 연계 불명 — 기확인 사안)"
+          },
+          {
+            "date": "2026-09-30",
+            "last_seen": "2026-09-30",
+            "value": "Meta 최대$6B(2026-01) + Amazon 복수B$(2026-06) + Zayo(2026-08-20) + Verizon(2026-09-08) + AT&T $3B+(2026-09-29, 신규)"
           }
         ],
         "ASMPT 포토닉스 매출 성장": [
@@ -3302,7 +3388,7 @@
           },
           {
             "date": "2026-09-16",
-            "last_seen": "2026-09-16",
+            "last_seen": "2026-09-30",
             "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지"
           }
         ],
@@ -4069,6 +4155,11 @@
             "date": "2026-09-28",
             "last_seen": "2026-09-28",
             "value": "신규 확정 — 공모가 HK$436(밴드상단), 상장일 9/29, 최대 조달액 HK$68.5억"
+          },
+          {
+            "date": "2026-09-30",
+            "last_seen": "2026-09-30",
+            "value": "2026-09-29 상장 완료, 실제 조달액 HK$5.18억(기본공모 기준), 상장일 주가 장중 최대 -9.8%"
           }
         ],
         "콜옵션 지정 금액": [
@@ -4097,6 +4188,48 @@
             "date": "2026-09-28",
             "last_seen": "2026-09-28",
             "value": "최대 HK$68.5억"
+          }
+        ],
+        "성호전자/서룡전자 담보대출 잔액": [
+          {
+            "date": "2026-09-30",
+            "last_seen": "2026-09-30",
+            "value": "변동 없음(추정) — 1,650억원(8/31 기준) 수준, 9/1 이후 신규 담보·상환 공시 미확인"
+          }
+        ],
+        "성호전자 어매이징홀딩스 흡수합병": [
+          {
+            "date": "2026-09-30",
+            "last_seen": "2026-09-30",
+            "value": "신규(2026-09-29 이사회 결의) — 100% 자회사 무증자 흡수합병, 합병기일 2027-07-03, 최대주주 지배력·경영권 변동 없음"
+          }
+        ],
+        "AT&T 신규계약 규모": [
+          {
+            "date": "2026-09-30",
+            "last_seen": "2026-09-30",
+            "value": "30억달러+ (신규, 9/29)"
+          }
+        ],
+        "AT&T 목표 파이버 로케이션": [
+          {
+            "date": "2026-09-30",
+            "last_seen": "2026-09-30",
+            "value": "6,000만 (2030년까지)"
+          }
+        ],
+        "실제 조달액(기본공모)": [
+          {
+            "date": "2026-09-30",
+            "last_seen": "2026-09-30",
+            "value": "HK$5.18억(약 $660M)"
+          }
+        ],
+        "상장일 주가": [
+          {
+            "date": "2026-09-30",
+            "last_seen": "2026-09-30",
+            "value": "장중 최대 -9.8%"
           }
         ]
       },
@@ -4173,7 +4306,7 @@
           "thesis_review": false
         },
         "W4|데이터센터 광섬유 수요 및 장기계약 규모": {
-          "headline": "Corning-Verizon 신규 초대형 계약",
+          "headline": "Corning-AT&T $3B+ 신규계약",
           "shift": "데이터센터 광섬유 수요 및 장기계약 규모",
           "refs": [
             "W4"
@@ -4182,36 +4315,44 @@
           "affects": [
             "optical-material"
           ],
-          "summary": "Corning이 2026-09-08 Verizon과 2027~2032년 8,000만 마일 이상의 고밀도 광섬유·커넥티비티 솔루션을 공급하는 신규 멀티빌리언달러 규모 장기계약을 공식 발표했다. 브로드밴드 확장(4,000만~5,000만 가구 목표)과 AI 컴퓨팅 관련 커넥티비티 수요를 동시에 겨냥한 계약으로, 기존 Meta($6B)·Amazon·Zayo(8/20) 계약에 이어 Corning의 4번째 대형 장기계약이 확인됐다.",
+          "summary": "AT&T와 Corning이 2026-09-29 다년간 30억달러 이상 규모의 광섬유·케이블 공급계약을 공식 발표했다. AT&T의 2030년까지 6,000만 파이버 로케이션 확보 목표를 뒷받침하는 계약으로, AI·클라우드发 데이터 수요 급증을 명분으로 내세웠다. 이로써 Corning의 대형 장기계약은 Meta($6B)·Amazon·Zayo(8/20)·Verizon(9/8)에 이어 5번째로 확인됐다.",
           "sources": [
             {
-              "url": "https://www.corning.com/worldwide/en/about-us/news-events/news-releases/2026/09/verizon-and-corning-announce-multi-year-multi-billion-dollar-supply-agreement-for-broadband-expansion-and-next-gen-ai-infrastructure.html",
-              "outlet": "corning.com",
-              "date": "2026-09-08",
+              "url": "https://www.prnewswire.com/news-releases/att-and-corning-team-up-to-engineer-the-connected-world-with-fiber-302892879.html",
+              "outlet": "prnewswire.com (AT&T/Corning 공동보도자료)",
+              "date": "2026-09-29",
               "tier": "S1",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.verizon.com/about/news/verizon-corning-broadband-ai-fiber-agreement",
-              "outlet": "verizon.com",
-              "date": "2026-09-08",
+              "url": "https://www.sec.gov/Archives/edgar/data/0000732717/000119312526321053/d142142dex991.htm",
+              "outlet": "sec.gov (AT&T 8-K)",
+              "date": "2026-09-29",
               "tier": "S1",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.globenewswire.com/news-release/2026/09/08/3357726/0/en/verizon-and-corning-announce-multi-year-multi-billion-dollar-supply-agreement-for-broadband-expansion-and-next-gen-ai-infrastructure.html",
-              "outlet": "globenewswire.com",
-              "date": "2026-09-08",
+              "url": "https://about.att.com/story/2026/att-corning-engineer-connected-world.html",
+              "outlet": "about.att.com",
+              "date": "2026-09-29",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://money.usnews.com/investing/news/articles/2026-09-29/at-t-signs-over-3-billion-fiber-deal-with-corning-as-data-demand-surges",
+              "outlet": "money.usnews.com",
+              "date": "2026-09-29",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-09",
+          "last_seen": "2026-09-30",
           "first_seen": "2026-08-17",
-          "count": 3,
+          "count": 4,
           "thesis_review": false
         },
         "W2|스케일업/스케일아웃 네트워크의 광 전환 비중": {
@@ -4639,38 +4780,46 @@
           "thesis_review": false
         },
         "W1,W5|실리콘 포토닉스 수율·패키징 병목 해소 여부 / cpo 양산 채택 일정의 전진 또는 후퇴": {
-          "headline": "RoboTechnik 홍콩 공모가 확정",
+          "headline": "RoboTechnik 홍콩 상장 완료",
           "shift": "실리콘 포토닉스 수율·패키징 병목 해소 여부 / CPO 양산 채택 일정의 전진 또는 후퇴",
           "refs": [
             "W1",
             "W5"
           ],
-          "direction": "순풍",
+          "direction": "중립",
           "affects": [
             "optical-align"
           ],
-          "summary": "ficonTEC 모회사 RoboTechnik의 홍콩 이중상장(H주) 공모가가 2026-09-25 밴드 상단인 주당 HK$436으로 확정됐으며, 9/29 홍콩거래소 상장이 예정대로 진행된다. 조달규모는 초과배정옵션 전액행사 시 최대 HK$68.5억(약 미화 6.6~8.8억달러) 수준으로, 이전 관측(9/25)된 실리콘포토닉스 장비 캐파확장 자금 확보 계획이 그대로 실행 단계에 들어갔다.",
+          "summary": "ficonTEC 모회사 RoboTechnik이 2026-09-29 홍콩거래소(3757.HK)에 실제 상장·거래를 시작했다. 기본 공모(초과배정 제외) 조달액은 HK$5.18억(약 미화 6.6억달러)으로, 앞서(9/25) 관측된 초과배정 포함 최대 추정치 HK$68.5억보다는 낮은 실제 집행 규모로 확정됐다. 신규상장주 전반의 약세 속에 상장 첫날 주가는 장중 최대 -9.8%까지 밀렸다.",
           "sources": [
             {
-              "url": "https://news.futunn.com/en/post/1000218034/robotechnic-03757-hk-fixes-the-offer-price-at-hk-436",
-              "outlet": "futunn.com",
-              "date": "2026-09-25",
+              "url": "https://www.bloomberg.com/news/articles/2026-09-28/robotechnik-leads-hong-kong-s-1-8-billion-listing-debut-lineup",
+              "outlet": "bloomberg.com",
+              "date": "2026-09-28",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.minichart.com.sg/2026/09/25/robotechnik-ipo-prices-at-hk436-per-share-listing-set-for-september-29-2026/",
-              "outlet": "minichart.com.sg",
-              "date": "2026-09-25",
+              "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_L1N45L01S:0-china-s-robotechnik-slides-in-hong-kong-debut-as-new-listings-trade-mixed/",
+              "outlet": "tradingview.com (Reuters)",
+              "date": "2026-09-29",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://news.futunn.com/en/post/1000369089/robotec-300757-sz-listing-and-trading-of-overseas-listed-foreign",
+              "outlet": "futunn.com (거래소 공시 기반)",
+              "date": "2026-09-29",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-28",
+          "last_seen": "2026-09-30",
           "first_seen": "2026-09-28",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W1,W3,W5|cpo 양산 채택 일정의 전진 또는 후퇴 / 광 i/o 표준화 동향 및 주요 벤더 로드맵 변경 / 실리콘 포토닉스 수율·패키징 병목 해소 여부": {

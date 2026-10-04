@@ -1,11 +1,11 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-10-02"
+    "last_run": "2026-10-05"
   },
   "themes": {
     "ai-dc-power": {
-      "last_checked": "2026-10-02",
+      "last_checked": "2026-10-05",
       "observations": {
         "OCP LVDC SST 스펙": [
           {
@@ -40,7 +40,7 @@
           },
           {
             "date": "2026-10-02",
-            "last_seen": "2026-10-02",
+            "last_seen": "2026-10-05",
             "value": "v0.3 유지(변동없음)"
           }
         ],
@@ -89,7 +89,7 @@
           },
           {
             "date": "2026-09-30",
-            "last_seen": "2026-09-30",
+            "last_seen": "2026-10-05",
             "value": "600kW 유지(Rubin Ultra, 2027년 하반기 목표, 변동없음)"
           }
         ],
@@ -1048,6 +1048,11 @@
             "date": "2026-09-30",
             "last_seen": "2026-09-30",
             "value": "NVIDIA 구체적 반박 없이 '로드맵 유지' 입장 반복(변동없음, 9/30 재확인)"
+          },
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "NVIDIA 구체적 반박 없이 '로드맵 유지' 입장 반복(변동없음)"
           }
         ],
         "800VDC 생태계 파트너사": [
@@ -1719,6 +1724,11 @@
             "date": "2026-10-02",
             "last_seen": "2026-10-02",
             "value": "9/15(효성 3865억원) 이후 10/2까지 추가 신규 공시 확인 안됨(변동없음)"
+          },
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "9/15(효성 3865억원) 이후 10/5까지 추가 신규 공시 확인 안됨(변동없음)"
           }
         ],
         "MVSST 시스템 효율": [
@@ -1893,6 +1903,11 @@
             "date": "2026-10-02",
             "last_seen": "2026-10-02",
             "value": "9/30 현재도 미발표, 발효목표 10/12 유지(변동없음, RBP와 별개 도켓)"
+          },
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "10/5 현재도 미발표, 발효목표 10/12 임박(변동없음)"
           }
         ],
         "xAI 콜로서스 소송": [
@@ -1961,6 +1976,11 @@
             "date": "2026-10-02",
             "last_seen": "2026-10-02",
             "value": "10/2 현재도 지방법원 판결 미확정(변동없음, DOJ 항소 절차 지속)"
+          },
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "10/5 현재도 지방법원 판결 미확정(변동없음, DOJ 항소 절차 지속)"
           }
         ],
         "OCP Global Summit 2026": [
@@ -1968,6 +1988,11 @@
             "date": "2026-10-02",
             "last_seen": "2026-10-02",
             "value": "10/12~15 산호세 개최 예정, 800VDC 그리드-랙 전력 아키텍처 세션 편성(아직 미개최, 신규 확인)"
+          },
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "10/12~15 산호세 개최 예정, 800VDC 세부세션(아키텍처 정렬·성능요구사항·보호설계) 일정 공개(아직 미개최)"
           }
         ],
         "시행 시점": [
@@ -1982,6 +2007,62 @@
             "date": "2026-10-02",
             "last_seen": "2026-10-02",
             "value": "누적 4곳"
+          }
+        ],
+        "PJM RBP 시행": [
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "2027-02-28까지 유예(9/29 FERC 명령, 변동없음)"
+          }
+        ],
+        "Delta 800VDC 파워랙 양산": [
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "3Q26 양산 진입(7월 실적발표 재확인), 의미있는 출하 램프는 2027년(변동없음)"
+          }
+        ],
+        "Vicor Needham 목표주가": [
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "320달러 → 350달러(2026-10-01)"
+          }
+        ],
+        "멤피스 데이터센터 모라토리엄 표결": [
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "2026-10-06 예정(3차 독회, 최종표결, 결과 미확정)"
+          }
+        ],
+        "Lone Star Infrastructure Coalition": [
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "2026-10-01 출범(QTS·NextEra·Siemens Energy·Quanta·NEI·Lancium)"
+          }
+        ],
+        "표결 예정일": [
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "2026-09-15(연기) → 2026-10-06(확정)"
+          }
+        ],
+        "Needham 목표주가": [
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "320달러 → 350달러(2026-10-01)"
+          }
+        ],
+        "CEO 추가매도(10/1)": [
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "2만주, 약 578만달러"
           }
         ]
       },
@@ -3118,6 +3199,141 @@
           "first_seen": "2026-10-02",
           "count": 1,
           "thesis_review": false
+        },
+        "W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — 텍사스 업계 연합 결성": {
+          "headline": "텍사스 업계연합 '론스타' 출범",
+          "shift": "계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — 텍사스 업계 연합 결성",
+          "refs": [
+            "W5"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "hyosung-transformer",
+            "hd-hyundai-electric"
+          ],
+          "summary": "블랙스톤 산하 QTS, NextEra Energy, Siemens Energy, Quanta Services, 원자력에너지연구소(NEI), Lancium이 2026-10-01 'Lone Star Infrastructure Coalition'을 공식 출범시켜 텍사스 내 데이터센터·전력 인프라 확충에 대한 지역 반대 여론에 조직적으로 대응하기 시작했다. 앞서 9월 28일에는 OpenAI·블랙스톤·노동조합 등이 참여하는 전국 단위 'American Infrastructure Alliance'도 주(州) 차원의 데이터센터 건설 모라토리엄 확산을 저지하려는 움직임을 보인 바 있어, 그간 추적해온 '지역 반대發 프로젝트 차단·지연' 흐름에 업계의 조직적 반격이 가시화됐다.",
+          "sources": [
+            {
+              "url": "https://www.bloomberg.com/news/articles/2026-10-01/data-center-power-titans-push-back-on-texas-development-nimbys",
+              "outlet": "Bloomberg",
+              "date": "2026-10-01",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://cryptobriefing.com/lone-star-infrastructure-coalition-texas-data-centers/",
+              "outlet": "CryptoBriefing",
+              "date": "2026-10-01",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://dailycaller.com/2026/09/28/american-infrastructure-alliance-data-center-moratoriums-openai-blackstone-unions-greg-abbott/",
+              "outlet": "Daily Caller",
+              "date": "2026-09-28",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-05",
+          "first_seen": "2026-10-05",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W4,W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — 멤피스 모라토리엄": {
+          "headline": "멤피스 모라토리엄 10/6 표결",
+          "shift": "계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — 멤피스 모라토리엄",
+          "refs": [
+            "W5",
+            "W4"
+          ],
+          "direction": "불명",
+          "affects": [],
+          "summary": "xAI 콜로서스가 위치한 멤피스 시의회가 대형·고밀도 데이터센터 신규 승인을 일시 중단하는 모라토리엄 조례의 3차 독회(최종 표결)를 2026-10-06으로 확정했다. 9월 15일 예정이던 표결이 두 차례 연기되며 여러 수정안이 하나로 통합된 결과로, 그레이터멤피스상공회의소는 반대, 지역 환경단체 등은 찬성 입장을 내고 있다.",
+          "sources": [
+            {
+              "url": "https://hoodline.com/2026/10/memphis-council-faces-final-vote-on-data-center-pause-as-rally-targets-musk/",
+              "outlet": "Hoodline",
+              "date": "2026-10-01",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://tntribune.com/memphis-city-councilman-jb-smiley-jr-introduces-amended-data-center-temporary-moratorium-ordinance-set-for-final-reading-on-october-6th/",
+              "outlet": "Tri-State Defender",
+              "date": "2026-09-25",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.actionnews5.com/2026/09/25/city-leaders-break-down-revised-data-center-moratorium-ahead-final-vote/",
+              "outlet": "Action News 5",
+              "date": "2026-09-25",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.memphisflyer.com/city-council-to-hear-third-reading-of-data-center-moratorium-ordinance/",
+              "outlet": "Memphis Flyer",
+              "date": "2026-09",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-05",
+          "first_seen": "2026-10-05",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W2,W3|배전 전압 아키텍처 전환(54v 랙 → 800vdc)에 연동된 point-of-load 공급사 실적 — vicor 후속 반응": {
+          "headline": "Vicor 목표주가 350달러로 상향",
+          "shift": "배전 전압 아키텍처 전환(54V 랙 → 800VDC)에 연동된 point-of-load 공급사 실적 — Vicor 후속 반응",
+          "refs": [
+            "W2",
+            "W3"
+          ],
+          "direction": "중립",
+          "affects": [
+            "point-of-load"
+          ],
+          "summary": "Needham이 2026-10-01 Vicor 목표주가를 기존 320달러에서 350달러로 상향하며 매수 의견을 유지했다. 9/30 발표된 3분기 가이던스 2차 상향(QoQ 30%대, VPD 라이선스 로열티 반영)을 근거로 한 조정이며, 같은 날 CEO Patrizio Vinciarelli는 2026-02-26 수립된 10b5-1 사전매매계획에 따라 2만주(약 578만달러)를 추가 매도했다고 SEC에 공시했다.",
+          "sources": [
+            {
+              "url": "https://www.sec.gov/Archives/edgar/data/0000751978/000119312526295939/ownership.xml",
+              "outlet": "SEC EDGAR Form 4",
+              "date": "2026-10-01",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.gurufocus.com/news/9105218/vicr-maintained-by-needham-price-target-raised-to-350",
+              "outlet": "GuruFocus",
+              "date": "2026-10-01",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.marketbeat.com/instant-alerts/analyst-vicor-nasdaq-vicr-given-new-35000-price-target-at-needham-company-llc-2026-10-01/",
+              "outlet": "MarketBeat",
+              "date": "2026-10-01",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-05",
+          "first_seen": "2026-10-05",
+          "count": 1,
+          "thesis_review": false
         }
       }
     },
@@ -3125,11 +3341,6 @@
       "last_checked": "2026-10-02",
       "observations": {
         "NVIDIA CPO 스위치 상태": [
-          {
-            "date": "2026-08-26",
-            "last_seen": "2026-08-26",
-            "value": "변동 없음 — Vera Rubin NVL72(Spectrum-X Ethernet Photonics) 완전양산 지속, Microsoft 첫 파워온(8/21) 이후 추가 배송 소식 미확인, 가을 본격 출하 예정 유지"
-          },
           {
             "date": "2026-08-26",
             "last_seen": "2026-08-26",
@@ -3184,6 +3395,11 @@
             "date": "2026-10-02",
             "last_seen": "2026-10-02",
             "value": "변동 없음 — Spectrum-X/Quantum-X Photonics 완전양산 지속, 가을(9~11월) 본격 출하 예정 유지, 9/30 이후 신규 발표 없음"
+          },
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "변동 없음 — Spectrum-X/Quantum-X Photonics 완전양산 지속, 가을(9~11월) 본격 출하 예정 유지, 10/2 이후 신규 발표 없음"
           }
         ],
         "Broadcom CPO 스위치 상태": [
@@ -3244,7 +3460,7 @@
           },
           {
             "date": "2026-10-02",
-            "last_seen": "2026-10-02",
+            "last_seen": "2026-10-05",
             "value": "변동 없음 — Tomahawk 6-Davisson/Bailly 볼륨 생산 지속, 신규 발표 없음"
           }
         ],
@@ -3306,7 +3522,7 @@
           },
           {
             "date": "2026-09-30",
-            "last_seen": "2026-10-02",
+            "last_seen": "2026-10-05",
             "value": "변동 없음 — 2026 하반기 양산목표 유지, 신규 발표 없음"
           }
         ],
@@ -3318,11 +3534,6 @@
           }
         ],
         "Corning 장기계약 누적": [
-          {
-            "date": "2026-08-26",
-            "last_seen": "2026-08-26",
-            "value": "Meta 최대$6B(2026-01) + Amazon 복수B$(2026-06) + Zayo 신규 확대(2026-08-20, 2030년까지)"
-          },
           {
             "date": "2026-08-28",
             "last_seen": "2026-08-28",
@@ -3377,6 +3588,11 @@
             "date": "2026-10-02",
             "last_seen": "2026-10-02",
             "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) + Verizon(9/8) + AT&T $3B+(9/29) 유지, 신규 계약 없음. 단 Lumentum·Qualcomm과 스케일업 D2D 커넥티비티 공동시연으로 사업범위 확장 신호(9/29)"
+          },
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) + Verizon(9/8) + AT&T $3B+(9/29) 유지, 10/2 이후 신규 계약 없음"
           }
         ],
         "ASMPT 포토닉스 매출 성장": [
@@ -3885,6 +4101,11 @@
             "date": "2026-09-28",
             "last_seen": "2026-09-28",
             "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지, 19개사 참여 아키텍처 백서 기존대로"
+          },
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지. Lumentum이 10/1 2026 OCP Global Summit(10/12~15, 산호세) 발표자 라인업 공개(외부광원/VCSEL/광서킷스위칭 주제), 단 정식 표준 발표는 아직 없음"
           }
         ],
         "성호전자/서룡전자 주식담보대출 잔액": [
@@ -3932,6 +4153,11 @@
             "date": "2026-09-28",
             "last_seen": "2026-09-28",
             "value": "변동 없음(추정) — 1,650억원(8/31 기준) 수준, 9/1 서룡전자 추가담보(누적 27,410,601주, 지분율 37.37%) 이후 신규 공시 미확인"
+          },
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "변동 없음(1,650억원, 8/31 기준 수준 추정) — 9/29~10/1 리포트상 '200억 상환·1790억 축소' 언급은 검증 결과 2026-07-30~08-03 기사의 날짜 오표기로 확인되어 신규 이벤트 아님"
           }
         ],
         "ADS테크 신규수주(CPO 장비)": [
@@ -4446,6 +4672,27 @@
             "date": "2026-10-02",
             "last_seen": "2026-10-02",
             "value": "32Gbps NRZ (1060nm VCSEL)"
+          }
+        ],
+        "ficonTEC CPO 테스트(Insertion2/INS-2)": [
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "변동 없음 — 9/10 발표된 Hermes Testing 협력·1,000대+ 출하 전망(18~24개월) 내용이 10/1 Digitimes에 재게재됨, 신규 수치나 고객사 추가 확인 안됨"
+          }
+        ],
+        "Coherent CPO/PhotonLink": [
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "변동 없음 — 9/20~21 ECOC 발표(PhotonLink, CPO 10+·NPO 10+·칩투칩 5+ engagement) 내용 유지, CPO 스케일아웃 매출은 12월분기(2026 Q4)부터 인식 예정 재확인, 10월 신규 발표 없음"
+          }
+        ],
+        "예정된 업계 행사(10월)": [
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "Marvell Investor Day 10/6(뉴욕) 예정, OCP Global Summit 10/12~15(산호세) 예정, ASMPT SEMICON West 전시 10/13~15(샌프란시스코) 예정 — 모두 아직 발생 전, 결과 미확인"
           }
         ]
       },

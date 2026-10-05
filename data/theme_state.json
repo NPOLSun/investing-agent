@@ -3404,11 +3404,6 @@
         ],
         "Broadcom CPO 스위치 상태": [
           {
-            "date": "2026-08-26",
-            "last_seen": "2026-08-26",
-            "value": "변동 없음 — Tomahawk 6-Davisson / Bailly 볼륨 생산 지속, 신규 발표 없음"
-          },
-          {
             "date": "2026-08-28",
             "last_seen": "2026-08-28",
             "value": "변동 없음 — Tomahawk 6-Davisson/Bailly 볼륨 생산 지속, 신규 발표 없음"
@@ -3462,6 +3457,11 @@
             "date": "2026-10-02",
             "last_seen": "2026-10-05",
             "value": "변동 없음 — Tomahawk 6-Davisson/Bailly 볼륨 생산 지속, 신규 발표 없음"
+          },
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "변동 없음 — Tomahawk 6-Davisson/Bailly 볼륨생산 지속, 신규 발표 없음"
           }
         ],
         "TSMC COUPE": [
@@ -3775,6 +3775,11 @@
             "date": "2026-09-16",
             "last_seen": "2026-10-02",
             "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지"
+          },
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "변동 없음(스펙 초안 목표 2026 Q4 유지) — 참고: 병행 트랙인 Open CPX MSA가 9/17 6.4T/7.2T(200G/lane) 정식 사양을 공개한 사실 재확인(14일 경과로 배경 참고용), OCP Global Summit은 10/12~15(산호세)로 아직 미개최"
           }
         ],
         "성호전자/ADS테크 자금상황": [
@@ -4595,6 +4600,11 @@
             "date": "2026-10-02",
             "last_seen": "2026-10-02",
             "value": "변동 없음(추정) — 1,650억원(8/31 기준) 수준, 9/1 서룡전자 추가담보 이후 신규 공시 미확인"
+          },
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "변동 없음(추정) — 1,650억원(8/31 기준) 수준, 10/5까지 신규 담보·상환 공시 미확인"
           }
         ],
         "성호전자 어매이징홀딩스 흡수합병": [
@@ -4693,6 +4703,32 @@
             "date": "2026-10-05",
             "last_seen": "2026-10-05",
             "value": "Marvell Investor Day 10/6(뉴욕) 예정, OCP Global Summit 10/12~15(산호세) 예정, ASMPT SEMICON West 전시 10/13~15(샌프란시스코) 예정 — 모두 아직 발생 전, 결과 미확인"
+          },
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "변동 없음 — Marvell Investor Day 10/6(뉴욕), OCP Global Summit 10/12~15(산호세, 매진 확인), ASMPT SEMICON West 10/13~15(샌프란시스코) 모두 아직 미개최, 결과 미확인"
+          }
+        ],
+        "ficonTEC CPO 테스트장비": [
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "변동 없음 — INS-2(Insertion2) 협력·DLT-D1 멀티사이트 다이레벨 테스터 등 기존 라인업 유지, 10월 신규 발표 없음"
+          }
+        ],
+        "Coherent PhotonLink/CPO": [
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "변동 없음 — 9/20~21 ECOC 발표(CPO 10+·NPO 10+ engagement) 내용 유지, CPO 스케일아웃 매출은 2026 Q4(12월분기)부터 인식 예정 재확인. 10/1 주가 10% 급등은 Bernstein 신규 Outperform 커버리지 개시가 촉발한 것으로 확인(사실관계 변화 아님)"
+          }
+        ],
+        "ADS테크 신규수주(235억원/C사)": [
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "변동 없음 — 8/31 공시된 기존 수주 건이 9월 주가 랠리(71%, 9/1~10/1) 배경으로 재인용되고 있을 뿐, 10월 신규 수주 확인 안됨"
           }
         ]
       },
@@ -5441,7 +5477,7 @@
       }
     },
     "memory-storage": {
-      "last_checked": "2026-10-02",
+      "last_checked": "2026-10-05",
       "observations": {
         "파두 컨트롤러 매출 비중": [
           {
@@ -5585,11 +5621,6 @@
         ],
         "예스티-HPSP 서울중앙지법 본안소송": [
           {
-            "date": "2026-09-02",
-            "last_seen": "2026-09-02",
-            "value": "8/13 변론 이후 추가 진행상황 미확인(변화없음 지속)"
-          },
-          {
             "date": "2026-09-04",
             "last_seen": "2026-09-04",
             "value": "2026-08-13 변론 이후 추가 진행상황 미확인(변화없음 지속)"
@@ -5643,6 +5674,11 @@
             "date": "2026-09-30",
             "last_seen": "2026-09-30",
             "value": "8/13 변론 이후 추가 진행상황 미확인(9/30 재확인, 변화없음 지속)"
+          },
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "8/13 변론 이후 10/5 기준 추가 진행상황 미확인(변화없음 지속)"
           }
         ],
         "Gen6 성능": [
@@ -6039,6 +6075,11 @@
             "date": "2026-08-31",
             "last_seen": "2026-08-31",
             "value": "50조원"
+          },
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "약 50조원(9월 초 거론) → 최대 1500억달러·약 210조원(9/25 로이터 단독)"
           }
         ],
         "프리IPO 유치 목표 규모": [
@@ -6175,6 +6216,11 @@
             "date": "2026-09-02",
             "last_seen": "2026-09-02",
             "value": "35억~70억달러(5조~10조원)"
+          },
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "5조~10조원 → 최대 150억달러(약 21조원)"
           }
         ],
         "솔리다임 프리IPO 재공시": [
@@ -6241,6 +6287,11 @@
             "date": "2026-09-30",
             "last_seen": "2026-09-30",
             "value": "8/12 공시(395.83억원) 이후 9월 신규계약 공시 미확인(9/30 재확인, 변화없음 지속)"
+          },
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "8/12 공시(395.83억원) 이후 10/5 기준 추가 신규계약 공시 미확인(변화없음 지속)"
           }
         ],
         "SK하이닉스 1c D램 비중": [
@@ -6826,6 +6877,11 @@
             "date": "2026-09-30",
             "last_seen": "2026-09-30",
             "value": "2026 Q4 샘플링 예정(변화없음 지속)"
+          },
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "2026 Q4 샘플링 예정(변화없음 지속), 탑재 드라이브 시장출시는 2027말~2028 전망"
           }
         ],
         "직접구매 전환 예상 시점": [
@@ -6958,6 +7014,62 @@
             "last_seen": "2026-10-02",
             "value": "+121%(TrendForce)"
           }
+        ],
+        "솔리다임 IPO 밸류에이션": [
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "약 50조원(9월 초) → 최대 150억~1500억달러 거론(9/25 로이터, SK하이닉스는 미확정 입장 유지)"
+          }
+        ],
+        "삼성전자 3분기 영업이익 컨센서스": [
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "전년比 +764.7%, 약 105~110조원(10/8 잠정실적 발표 예정, 미확정)"
+          }
+        ],
+        "삼성 HBM4 Gb당 가격 협상": [
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "4.50~4.90달러 제시(HBM3E 대비 3배+), 10월 중 최종 타결 목표"
+          }
+        ],
+        "영업이익(YoY, 컨센서스)": [
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "+764.7%, 약 105조~110조원"
+          }
+        ],
+        "HBM 매출(QoQ, 전망)": [
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "+60%"
+          }
+        ],
+        "D램·낸드 가격(QoQ, 추정)": [
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "약 +10%"
+          }
+        ],
+        "Gb당 HBM4 제시가": [
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "4~5달러대(10/2 1차 보도) → 4.50~4.90달러(10/1~3 구체화)"
+          }
+        ],
+        "HBM3E 대비 배율": [
+          {
+            "date": "2026-10-05",
+            "last_seen": "2026-10-05",
+            "value": "3배 이상"
+          }
         ]
       },
       "shifts": {
@@ -7001,7 +7113,7 @@
           "thesis_review": false
         },
         "W1,W3|ai 추론 확산에 따른 essd·니어라인 스토리지 수요 구조 변화": {
-          "headline": "9월 SSD수출 역대최대 67.7억불",
+          "headline": "삼성 3Q 영업익 서프라이즈 전망",
           "shift": "AI 추론 확산에 따른 eSSD·니어라인 스토리지 수요 구조 변화",
           "refs": [
             "W1",
@@ -7011,28 +7123,28 @@
           "affects": [
             "ssd-controller"
           ],
-          "summary": "산업통상자원부가 2026-10-01 발표한 9월 수출입동향에서 반도체 수출이 603억달러(YoY +262.8%)로 사상 첫 600억달러를 돌파했다. 이 중 기업용 SSD 수출은 67.7억달러로 전년동월(약 10.7억달러) 대비 약 5배 이상(+532%) 급증하며 월 기준 역대 최대치를 기록했고, AI 데이터센터向 수요 확대가 주요 요인으로 지목됐다.",
+          "summary": "증권가가 2026년 3분기(7~9월) 삼성전자 영업이익을 전년동기대비 +764.7% 급증한 약 105조~110조원대로 전망했으며, 10월 8일 잠정실적 발표를 앞두고 있다. 메모리사업부가 실적을 견인하는 가운데 DDR5 등 범용 D램과 기업용 SSD를 포함한 낸드플래시 가격이 전분기 대비 약 10% 올랐고, 삼성증권은 HBM 매출이 전분기 대비 60% 늘어날 것으로 추정했다. 아직 확정 실적이 아닌 컨센서스 전망치다.",
           "sources": [
             {
-              "url": "https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02660086645580120",
-              "outlet": "이데일리",
-              "date": "2026-10-01",
+              "url": "https://www.mt.co.kr/amp/stock/2026/10/05/2026100217315021825",
+              "outlet": "머니투데이",
+              "date": "2026-10-05",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.newspim.com/news/view/20261001000167",
-              "outlet": "Newspim",
-              "date": "2026-10-01",
+              "url": "https://www.fnnews.com/news/202610041826049921",
+              "outlet": "파이낸셜뉴스",
+              "date": "2026-10-04",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-10-02",
+          "last_seen": "2026-10-05",
           "first_seen": "2026-08-18",
-          "count": 8,
+          "count": 9,
           "thesis_review": false
         },
         "W1,W3,W5|메모리·후공정 capex 방향": {
@@ -7924,39 +8036,47 @@
           "thesis_review": false
         },
         "W2|hbm4 세대 전환 일정 및 스택·본딩 공정 방식 변경 (가격 동향)": {
-          "headline": "HBM4 내년 공급가 2~3배 인상",
+          "headline": "HBM4 Gb당 4.5~4.9달러 구체화",
           "shift": "HBM4 세대 전환 일정 및 스택·본딩 공정 방식 변경 (가격 동향)",
           "refs": [
             "W2"
           ],
           "direction": "중립",
           "affects": [],
-          "summary": "삼성전자가 엔비디아와 진행 중인 2027년 HBM4 공급가 협상이 막바지 단계에 들어가 이달 중 확정될 예정이며, Gb당 약 2달러 수준이던 가격이 4~5달러대로 인상될 전망이다. 삼성은 SK하이닉스와 동일 단가 수취를 목표로 협상 중이며, TrendForce는 2027년 HBM 혼합 평균판매가격이 올해 대비 121% 오를 것으로 전망했다.",
+          "summary": "10/1~10/3 추가 보도를 통해 삼성전자가 엔비디아에 제시한 HBM4 가격이 Gb당 4.50~4.90달러(HBM3E 약 1.50달러 대비 3배 이상)로 구체화됐다. 삼성은 2027년 공급 물량 대부분을 이미 확보한 상태에서 SK하이닉스와 동등한 단가를 목표로 이달 중 최종 가격 타결을 추진 중인 것으로 전해졌다.",
           "sources": [
             {
-              "url": "https://dealsite.co.kr/articles/152153",
-              "outlet": "딜사이트",
-              "date": "2026-10-01",
+              "url": "https://wccftech.com/samsung-hbm4-pricing-3x-hbm3e-dram-market/",
+              "outlet": "Wccftech",
+              "date": "2026-10-02",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://m.sedaily.com/article/20097309",
-              "outlet": "서울경제",
+              "url": "https://www.sammyfans.com/2026/10/02/samsung-seeks-more-than-3x-hbm3e-pricing-for-hbm4/",
+              "outlet": "SammyFans",
+              "date": "2026-10-02",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://en.sedaily.com/finance/2026/10/01/hbm-prices-to-more-than-double-next-year-as-shortage",
+              "outlet": "Seoul Economic Daily",
               "date": "2026-10-01",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-10-02",
+          "last_seen": "2026-10-05",
           "first_seen": "2026-10-02",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W1,W3,W5|ai 추론 확산에 따른 essd·니어라인 스토리지 수요 구조 변화 (관련 자본시장 동향)": {
-          "headline": "SK하이닉스, 솔리다임 중복상장 진화",
+          "headline": "솔리다임 밸류 최대 150조원 거론",
           "shift": "AI 추론 확산에 따른 eSSD·니어라인 스토리지 수요 구조 변화 (관련 자본시장 동향)",
           "refs": [
             "W1",
@@ -7965,36 +8085,44 @@
           ],
           "direction": "불명",
           "affects": [],
-          "summary": "솔리다임 미국 상장 추진설을 둘러싸고 'SK그룹 5중 상장'에 따른 주주가치 훼손 논란이 커지자, SK하이닉스가 2026-10-01~02 공식입장을 내고 \"솔리다임 관련 구체적으로 결정된 사항이 없다\"며 외부·내부 자본 조달 방식 모두 장기 주주가치 제고를 최우선 판단 기준으로 삼겠다고 밝혔다. 앞서 9월 재공시에서 재공시 시한을 12월 4일로 연기한 데 이어 나온 추가 해명이다.",
+          "summary": "로이터가 2026-09-25 단독보도로 SK하이닉스의 美 낸드 자회사 솔리다임이 최대 1500억달러(약 210조원) 기업가치로 미국 IPO를 검토 중이며 최대 150억달러 조달을 추진 중이라고 보도했다. 솔리다임은 주관사 선정을 위한 투자은행 대상 피칭('bake-off')을 진행한 것으로 전해졌으며, 기존 9월 초 거론되던 목표 기업가치(약 50조원)보다 큰 폭 상향된 수치다. SK하이닉스는 10월 1~2일 공식입장에서 \"구체적으로 결정된 사항이 없다\"는 기존 입장을 재확인했다.",
           "sources": [
             {
-              "url": "https://www.newsfreezone.co.kr/news/articleView.html?idxno=711907",
-              "outlet": "뉴스프리존",
+              "url": "https://www.investing.com/news/stock-market-news/exclusivesk-hynixs-solidigm-weighs-ipo-that-could-value-theunit-at-up-to-150-billion-sources-say-4917883",
+              "outlet": "Investing.com (Reuters)",
+              "date": "2026-09-25",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.upi.com/Top_News/World-News/2026/09/27/sk-hynix-solidigm-ipo-semiconductor/2091790550790/",
+              "outlet": "UPI",
+              "date": "2026-09-27",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.digitimes.com/news/a20261002VL203/sk-hynix-solidigm-investment-ipo-demand.html",
+              "outlet": "DigiTimes",
               "date": "2026-10-02",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://m.inews24.com/v/2010882",
-              "outlet": "아이뉴스24",
-              "date": "2026-10-01",
-              "tier": "S2",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.todaykorea.co.kr/news/articleView.html?idxno=406728",
-              "outlet": "투데이코리아",
+              "url": "https://www.koreatimes.co.kr/business/companies/20261001/sk-hynix-reiterates-no-decision-on-solidigms-us-ipo",
+              "outlet": "Korea Times",
               "date": "2026-10-01",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-10-02",
+          "last_seen": "2026-10-05",
           "first_seen": "2026-10-02",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         }
       }

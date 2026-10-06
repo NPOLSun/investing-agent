@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-10-05"
+    "last_run": "2026-10-07"
   },
   "themes": {
     "ai-dc-power": {
@@ -3338,7 +3338,7 @@
       }
     },
     "optical-interconnect": {
-      "last_checked": "2026-10-02",
+      "last_checked": "2026-10-06",
       "observations": {
         "NVIDIA CPO 스위치 상태": [
           {
@@ -3535,11 +3535,6 @@
         ],
         "Corning 장기계약 누적": [
           {
-            "date": "2026-08-28",
-            "last_seen": "2026-08-28",
-            "value": "변동 없음 — Meta 최대$6B + Amazon 복수B$ + Zayo(2026-08-20) 유지, 8/26 이후 신규 계약 없음"
-          },
-          {
             "date": "2026-08-31",
             "last_seen": "2026-08-31",
             "value": "변동 없음 — Meta 최대$6B + Amazon 복수B$ + Zayo(2026-08-20, 15,000 route mile) 유지, 신규 계약 확인 안됨"
@@ -3593,6 +3588,11 @@
             "date": "2026-10-05",
             "last_seen": "2026-10-05",
             "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) + Verizon(9/8) + AT&T $3B+(9/29) 유지, 10/2 이후 신규 계약 없음"
+          },
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) + Verizon(9/8) + AT&T $3B+(9/29) 유지, 10/5 이후 신규 계약 없음"
           }
         ],
         "ASMPT 포토닉스 매출 성장": [
@@ -4052,6 +4052,11 @@
             "date": "2026-09-25",
             "last_seen": "2026-09-25",
             "value": "변동 없음 — 볼륨 생산 지속, 9/23 이후 신규 발표 없음"
+          },
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "변동 없음 — 볼륨 생산 지속, 신규 발표 없음"
           }
         ],
         "TSMC COUPE 양산목표": [
@@ -4074,6 +4079,11 @@
             "date": "2026-09-28",
             "last_seen": "2026-09-28",
             "value": "변동 없음 — 2026 하반기 양산목표 유지, COUPE 플랫폼이 '실리콘포토닉스 엔진'에서 '액티브 포토닉스 통합 플랫폼'으로 진화 중이라는 분석 확인(신규 발표 아님)"
+          },
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "변동 없음 — 2026 하반기 양산목표 유지, SiPhIA(150개사+ 참여) 산업연합이 웨이퍼레벨테스트·광패키징 병목 공동대응 중이라는 배경 설명만 재확인(신규 발표 아님)"
           }
         ],
         "OCP CPO 표준화(Lightmatter)": [
@@ -4111,6 +4121,11 @@
             "date": "2026-10-05",
             "last_seen": "2026-10-05",
             "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지. Lumentum이 10/1 2026 OCP Global Summit(10/12~15, 산호세) 발표자 라인업 공개(외부광원/VCSEL/광서킷스위칭 주제), 단 정식 표준 발표는 아직 없음"
+          },
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지, OCP Global Summit(10/12~15, 산호세) 매진 상태로 개최 대기 중"
           }
         ],
         "성호전자/서룡전자 주식담보대출 잔액": [
@@ -4405,6 +4420,11 @@
             "date": "2026-09-25",
             "last_seen": "2026-09-25",
             "value": "변동 없음 — 완전양산 지속, 가을(9~11월) 본격 출하 예정 유지, 9/23 이후 신규 발표 없음"
+          },
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "변동 없음 — 완전양산 지속, 가을(9~11월) 본격 출하 예정 유지, 10/5 이후 신규 발표 없음"
           }
         ],
         "GF SiGe 광링크 지원 규격": [
@@ -4605,6 +4625,11 @@
             "date": "2026-10-05",
             "last_seen": "2026-10-05",
             "value": "변동 없음(추정) — 1,650억원(8/31 기준) 수준, 10/5까지 신규 담보·상환 공시 미확인"
+          },
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "변동 없음(추정) — 1,650억원(8/31 기준) 수준, 10/6까지 신규 담보·상환 공시 미확인"
           }
         ],
         "성호전자 어매이징홀딩스 흡수합병": [
@@ -4729,6 +4754,34 @@
             "date": "2026-10-05",
             "last_seen": "2026-10-05",
             "value": "변동 없음 — 8/31 공시된 기존 수주 건이 9월 주가 랠리(71%, 9/1~10/1) 배경으로 재인용되고 있을 뿐, 10월 신규 수주 확인 안됨"
+          }
+        ],
+        "Marvell Investor Day": [
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "신규 — 2026-10-06(미국 동부시간 오전 9시) 뉴욕 개최 예정, 발표 시점이 본 체크 시점과 겹쳐 결과 아직 미확인"
+          }
+        ],
+        "Qualcomm-Huawei 광특허 크로스라이선스": [
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "신규(2026-10-05) — NPO/CPO 포함 다년 특허 상호라이선스, 미국 규제승인 대기 중"
+          }
+        ],
+        "접근 특허 건수": [
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "680건+"
+          }
+        ],
+        "화웨이 라이선싱 포트폴리오 누적가치": [
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "→ $6.9B+ (거래 반영시)"
           }
         ]
       },
@@ -5214,27 +5267,43 @@
           "thesis_review": false
         },
         "W3|광 i/o 표준화 동향 및 주요 벤더 로드맵 변경": {
-          "headline": "CPO 표준화 4트랙 난립",
+          "headline": "퀄컴-화웨이 광특허 상호라이선스",
           "shift": "광 I/O 표준화 동향 및 주요 벤더 로드맵 변경",
           "refs": [
             "W3"
           ],
-          "direction": "중립",
+          "direction": "불명",
           "affects": [],
-          "summary": "업계 분석지 HyperFRAME Research(9/8, 미검증)에 따르면 OCP 실리콘포토닉스 워크스트림(Lightmatter 주도)에 더해 Open CPX MSA(소켓형 6.4T 광엔진), XPO MSA(액침냉각 12.8T 모듈), OCP 광트랜시버 신뢰성 워크스트림(Credo·Oracle 공동의장) 등 4개의 표준화 트랙이 동시에 진행되고 있으며, 정식 표준 확정 전 상호운용성 비용을 누가 부담할지가 쟁점으로 제기됐다. 8/13 발표된 OCP 실리콘포토닉스 청사진(2026 Q4 초안 목표) 외에 병행 트랙이 다수 존재한다는 점이 새로 구체화됐다.",
+          "summary": "퀄컴과 화웨이가 2026-10-05 선전에서 5G·컴퓨트·AI·네트워킹에 더해 NPO/CPO(near-/co-packaged optics)까지 포괄하는 다년 특허 상호라이선스 계약을 공식 발표했다. 퀄컴은 화웨이의 LogicFolding 칩 아키텍처 등 680건 이상의 특허에 접근권을 얻는 대신 25년 라이선싱 관계상 처음으로 순지급자가 되며, 일부 미국 특허는 별도 매입한다. 거래는 미국 등 규제당국 승인을 조건으로 한다.",
           "sources": [
             {
-              "url": "https://hyperframeresearch.com/2026/09/08/who-pays-for-interoperability-before-the-standard-actually-arrives/",
-              "outlet": "hyperframeresearch.com",
-              "date": "2026-09-08",
-              "tier": "S3",
+              "url": "https://www.huawei.com/en/news/2026/10/qualcomm-broad-patent-agreement",
+              "outlet": "huawei.com",
+              "date": "2026-10-05",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://theedgemalaysia.com/node/820574",
+              "outlet": "theedgemalaysia.com (Bloomberg)",
+              "date": "2026-10-05",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://ipfray.com/huawei-qualcomm-sign-broad-multi-year-cross-patent-licensing-agreement/",
+              "outlet": "ipfray.com",
+              "date": "2026-10-05",
+              "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-11",
+          "last_seen": "2026-10-06",
           "first_seen": "2026-09-11",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W1,W3|광 i/o 표준화 동향 및 주요 벤더 로드맵 변경": {
@@ -5477,7 +5546,7 @@
       }
     },
     "memory-storage": {
-      "last_checked": "2026-10-05",
+      "last_checked": "2026-10-07",
       "observations": {
         "파두 컨트롤러 매출 비중": [
           {
@@ -5621,11 +5690,6 @@
         ],
         "예스티-HPSP 서울중앙지법 본안소송": [
           {
-            "date": "2026-09-04",
-            "last_seen": "2026-09-04",
-            "value": "2026-08-13 변론 이후 추가 진행상황 미확인(변화없음 지속)"
-          },
-          {
             "date": "2026-09-07",
             "last_seen": "2026-09-07",
             "value": "8/13 변론 이후 추가 진행상황 미확인(변화없음 지속, 9/7 재확인)"
@@ -5679,6 +5743,11 @@
             "date": "2026-10-05",
             "last_seen": "2026-10-05",
             "value": "8/13 변론 이후 10/5 기준 추가 진행상황 미확인(변화없음 지속)"
+          },
+          {
+            "date": "2026-10-07",
+            "last_seen": "2026-10-07",
+            "value": "8/13 변론 이후 10/7 기준 추가 진행상황 미확인(변화없음 지속)"
           }
         ],
         "Gen6 성능": [
@@ -6292,6 +6361,11 @@
             "date": "2026-10-05",
             "last_seen": "2026-10-05",
             "value": "8/12 공시(395.83억원) 이후 10/5 기준 추가 신규계약 공시 미확인(변화없음 지속)"
+          },
+          {
+            "date": "2026-10-07",
+            "last_seen": "2026-10-07",
+            "value": "8/12 공시(395.83억원) 이후 10/7 기준 추가 신규계약 공시 미확인(변화없음 지속)"
           }
         ],
         "SK하이닉스 1c D램 비중": [
@@ -6880,7 +6954,7 @@
           },
           {
             "date": "2026-10-05",
-            "last_seen": "2026-10-05",
+            "last_seen": "2026-10-07",
             "value": "2026 Q4 샘플링 예정(변화없음 지속), 탑재 드라이브 시장출시는 2027말~2028 전망"
           }
         ],
@@ -7034,6 +7108,11 @@
             "date": "2026-10-05",
             "last_seen": "2026-10-05",
             "value": "4.50~4.90달러 제시(HBM3E 대비 3배+), 10월 중 최종 타결 목표"
+          },
+          {
+            "date": "2026-10-07",
+            "last_seen": "2026-10-07",
+            "value": "4.50~4.90달러 제시(HBM3E 대비 3배+), 10월 중 최종 타결 목표(변화없음 지속, 10/7 기준 미확정)"
           }
         ],
         "영업이익(YoY, 컨센서스)": [
@@ -7069,6 +7148,34 @@
             "date": "2026-10-05",
             "last_seen": "2026-10-05",
             "value": "3배 이상"
+          }
+        ],
+        "Marvell FY2031 매출 목표": [
+          {
+            "date": "2026-10-07",
+            "last_seen": "2026-10-07",
+            "value": "700억~900억달러 신규 제시(2026-10-06 투자자의 날), 2030년까지 데이터센터向 TAM 4000억달러 전망 — 커스텀실리콘·XPU어태치 중심이며 SSD컨트롤러 사업 세부 가이던스는 확인되지 않음"
+          }
+        ],
+        "AMD-삼성 HBM4 협력": [
+          {
+            "date": "2026-10-07",
+            "last_seen": "2026-10-07",
+            "value": "리사 수 AMD CEO 10/7 방한(게이머데이 참석), 3월 체결한 HBM4·DDR5 MOU 후속 논의 예상되나 10/7 기준 신규 계약 체결 미확인"
+          }
+        ],
+        "글로벌 eSSD 리드타임": [
+          {
+            "date": "2026-10-07",
+            "last_seen": "2026-10-07",
+            "value": "16주(8주 균형 기준 대비 2배, 9/22 재확인, 변화없음 지속)"
+          }
+        ],
+        "글로벌 eSSD 시장 규모": [
+          {
+            "date": "2026-10-07",
+            "last_seen": "2026-10-07",
+            "value": "509EB(2026) → 1933EB(2030 전망)"
           }
         ]
       },
@@ -7256,7 +7363,7 @@
           "thesis_review": false
         },
         "W4|컨트롤러 내재화 vs 외부 조달 흐름": {
-          "headline": "ScaleFlux Gen6 컨트롤러 신규 진입",
+          "headline": "SK하이닉스 컨트롤러 칩렛화 추진",
           "shift": "컨트롤러 내재화 vs 외부 조달 흐름",
           "refs": [
             "W4"
@@ -7265,26 +7372,20 @@
           "affects": [
             "ssd-controller"
           ],
-          "summary": "미국 팹리스 ScaleFlux가 FMS 2026에서 PCIe Gen6 SSD 컨트롤러 'FC6116'과 CXL 메모리 컨트롤러 'MC600'을 공개했다. FC6116은 순차읽기 28GB/s, 최대 256TB 용량을 지원하며 2026년 4분기 주요 고객向 샘플링을 시작한다고 밝혀, 마벨 SC6(2026 Q4 샘플링)와 유사한 시점에 경쟁 제품이 추가로 등장했다.",
+          "summary": "SK하이닉스가 2026-09-29 간담회에서 PCIe 6세대·7세대 eSSD부터 단일 컨트롤러를 기능별 칩렛으로 나누고 UCIe로 연결하는 구조를 준비 중이라고 밝혔다. 개발기간 단축, 기능별 업그레이드, 전력 최적화를 목적으로 하며, 글로벌 eSSD 시장이 2026년 509EB에서 2030년 1933EB로 약 3.8배 성장할 것이라는 전망을 근거로 범용 낸드에서 고부가 eSSD로 전환을 가속하겠다는 전략의 일환이다.",
           "sources": [
             {
-              "url": "https://www.prnewswire.com/news-releases/scaleflux-unveils-pcie-gen6-ssd-and-cxl-memory-controllers-302835567.html",
-              "outlet": "PR Newswire (ScaleFlux)",
-              "date": "2026-07-31",
-              "tier": "S1",
-              "note": ""
-            },
-            {
-              "url": "https://www.storagenewsletter.com/2026/07/31/fms-2026-scaleflux-unveils-pcie-gen6-ssd-and-cxl-memory-controllers/",
-              "outlet": "StorageNewsletter",
-              "date": "2026-07-31",
+              "url": "https://www.newspim.com/news/view/20260929000442",
+              "outlet": "Newspim",
+              "date": "2026-09-29",
               "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
             }
           ],
-          "last_seen": "2026-08-26",
+          "last_seen": "2026-10-07",
           "first_seen": "2026-08-20",
-          "count": 2,
+          "count": 3,
           "thesis_review": false
         },
         "W2|hpa 특허 리스크 최종 해소(관련 상업 계약 동향)": {
@@ -8128,7 +8229,7 @@
       }
     },
     "nuclear-smr": {
-      "last_checked": "2026-09-29",
+      "last_checked": "2026-10-06",
       "observations": {
         "ADVANCE Act 이행률": [
           {
@@ -8180,6 +8281,11 @@
             "date": "2026-09-29",
             "last_seen": "2026-09-29",
             "value": "33/36 마일스톤(92%, 2026-08-20 기준) — 9/29까지 추가 변동 확인 안됨"
+          },
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "33/36 마일스톤(92%, 2026-08-20 기준) — 10/6까지 추가 변동 확인 안됨"
           }
         ],
         "하이퍼스케일러 원자력 누적계약": [
@@ -8222,6 +8328,11 @@
             "date": "2026-09-29",
             "last_seen": "2026-09-29",
             "value": "약 9.8~10GW, 13개+ 프로젝트 — 9/29까지 신규 대형계약 확인 안됨"
+          },
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "약 9.8~10GW, 13개+ 프로젝트 — 10/6까지 신규 대형계약 확인 안됨"
           }
         ],
         "Centrus 주가(LEU)": [
@@ -8834,6 +8945,11 @@
             "date": "2026-09-29",
             "last_seen": "2026-09-29",
             "value": "한국요구 15%+의결권 vs 미국제시 5~10% — 9/27까지 타결 안됨"
+          },
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "한국요구 15%+의결권 vs 미국제시 5~10%(9/21) → 5~10% 코너스톤 지분으로 수렴, 세부조건(이사회 의석 등) 미정 — 10/4 기준 최종 비율 미타결 보도 지속"
           }
         ],
         "1호 사업(엔시날 가스발전) 규모": [
@@ -8876,6 +8992,11 @@
             "date": "2026-09-29",
             "last_seen": "2026-09-29",
             "value": "1,200억달러(AP1000 6기+APR1400 2기) — 가스발전(1호, 223억달러)은 9/22 국회보고로 확정, 원전은 9/27 기준 부지·계약시점·금융조건 미확정 지속"
+          },
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "프레임워크 공식서명(2026-09-30/10-01), $1,200억(AP1000 6기+APR1400 2기), 부지 미정(OH/TN/KY/SC 등 거론), 연내 $100억 선지급 합의 — 세부조건(부지·개별계약)은 추후 확정"
           }
         ],
         "TerraPower Kemmerer EPC": [
@@ -8883,6 +9004,11 @@
             "date": "2026-09-29",
             "last_seen": "2026-09-29",
             "value": "벡텔 이탈(WARN 통지 9/15, 보도 9/22~23) → 재입찰 예정, 완공목표 2030년 유지(테라파워 발표)"
+          },
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "벡텔 이탈(9/22~23 보도) 후 재입찰 진행 중 — 10/6까지 신규 EPC 선정 발표 확인 안됨, 완공목표 2030년 유지"
           }
         ],
         "Centrus HALEU 신규고객": [
@@ -8890,6 +9016,11 @@
             "date": "2026-09-29",
             "last_seen": "2026-09-29",
             "value": "Radiant(9/9), Antares(9/17) — 9/29까지 추가 신규고객 확인 안됨, Antares 계약금액은 비공개로 재확인"
+          },
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "Radiant(9/9), Antares(9/17) — 10/6까지 추가 신규고객 확인 안됨"
           }
         ],
         "Kairos-Samsung C&T EPC 투자": [
@@ -8932,6 +9063,34 @@
             "date": "2026-09-29",
             "last_seen": "2026-09-29",
             "value": "최대 1억달러"
+          }
+        ],
+        "한미 원전 패키지 상태": [
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "미확정 지속(9/27) → 프레임워크 공식서명(10/1)"
+          }
+        ],
+        "투자 규모": [
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "1,200억달러(건설비 1,000억+예비비 200억)"
+          }
+        ],
+        "연내 선지급액": [
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "100억달러"
+          }
+        ],
+        "웨스팅하우스 지분": [
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "한국요구 15%+의결권 vs 미국제시 5~10%(9/21) → 5~10% 코너스톤 투자로 수렴(세부조건 미정)"
           }
         ]
       },
@@ -9027,45 +9186,53 @@
           "thesis_review": false
         },
         "W5|대형원전 신규 발주 흐름 (미국·유럽·아시아)": {
-          "headline": "가스발전만 확정, 원전 패키지 지연",
+          "headline": "한미 원전 프레임워크 공식서명",
           "shift": "대형원전 신규 발주 흐름 (미국·유럽·아시아)",
           "refs": [
             "W5"
           ],
-          "direction": "중립",
+          "direction": "순풍",
           "affects": [
             "power-generation"
           ],
-          "summary": "산업통상부가 2026-09-22 국회에 대미 전략투자 1호로 텍사스 엔시날 가스복합화력(223억달러, 6.3GW)을 공식 보고했으나, 원전 8기($1,200억, AP1000 6기+APR1400 2기) 패키지는 부지·계약시점·기당 금융 조건이 여전히 미확정 상태로 2026-09-27 시점까지 추가 지연됐다. 웨스팅하우스 지분 협상(한국 15%+의결권 vs 미국 5~10%)도 타결되지 않았다.",
+          "summary": "9/27까지 '부지·계약시점·금융조건 미확정'으로 지연되던 한미 원전 패키지가 2026-09-30(미국시간)/10-01 백악관에서 '원자력 발전 배치 프레임워크'로 공식 서명됐다. 최대 1,200억달러(건설비 1,000억+예비비 200억) 규모로 웨스팅하우스 AP1000 6기와 한국형 APR1400 2기(총 8기, 연방부지 페어 배치)를 미국에 짓기로 했으며, 연내 100억달러를 장납기 기자재 선구매용으로 우선 송금하기로 합의했다. 다만 구체 부지(오하이오·테네시·켄터키·사우스캐롤라이나 등 거론)와 한국측 웨스팅하우스 지분(코너스톤 투자 5~10%, 이사회 참여 조건)은 '추후 세부협상'으로 남아 완전 타결은 아니다.",
           "sources": [
             {
-              "url": "https://www.upi.com/Top_News/World-News/2026/09/27/apr1400-ap1000-united-states-nuclear-power/7301790551653/",
-              "outlet": "UPI",
-              "date": "2026-09-27",
+              "url": "https://www.commerce.gov/news/press-releases/2026/09/korea-and-united-states-announce-historic-strategic-investment-projects",
+              "outlet": "commerce.gov",
+              "date": "2026-09-30",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
+              "outlet": "westinghousenuclear.com (IR/뉴스룸)",
+              "date": "2026-09-30",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.world-nuclear-news.org/articles/usa-south-korea-targeting-six-ap1000-two-apr1400-units",
+              "outlet": "World Nuclear News",
+              "date": "2026-10-01",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.ans.org/news/article-8419/south-korea-invests-in-us-gas-project-nuclear-delayed/",
-              "outlet": "ANS Nuclear Newswire",
-              "date": "2026-09-23",
-              "tier": "S2",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.koreajoongangdaily.com/business/inside-the-koreaus-200-billion-investment-package-tugofwar/12878370",
-              "outlet": "Korea JoongAng Daily",
-              "date": "2026-09",
+              "url": "https://www.asiae.co.kr/en/article/economic-general/2026100107024765139",
+              "outlet": "The Asia Business Daily",
+              "date": "2026-10-01",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-29",
+          "last_seen": "2026-10-06",
           "first_seen": "2026-08-18",
-          "count": 7,
+          "count": 8,
           "thesis_review": false
         },
         "W4|haleu 공급 능력 확충 속도 및 신규 진입자": {
@@ -9230,7 +9397,7 @@
       }
     },
     "grid-storage": {
-      "last_checked": "2026-10-02",
+      "last_checked": "2026-10-06",
       "observations": {
         "삼아알미늄_가동률": [
           {
@@ -9884,6 +10051,11 @@
             "date": "2026-10-02",
             "last_seen": "2026-10-02",
             "value": "9/28 기준과 동일하게 10/2 기준도 미확정(변동없음, 8/31 보도 이후 추가 공시 없음)"
+          },
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "10/6 기준 아직 미확정(8/31 보도 이후 변동 없음)"
           }
         ],
         "CATL 587Ah 셀 직판가": [
@@ -9931,6 +10103,11 @@
             "date": "2026-10-02",
             "last_seen": "2026-10-02",
             "value": "0.423위안/Wh — 2026-09-09 기준 이후 변동 없음(10/2 재확인)"
+          },
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "0.423위안/Wh — 9/9 기준 이후 변동 없음(10/6 재확인)"
           }
         ],
         "1·2차 대비": [
@@ -9994,6 +10171,53 @@
             "date": "2026-10-02",
             "last_seen": "2026-10-02",
             "value": "1,128MW"
+          }
+        ],
+        "3차 ESS 입찰 사업비 규모": [
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "약 1조원(추정, 9/14 기준) → 약 2조원(공식 확정, 9/22 공고/10/1 재확인)"
+          },
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "약 1조원(추정) → 약 2조원(공식 확정)"
+          }
+        ],
+        "3차 ESS 장수명계약 인센티브": [
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "15년 → 최대 25년(신설)"
+          }
+        ],
+        "3차 ESS 입찰 일정": [
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "사업자등록 9/28~10/2 → 제안서접수 10/6~11/4 → 낙찰자선정 11월중"
+          }
+        ],
+        "삼성SDI 美 LFP 양산": [
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "10월 셀양산 개시 예정(7/30 컨콜 내용 유지, 실제 개시 공식발표는 10/6 기준 아직 없음)"
+          }
+        ],
+        "SK온 네오볼타 추가 9GWh 계약": [
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "10/6 기준 신규 확정 소식 없음(8/27 체결건 논의만 지속)"
+          }
+        ],
+        "최장 전력거래소 계약기간": [
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "15년 → 최대 25년(장수명·고빈도 충방전 ESS 신설 인센티브)"
           }
         ]
       },
@@ -10228,7 +10452,7 @@
           "thesis_review": false
         },
         "W2,W3|계통 안정화용 대형 ess 발주 규모 / lfp·ess 전용 셀 라인 증설과 ev 라인 전환": {
-          "headline": "3차ESS 입찰 셀3사 경쟁전략 구체화",
+          "headline": "3차 ESS 입찰 2조원 확정",
           "shift": "계통 안정화용 대형 ESS 발주 규모 / LFP·ESS 전용 셀 라인 증설과 EV 라인 전환",
           "refs": [
             "W2",
@@ -10238,8 +10462,16 @@
           "affects": [
             "ess-foil"
           ],
-          "summary": "새로 확인된 것: 1,180MW(7.08GWh) 규모 3차 ESS 중앙계약시장 입찰사업자 등록이 9/28~10/2 진행되고 9/30 설명회가 열리면서 배터리 3사의 구체적 참전 전략이 드러났다. 1·2차 누적점유율 19%에 그친 LG에너지솔루션은 K-LFP 국산화 공급망, 에어로겔 기반 열전파 차단 기술, 美 자회사 버테크의 AI 기반 BMS를 앞세워 반격을 준비 중이고, 삼성SDI는 입찰에 NCA·LFP 중 어떤 셀로 참여할지 아직 저울질 중이다. 3사 모두 LFP 소재 국산화 수준이 유사해질 것으로 예상되는 가운데 업계는 가격 경쟁력을 승부처로 지목한다.",
+          "summary": "기후에너지환경부·전력거래소가 9/22 공식 공고한 3차 ESS 중앙계약시장 규모가 사업비 기준 약 2조원(1,180MW, 육지 1,048MW+제주 148MW, 7.08GWh)으로 확인됐다 — 이전까지 추정치였던 '약 1조원'의 두 배 수준이며 1·2차 합산(1,128MW) 대비도 두 배 이상으로 역대 최대다. 아울러 하루 2회 충·방전이 가능한 장수명 ESS에는 기존 15년이던 전력거래소 계약기간을 최대 25년까지 연장해주는 인센티브가 신설됐다. 입찰접수는 10/6~11/4(사업자등록은 9/28~10/2 완료), 낙찰자 선정은 11월 중이다.",
           "sources": [
+            {
+              "url": "https://www.fnnews.com/news/202609221512246555",
+              "outlet": "파이낸셜뉴스(기후에너지환경부 공고 인용)",
+              "date": "2026-09-22",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
             {
               "url": "https://www.fntimes.com/html/view.php?ud=2026100115404837007492587736_18",
               "outlet": "한국금융신문",
@@ -10249,25 +10481,25 @@
               "from_feed": false
             },
             {
-              "url": "https://biz.newdaily.co.kr/site/data/html/2026/09/29/2026092900115.html",
-              "outlet": "뉴데일리경제",
+              "url": "https://www.kmib.co.kr/article/view.asp?arcid=9000017033&code=11151400&sid1=eco&stg=ws_real",
+              "outlet": "국민일보",
               "date": "2026-09-29",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "http://www.e2news.com/news/articleView.html?idxno=334545",
-              "outlet": "이투뉴스",
+              "url": "https://www.jodaleconomy.com/news/articleView.html?idxno=3260",
+              "outlet": "조달경제신문",
               "date": "2026-09-29",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-10-02",
+          "last_seen": "2026-10-06",
           "first_seen": "2026-09-01",
-          "count": 4,
+          "count": 5,
           "thesis_review": false
         },
         "W3|lfp·ess 전용 셀 라인 증설과 ev 라인 전환": {
@@ -10425,11 +10657,43 @@
           "first_seen": "2026-10-02",
           "count": 1,
           "thesis_review": false
+        },
+        "W2|계통 안정화용 대형 ess 발주 규모 (미국 정책 변수)": {
+          "headline": "블루웨이브시 ESS투자확대 전망",
+          "shift": "계통 안정화용 대형 ESS 발주 규모 (미국 정책 변수)",
+          "refs": [
+            "W2"
+          ],
+          "direction": "불명",
+          "affects": [],
+          "summary": "삼성증권이 11월 미국 중간선거에서 민주당이 상·하원을 모두 장악하는 '블루 웨이브' 시나리오가 현실화할 경우 신재생·유틸리티 업종의 반등이 가장 강할 것으로 전망하는 리포트를 냈다. 애널리스트 박혜란·장정훈은 공화당 주도로 축소된 재생에너지 보조금·투자세액공제가 일부 복원되고, 노후 전력망·송전망 업그레이드와 연계된 ESS 보급 확대 기조는 유지될 것으로 내다봤다. 다만 전기차 소비 장려 법제화 가능성은 낮다고 선을 그었다.",
+          "sources": [
+            {
+              "url": "https://www.hankyung.com/article/2026100299796",
+              "outlet": "한국경제",
+              "date": "2026-10-04",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://en.bloomingbit.io/feed/news/121553",
+              "outlet": "Bloomingbit",
+              "date": "2026-10",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-06",
+          "first_seen": "2026-10-06",
+          "count": 1,
+          "thesis_review": false
         }
       }
     },
     "dc-thermal": {
-      "last_checked": "2026-09-29",
+      "last_checked": "2026-10-06",
       "observations": {
         "NVL72 랙 전력": [
           {
@@ -10766,6 +11030,11 @@
             "date": "2026-09-09",
             "last_seen": "2026-09-09",
             "value": "2026-07 SemiAnalysis 보도(PCB 미드플레인 결함, 2028년 지연) 이후 9월 현재까지 NVIDIA의 추가 공식 반박이나 결착 없음 — 미해소 상태 지속 (신규 갱신 없음)"
+          },
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "2026-07 SemiAnalysis 보도 이후 신규 갱신 없음, 미해소 지속"
           }
         ],
         "LITEON의 DCX 투자 규모": [
@@ -10841,6 +11110,16 @@
             "date": "2026-09-22",
             "last_seen": "2026-09-22",
             "value": "10%에 가까운 수준 → 20% 이상"
+          },
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "20% 이상 → 30% 이상 (2026-09-30 2차 상향, 2026-10-20 실적발표 예정)"
+          },
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "20% 이상 → 30% 이상 (2026-09-30 2차 상향)"
           }
         ],
         "Vicor VPD 라이선스 계약": [
@@ -10918,6 +11197,11 @@
             "date": "2026-09-29",
             "last_seen": "2026-09-29",
             "value": "2026-10-12~15 예정 (미개최, 신규 표준 확정 발표 없음)"
+          },
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "2026-10-12~15 예정 (미개최 지속, 22개 트랙 사전공개 — 냉각·고전압DC 포함, 신규 표준 확정 발표는 아직 없음)"
           }
         ],
         "Kyber(Rubin Ultra NVL576) 지연 상태": [
@@ -10939,6 +11223,13 @@
             "date": "2026-09-29",
             "last_seen": "2026-09-29",
             "value": "없음 (검색된 2778억원 텍사스 계약 건은 2025-09-22자 1년 전 기사로 확인되어 금번 관측 기간 밖)"
+          }
+        ],
+        "효성중공업·HD현대일렉트릭 9/22~10/6 신규 수주 공시": [
+          {
+            "date": "2026-10-06",
+            "last_seen": "2026-10-06",
+            "value": "없음 (기존 효성 9조3000억원 누적/HD현대 85억달러 수주잔고 대비 갱신 없음)"
           }
         ]
       },
@@ -11004,7 +11295,7 @@
           "thesis_review": false
         },
         "W2|랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지 (point-of-load 벤더 실적으로 확인)": {
-          "headline": "Vicor VPD 특허 라이선싱 개시",
+          "headline": "Vicor 3Q 가이던스 2차 상향",
           "shift": "랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지 (point-of-load 벤더 실적으로 확인)",
           "refs": [
             "W2"
@@ -11013,36 +11304,36 @@
           "affects": [
             "point-of-load"
           ],
-          "summary": "Vicor가 2026-09-16 자사 Vertical Power Delivery(VPD) 특허에 대해 선도 AI OEM에 비독점 라이선스를 부여했다고 발표했고, 이어 09-21에는 이 라이선스 로열티 수익을 반영해 3분기 매출 가이던스(전분기 대비 성장률)를 기존 '10%에 가까운 수준'에서 '20% 이상'으로 상향했다. CEO는 OEM·하이퍼스케일러 4개사가 이미 라이선스를 확보했으며, 일부 하이퍼스케일러는 미라이선스 VPD 탑재 시스템의 수입금지 리스크 인지 후 라이선스 계약에 나섰다고 밝혔다.",
+          "summary": "Vicor가 2026-09-30 발표를 통해 VPD(Vertical Power Delivery) 라이선스 로열티 반영 3분기 매출 가이던스(전분기 대비 성장률)를 기존 '20% 이상'에서 '30% 이상'으로 재차 상향했다. 이는 9/16 체결된 선도 AI OEM 대상 비독점 VPD 라이선스 계약의 로열티 수익이 9/21 1차 상향(10%→20%) 시점의 예상보다 더 커졌음을 의미하며, 발표 직후 주가가 10%대 급등했다. 실제 3분기 실적 발표는 2026-10-20로 예정되어 아직 확정 수치는 아니다.",
           "sources": [
             {
-              "url": "https://www.globenewswire.com/news-release/2026/09/16/3363526/0/en/vicor-licenses-vpd-to-a-leading-ai-oem.html",
+              "url": "https://www.globenewswire.com/news-release/2026/09/30/3372361/0/en/vicor-corporation-raises-q3-2026-revenue-guidance.html",
               "outlet": "GlobeNewswire (Vicor)",
-              "date": "2026-09-16",
+              "date": "2026-09-30",
               "tier": "S1",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.globenewswire.com/news-release/2026/09/21/3365846/0/en/vicor-corporation-raises-q3-2026-revenue-guidance.html",
-              "outlet": "GlobeNewswire (Vicor)",
-              "date": "2026-09-21",
+              "url": "https://www.sec.gov/Archives/edgar/data/0000751978/000119312526309538/d115827dex991.htm",
+              "outlet": "SEC 8-K (Vicor)",
+              "date": "2026-09-30",
               "tier": "S1",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.stocktitan.net/news/VICR/vicor-corporation-raises-q3-2026-revenue-yk2virh0imov.html",
-              "outlet": "StockTitan",
-              "date": "2026-09-21",
+              "url": "https://www.gurufocus.com/news/9105119/vicor-corporation-vicr-shares-surge-10-on-upgraded-q3-growth-forecast",
+              "outlet": "GuruFocus",
+              "date": "2026-10-01",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-22",
+          "last_seen": "2026-10-06",
           "first_seen": "2026-08-19",
-          "count": 4,
+          "count": 5,
           "thesis_review": false
         },
         "W2|랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지 (변압기 벤더 실적으로 확인)": {

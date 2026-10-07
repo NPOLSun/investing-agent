@@ -1,11 +1,11 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-10-07"
+    "last_run": "2026-10-08"
   },
   "themes": {
     "ai-dc-power": {
-      "last_checked": "2026-10-05",
+      "last_checked": "2026-10-08",
       "observations": {
         "OCP LVDC SST 스펙": [
           {
@@ -1729,6 +1729,11 @@
             "date": "2026-10-05",
             "last_seen": "2026-10-05",
             "value": "9/15(효성 3865억원) 이후 10/5까지 추가 신규 공시 확인 안됨(변동없음)"
+          },
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "9/15(효성 3866억원) 이후 10/8까지 추가 신규 공시 확인 안됨(변동없음)"
           }
         ],
         "MVSST 시스템 효율": [
@@ -1908,6 +1913,11 @@
             "date": "2026-10-05",
             "last_seen": "2026-10-05",
             "value": "10/5 현재도 미발표, 발효목표 10/12 임박(변동없음)"
+          },
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "10/8 현재도 미발표, 발효목표 10/12 임박(변동없음)"
           }
         ],
         "xAI 콜로서스 소송": [
@@ -1993,6 +2003,11 @@
             "date": "2026-10-05",
             "last_seen": "2026-10-05",
             "value": "10/12~15 산호세 개최 예정, 800VDC 세부세션(아키텍처 정렬·성능요구사항·보호설계) 일정 공개(아직 미개최)"
+          },
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "10/12~15 산호세 개최 확정, 800VDC 세부세션('Grid-to-rack power architectures for MW-scale compute') 10/14 일정 확정(아직 미개최)"
           }
         ],
         "시행 시점": [
@@ -2035,6 +2050,11 @@
             "date": "2026-10-05",
             "last_seen": "2026-10-05",
             "value": "2026-10-06 예정(3차 독회, 최종표결, 결과 미확정)"
+          },
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "10/6 몸싸움·시위로 회의 중단 → 10/20 재연기(7:5 가결)"
           }
         ],
         "Lone Star Infrastructure Coalition": [
@@ -2063,6 +2083,76 @@
             "date": "2026-10-05",
             "last_seen": "2026-10-05",
             "value": "2만주, 약 578만달러"
+          }
+        ],
+        "2026년 美 DC 프로젝트 취소 누적(Heatmap Pro)": [
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "2600억달러+(3분기 단독 1300억달러, 역대최대)"
+          }
+        ],
+        "신규 지자체 모라토리엄": [
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "샌프란시스코·오클랜드(45일), 롤리(6개월, 7:1 가결) 신규 가결(10/6~10/7)"
+          }
+        ],
+        "Vicor 3분기 실적발표일": [
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "2026-10-20(어닝콜 예정 확정)"
+          }
+        ],
+        "xAI 콜로서스 예비금지명령(환경소송)": [
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "10/8 현재도 지방법원 판결 미확정(변동없음, 별개로 미네소타 nudification법 관련 가처분은 8巡회서 10/2 xAI 승소— 본 테마 W4 사안과 무관)"
+          }
+        ],
+        "2026년 누적 취소 규모": [
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "2600억달러+"
+          }
+        ],
+        "3분기(7~9월) 단독 취소 규모": [
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "약 1300억달러(2025년 연간 전체 초과)"
+          }
+        ],
+        "지속적 반대 직면 투자 규모": [
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "약 1조달러"
+          }
+        ],
+        "SF 모라토리엄 기간": [
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "45일(최대 22개월 연장 가능)"
+          }
+        ],
+        "Raleigh 표결": [
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "7:1 가결, 6개월"
+          }
+        ],
+        "표결 연기 가결표": [
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "7:5(찬성:반대)"
           }
         ]
       },
@@ -3244,52 +3334,46 @@
           "thesis_review": false
         },
         "W4,W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — 멤피스 모라토리엄": {
-          "headline": "멤피스 모라토리엄 10/6 표결",
+          "headline": "멤피스 표결, 몸싸움 속 10/20 재연기",
           "shift": "계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — 멤피스 모라토리엄",
           "refs": [
-            "W5",
-            "W4"
+            "W4",
+            "W5"
           ],
           "direction": "불명",
-          "affects": [],
-          "summary": "xAI 콜로서스가 위치한 멤피스 시의회가 대형·고밀도 데이터센터 신규 승인을 일시 중단하는 모라토리엄 조례의 3차 독회(최종 표결)를 2026-10-06으로 확정했다. 9월 15일 예정이던 표결이 두 차례 연기되며 여러 수정안이 하나로 통합된 결과로, 그레이터멤피스상공회의소는 반대, 지역 환경단체 등은 찬성 입장을 내고 있다.",
+          "affects": [
+            "power-generation"
+          ],
+          "summary": "xAI 콜로서스가 위치한 멤피스 시의회의 데이터센터 모라토리엄 최종표결이 2026-10-06 열렸으나, 반대 시위대와 찬반 인사 간 몸싸움까지 벌어지며 회의가 중단됐다. 시의회는 결국 7대5로 표결을 2026-10-20로 재연기하기로 했다.",
           "sources": [
             {
-              "url": "https://hoodline.com/2026/10/memphis-council-faces-final-vote-on-data-center-pause-as-rally-targets-musk/",
-              "outlet": "Hoodline",
-              "date": "2026-10-01",
+              "url": "https://www.wsmv.com/2026/10/06/data-center-moratorium-vote-ends-abruptly-amid-protests-fistfight/",
+              "outlet": "WSMV",
+              "date": "2026-10-06",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://tntribune.com/memphis-city-councilman-jb-smiley-jr-introduces-amended-data-center-temporary-moratorium-ordinance-set-for-final-reading-on-october-6th/",
-              "outlet": "Tri-State Defender",
-              "date": "2026-09-25",
-              "tier": "S2",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.actionnews5.com/2026/09/25/city-leaders-break-down-revised-data-center-moratorium-ahead-final-vote/",
+              "url": "https://www.actionnews5.com/2026/10/06/data-center-moratorium-vote-ends-abruptly-amid-protests-fistfight/",
               "outlet": "Action News 5",
-              "date": "2026-09-25",
+              "date": "2026-10-06",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.memphisflyer.com/city-council-to-hear-third-reading-of-data-center-moratorium-ordinance/",
-              "outlet": "Memphis Flyer",
-              "date": "2026-09",
+              "url": "https://www.foxcarolina.com/2026/10/07/data-center-moratorium-vote-postponed-after-fight-protests/",
+              "outlet": "Fox Carolina",
+              "date": "2026-10-07",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-10-05",
+          "last_seen": "2026-10-08",
           "first_seen": "2026-10-05",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W2,W3|배전 전압 아키텍처 전환(54v 랙 → 800vdc)에 연동된 point-of-load 공급사 실적 — vicor 후속 반응": {
@@ -3334,11 +3418,89 @@
           "first_seen": "2026-10-05",
           "count": 1,
           "thesis_review": false
+        },
+        "W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화 / 지역 반대發 프로젝트 취소 가속": {
+          "headline": "DC 취소 3Q 1300억달러, 역대 최대",
+          "shift": "계통 접속 대기열(interconnection queue) 적체 및 규제 변화 / 지역 반대發 프로젝트 취소 가속",
+          "refs": [
+            "W5"
+          ],
+          "direction": "역풍",
+          "affects": [
+            "hyosung-transformer",
+            "hd-hyundai-electric"
+          ],
+          "summary": "리서치기관 Heatmap Pro 데이터를 인용한 Heatmap News 보도(2026-10-07)에 따르면 2026년 들어 지역 반대로 취소된 미국 데이터센터 프로젝트 누적 규모가 2600억달러를 넘어섰고, 이 중 약 1300억달러(전체의 절반)가 3분기(7~9월)에만 발생해 2025년 한 해 전체 취소 규모를 이미 초과했다. 반대에 직면한 프로젝트 중 약 절반이 실제 취소로 이어졌으며, 약 1조달러 규모 투자가 여전히 지속적 반대에 노출돼 있다고 분석됐다.",
+          "sources": [
+            {
+              "url": "https://heatmap.news/daily/260-billion-data-center-opposition",
+              "outlet": "Heatmap News",
+              "date": "2026-10-07",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.randomlengthsnews.com/archives/2026/10/07/data-center-cancellations/77896",
+              "outlet": "Random Lengths News",
+              "date": "2026-10-07",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-08",
+          "first_seen": "2026-10-08",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — 지자체 모라토리엄 신규 가결": {
+          "headline": "샌프란시스코·롤리, 모라토리엄 가결",
+          "shift": "계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — 지자체 모라토리엄 신규 가결",
+          "refs": [
+            "W5"
+          ],
+          "direction": "역풍",
+          "affects": [
+            "hyosung-transformer",
+            "hd-hyundai-electric"
+          ],
+          "summary": "샌프란시스코 시의회가 2026-10-06 신규 데이터센터 승인을 전면 중단하는 45일 모라토리엄을 만장일치로 가결했고(최대 22개월 연장 가능), 같은 주 오클랜드도 유사한 임시 금지를 가결했다. 노스캐롤라이나 롤리 시의회도 2026-10-07 6개월 모라토리엄을 7대1로 가결해, 지역 반대發 건설 중단 조치가 서부·동부 양쪽에서 동시에 구체화됐다.",
+          "sources": [
+            {
+              "url": "https://missionlocal.org/2026/10/sf-supervisors-pass-data-center-moratorium/",
+              "outlet": "Mission Local",
+              "date": "2026-10-06",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.kron4.com/news/bay-area/san-francisco-approves-45-day-moratorium-on-new-data-centers/",
+              "outlet": "KRON4",
+              "date": "2026-10-06",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.wunc.org/politics/2026-10-07/raleigh-council-data-center-moratorium-opposition",
+              "outlet": "WUNC",
+              "date": "2026-10-07",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-08",
+          "first_seen": "2026-10-08",
+          "count": 1,
+          "thesis_review": false
         }
       }
     },
     "optical-interconnect": {
-      "last_checked": "2026-10-06",
+      "last_checked": "2026-10-08",
       "observations": {
         "NVIDIA CPO 스위치 상태": [
           {
@@ -3535,11 +3697,6 @@
         ],
         "Corning 장기계약 누적": [
           {
-            "date": "2026-08-31",
-            "last_seen": "2026-08-31",
-            "value": "변동 없음 — Meta 최대$6B + Amazon 복수B$ + Zayo(2026-08-20, 15,000 route mile) 유지, 신규 계약 확인 안됨"
-          },
-          {
             "date": "2026-09-02",
             "last_seen": "2026-09-04",
             "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) 유지, 신규 계약 미확인"
@@ -3593,6 +3750,11 @@
             "date": "2026-10-06",
             "last_seen": "2026-10-06",
             "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) + Verizon(9/8) + AT&T $3B+(9/29) 유지, 10/5 이후 신규 계약 없음"
+          },
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) + Verizon(9/8) + AT&T $3B+(9/29) 유지, 10/8까지 신규 계약 없음"
           }
         ],
         "ASMPT 포토닉스 매출 성장": [
@@ -4055,7 +4217,7 @@
           },
           {
             "date": "2026-10-06",
-            "last_seen": "2026-10-06",
+            "last_seen": "2026-10-08",
             "value": "변동 없음 — 볼륨 생산 지속, 신규 발표 없음"
           }
         ],
@@ -4084,6 +4246,11 @@
             "date": "2026-10-06",
             "last_seen": "2026-10-06",
             "value": "변동 없음 — 2026 하반기 양산목표 유지, SiPhIA(150개사+ 참여) 산업연합이 웨이퍼레벨테스트·광패키징 병목 공동대응 중이라는 배경 설명만 재확인(신규 발표 아님)"
+          },
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "변동 없음 — 2026 하반기 양산목표 유지"
           }
         ],
         "OCP CPO 표준화(Lightmatter)": [
@@ -4425,6 +4592,11 @@
             "date": "2026-10-06",
             "last_seen": "2026-10-06",
             "value": "변동 없음 — 완전양산 지속, 가을(9~11월) 본격 출하 예정 유지, 10/5 이후 신규 발표 없음"
+          },
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "변동 없음 — 완전양산 지속, 가을(9~11월) 본격 출하 예정 유지, 10/6 이후 신규 발표 없음"
           }
         ],
         "GF SiGe 광링크 지원 규격": [
@@ -4630,6 +4802,11 @@
             "date": "2026-10-06",
             "last_seen": "2026-10-06",
             "value": "변동 없음(추정) — 1,650억원(8/31 기준) 수준, 10/6까지 신규 담보·상환 공시 미확인"
+          },
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "변동 없음(추정) — 1,650억원(8/31 기준) 수준, 10/8까지 신규 담보·상환 공시 미확인"
           }
         ],
         "성호전자 어매이징홀딩스 흡수합병": [
@@ -4783,6 +4960,104 @@
             "last_seen": "2026-10-06",
             "value": "→ $6.9B+ (거래 반영시)"
           }
+        ],
+        "Marvell FY28 매출 가이던스": [
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "신규 — $18B(8월 추정) → $20B(2026-10-06 Investor Day, YoY+67%), 데이터센터 매출 성장률 약 +80%"
+          }
+        ],
+        "Marvell 스케일업옵틱스(CPO/NPO) 기여": [
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "신규 — 기존 FY28 프레임워크 약 $300M에서 대폭 확대, $1.5B FY28 가이던스 상향분의 핵심 기여요인으로 명시"
+          }
+        ],
+        "JEDEC SiPh 신뢰성표준(JESD264)": [
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "신규 — 2026-10-01 발표, 산업 최초 실리콘포토닉스 품질/신뢰성 표준"
+          }
+        ],
+        "Arista Etherlink SU-144": [
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "신규 — 2026-10-07 발표, 현재 구리 케이블드백플레인+XPO 플러거블, CPO/NPO는 2027 샘플링 예정"
+          }
+        ],
+        "ADS테크 3Q26 누적 신규수주": [
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "신규 — 789억원(YoY+62% vs 2025 연간)"
+          }
+        ],
+        "ADS테크 신임대표": [
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "신규 — 홍성일(영업총괄) 대표 선임(2026-10-02), 기존 대표 송광열은 부회장 승진(R&D 총괄)"
+          }
+        ],
+        "OCP Global Summit / ASMPT SEMICON West": [
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "변동 없음 — 10/12~15(산호세) 및 10/13~15(샌프란시스코) 모두 아직 미개최, 결과 미확인"
+          }
+        ],
+        "3분기 누적 신규수주": [
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "789억원 (YoY +62%, 2025년 연간 대비)"
+          }
+        ],
+        "FY28 총매출 가이던스": [
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "$18B(8월) → $20B(10/6, YoY+67%)"
+          }
+        ],
+        "FY28 데이터센터 매출 성장률": [
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "약 +80%"
+          }
+        ],
+        "FY28 scale-up optics 기존 프레임워크": [
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "약 $300M → 대폭 확대(구체 수치 비공개)"
+          }
+        ],
+        "현재 랙 대역폭": [
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "1.6 Pbps"
+          }
+        ],
+        "CPO/NPO 적용시 목표 대역폭": [
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "6.5 Pbps"
+          }
+        ],
+        "단일홉 지원 XPU": [
+          {
+            "date": "2026-10-08",
+            "last_seen": "2026-10-08",
+            "value": "144개 (랙간 확장시 1,024개)"
+          }
         ]
       },
       "shifts": {
@@ -4908,33 +5183,43 @@
           "thesis_review": false
         },
         "W2|스케일업/스케일아웃 네트워크의 광 전환 비중": {
-          "headline": "랙 내부는 여전히 구리 우세",
+          "headline": "Arista, 랙스케일 이더넷 포트폴리오 공개",
           "shift": "스케일업/스케일아웃 네트워크의 광 전환 비중",
           "refs": [
             "W2"
           ],
           "direction": "중립",
           "affects": [],
-          "summary": "TrendForce에 따르면 CPO는 2026년 AI데이터센터 광트랜시버 모듈 중 약 0.5% 비중에 그치며, NVIDIA·Broadcom·OpenAI 모두 랙 내부(스케일업) 연결은 당분간 구리(NVLink 등)가 주력이고 광은 3m 이상 구간에서만 우세하다고 본다. CPO 침투율은 2030년 35%까지 완만히 상승할 것으로 전망되며, 랙 간(스케일업) 광 전환 본격화는 Rubin Ultra/Feynman 세대 이후로 예상된다.",
+          "summary": "Arista가 2026-10-07 AMD·Arm·Broadcom·Meta·Microsoft·Qualcomm과 공동 설계한 오픈 이더넷 랙스케일 포트폴리오 'Etherlink SU-144'를 공개했다. 현재는 구리 기반 케이블드 백플레인과 XPO 플러거블 광모듈로 최대 144개(랙간 1,024개) XPU를 묶는 구조이며, 엔비디아 NVLink에 대응하는 오픈 이더넷 스케일업 대안이다. 경영진은 오픈 CPO/NPO를 통한 대역폭 확장(1.6Pbps→6.5Pbps)은 내년(2027년) 샘플링·트라이얼 단계로 예정했다고 밝혔다.",
           "sources": [
             {
-              "url": "https://www.trendforce.com/presscenter/news/20260311-12962.html",
-              "outlet": "trendforce.com",
-              "date": "2026-03-11",
-              "tier": "S2",
-              "note": ""
+              "url": "https://www.arista.com/en/company/news/press-release/24818-pr-20261007",
+              "outlet": "arista.com",
+              "date": "2026-10-07",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
             },
             {
-              "url": "https://spectrum.ieee.org/nvlink-fusion-optics",
-              "outlet": "spectrum.ieee.org",
-              "date": "2026",
+              "url": "https://www.networkworld.com/article/4232036/arista-steps-up-its-ethernet-challenge-to-nvidias-ai-scale-up-networking-fabric.html",
+              "outlet": "networkworld.com",
+              "date": "2026-10-07",
               "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://siliconangle.com/2026/10/07/arista-takes-ethernet-rack-network-becomes-backplane/",
+              "outlet": "siliconangle.com",
+              "date": "2026-10-07",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
             }
           ],
-          "last_seen": "2026-08-17",
+          "last_seen": "2026-10-08",
           "first_seen": "2026-08-17",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W1,W5|실리콘 포토닉스 수율·패키징 병목 해소 여부": {
@@ -5540,6 +5825,131 @@
           ],
           "last_seen": "2026-10-02",
           "first_seen": "2026-10-02",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W1,W5|실리콘 포토닉스 수율·패키징 병목 해소 여부 (ads테크/성호전자)": {
+          "headline": "ADS테크 3Q 누적수주 789억+신임대표",
+          "shift": "실리콘 포토닉스 수율·패키징 병목 해소 여부 (ADS테크/성호전자)",
+          "refs": [
+            "W1",
+            "W5"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "optical-align"
+          ],
+          "summary": "ADS테크의 2026년 3분기 누적 신규수주가 789억원으로 2025년 연간 전체 수주액보다 62% 늘었으며, 엔비디아 및 美 NYSE상장사向 CPO 생산장비 수주가 주도했다. 동시에 영업총괄이던 홍성일을 신임 대표(2026-10-02)로 선임해 CPO 영업을 강화하는 각자대표 체제로 전환했고, 기존 대표 송광열은 부회장으로 승진해 R&D를 총괄한다.",
+          "sources": [
+            {
+              "url": "https://www.bloter.net/news/articleView.html?idxno=675148",
+              "outlet": "bloter.net",
+              "date": "2026-10-02",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.nbntv.co.kr/news/articleView.html?idxno=4025724",
+              "outlet": "nbntv.co.kr",
+              "date": "2026-10-02",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.newstopkorea.com/news/articleView.html?idxno=48015",
+              "outlet": "newstopkorea.com",
+              "date": "2026-10-02",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-08",
+          "first_seen": "2026-10-08",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W1,W3|cpo 양산 채택 일정의 전진 또는 후퇴 / 벤더 로드맵": {
+          "headline": "Marvell, FY28 가이던스 $18B→$20B 상향",
+          "shift": "CPO 양산 채택 일정의 전진 또는 후퇴 / 벤더 로드맵",
+          "refs": [
+            "W1",
+            "W3"
+          ],
+          "direction": "순풍",
+          "affects": [],
+          "summary": "Marvell이 2026-10-06 뉴욕 Investor Day에서 FY2028 총매출 가이던스를 약 $20B(YoY+67%, 데이터센터 매출 +80%)로 상향했다(8월 제시치 $18B 대비). 경영진은 이번 $1.5B 상향분의 핵심 기여 요인으로 scale-up 광 솔루션(NPO/CPO)을 지목했으며, 기존 FY28 scale-up optics 프레임워크(약 $300M 수준)보다 기회가 '실질적으로 커졌다'고 밝혔다. FY31 목표는 매출 $70~90B·비GAAP EPS $30+로 제시됐다.",
+          "sources": [
+            {
+              "url": "https://www.marvell.com/company/events/investor-day-2026.html",
+              "outlet": "marvell.com",
+              "date": "2026-10-06",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://stockanalysis.com/stocks/mrvl/transcripts/724088-investor-day-2026/",
+              "outlet": "stockanalysis.com",
+              "date": "2026-10-06",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.investing.com/news/stock-market-news/marvell-technology-stock-rallies-following-ambitious-investor-day-targets-4934767",
+              "outlet": "investing.com",
+              "date": "2026-10-06",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-08",
+          "first_seen": "2026-10-08",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W3,W5|광 i/o 표준화 동향 / 실리콘 포토닉스 수율·패키징 병목": {
+          "headline": "JEDEC, SiPh 신뢰성 표준 첫 발표",
+          "shift": "광 I/O 표준화 동향 / 실리콘 포토닉스 수율·패키징 병목",
+          "refs": [
+            "W3",
+            "W5"
+          ],
+          "direction": "순풍",
+          "affects": [],
+          "summary": "JEDEC가 2026-10-01 실리콘포토닉스 최초의 산업 전반 신뢰성·검증표준 'JESD264'를 발표했다. SiPh 다이·집적칩셋 신뢰성 프로토콜, 모듈레이터·포토다이오드·도파관 등 부품단 검증 가이드라인, 조립공정·레이저 통합 요건, 제조공정 관리·추적성 등 4개 영역을 포괄하며, 파운드리·OSAT·시스템 개발사 간 신뢰성 책임 소재를 명확히 하는 것이 목적이다.",
+          "sources": [
+            {
+              "url": "https://www.jedec.org/news/pressreleases/jedec%C2%AE-publishes-first-industry-wide-silicon-photonics-reliability-standard-ai",
+              "outlet": "jedec.org",
+              "date": "2026-10-01",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://convergedigest.com/jedec-jesd264-silicon-photonics-reliability-standard/",
+              "outlet": "convergedigest.com",
+              "date": "2026-10-01",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.hpcwire.com/off-the-wire/jedec-publishes-silicon-photonics-reliability-standard-for-ai-and-data-centers/",
+              "outlet": "hpcwire.com",
+              "date": "2026-10-01",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-08",
+          "first_seen": "2026-10-08",
           "count": 1,
           "thesis_review": false
         }

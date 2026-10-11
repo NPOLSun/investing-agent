@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-10-09"
+    "last_run": "2026-10-12"
   },
   "themes": {
     "ai-dc-power": {
@@ -3500,14 +3500,9 @@
       }
     },
     "optical-interconnect": {
-      "last_checked": "2026-10-08",
+      "last_checked": "2026-10-12",
       "observations": {
         "NVIDIA CPO 스위치 상태": [
-          {
-            "date": "2026-08-26",
-            "last_seen": "2026-08-26",
-            "value": "변동 없음 — Vera Rubin NVL72(Spectrum-X Ethernet Photonics) 완전양산 지속, OpenAI·CoreWeave·Google Cloud·Azure·Meta·Dell向 출하 진행 중, 신규 발표 없음"
-          },
           {
             "date": "2026-08-28",
             "last_seen": "2026-08-28",
@@ -3562,14 +3557,14 @@
             "date": "2026-10-05",
             "last_seen": "2026-10-05",
             "value": "변동 없음 — Spectrum-X/Quantum-X Photonics 완전양산 지속, 가을(9~11월) 본격 출하 예정 유지, 10/2 이후 신규 발표 없음"
+          },
+          {
+            "date": "2026-10-12",
+            "last_seen": "2026-10-12",
+            "value": "변동 없음 — Spectrum-X/Quantum-X Photonics 완전양산 지속, 가을(9~11월) 본격 출하 예정 유지, 10/8 이후 신규 발표 없음"
           }
         ],
         "Broadcom CPO 스위치 상태": [
-          {
-            "date": "2026-08-28",
-            "last_seen": "2026-08-28",
-            "value": "변동 없음 — Tomahawk 6-Davisson/Bailly 볼륨 생산 지속, 신규 발표 없음"
-          },
           {
             "date": "2026-08-31",
             "last_seen": "2026-08-31",
@@ -3624,6 +3619,11 @@
             "date": "2026-10-05",
             "last_seen": "2026-10-05",
             "value": "변동 없음 — Tomahawk 6-Davisson/Bailly 볼륨생산 지속, 신규 발표 없음"
+          },
+          {
+            "date": "2026-10-12",
+            "last_seen": "2026-10-12",
+            "value": "신규 — OCP Global Summit(10/12~15) 프리뷰로 3세대 TH6-Davisson CPO(102.4T) 공개 예고, 데모 파트너 Accton/Edgecore·Alpha Networks 추가(2026-10-08)"
           }
         ],
         "TSMC COUPE": [
@@ -3684,7 +3684,7 @@
           },
           {
             "date": "2026-09-30",
-            "last_seen": "2026-10-05",
+            "last_seen": "2026-10-12",
             "value": "변동 없음 — 2026 하반기 양산목표 유지, 신규 발표 없음"
           }
         ],
@@ -3696,11 +3696,6 @@
           }
         ],
         "Corning 장기계약 누적": [
-          {
-            "date": "2026-09-02",
-            "last_seen": "2026-09-04",
-            "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) 유지, 신규 계약 미확인"
-          },
           {
             "date": "2026-09-07",
             "last_seen": "2026-09-07",
@@ -3755,6 +3750,11 @@
             "date": "2026-10-08",
             "last_seen": "2026-10-08",
             "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) + Verizon(9/8) + AT&T $3B+(9/29) 유지, 10/8까지 신규 계약 없음"
+          },
+          {
+            "date": "2026-10-12",
+            "last_seen": "2026-10-12",
+            "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) + Verizon(9/8) + AT&T $3B+(9/29) 유지, 10/8 이후 신규 계약 없음. Q3 2026 실적발표 10/27 예정"
           }
         ],
         "ASMPT 포토닉스 매출 성장": [
@@ -3942,6 +3942,11 @@
             "date": "2026-10-05",
             "last_seen": "2026-10-05",
             "value": "변동 없음(스펙 초안 목표 2026 Q4 유지) — 참고: 병행 트랙인 Open CPX MSA가 9/17 6.4T/7.2T(200G/lane) 정식 사양을 공개한 사실 재확인(14일 경과로 배경 참고용), OCP Global Summit은 10/12~15(산호세)로 아직 미개최"
+          },
+          {
+            "date": "2026-10-12",
+            "last_seen": "2026-10-12",
+            "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지, OCP Global Summit(10/12~15, 매진) 개막 시점 도달, 실제 발표 결과 미확인"
           }
         ],
         "성호전자/ADS테크 자금상황": [
@@ -4807,6 +4812,11 @@
             "date": "2026-10-08",
             "last_seen": "2026-10-08",
             "value": "변동 없음(추정) — 1,650억원(8/31 기준) 수준, 10/8까지 신규 담보·상환 공시 미확인"
+          },
+          {
+            "date": "2026-10-12",
+            "last_seen": "2026-10-12",
+            "value": "변동 없음(추정) — 1,650억원(8/31 기준) 수준, 10/2 14회차 BW(2024년 발행분) 만기상환은 기존 채무의 정상 상환으로 신규 이벤트 아님"
           }
         ],
         "성호전자 어매이징홀딩스 흡수합병": [
@@ -5057,6 +5067,27 @@
             "date": "2026-10-08",
             "last_seen": "2026-10-08",
             "value": "144개 (랙간 확장시 1,024개)"
+          }
+        ],
+        "Marvell OCP 프리뷰": [
+          {
+            "date": "2026-10-12",
+            "last_seen": "2026-10-12",
+            "value": "신규 — scale-out 스위칭·메모리확장·보안 등 14개 세션 공개 예고(2026-10-08), CPO 구체 신규 발표는 없음"
+          }
+        ],
+        "ASMPT SEMICON West 2026": [
+          {
+            "date": "2026-10-12",
+            "last_seen": "2026-10-12",
+            "value": "변동 없음 — 10/13~15(샌프란시스코) 부스#1153서 CPO/실리콘포토닉스 전시 예정, 아직 미개최"
+          }
+        ],
+        "ADS테크 신임대표/3Q 수주": [
+          {
+            "date": "2026-10-12",
+            "last_seen": "2026-10-12",
+            "value": "변동 없음 — 3분기 누적 신규수주 789억원(10/8 확인) 이후 10/12까지 신규 수주 공시 없음"
           }
         ]
       },
@@ -5379,44 +5410,52 @@
           "thesis_review": false
         },
         "W1,W3|cpo 양산 채택 일정의 전진 또는 후퇴 / 광 i/o 표준화 동향 및 주요 벤더 로드맵 변경": {
-          "headline": "Marvell 2nm CPO 데모 공개",
+          "headline": "OCP서밋 앞두고 벤더 프리뷰",
           "shift": "CPO 양산 채택 일정의 전진 또는 후퇴 / 광 I/O 표준화 동향 및 주요 벤더 로드맵 변경",
           "refs": [
             "W1",
             "W3"
           ],
-          "direction": "순풍",
+          "direction": "중립",
           "affects": [],
-          "summary": "Marvell이 2026-09-20~24 스페인 말라가 ECOC 2026에서 2nm 공정 기반 광 인터커넥트 기술을 대거 시연했다. 200G/lane 실리콘포토닉스 기반 102.4Tbps CPO 플랫폼을 포함해 2nm 400G/lane PAM4, 800G ZR/ZR+ 플러거블 모듈, 1.6T ZR·코히런트라이트 등 총 38개 기술 데모를 공개하며 AI 데이터센터 광 연결이 1.6T에서 3.2T 이상으로 확장되는 로드맵을 제시했다.",
+          "summary": "Broadcom이 2026-10-08 OCP Global Summit(10/12~15, 산호세) 참가를 예고하며 '3세대' TH6-Davisson CPO(102.4T)를 처음으로 세대 구분해 명명하고, 기존 Celestica·Delta Electronics·Micas Networks에 Accton/Edgecore·Alpha Networks를 더한 파트너들이 데모에 참여한다고 밝혔다. 같은 날 Marvell도 scale-out 스위칭·메모리확장 등을 다루는 14개 세션 발표를 예고했으나 CPO 관련 구체적 신규 수치나 일정 변경은 없었다. 두 발표 모두 기존 양산 로드맵 내 '프리뷰'이며 실제 서밋 콘텐츠는 아직 공개 전이다.",
           "sources": [
             {
-              "url": "https://investor.marvell.com/news-events/press-releases/detail/1034/marvell-to-showcase-industry-first-2nm-optical-technology-demos-for-ai-data-center-infrastructure-at-ecoc-2026",
-              "outlet": "investor.marvell.com",
-              "date": "2026-09-21",
+              "url": "https://www.globenewswire.com/news-release/2026/10/08/3377533/19933/en/broadcom-redefines-ai-infrastructure-with-industry-leading-networking-innovations-at-2026-ocp-global-summit.html",
+              "outlet": "globenewswire.com (Broadcom)",
+              "date": "2026-10-08",
               "tier": "S1",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/marvell-details-vision-of-optically-interconnected-data-centers-spanning-across-thousands-of-kilometers-new-interconnects-sampling-later-this-year-would-allow-csps-to-pool-resources-based-on-workload",
-              "outlet": "tomshardware.com",
-              "date": "2026-09-22",
-              "tier": "S2",
+              "url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-redefines-ai-infrastructure-industry-leading-networking",
+              "outlet": "investors.broadcom.com",
+              "date": "2026-10-08",
+              "tier": "S1",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.stocktitan.net/news/MRVL/marvell-to-showcase-industry-first-2nm-optical-technology-demos-for-3xoqtb34zuns.html",
-              "outlet": "stocktitan.net",
-              "date": "2026-09-21",
+              "url": "https://investor.marvell.com/news-events/press-releases/detail/1036/marvell-to-showcase-open-ai-infrastructure-solutions-at-ocp-global-summit-2026",
+              "outlet": "investor.marvell.com",
+              "date": "2026-10-08",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.hpcwire.com/aiwire/2026/10/08/broadcom-to-showcase-ai-networking-and-co-packaged-optics-at-ocp-summit/",
+              "outlet": "hpcwire.com",
+              "date": "2026-10-08",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-23",
+          "last_seen": "2026-10-12",
           "first_seen": "2026-08-28",
-          "count": 5,
+          "count": 6,
           "thesis_review": false
         },
         "W1,W5|cpo 양산 채택 일정의 전진 또는 후퇴 / 실리콘 포토닉스 수율·패키징 병목 해소 여부": {

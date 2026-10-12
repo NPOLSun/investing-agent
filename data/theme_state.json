@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-10-12"
+    "last_run": "2026-10-13"
   },
   "themes": {
     "ai-dc-power": {
@@ -5995,7 +5995,7 @@
       }
     },
     "memory-storage": {
-      "last_checked": "2026-10-09",
+      "last_checked": "2026-10-12",
       "observations": {
         "파두 컨트롤러 매출 비중": [
           {
@@ -6139,11 +6139,6 @@
         ],
         "예스티-HPSP 서울중앙지법 본안소송": [
           {
-            "date": "2026-09-09",
-            "last_seen": "2026-09-09",
-            "value": "8/13 변론 이후 추가 진행상황 미확인(9/9 재확인, 변화없음 지속)"
-          },
-          {
             "date": "2026-09-11",
             "last_seen": "2026-09-11",
             "value": "8/13 변론 이후 추가 진행상황 미확인(9/11 재확인, 변화없음 지속)"
@@ -6197,6 +6192,11 @@
             "date": "2026-10-09",
             "last_seen": "2026-10-09",
             "value": "8/13 변론 이후 10/9 기준 추가 진행상황 미확인(변화없음 지속)"
+          },
+          {
+            "date": "2026-10-12",
+            "last_seen": "2026-10-12",
+            "value": "8/13 변론 이후 10/12 기준 추가 진행상황 미확인(변화없음 지속)"
           }
         ],
         "Gen6 성능": [
@@ -6757,11 +6757,6 @@
         ],
         "파두 신규계약": [
           {
-            "date": "2026-09-07",
-            "last_seen": "2026-09-07",
-            "value": "8/12 공시(395.83억원) 이후 추가 신규계약 공시 미확인(변화없음 지속, 9/7 재확인)"
-          },
-          {
             "date": "2026-09-09",
             "last_seen": "2026-09-09",
             "value": "8/12 공시(395.83억원) 이후 추가 신규계약 공시 미확인(9/9 재확인, 변화없음 지속)"
@@ -6815,6 +6810,11 @@
             "date": "2026-10-09",
             "last_seen": "2026-10-09",
             "value": "8/12 공시(395.83억원) 이후 10/9 기준 추가 신규계약 공시 미확인(변화없음 지속)"
+          },
+          {
+            "date": "2026-10-12",
+            "last_seen": "2026-10-12",
+            "value": "8/12 공시(395.83억원) 이후 10/12 기준 추가 신규계약 공시 미확인(변화없음 지속)"
           }
         ],
         "SK하이닉스 1c D램 비중": [
@@ -7674,6 +7674,11 @@
             "date": "2026-10-09",
             "last_seen": "2026-10-09",
             "value": "10월 중 최종 타결 목표(변화없음 지속), 삼성 Gb당 4달러 중후반대 잠정가 제시"
+          },
+          {
+            "date": "2026-10-12",
+            "last_seen": "2026-10-12",
+            "value": "10월 중 최종 타결 목표(변화없음 지속, 10/12 기준 타결 미확인)"
           }
         ],
         "AMD CEO 리사 수 방한": [
@@ -7751,6 +7756,97 @@
             "date": "2026-10-09",
             "last_seen": "2026-10-09",
             "value": "2027년"
+          }
+        ],
+        "SK하이닉스 용인 클러스터 완공목표": [
+          {
+            "date": "2026-10-12",
+            "last_seen": "2026-10-12",
+            "value": "2045년 → 2033년(2026-10-09 최태원 회장 발언)"
+          }
+        ],
+        "호남 반도체 클러스터 규모": [
+          {
+            "date": "2026-10-12",
+            "last_seen": "2026-10-12",
+            "value": "용인의 약 2/3 수준(확장 가능성 열어둠, 미확정)"
+          }
+        ],
+        "美인디애나 패키징공장(38.7억달러) 지방세수협약": [
+          {
+            "date": "2026-10-12",
+            "last_seen": "2026-10-12",
+            "value": "2026-10-05 웨스트라피엣 시의회 8대1 가결, 30년간 약 6700억원·배분율 12%→20%, 가동목표 2028년 하반기"
+          }
+        ],
+        "CXMT 4F² 서버 DDR5 RDIMM 출시목표": [
+          {
+            "date": "2026-10-12",
+            "last_seen": "2026-10-12",
+            "value": "2026년말(2026-10-12 공식화)"
+          }
+        ],
+        "용인 클러스터 완공목표": [
+          {
+            "date": "2026-10-12",
+            "last_seen": "2026-10-12",
+            "value": "2045년 → 2033년"
+          }
+        ],
+        "호남 클러스터 규모": [
+          {
+            "date": "2026-10-12",
+            "last_seen": "2026-10-12",
+            "value": "용인의 약 2/3 수준(확장 가능, 미확정)"
+          }
+        ],
+        "30년 누적 지방세수": [
+          {
+            "date": "2026-10-12",
+            "last_seen": "2026-10-12",
+            "value": "약 5억달러(약 6700억원)"
+          }
+        ],
+        "지방 배분율": [
+          {
+            "date": "2026-10-12",
+            "last_seen": "2026-10-12",
+            "value": "12% → 20%"
+          }
+        ],
+        "총투자액": [
+          {
+            "date": "2026-10-12",
+            "last_seen": "2026-10-12",
+            "value": "38.7억달러"
+          }
+        ],
+        "가동목표": [
+          {
+            "date": "2026-10-12",
+            "last_seen": "2026-10-12",
+            "value": "2028년 하반기"
+          }
+        ],
+        "셀 밀도 증가(6F²→4F² 전환시)": [
+          {
+            "date": "2026-10-12",
+            "last_seen": "2026-10-12",
+            "value": "+30~50%"
+          }
+        ],
+        "CXMT 서버용 DDR5 RDIMM 출시목표": [
+          {
+            "date": "2026-10-12",
+            "last_seen": "2026-10-12",
+            "value": "2026년말"
+          }
+        ],
+        "CXMT 관련 특허": [
+          {
+            "date": "2026-10-12",
+            "last_seen": "2026-10-12",
+            "value": "300여건"
           }
         ]
       },
@@ -8136,7 +8232,7 @@
           "thesis_review": false
         },
         "W5|메모리·후공정 capex 방향": {
-          "headline": "TEL 사상 첫 영업익 1조엔 전망",
+          "headline": "SK하이닉스 신규팹 속도전",
           "shift": "메모리·후공정 capex 방향",
           "refs": [
             "W5"
@@ -8145,28 +8241,36 @@
           "affects": [
             "hpa-equipment"
           ],
-          "summary": "일본 도쿄일렉트론이 2027년 3월기(FY2027) 연결 영업이익 1조엔(약 8조5000억원, 전년대비 약 60%↑)을 기록해 기존 최대치(6973억엔)를 크게 넘어설 것으로 전망됐다. 삼성전자(매출 비중 15.1%, TEL 최대고객)·SK하이닉스 등 메모리업체의 AI발 설비투자 확대가 직접 동력으로 지목됐으며, 일부 고객사와 장비 가격 인상 협상도 완료돼 2027년 1~3월부터 실적에 반영될 예정이다.",
+          "summary": "최태원 SK그룹 회장이 2026-10-09 호남 반도체 클러스터 예정지인 광주 군공항 부지를 처음 직접 방문해 \"전력·용수가 늦어도 타이밍만 맞으면 먼저 착공하겠다\"며 조기 착공 의지를 밝혔다. 호남 클러스터 규모는 현재 용인의 3분의 2 수준으로 계획 중이나 \"토지가 더 있으면 더 커질 것\"이라 언급했고, 급증하는 반도체 수요에 대응해 용인 클러스터 완공 목표도 2045년에서 2033년으로 앞당긴 것으로 전해졌다.",
           "sources": [
             {
-              "url": "https://www.digitimes.com/news/a20261007VL222/tokyo-electron-profit-chipmakers-operating-profit-2027.html",
-              "outlet": "DigiTimes",
-              "date": "2026-10-07",
+              "url": "https://www.seoul.co.kr/news/economy/2026/10/09/20261009500127",
+              "outlet": "서울신문",
+              "date": "2026-10-09",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.businesskorea.co.kr/news/articleView.html?idxno=278341",
-              "outlet": "Businesskorea",
-              "date": "2026-10-07",
+              "url": "https://www.g-enews.com/article/General-News/2026/10/20261009185307839231a5c2dd38_1",
+              "outlet": "글로벌이코노믹",
+              "date": "2026-10-09",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.fnnews.com/news/202610111824115160",
+              "outlet": "파이낸셜뉴스",
+              "date": "2026-10-11",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-10-09",
+          "last_seen": "2026-10-12",
           "first_seen": "2026-08-26",
-          "count": 3,
+          "count": 4,
           "thesis_review": false
         },
         "W1,W3,W5|메모리·후공정 capex 방향 / ai 추론 확산에 따른 essd·니어라인 스토리지 수요 구조 변화": {
@@ -8802,11 +8906,91 @@
           "first_seen": "2026-10-02",
           "count": 3,
           "thesis_review": false
+        },
+        "W5|메모리·후공정 capex 방향 (미국 hbm 패키징 공장 진행상황)": {
+          "headline": "美인디애나 공장 지방세수 합의",
+          "shift": "메모리·후공정 capex 방향 (미국 HBM 패키징 공장 진행상황)",
+          "refs": [
+            "W5"
+          ],
+          "direction": "순풍",
+          "affects": [],
+          "summary": "미국 인디애나주 웨스트라피엣 시의회가 2026-10-05 SK하이닉스 38.7억달러 규모 첨단 패키징(HBM) 공장에 대한 지방세수 분배 협약을 8대1로 가결했다. 향후 30년간 약 5억달러(약 6700억원) 세수 중 지역 배분율을 법정 최소 12%에서 20%로 높였으며, 해당 공장은 2028년 하반기 가동을 목표로 한다.",
+          "sources": [
+            {
+              "url": "https://www.inkfreenews.com/2026/10/11/west-lafayette-divvies-up-sk-hynix-tax-revenue/",
+              "outlet": "InkFreeNews",
+              "date": "2026-10-11",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.basedinlafayette.com/p/west-lafayette-sets-sk-hynix-local",
+              "outlet": "Based in Lafayette",
+              "date": "2026-10-06",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.dailian.co.kr/news/view/1683026",
+              "outlet": "데일리안",
+              "date": "2026-10-12",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-12",
+          "first_seen": "2026-10-12",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W2|hbm 세대 전환 일정 및 스택·본딩 공정 방식 변경 (중국 경쟁사 d램 셀구조 동향)": {
+          "headline": "CXMT 4F² 구조 돌파 공식화",
+          "shift": "HBM 세대 전환 일정 및 스택·본딩 공정 방식 변경 (중국 경쟁사 D램 셀구조 동향)",
+          "refs": [
+            "W2"
+          ],
+          "direction": "불명",
+          "affects": [],
+          "summary": "중국 CXMT가 삼성·SK하이닉스도 추진 중인 4F² 셀 구조(자체 개발 Vertical Surrounded Gate 트랜지스터 기반)에서 핵심 진전을 이뤘다고 밝히며 2026년 말까지 4F² 기반 서버용 DDR5 RDIMM을 출시하겠다고 공식화했다(2026-10-12 SCMP·Global Times 등 보도, 삼성·SK하이닉스 주가 하락 반응). 다만 삼성의 4F² 양산 목표는 2028년(서브10nm 공정)으로 세대·적용 범위가 달라, '삼성보다 2년 앞섰다'는 해석에는 국내 분석가들 사이 이견이 있다.",
+          "sources": [
+            {
+              "url": "https://www.globaltimes.cn/page/202610/1371987.shtml",
+              "outlet": "Global Times",
+              "date": "2026-10-12",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://finance.yahoo.com/markets/stocks/articles/samsung-sk-hynix-shares-drop-053408695.html",
+              "outlet": "Yahoo Finance",
+              "date": "2026-10-12",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.asiae.co.kr/en/article/2026101214121673639",
+              "outlet": "The Asia Business Daily",
+              "date": "2026-10-12",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-12",
+          "first_seen": "2026-10-12",
+          "count": 1,
+          "thesis_review": false
         }
       }
     },
     "nuclear-smr": {
-      "last_checked": "2026-10-06",
+      "last_checked": "2026-10-13",
       "observations": {
         "ADVANCE Act 이행률": [
           {
@@ -8863,6 +9047,11 @@
             "date": "2026-10-06",
             "last_seen": "2026-10-06",
             "value": "33/36 마일스톤(92%, 2026-08-20 기준) — 10/6까지 추가 변동 확인 안됨"
+          },
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "33/36 마일스톤(92%, 2026-08-20 기준) — 10/13까지 추가 변동 확인 안됨"
           }
         ],
         "하이퍼스케일러 원자력 누적계약": [
@@ -9598,6 +9787,11 @@
             "date": "2026-10-06",
             "last_seen": "2026-10-06",
             "value": "Radiant(9/9), Antares(9/17) — 10/6까지 추가 신규고객 확인 안됨"
+          },
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "Radiant(9/9), Antares(9/17) — 10/13까지 추가 신규고객 확인 안됨"
           }
         ],
         "Kairos-Samsung C&T EPC 투자": [
@@ -9669,6 +9863,76 @@
             "last_seen": "2026-10-06",
             "value": "한국요구 15%+의결권 vs 미국제시 5~10%(9/21) → 5~10% 코너스톤 투자로 수렴(세부조건 미정)"
           }
+        ],
+        "TerraPower Kemmerer EPC 재입찰": [
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "벡텔 이탈(9/22~23) 후 재입찰 진행 중 — 10/13까지 신규 EPC 선정 발표 확인 안됨, 완공목표 2030년 유지"
+          }
+        ],
+        "X-energy Xe-100 Dow Seadrift 건설허가": [
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "2027년 1분기 발급 목표 — 변동 없음, FSER 11월 목표 진행중(완료 미확인)"
+          }
+        ],
+        "한미 원전 패키지(웨스팅하우스 지분)": [
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "5~10% 코너스톤 투자로 수렴(세부조건 미정) — 10/8 '미국의 황금주 보유' 확인으로 협상 불확실성 추가"
+          }
+        ],
+        "폴란드 Lubiatowo-Kopalino AP1000": [
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "EPC 주요조건 합의(9월) → 장납기품 발주 개시(10/8), EPC 최종조건 연내 확정 목표"
+          }
+        ],
+        "절차 진행": [
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "EPC 주요조건 합의(9월) → 장납기품 발주 개시(2026-10-08)"
+          }
+        ],
+        "1호기 가동목표": [
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "2036년"
+          }
+        ],
+        "신규 원자력 용량": [
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "890MW(20년 PPA)"
+          }
+        ],
+        "총 계약규모": [
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "3.6GW(890MW 업레이트+2,700MW 기존용량)"
+          }
+        ],
+        "투자액": [
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "$43억(콘스텔레이션)"
+          }
+        ],
+        "콘스텔레이션 계약용량 비중": [
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "13% → 28%"
+          }
         ]
       },
       "shifts": {
@@ -9721,7 +9985,7 @@
           "thesis_review": false
         },
         "W3|하이퍼스케일러의 원자력 전력구매계약 규모와 조건": {
-          "headline": "상원, 전력비용법 저지",
+          "headline": "구글-콘스텔레이션 3.6GW 계약",
           "shift": "하이퍼스케일러의 원자력 전력구매계약 규모와 조건",
           "refs": [
             "W3"
@@ -9730,40 +9994,40 @@
           "affects": [
             "smr-developer"
           ],
-          "summary": "하원을 417-3으로 통과한 데이터센터 전력비용 부담법(Ratepayer Protection Act)이 2026-09-17 상원에서 민주당 하인리히 의원(에너지천연자원위 간사)의 반대로 저지됐다. 하인리히는 FERC 관할권 확대와 150MW 이상 데이터센터의 비용부담을 명시한 자체 GRID Savings Act를 대안으로 제시했으며, 상원이 중간선거 전 곧 휴회에 들어가 법안 통과 가능성은 낮아졌다.",
+          "summary": "구글과 콘스텔레이션 에너지가 2026-10-06 20년 전력구매계약을 체결, PJM 내 기존 원전 11기의 업레이트로 890MW 신규 원자력 용량을 확보하기로 했다(43억달러 투자, 첫 용량 2028년·전량 2032년말 목표). 동시에 체결된 15년 계약(기존 2,700MW 공급분 포함)까지 합치면 총 3.6GW 규모이며, 이에 따라 콘스텔레이션의 계약된 원자력 용량 비중이 13%→28%로 상승했다.",
           "sources": [
             {
-              "url": "https://rollcall.com/2026/09/17/ratepayer-bill-aimed-at-data-center-buildout-blocked-in-senate/",
-              "outlet": "Roll Call",
-              "date": "2026-09-17",
-              "tier": "S2",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.cnbc.com/2026/09/17/ai-data-center-utility-cost-senate.html",
-              "outlet": "CNBC",
-              "date": "2026-09-17",
-              "tier": "S2",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.husted.senate.gov/media/press-releases/husted-bill-to-protect-americans-from-footing-the-bill-for-new-data-centers-blocked-from-passage/",
-              "outlet": "husted.senate.gov (상원의원실)",
-              "date": "2026-09-18",
+              "url": "https://www.constellationenergy.com/news/2026/10/google-and-constellation-announce-landmark-agreement-to-bring-890-mw-of-new-nuclear-capacity-to-pjm-grid.html",
+              "outlet": "constellationenergy.com (IR/뉴스룸)",
+              "date": "2026-10-06",
               "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://ans.org/news/article-8467/google-constellation-reach-11unit-uprate-plan-constellation-to-invest-43-billion",
+              "outlet": "ANS Nuclear Newswire",
+              "date": "2026-10-06",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.powermag.com/google-deal-backs-890-mw-of-constellation-nuclear-uprates-at-11-pjm-reactors/",
+              "outlet": "POWER Magazine",
+              "date": "2026-10-06",
+              "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-25",
+          "last_seen": "2026-10-13",
           "first_seen": "2026-08-18",
-          "count": 3,
+          "count": 4,
           "thesis_review": false
         },
         "W5|대형원전 신규 발주 흐름 (미국·유럽·아시아)": {
-          "headline": "한미 원전 프레임워크 공식서명",
+          "headline": "폴란드 AP1000 장납기품 발주 개시",
           "shift": "대형원전 신규 발주 흐름 (미국·유럽·아시아)",
           "refs": [
             "W5"
@@ -9772,44 +10036,36 @@
           "affects": [
             "power-generation"
           ],
-          "summary": "9/27까지 '부지·계약시점·금융조건 미확정'으로 지연되던 한미 원전 패키지가 2026-09-30(미국시간)/10-01 백악관에서 '원자력 발전 배치 프레임워크'로 공식 서명됐다. 최대 1,200억달러(건설비 1,000억+예비비 200억) 규모로 웨스팅하우스 AP1000 6기와 한국형 APR1400 2기(총 8기, 연방부지 페어 배치)를 미국에 짓기로 했으며, 연내 100억달러를 장납기 기자재 선구매용으로 우선 송금하기로 합의했다. 다만 구체 부지(오하이오·테네시·켄터키·사우스캐롤라이나 등 거론)와 한국측 웨스팅하우스 지분(코너스톤 투자 5~10%, 이사회 참여 조건)은 '추후 세부협상'으로 남아 완전 타결은 아니다.",
+          "summary": "폴란드 국영 PEJ와 웨스팅하우스가 2026-10-08 Lubiatowo-Kopalino 1호기(AP1000)의 장납기 품목(원자로 격납용기 등 Nuclear Island 핵심 6개 품목) 발주 절차를 공식 개시했다. 이는 지난 9월 PEJ-컨소시엄 간 EPC 주요 상업조건 합의에 따른 후속 조치로, 웨스팅하우스는 연말까지 EPC 세부조건·부속서 확정을 목표로 하고 있다. 1호기 상업가동 목표는 2036년이다.",
           "sources": [
             {
-              "url": "https://www.commerce.gov/news/press-releases/2026/09/korea-and-united-states-announce-historic-strategic-investment-projects",
-              "outlet": "commerce.gov",
-              "date": "2026-09-30",
+              "url": "https://pej.pl/en/press-center/news/pej-and-westinghouse-begin-long-lead-item-procurement-process-for-polands-first-nuclear-power-plant/",
+              "outlet": "pej.pl (PEJ 공식 보도자료)",
+              "date": "2026-10-08",
               "tier": "S1",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
-              "outlet": "westinghousenuclear.com (IR/뉴스룸)",
-              "date": "2026-09-30",
-              "tier": "S1",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.world-nuclear-news.org/articles/usa-south-korea-targeting-six-ap1000-two-apr1400-units",
+              "url": "https://www.world-nuclear-news.org/articles/poland-begins-ordering-long-lead-components-for-first-ap1000",
               "outlet": "World Nuclear News",
-              "date": "2026-10-01",
+              "date": "2026-10-08",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.asiae.co.kr/en/article/economic-general/2026100107024765139",
-              "outlet": "The Asia Business Daily",
-              "date": "2026-10-01",
-              "tier": "S2",
+              "url": "https://www.businesswire.com/news/home/20261008682570/en/PEJ-and-Westinghouse-Begin-Long-Lead-Item-Procurement-Process-for-Polands-First-Nuclear-Power-Plant",
+              "outlet": "businesswire.com",
+              "date": "2026-10-08",
+              "tier": "S1",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-10-06",
+          "last_seen": "2026-10-13",
           "first_seen": "2026-08-18",
-          "count": 8,
+          "count": 9,
           "thesis_review": false
         },
         "W4|haleu 공급 능력 확충 속도 및 신규 진입자": {
@@ -9969,6 +10225,40 @@
           "last_seen": "2026-09-29",
           "first_seen": "2026-09-07",
           "count": 3,
+          "thesis_review": false
+        },
+        "W5|대형원전 신규 발주 흐름 (미국·유럽·아시아) — 한미 패키지 웨스팅하우스 지분 협상": {
+          "headline": "美정부, 웨스팅하우스 황금주 보유 확인",
+          "shift": "대형원전 신규 발주 흐름 (미국·유럽·아시아) — 한미 패키지 웨스팅하우스 지분 협상",
+          "refs": [
+            "W5"
+          ],
+          "direction": "중립",
+          "affects": [
+            "power-generation"
+          ],
+          "summary": "산업통상자원부가 2026-10-08 국회(우재준 의원실)에 제출한 서면답변에서, 미국 정부가 웨스팅하우스 상장(IPO) 시 황금주(단 1주로도 핵심 경영사안에 거부권 행사 가능)를 보유하기로 되어 있다는 사실을 확인했다. 이는 2025년 미 상무부-웨스팅하우스-브룩필드-캐머코 간 협약에 근거한 것으로, 한국이 요구 중인 5~10%대 지분·이사회 참여 협상에서 한국 측의 실질적 영향력 범위에 대한 불확실성을 키우는 변수로 떠올랐다.",
+          "sources": [
+            {
+              "url": "https://www.kedglobal.com/business-politics/newsView/ked202610080003",
+              "outlet": "KED Global",
+              "date": "2026-10-08",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://en.sedaily.com/finance/2026/10/09/us-to-hold-golden-share-in-westinghouse-ipo-clouding-korean",
+              "outlet": "Seoul Economic Daily",
+              "date": "2026-10-09",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-13",
+          "first_seen": "2026-10-13",
+          "count": 1,
           "thesis_review": false
         }
       }

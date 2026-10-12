@@ -1,39 +1,39 @@
 {
-  "asof": "2026-10-12 07:30 KST",
-  "date": "2026-10-12",
+  "asof": "2026-10-13 07:30 KST",
+  "date": "2026-10-13",
   "market": "us",
   "prices": {
     "VICR": {
       "ticker": "VICR",
       "market": "US",
-      "price": 266.07,
-      "change_pct": 1.43,
-      "volume_ratio": 0.75,
-      "market_cap": 12267618520
+      "price": 259.4,
+      "change_pct": -2.51,
+      "volume_ratio": 1.01,
+      "market_cap": 11960085999
     },
     "GLW": {
       "ticker": "GLW",
       "market": "US",
-      "price": 156.68,
-      "change_pct": 2.52,
-      "volume_ratio": 0.92,
-      "market_cap": 134962317392
+      "price": 147.28,
+      "change_pct": -6.0,
+      "volume_ratio": 1.06,
+      "market_cap": 126865272338
     },
     "LEU": {
       "ticker": "LEU",
       "market": "US",
-      "price": 142.44,
-      "change_pct": 0.25,
-      "volume_ratio": 0.65,
-      "market_cap": 2913340753
+      "price": 135.31,
+      "change_pct": -5.01,
+      "volume_ratio": 0.85,
+      "market_cap": 2767509993
     },
     "XE": {
       "ticker": "XE",
       "market": "US",
-      "price": 13.71,
-      "change_pct": -0.44,
-      "volume_ratio": 0.54,
-      "market_cap": 5571279356
+      "price": 13.08,
+      "change_pct": -4.6,
+      "volume_ratio": 0.57,
+      "market_cap": 5315268661
     },
     "298040": {
       "ticker": "298040",
@@ -41,7 +41,7 @@
       "market": "KR",
       "price": 2514000,
       "change_pct": -4.01,
-      "volume_ratio": 1.06,
+      "volume_ratio": 0.97,
       "market_cap": null
     },
     "267260": {
@@ -50,7 +50,7 @@
       "market": "KR",
       "price": 607000,
       "change_pct": -3.65,
-      "volume_ratio": 1.1,
+      "volume_ratio": 1.12,
       "market_cap": null
     },
     "006110": {
@@ -59,7 +59,7 @@
       "market": "KR",
       "price": 75800,
       "change_pct": 15.2,
-      "volume_ratio": 1.91,
+      "volume_ratio": 1.65,
       "market_cap": null
     },
     "440110": {
@@ -68,7 +68,7 @@
       "market": "KR",
       "price": 83000,
       "change_pct": 1.34,
-      "volume_ratio": 0.62,
+      "volume_ratio": 0.72,
       "market_cap": null
     },
     "043260": {
@@ -77,7 +77,7 @@
       "market": "KR",
       "price": 32550,
       "change_pct": 2.52,
-      "volume_ratio": 0.51,
+      "volume_ratio": 0.5,
       "market_cap": null
     },
     "122640": {
@@ -86,7 +86,7 @@
       "market": "KR",
       "price": 32200,
       "change_pct": 1.58,
-      "volume_ratio": 0.61,
+      "volume_ratio": 0.67,
       "market_cap": null
     },
     "034020": {
@@ -95,7 +95,7 @@
       "market": "KR",
       "price": 76700,
       "change_pct": -4.01,
-      "volume_ratio": 1.76,
+      "volume_ratio": 1.71,
       "market_cap": null
     }
   }

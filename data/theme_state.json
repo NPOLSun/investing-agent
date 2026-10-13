@@ -10264,7 +10264,7 @@
       }
     },
     "grid-storage": {
-      "last_checked": "2026-10-06",
+      "last_checked": "2026-10-13",
       "observations": {
         "삼아알미늄_가동률": [
           {
@@ -10923,6 +10923,11 @@
             "date": "2026-10-06",
             "last_seen": "2026-10-06",
             "value": "10/6 기준 아직 미확정(8/31 보도 이후 변동 없음)"
+          },
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "2026-10-13 기준 여전히 미확정(8/31 보도 이후 변동 없음)"
           }
         ],
         "CATL 587Ah 셀 직판가": [
@@ -11071,6 +11076,11 @@
             "date": "2026-10-06",
             "last_seen": "2026-10-06",
             "value": "10월 셀양산 개시 예정(7/30 컨콜 내용 유지, 실제 개시 공식발표는 10/6 기준 아직 없음)"
+          },
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "10월 셀양산 계획 유지(공식 개시 발표는 2026-10-13 기준 미확인)"
           }
         ],
         "SK온 네오볼타 추가 9GWh 계약": [
@@ -11085,6 +11095,95 @@
             "date": "2026-10-06",
             "last_seen": "2026-10-06",
             "value": "15년 → 최대 25년(장수명·고빈도 충방전 ESS 신설 인센티브)"
+          }
+        ],
+        "LG엔솔-엘앤에프 LFP 양극재 계약": [
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "조단위(다년/수십만톤), 2026-10-13 보도, 공식 공시 전"
+          }
+        ],
+        "엘앤에프 LFP 생산능력": [
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "3만톤(3분기말) → 6만톤(2027 상반기 목표)"
+          },
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "3만톤(3분기말 양산개시) → 6만톤(2027년 상반기 목표)"
+          }
+        ],
+        "엘앤에프 2028 전망 북미ESS向 국내셀사 LFP수요": [
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "32만톤+"
+          }
+        ],
+        "엘앤에프-SK온 LFP계약": [
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "1,600억원, 2026~2028(2026-09-17 체결, 추가 3년 연장 협의 가능)"
+          }
+        ],
+        "엘앤에프-삼성SDI LFP계약": [
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "약 1.6조원(10.75억달러)"
+          }
+        ],
+        "3차 ESS 중앙계약 제안서 접수": [
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "2026-10-06~11-04 진행 중, 낙찰자 선정 11월"
+          }
+        ],
+        "중국 배터리 수출통제 유예 만료": [
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "2026-11-10 예정, 10월 초 기준 연장 발표 없음"
+          }
+        ],
+        "Apollo Power-Tesla Megapack 대만 계약": [
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "NT$130억/1GWh, 2028년 가동"
+          }
+        ],
+        "엘앤에프 전망 2028년 북미ESS向 국내셀사 LFP수요": [
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "32만톤+"
+          }
+        ],
+        "계약규모": [
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "NT$130억(약 4,070억원, 계약금액 자체는 비공개)"
+          }
+        ],
+        "용량": [
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "약 1GWh (Megapack 2XL 260기)"
+          }
+        ],
+        "가동예정": [
+          {
+            "date": "2026-10-13",
+            "last_seen": "2026-10-13",
+            "value": "2028년"
           }
         ]
       },
@@ -11370,75 +11469,94 @@
           "thesis_review": false
         },
         "W3|lfp·ess 전용 셀 라인 증설과 ev 라인 전환": {
-          "headline": "삼아알미늄 주가 급등, 채권리스크",
+          "headline": "LG엔솔·엘앤에프 첫 LFP 계약",
           "shift": "LFP·ESS 전용 셀 라인 증설과 EV 라인 전환",
           "refs": [
             "W3"
-          ],
-          "direction": "중립",
-          "affects": [
-            "ess-foil"
-          ],
-          "summary": "삼아알미늄 주가가 8월 한달간 111% 폭등(코스피 +4.24% 대비)했으며, ESS용 양극박 출하 확대에 따른 실적 턴어라운드 기대와 기관 순매수가 배경으로 지목됐다. 다만 IB토마토 분석에 따르면 압연부문 가동률은 반등(2025년 연간 50.3%→2026년 1분기 61.9%)했음에도 매출채권이 급증해 3분기까지 현금흐름 부담이 이어질 수 있다는 지적이 나왔다.",
-          "sources": [
-            {
-              "url": "https://www.ibtomato.com/ExternalView.aspx?type=1&no=19143",
-              "outlet": "IB토마토",
-              "date": "2026-08-11",
-              "tier": "S2",
-              "note": ""
-            },
-            {
-              "url": "https://www.hankyung.com/article/202608277121i",
-              "outlet": "한국경제",
-              "date": "2026-08-27",
-              "tier": "S2",
-              "note": ""
-            }
-          ],
-          "last_seen": "2026-09-01",
-          "first_seen": "2026-09-01",
-          "count": 1,
-          "thesis_review": false
-        },
-        "W1,W2|계통 안정화용 대형 ess 발주 규모 / 데이터센터 백업·피크 대응용 ess 채택 방식 변화": {
-          "headline": "Fluence 데이터센터 첫 단독계약",
-          "shift": "계통 안정화용 대형 ESS 발주 규모 / 데이터센터 백업·피크 대응용 ESS 채택 방식 변화",
-          "refs": [
-            "W1",
-            "W2"
           ],
           "direction": "순풍",
           "affects": [
             "ess-foil"
           ],
-          "summary": "Fluence는 2026회계연도 3분기(8/6 실적발표) 전체 파이프라인이 331억달러로 전분기比 16억달러 증가했고, 데이터센터向 파이프라인은 16GWh로 전분기比 35% 이상 확대됐다고 밝혔다. 특히 처음으로 behind-the-meter 데이터센터 단독 사이트向 수주(약 3억달러)를 확보했으며, 7월에는 한 하이퍼스케일러로부터 추가 5.5억달러 수주를 받았다.",
+          "summary": "LG에너지솔루션이 엘앤에프와 조단위(다년간 최대 수십만톤) 규모의 LFP 양극재 공급계약을 이달 중 체결한다고 머니투데이가 10/13 단독 보도했다. LG엔솔-엘앤에프 간 LFP 양극재 계약은 이번이 처음이며, 기존 NCM 중심 협력이 LFP로 확대된 것으로, LG엔솔은 이를 바탕으로 비중국(non-PFE) 공급망을 갖춰 북미 ESS 시장 공략을 강화한다는 방침이다. 엘앤에프는 앞서 삼성SDI(1.6조원), SK온(1600억원, 9/17 체결)에도 LFP 양극재 공급계약을 맺어, 국내 배터리 3사 전부에 LFP 양극재를 공급하는 유일한 비중국 업체가 됐다.",
           "sources": [
             {
-              "url": "https://pv-magazine-usa.com/2026/08/07/fluence-reports-164-gwh-pipeline-including-major-hyperscaler-order/",
-              "outlet": "PV Magazine USA",
-              "date": "2026-08-07",
+              "url": "https://www.mt.co.kr/industry/2026/10/13/2026101309042017541",
+              "outlet": "머니투데이",
+              "date": "2026-10-13",
               "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
             },
             {
-              "url": "https://www.investing.com/news/company-news/fluence-q3-fy2026-slides-record-orders-offset-by-execution-woes-93CH-4843302",
-              "outlet": "Investing.com",
-              "date": "2026-08",
+              "url": "https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02676486625999176",
+              "outlet": "이데일리",
+              "date": "2026-10-13",
               "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
             },
             {
-              "url": "https://finance.yahoo.com/energy/articles/fluence-energy-inc-flnc-q3-231402578.html",
-              "outlet": "Yahoo Finance",
-              "date": "2026-08",
+              "url": "https://www.ddaily.co.kr/page/view/2026100615533430880",
+              "outlet": "디지털데일리",
+              "date": "2026-10-06",
               "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.mt.co.kr/industry/2026/10/13/2026101313574319420",
+              "outlet": "머니투데이",
+              "date": "2026-10-13",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
             }
           ],
-          "last_seen": "2026-09-01",
+          "last_seen": "2026-10-13",
           "first_seen": "2026-09-01",
-          "count": 1,
+          "count": 2,
+          "thesis_review": false
+        },
+        "W1,W2|계통 안정화용 대형 ess 발주 규모 / 데이터센터 백업·피크 대응용 ess 채택 방식 변화": {
+          "headline": "대만 Apollo, Megapack 1GWh 발주",
+          "shift": "계통 안정화용 대형 ESS 발주 규모 / 데이터센터 백업·피크 대응용 ESS 채택 방식 변화",
+          "refs": [
+            "W1",
+            "W2"
+          ],
+          "direction": "불명",
+          "affects": [],
+          "summary": "대만 종합에너지서비스업체 Apollo Power가 10/8 Tesla Motors Taiwan과 Megapack 2XL 260기(약 1GWh, 총투자 NT$130억·약 4,070억원) 구매계약을 체결했다고 10/11 대만증권거래소에 공시했다. 장비는 2027년말까지 순차 인도돼 2028년 가동 예정이며, Apollo Power는 Tesla·Gigabyte·Phison·Shilin Electric과 'AI데이터센터·기업용 회복탄력 전력망' 동맹을 결성해 AI데이터센터向 비하인드더미터 저장사업으로 확장한다는 계획이다.",
+          "sources": [
+            {
+              "url": "https://finance.biggo.com/news/7e508abf-cb0c-42f7-becd-05da4f47a08c",
+              "outlet": "BigGo Finance",
+              "date": "2026-10-12",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://teslanorth.com/2026/10/12/apollo-power-tesla-megapack-taiwan/",
+              "outlet": "Tesla North",
+              "date": "2026-10-12",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.webull.com/news/15732240835224576",
+              "outlet": "Webull News (TWSE 공시 인용)",
+              "date": "2026-10-11",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-13",
+          "first_seen": "2026-09-01",
+          "count": 2,
           "thesis_review": false
         },
         "W2,W4|계통 안정화용 대형 ess 발주 규모 / ess 셀 판가 및 중국산 점유율 변화": {

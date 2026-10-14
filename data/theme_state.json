@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-10-14"
+    "last_run": "2026-10-15"
   },
   "themes": {
     "ai-dc-power": {
@@ -11918,7 +11918,7 @@
       }
     },
     "dc-thermal": {
-      "last_checked": "2026-10-06",
+      "last_checked": "2026-10-15",
       "observations": {
         "NVL72 랙 전력": [
           {
@@ -12258,7 +12258,7 @@
           },
           {
             "date": "2026-10-06",
-            "last_seen": "2026-10-06",
+            "last_seen": "2026-10-15",
             "value": "2026-07 SemiAnalysis 보도 이후 신규 갱신 없음, 미해소 지속"
           }
         ],
@@ -12456,40 +12456,159 @@
             "last_seen": "2026-10-06",
             "value": "없음 (기존 효성 9조3000억원 누적/HD현대 85억달러 수주잔고 대비 갱신 없음)"
           }
+        ],
+        "NVIDIA MGX 1.2 랙 전력 지원 상한": [
+          {
+            "date": "2026-10-15",
+            "last_seen": "2026-10-15",
+            "value": "250kW (blind-mate 액체냉각 + 5,000A 액냉 버스바 표준)"
+          }
+        ],
+        "OCP Open Data Center Specification": [
+          {
+            "date": "2026-10-15",
+            "last_seen": "2026-10-15",
+            "value": "v0.7 신규 발표 (2026-10-12)"
+          }
+        ],
+        "Meta IcePack/IceCube": [
+          {
+            "date": "2026-10-15",
+            "last_seen": "2026-10-15",
+            "value": "Meta 최초 액체냉각 네트워크랙(ORV3-HPRv1), 102.4Tbps 스위치"
+          }
+        ],
+        "AMD Helion 랙": [
+          {
+            "date": "2026-10-15",
+            "last_seen": "2026-10-15",
+            "value": "최대 32,768 CPU코어, 2026-11 출시 예정, OCP 기여 예정"
+          }
+        ],
+        "OCP UQD 커넥터 규격": [
+          {
+            "date": "2026-10-15",
+            "last_seen": "2026-10-15",
+            "value": "v2.0.0 공식 릴리즈 (2026-09-22)"
+          }
+        ],
+        "OCP SST(800VDC) 생태계": [
+          {
+            "date": "2026-10-15",
+            "last_seen": "2026-10-15",
+            "value": "80개 이상 기업이 800VDC 호환 인프라 개발 중 (Summit에서 재확인)"
+          }
+        ],
+        "Vicor Q3 2026 실적발표": [
+          {
+            "date": "2026-10-15",
+            "last_seen": "2026-10-15",
+            "value": "2026-10-20 예정 (미발표, 가이던스는 기존 '30% 이상 QoQ' 유지)"
+          }
+        ],
+        "효성중공업·HD현대일렉트릭 9/22~10/15 신규 수주 공시": [
+          {
+            "date": "2026-10-15",
+            "last_seen": "2026-10-15",
+            "value": "없음 (HD현대일렉트릭 수주잔고 84.9억달러, 효성중공업 누적수주 9조3000억원 대비 갱신 없음)"
+          }
+        ],
+        "MGX 1.2 랙 지원 전력 상한": [
+          {
+            "date": "2026-10-15",
+            "last_seen": "2026-10-15",
+            "value": "250kW"
+          }
+        ],
+        "액냉 버스바 규격": [
+          {
+            "date": "2026-10-15",
+            "last_seen": "2026-10-15",
+            "value": "5,000A"
+          }
+        ],
+        "Open Data Center Spec": [
+          {
+            "date": "2026-10-15",
+            "last_seen": "2026-10-15",
+            "value": "v0.7 신규 발표(2026-10-12)"
+          }
+        ],
+        "800VDC 호환 인프라 개발 참여 기업": [
+          {
+            "date": "2026-10-15",
+            "last_seen": "2026-10-15",
+            "value": "80개 이상"
+          }
+        ],
+        "IceCube 스위치 용량": [
+          {
+            "date": "2026-10-15",
+            "last_seen": "2026-10-15",
+            "value": "102.4Tbps (기존 51.2T 대비 2배)"
+          }
+        ],
+        "AMD Helion CPU 코어": [
+          {
+            "date": "2026-10-15",
+            "last_seen": "2026-10-15",
+            "value": "최대 32,768개"
+          }
+        ],
+        "Helion 출시": [
+          {
+            "date": "2026-10-15",
+            "last_seen": "2026-10-15",
+            "value": "2026-11 예정"
+          }
+        ],
+        "UQD v2.0.0 릴리즈": [
+          {
+            "date": "2026-10-15",
+            "last_seen": "2026-10-15",
+            "value": "2026-09-22"
+          }
+        ],
+        "Mini-QD 대상 광모듈 속도": [
+          {
+            "date": "2026-10-15",
+            "last_seen": "2026-10-15",
+            "value": "최대 1.6Tbps (2027년 전망)"
+          }
         ]
       },
       "shifts": {
         "W1,W3|w1: 액침·d2c 액체냉각 채택 비중 변화 / w3: 신규 데이터센터 설계 표준 변경 (ocp 등)": {
-          "headline": "Rubin 완전양산, 클라우드 전개 확정",
+          "headline": "액체냉각, 네트워크랙까지 확산",
           "shift": "W1: 액침·D2C 액체냉각 채택 비중 변화 / W3: 신규 데이터센터 설계 표준 변경 (OCP 등)",
           "refs": [
             "W1",
             "W3"
           ],
-          "direction": "순풍",
-          "affects": [
-            "point-of-load"
-          ],
-          "summary": "NVIDIA가 공식 뉴스룸을 통해 Vera Rubin 플랫폼이 완전 양산(full production) 단계에 진입했다고 밝혔으며, AWS·Google Cloud·Microsoft Azure·OCI와 NVIDIA Cloud Partners(CoreWeave·Lambda·Nebius·Nscale)가 2026년 하반기부터 Rubin 기반 시스템을 배치한다고 확인했다. Foxconn은 NVL144 MGX 액냉랙 엔지니어링 검증을 마치고 하반기 양산에 착수했으며, 미국 내 생산 요건 대응을 위해 위스콘신·휴스턴 공장의 액침냉각·구리도금 라인을 확장 중이다.",
+          "direction": "중립",
+          "affects": [],
+          "summary": "Meta가 2026-10-12 자사 첫 액체냉각 네트워크랙 'IcePack'(OCP ORV3-HPRv1 표준 기반)과 102.4Tbps 'IceCube' 스위치(기존 51.2T 대비 대역폭 2배)를 공개했다. 같은 행사에서 AMD는 CPU 중심 에이전틱 AI 랙 'Helion'(최대 32,768코어, 2026-11 출시 예정)을 공개하고 OCP에 스펙을 기여하겠다고 밝혀, 액체냉각 표준화가 GPU 컴퓨트랙을 넘어 네트워킹·CPU 랙까지 확산되고 있음을 보여줬다.",
           "sources": [
             {
-              "url": "https://nvidianews.nvidia.com/news/vera-rubin-full-production-agentic-ai-factory",
-              "outlet": "NVIDIA Newsroom",
-              "date": "2026-08",
+              "url": "https://engineering.fb.com/2026/10/12/open-source/ocp-summit-2026-powering-ai-with-open-innovations-in-scale-up-scale-out-and-scale-across-networks/",
+              "outlet": "Engineering at Meta",
+              "date": "2026-10-12",
               "tier": "S1",
-              "note": ""
+              "note": "",
+              "from_feed": false
             },
             {
-              "url": "https://www.techpowerup.com/342049/nvidia-vera-rubin-nvl144-servers-set-for-2026-volume-production",
-              "outlet": "TechPowerUp",
-              "date": "2026-08",
-              "tier": "S2",
-              "note": ""
+              "url": "https://newsroom.amd.com/news/open-rack-blueprint-scale-agentic-ai/",
+              "outlet": "AMD Newsroom",
+              "date": "2026-10-12",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
             }
           ],
-          "last_seen": "2026-09-01",
+          "last_seen": "2026-10-15",
           "first_seen": "2026-08-19",
-          "count": 2,
+          "count": 3,
           "thesis_review": false
         },
         "W2|랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지": {
@@ -12520,7 +12639,7 @@
           "thesis_review": false
         },
         "W2|랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지 (point-of-load 벤더 실적으로 확인)": {
-          "headline": "Vicor 3Q 가이던스 2차 상향",
+          "headline": "800VDC·VPD 냉각통합 가속",
           "shift": "랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지 (point-of-load 벤더 실적으로 확인)",
           "refs": [
             "W2"
@@ -12529,36 +12648,36 @@
           "affects": [
             "point-of-load"
           ],
-          "summary": "Vicor가 2026-09-30 발표를 통해 VPD(Vertical Power Delivery) 라이선스 로열티 반영 3분기 매출 가이던스(전분기 대비 성장률)를 기존 '20% 이상'에서 '30% 이상'으로 재차 상향했다. 이는 9/16 체결된 선도 AI OEM 대상 비독점 VPD 라이선스 계약의 로열티 수익이 9/21 1차 상향(10%→20%) 시점의 예상보다 더 커졌음을 의미하며, 발표 직후 주가가 10%대 급등했다. 실제 3분기 실적 발표는 2026-10-20로 예정되어 아직 확정 수치는 아니다.",
+          "summary": "OCP Global Summit(2026-10-12~15)에서 Google·Microsoft·NVIDIA가 추진한 LVDC Solid-State Transformer 규격(v0.3, 800VDC 중전압 변환)이 재확인되며 80개 이상 기업이 800VDC 호환 인프라를 개발 중이라고 OCP가 밝혔다. Delta Electronics는 같은 행사에서 Vicor 특허 기반 VPD(Vertical Power Delivery) 모듈용 양면 냉각 솔루션을 전시해, 전력전달(point-of-load)과 냉각이 칩 레벨에서 통합되는 흐름을 보여줬다.",
           "sources": [
             {
-              "url": "https://www.globenewswire.com/news-release/2026/09/30/3372361/0/en/vicor-corporation-raises-q3-2026-revenue-guidance.html",
-              "outlet": "GlobeNewswire (Vicor)",
-              "date": "2026-09-30",
+              "url": "https://www.opencompute.org/index.php/blog/powering-the-next-era-of-ai-how-google-microsoft-and-nvidia-are-standardizing-and-accelerating-the-industry-transition-to-lvdc",
+              "outlet": "Open Compute Project",
+              "date": "2026-10",
               "tier": "S1",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.sec.gov/Archives/edgar/data/0000751978/000119312526309538/d115827dex991.htm",
-              "outlet": "SEC 8-K (Vicor)",
-              "date": "2026-09-30",
+              "url": "https://www.opencompute.org/documents/ocp-sst-design-specification-v0-3-final-pdf",
+              "outlet": "Open Compute Project (스펙 문서)",
+              "date": "2026-07",
               "tier": "S1",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.gurufocus.com/news/9105119/vicor-corporation-vicr-shares-surge-10-on-upgraded-q3-growth-forecast",
-              "outlet": "GuruFocus",
-              "date": "2026-10-01",
-              "tier": "S2",
+              "url": "https://www.prnewswire.com/news-releases/delta-to-showcase-energy-saving-grid-to-chip-infrastructure-solutions-for-sustainable-ai-at-ocp-global-summit-2026-302902203.html",
+              "outlet": "PR Newswire (Delta Electronics)",
+              "date": "2026-10",
+              "tier": "S1",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-10-06",
+          "last_seen": "2026-10-15",
           "first_seen": "2026-08-19",
-          "count": 5,
+          "count": 6,
           "thesis_review": false
         },
         "W2|랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지 (변압기 벤더 실적으로 확인)": {
@@ -12634,6 +12753,38 @@
           "last_seen": "2026-09-09",
           "first_seen": "2026-08-25",
           "count": 2,
+          "thesis_review": false
+        },
+        "W1|액침·d2c 액체냉각 채택 비중 변화": {
+          "headline": "액냉 커넥터 표준 하위레벨 확정",
+          "shift": "액침·D2C 액체냉각 채택 비중 변화",
+          "refs": [
+            "W1"
+          ],
+          "direction": "중립",
+          "affects": [],
+          "summary": "OCP가 액체냉각 콜드플레이트 퀵커넥터 규격 UQD v2.0.0을 공식 릴리즈(2026-09-22)했고, Stäubli는 OCP Global Summit에서 광모듈(OSFP/QSFP, 2027년 최대 1.6Tbps) 전용 초소형 커넥터 'Mini-QD' 표준화를 주도한다고 발표했다. 액체냉각 표준화가 랙 수준을 넘어 커넥터·부품 수준까지 세분화되고 있다.",
+          "sources": [
+            {
+              "url": "https://www.prnewswire.com/news-releases/staubli-drives-next-generation-liquid-cooling-standards-for-ai-data-centers-at-ocp-global-summit-302607085.html",
+              "outlet": "PR Newswire (Stäubli)",
+              "date": "2026-10",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.opencompute.org/wp-content/uploads/2026/10/OCP-Design-Spec_UQD_v2.0.0.pdf",
+              "outlet": "Open Compute Project (스펙 문서)",
+              "date": "2026-09-22",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-15",
+          "first_seen": "2026-10-15",
+          "count": 1,
           "thesis_review": false
         }
       }

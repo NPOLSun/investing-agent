@@ -6123,7 +6123,7 @@
       }
     },
     "memory-storage": {
-      "last_checked": "2026-10-12",
+      "last_checked": "2026-10-14",
       "observations": {
         "파두 컨트롤러 매출 비중": [
           {
@@ -6267,11 +6267,6 @@
         ],
         "예스티-HPSP 서울중앙지법 본안소송": [
           {
-            "date": "2026-09-11",
-            "last_seen": "2026-09-11",
-            "value": "8/13 변론 이후 추가 진행상황 미확인(9/11 재확인, 변화없음 지속)"
-          },
-          {
             "date": "2026-09-14",
             "last_seen": "2026-09-14",
             "value": "8/13 변론 이후 추가 진행상황 미확인(9/14 재확인, 변화없음 지속)"
@@ -6325,6 +6320,11 @@
             "date": "2026-10-12",
             "last_seen": "2026-10-12",
             "value": "8/13 변론 이후 10/12 기준 추가 진행상황 미확인(변화없음 지속)"
+          },
+          {
+            "date": "2026-10-14",
+            "last_seen": "2026-10-14",
+            "value": "8/13 변론 이후 10/14 기준 추가 진행상황 미확인(변화없음 지속)"
           }
         ],
         "Gen6 성능": [
@@ -6885,11 +6885,6 @@
         ],
         "파두 신규계약": [
           {
-            "date": "2026-09-09",
-            "last_seen": "2026-09-09",
-            "value": "8/12 공시(395.83억원) 이후 추가 신규계약 공시 미확인(9/9 재확인, 변화없음 지속)"
-          },
-          {
             "date": "2026-09-11",
             "last_seen": "2026-09-11",
             "value": "8/12 공시(395.83억원) 이후 추가 신규계약 공시 미확인(9/11 재확인, 변화없음 지속)"
@@ -6943,6 +6938,11 @@
             "date": "2026-10-12",
             "last_seen": "2026-10-12",
             "value": "8/12 공시(395.83억원) 이후 10/12 기준 추가 신규계약 공시 미확인(변화없음 지속)"
+          },
+          {
+            "date": "2026-10-14",
+            "last_seen": "2026-10-14",
+            "value": "8/12 공시(395.83억원) 이후 10/14 기준 추가 신규계약 공시 미확인(변화없음 지속)"
           }
         ],
         "SK하이닉스 1c D램 비중": [
@@ -7976,6 +7976,118 @@
             "last_seen": "2026-10-12",
             "value": "300여건"
           }
+        ],
+        "Microsoft Maia 300 HBM4 탑재량(가속기당)": [
+          {
+            "date": "2026-10-14",
+            "last_seen": "2026-10-14",
+            "value": "96GB(HBM3E, Maia200) → 288GB(HBM4, Maia300)"
+          }
+        ],
+        "Microsoft Maia 300 랙당 HBM 스택 수": [
+          {
+            "date": "2026-10-14",
+            "last_seen": "2026-10-14",
+            "value": "288개 → 768개(2.7배)"
+          }
+        ],
+        "YMTC 낸드 출하량 순위": [
+          {
+            "date": "2026-10-14",
+            "last_seen": "2026-10-14",
+            "value": "2026년 2분기 기준 3위(점유율 14%, 키옥시아·마이크론 추월) - 8/13 최초보도 수치가 10/14 재보도된 것으로 신규 변화 아님"
+          }
+        ],
+        "Nanya 3Q26 ASP(QoQ)": [
+          {
+            "date": "2026-10-14",
+            "last_seen": "2026-10-14",
+            "value": "+60%대(LTA 재가격 영향 과반)"
+          }
+        ],
+        "Nanya AI인프라 매출비중 목표": [
+          {
+            "date": "2026-10-14",
+            "last_seen": "2026-10-14",
+            "value": "20%+(현재) → 40~50%(2029~2030)"
+          }
+        ],
+        "가속기당 메모리 용량": [
+          {
+            "date": "2026-10-14",
+            "last_seen": "2026-10-14",
+            "value": "96GB(HBM3E, Maia200) → 288GB(HBM4, Maia300)"
+          }
+        ],
+        "랙당 HBM 스택 수": [
+          {
+            "date": "2026-10-14",
+            "last_seen": "2026-10-14",
+            "value": "288개 → 768개(2.7배)"
+          }
+        ],
+        "랙당 가속기 수": [
+          {
+            "date": "2026-10-14",
+            "last_seen": "2026-10-14",
+            "value": "48개 → 96개"
+          }
+        ],
+        "메모리 대역폭": [
+          {
+            "date": "2026-10-14",
+            "last_seen": "2026-10-14",
+            "value": "18TB/s"
+          }
+        ],
+        "토큰처리 효율(MW당, 2027년 GPU 대비)": [
+          {
+            "date": "2026-10-14",
+            "last_seen": "2026-10-14",
+            "value": "+40%"
+          }
+        ],
+        "매출(QoQ)": [
+          {
+            "date": "2026-10-14",
+            "last_seen": "2026-10-14",
+            "value": "+61.9%"
+          }
+        ],
+        "매출(YoY)": [
+          {
+            "date": "2026-10-14",
+            "last_seen": "2026-10-14",
+            "value": "+611.7%"
+          }
+        ],
+        "매출총이익률(QoQ)": [
+          {
+            "date": "2026-10-14",
+            "last_seen": "2026-10-14",
+            "value": "+6.2%p → 85.7%"
+          }
+        ],
+        "영업이익률": [
+          {
+            "date": "2026-10-14",
+            "last_seen": "2026-10-14",
+            "value": "80.0%"
+          }
+        ],
+        "AI인프라 매출비중": [
+          {
+            "date": "2026-10-14",
+            "last_seen": "2026-10-14",
+            "value": "20%+(현재) → 40~50%(2029~2030 목표)"
+          }
+        ],
+        "비트출하량 전망": [
+          {
+            "date": "2026-10-14",
+            "last_seen": "2026-10-14",
+            "value": "2H27까지 flat"
+          }
         ]
       },
       "shifts": {
@@ -8097,43 +8209,51 @@
           "thesis_review": false
         },
         "W2|hbm 세대 전환 일정 및 스택·본딩 공정 방식 변경": {
-          "headline": "삼성 zHBM 비전, 수치 목표 첫 제시",
+          "headline": "MS Maia300, HBM4 탑재량 3배",
           "shift": "HBM 세대 전환 일정 및 스택·본딩 공정 방식 변경",
           "refs": [
             "W2"
           ],
           "direction": "중립",
           "affects": [],
-          "summary": "삼성전자가 2026-09-16 미국 산타클라라 'AI 인프라 서밋' 기조연설에서 AI 가속기 위에 HBM을 수직 적층하는 'zHBM' 구상을 발표하며, HBM5 대비 최대 8배 성능·3배 이상 전력효율, AI 응답속도를 초당 100토큰에서 1000토큰으로 10배 끌어올리겠다는 구체적 목표치를 처음 공개했다. 온디바이스 AI용 3D 낸드 솔루션 'z낸드-O' 로드맵도 함께 제시했다.",
+          "summary": "마이크로소프트가 2026-10-12 3세대 커스텀 AI 가속기 'Maia 300'을 공식 공개했다. 가속기 1개당 HBM4 288GB(18TB/s 대역폭)를 탑재해 전작 Maia 200(HBM3E) 대비 랙당 HBM 스택 수가 288개에서 768개로 약 2.7배 늘었으며, TSMC N2P 공정 기반이고 2027년 미국부터 배치를 시작해 기가와트급으로 확대할 계획이다.",
           "sources": [
             {
-              "url": "https://news.samsung.com/global/samsung-unveils-next-gen-3d-memory-vision-at-fms-2026-charting-the-future-of-ai-infrastructure",
-              "outlet": "Samsung Global Newsroom",
-              "date": "2026-08",
-              "tier": "S1",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.fnnews.com/news/202609170740063164",
-              "outlet": "파이낸셜뉴스",
-              "date": "2026-09-17",
+              "url": "https://www.theregister.com/systems/2026/10/13/microsoft-plans-multi-gigawatt-rollout-of-next-gen-azure-maia-ai-accelerator-racks/5302802",
+              "outlet": "The Register",
+              "date": "2026-10-13",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://en.sedaily.com/international/2026/09/18/samsung-touts-10-fold-ai-speed-gain-with-stacked-zhbm-memory",
+              "url": "https://www.notebookcheck.net/Microsoft-Maia-300-AI-chip-arrives-with-monstrous-288-GB-HBM4-memory-and-18-TB-s-bandwidth.1422220.0.html",
+              "outlet": "Notebookcheck",
+              "date": "2026-10-13",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.digitimes.com/news/a20261012VL207/microsoft-server-rack-hbm4-accelerator-switch.html",
+              "outlet": "DigiTimes",
+              "date": "2026-10-12",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://en.sedaily.com/international/2026/10/12/microsoft-triples-hbm-content-in-new-ai-chip-boosting",
               "outlet": "Seoul Economic Daily",
-              "date": "2026-09-18",
+              "date": "2026-10-12",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-18",
+          "last_seen": "2026-10-14",
           "first_seen": "2026-08-18",
-          "count": 8,
+          "count": 9,
           "thesis_review": false
         },
         "W1,W4|ai 추론 확산에 따른 essd·니어라인 스토리지 수요 구조 변화 / 컨트롤러 내재화 vs 외부 조달 흐름": {
@@ -8877,7 +8997,7 @@
           "thesis_review": false
         },
         "W1,W5|ai 추론 확산에 따른 essd·니어라인 스토리지 수요 구조 변화 / 메모리·후공정 capex 방향": {
-          "headline": "AI사 메모리 직접구매 조짐",
+          "headline": "대만 Nanya 3Q ASP +60%대",
           "shift": "AI 추론 확산에 따른 eSSD·니어라인 스토리지 수요 구조 변화 / 메모리·후공정 capex 방향",
           "refs": [
             "W1",
@@ -8885,28 +9005,20 @@
           ],
           "direction": "중립",
           "affects": [],
-          "summary": "Digitimes(9/22)와 이를 인용한 아주경제(9/23) 보도에 따르면 OpenAI와 Anthropic이 2027년부터 삼성전자·SK하이닉스·마이크론으로부터 D램·HBM 등 메모리를 직접 구매하는 방안을 검토 중인 것으로 나타났다. 기존에는 서버 OEM·하이퍼스케일러를 경유해 메모리를 조달했으나, AI 개발사가 칩·데이터센터 설계에 대한 통제권을 직접 확보하려는 움직임으로 해석된다. 업계 관계자는 개별 공급사向 물량 배분 확대 여부는 불확실하나 산업이 이 방향으로 움직이고 있다고 언급했다(익명, 미검증).",
+          "summary": "대만 D램 업체 Nanya Technology가 2026-10-13 발표한 3분기(FY3Q26) 실적에서 매출이 전분기 대비 61.9%, 전년대비 611.7% 급증했다(GPM 85.7%, OPM 80.0%). 회사는 컨퍼런스콜에서 ASP 상승분의 절반 이상이 만료된 장기공급계약(LTA) 재가격 반영분이며, 비트 출하량은 신규 Fab 가동 전까지 2027년 하반기까지 사실상 정체(flat)되어 공급 타이트가 이어질 것이라고 밝혔다.",
           "sources": [
             {
-              "url": "https://www.digitimes.com/news/a20260922VL215/anthropic-openai-2027-samsung-manufacturing.html",
-              "outlet": "DigiTimes",
-              "date": "2026-09-22",
-              "tier": "S2",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.ajupress.com/view/20260923172325340",
-              "outlet": "아주경제",
-              "date": "2026-09-23",
-              "tier": "S2",
+              "url": "https://www.benzinga.com/news/26/09/61800956/sk-hynix-16-layer-hbm4-nvidia-rubin-micron-samsung",
+              "outlet": "참고용(HBM4 공급구도)",
+              "date": "2026-09",
+              "tier": "S3",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-30",
+          "last_seen": "2026-10-14",
           "first_seen": "2026-09-30",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W1,W3,W5|ai 추론 확산에 따른 essd·니어라인 스토리지 수요 구조 변화 / 메모리·후공정 capex 방향": {

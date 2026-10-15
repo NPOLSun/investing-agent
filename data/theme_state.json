@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-10-15"
+    "last_run": "2026-10-16"
   },
   "themes": {
     "ai-dc-power": {
@@ -3500,14 +3500,9 @@
       }
     },
     "optical-interconnect": {
-      "last_checked": "2026-10-14",
+      "last_checked": "2026-10-16",
       "observations": {
         "NVIDIA CPO 스위치 상태": [
-          {
-            "date": "2026-08-31",
-            "last_seen": "2026-08-31",
-            "value": "변동 없음 — Spectrum-X Ethernet Photonics/Quantum-X Photonics 완전양산 지속, 서버 OEM향 가을(9~11월) 본격 출하 예정 유지, 8/28 이후 신규 발표 없음"
-          },
           {
             "date": "2026-09-02",
             "last_seen": "2026-09-02",
@@ -3562,14 +3557,14 @@
             "date": "2026-10-14",
             "last_seen": "2026-10-14",
             "value": "변동 없음 — Spectrum-X/Quantum-X Photonics 완전양산 지속, 가을 본격 출하 예정 유지. OCP Global Summit(10/12~15) 현장에서는 NVIDIA 자체 CPO 신규 제품 발표는 없었고, Spectrum-XGS(스케일어크로스)는 2025-08 Hot Chips 기발표 내용 재소개, Cisco와 CPO 대안인 플러거블 USFP 공동발표"
+          },
+          {
+            "date": "2026-10-16",
+            "last_seen": "2026-10-16",
+            "value": "변동 없음 — Spectrum-X/Quantum-X Photonics 완전양산 지속, 가을 출하 예정 유지, 10/14 이후 신규 발표 없음"
           }
         ],
         "Broadcom CPO 스위치 상태": [
-          {
-            "date": "2026-09-02",
-            "last_seen": "2026-09-04",
-            "value": "변동 없음 — Tomahawk 6-Davisson/Bailly 볼륨생산 지속, 신규 발표 없음"
-          },
           {
             "date": "2026-09-07",
             "last_seen": "2026-09-07",
@@ -3624,14 +3619,14 @@
             "date": "2026-10-14",
             "last_seen": "2026-10-14",
             "value": "변동 없음 — TH6-Davisson 3세대 102.4T CPO가 OCP Summit(10/12~15) 현장에서 Celestica/Delta/Micas 등 파트너 부스로 실제 전시 확인(10/8 프리뷰 내용과 동일), '10만+ 가속기 클러스터' 타겟 공식 언급"
+          },
+          {
+            "date": "2026-10-16",
+            "last_seen": "2026-10-16",
+            "value": "변동 없음(기존 TH6-Davisson 3세대 102.4T 양산 유지) — Celestica가 이를 상용 스위치 제품 'DS6005'(102.4Tbps, 1.5OU)로 구체화(10/12)"
           }
         ],
         "TSMC COUPE": [
-          {
-            "date": "2026-08-17",
-            "last_seen": "2026-08-17",
-            "value": "2026년 양산 목표 유지"
-          },
           {
             "date": "2026-08-19",
             "last_seen": "2026-08-19",
@@ -3686,6 +3681,11 @@
             "date": "2026-09-30",
             "last_seen": "2026-10-12",
             "value": "변동 없음 — 2026 하반기 양산목표 유지, 신규 발표 없음"
+          },
+          {
+            "date": "2026-10-16",
+            "last_seen": "2026-10-16",
+            "value": "변동 없음 — 2026 하반기 양산목표 유지. 3Q26 실적발표(10/15)에서는 COUPE/실리콘포토닉스 구체 언급 없이 AI 수요가 공급을 상당폭 초과하며 2027년까지 캐파 타이트 지속 전망만 재확인"
           }
         ],
         "CPO 비중(2026 광모듈 중)": [
@@ -3696,11 +3696,6 @@
           }
         ],
         "Corning 장기계약 누적": [
-          {
-            "date": "2026-09-09",
-            "last_seen": "2026-09-09",
-            "value": "Meta 최대$6B(2026-01) + Amazon 복수B$(2026-06) + Zayo(2026-08-20) + Verizon 신규(2026-09-08, 멀티빌리언$, 8,000만+마일, 2027~2032)"
-          },
           {
             "date": "2026-09-11",
             "last_seen": "2026-09-16",
@@ -3755,6 +3750,11 @@
             "date": "2026-10-14",
             "last_seen": "2026-10-14",
             "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) + Verizon(9/8) + AT&T $3B+(9/29) 유지, 신규 공급계약 없음. 단 Lightmatter CPO 오픈랙 시스템(10/12)에 PRIZM 커넥터 공급사로 이름 등재되며 CPO 밸류체인 내 포지션 확인"
+          },
+          {
+            "date": "2026-10-16",
+            "last_seen": "2026-10-16",
+            "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo + Verizon + AT&T $3B+ 유지, 신규 공급계약 없음. PCIe-over-optics 데모(Lumentum·Astera Labs, 10/12)로 랙스케일 광생태계 내 포지션 추가 확인"
           }
         ],
         "ASMPT 포토닉스 매출 성장": [
@@ -3952,6 +3952,11 @@
             "date": "2026-10-14",
             "last_seen": "2026-10-14",
             "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지, 단 Lightmatter가 Flex·Corning과 204.8Tbps CPO 스위치트레이·102.4Tbps XPU트레이 실물(오픈랙 규격)을 10/12 최초 공개해 아키텍처 단계에서 실물 하드웨어 단계로 진전"
+          },
+          {
+            "date": "2026-10-16",
+            "last_seen": "2026-10-16",
+            "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지, OCP Summit(10/12~15) 종료"
           }
         ],
         "성호전자/ADS테크 자금상황": [
@@ -4904,6 +4909,11 @@
             "date": "2026-10-02",
             "last_seen": "2026-10-02",
             "value": "32Gbps NRZ (1060nm VCSEL)"
+          },
+          {
+            "date": "2026-10-16",
+            "last_seen": "2026-10-16",
+            "value": "32Gb/s NRZ"
           }
         ],
         "ficonTEC CPO 테스트(Insertion2/INS-2)": [
@@ -5124,7 +5134,7 @@
         "성호전자/ADS테크 3Q 수주·대표": [
           {
             "date": "2026-10-14",
-            "last_seen": "2026-10-14",
+            "last_seen": "2026-10-16",
             "value": "변동 없음 — 3분기 누적 신규수주 789억원(10/8 확인) 이후 신규 수주 공시 없음"
           }
         ],
@@ -5182,6 +5192,55 @@
             "date": "2026-10-14",
             "last_seen": "2026-10-14",
             "value": "400Gb/s/lane"
+          }
+        ],
+        "신규 CPO 상용제품/데모(10/12~13, OCP Summit)": [
+          {
+            "date": "2026-10-16",
+            "last_seen": "2026-10-16",
+            "value": "Celestica DS6005(상용 CPO스위치) · Lumentum/Astera Labs/Corning PCIe-over-optics · Wiwynn/Ayar Labs/GUC 실동데모 · Marvell Alaska E/A(구리 AEC) 동시 공개"
+          }
+        ],
+        "대역폭": [
+          {
+            "date": "2026-10-16",
+            "last_seen": "2026-10-16",
+            "value": "102.4Tbps"
+          }
+        ],
+        "포트구성": [
+          {
+            "date": "2026-10-16",
+            "last_seen": "2026-10-16",
+            "value": "64 x 1.6TbE"
+          }
+        ],
+        "폼팩터": [
+          {
+            "date": "2026-10-16",
+            "last_seen": "2026-10-16",
+            "value": "1.5OU"
+          }
+        ],
+        "프로토콜": [
+          {
+            "date": "2026-10-16",
+            "last_seen": "2026-10-16",
+            "value": "PCIe-5"
+          }
+        ],
+        "Alaska E 대역폭": [
+          {
+            "date": "2026-10-16",
+            "last_seen": "2026-10-16",
+            "value": "3.2Tbps"
+          }
+        ],
+        "Alaska A AEC 지원거리": [
+          {
+            "date": "2026-10-16",
+            "last_seen": "2026-10-16",
+            "value": "기존 대비 2배(6m+)"
           }
         ]
       },
@@ -6117,6 +6176,183 @@
           ],
           "last_seen": "2026-10-14",
           "first_seen": "2026-10-14",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W1,W2|cpo 양산 채택 일정의 전진 또는 후퇴 / 스케일업·스케일아웃 네트워크의 광 전환 비중": {
+          "headline": "Celestica, CPO 스위치 상용 출시",
+          "shift": "CPO 양산 채택 일정의 전진 또는 후퇴 / 스케일업·스케일아웃 네트워크의 광 전환 비중",
+          "refs": [
+            "W1",
+            "W2"
+          ],
+          "direction": "순풍",
+          "affects": [],
+          "summary": "Celestica가 2026-10-12 OCP Global Summit에서 Broadcom Tomahawk 6-Davisson 기반 102.4Tbps CPO 데이터센터 스위치 'DS6005'를 공식 출시했다. 완전 액체냉각 1.5OU 폼팩터로 64×1.6TbE 포트를 지원하며, 필드교체형 외장 레이저모듈·CPO전용 관리 소프트웨어까지 갖춘 판매 가능한 상용 시스템으로, 그간의 아키텍처·프리뷰 단계를 넘어선 사례다.",
+          "sources": [
+            {
+              "url": "https://corporate.celestica.com/news-releases/news-release-details/celestica-introduces-ds6005-data-center-switch-co-packaged",
+              "outlet": "corporate.celestica.com",
+              "date": "2026-10-12",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.sdxcentral.com/news/celestica-debuts-liquid-cooled-cpo-switch-for-ai-fabrics/",
+              "outlet": "sdxcentral.com",
+              "date": "2026-10-12",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://convergedigest.com/celestica-ds6005-1024t-co-packaged-optics-switch/",
+              "outlet": "convergedigest.com",
+              "date": "2026-10-12",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.storagenewsletter.com/2026/10/15/ocp-global-summit-2026-celestica-introduces-the-ds6005-data-center-switch-with-co-packaged-optics-to-enable-power-efficient-ai-fabrics/",
+              "outlet": "storagenewsletter.com",
+              "date": "2026-10-15",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-16",
+          "first_seen": "2026-10-16",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W2,W3,W4|스케일업 랙 내 pcie 광전환 / 코닝 밸류체인 포지션": {
+          "headline": "코닝, PCIe-광변환 랙데모 참여",
+          "shift": "스케일업 랙 내 PCIe 광전환 / 코닝 밸류체인 포지션",
+          "refs": [
+            "W2",
+            "W3",
+            "W4"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "optical-material"
+          ],
+          "summary": "Lumentum·Astera Labs·Corning이 2026-10-12 OCP Global Summit에서 1060nm VCSEL 기반 'PCIe-오버-옵틱스' 랙스케일 연결 데모를 공개했다. Astera Labs Scorpio Smart Fabric Switch와 Lumentum VCSEL 광엔진, Corning 멀티모드 광섬유를 결합해 32Gb/s NRZ 다채널 무오류 PCIe-5 링크를 구현했다. 10/2 관측된 Lumentum-Qualcomm-Corning D2D 데모와는 별개로 파트너를 Astera Labs로 바꾼 신규 PCIe 전용 proof-of-concept다.",
+          "sources": [
+            {
+              "url": "https://investor.lumentum.com/financial-news-releases/news-details/2026/Lumentum-Astera-Labs-and-Corning-to-Demonstrate-1060-nm-VCSEL-Based-PCIe-over-Optics-for-AI-Rack-Scale-Connectivity-at-the-2026-OCP-Global-Summit/default.aspx",
+              "outlet": "investor.lumentum.com",
+              "date": "2026-10-12",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.semiconductor-today.com/news_items/2026/oct/lumentum-131026.shtml",
+              "outlet": "semiconductor-today.com",
+              "date": "2026-10-13",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://convergedigest.com/lumentum-astera-corning-pcie-over-optics-ocp-2026/",
+              "outlet": "convergedigest.com",
+              "date": "2026-10-12",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-16",
+          "first_seen": "2026-10-16",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W1,W5|실리콘 포토닉스 cpo 시스템 레벨 실동 검증": {
+          "headline": "Ayar Labs CPO 랙시스템 실동시연",
+          "shift": "실리콘 포토닉스 CPO 시스템 레벨 실동 검증",
+          "refs": [
+            "W1",
+            "W5"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "optical-align"
+          ],
+          "summary": "Wiwynn·Ayar Labs·GUC가 2026-10-13 OCP Global Summit에서 GUC ASIC에 Ayar Labs TeraPHY 광엔진·SuperNova 광원을 결합한 통합 광컴퓨팅 시스템의 실시간 구동 데모를 공개했다. 실시간 헬스 텔레메트리 전송을 포함한 '가동 중 시스템' 단계 시연으로, 3사 파트너십 체결(2025-11) 이후 처음으로 architecture 단계를 넘어 시스템 운영 준비도를 보여준 사례다.",
+          "sources": [
+            {
+              "url": "http://www.prnewswire.com/news-releases/wiwynn-ayar-labs-and-guc-advance-co-packaged-optics-with-live-demonstration-of-integrated-optical-compute-system-at-ocp-global-summit-2026-302907032.html",
+              "outlet": "prnewswire.com (Wiwynn/Ayar Labs/GUC)",
+              "date": "2026-10-13",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://ayarlabs.com/news/",
+              "outlet": "ayarlabs.com",
+              "date": "2026-10-13",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.hpcwire.com/off-the-wire/ayar-labs-and-wiwynn-partner-to-bring-co-packaged-optics-to-rack-scale-ai-systems/",
+              "outlet": "hpcwire.com",
+              "date": "2026-10-13",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-16",
+          "first_seen": "2026-10-16",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W2,W3|스케일업 전기연결 리치 확장 — 광전환 속도에 혼재신호": {
+          "headline": "Marvell, 구리 AEC 리치 2배 확장",
+          "shift": "스케일업 전기연결 리치 확장 — 광전환 속도에 혼재신호",
+          "refs": [
+            "W2",
+            "W3"
+          ],
+          "direction": "중립",
+          "affects": [],
+          "summary": "Marvell이 2026-10-13 OCP Global Summit에서 3.2Tbps 레티머 'Alaska E'(224G/lane×16레인)와 2세대 1.6Tbps AEC DSP 'Alaska A'(3nm, 8레인)를 발표하고 고객 샘플링을 시작했다. Alaska A는 구리케이블 지원거리를 기존 세대 대비 2배(6m+)로 늘려, 랙스케일 스케일업 구간에서 구리 기반 연결이 당분간 더 넓은 범위를 커버할 수 있음을 시사한다.",
+          "sources": [
+            {
+              "url": "https://www.marvell.com/company/newsroom/marvell-connectivity-portfolio-3-2t-retimer-second-generation-1-6t-aec-dsp.html",
+              "outlet": "marvell.com",
+              "date": "2026-10-13",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.businesswire.com/news/home/20261013849856/en/Marvell-Bolsters-Connectivity-Portfolio-with-New-3.2T-Protocol-aware-Retimer-and-Second-generation-1.6T-AEC-DSP",
+              "outlet": "businesswire.com",
+              "date": "2026-10-13",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.electronicsmedia.info/2026/10/14/marvell-alaska/",
+              "outlet": "electronicsmedia.info",
+              "date": "2026-10-14",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-16",
+          "first_seen": "2026-10-16",
           "count": 1,
           "thesis_review": false
         }

@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-10-19"
+    "last_run": "2026-10-20"
   },
   "themes": {
     "ai-dc-power": {
@@ -9711,14 +9711,9 @@
       }
     },
     "nuclear-smr": {
-      "last_checked": "2026-10-13",
+      "last_checked": "2026-10-20",
       "observations": {
         "ADVANCE Act 이행률": [
-          {
-            "date": "2026-08-18",
-            "last_seen": "2026-08-18",
-            "value": "31/36 마일스톤 (86%)"
-          },
           {
             "date": "2026-08-18",
             "last_seen": "2026-08-18",
@@ -9773,6 +9768,11 @@
             "date": "2026-10-13",
             "last_seen": "2026-10-13",
             "value": "33/36 마일스톤(92%, 2026-08-20 기준) — 10/13까지 추가 변동 확인 안됨"
+          },
+          {
+            "date": "2026-10-20",
+            "last_seen": "2026-10-20",
+            "value": "33/36 마일스톤(92%, 2026-08-20 기준) — 10/20까지 추가 변동 확인 안됨"
           }
         ],
         "하이퍼스케일러 원자력 누적계약": [
@@ -9820,6 +9820,11 @@
             "date": "2026-10-06",
             "last_seen": "2026-10-06",
             "value": "약 9.8~10GW, 13개+ 프로젝트 — 10/6까지 신규 대형계약 확인 안됨"
+          },
+          {
+            "date": "2026-10-20",
+            "last_seen": "2026-10-20",
+            "value": "약 9.8~10GW, 13개+ 프로젝트 → Amazon-X-energy-AEP 인디애나 Xe-100 12기(960MW) 신규 추가(10/19, 타당성조사 단계)"
           }
         ],
         "Centrus 주가(LEU)": [
@@ -10052,6 +10057,11 @@
             "date": "2026-09-11",
             "last_seen": "2026-09-11",
             "value": "144기 Xe-100, 약 11.5GW(Dow·Amazon·Centrica) — 변동 없음"
+          },
+          {
+            "date": "2026-10-20",
+            "last_seen": "2026-10-20",
+            "value": "11.5GW(Dow·Amazon·Centrica, 8월 기준) → 인디애나 Xe-100 12기/960MW 신규 프로젝트 추가(10/19), X-energy-Amazon 2039년 5GW+ 목표 재확인"
           }
         ],
         "두산에너빌리티 원전 수주": [
@@ -10513,6 +10523,11 @@
             "date": "2026-10-13",
             "last_seen": "2026-10-13",
             "value": "Radiant(9/9), Antares(9/17) — 10/13까지 추가 신규고객 확인 안됨"
+          },
+          {
+            "date": "2026-10-20",
+            "last_seen": "2026-10-20",
+            "value": "Radiant(9/9), Antares(9/17) — 10/20까지 추가 신규고객 확인 안됨"
           }
         ],
         "Kairos-Samsung C&T EPC 투자": [
@@ -10590,6 +10605,11 @@
             "date": "2026-10-13",
             "last_seen": "2026-10-13",
             "value": "벡텔 이탈(9/22~23) 후 재입찰 진행 중 — 10/13까지 신규 EPC 선정 발표 확인 안됨, 완공목표 2030년 유지"
+          },
+          {
+            "date": "2026-10-20",
+            "last_seen": "2026-10-20",
+            "value": "벡텔 이탈(9/22~23) 후 재입찰 진행 중 — 10/19까지 신규 EPC 선정 미확인, 약 1,600명 인력 고용 불확실성 보도(10/13), 완공목표 2030년 유지"
           }
         ],
         "X-energy Xe-100 Dow Seadrift 건설허가": [
@@ -10653,6 +10673,48 @@
             "date": "2026-10-13",
             "last_seen": "2026-10-13",
             "value": "13% → 28%"
+          }
+        ],
+        "웨스팅하우스 지분 협상(한미 패키지)": [
+          {
+            "date": "2026-10-20",
+            "last_seen": "2026-10-20",
+            "value": "5~10% 코너스톤 투자로 수렴(10/13) → SK 주도 민간컨소시엄(SK·삼성물산·현대건설·두산에너빌리티) 최대 4조원 검토 보도(10/14~19), 단 참여 여부 미결정"
+          }
+        ],
+        "신규 프로젝트 규모": [
+          {
+            "date": "2026-10-20",
+            "last_seen": "2026-10-20",
+            "value": "Xe-100 12기 / 960MW"
+          }
+        ],
+        "X-energy-Amazon 장기목표": [
+          {
+            "date": "2026-10-20",
+            "last_seen": "2026-10-20",
+            "value": "2039년까지 5GW+"
+          }
+        ],
+        "검토 중 투자규모": [
+          {
+            "date": "2026-10-20",
+            "last_seen": "2026-10-20",
+            "value": "최대 4조원(약 30억달러)"
+          }
+        ],
+        "지분율": [
+          {
+            "date": "2026-10-20",
+            "last_seen": "2026-10-20",
+            "value": "5~10%"
+          }
+        ],
+        "IPO 할인율": [
+          {
+            "date": "2026-10-20",
+            "last_seen": "2026-10-20",
+            "value": "10%"
           }
         ]
       },
@@ -10949,7 +11011,7 @@
           "thesis_review": false
         },
         "W5|대형원전 신규 발주 흐름 (미국·유럽·아시아) — 한미 패키지 웨스팅하우스 지분 협상": {
-          "headline": "美정부, 웨스팅하우스 황금주 보유 확인",
+          "headline": "SK 주도 민간 컨소시엄 구체화",
           "shift": "대형원전 신규 발주 흐름 (미국·유럽·아시아) — 한미 패키지 웨스팅하우스 지분 협상",
           "refs": [
             "W5"
@@ -10958,27 +11020,94 @@
           "affects": [
             "power-generation"
           ],
-          "summary": "산업통상자원부가 2026-10-08 국회(우재준 의원실)에 제출한 서면답변에서, 미국 정부가 웨스팅하우스 상장(IPO) 시 황금주(단 1주로도 핵심 경영사안에 거부권 행사 가능)를 보유하기로 되어 있다는 사실을 확인했다. 이는 2025년 미 상무부-웨스팅하우스-브룩필드-캐머코 간 협약에 근거한 것으로, 한국이 요구 중인 5~10%대 지분·이사회 참여 협상에서 한국 측의 실질적 영향력 범위에 대한 불확실성을 키우는 변수로 떠올랐다.",
+          "summary": "한미 원전 프레임워크(9/30 서명)에 담긴 웨스팅하우스 5~10% 지분(IPO가 10% 할인) 조항의 실제 참여 주체가 10월 중순 보도로 구체화됐다 — SK그룹이 주도하고 삼성물산·현대건설·두산에너빌리티 등이 참여를 검토 중인 최대 4조원(약 30억달러) 규모 컨소시엄이다. 다만 SK는 \"참여 여부·방식 모두 미결정\"이라 밝혔고 두산에너빌리티도 구체적 입장을 유보해, 10/19 기준 실제 투자 확정과는 거리가 있다.",
           "sources": [
             {
-              "url": "https://www.kedglobal.com/business-politics/newsView/ked202610080003",
-              "outlet": "KED Global",
-              "date": "2026-10-08",
+              "url": "https://biz.sbs.co.kr/article/20000336372",
+              "outlet": "SBS Biz",
+              "date": "2026-10-15",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://en.sedaily.com/finance/2026/10/09/us-to-hold-golden-share-in-westinghouse-ipo-clouding-korean",
+              "url": "https://biz.heraldcorp.com/article/10903387",
+              "outlet": "The Herald Business",
+              "date": "2026-10-14",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://en.sedaily.com/finance/2026/10/14/korean-firms-to-buy-westinghouse-stake-eyeing-ai-vertical",
               "outlet": "Seoul Economic Daily",
-              "date": "2026-10-09",
+              "date": "2026-10-14",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.insightkorea.co.kr/news/articleView.html?idxno=256687",
+              "outlet": "Insight Korea",
+              "date": "2026-10-19",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-10-13",
+          "last_seen": "2026-10-20",
           "first_seen": "2026-10-13",
+          "count": 2,
+          "thesis_review": false
+        },
+        "W1,W3|하이퍼스케일러의 원자력 전력구매계약 규모와 조건 / smr 최초 상업운전 시점 컨센서스의 이동": {
+          "headline": "Amazon·AEP, 인디애나 Xe-100 12기",
+          "shift": "하이퍼스케일러의 원자력 전력구매계약 규모와 조건 / SMR 최초 상업운전 시점 컨센서스의 이동",
+          "refs": [
+            "W1",
+            "W3"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "smr-developer"
+          ],
+          "summary": "X-energy·Amazon·AEP가 2026-10-19 인디애나주 설리번카운티 옛 Breed 석탄발전소 부지에 Xe-100 12기(960MW) 건설 가능성을 공동 검토하는 협약을 체결했다고 발표했다. Amazon이 마일스톤 기반 개발자금을 대고 장기 전력구매를 약속하며, AEP는 발전·원자력 운영 역량을 제공하는 구조로, X-energy-Amazon 협력 하 두 번째 상업 배치 프로젝트이자 2039년까지 5GW+ 목표의 일환이다.",
+          "sources": [
+            {
+              "url": "https://investors.x-energy.com/news-releases/news-release-details/x-energy-amazon-american-electric-power-partner-bring-smr",
+              "outlet": "investors.x-energy.com (IR)",
+              "date": "2026-10-19",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.aboutamazon.com/news/sustainability/amazon-nuclear-energy-indiana-x-energy-aep",
+              "outlet": "aboutamazon.com",
+              "date": "2026-10-19",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.world-nuclear-news.org/articles/aep-amazon-and-x-energy-plan-12-smr-plant",
+              "outlet": "World Nuclear News",
+              "date": "2026-10-19",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.ans.org/news/2026-10-19/article-8501/amazon-aep-xenergy-explore-smr-feasibility-in-indiana/",
+              "outlet": "ANS Nuclear Newswire",
+              "date": "2026-10-19",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-20",
+          "first_seen": "2026-10-20",
           "count": 1,
           "thesis_review": false
         }

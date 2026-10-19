@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-10-16"
+    "last_run": "2026-10-19"
   },
   "themes": {
     "ai-dc-power": {
@@ -3500,7 +3500,7 @@
       }
     },
     "optical-interconnect": {
-      "last_checked": "2026-10-16",
+      "last_checked": "2026-10-19",
       "observations": {
         "NVIDIA CPO 스위치 상태": [
           {
@@ -3697,11 +3697,6 @@
         ],
         "Corning 장기계약 누적": [
           {
-            "date": "2026-09-11",
-            "last_seen": "2026-09-16",
-            "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) + Verizon(9/8) 유지, 9/9 이후 신규 계약 미확인"
-          },
-          {
             "date": "2026-09-18",
             "last_seen": "2026-09-18",
             "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) + Verizon(9/8) 유지, 9/9 이후 신규 계약 미확인 (단 9/11 $2B 자사주 유상증자는 일반 운영자금 목적으로 확인, 특정 캐파투자 연계 불명)"
@@ -3755,6 +3750,11 @@
             "date": "2026-10-16",
             "last_seen": "2026-10-16",
             "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo + Verizon + AT&T $3B+ 유지, 신규 공급계약 없음. PCIe-over-optics 데모(Lumentum·Astera Labs, 10/12)로 랙스케일 광생태계 내 포지션 추가 확인"
+          },
+          {
+            "date": "2026-10-19",
+            "last_seen": "2026-10-19",
+            "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo + Verizon + AT&T $3B+ 유지, 10/16 이후 신규 계약 없음"
           }
         ],
         "ASMPT 포토닉스 매출 성장": [
@@ -3957,6 +3957,11 @@
             "date": "2026-10-16",
             "last_seen": "2026-10-16",
             "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지, OCP Summit(10/12~15) 종료"
+          },
+          {
+            "date": "2026-10-19",
+            "last_seen": "2026-10-19",
+            "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지, OCP Summit(10/12~15) 종료 후 신규 표준 발표 없음"
           }
         ],
         "성호전자/ADS테크 자금상황": [
@@ -4266,6 +4271,11 @@
             "date": "2026-10-08",
             "last_seen": "2026-10-08",
             "value": "변동 없음 — 2026 하반기 양산목표 유지"
+          },
+          {
+            "date": "2026-10-19",
+            "last_seen": "2026-10-19",
+            "value": "변동 없음 — 2026 하반기 양산목표 유지, 신규 발표 없음"
           }
         ],
         "OCP CPO 표준화(Lightmatter)": [
@@ -4612,6 +4622,11 @@
             "date": "2026-10-08",
             "last_seen": "2026-10-08",
             "value": "변동 없음 — 완전양산 지속, 가을(9~11월) 본격 출하 예정 유지, 10/6 이후 신규 발표 없음"
+          },
+          {
+            "date": "2026-10-19",
+            "last_seen": "2026-10-19",
+            "value": "변동 없음 — 완전양산 지속, TACC/Lambda/CoreWeave 등 코어고객 배포 지속 확인, 10/16 이후 신규 발표 없음"
           }
         ],
         "GF SiGe 광링크 지원 규격": [
@@ -4832,6 +4847,11 @@
             "date": "2026-10-12",
             "last_seen": "2026-10-12",
             "value": "변동 없음(추정) — 1,650억원(8/31 기준) 수준, 10/2 14회차 BW(2024년 발행분) 만기상환은 기존 채무의 정상 상환으로 신규 이벤트 아님"
+          },
+          {
+            "date": "2026-10-19",
+            "last_seen": "2026-10-19",
+            "value": "변동 없음(추정) — 1,650억원(8/31 기준) 수준, 10/19까지 신규 담보·상환 공시 미확인"
           }
         ],
         "성호전자 어매이징홀딩스 흡수합병": [
@@ -5136,6 +5156,11 @@
             "date": "2026-10-14",
             "last_seen": "2026-10-16",
             "value": "변동 없음 — 3분기 누적 신규수주 789억원(10/8 확인) 이후 신규 수주 공시 없음"
+          },
+          {
+            "date": "2026-10-19",
+            "last_seen": "2026-10-19",
+            "value": "변동 없음 — 3분기 누적 신규수주 789억원(10/8 확인) 이후 신규 수주·공시 없음"
           }
         ],
         "CPO 스위치트레이 대역폭": [
@@ -5242,39 +5267,82 @@
             "last_seen": "2026-10-16",
             "value": "기존 대비 2배(6m+)"
           }
+        ],
+        "Broadcom TH6-Davisson CPO박스 생산개시(신규 특정)": [
+          {
+            "date": "2026-10-19",
+            "last_seen": "2026-10-19",
+            "value": "2027년 1분기 (Micas Networks, 10/12~15 OCP)"
+          }
+        ],
+        "Broadcom 비CPO Tomahawk6(2RU/4RU) 생산개시": [
+          {
+            "date": "2026-10-19",
+            "last_seen": "2026-10-19",
+            "value": "2026년 4분기"
+          }
+        ],
+        "Astera Labs Orion(신규)": [
+          {
+            "date": "2026-10-19",
+            "last_seen": "2026-10-19",
+            "value": "2026-10-12 공개 — 모듈러 랙스케일 AI추론 레퍼런스디자인(최대 160가속기/pod), OEM/ODM향 2027 1Q 출시 예정"
+          }
+        ],
+        "TH6-Davisson 1RU CPO박스 생산개시": [
+          {
+            "date": "2026-10-19",
+            "last_seen": "2026-10-19",
+            "value": "2027년 1분기(신규 특정)"
+          }
+        ],
+        "비CPO Tomahawk6 2RU/4RU 생산개시": [
+          {
+            "date": "2026-10-19",
+            "last_seen": "2026-10-19",
+            "value": "2026년 4분기"
+          }
         ]
       },
       "shifts": {
         "W1|cpo 양산 채택 일정의 전진 또는 후퇴": {
-          "headline": "젠슨황, 2027 칩판매 2배 전망",
+          "headline": "TH6-Davisson CPO박스 생산, Q1 2027 특정",
           "shift": "CPO 양산 채택 일정의 전진 또는 후퇴",
           "refs": [
             "W1"
           ],
-          "direction": "순풍",
+          "direction": "중립",
           "affects": [],
-          "summary": "엔비디아 CEO 젠슨 황이 2026-09-17 스코틀랜드 행사에서 2027년 칩 판매량이 2026년 대비 약 2배로 늘어날 것이라고 밝혔으며, 이는 Vera Rubin 플랫폼(GPU당 매출 기회 $40B, Blackwell $25B 대비 상향)이 견인한다고 설명했다. Vera Rubin은 Spectrum-X/Quantum-X Photonics CPO 스위치와 함께 출하되는 플랫폼이므로, 이 전망은 CPO 스위치 물량 확대 기조를 뒷받침하는 수요 신호다.",
+          "summary": "Micas Networks가 2026-10-12~15 OCP Global Summit에서 Broadcom Tomahawk 6-Davisson 기반 102.4Tbps 1RU CPO 스위치(M2-W6950-64X3-DR8-CP08-DC)를 공개하며, 이 CPO 전용 박스의 생산 시작을 '2027년 1분기'로 명시했다. 이는 TH6-Davisson CPO 하드웨어에 구체적 생산분기가 처음 붙은 사례이며, 같은 Tomahawk 6 기반 비(非)CPO 공랭/액냉 버전(2RU·4RU)은 이보다 한 분기 빠른 2026년 4분기 생산 시작으로 구분됐다.",
           "sources": [
             {
-              "url": "https://www.gurufocus.com/news/9086678/nvidia-stock-rises-jensen-huang-sees-chip-sales-doubling-in-2027",
-              "outlet": "gurufocus.com",
-              "date": "2026-09-17",
+              "url": "https://www.storagereview.com/news/micas-networks-tomahawk-6-102t-switches-davisson-cpo",
+              "outlet": "storagereview.com",
+              "date": "2026-10-15",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://247wallst.com/investing/2026/09/17/nvidia-expects-chip-sales-to-double-in-2027/",
-              "outlet": "247wallst.com",
-              "date": "2026-09-17",
+              "url": "https://www.globenewswire.com/news-release/2026/10/12/3379036/0/en/micas-networks-unveils-three-102-4t-open-ethernet-platforms-for-ai-factories-at-ocp-global-summit-2026.html",
+              "outlet": "globenewswire.com (Micas Networks)",
+              "date": "2026-10-12",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.hpcwire.com/off-the-wire/micas-networks-unveils-3-102-4t-open-ethernet-platforms-for-ai-factories/",
+              "outlet": "hpcwire.com",
+              "date": "2026-10-12",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-18",
+          "last_seen": "2026-10-19",
           "first_seen": "2026-08-17",
-          "count": 4,
+          "count": 5,
           "thesis_review": false
         },
         "W5|실리콘 포토닉스 수율·패키징 병목 해소 여부": {
@@ -6359,7 +6427,7 @@
       }
     },
     "memory-storage": {
-      "last_checked": "2026-10-16",
+      "last_checked": "2026-10-19",
       "observations": {
         "파두 컨트롤러 매출 비중": [
           {
@@ -8376,6 +8444,76 @@
             "last_seen": "2026-10-16",
             "value": "80%초과"
           }
+        ],
+        "파두 3분기 매출": [
+          {
+            "date": "2026-10-19",
+            "last_seen": "2026-10-19",
+            "value": "732억원(2Q26) → 1436억원(3Q26, QoQ+96%, YoY+460%)"
+          }
+        ],
+        "파두 3분기 영업이익": [
+          {
+            "date": "2026-10-19",
+            "last_seen": "2026-10-19",
+            "value": "163억원(2Q26) → 363억원(3Q26)"
+          }
+        ],
+        "파두 3분기 누적 영업이익": [
+          {
+            "date": "2026-10-19",
+            "last_seen": "2026-10-19",
+            "value": "600억원 초과"
+          }
+        ],
+        "파두 연간 누적 신규수주(10월까지)": [
+          {
+            "date": "2026-10-19",
+            "last_seen": "2026-10-19",
+            "value": "4563억원(2025년 매출 924억원 대비 약 4.9배)"
+          }
+        ],
+        "파두 FS-SSD 공개": [
+          {
+            "date": "2026-10-19",
+            "last_seen": "2026-10-19",
+            "value": "2026-10-15 OCP 글로벌 서밋, Gen6 컨트롤러 기반 세계 최초 공개"
+          }
+        ],
+        "솔리다임 IPO 중복상장 이슈": [
+          {
+            "date": "2026-10-19",
+            "last_seen": "2026-10-19",
+            "value": "2026-10-19 금감원장 국정감사 발언, 금융위 유권해석 대기(미확정)"
+          }
+        ],
+        "매출": [
+          {
+            "date": "2026-10-19",
+            "last_seen": "2026-10-19",
+            "value": "732억원(2Q26) → 1436억원(3Q26, QoQ+96%, YoY+460%)"
+          }
+        ],
+        "영업이익": [
+          {
+            "date": "2026-10-19",
+            "last_seen": "2026-10-19",
+            "value": "163억원(2Q26) → 363억원(3Q26)"
+          }
+        ],
+        "3분기 누적 영업이익": [
+          {
+            "date": "2026-10-19",
+            "last_seen": "2026-10-19",
+            "value": "600억원 초과"
+          }
+        ],
+        "연간 누적 신규수주(10월까지)": [
+          {
+            "date": "2026-10-19",
+            "last_seen": "2026-10-19",
+            "value": "4563억원(2025년 매출 924억원 대비 약 4.9배)"
+          }
         ]
       },
       "shifts": {
@@ -8628,7 +8766,7 @@
           "thesis_review": false
         },
         "W1,W4|파두 컨트롤러 매출 성장 (분기 실적)": {
-          "headline": "파두 2Q 실적 서프라이즈",
+          "headline": "파두 3Q 매출 1436억 최대",
           "shift": "파두 컨트롤러 매출 성장 (분기 실적)",
           "refs": [
             "W1",
@@ -8638,33 +8776,44 @@
           "affects": [
             "ssd-controller"
           ],
-          "summary": "파두가 2026년 2분기 매출 732억원, 영업이익 163억원을 기록하며 1분기(매출 595억원, 영업이익 77억원) 대비 큰 폭 성장했다. 상반기 누적매출은 1327억원으로 2024~2025년 합산 매출(1395억원)에 육박했으며, 회사는 하반기 Gen6 컨트롤러 공급 확대로 추가 성장을 예상한다고 밝혔다.",
+          "summary": "파두가 2026-10-19 3분기 잠정실적으로 매출 1436억원(QoQ +96%, YoY +460%), 영업이익 363억원을 발표하며 2분기(매출 732억원, 영업이익 163억원)에 이어 분기 최대 실적을 한 분기 만에 다시 경신했다. 3분기 누적 영업이익은 600억원을 넘어섰고, 올해 10월까지 공시 기준 누적 신규수주는 4563억원으로 작년 연매출(924억원)의 약 4.9배에 달한다.",
           "sources": [
             {
-              "url": "https://www.etoday.co.kr/news/view/2605126",
-              "outlet": "이투데이",
-              "date": "2026-07-20",
+              "url": "https://www.kukinews.com/article/view/kuk202610190117",
+              "outlet": "쿠키뉴스",
+              "date": "2026-10-19",
               "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
             },
             {
-              "url": "https://www.hankyung.com/article/202607204214i",
+              "url": "https://view.asiae.co.kr/article/2026101913490015233",
+              "outlet": "아시아경제",
+              "date": "2026-10-19",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://biz.heraldcorp.com/article/10907432",
+              "outlet": "헤럴드경제",
+              "date": "2026-10-19",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.hankyung.com/article/202610190796i",
               "outlet": "한국경제",
-              "date": "2026-07-20",
+              "date": "2026-10-19",
               "tier": "S2",
-              "note": ""
-            },
-            {
-              "url": "https://www.ajunews.com/view/20260720101754325",
-              "outlet": "아주경제",
-              "date": "2026-07-20",
-              "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
             }
           ],
-          "last_seen": "2026-08-24",
+          "last_seen": "2026-10-19",
           "first_seen": "2026-08-24",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W1,W3,W5|ai 추론 확산에 따른 essd·니어라인 스토리지 수요 구조 변화": {
@@ -8907,7 +9056,7 @@
           "thesis_review": false
         },
         "W1,W3|ai 추론 확산에 따른 essd·니어라인 스토리지 수요 구조 변화 (관련 자본시장 동향)": {
-          "headline": "솔리다임 IPO 재공시, 재차 연기",
+          "headline": "솔리다임 중복상장 저촉 판단",
           "shift": "AI 추론 확산에 따른 eSSD·니어라인 스토리지 수요 구조 변화 (관련 자본시장 동향)",
           "refs": [
             "W1",
@@ -8915,36 +9064,36 @@
           ],
           "direction": "불명",
           "affects": [],
-          "summary": "SK하이닉스가 2026-09-04 예정된 재공시일에 솔리다임 프리IPO 관련 조회공시를 냈으나 '구체적으로 확정된 사항이 없다'고 밝히며 재공시 시한을 2026-12-04로 3개월 추가 연기했다. 시장에서 거론되던 목표 기업가치 약 50조원, 조달목표 5조~10조원 등 조건은 이번 공시로 확인되지 않았다.",
+          "summary": "이찬진 금융감독원장이 2026-10-19 국회 정무위 국정감사에서 SK하이닉스 솔리다임의 미국 IPO 추진에 대해 '중복상장에 저촉된다'는 입장을 밝혔다. 다만 솔리다임이 국내 상장사가 아닌 미국 법인이라 국내 중복상장 규제를 직접 적용할 수 있는지는 불분명하며, 국내 증권신고서 대상 여부는 금융위원회 유권해석을 기다리고 있는 상태다.",
           "sources": [
             {
-              "url": "https://view.asiae.co.kr/article/2026090417282397113",
-              "outlet": "아시아경제",
-              "date": "2026-09-04",
+              "url": "https://www.fnnews.com/news/202610191356425835",
+              "outlet": "파이낸셜뉴스",
+              "date": "2026-10-19",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "http://inews24.com/view/1992327",
-              "outlet": "아이뉴스24",
-              "date": "2026-09-04",
+              "url": "https://newsway.co.kr/news/view?ud=2026101915451519500",
+              "outlet": "뉴스웨이",
+              "date": "2026-10-19",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://biz.newdaily.co.kr/site/data/html/2026/09/04/2026090400071.html",
-              "outlet": "뉴데일리",
-              "date": "2026-09-04",
+              "url": "https://www.newstomato.com/ReadNews.aspx?no=1317179",
+              "outlet": "뉴스토마토",
+              "date": "2026-10-19",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-07",
+          "last_seen": "2026-10-19",
           "first_seen": "2026-08-31",
-          "count": 3,
+          "count": 4,
           "thesis_review": false
         },
         "W1,W3|니어라인 hdd 리드타임 (관련 실적 확인)": {
@@ -9514,6 +9663,48 @@
           ],
           "last_seen": "2026-10-12",
           "first_seen": "2026-10-12",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W4|파두 gen6 컨트롤러 기술 혁신 (fs-ssd)": {
+          "headline": "파두 FS-SSD 세계최초 공개",
+          "shift": "파두 Gen6 컨트롤러 기술 혁신 (FS-SSD)",
+          "refs": [
+            "W4"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "ssd-controller"
+          ],
+          "summary": "파두가 2026-10-12~15 미국 산호세에서 열린 '2026 OCP 글로벌 서밋'에서 세계 최초로 '파일 시맨틱 SSD(FS-SSD)'를 공개했다. Gen6 컨트롤러에 전용 파일처리 펌웨어를 적용해 기존 서버 CPU·OS가 담당하던 파일 주소변환·접근권한 확인을 SSD 내부에서 직접 수행하며, GPU·DPU가 CPU를 거치지 않고 스토리지 파일에 직접 접근하도록 해 지연을 줄이는 구조다.",
+          "sources": [
+            {
+              "url": "https://zdnet.co.kr/view/?no=20261015095024",
+              "outlet": "ZDNet Korea",
+              "date": "2026-10-15",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.ddaily.co.kr/page/view/2026101509472863599",
+              "outlet": "디지털데일리",
+              "date": "2026-10-15",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://view.asiae.co.kr/article/2026101509201177812",
+              "outlet": "아시아경제",
+              "date": "2026-10-15",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-19",
+          "first_seen": "2026-10-19",
           "count": 1,
           "thesis_review": false
         }

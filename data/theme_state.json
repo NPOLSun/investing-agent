@@ -11114,7 +11114,7 @@
       }
     },
     "grid-storage": {
-      "last_checked": "2026-10-13",
+      "last_checked": "2026-10-20",
       "observations": {
         "삼아알미늄_가동률": [
           {
@@ -12034,6 +12034,88 @@
             "date": "2026-10-13",
             "last_seen": "2026-10-13",
             "value": "2028년"
+          },
+          {
+            "date": "2026-10-20",
+            "last_seen": "2026-10-20",
+            "value": "2028년말"
+          }
+        ],
+        "삼아알미늄_CATL_증설_이사회_결정": [
+          {
+            "date": "2026-10-20",
+            "last_seen": "2026-10-20",
+            "value": "2026-10-20 기준 여전히 미확정(8/31 보도 이후 변동 없음)"
+          }
+        ],
+        "LG엔솔-엘앤에프_LFP_계약": [
+          {
+            "date": "2026-10-20",
+            "last_seen": "2026-10-20",
+            "value": "미확정(2026-10-14 DART 해명공시), 재공시예정일 2026-11-13"
+          }
+        ],
+        "3차_ESS_중앙계약_제안서접수": [
+          {
+            "date": "2026-10-20",
+            "last_seen": "2026-10-20",
+            "value": "2026-10-06~11-04 진행중, 낙찰자선정 11월(변동없음)"
+          }
+        ],
+        "중국_배터리_수출통제_유예_만료": [
+          {
+            "date": "2026-10-20",
+            "last_seen": "2026-10-20",
+            "value": "2026-11-10 예정, 10/20 기준 연장 발표 없음(3주 전)"
+          }
+        ],
+        "CATL_314Ah_LFP_셀가격": [
+          {
+            "date": "2026-10-20",
+            "last_seen": "2026-10-20",
+            "value": "0.423위안/Wh — 2026-09-09 기준 이후 변동 없음(10/20 재확인)"
+          }
+        ],
+        "Fluence_신규수주(獨 Vattenfall)": [
+          {
+            "date": "2026-10-20",
+            "last_seen": "2026-10-20",
+            "value": "254MW/1,000MWh+, 2026-10-14 발표"
+          }
+        ],
+        "SK온_ESS수주목표(2026)": [
+          {
+            "date": "2026-10-20",
+            "last_seen": "2026-10-20",
+            "value": "20GWh 목표 달성 긍정적(2026-10-07 컨콜 재확인, 네오볼타 9GWh 계약이 핵심)"
+          }
+        ],
+        "삼성SDI_美_LFP_양산": [
+          {
+            "date": "2026-10-20",
+            "last_seen": "2026-10-20",
+            "value": "10월 양산 계획 유지, 공식 개시 발표는 10/20 기준 미확인"
+          }
+        ],
+        "재공시예정일": [
+          {
+            "date": "2026-10-20",
+            "last_seen": "2026-10-20",
+            "value": "2026-11-13"
+          }
+        ],
+        "프로젝트 규모": [
+          {
+            "date": "2026-10-20",
+            "last_seen": "2026-10-20",
+            "value": "254MW / 1,000MWh+"
+          }
+        ],
+        "유예 만료일": [
+          {
+            "date": "2026-10-20",
+            "last_seen": "2026-10-20",
+            "value": "2026-11-10"
           }
         ]
       },
@@ -12168,43 +12250,43 @@
           "thesis_review": false
         },
         "W2|계통 안정화용 대형 ess 발주 규모": {
-          "headline": "Fluence 가이던스 2차 하향",
+          "headline": "Fluence 獨서 1GWh 추가수주",
           "shift": "계통 안정화용 대형 ESS 발주 규모",
           "refs": [
             "W2"
           ],
           "direction": "불명",
           "affects": [],
-          "summary": "Fluence Energy가 9/16 FY2026(9월 결산) 가이던스를 재차 하향해 매출 전망을 약 24억달러(기존 29~31억달러)로, 조정EBITDA를 -1000만달러에서 -2억달러 손실로 확대 수정했다. CEO는 텍사스 휴스턴 위탁생산시설 램프업 지연을 원인으로 지목했으며, 이는 작년 11월 최초 가이던스(32~36억달러) 이후 두 번째 하향이다. 발표 직후 시간외 주가가 18~20% 급락했고 이사진 개편(AES 출신 COO 영입)도 병행됐다.",
+          "summary": "Fluence Energy가 10/14 Vattenfall과 독일 Brunsbüttel(폐원전 부지) 254MW/1,000MWh+ 배터리저장시설 공급·장기유지보수 계약을 공식 발표했다(Vattenfall 사상 최대 배터리 프로젝트). Gridstack Pro 5000 플랫폼이 적용되며 2027년 착공, 2028년말 가동 예정이다. 9/16 가이던스 두 차례 하향과 증권사 소송 리스크에도 대형 수주는 이어지고 있다.",
           "sources": [
             {
-              "url": "https://www.globenewswire.com/news-release/2026/09/16/3363545/0/en/fluence-energy-announces-revised-guidance-for-fiscal-year-2026-management-to-host-conference-call-at-5pm-eastern-time-today.html",
-              "outlet": "GlobeNewswire (Fluence 공식)",
-              "date": "2026-09-16",
+              "url": "https://www.globenewswire.com/news-release/2026/10/14/3380351/0/en/vattenfall-awards-1-gwh-brunsb%C3%BCttel-battery-storage-project-to-fluence.html",
+              "outlet": "GlobeNewswire (Fluence/Vattenfall 공식)",
+              "date": "2026-10-14",
               "tier": "S1",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.energy-storage.news/fluence-cuts-2026-revenue-ebitda-guidance-as-us-production-delays-bite/",
-              "outlet": "Energy-Storage.News",
-              "date": "2026-09-17",
+              "url": "https://www.ess-news.com/2026/10/15/fluence-to-supply-1-gwh-battery-for-vattenfall-in-germany/",
+              "outlet": "Energy Storage News",
+              "date": "2026-10-15",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.stocktitan.net/news/FLNC/fluence-energy-announces-revised-guidance-for-fiscal-year-2026-ihscre93hdp0.html",
-              "outlet": "StockTitan",
-              "date": "2026-09-16",
+              "url": "https://www.power-technology.com/news/vattenfall-selects-fluence-brunsbuttel-project/",
+              "outlet": "Power Technology",
+              "date": "2026-10-15",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-18",
+          "last_seen": "2026-10-20",
           "first_seen": "2026-08-18",
-          "count": 3,
+          "count": 4,
           "thesis_review": false
         },
         "W2,W3|lfp·ess 전용 셀 라인 증설과 ev 라인 전환 / 계통 안정화용 대형 ess 발주 규모": {
@@ -12234,37 +12316,35 @@
           "thesis_review": false
         },
         "W4|ess 셀 판가 및 중국산 점유율 변화": {
-          "headline": "CATL 대형셀 직판가 재인상",
+          "headline": "中 수출통제 유예 만료 3주전",
           "shift": "ESS 셀 판가 및 중국산 점유율 변화",
           "refs": [
             "W4"
           ],
-          "direction": "순풍",
-          "affects": [
-            "ess-foil"
-          ],
-          "summary": "새로 확인된 것: CATL이 대리점을 거치지 않는 587Ah LFP셀 온라인 직판 가격을 8/23 63달러/kWh에서 9/15 기준 65달러/kWh로 재차 인상했다. 이는 9/1 소비세(2%) 시행 이후 314Ah셀 견적이 0.414→0.423위안/Wh로 오른 데 이어, 대형셀 직판 채널에서도 가격 상승세가 이어지고 있음을 보여준다.",
+          "direction": "불명",
+          "affects": [],
+          "summary": "2025-11-07 부산회담 합의로 1년 유예됐던 중국의 리튬배터리 원자재·초경질소재 등 수출통제 강화조치 유예가 2026-11-10 만료를 앞두고 있다. 10/14 보도 기준 미중 간 재연장 공식 합의는 아직 없으며, 연장·선별 재발동·전면 재발동 여부가 4분기 ESS 셀·소재 조달 비용에 변수로 떠올랐다.",
           "sources": [
             {
-              "url": "https://carnewschina.com/2026/09/15/catl-begins-direct-online-sales-of-giant-587-ah-lfp-cells-at-65-usd-kwh/",
-              "outlet": "CarNewsChina",
-              "date": "2026-09-15",
+              "url": "https://www.g-enews.com/article/Global-Biz/2026/10/20261014042056965020990b2dc5_1",
+              "outlet": "글로벌이코노믹",
+              "date": "2026-10-14",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://carnewschina.com/2026/08/23/catl-cuts-out-distributors-with-63-usd-kwh-direct-lfp-cell-sales-as-1800-companies-sign-on/",
-              "outlet": "CarNewsChina",
-              "date": "2026-08-23",
+              "url": "https://tknco.com/ko/news/2026-09-21-china-dual-use-export-control",
+              "outlet": "TKN",
+              "date": "2026-09-21",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-18",
+          "last_seen": "2026-10-20",
           "first_seen": "2026-08-25",
-          "count": 3,
+          "count": 4,
           "thesis_review": false
         },
         "W2,W3|계통 안정화용 대형 ess 발주 규모 / lfp·ess 전용 셀 라인 증설과 ev 라인 전환": {
@@ -12319,17 +12399,33 @@
           "thesis_review": false
         },
         "W3|lfp·ess 전용 셀 라인 증설과 ev 라인 전환": {
-          "headline": "LG엔솔·엘앤에프 첫 LFP 계약",
+          "headline": "LG엔솔·엘앤에프 LFP계약 \"미확정\"",
           "shift": "LFP·ESS 전용 셀 라인 증설과 EV 라인 전환",
           "refs": [
             "W3"
           ],
-          "direction": "순풍",
+          "direction": "불명",
           "affects": [
             "ess-foil"
           ],
-          "summary": "LG에너지솔루션이 엘앤에프와 조단위(다년간 최대 수십만톤) 규모의 LFP 양극재 공급계약을 이달 중 체결한다고 머니투데이가 10/13 단독 보도했다. LG엔솔-엘앤에프 간 LFP 양극재 계약은 이번이 처음이며, 기존 NCM 중심 협력이 LFP로 확대된 것으로, LG엔솔은 이를 바탕으로 비중국(non-PFE) 공급망을 갖춰 북미 ESS 시장 공략을 강화한다는 방침이다. 엘앤에프는 앞서 삼성SDI(1.6조원), SK온(1600억원, 9/17 체결)에도 LFP 양극재 공급계약을 맺어, 국내 배터리 3사 전부에 LFP 양극재를 공급하는 유일한 비중국 업체가 됐다.",
+          "summary": "새로 확인된 것: 10/13 머니투데이가 LG에너지솔루션-엘앤에프 간 조단위 LFP 양극재 첫 공급계약 체결을 단독 보도했으나, 엘앤에프는 10/14 금융감독원 전자공시시스템에 '풍문 또는 보도에 대한 해명(미확정)' 공시를 내고 \"고객사와 협의 중이나 계약체결과 관련해 구체적으로 확정된 사항은 없다\"고 정정했다. 회사는 구체 사항 결정 시 또는 1개월 내(재공시예정일 11/13) 재공시하겠다고 밝혔다.",
           "sources": [
+            {
+              "url": "https://dealsite.co.kr/articles/170641",
+              "outlet": "딜사이트",
+              "date": "2026-10-14",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.fntoday.co.kr/news/articleView.html?idxno=395257",
+              "outlet": "파이낸스투데이",
+              "date": "2026-10-14",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
             {
               "url": "https://www.mt.co.kr/industry/2026/10/13/2026101309042017541",
               "outlet": "머니투데이",
@@ -12337,35 +12433,11 @@
               "tier": "S2",
               "note": "",
               "from_feed": false
-            },
-            {
-              "url": "https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02676486625999176",
-              "outlet": "이데일리",
-              "date": "2026-10-13",
-              "tier": "S2",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.ddaily.co.kr/page/view/2026100615533430880",
-              "outlet": "디지털데일리",
-              "date": "2026-10-06",
-              "tier": "S2",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.mt.co.kr/industry/2026/10/13/2026101313574319420",
-              "outlet": "머니투데이",
-              "date": "2026-10-13",
-              "tier": "S2",
-              "note": "",
-              "from_feed": false
             }
           ],
-          "last_seen": "2026-10-13",
+          "last_seen": "2026-10-20",
           "first_seen": "2026-09-01",
-          "count": 2,
+          "count": 3,
           "thesis_review": false
         },
         "W1,W2|계통 안정화용 대형 ess 발주 규모 / 데이터센터 백업·피크 대응용 ess 채택 방식 변화": {

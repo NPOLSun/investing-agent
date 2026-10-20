@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-10-20"
+    "last_run": "2026-10-21"
   },
   "themes": {
     "ai-dc-power": {
@@ -3500,7 +3500,7 @@
       }
     },
     "optical-interconnect": {
-      "last_checked": "2026-10-19",
+      "last_checked": "2026-10-21",
       "observations": {
         "NVIDIA CPO 스위치 상태": [
           {
@@ -3697,11 +3697,6 @@
         ],
         "Corning 장기계약 누적": [
           {
-            "date": "2026-09-18",
-            "last_seen": "2026-09-18",
-            "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) + Verizon(9/8) 유지, 9/9 이후 신규 계약 미확인 (단 9/11 $2B 자사주 유상증자는 일반 운영자금 목적으로 확인, 특정 캐파투자 연계 불명)"
-          },
-          {
             "date": "2026-09-23",
             "last_seen": "2026-09-23",
             "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) + Verizon(9/8) 유지, 9/9 이후 신규 계약 미확인"
@@ -3755,6 +3750,11 @@
             "date": "2026-10-19",
             "last_seen": "2026-10-19",
             "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo + Verizon + AT&T $3B+ 유지, 10/16 이후 신규 계약 없음"
+          },
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "변동 없음 — Meta $6B + Amazon + Zayo + Verizon + AT&T $3B+ 유지, 신규 계약 없음. Q3 실적발표 10/27 예정"
           }
         ],
         "ASMPT 포토닉스 매출 성장": [
@@ -3962,6 +3962,11 @@
             "date": "2026-10-19",
             "last_seen": "2026-10-19",
             "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지, OCP Summit(10/12~15) 종료 후 신규 표준 발표 없음"
+          },
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지, Open CPX MSA 1.0(9/16 승인) 외 신규 변동 없음"
           }
         ],
         "성호전자/ADS테크 자금상황": [
@@ -4627,6 +4632,11 @@
             "date": "2026-10-19",
             "last_seen": "2026-10-19",
             "value": "변동 없음 — 완전양산 지속, TACC/Lambda/CoreWeave 등 코어고객 배포 지속 확인, 10/16 이후 신규 발표 없음"
+          },
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "변동 없음 — 완전양산 지속, 10/19 이후 신규 발표 없음"
           }
         ],
         "GF SiGe 광링크 지원 규격": [
@@ -4852,6 +4862,11 @@
             "date": "2026-10-19",
             "last_seen": "2026-10-19",
             "value": "변동 없음(추정) — 1,650억원(8/31 기준) 수준, 10/19까지 신규 담보·상환 공시 미확인"
+          },
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "변동 없음(추정) — 1,650억원(8/31 기준) 수준 유지, 10월 신규 공시 미확인"
           }
         ],
         "성호전자 어매이징홀딩스 흡수합병": [
@@ -5302,6 +5317,83 @@
             "last_seen": "2026-10-19",
             "value": "2026년 4분기"
           }
+        ],
+        "Fuji SMT CPO패키지 배치 검증": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "2026-10-07 신규 — Broadcom TH6-Davisson(1.3kg) 패키지 industry-first 성공 배치, 10/14 재확인"
+          }
+        ],
+        "Intel 실리콘포토닉스 포지셔닝(OCP 2026)": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "신규(10/12~19 보도) — 유일 300mm InP 대량양산 파운드리 주장, 목표 5pJ/bit 미만, PIC 누적출하 800만개+"
+          }
+        ],
+        "Samsung 실리콘포토닉스 M&A 검토": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "신규(10/16 보도) — 해외 전문기업 인수 검토 중(미확정), 2027년 12인치 공정 포토닉IC 시장 진출 계획"
+          }
+        ],
+        "Broadcom TH6-Davisson CPO박스 생산개시": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "변동 없음 — 2027년 1분기(Micas 특정) 유지"
+          }
+        ],
+        "CPO 패키지 중량": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "약 1.3kg"
+          }
+        ],
+        "공개 시점 기준 타사 성공 사례": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "0건(Fuji 단독, 10/5 기준)"
+          }
+        ],
+        "누적 PIC 출하(2016~)": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "800만개+"
+          }
+        ],
+        "누적 통합레이저 생산": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "3,200만개+"
+          }
+        ],
+        "목표 전송에너지": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "5pJ/bit 미만"
+          }
+        ],
+        "TSMC 첨단패키징 점유율": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "72.5%(비교 대상)"
+          }
+        ],
+        "삼성 포토닉IC 양산 계획 시점": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "2027년(12인치 공정)"
+          }
         ]
       },
       "shifts": {
@@ -5475,38 +5567,44 @@
           "thesis_review": false
         },
         "W1,W5|실리콘 포토닉스 수율·패키징 병목 해소 여부": {
-          "headline": "CPO 테스트, 양산 핵심병목 재확인",
+          "headline": "Fuji, CPO박스 SMT실장 첫 성공",
           "shift": "실리콘 포토닉스 수율·패키징 병목 해소 여부",
           "refs": [
             "W1",
             "W5"
           ],
           "direction": "중립",
-          "affects": [
-            "optical-align"
-          ],
-          "summary": "TrendForce가 2026-10-13 발표한 신규 리포트에서 광전 통합 테스트 플랫폼이 CPO 양산의 핵심 과제로 부상하며 테스트 장비 공급망이 재편되고 있다고 분석했다. 단일 PIC 칩 완전 테스트가 여전히 100초 이상 소요되는 것이 주요 병목이며, 테스트 아키텍처 수렴은 2027년, 양산준비 검증은 2028년이 분수령이 될 것으로 전망했다. ADS테크·성호전자의 경쟁사 ficonTEC의 모회사 RoboTechnik이 유럽 진영 핵심 공급사로, Teradyne(Quantifi Photonics 인수)·Advantest(VIAVI·SENKO 협력) 등이 전통 ATE 진영으로 명시됐다.",
+          "affects": [],
+          "summary": "Fuji Corporation이 Broadcom·Celestica와 공동으로 Tomahawk 6-Davisson(약 1.3kg 중량) CPO 스위치 패키지를 자사 NXTR/AIMEXR SMT 픽앤플레이스 장비로 성공 배치했다고 발표했다(2026-10-07 최초 공개, 10/14 재보도). 이는 102.4T CPO 박스를 일반 전자조립라인(SMT)에서 실제 양산 공정으로 다룰 수 있음을 보여준 업계 최초 사례로, 10/19 기록된 'TH6-Davisson 1RU CPO박스 2027년 1분기 생산개시' 일정의 조립공정 측 준비 상황을 뒷받침한다.",
           "sources": [
             {
-              "url": "https://www.dramexchange.com/WeeklyResearch/Post/2/12861.html",
-              "outlet": "dramexchange.com (TrendForce)",
-              "date": "2026-10-13",
+              "url": "https://smttoday.com/2026/10/07/fuji-achieves-industry-first-placement-of-broadcoms-tomahawk-6-davisson/",
+              "outlet": "smttoday.com",
+              "date": "2026-10-07",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://insights.trendforce.com/p/cpo-testing-market-opportunities",
-              "outlet": "insights.trendforce.com",
-              "date": "2026-10-13",
+              "url": "https://www.electronicsmedia.info/2026/10/14/broadcom-tomahawk-6/",
+              "outlet": "electronicsmedia.info",
+              "date": "2026-10-14",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.wnie.online/fuji-achieves-industry-first-placement-of-broadcoms-tomahawk-6-davisson/",
+              "outlet": "wnie.online",
+              "date": "2026-10-07",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-10-14",
+          "last_seen": "2026-10-21",
           "first_seen": "2026-08-19",
-          "count": 7,
+          "count": 8,
           "thesis_review": false
         },
         "W1,W3|cpo 양산 채택 일정의 전진 또는 후퇴": {
@@ -6421,6 +6519,47 @@
           ],
           "last_seen": "2026-10-16",
           "first_seen": "2026-10-16",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W3,W5|광 i/o 표준화 동향 및 주요 벤더 로드맵 변경 / 실리콘 포토닉스 수율·패키징 병목": {
+          "headline": "삼성, 실리콘포토닉스 M&A 검토",
+          "shift": "광 I/O 표준화 동향 및 주요 벤더 로드맵 변경 / 실리콘 포토닉스 수율·패키징 병목",
+          "refs": [
+            "W3",
+            "W5"
+          ],
+          "direction": "중립",
+          "affects": [],
+          "summary": "삼성전자 파운드리사업부 고위 관계자가 2026-10-16 국내 매체(머니투데이)에 실리콘포토닉스 원천기술 보유 해외기업 인수를 검토 중이라고 밝혔다. TSMC가 첨단패키징 시장 72.5%를 점유한 데 대응해 기술개발 기간 단축과 지식재산권 선점을 노린 행보로, 내년(2027년)부터 12인치(300mm) 웨이퍼 공정 기반 포토닉IC 시장 진출을 계획하고 있다고 전했다. 아직 '검토' 단계로 대상 기업명·거래 규모는 미확정이다.",
+          "sources": [
+            {
+              "url": "https://news.mtn.co.kr/article/2026101610575063847",
+              "outlet": "news.mtn.co.kr",
+              "date": "2026-10-16",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.g-enews.com/article/Global-Biz/2026/10/202610181432422201fbbec65dfb_1",
+              "outlet": "g-enews.com",
+              "date": "2026-10-18",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.sammyfans.com/2026/10/16/samsung-eyes-silicon-photonics-acquisition-to-challenge-tsmc/",
+              "outlet": "sammyfans.com",
+              "date": "2026-10-16",
+              "tier": "S3",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-21",
+          "first_seen": "2026-10-21",
           "count": 1,
           "thesis_review": false
         }

@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-10-21"
+    "last_run": "2026-10-22"
   },
   "themes": {
     "ai-dc-power": {
@@ -12933,7 +12933,7 @@
       }
     },
     "dc-thermal": {
-      "last_checked": "2026-10-15",
+      "last_checked": "2026-10-22",
       "observations": {
         "NVL72 랙 전력": [
           {
@@ -13590,6 +13590,125 @@
             "last_seen": "2026-10-15",
             "value": "최대 1.6Tbps (2027년 전망)"
           }
+        ],
+        "GTC Berlin 2026 개최": [
+          {
+            "date": "2026-10-22",
+            "last_seen": "2026-10-22",
+            "value": "2026-10-20~22, Jensen Huang 키노트 10-21"
+          }
+        ],
+        "DSX POD 현장 배치시간": [
+          {
+            "date": "2026-10-22",
+            "last_seen": "2026-10-22",
+            "value": "6개월 → 14일"
+          }
+        ],
+        "Vera Rubin NVL72 컴퓨트 트레이 액냉 비중": [
+          {
+            "date": "2026-10-22",
+            "last_seen": "2026-10-22",
+            "value": "100% (GB200/300 85%+15%공냉 대비 전환)"
+          }
+        ],
+        "DSX 2GW 기준 냉각수 절감": [
+          {
+            "date": "2026-10-22",
+            "last_seen": "2026-10-22",
+            "value": "일 5400만리터"
+          }
+        ],
+        "DSX MaxLPS 전력 절감": [
+          {
+            "date": "2026-10-22",
+            "last_seen": "2026-10-22",
+            "value": "동일 출력 대비 최대 30%"
+          }
+        ],
+        "Vicor 3Q26 매출": [
+          {
+            "date": "2026-10-22",
+            "last_seen": "2026-10-22",
+            "value": "1억9710만달러 (QoQ +37.5%, YoY +78.5%)"
+          }
+        ],
+        "Vicor 3Q26 백로그": [
+          {
+            "date": "2026-10-22",
+            "last_seen": "2026-10-22",
+            "value": "4억600만달러 (QoQ +7%, YoY +166%)"
+          }
+        ],
+        "Vicor 4Q26 초 2주 VPD 신규수주": [
+          {
+            "date": "2026-10-22",
+            "last_seen": "2026-10-22",
+            "value": "1억달러"
+          }
+        ],
+        "Vicor 4Q26 가이던스": [
+          {
+            "date": "2026-10-22",
+            "last_seen": "2026-10-22",
+            "value": "제품매출 QoQ 약 10% 추가 성장"
+          }
+        ],
+        "효성중공업·HD현대일렉트릭 10/15~10/22 신규 수주 공시": [
+          {
+            "date": "2026-10-22",
+            "last_seen": "2026-10-22",
+            "value": "없음 (기존 효성 9조3000억원 누적/HD현대 85억달러 수주잔고 대비 갱신 없음)"
+          }
+        ],
+        "SpaceX/xAI 2027 컴퓨팅 목표(재확인)": [
+          {
+            "date": "2026-10-22",
+            "last_seen": "2026-10-22",
+            "value": "10GW 추가, 연말 2.5~3GW"
+          }
+        ],
+        "컴퓨트 트레이 액냉 비중(GB200/300 → Vera Rubin NVL72)": [
+          {
+            "date": "2026-10-22",
+            "last_seen": "2026-10-22",
+            "value": "85%액냉+15%공냉 → 100% 액냉"
+          }
+        ],
+        "2GW 규모 기준 냉각수 절감": [
+          {
+            "date": "2026-10-22",
+            "last_seen": "2026-10-22",
+            "value": "일 5400만리터(동일출력 대비 최대 100% 절감)"
+          }
+        ],
+        "3Q26 매출": [
+          {
+            "date": "2026-10-22",
+            "last_seen": "2026-10-22",
+            "value": "1억9710만달러 (QoQ +37.5%, YoY +78.5%)"
+          }
+        ],
+        "백로그": [
+          {
+            "date": "2026-10-22",
+            "last_seen": "2026-10-22",
+            "value": "3억8000만달러(2Q26) → 4억600만달러(3Q26, QoQ +7%, YoY +166%)"
+          }
+        ],
+        "4Q26 첫 2주 신규수주(2세대 VPD)": [
+          {
+            "date": "2026-10-22",
+            "last_seen": "2026-10-22",
+            "value": "1억달러"
+          }
+        ],
+        "매출가이던스": [
+          {
+            "date": "2026-10-22",
+            "last_seen": "2026-10-22",
+            "value": "QoQ 30%이상(기존) → 실제 +37.5% 달성, 4Q26 제품매출 QoQ 약10% 추가 성장 가이던스"
+          }
         ]
       },
       "shifts": {
@@ -13627,34 +13746,41 @@
           "thesis_review": false
         },
         "W2|랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지": {
-          "headline": "2027 랙전력 상단 900kW 추정(미검증)",
+          "headline": "xAI, 전력·냉각이 칩보다 병목",
           "shift": "랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지",
           "refs": [
             "W2"
           ],
           "direction": "순풍",
           "affects": [
-            "point-of-load",
-            "hyosung-transformer",
-            "hd-hyundai-electric"
+            "point-of-load"
           ],
-          "summary": "업계 분석(Introl 등 3차 매체)에 따르면 2027년 출시 예정 Rubin Ultra \"Kyber\" 랙은 약 600kW, NVIDIA 2027 로드맵상 랙 전력은 최대 250~900kW 범위까지 거론된다. 이는 기존 확인된 Vera Rubin NVL144 CPX 370kW보다 한 단계 더 높은 상단이나, NVIDIA의 공식 확인은 아직 없다.",
+          "summary": "SpaceX가 2026-10-20 3분기 실적발표에서 초지능(xAI) 컴퓨트 확장의 제약이 칩보다 전력·냉각·인프라에 있다고 명시했다. 가스터빈 블레이드·베인(현재 12~18개월 공급지연)을 로켓엔진 주조기술로 자체 생산해 발전 가동을 12~18개월 앞당기겠다는 계획을 밝혔다.",
           "sources": [
             {
-              "url": "https://introl.com/blog/nvidia-vera-rubin-gpu-600kw-racks-2027",
-              "outlet": "Introl Blog",
-              "date": "2026-08",
-              "tier": "S3",
-              "note": ""
+              "url": "https://www.fool.com/earnings/call-transcripts/2026/10/20/spacex-spcx-q3-2026-earnings-call-transcript/",
+              "outlet": "The Motley Fool (SpaceX 실적콜 전문)",
+              "date": "2026-10-20",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.cnbc.com/2026/10/20/spacex-spcx-earnings-live-updates-q3-2026html.html",
+              "outlet": "CNBC",
+              "date": "2026-10-20",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
             }
           ],
-          "last_seen": "2026-09-01",
+          "last_seen": "2026-10-22",
           "first_seen": "2026-08-19",
-          "count": 2,
+          "count": 3,
           "thesis_review": false
         },
         "W2|랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지 (point-of-load 벤더 실적으로 확인)": {
-          "headline": "800VDC·VPD 냉각통합 가속",
+          "headline": "Vicor 3Q26 매출·백로그 서프라이즈",
           "shift": "랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지 (point-of-load 벤더 실적으로 확인)",
           "refs": [
             "W2"
@@ -13663,36 +13789,28 @@
           "affects": [
             "point-of-load"
           ],
-          "summary": "OCP Global Summit(2026-10-12~15)에서 Google·Microsoft·NVIDIA가 추진한 LVDC Solid-State Transformer 규격(v0.3, 800VDC 중전압 변환)이 재확인되며 80개 이상 기업이 800VDC 호환 인프라를 개발 중이라고 OCP가 밝혔다. Delta Electronics는 같은 행사에서 Vicor 특허 기반 VPD(Vertical Power Delivery) 모듈용 양면 냉각 솔루션을 전시해, 전력전달(point-of-load)과 냉각이 칩 레벨에서 통합되는 흐름을 보여줬다.",
+          "summary": "Vicor가 2026-10-20 발표한 3Q26 실적에서 매출 1억9710만달러(QoQ +37.5%, YoY +78.5%)로 기존 'QoQ 30% 이상' 가이던스를 상회했다. 백로그는 4억600만달러(QoQ +7%, YoY +166%)로 늘었고, 4Q26 첫 2주간 2세대 VPD 모듈 신규주문만으로 1억달러가 추가 기록됐다. 4Q26 제품매출은 QoQ 약 10% 추가 성장 가이던스가 제시됐다.",
           "sources": [
             {
-              "url": "https://www.opencompute.org/index.php/blog/powering-the-next-era-of-ai-how-google-microsoft-and-nvidia-are-standardizing-and-accelerating-the-industry-transition-to-lvdc",
-              "outlet": "Open Compute Project",
-              "date": "2026-10",
+              "url": "https://www.globenewswire.com/news-release/2026/10/20/3384210/0/en/vicor-corporation-reports-results-for-the-third-quarter-ended-september-30-2026.html",
+              "outlet": "GlobeNewswire (Vicor IR)",
+              "date": "2026-10-20",
               "tier": "S1",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.opencompute.org/documents/ocp-sst-design-specification-v0-3-final-pdf",
-              "outlet": "Open Compute Project (스펙 문서)",
-              "date": "2026-07",
-              "tier": "S1",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.prnewswire.com/news-releases/delta-to-showcase-energy-saving-grid-to-chip-infrastructure-solutions-for-sustainable-ai-at-ocp-global-summit-2026-302902203.html",
-              "outlet": "PR Newswire (Delta Electronics)",
-              "date": "2026-10",
+              "url": "https://www.sec.gov/Archives/edgar/data/0000751978/000119312526425697/d153882dex991.htm",
+              "outlet": "SEC 8-K (Vicor)",
+              "date": "2026-10-20",
               "tier": "S1",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-10-15",
+          "last_seen": "2026-10-22",
           "first_seen": "2026-08-19",
-          "count": 6,
+          "count": 7,
           "thesis_review": false
         },
         "W2|랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지 (변압기 벤더 실적으로 확인)": {
@@ -13799,6 +13917,50 @@
           ],
           "last_seen": "2026-10-15",
           "first_seen": "2026-10-15",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W1,W2,W3|w1: 액침·d2c 액체냉각 채택 비중 변화 / w2: 랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지 / w3: 신규 데이터센터 설계": {
+          "headline": "NVIDIA DSX POD, 랙 100%액냉화",
+          "shift": "W1: 액침·D2C 액체냉각 채택 비중 변화 / W2: 랙 밀도 상한을 결정하는 병목이 전력에서 열로 옮겨가는지 / W3: 신규 데이터센터 설계 표준 변경 (OCP 등)",
+          "refs": [
+            "W1",
+            "W2",
+            "W3"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "point-of-load"
+          ],
+          "summary": "NVIDIA가 2026-10-21 GTC Berlin 키노트에서 Vera Rubin NVL72 기반 'DSX POD' 레퍼런스 설계를 공개했다. 모듈형 컨테이너로 공장에서 사전조립해 현장 배치시간을 6개월→14일로 줄이며, 컴퓨트 트레이는 GB200/300의 85%액냉+15%공냉 하이브리드에서 100% 액체냉각(냉각수 최대 45도)으로 전환됐다. Jensen Huang은 NVIDIA를 GPU 공급사에서 Compute·Networking·Power·Cooling을 아우르는 'Full-stack AI Factory' 플랫폼으로 재포지셔닝했으며, 800VDC는 사이드카 방식 레트로핏으로 시범 적용됐다.",
+          "sources": [
+            {
+              "url": "https://nvidianews.nvidia.com/news/european-ecosystem-builds-worlds-most-efficient-ai-factories-with-nvidia-dsx",
+              "outlet": "NVIDIA Newsroom",
+              "date": "2026-10-21",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://blogs.nvidia.com/blog/gtc-berlin-2026-keynote/",
+              "outlet": "NVIDIA Blog",
+              "date": "2026-10-21",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.storagereview.com/news/nvidia-gtc-berlin-2026-dsx-pod-14-day-ai-factory-substrate-openshell-ai-ran",
+              "outlet": "StorageReview",
+              "date": "2026-10-21",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-22",
+          "first_seen": "2026-10-22",
           "count": 1,
           "thesis_review": false
         }

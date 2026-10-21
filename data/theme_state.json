@@ -6566,7 +6566,7 @@
       }
     },
     "memory-storage": {
-      "last_checked": "2026-10-19",
+      "last_checked": "2026-10-21",
       "observations": {
         "파두 컨트롤러 매출 비중": [
           {
@@ -8653,6 +8653,111 @@
             "last_seen": "2026-10-19",
             "value": "4563억원(2025년 매출 924억원 대비 약 4.9배)"
           }
+        ],
+        "10월1~20일 반도체 수출(YoY)": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "616억달러(+105.4%)"
+          }
+        ],
+        "10월1~20일 SSD 수출": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "22.2억달러(MoM +7.1%, QoQ +25%)"
+          }
+        ],
+        "10월1~20일 NAND 수출": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "18.1억달러(MoM +18%, QoQ +87%)"
+          }
+        ],
+        "10월1~20일 DRAM 수출": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "109.5억달러(MoM +3%, QoQ +25%)"
+          }
+        ],
+        "CXMT 3분기 순이익 QoQ 증가율": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "1분기 +246% → 2분기 +113% → 3분기 +1~4%"
+          }
+        ],
+        "CXMT 1~9월 순이익 전망": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "180억~182억달러(전년동기 7.26억달러 손실 대비 흑자전환)"
+          }
+        ],
+        "삼성 시안 낸드 286단 전환 목표": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "2026-12 월5000장 → 2027-12 월4만장"
+          }
+        ],
+        "SK하이닉스 다롄 낸드 전환 목표": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "192단 → 240단 이상(추진 중, 미확정)"
+          }
+        ],
+        "SK하이닉스 HBM 매출점유율(2Q26, Counterpoint)": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "50%(1Q26 58%에서 하락, 신선도 기준 배경자료)"
+          }
+        ],
+        "삼성 HBM 매출점유율(2Q26, Counterpoint)": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "33%(1Q26 21%에서 상승, 신선도 기준 배경자료)"
+          }
+        ],
+        "삼성 시안 286단 낸드 월생산 목표": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "2026-12 5000장 → 2027-12 4만장"
+          }
+        ],
+        "SK하이닉스 다롄 낸드 레이어": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "192단 → 240단 이상(전환 추진)"
+          }
+        ],
+        "순이익 QoQ 증가율": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "1분기 +246% → 2분기 +113% → 3분기 +1~4%"
+          }
+        ],
+        "DRAM 계약가 상승률": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "1분기 +93~98% → 3분기 +13~18%"
+          }
+        ],
+        "3분기 매출(YoY/QoQ)": [
+          {
+            "date": "2026-10-21",
+            "last_seen": "2026-10-21",
+            "value": "+589~619% / +15~20%"
+          }
         ]
       },
       "shifts": {
@@ -8696,7 +8801,7 @@
           "thesis_review": false
         },
         "W1,W3|ai 추론 확산에 따른 essd·니어라인 스토리지 수요 구조 변화": {
-          "headline": "4Q eSSD 가격상승폭 최대 전망",
+          "headline": "10월 SSD수출 QoQ+25% 지속",
           "shift": "AI 추론 확산에 따른 eSSD·니어라인 스토리지 수요 구조 변화",
           "refs": [
             "W1",
@@ -8706,28 +8811,28 @@
           "affects": [
             "ssd-controller"
           ],
-          "summary": "트렌드포스가 2026년 4분기 범용 D램 계약가격은 전분기 대비 10~15%, 낸드플래시는 15~20% 상승할 것으로 전망했다고 10월초 보도됐다. 특히 eSSD는 올해 비트 수요가 전년대비 80% 넘게 늘어날 것으로 예상되며, 3분기보다 4분기 상승폭이 더 커지는 유일한 낸드 제품으로 지목됐다.",
+          "summary": "관세청 10월 1~20일 수출 잠정치 기준 반도체 수출이 616억달러(전년대비 +105.4%)로 10월 기준 역대 최대를 기록했다. SK증권 집계로는 같은 기간 SSD 수출이 22.2억달러(전월대비 +7.1%, 전분기대비 +25%)를 기록해 eSSD향 수요 강세가 10월에도 이어지고 있음을 보여준다.",
           "sources": [
             {
-              "url": "https://www.g-enews.com/article/Industry/2026/10/202610011433345377139bf6e4b2_1",
-              "outlet": "글로벌이코노믹",
-              "date": "2026-10-01",
+              "url": "https://n.news.naver.com/article/025/0003559384",
+              "outlet": "연합뉴스(관세청 발표 인용)",
+              "date": "2026-10-21",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.itbiznews.com/news/articleView.html?idxno=226901",
-              "outlet": "IT비즈뉴스",
-              "date": "2026-09-30",
-              "tier": "S2",
+              "url": "https://t.me/skitteam/4744",
+              "outlet": "SK증권 리서치(관세청 공개자료 재가공)",
+              "date": "2026-10-21",
+              "tier": "S3",
               "note": "",
-              "from_feed": false
+              "from_feed": true
             }
           ],
-          "last_seen": "2026-10-16",
+          "last_seen": "2026-10-21",
           "first_seen": "2026-08-18",
-          "count": 11,
+          "count": 12,
           "thesis_review": true
         },
         "W1,W3,W5|메모리·후공정 capex 방향": {
@@ -9844,6 +9949,95 @@
           ],
           "last_seen": "2026-10-19",
           "first_seen": "2026-10-19",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W3,W5|하이퍼스케일러 스토리지 계층 구조 변경 / 메모리·후공정 capex 방향": {
+          "headline": "삼성·SK 중국 낸드팹 첨단화",
+          "shift": "하이퍼스케일러 스토리지 계층 구조 변경 / 메모리·후공정 capex 방향",
+          "refs": [
+            "W3",
+            "W5"
+          ],
+          "direction": "불명",
+          "affects": [],
+          "summary": "로이터가 2026-10-21(단독) 삼성전자와 SK하이닉스가 중국 공장의 낸드 공정을 고도화하고 있다고 보도했다. 삼성은 시안 공장(전체 낸드 생산량의 약 40% 담당, 내부명 '모나미')을 286단 9세대 V9 낸드로 전환해 2026년 12월 월 5000장, 2027년 12월 월 4만장 생산을 목표로 하며, SK하이닉스는 다롄 공장을 기존 192단에서 240단 이상으로 전환을 추진 중이다. 양사는 보도에 대해 업그레이드가 진행 중이며 미국 정부와 긴밀히 협의하고 있다고 확인했으나, 미 상무부 BIS는 지난해 중국 내 자국 설비 증설·기술 고도화를 허가하지 않겠다는 입장을 밝힌 바 있어 실제 승인 여부는 불명확하다.",
+          "sources": [
+            {
+              "url": "https://www.cnbc.com/2026/10/21/samsung-sk-hynix-upgrading-china-plants-to-make-more-advanced-chips-people-say-reuters.html",
+              "outlet": "CNBC (Reuters)",
+              "date": "2026-10-21",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://news.sbs.co.kr/english/article.do?news_id=N1008808616",
+              "outlet": "SBS",
+              "date": "2026-10-21",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.yna.co.kr/view/AKR20261021112400009",
+              "outlet": "연합뉴스",
+              "date": "2026-10-21",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.digitimes.com/news/a20261021VL214/samsung-sk-hynix-nand-ymtc-chips.html",
+              "outlet": "DigiTimes",
+              "date": "2026-10-21",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-21",
+          "first_seen": "2026-10-21",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W2|hbm 세대 전환 일정 및 스택·본딩 공정 방식 변경 (중국 경쟁사 수익성 동향)": {
+          "headline": "CXMT 3Q 순익증가율 1~4%로 급감",
+          "shift": "HBM 세대 전환 일정 및 스택·본딩 공정 방식 변경 (중국 경쟁사 수익성 동향)",
+          "refs": [
+            "W2"
+          ],
+          "direction": "중립",
+          "affects": [],
+          "summary": "중국 CXMT가 2026년 1~9월 순이익 약 180~182억달러(전년 동기 7.26억달러 손실에서 흑자 전환)를 예상한다고 밝혔으나, 3분기 순이익의 전분기 대비 증가율은 1~4%에 그쳐 1분기 246%, 2분기 113% 증가에 비해 급격히 둔화됐다. 매출은 전분기 대비 15~20%(전년대비 589~619%) 늘었음에도 이익이 거의 늘지 않아, DRAM 계약가 상승률이 1분기 93~98%에서 3분기 13~18%로 완만해진 영향과 감가상각비·증설투자 부담이 수익성을 제약한 것으로 분석된다.",
+          "sources": [
+            {
+              "url": "https://finance.biggo.com/news/fd2602f8-65b1-4f5e-b1e9-9ed22f91d7dc",
+              "outlet": "BigGo Finance",
+              "date": "2026-10-19",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://en.sedaily.com/finance/2026/10/19/cxmts-sales-jump-sevenfold-as-china-shakes-up-dram-market",
+              "outlet": "Seoul Economic Daily",
+              "date": "2026-10-19",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://vocal.media/trader/cxmts-131-billion-yuan-quarter-has-a-1-problem",
+              "outlet": "Vocal Media",
+              "date": "2026-10",
+              "tier": "S3",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-21",
+          "first_seen": "2026-10-21",
           "count": 1,
           "thesis_review": false
         }

@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-10-22"
+    "last_run": "2026-10-23"
   },
   "themes": {
     "ai-dc-power": {
@@ -3500,7 +3500,7 @@
       }
     },
     "optical-interconnect": {
-      "last_checked": "2026-10-21",
+      "last_checked": "2026-10-23",
       "observations": {
         "NVIDIA CPO 스위치 상태": [
           {
@@ -4323,6 +4323,11 @@
             "date": "2026-10-06",
             "last_seen": "2026-10-06",
             "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지, OCP Global Summit(10/12~15, 산호세) 매진 상태로 개최 대기 중"
+          },
+          {
+            "date": "2026-10-23",
+            "last_seen": "2026-10-23",
+            "value": "변동 없음 — 스펙 초안(Base Specification) 목표 2026 Q4 유지, Design/Product Spec는 후속 단계"
           }
         ],
         "성호전자/서룡전자 주식담보대출 잔액": [
@@ -4394,6 +4399,11 @@
             "date": "2026-09-02",
             "last_seen": "2026-09-02",
             "value": "Lumentum·Coherent·Fabrinet·Applied Optoelectronics·Corning 등 7월말 이후 +25% 이상 랠리, Coherent +48%(누적)"
+          },
+          {
+            "date": "2026-10-23",
+            "last_seen": "2026-10-23",
+            "value": "10/22 Coherent -12%, Applied Optoelectronics -10%, Lumentum -9% 등 기술주 전반 매도세 속 조정 — AI капех 지속가능성에 대한 투자자 회의론이 촉발요인이며 CPO 펀더멘털 변화는 확인되지 않음(가격변동 자체는 흐름으로 기록하지 않음)"
           }
         ],
         "주식담보대출 잔액": [
@@ -4637,6 +4647,11 @@
             "date": "2026-10-21",
             "last_seen": "2026-10-21",
             "value": "변동 없음 — 완전양산 지속, 10/19 이후 신규 발표 없음"
+          },
+          {
+            "date": "2026-10-23",
+            "last_seen": "2026-10-23",
+            "value": "변동 없음 — 완전양산 지속, 10/21 이후 CPO 생산 자체에 대한 신규 발표는 없고 상류 공급망(광엔진) 캐파확장 발표만 확인"
           }
         ],
         "GF SiGe 광링크 지원 규격": [
@@ -5342,7 +5357,7 @@
         "Broadcom TH6-Davisson CPO박스 생산개시": [
           {
             "date": "2026-10-21",
-            "last_seen": "2026-10-21",
+            "last_seen": "2026-10-23",
             "value": "변동 없음 — 2027년 1분기(Micas 특정) 유지"
           }
         ],
@@ -5393,6 +5408,62 @@
             "date": "2026-10-21",
             "last_seen": "2026-10-21",
             "value": "2027년(12인치 공정)"
+          }
+        ],
+        "NVIDIA 공급망 캐파확장(신규, 10/21)": [
+          {
+            "date": "2026-10-23",
+            "last_seen": "2026-10-23",
+            "value": "SPIL CPO 광엔진 15배(2027중반)+2배 추가(2028말), Amkor 첨단패키징 +300%(2028말), 서브스트레이트 2.5배(3년내), KYEC 美공장 11억달러 선지급"
+          }
+        ],
+        "Corning Q3 2026 실적발표": [
+          {
+            "date": "2026-10-23",
+            "last_seen": "2026-10-23",
+            "value": "2026-10-27(화) 개장전 예정, 컨센서스 매출 $50.2억·EPS $0.878(YoY+31%), 아직 미발표"
+          }
+        ],
+        "성호전자/서룡전자 담보·수주 상태": [
+          {
+            "date": "2026-10-23",
+            "last_seen": "2026-10-23",
+            "value": "변동 없음 — 3분기 누적 신규수주 789억원(10/8 확인) 이후 10/23까지 신규 수주·담보 공시 없음"
+          }
+        ],
+        "SPIL CPO 광엔진 캐파 확장(2027년 중반)": [
+          {
+            "date": "2026-10-23",
+            "last_seen": "2026-10-23",
+            "value": "15배"
+          }
+        ],
+        "SPIL 추가 확장(2028년말)": [
+          {
+            "date": "2026-10-23",
+            "last_seen": "2026-10-23",
+            "value": "2배 더"
+          }
+        ],
+        "Amkor 첨단패키징 캐파 확장(2028년말)": [
+          {
+            "date": "2026-10-23",
+            "last_seen": "2026-10-23",
+            "value": "300%+"
+          }
+        ],
+        "서브스트레이트 캐파 확장(3년내, IBIDEN·삼성전기·Unimicron)": [
+          {
+            "date": "2026-10-23",
+            "last_seen": "2026-10-23",
+            "value": "2.5배"
+          }
+        ],
+        "KYEC 美 신규공장 NVIDIA 선지급": [
+          {
+            "date": "2026-10-23",
+            "last_seen": "2026-10-23",
+            "value": "11억달러"
           }
         ]
       },
@@ -5991,46 +6062,54 @@
           "thesis_review": false
         },
         "W1,W5|실리콘 포토닉스 수율·패키징 병목 해소 여부 / cpo 양산 채택 일정의 전진 또는 후퇴": {
-          "headline": "RoboTechnik 홍콩 상장 완료",
+          "headline": "NVIDIA, SPIL 광엔진 캐파 15배 확대",
           "shift": "실리콘 포토닉스 수율·패키징 병목 해소 여부 / CPO 양산 채택 일정의 전진 또는 후퇴",
           "refs": [
             "W1",
             "W5"
           ],
-          "direction": "중립",
+          "direction": "순풍",
           "affects": [
             "optical-align"
           ],
-          "summary": "ficonTEC 모회사 RoboTechnik이 2026-09-29 홍콩거래소(3757.HK)에 실제 상장·거래를 시작했다. 기본 공모(초과배정 제외) 조달액은 HK$5.18억(약 미화 6.6억달러)으로, 앞서(9/25) 관측된 초과배정 포함 최대 추정치 HK$68.5억보다는 낮은 실제 집행 규모로 확정됐다. 신규상장주 전반의 약세 속에 상장 첫날 주가는 장중 최대 -9.8%까지 밀렸다.",
+          "summary": "NVIDIA가 2026-10-21 GTC Berlin 계기로 Amkor·IBIDEN·KYEC·삼성전기·SPIL·Unimicron 등 6개 공급망 파트너와의 캐파 확장 계약을 공식 발표했다. 이 중 SPIL은 CPO용 광엔진 생산능력을 2027년 중반까지 15배, 2028년 말까지 추가로 2배 확대하기로 했고, Amkor는 2028년 말까지 첨단패키징 캐파를 300%+ 늘리며, KYEC는 NVIDIA의 11억달러 캐파확보 선지급을 받아 美 신규 공장을 짓는다. Jensen Huang은 '캐파가 제약요인'이라고 밝혔다.",
           "sources": [
             {
-              "url": "https://www.bloomberg.com/news/articles/2026-09-28/robotechnik-leads-hong-kong-s-1-8-billion-listing-debut-lineup",
-              "outlet": "bloomberg.com",
-              "date": "2026-09-28",
+              "url": "https://nvidianews.nvidia.com/news/nvidia-and-supply-chain-partners-expand-capacity-to-accelerate-ai-infrastructure-buildout",
+              "outlet": "nvidianews.nvidia.com",
+              "date": "2026-10-21",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-and-Supply-Chain-Partners-Expand-Capacity-to-Accelerate-AI-Infrastructure-Buildout/default.aspx",
+              "outlet": "investor.nvidia.com",
+              "date": "2026-10-21",
+              "tier": "S1",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.globenewswire.com/news-release/2026/10/21/3385344/0/en/nvidia-and-supply-chain-partners-expand-capacity-to-accelerate-ai-infrastructure-buildout.html",
+              "outlet": "globenewswire.com",
+              "date": "2026-10-21",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_L1N45L01S:0-china-s-robotechnik-slides-in-hong-kong-debut-as-new-listings-trade-mixed/",
-              "outlet": "tradingview.com (Reuters)",
-              "date": "2026-09-29",
-              "tier": "S2",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://news.futunn.com/en/post/1000369089/robotec-300757-sz-listing-and-trading-of-overseas-listed-foreign",
-              "outlet": "futunn.com (거래소 공시 기반)",
-              "date": "2026-09-29",
+              "url": "https://www.sdxcentral.com/news/nvidia-targets-15x-optics-capacity-expansion-by-2027-to-meet-cpo-demand/",
+              "outlet": "sdxcentral.com",
+              "date": "2026-10-22",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-30",
+          "last_seen": "2026-10-23",
           "first_seen": "2026-09-28",
-          "count": 2,
+          "count": 3,
           "thesis_review": false
         },
         "W1,W3,W5|cpo 양산 채택 일정의 전진 또는 후퇴 / 광 i/o 표준화 동향 및 주요 벤더 로드맵 변경 / 실리콘 포토닉스 수율·패키징 병목 해소 여부": {

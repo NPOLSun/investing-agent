@@ -1,11 +1,11 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-10-23"
+    "last_run": "2026-10-26"
   },
   "themes": {
     "ai-dc-power": {
-      "last_checked": "2026-10-08",
+      "last_checked": "2026-10-26",
       "observations": {
         "OCP LVDC SST 스펙": [
           {
@@ -2154,6 +2154,153 @@
             "last_seen": "2026-10-08",
             "value": "7:5(찬성:반대)"
           }
+        ],
+        "OCP Summit 800VDC K-1 AI팩토리": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "최초 상용 가동 확인(2026-10-12~15, 구리 45%절감)"
+          }
+        ],
+        "PJM IRAS 결과": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "기각(2026-10-09), Large Load 등록제만 발효(10-12)"
+          }
+        ],
+        "PJM 순응 신청 시한": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "2026-11-09"
+          }
+        ],
+        "Vicor 3Q26 매출": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "1.971억달러(QoQ+37.5%, 2차 가이던스 재상회)"
+          }
+        ],
+        "Vicor 3Q26 로열티 매출": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "6660만달러(QoQ+119.1%)"
+          }
+        ],
+        "Vicor 백로그": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "4.06억달러(YoY+166%)"
+          }
+        ],
+        "멤피스 모라토리엄": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "6:6 부결 → 135일 한시중단 대체(2026-10-20)"
+          }
+        ],
+        "SpaceX GPU 구매 부채조달": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "400억달러(2026-10-25 확정, 2027 1~2Q 납품, 콜로서스向)"
+          }
+        ],
+        "TCEQ 데이터센터 허가중단 이행실태": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "감시단체 조사로 35건 추가승인 적발(10/19) → 17건 허가 잠정중단·포털 비공개 전환"
+          }
+        ],
+        "ERCOT 감사 설문 응답": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "2026-10-12 마감 완료, 최종보고서는 12/10 목표 유지"
+          }
+        ],
+        "K-1 AI팩토리 구리 사용량 절감": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "약 45%"
+          }
+        ],
+        "랙 전력 확장 목표": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "현행 수준 → 1MW급"
+          }
+        ],
+        "IRAS/BYONC 승인여부": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "미확정 → 기각(2026-10-09)"
+          }
+        ],
+        "Large Load 등록제 발효일": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "2026-10-12"
+          }
+        ],
+        "3분기 매출": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "1.434억달러(2Q) → 1.971억달러(3Q, QoQ+37.5%)"
+          }
+        ],
+        "로열티 매출(QoQ)": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "+119.1%(6660만달러)"
+          }
+        ],
+        "백로그": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "1.53억달러(전년 3Q) → 4.06억달러(YoY+166%)"
+          }
+        ],
+        "매출총이익률": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "+1030bp QoQ(68.3%)"
+          }
+        ],
+        "멤피스 모라토리엄 표결": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "6:6 동률 부결, 135일 한시중단으로 대체"
+          }
+        ],
+        "GPU 구매용 부채조달": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "400억달러(은행대출 약100억+투자등급채 약300억)"
+          }
+        ],
+        "3분기 자본지출": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "전년比 약 3배, 196억달러"
+          }
         ]
       },
       "shifts": {
@@ -2345,7 +2492,7 @@
           "thesis_review": false
         },
         "W2,W3|배전 전압 아키텍처 전환(54v 랙 → 800vdc)에 연동된 point-of-load 공급사 실적": {
-          "headline": "Vicor 3Q 가이던스 20%+ 상향",
+          "headline": "Vicor 3Q26 매출 +37.5%, 로열티 급증",
           "shift": "배전 전압 아키텍처 전환(54V 랙 → 800VDC)에 연동된 point-of-load 공급사 실적",
           "refs": [
             "W2",
@@ -2355,36 +2502,36 @@
           "affects": [
             "point-of-load"
           ],
-          "summary": "Vicor가 2026-09-21 공식 보도자료(GlobeNewswire)를 통해 3분기 매출 성장 가이던스를 기존 QoQ 약 10%에서 20% 이상(약 1.72억달러)으로 상향했다. 9/16 체결한 VPD(Vertical Power Delivery) 기술 비독점 라이선스의 로열티 매출이 상향의 핵심 동력으로 지목됐고, Needham은 9/22 매수의견과 목표주가 320달러를 유지했다.",
+          "summary": "Vicor가 2026-10-20 발표한 3분기 실적에서 매출이 전분기 대비 37.5% 증가한 1억9710만달러를 기록해 직전 두 차례 상향된 가이던스(QoQ 30%대)를 상회했다. VPD 라이선스 로열티 매출이 전분기 대비 119.1% 급증한 6660만달러에 달했고, 백로그는 전년동기 대비 166% 증가한 4억600만달러로 집계됐다.",
           "sources": [
             {
-              "url": "https://www.globenewswire.com/news-release/2026/09/21/3365846/0/en/vicor-corporation-raises-q3-2026-revenue-guidance.html",
-              "outlet": "GlobeNewswire(Vicor 공식)",
-              "date": "2026-09-21",
+              "url": "https://www.sec.gov/Archives/edgar/data/0000751978/000119312526425697/d153882dex991.htm",
+              "outlet": "Vicor 8-K(SEC 공식)",
+              "date": "2026-10-20",
               "tier": "S1",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.stocktitan.net/news/VICR/vicor-corporation-raises-q3-2026-revenue-yk2virh0imov.html",
-              "outlet": "StockTitan",
-              "date": "2026-09-21",
+              "url": "https://www.gurufocus.com/news/9132157/vicor-corp-vicr-reports-robust-q3-2026-results-with-strong-royalty-growth",
+              "outlet": "GuruFocus",
+              "date": "2026-10-20",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.gurufocus.com/news/9092031/vicor-vicr-boosts-q3-outlook-driven-by-ai-licensing-momentum",
-              "outlet": "GuruFocus",
-              "date": "2026-09-22",
+              "url": "https://www.fool.com/earnings/call-transcripts/2026/10/20/vicor-vicr-q3-2026-earnings-call-transcript/",
+              "outlet": "The Motley Fool(어닝콜 녹취록)",
+              "date": "2026-10-20",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-23",
+          "last_seen": "2026-10-26",
           "first_seen": "2026-08-19",
-          "count": 6,
+          "count": 7,
           "thesis_review": false
         },
         "W1,W3|랙 전력밀도 로드맵 변경(kw/rack) 및 실제 배치 시점": {
@@ -2534,7 +2681,7 @@
           "thesis_review": false
         },
         "W2,W3|배전 전압 아키텍처 전환(54v 랙 → 800vdc) 채택 속도": {
-          "headline": "Eaton MVSST 파일럿 20개, 수주 임박",
+          "headline": "최초 상용 800VDC AI팩토리 가동",
           "shift": "배전 전압 아키텍처 전환(54V 랙 → 800VDC) 채택 속도",
           "refs": [
             "W2",
@@ -2544,30 +2691,48 @@
           "affects": [
             "point-of-load"
           ],
-          "summary": "Eaton은 중전압 고체변압기(MVSST) 기술에 대해 하이퍼스케일러 고객 포함 약 20개 파일럿 프로그램을 운영 중이며, 800VDC 프로젝트 견적을 이미 발송해 2026년 하반기 수주, 2027년 말~2028년 초 출하를 예상한다고 밝혔다. AC 대비 800VDC 전환 시 효율이 약 93%→98%로 개선돼 100MW급 데이터센터 기준 연간 2000만~2500만달러 절감 효과가 있다는 수치도 함께 제시됐다.",
+          "summary": "2026-10-12~15 산호세에서 열린 OCP Global Summit 2026에서 NVIDIA·Vertiv·Visionbay가 공동 구축한 최초의 상용 800VDC AI팩토리 'K-1'이 공개됐다. 구리 사용량을 약 45% 절감하고 랙 전력을 1MW급까지 확장 가능한 구조로, LITEON·Delta·SolarEdge 등도 800VDC 기반 신제품을 동시에 선보였다. 다만 상용 HVDC의 본격 채택은 2026년말 소규모로 시작될 것이라는 업계 평가가 함께 나왔다.",
           "sources": [
             {
-              "url": "https://www.eaton.com/us/en-us/catalog/medium-voltage-power-distribution-control-systems/medium-voltage-solid-state-transformer.html",
-              "outlet": "Eaton 공식",
-              "date": "2026",
+              "url": "https://www.prnewswire.com/news-releases/delta-to-showcase-energy-saving-grid-to-chip-infrastructure-solutions-for-sustainable-ai-at-ocp-global-summit-2026-302902203.html",
+              "outlet": "Delta Electronics(PRNewswire 공식 발표)",
+              "date": "2026-10-12",
               "tier": "S1",
-              "note": ""
+              "note": "",
+              "from_feed": false
             },
             {
-              "url": "https://electroneconomics.substack.com/p/eaton-is-trying-to-become-schneider",
-              "outlet": "Electroneconomics(업계 분석)",
-              "date": "2026-08",
+              "url": "https://wawt.tech/2026/10/20/from-grid-to-chip-ocp-global-summit-2026-signals-a-power-architecture-shift-for-data-centres/",
+              "outlet": "WAWT Tech",
+              "date": "2026-10-20",
               "tier": "S2",
-              "note": ""
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.hpcwire.com/2026/10/15/infrastructure-highlights-from-ocp-global-summit/",
+              "outlet": "HPCwire",
+              "date": "2026-10-15",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.storagenewsletter.com/2026/10/20/ocp-global-summit-2026-compal-brings-nvidia-ai-factory-infrastructure-to-the-conference/",
+              "outlet": "StorageNewsletter",
+              "date": "2026-10-20",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
             }
           ],
-          "last_seen": "2026-09-04",
+          "last_seen": "2026-10-26",
           "first_seen": "2026-08-24",
-          "count": 2,
+          "count": 3,
           "thesis_review": false
         },
         "W5|계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — pjm iras 세부일정": {
-          "headline": "PJM IRAS에 시장감시인·발전업계 반발",
+          "headline": "FERC, PJM 대형부하 커튜먼트案 기각",
           "shift": "계통 접속 대기열(interconnection queue) 적체 및 규제 변화 — PJM IRAS 세부일정",
           "refs": [
             "W5"
@@ -2577,28 +2742,44 @@
             "hyosung-transformer",
             "hd-hyundai-electric"
           ],
-          "summary": "PJM 독립시장감시인(IMM)이 2026-09-03 FERC에 IRAS(임시자원적정성서비스) 제안을 \"모순되고 혼란스러운 제안\"이라 비판하는 항의서를 제출했고, 같은 날 발전사업자 단체 EPSA도 IRAS가 신규·기존 용량자원을 부당하게 차별하고 용량시장 가격신호를 왜곡할 수 있다며 별도 항의서를 냈다. 이는 지난 관측(9/3 의견수렴 마감, 결과 미확인)의 후속 확인으로, 10/12 발효 목표를 둔 PJM 제안에 실제 반대 의견이 구체적으로 제기됐음이 새로 드러났다.",
+          "summary": "이전 관측(발효목표 2026-10-12, 결과 미확정)이 갱신됐다 — FERC가 2026-10-09 정식 명령(ER26-3515)으로 PJM의 '임시자원적정성서비스(IRAS)' 및 BYONC 프레임워크(신규 대형부하를 발전설비 확보 전 우선 커튜먼트 조건으로 신속접속시키는 안)를 관할권·소매고객 직접의무 부과 등을 이유로 기각했다. 다만 50MW 이상 대형부하 정의와 등록제(Large Load Registry)는 승인돼 2026-10-12부로 발효됐으며, PJM은 2026-11-09까지 순응 신청서를 제출해야 한다.",
           "sources": [
             {
-              "url": "https://www.monitoringanalytics.com/filings/2026/IMM_Protest_Docket_No_ER26-3515_20260903.pdf",
-              "outlet": "Monitoring Analytics(PJM 독립시장감시인, 공식 제출서)",
-              "date": "2026-09-03",
+              "url": "https://elibrary.ferc.gov/eLibrary/docinfo?accession_number=20261009-3055",
+              "outlet": "FERC eLibrary(공식 명령문 ER26-3515)",
+              "date": "2026-10-09",
               "tier": "S1",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://epsa.org/filings/epsa-protests-pjm-interim-resource-adequacy-service-proposal/",
-              "outlet": "EPSA(공식 제출서)",
-              "date": "2026-09-03",
-              "tier": "S1",
+              "url": "https://www.troutmanenergyreport.com/2026/10/ferc-accepts-pjms-large-load-and-large-load-registry-definition-but-rejects-interim-resource-adequacy-service-proposal/",
+              "outlet": "Troutman Energy Report(로펌 분석)",
+              "date": "2026-10-10",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://mgrid.org/2026/10/10/ferc-rejects-pjms-curtail-first-plan-for-new-large-loads-and-keeps-only-the-50-mw-definition-and-a-registry/",
+              "outlet": "mGrid",
+              "date": "2026-10-10",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://dailycaller.com/2026/10/14/ferc-pjm-interconnection-order-data-centers-iras-jeff-shields/",
+              "outlet": "Daily Caller",
+              "date": "2026-10-14",
+              "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-14",
+          "last_seen": "2026-10-26",
           "first_seen": "2026-08-26",
-          "count": 2,
+          "count": 3,
           "thesis_review": false
         },
         "W1,W3|랙 전력밀도 로드맵 변경(kw/rack) 및 실제 배치 시점 — kyber 랙 지연 논란": {
@@ -3494,6 +3675,56 @@
           ],
           "last_seen": "2026-10-08",
           "first_seen": "2026-10-08",
+          "count": 1,
+          "thesis_review": false
+        },
+        "W4|온사이트 발전·비계통 전력 조달 비중(behind-the-meter) — xai 콜로서스 멤피스 확장": {
+          "headline": "멤피스 모라토리엄 부결, 콜로서스 확장자금 확보",
+          "shift": "온사이트 발전·비계통 전력 조달 비중(behind-the-meter) — xAI 콜로서스 멤피스 확장",
+          "refs": [
+            "W4"
+          ],
+          "direction": "순풍",
+          "affects": [
+            "power-generation"
+          ],
+          "summary": "멤피스 시의회가 2026-10-20 데이터센터 18개월 전면 모라토리엄 안건을 6대6 동률로 부결시키고 대신 135일 한시중단과 별도 규제 조례만 통과시켜, xAI 콜로서스 확장의 지역 규제 리스크가 일부 완화됐다. 닷새 뒤인 10-25일 일론 머스크는 스페이스X가 GPU 구매를 위해 400억달러 부채조달(뱅크론 약 100억+투자등급채 약 300억달러)을 완료했다고 밝혔으며, 이 자금이 멤피스 콜로서스 GPU 증설의 다음 단계에 투입될 것이라고 확인했다. 3분기 스페이스X 자본지출은 196억달러로 전년대비 약 3배 늘었다.",
+          "sources": [
+            {
+              "url": "https://www.bloomberg.com/news/articles/2026-10-25/musk-says-spacex-closed-40-billion-debt-deal-blasts-neoclouds",
+              "outlet": "Bloomberg",
+              "date": "2026-10-25",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.cnn.com/2026/10/20/us/memphis-council-data-center-vote",
+              "outlet": "CNN",
+              "date": "2026-10-20",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.yahoo.com/news/politics/articles/memphis-data-center-moratorium-fails-022258048.html",
+              "outlet": "Yahoo News",
+              "date": "2026-10-20",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://teslanorth.com/2026/10/25/spacex-40b-gpu-debt-elon-musk/",
+              "outlet": "Tesla North",
+              "date": "2026-10-25",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-26",
+          "first_seen": "2026-10-26",
           "count": 1,
           "thesis_review": false
         }
@@ -6645,7 +6876,7 @@
       }
     },
     "memory-storage": {
-      "last_checked": "2026-10-21",
+      "last_checked": "2026-10-26",
       "observations": {
         "파두 컨트롤러 매출 비중": [
           {
@@ -6789,11 +7020,6 @@
         ],
         "예스티-HPSP 서울중앙지법 본안소송": [
           {
-            "date": "2026-09-16",
-            "last_seen": "2026-09-16",
-            "value": "8/13 변론 이후 추가 진행상황 미확인(변화없음 지속, 9/16 기준 재확인 안됨)"
-          },
-          {
             "date": "2026-09-18",
             "last_seen": "2026-09-18",
             "value": "8/13 변론 이후 추가 진행상황 미확인(변화없음 지속)"
@@ -6847,6 +7073,11 @@
             "date": "2026-10-16",
             "last_seen": "2026-10-16",
             "value": "변론기일 HPSP 신청으로 11월 연기 확인(10/16), 1심 지연으로 연내 종결 전망이 2027년으로 이연"
+          },
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "변론기일 11월로 연기(변화없음 지속, 추가 진행상황 미확인)"
           }
         ],
         "Gen6 성능": [
@@ -8837,6 +9068,76 @@
             "last_seen": "2026-10-21",
             "value": "+589~619% / +15~20%"
           }
+        ],
+        "솔리다임 IPO 추진 상태": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "최대 150억달러 조달·기업가치 최대 1000억달러 목표(10/8 공식화) → 2026-10-23 프리IPO·IPO 검토 전면 중단"
+          }
+        ],
+        "솔리다임 美 신규 낸드공장 투자재원": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "IPO 조달 전제 → 철회로 자체자금/회사채/차입/제3자투자/美정부보조금 등 대안 모색 중(미확정)"
+          }
+        ],
+        "키옥시아 신용등급(S&P)": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "BBB- → BBB(2026-10-13, 등급전망 긍정적)"
+          }
+        ],
+        "삼성 HBM4 가격 협상": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "Gb당 4달러 중후반대 제시, 10월 중 최종타결 목표(변화없음 지속, 10/26 기준 타결 미확인)"
+          }
+        ],
+        "SK하이닉스 3분기 실적발표": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "2026-10-28 예정, 키옥시아 지분매각 차익 특별배당(약 16조원) 가능성이 업계 전언(IB·재계)으로 보도됐으나 10/26 기준 공식 확인 안됨(미확인)"
+          }
+        ],
+        "목표 조달액(철회 전)": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "최대 150억달러"
+          }
+        ],
+        "IPO 추진 보도 후 경과": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "79일만에 철회"
+          }
+        ],
+        "신용등급": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "BBB- → BBB"
+          }
+        ],
+        "FY2026 EBITDA 전망": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "7조~8조엔"
+          }
+        ],
+        "FY2027 EBITDA 전망": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "약 9조엔"
+          }
         ]
       },
       "shifts": {
@@ -9759,72 +10060,80 @@
           "thesis_review": false
         },
         "W1,W5|ai 추론 확산에 따른 essd·니어라인 스토리지 수요 구조 변화 / 메모리·후공정 capex 방향": {
-          "headline": "대만 Nanya 3Q ASP +60%대",
+          "headline": "키옥시아 신용등급 BBB로 상향",
           "shift": "AI 추론 확산에 따른 eSSD·니어라인 스토리지 수요 구조 변화 / 메모리·후공정 capex 방향",
           "refs": [
             "W1",
-            "W5"
-          ],
-          "direction": "중립",
-          "affects": [],
-          "summary": "대만 D램 업체 Nanya Technology가 2026-10-13 발표한 3분기(FY3Q26) 실적에서 매출이 전분기 대비 61.9%, 전년대비 611.7% 급증했다(GPM 85.7%, OPM 80.0%). 회사는 컨퍼런스콜에서 ASP 상승분의 절반 이상이 만료된 장기공급계약(LTA) 재가격 반영분이며, 비트 출하량은 신규 Fab 가동 전까지 2027년 하반기까지 사실상 정체(flat)되어 공급 타이트가 이어질 것이라고 밝혔다.",
-          "sources": [
-            {
-              "url": "https://www.benzinga.com/news/26/09/61800956/sk-hynix-16-layer-hbm4-nvidia-rubin-micron-samsung",
-              "outlet": "참고용(HBM4 공급구도)",
-              "date": "2026-09",
-              "tier": "S3",
-              "note": "",
-              "from_feed": false
-            }
-          ],
-          "last_seen": "2026-10-14",
-          "first_seen": "2026-09-30",
-          "count": 2,
-          "thesis_review": false
-        },
-        "W1,W3,W5|ai 추론 확산에 따른 essd·니어라인 스토리지 수요 구조 변화 / 메모리·후공정 capex 방향": {
-          "headline": "Micron eSSD매출 10배 급증",
-          "shift": "AI 추론 확산에 따른 eSSD·니어라인 스토리지 수요 구조 변화 / 메모리·후공정 capex 방향",
-          "refs": [
-            "W1",
-            "W3",
             "W5"
           ],
           "direction": "순풍",
           "affects": [
             "ssd-controller"
           ],
-          "summary": "마이크론이 2026회계연도 4분기(9/3 마감) 매출 542.3억달러(QoQ +31%, YoY +379%)로 역대 최대 실적을 발표했다. CEO 산제이 메흐로트라는 실적콜에서 데이터센터 SSD 매출이 약 100억달러로 전년 동기 대비 10배 이상 늘어 낸드 매출의 2/3 이상을 차지했다고 밝혔고, 2027년 생산물량은 이미 75% 이상 고객에 배정돼 2027~2028년 메모리·스토리지 수급이 2026년보다 더 타이트해질 것이라 전망했다.",
+          "summary": "S&P Global Ratings가 2026-10-13 키옥시아홀딩스의 장기 신용등급을 BBB-에서 BBB로 한 단계 상향하고 등급전망을 '긍정적'으로 매겼다. AI발 낸드·SSD 수요 호조에 따른 수익성 개선과 순현금 전환을 근거로 들었으며, FY2026 EBITDA를 7조~8조엔, FY2027은 약 9조엔으로 전망했다.",
           "sources": [
             {
-              "url": "https://www.sec.gov/Archives/edgar/data/0000723125/000072312526000018/a2026q4ex991-pressrelease.htm",
-              "outlet": "SEC EDGAR (Micron 8-K)",
-              "date": "2026-09-30",
-              "tier": "S1",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.globenewswire.com/news-release/2026/09/30/3372366/14450/en/micron-technology-inc-reports-record-fiscal-fourth-quarter-and-full-year-2026-results.html",
-              "outlet": "GlobeNewswire (Micron 공식배포)",
-              "date": "2026-09-30",
-              "tier": "S1",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.benzinga.com/news/26/09/62095451/transcript-micron-technology-q4-2026-earnings-conference-call",
-              "outlet": "Benzinga (실적콜 전문)",
-              "date": "2026-09-30",
+              "url": "https://www.ad-hoc-news.de/boerse/news/corporate-news/s-und-p-upgrades-kioxia-to-bbb-for-kioxia-stock/70409939",
+              "outlet": "ad-hoc-news (금융뉴스 재배포)",
+              "date": "2026-10-13",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-10-02",
+          "last_seen": "2026-10-26",
+          "first_seen": "2026-09-30",
+          "count": 3,
+          "thesis_review": false
+        },
+        "W1,W3,W5|ai 추론 확산에 따른 essd·니어라인 스토리지 수요 구조 변화 / 메모리·후공정 capex 방향": {
+          "headline": "솔리다임 美IPO 전면 철회",
+          "shift": "AI 추론 확산에 따른 eSSD·니어라인 스토리지 수요 구조 변화 / 메모리·후공정 capex 방향",
+          "refs": [
+            "W1",
+            "W3",
+            "W5"
+          ],
+          "direction": "불명",
+          "affects": [],
+          "summary": "SK하이닉스가 2026-10-23 손자회사 솔리다임의 프리IPO·IPO 검토를 전면 중단한다고 공식 발표했다. 전날 금융감독원장이 '중복상장 저촉' 입장을 밝힌 데 이어 국내 주주 반발까지 겹친 영향으로, 최대 150억달러(약 20조원) 조달을 통해 추진하려던 미국 신규 낸드공장(뉴욕주 검토) 투자재원을 자체자금·회사채·차입·고객사 투자유치 등 대안으로 다시 마련해야 하는 과제가 새로 생겼다.",
+          "sources": [
+            {
+              "url": "https://www.fnnews.com/news/202610251852247677",
+              "outlet": "파이낸셜뉴스",
+              "date": "2026-10-25",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.thelec.kr/news/articleView.html?idxno=64163",
+              "outlet": "디일렉(THE ELEC)",
+              "date": "2026-10-23",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://en.sedaily.com/finance/2026/10/23/sk-hynix-scraps-solidigms-us-listing-after-regulators-push",
+              "outlet": "Seoul Economic Daily",
+              "date": "2026-10-23",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://finance.yahoo.com/markets/stocks/articles/sk-hynix-pulls-plug-solidigm-235445993.html",
+              "outlet": "Yahoo Finance (Reuters)",
+              "date": "2026-10-23",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            }
+          ],
+          "last_seen": "2026-10-26",
           "first_seen": "2026-10-02",
-          "count": 1,
+          "count": 2,
           "thesis_review": false
         },
         "W2|hbm4 세대 전환 일정 및 스택·본딩 공정 방식 변경 (가격 동향)": {

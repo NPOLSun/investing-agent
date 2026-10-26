@@ -10432,14 +10432,9 @@
       }
     },
     "nuclear-smr": {
-      "last_checked": "2026-10-20",
+      "last_checked": "2026-10-26",
       "observations": {
         "ADVANCE Act 이행률": [
-          {
-            "date": "2026-08-18",
-            "last_seen": "2026-08-18",
-            "value": "31/36 마일스톤 완료 (2026-04 기준)"
-          },
           {
             "date": "2026-08-24",
             "last_seen": "2026-08-24",
@@ -10494,6 +10489,11 @@
             "date": "2026-10-20",
             "last_seen": "2026-10-20",
             "value": "33/36 마일스톤(92%, 2026-08-20 기준) — 10/20까지 추가 변동 확인 안됨"
+          },
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "33/36 마일스톤(92%, 2026-08-20 기준) — 2026-09-28 재확인에서도 변동 없음, 잔여 3건 모두 2027-07-09 기한"
           }
         ],
         "하이퍼스케일러 원자력 누적계약": [
@@ -10546,6 +10546,11 @@
             "date": "2026-10-20",
             "last_seen": "2026-10-20",
             "value": "약 9.8~10GW, 13개+ 프로젝트 → Amazon-X-energy-AEP 인디애나 Xe-100 12기(960MW) 신규 추가(10/19, 타당성조사 단계)"
+          },
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "약 9.8~10GW, 13개+ 프로젝트 → Indiana Xe-100 12기/960MW(10/19) 추가 — 10/26까지 추가 신규 대형계약 확인 안됨"
           }
         ],
         "Centrus 주가(LEU)": [
@@ -11028,6 +11033,11 @@
             "date": "2026-09-11",
             "last_seen": "2026-09-11",
             "value": "1,200억달러(약 161조원)"
+          },
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "BWRX-300 6기, 약 1,800MWe"
           }
         ],
         "구성(잠정)": [
@@ -11249,6 +11259,11 @@
             "date": "2026-10-20",
             "last_seen": "2026-10-20",
             "value": "Radiant(9/9), Antares(9/17) — 10/20까지 추가 신규고객 확인 안됨"
+          },
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "Radiant(9/9), Antares(9/17) — 10/26까지 추가 신규고객 확인 안됨"
           }
         ],
         "Kairos-Samsung C&T EPC 투자": [
@@ -11331,6 +11346,11 @@
             "date": "2026-10-20",
             "last_seen": "2026-10-20",
             "value": "벡텔 이탈(9/22~23) 후 재입찰 진행 중 — 10/19까지 신규 EPC 선정 미확인, 약 1,600명 인력 고용 불확실성 보도(10/13), 완공목표 2030년 유지"
+          },
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "벡텔 이탈(9/22~23) 후 재입찰 진행 중 — 10/26까지 신규 EPC 선정 미확인, 완공목표 2030년 유지"
           }
         ],
         "X-energy Xe-100 Dow Seadrift 건설허가": [
@@ -11338,6 +11358,11 @@
             "date": "2026-10-13",
             "last_seen": "2026-10-13",
             "value": "2027년 1분기 발급 목표 — 변동 없음, FSER 11월 목표 진행중(완료 미확인)"
+          },
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "2027년 1분기 발급 목표 — 변동 없음"
           }
         ],
         "한미 원전 패키지(웨스팅하우스 지분)": [
@@ -11401,6 +11426,11 @@
             "date": "2026-10-20",
             "last_seen": "2026-10-20",
             "value": "5~10% 코너스톤 투자로 수렴(10/13) → SK 주도 민간컨소시엄(SK·삼성물산·현대건설·두산에너빌리티) 최대 4조원 검토 보도(10/14~19), 단 참여 여부 미결정"
+          },
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "SK 주도 민간컨소시엄(삼성물산·현대건설·두산에너빌리티·GS건설 등 7~8개사) 최대 4조원 검토 — 10/15 보도로 참여사 범위 구체화됐으나 10/26까지 최종 확정·서명 안됨"
           }
         ],
         "신규 프로젝트 규모": [
@@ -11436,6 +11466,27 @@
             "date": "2026-10-20",
             "last_seen": "2026-10-20",
             "value": "10%"
+          }
+        ],
+        "NRC DOE/DOW 데모데이터 재사용 규칙": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "2026-04-02 제안 → 2026-10-22 최종확정, 관보게재 10/28 예정·게재 후 30일 시행"
+          }
+        ],
+        "제안규칙→최종규칙": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "2026-04-02 제안 → 2026-10-22 확정"
+          }
+        ],
+        "시행": [
+          {
+            "date": "2026-10-26",
+            "last_seen": "2026-10-26",
+            "value": "관보게재(10/28 예정) 후 30일"
           }
         ]
       },
@@ -11531,46 +11582,44 @@
           "thesis_review": false
         },
         "W5|대형원전 신규 발주 흐름 (미국·유럽·아시아)": {
-          "headline": "폴란드 AP1000 장납기품 발주 개시",
+          "headline": "폴란드 석탄부지 BWRX-300 6기 JV",
           "shift": "대형원전 신규 발주 흐름 (미국·유럽·아시아)",
           "refs": [
             "W5"
           ],
-          "direction": "순풍",
-          "affects": [
-            "power-generation"
-          ],
-          "summary": "폴란드 국영 PEJ와 웨스팅하우스가 2026-10-08 Lubiatowo-Kopalino 1호기(AP1000)의 장납기 품목(원자로 격납용기 등 Nuclear Island 핵심 6개 품목) 발주 절차를 공식 개시했다. 이는 지난 9월 PEJ-컨소시엄 간 EPC 주요 상업조건 합의에 따른 후속 조치로, 웨스팅하우스는 연말까지 EPC 세부조건·부속서 확정을 목표로 하고 있다. 1호기 상업가동 목표는 2036년이다.",
+          "direction": "불명",
+          "affects": [],
+          "summary": "폴란드 SGE와 ZE PAK이 2026-10-13 전후 'PAK BWRX S.A.' 합작법인을 설립, 퇴역 석탄화력 부지(Pątnów)에 GE Vernova Hitachi 설계 BWRX-300 6기(약 1,800MWe)를 건설하는 사업을 추진한다고 발표했다. 보유 포지션(두산·웨스팅하우스·X-energy·Centrus) 공급망과 직접 연결점은 아직 확인되지 않았다.",
           "sources": [
             {
-              "url": "https://pej.pl/en/press-center/news/pej-and-westinghouse-begin-long-lead-item-procurement-process-for-polands-first-nuclear-power-plant/",
-              "outlet": "pej.pl (PEJ 공식 보도자료)",
-              "date": "2026-10-08",
-              "tier": "S1",
-              "note": "",
-              "from_feed": false
-            },
-            {
-              "url": "https://www.world-nuclear-news.org/articles/poland-begins-ordering-long-lead-components-for-first-ap1000",
+              "url": "https://www.world-nuclear-news.org/articles/joint-venture-formed-for-six-unit-smr-plant-in-poland",
               "outlet": "World Nuclear News",
-              "date": "2026-10-08",
+              "date": "2026-10-13",
               "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.businesswire.com/news/home/20261008682570/en/PEJ-and-Westinghouse-Begin-Long-Lead-Item-Procurement-Process-for-Polands-First-Nuclear-Power-Plant",
-              "outlet": "businesswire.com",
-              "date": "2026-10-08",
+              "url": "https://www.nucnet.org/news/sge-and-ze-pak-establish-jv-for-small-modular-reactor-project-at-poland-coal-site-10-2-2026",
+              "outlet": "NucNet",
+              "date": "2026-10-13",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://sge.eu/sge-and-ze-pak-to-build-six-small-modular-reactors-at-patnow-poland/",
+              "outlet": "sge.eu (기업 발표)",
+              "date": "2026-10-13",
               "tier": "S1",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-10-13",
+          "last_seen": "2026-10-26",
           "first_seen": "2026-08-18",
-          "count": 9,
-          "thesis_review": false
+          "count": 10,
+          "thesis_review": true
         },
         "W4|haleu 공급 능력 확충 속도 및 신규 진입자": {
           "headline": "Centrus, Antares와 HALEU 계약",
@@ -11655,7 +11704,7 @@
           "thesis_review": false
         },
         "W2|nrc 인허가 처리 속도 변화 (정책·제도 개편 포함)": {
-          "headline": "NRC 개편안 관보게재·마감확정",
+          "headline": "NRC, DOE 실증데이터 재사용 확정",
           "shift": "NRC 인허가 처리 속도 변화 (정책·제도 개편 포함)",
           "refs": [
             "W2"
@@ -11665,28 +11714,44 @@
             "smr-developer",
             "power-generation"
           ],
-          "summary": "9월 11일 발표됐던 NRC 원자로 인허가·해체·운영감독 규정개편안(Regulatory Enhancements for Reactor Licensing, Decommissioning, and Operational Oversight)이 2026-09-24 연방관보에 정식 게재됐다. 코멘트 마감은 게재 후 45일인 2026-11-09이며, 코멘트 기간 중 NRC의 화상 공개설명회도 예정됐다(Docket NRC-2025-1138).",
+          "summary": "NRC가 2026-10-22 DOE·국방부(DOW) 원자로 실증사업에서 나온 분석·시험데이터를 상업용 원자로 인허가 신청에 재사용할 수 있도록 하는 최종규칙(10 CFR Parts 50·53 개정)을 확정했다. 행정명령 14300(원자력 인허가 가속) 이후 NRC가 확정한 첫 주요 규정 개편으로, 4/2 제안규칙 발표 후 136건의 코멘트를 받아 확정했으며 연방관보 게재(10/28 예정) 후 30일 뒤 시행된다. NRC는 이어 10/28 'License to Launch' 2차 워크숍(DOE 인가→NRC 인허가 전환 실무)도 개최할 예정이다.",
           "sources": [
             {
-              "url": "https://www.federalregister.gov/documents/2026/09/24/2026-19568/regulatory-enhancements-for-reactor-licensing-decommissioning-and-operational-oversight",
-              "outlet": "federalregister.gov",
-              "date": "2026-09-24",
+              "url": "https://www.nrc.gov/about-nrc/news-releases/2026/26-081",
+              "outlet": "nrc.gov",
+              "date": "2026-10-22",
               "tier": "S1",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.nrc.gov/node/2145291",
+              "url": "https://www.ans.org/news/2026-10-22/article-8512/nrc-finalizes-rule-on-licensing-reactors-with-prior-doe-or-dod-authorization/",
+              "outlet": "ANS Nuclear Newswire",
+              "date": "2026-10-22",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.powermag.com/nrc-finalizes-rule-allowing-reactor-applicants-to-use-doe-dow-demonstration-data/",
+              "outlet": "POWER Magazine",
+              "date": "2026-10-22",
+              "tier": "S2",
+              "note": "",
+              "from_feed": false
+            },
+            {
+              "url": "https://www.nrc.gov/about-nrc/news-releases/2026/26-034-a",
               "outlet": "nrc.gov",
-              "date": "2026-09-24",
+              "date": "2026-10-23",
               "tier": "S1",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-25",
+          "last_seen": "2026-10-26",
           "first_seen": "2026-08-28",
-          "count": 5,
+          "count": 6,
           "thesis_review": false
         },
         "W1|smr 최초 상업운전 시점 컨센서스의 이동": {

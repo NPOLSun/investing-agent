@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0",
-    "last_run": "2026-10-26"
+    "last_run": "2026-10-28"
   },
   "themes": {
     "ai-dc-power": {
@@ -3731,7 +3731,7 @@
       }
     },
     "optical-interconnect": {
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-28",
       "observations": {
         "NVIDIA CPO 스위치 상태": [
           {
@@ -3859,11 +3859,6 @@
         ],
         "TSMC COUPE": [
           {
-            "date": "2026-08-19",
-            "last_seen": "2026-08-19",
-            "value": "2026년 양산 목표 유지, NVIDIA·Broadcom 주문 기접수"
-          },
-          {
             "date": "2026-08-21",
             "last_seen": "2026-08-21",
             "value": "2026 양산목표 유지, PIC 캐파 3년내 30배 확대 계획"
@@ -3917,6 +3912,11 @@
             "date": "2026-10-16",
             "last_seen": "2026-10-16",
             "value": "변동 없음 — 2026 하반기 양산목표 유지. 3Q26 실적발표(10/15)에서는 COUPE/실리콘포토닉스 구체 언급 없이 AI 수요가 공급을 상당폭 초과하며 2027년까지 캐파 타이트 지속 전망만 재확인"
+          },
+          {
+            "date": "2026-10-28",
+            "last_seen": "2026-10-28",
+            "value": "변동 없음 — 2026 하반기 양산목표 유지, 10월 신규 발표 없음"
           }
         ],
         "CPO 비중(2026 광모듈 중)": [
@@ -3927,11 +3927,6 @@
           }
         ],
         "Corning 장기계약 누적": [
-          {
-            "date": "2026-09-23",
-            "last_seen": "2026-09-23",
-            "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo(8/20) + Verizon(9/8) 유지, 9/9 이후 신규 계약 미확인"
-          },
           {
             "date": "2026-09-25",
             "last_seen": "2026-09-25",
@@ -3986,6 +3981,11 @@
             "date": "2026-10-21",
             "last_seen": "2026-10-21",
             "value": "변동 없음 — Meta $6B + Amazon + Zayo + Verizon + AT&T $3B+ 유지, 신규 계약 없음. Q3 실적발표 10/27 예정"
+          },
+          {
+            "date": "2026-10-28",
+            "last_seen": "2026-10-28",
+            "value": "변동 없음 — Meta $6B + Amazon 복수B$ + Zayo + Verizon + AT&T $3B+ 유지, 신규 계약 없음(3Q 실적콜에서도 신규 계약 발표 없었음)"
           }
         ],
         "ASMPT 포토닉스 매출 성장": [
@@ -4559,6 +4559,11 @@
             "date": "2026-10-23",
             "last_seen": "2026-10-23",
             "value": "변동 없음 — 스펙 초안(Base Specification) 목표 2026 Q4 유지, Design/Product Spec는 후속 단계"
+          },
+          {
+            "date": "2026-10-28",
+            "last_seen": "2026-10-28",
+            "value": "변동 없음 — 스펙 초안 목표 2026 Q4 유지, Guide DR LNIC 샘플 2026 Q4 출하 예정(기존 10/12 발표 연장선)"
           }
         ],
         "성호전자/서룡전자 주식담보대출 잔액": [
@@ -4883,6 +4888,11 @@
             "date": "2026-10-23",
             "last_seen": "2026-10-23",
             "value": "변동 없음 — 완전양산 지속, 10/21 이후 CPO 생산 자체에 대한 신규 발표는 없고 상류 공급망(광엔진) 캐파확장 발표만 확인"
+          },
+          {
+            "date": "2026-10-28",
+            "last_seen": "2026-10-28",
+            "value": "변동 없음 — 완전양산 지속, 10/21(SPIL 등 공급망 캐파확장 발표) 이후 신규 발표 없음"
           }
         ],
         "GF SiGe 광링크 지원 규격": [
@@ -5588,7 +5598,7 @@
         "Broadcom TH6-Davisson CPO박스 생산개시": [
           {
             "date": "2026-10-21",
-            "last_seen": "2026-10-23",
+            "last_seen": "2026-10-28",
             "value": "변동 없음 — 2027년 1분기(Micas 특정) 유지"
           }
         ],
@@ -5660,6 +5670,11 @@
             "date": "2026-10-23",
             "last_seen": "2026-10-23",
             "value": "변동 없음 — 3분기 누적 신규수주 789억원(10/8 확인) 이후 10/23까지 신규 수주·담보 공시 없음"
+          },
+          {
+            "date": "2026-10-28",
+            "last_seen": "2026-10-28",
+            "value": "변동 없음 — 3분기 누적 신규수주 789억원(10/8 확인) 이후 10/28까지 신규 수주·담보 공시 확인 안됨"
           }
         ],
         "SPIL CPO 광엔진 캐파 확장(2027년 중반)": [
@@ -5695,6 +5710,76 @@
             "date": "2026-10-23",
             "last_seen": "2026-10-23",
             "value": "11억달러"
+          }
+        ],
+        "Corning Q3 2026 실적": [
+          {
+            "date": "2026-10-28",
+            "last_seen": "2026-10-28",
+            "value": "매출 $5.08B(+19%YoY), 광통신부문 $2.38B(+44%YoY), GenAI 기업런레이트 $6B(스프링보드대비 4배), 2026-10-27 발표"
+          }
+        ],
+        "Corning 2026 설비투자": [
+          {
+            "date": "2026-10-28",
+            "last_seen": "2026-10-28",
+            "value": "약 $2B, 대부분 광통신 성장에 배정"
+          }
+        ],
+        "Corning Q4 2026 가이던스": [
+          {
+            "date": "2026-10-28",
+            "last_seen": "2026-10-28",
+            "value": "매출 $5.2~5.3B"
+          }
+        ],
+        "전사매출": [
+          {
+            "date": "2026-10-28",
+            "last_seen": "2026-10-28",
+            "value": "$5.08B (YoY+19%)"
+          }
+        ],
+        "핵심EPS": [
+          {
+            "date": "2026-10-28",
+            "last_seen": "2026-10-28",
+            "value": "$0.88(컨센서스) → $0.91(실제, YoY+36%)"
+          }
+        ],
+        "광통신부문매출": [
+          {
+            "date": "2026-10-28",
+            "last_seen": "2026-10-28",
+            "value": "$2.38B (YoY+44%)"
+          }
+        ],
+        "광통신부문순이익": [
+          {
+            "date": "2026-10-28",
+            "last_seen": "2026-10-28",
+            "value": "$532M (YoY+80%)"
+          }
+        ],
+        "GenAI기업런레이트": [
+          {
+            "date": "2026-10-28",
+            "last_seen": "2026-10-28",
+            "value": "$1.4B(스프링보드 출시시) → $6B(현재)"
+          }
+        ],
+        "엔터프라이즈매출": [
+          {
+            "date": "2026-10-28",
+            "last_seen": "2026-10-28",
+            "value": "YoY+84%"
+          }
+        ],
+        "4분기매출가이던스": [
+          {
+            "date": "2026-10-28",
+            "last_seen": "2026-10-28",
+            "value": "$5.2B~$5.3B"
           }
         ]
       },
@@ -5779,7 +5864,7 @@
           "thesis_review": false
         },
         "W4|데이터센터 광섬유 수요 및 장기계약 규모": {
-          "headline": "Corning-AT&T $3B+ 신규계약",
+          "headline": "Corning 3Q26 광통신 급성장",
           "shift": "데이터센터 광섬유 수요 및 장기계약 규모",
           "refs": [
             "W4"
@@ -5788,44 +5873,44 @@
           "affects": [
             "optical-material"
           ],
-          "summary": "AT&T와 Corning이 2026-09-29 다년간 30억달러 이상 규모의 광섬유·케이블 공급계약을 공식 발표했다. AT&T의 2030년까지 6,000만 파이버 로케이션 확보 목표를 뒷받침하는 계약으로, AI·클라우드发 데이터 수요 급증을 명분으로 내세웠다. 이로써 Corning의 대형 장기계약은 Meta($6B)·Amazon·Zayo(8/20)·Verizon(9/8)에 이어 5번째로 확인됐다.",
+          "summary": "Corning이 2026-10-27 3분기 실적을 발표, 광통신(Optical Communications) 부문 매출이 전년동기 대비 44% 증가한 23.8억달러, 순이익은 80% 증가한 5.32억달러를 기록했다. 경영진은 실적콜에서 GenAI 기업용 매출 런레이트가 스프링보드 출시 당시 14억달러에서 60억달러로 4배 뛰었고, 'GPU당 광섬유 소비량 증가가 GPU 출하 증가세 자체를 앞지르고 있다'고 밝혔다. 다만 2026년 설비투자(약 20억달러, 대부분 광통신 증설)가 부각되며 실적 호조에도 주가는 하락했다.",
           "sources": [
             {
-              "url": "https://www.prnewswire.com/news-releases/att-and-corning-team-up-to-engineer-the-connected-world-with-fiber-302892879.html",
-              "outlet": "prnewswire.com (AT&T/Corning 공동보도자료)",
-              "date": "2026-09-29",
+              "url": "https://www.financialcontent.com/article/bizwire-2026-10-27-corning-delivers-outstanding-third-quarter-results1",
+              "outlet": "businesswire (Corning 공식 실적발표)",
+              "date": "2026-10-27",
               "tier": "S1",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://www.sec.gov/Archives/edgar/data/0000732717/000119312526321053/d142142dex991.htm",
-              "outlet": "sec.gov (AT&T 8-K)",
-              "date": "2026-09-29",
-              "tier": "S1",
+              "url": "https://www.gurufocus.com/news/9145916/corning-inc-glw-q3-2026-earnings-call-highlights-record-optical-communications-growth-drives-19-sales-surge-and-beats-guidance",
+              "outlet": "gurufocus.com",
+              "date": "2026-10-27",
+              "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://about.att.com/story/2026/att-corning-engineer-connected-world.html",
-              "outlet": "about.att.com",
-              "date": "2026-09-29",
-              "tier": "S1",
+              "url": "https://www.fool.com/earnings/call-transcripts/2026/10/27/corning-glw-q3-2026-earnings-call-transcript/",
+              "outlet": "fool.com (실적콜 트랜스크립트)",
+              "date": "2026-10-27",
+              "tier": "S2",
               "note": "",
               "from_feed": false
             },
             {
-              "url": "https://money.usnews.com/investing/news/articles/2026-09-29/at-t-signs-over-3-billion-fiber-deal-with-corning-as-data-demand-surges",
-              "outlet": "money.usnews.com",
-              "date": "2026-09-29",
+              "url": "https://www.investing.com/news/company-news/corning-q3-2026-slides-beats-estimates-stock-falls-on-capex-concerns-93CH-4975910",
+              "outlet": "investing.com",
+              "date": "2026-10-27",
               "tier": "S2",
               "note": "",
               "from_feed": false
             }
           ],
-          "last_seen": "2026-09-30",
+          "last_seen": "2026-10-28",
           "first_seen": "2026-08-17",
-          "count": 4,
+          "count": 5,
           "thesis_review": false
         },
         "W2|스케일업/스케일아웃 네트워크의 광 전환 비중": {

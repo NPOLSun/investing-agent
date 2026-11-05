@@ -1,39 +1,39 @@
 {
-  "asof": "2026-11-05 16:30 KST",
-  "date": "2026-11-05",
-  "market": "kr",
+  "asof": "2026-11-06 07:30 KST",
+  "date": "2026-11-06",
+  "market": "us",
   "prices": {
     "VICR": {
       "ticker": "VICR",
       "market": "US",
-      "price": 159.07,
-      "change_pct": -11.14,
-      "volume_ratio": 1.53,
-      "market_cap": 7340858140
+      "price": 135.1,
+      "change_pct": -15.07,
+      "volume_ratio": 1.57,
+      "market_cap": 6234676141
     },
     "GLW": {
       "ticker": "GLW",
       "market": "US",
-      "price": 118.77,
-      "change_pct": -5.84,
-      "volume_ratio": 1.28,
-      "market_cap": 102308606467
+      "price": 103.43,
+      "change_pct": -12.92,
+      "volume_ratio": 1.59,
+      "market_cap": 89094716656
     },
     "LEU": {
       "ticker": "LEU",
       "market": "US",
-      "price": 92.58,
-      "change_pct": -3.23,
-      "volume_ratio": 1.32,
-      "market_cap": 1893548776
+      "price": 89.03,
+      "change_pct": -3.83,
+      "volume_ratio": 1.58,
+      "market_cap": 1820940180
     },
     "XE": {
       "ticker": "XE",
       "market": "US",
-      "price": 10.05,
-      "change_pct": -8.47,
-      "volume_ratio": 1.4,
-      "market_cap": 4083979462
+      "price": 9.0,
+      "change_pct": -10.45,
+      "volume_ratio": 1.45,
+      "market_cap": 3657294972
     },
     "298040": {
       "ticker": "298040",

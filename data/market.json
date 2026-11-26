@@ -1,7 +1,7 @@
 {
-  "asof": "2026-11-26 16:30 KST",
-  "date": "2026-11-26",
-  "market": "kr",
+  "asof": "2026-11-27 07:30 KST",
+  "date": "2026-11-27",
+  "market": "us",
   "prices": {
     "VICR": {
       "ticker": "VICR",
@@ -16,7 +16,7 @@
       "market": "US",
       "price": 100.24,
       "change_pct": -1.6,
-      "volume_ratio": 0.81,
+      "volume_ratio": 0.82,
       "market_cap": 86346845025
     },
     "LEU": {
